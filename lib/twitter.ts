@@ -1,203 +1,263 @@
 import { NewsItem } from './types';
+import { categorizeContent } from './categorize';
+import type { Browser, Page } from 'puppeteer';
 
 interface TwitterAccount {
   username: string;
   source: string;
   displayName: string;
+  // Founder / executive signals get boosted in the UI.
+  executive?: boolean;
 }
 
+/**
+ * The heart of the model feed: founders, CEOs and official AI model providers.
+ * Ordered roughly by signal value. Twitter/X is the highest-signal channel for
+ * model releases, benchmark claims and capability announcements.
+ */
 const ACCOUNTS: TwitterAccount[] = [
+  // Founders & CEOs
+  { username: 'elonmusk', source: 'xai', displayName: 'Elon Musk', executive: true },
+  { username: 'sama', source: 'openai', displayName: 'Sam Altman', executive: true },
+  { username: 'DarioAmodei', source: 'anthropic', displayName: 'Dario Amodei', executive: true },
+  { username: 'demishassabis', source: 'google', displayName: 'Demis Hassabis', executive: true },
+  { username: 'ylecun', source: 'meta', displayName: 'Yann LeCun', executive: true },
+  { username: 'fchollet', source: 'other', displayName: 'François Chollet', executive: true },
+  { username: 'AndrewYNg', source: 'other', displayName: 'Andrew Ng', executive: true },
+  { username: 'sundarpichai', source: 'google', displayName: 'Sundar Pichai', executive: true },
+  { username: 'gdb', source: 'anthropic', displayName: 'Greg Brockman', executive: true },
+  { username: 'miramurati', source: 'other', displayName: 'Mira Murati', executive: true },
+  { username: 'IOEN_C', source: 'other', displayName: 'Ilya Sutskever', executive: true },
+  { username: 'karpathy', source: 'other', displayName: 'Andrej Karpathy', executive: true },
+  { username: 'AravindSrinivas', source: 'perplexity', displayName: 'Aravind Srinivas', executive: true },
+  { username: 'Jim_Fan', source: 'other', displayName: 'Jim Fan', executive: true },
+
+  // Model providers — official accounts
   { username: 'OpenAI', source: 'openai', displayName: 'OpenAI' },
   { username: 'AnthropicAI', source: 'anthropic', displayName: 'Anthropic' },
   { username: 'GoogleDeepMind', source: 'google', displayName: 'Google DeepMind' },
+  { username: 'GoogleAI', source: 'google', displayName: 'Google AI' },
   { username: 'MistralAI', source: 'mistral', displayName: 'Mistral AI' },
   { username: 'AIatMeta', source: 'meta', displayName: 'Meta AI' },
   { username: 'deepseek_ai', source: 'deepseek', displayName: 'DeepSeek' },
   { username: 'Alibaba_Qwen', source: 'qwen', displayName: 'Qwen' },
-  { username: 'GoogleAI', source: 'google', displayName: 'Google AI' },
   { username: 'huggingface', source: 'huggingface', displayName: 'Hugging Face' },
+  { username: 'hf_inference', source: 'huggingface', displayName: 'Hugging Face' },
+  { username: 'xai', source: 'xai', displayName: 'xAI' },
+  { username: 'MicrosoftAI', source: 'microsoft-ai', displayName: 'Microsoft AI' },
+  { username: 'nvidia', source: 'nvidia', displayName: 'NVIDIA' },
+  { username: 'groqinc', source: 'groq', displayName: 'Groq' },
+  { username: 'Perplexity_AI', source: 'perplexity', displayName: 'Perplexity' },
+  { username: 'cohere', source: 'cohere', displayName: 'Cohere' },
+  { username: 'togethercompute', source: 'together', displayName: 'Together AI' },
+  { username: 'ollama', source: 'ollama', displayName: 'Ollama' },
+  { username: 'databricks', source: 'databricks', displayName: 'Databricks' },
+  { username: 'Cerebras', source: 'cerebras', displayName: 'Cerebras' },
+
+  // Benchmark / evaluation trackers — the "who's on top" signal
+  { username: 'lmarena_ai', source: 'lmarena', displayName: 'LMArena' },
+  { username: 'ArtificialAnlys', source: 'artificial-analysis', displayName: 'Artificial Analysis' },
+  { username: 'SWEbench', source: 'swebench', displayName: 'SWE-bench' },
+  { username: 'LiveBench_org', source: 'livebench', displayName: 'LiveBench' },
 ];
 
-// Nitter instances for RSS fallback
 const NITTER_INSTANCES = [
   'https://nitter.net',
-  'https://nitter.lacontrevoie.fr',
-  'https://nitter.1d4.us',
-  'https://nitter.kavin.rocks',
+  'https://nitter.poast.org',
+  'https://nitter.privacydev.net',
+  'https://nitter.space',
 ];
 
-function categorize(text: string): string {
-  const lower = text.toLowerCase();
-  if (/\b(model|gpt|claude|gemini|llama|mistral|deepseek|qwen|release|launch|introducing)\b/.test(lower)) return 'model';
-  if (/\b(research|paper|study|benchmark|arxiv|findings)\b/.test(lower)) return 'research';
-  if (/\b(product|feature|update|tool|api|platform|app|available)\b/.test(lower)) return 'product';
-  if (/\b(safety|alignment|security|guardrail)\b/.test(lower)) return 'safety';
-  if (/\b(policy|regulation|governance)\b/.test(lower)) return 'policy';
-  return 'other';
+const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+// Hard cap so a noisy account can't flood the feed.
+const PER_ACCOUNT_CAP = 6;
+const TOTAL_CAP = 220;
+
+function shouldScrapeX(): boolean {
+  if (process.env.DISABLE_X_SCRAPING === 'true') return false;
+  if (process.env.VERCEL === '1') return false; // serverless: no headless browser
+  if (process.env.AGENT_MODE === 'ci' && process.env.X_SCRAPING !== 'true') return false;
+  return true;
 }
 
-// Try extracting user ID from x.com HTML
-async function extractUserId(username: string): Promise<string | null> {
-  try {
-    const res = await fetch(`https://x.com/${username}`, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-      },
-      signal: AbortSignal.timeout(8000),
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
+export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
+  console.log('  Fetching X/Twitter timelines (best-effort)...');
+  const allItems: NewsItem[] = [];
 
-    // Try to find user ID in the embedded initial state
-    const userIdMatch = html.match(/"user_id":"(\d+)"/);
-    if (userIdMatch) return userIdMatch[1];
+  for (const account of ACCOUNTS) {
+    let items: NewsItem[] = [];
 
-    // Try alternate patterns
-    const restIdMatch = html.match(/"rest_id":"(\d+)"/);
-    if (restIdMatch) return restIdMatch[1];
-
-    // Try JSON-LD
-    const jsonldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-    if (jsonldMatch) {
-      try {
-        const jsonld = JSON.parse(jsonldMatch[1]);
-        if (jsonld.mainEntity?.identifier) return jsonld.mainEntity.identifier;
-      } catch { /* ignore */ }
+    // Nitter RSS is the fastest, most reliable path (no login wall).
+    if (shouldScrapeX()) {
+      items = await fetchViaNitter(account);
     }
 
-    return null;
-  } catch {
-    return null;
+    if (items.length === 0 && shouldScrapeX()) {
+      console.log(`  Trying Puppeteer for @${account.username}...`);
+      items = await scrapeWithPuppeteer(account);
+    }
+
+    if (items.length === 0) {
+      items = await fetchViaGuestApi(account);
+    }
+
+    if (items.length === 0) {
+      console.log(`  ⚠ No tweets for @${account.username}`);
+    } else {
+      console.log(`  ✓ @${account.username}: ${items.length} tweets`);
+      allItems.push(...items.slice(0, PER_ACCOUNT_CAP));
+    }
+
+    await new Promise(r => setTimeout(r, 600));
+    if (allItems.length >= TOTAL_CAP) break;
   }
+
+  console.log(`  📊 Total tweets fetched: ${allItems.length}`);
+  return allItems;
 }
 
-// Scrape tweets from x.com HTML
-async function scrapeUserPage(username: string): Promise<NewsItem[]> {
+async function scrapeWithPuppeteer(account: TwitterAccount): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
+  let browser: Browser | null = null;
 
   try {
-    const res = await fetch(`https://x.com/${username}`, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5',
-      },
-      signal: AbortSignal.timeout(10000),
+    const puppeteerMod = await import('puppeteer');
+    const launch = puppeteerMod.default?.launch ?? puppeteerMod.launch;
+    if (typeof launch !== 'function') return items;
+
+    browser = await launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--window-size=1280,900'],
     });
-    if (!res.ok) return items;
 
-    const html = await res.text();
+    const page: Page = await browser.newPage();
+    await page.setUserAgent(
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    );
+    await page.setViewport({ width: 1280, height: 900 });
 
-    // Extract tweets from the page's embedded data
-    // Look for tweet data in the initial state JSON
-    const tweetBlocks = html.match(/<div[^>]*data-testid="tweet"[^>]*>[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<\/div>\s*<\/div>/g);
-    
-    if (tweetBlocks) {
-      const oneMonthAgo = new Date();
-      oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
+    await page.goto(`https://x.com/${account.username}`, {
+      waitUntil: 'domcontentloaded',
+      timeout: 10000,
+    });
 
-      for (const block of tweetBlocks.slice(0, 20)) {
-        const textMatch = block.match(/data-testid="tweetText"[^>]*>([\s\S]*?)<\/div>/);
-        if (!textMatch) continue;
+    // Wait for tweets to render (may hit the login wall — fine, we degrade gracefully)
+    await page.waitForSelector('article[data-testid="tweet"]', { timeout: 7000 }).catch(() => null);
 
-        const rawText = textMatch[1].replace(/<[^>]*>/g, '').trim();
-        if (!rawText || rawText.startsWith('@')) continue;
+    const tweets = (await page.$$eval(
+      'article[data-testid="tweet"]',
+      els =>
+        els.slice(0, 12).map(el => {
+          const textEl = el.querySelector('[data-testid="tweetText"]');
+          const text = textEl ? (textEl as HTMLElement).innerText : '';
+          const timeEl = el.querySelector('time');
+          const date = timeEl?.getAttribute('datetime') || '';
+          const linkEl = el.querySelector('a[href*="/status/"]');
+          const link = linkEl?.getAttribute('href') || '';
+          const likeEl = el.querySelector('[data-testid="like"]');
+          const likeText = likeEl?.getAttribute('aria-label') || '';
+          const repostEl = el.querySelector('[data-testid="retweet"]');
+          const repostText = repostEl?.getAttribute('aria-label') || '';
+          const imgEl = el.querySelector('img[src*="pbs.twimg.com/media"]');
+          const img = imgEl?.getAttribute('src') || '';
+          return { text, date, link, likeText, repostText, img };
+        })
+    )) as { text: string; date: string; link: string; likeText: string; repostText: string; img: string }[];
 
-        // Try to extract timestamp
-        const timeMatch = block.match(/datetime="([^"]+)"/);
-        const publishedAt = timeMatch ? timeMatch[1] : new Date().toISOString();
+    for (const t of tweets) {
+      if (!t.text) continue;
+      const publishedAt = t.date || new Date().toISOString();
+      if (Date.now() - new Date(publishedAt).getTime() > MAX_AGE_MS) continue;
 
-        // Skip tweets older than 1 month
-        if (new Date(publishedAt) < oneMonthAgo) continue;
+      const likeMatch = t.likeText.match(/([\d.,]+[KkMm]?)/);
+      const repostMatch = t.repostText.match(/([\d.,]+[KkMm]?)/);
 
-        // Extract tweet ID for URL
-        const tweetIdMatch = block.match(/status\/(\d+)/);
-        const tweetId = tweetIdMatch ? tweetIdMatch[1] : '';
-
-        // Extract metrics
-        const likeMatch = block.match(/data-testid="like"[^>]*>[\s\S]*?<span[^>]*>(\d+)<\/span>/);
-        const retweetMatch = block.match(/data-testid="retweet"[^>]*>[\s\S]*?<span[^>]*>(\d+)<\/span>/);
-
-        // Find the matching account
-        const account = ACCOUNTS.find(a => a.username === username);
-        if (!account) continue;
-
-        items.push({
-          source: account.source,
-          source_type: 'twitter',
-          title: rawText.length > 150 ? rawText.slice(0, 147) + '...' : rawText,
-          summary: rawText,
-          content: rawText,
-          url: `https://x.com/${username}/status/${tweetId}`,
-          author: account.displayName,
-          category: categorize(rawText) as 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other',
-          published_at: publishedAt,
-          tweet_metrics: {
-            likeCount: likeMatch ? parseInt(likeMatch[1]) : 0,
-            retweetCount: retweetMatch ? parseInt(retweetMatch[1]) : 0,
-            replyCount: 0,
-            viewCount: 0,
-          },
-        });
-      }
+      items.push({
+        source: account.source,
+        source_label: account.displayName,
+        source_type: 'twitter',
+        title: t.text.length > 150 ? t.text.slice(0, 147) + '...' : t.text,
+        summary: t.text,
+        content: t.text,
+        url: t.link
+          ? `https://x.com${t.link}`
+          : `https://x.com/${account.username}/status`,
+        author: account.displayName,
+        category: categorizeContent(t.text, ''),
+        published_at: publishedAt,
+        source_detail: account.executive ? 'X · Founder' : 'X',
+        image_url: t.img || undefined,
+        tweet_metrics: {
+          likeCount: likeMatch ? parseCompact(likeMatch[1]) : 0,
+          retweetCount: repostMatch ? parseCompact(repostMatch[1]) : 0,
+          replyCount: 0,
+          viewCount: 0,
+        },
+      });
     }
-
-    return items;
-  } catch {
-    return items;
+  } catch (error) {
+    console.log(`  ✗ X scrape @${account.username}: ${error instanceof Error ? error.message : 'error'}`);
+  } finally {
+    if (browser) {
+      await browser.close().catch(() => null);
+    }
   }
+
+  return items;
 }
 
-// Fetch via Nitter RSS (most reliable)
+function parseCompact(value: string): number {
+  const n = parseFloat(value.replace(/,/g, '').replace(/K$/i, '').replace(/M$/i, ''));
+  if (isNaN(n)) return 0;
+  if (/M$/i.test(value)) return Math.round(n * 1_000_000);
+  if (/K$/i.test(value)) return Math.round(n * 1_000);
+  return Math.round(n);
+}
+
 async function fetchViaNitter(account: TwitterAccount): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
-  const oneMonthAgo = new Date();
-  oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
 
   for (const instance of NITTER_INSTANCES) {
     try {
       const res = await fetch(`${instance}/${account.username}/rss`, {
-        signal: AbortSignal.timeout(5000),
+        signal: AbortSignal.timeout(6000),
         headers: { 'User-Agent': 'Mozilla/5.0' },
       });
       if (!res.ok) continue;
 
       const text = await res.text();
       const entries = text.match(/<item>[\s\S]*?<\/item>/g);
-      if (!entries) continue;
+      if (!entries || entries.length === 0) continue;
 
-      for (const entry of entries) {
-        const title = entry.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1]
-          || entry.match(/<title>(.*?)<\/title>/)?.[1];
+      for (const entry of entries.slice(0, 15)) {
+        const title = entry.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] || entry.match(/<title>(.*?)<\/title>/)?.[1];
         const link = entry.match(/<link>(.*?)<\/link>/)?.[1];
         const pubDate = entry.match(/<pubDate>(.*?)<\/pubDate>/)?.[1];
-        const desc = entry.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/)?.[1]
-          || entry.match(/<description>(.*?)<\/description>/)?.[1];
-
         if (!title || !link) continue;
-        
         const tweetDate = pubDate ? new Date(pubDate) : new Date();
-        if (tweetDate < oneMonthAgo) continue;
+        if (Date.now() - tweetDate.getTime() > MAX_AGE_MS) continue;
 
-        const cleanText = title.replace(/<[^>]*>/g, '').trim();
+        const clean = title.replace(/<[^>]*>/g, '').trim();
+        const media = entry.match(/<media:content[^>]*url=["']([^"']+)["']/i) || entry.match(/<enclosure[^>]*url=["']([^"']+)["']/i);
+        const mediaUrl = media?.[1]?.replace(/&amp;/g, '&');
         items.push({
           source: account.source,
+          source_label: account.displayName,
           source_type: 'twitter',
-          title: cleanText.length > 150 ? cleanText.slice(0, 147) + '...' : cleanText,
-          summary: cleanText,
-          content: desc ? desc.replace(/<[^>]*>/g, '') : cleanText,
+          title: clean.length > 150 ? clean.slice(0, 147) + '...' : clean,
+          summary: clean,
+          content: clean,
           url: link,
           author: account.displayName,
-          category: categorize(cleanText) as 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other',
+          category: categorizeContent(clean, ''),
           published_at: tweetDate.toISOString(),
+          source_detail: account.executive ? 'X · Founder' : 'X',
+          image_url: mediaUrl && /\.(jpe?g|png|webp|gif|avif)/i.test(mediaUrl) ? mediaUrl : undefined,
           tweet_metrics: { likeCount: 0, retweetCount: 0, replyCount: 0, viewCount: 0 },
         });
       }
 
-      if (items.length > 0) {
-        console.log(`  ✓ @${account.username} (Nitter): ${items.length} tweets`);
-        return items;
-      }
+      if (items.length > 0) return items;
     } catch {
       continue;
     }
@@ -205,105 +265,41 @@ async function fetchViaNitter(account: TwitterAccount): Promise<NewsItem[]> {
   return items;
 }
 
-// Try X API v1.1 with guest token
-async function fetchViaAPI(account: TwitterAccount): Promise<NewsItem[]> {
+async function fetchViaGuestApi(account: TwitterAccount): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
-  const bearerToken = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA';
-  const oneMonthAgo = new Date();
-  oneMonthAgo.setDate(oneMonthAgo.getDate() - 30);
-
   try {
-    // Get guest token
-    const guestRes = await fetch('https://api.twitter.com/1.1/guest/activate.json', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${bearerToken}`,
-        'User-Agent': 'Mozilla/5.0',
-      },
-      signal: AbortSignal.timeout(5000),
+    const res = await fetch(`https://r.jina.ai/https://x.com/${account.username}`, {
+      signal: AbortSignal.timeout(8000),
     });
-    if (!guestRes.ok) return items;
-    const { guest_token } = await guestRes.json();
-
-    // Get user timeline
-    const timelineRes = await fetch(
-      `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${account.username}&count=200&tweet_mode=extended&exclude_replies=true&include_rts=false`,
-      {
-        headers: {
-          'Authorization': `Bearer ${bearerToken}`,
-          'x-guest-token': guest_token,
-          'User-Agent': 'Mozilla/5.0',
-        },
-        signal: AbortSignal.timeout(8000),
-      }
-    );
-    if (!timelineRes.ok) return items;
-
-    const tweets = await timelineRes.json();
-    if (!Array.isArray(tweets)) return items;
-
-    for (const tweet of tweets) {
-      const text = tweet.full_text || tweet.text;
-      if (!text) continue;
-
-      const tweetDate = new Date(tweet.created_at);
-      if (tweetDate < oneMonthAgo) continue;
-
+    if (!res.ok) return items;
+    const text = await res.text();
+    const lines = text
+      .split('\n')
+      .filter(
+        l =>
+          l.trim().length > 20 &&
+          !/^(Title|URL|URL Source|Author|Published|Updated|Published Time|Updated Time|Note|Source)\s*:/.test(l)
+      );
+    for (const line of lines.slice(0, 10)) {
+      const clean = line.replace(/^###?\s*/, '').replace(/[\[\]()#@]/g, '').trim();
+      if (clean.length < 20) continue;
       items.push({
         source: account.source,
+        source_label: account.displayName,
         source_type: 'twitter',
-        title: text.length > 150 ? text.slice(0, 147) + '...' : text,
-        summary: text,
-        content: text,
-        url: `https://x.com/${account.username}/status/${tweet.id_str}`,
+        title: clean.length > 150 ? clean.slice(0, 147) + '...' : clean,
+        summary: clean,
+        content: clean,
+        url: `https://x.com/${account.username}`,
         author: account.displayName,
-        category: categorize(text) as 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other',
-        published_at: tweet.created_at,
-        tweet_metrics: {
-          likeCount: tweet.favorite_count || 0,
-          retweetCount: tweet.retweet_count || 0,
-          replyCount: tweet.reply_count || 0,
-          viewCount: 0,
-        },
+        category: categorizeContent(clean, ''),
+        published_at: new Date().toISOString(),
+        source_detail: account.executive ? 'X · Founder' : 'X',
+        tweet_metrics: { likeCount: 0, retweetCount: 0, replyCount: 0, viewCount: 0 },
       });
     }
-
-    console.log(`  ✓ @${account.username} (API): ${items.length} tweets`);
     return items;
   } catch {
     return items;
   }
-}
-
-export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
-  console.log('  Fetching Twitter/X timelines for past 30 days...');
-  const allItems: NewsItem[] = [];
-
-  for (const account of ACCOUNTS) {
-    let items: NewsItem[] = [];
-
-    // Strategy 1: X API v1.1 with guest token
-    // Strategy 2: Nitter RSS
-    // Strategy 3: X.com HTML scraping
-
-    items = await fetchViaAPI(account);
-    if (items.length === 0) {
-      items = await fetchViaNitter(account);
-    }
-    if (items.length === 0) {
-      console.log(`  Trying HTML scrape for @${account.username}...`);
-      items = await scrapeUserPage(account.username);
-    }
-
-    if (items.length === 0) {
-      console.log(`  ⚠ No tweets found for @${account.username}`);
-    }
-
-    allItems.push(...items);
-    // Rate limiting delay
-    await new Promise(r => setTimeout(r, 2000));
-  }
-
-  console.log(`  📊 Total tweets fetched: ${allItems.length}`);
-  return allItems;
 }

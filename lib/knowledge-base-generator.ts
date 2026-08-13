@@ -73,7 +73,7 @@ function getSourceBadge(source: string): string {
   return badges[source] || source;
 }
 
-function formatNewsItem(item: NewsItem, index: number): string {
+function formatNewsItem(item: NewsItem): string {
   const source = item.source_type === 'twitter' ? '🐦' : item.source_type === 'web' ? '🌐' : '📰';
   const lines: string[] = [];
 
@@ -211,8 +211,8 @@ export async function generateKnowledgeBase(): Promise<{ path: string; itemCount
 
     sections.push(`## ${CATEGORY_ICONS[key] || '📌'} ${label}\n`);
 
-    items.forEach((item, index) => {
-      sections.push(formatNewsItem(item, index));
+    items.forEach(item => {
+      sections.push(formatNewsItem(item));
     });
   }
 

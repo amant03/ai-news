@@ -34,8 +34,11 @@ yarn-error.log*
 .env*
 !.env.example
 
-# database
-/data/
+# database (raw sqlite artifacts only; news.json/status.json are committed so the site stays live)
+/data/*.db
+/data/*.db-*
+/data/*.tmp
+/data/summary-cache.json
 
 # vercel
 .vercel

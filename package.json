@@ -1,20 +1,26 @@
 {
   "name": "ai-news",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "seed": "npx tsx lib/run-seed.ts",
-    "generate-kb": "npx tsx lib/run-generate-kb.ts"
+    "generate-kb": "npx tsx lib/run-generate-kb.ts",
+    "agent": "npx tsx lib/run-agent.ts",
+    "agent:loop": "npx tsx lib/run-agent.ts --loop --kb",
+    "agent:kb": "npx tsx lib/run-agent.ts --kb"
   },
   "dependencies": {
     "next": "16.2.10",
+    "puppeteer": "^25.5.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "rss-parser": "^3.13.0"
+    "rss-parser": "^3.13.0",
+    "tsx": "^4.23.11"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

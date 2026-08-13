@@ -2,7 +2,12 @@
   "crons": [
     {
       "path": "/api/cron",
-      "schedule": "0 */12 * * *"
+      "schedule": "0 */4 * * *"
     }
-  ]
+  ],
+  "env": {
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "DATA_REPO": "amant03/ai-news",
+    "DATA_BRANCH": "main"
+  }
 }

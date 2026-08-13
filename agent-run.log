@@ -1,0 +1,128 @@
+
+> ai-news@0.2.0 agent:kb
+> npx tsx lib/run-agent.ts --kb
+
+🔄 Starting AI news agent...
+   Time: 2026-08-13T14:28:57.686Z
+   Environment: local
+  Fetching web: AI News...
+  Fetching X/Twitter timelines (best-effort)...
+  ✗ RSS OpenAI failed: Status code 403
+  ✗ RSS Anthropic failed: Status code 404
+  ✗ RSS Perplexity failed: Status code 403
+  ✗ RSS Microsoft AI failed: Status code 410
+  ✗ RSS Meta AI failed: Status code 400
+  ✗ RSS Mistral failed: Status code 404
+  ✗ RSS NVIDIA AI failed: Status code 404
+  ✓ YouTube OpenAI: 15 items
+  ✓ arXiv cs.AI: 25 entries
+  ✗ RSS The Next Web AI failed: Status code 404
+  ✗ GitHub search: HTTP 422 (rate limit may be hit)
+  ✓ arXiv cs.LG: 19 entries
+  ✓ HN "AI": 30 raw hits
+  ✓ YouTube Lex Fridman: 15 items
+  ✓ arXiv cs.CL: 19 entries
+   [arxiv] 63 items in 1949ms
+    ✗ AI News: HTTP 403
+  Fetching web: AI Weekly...
+  ✗ RSS LangChain failed: Invalid character in entity name
+Line: 0
+Column: 2327
+Char: &
+  ✓ YouTube Two Minute Papers: 15 items
+  ✓ Google News "artificial intelligence": 100 items
+  ✓ Reddit r/MachineLearning: 25 items
+  ✓ HN "LLM": 30 raw hits
+  ✓ Google News ""large language model"": 42 items
+  ✓ GitHub org events: 3 items
+   [github] 3 items in 2809ms
+  ✓ YouTube AssemblyAI: 15 items
+  ✗ RSS Cohere failed: Feed not recognized as RSS 1 or 2.
+  ✓ RSS Google DeepMind: 12 items
+  ✓ RSS Hugging Face: 12 items
+  ✓ RSS Google AI Blog: 12 items
+  ✓ RSS PostHog: 12 items
+  ✓ RSS Together AI: 12 items
+  ✓ RSS TechCrunch AI: 12 items
+  ✓ RSS The Verge AI: 10 items
+  ✓ RSS VentureBeat AI: 7 items
+  ✓ RSS Wired AI: 10 items
+  ✓ RSS MIT Tech Review: 10 items
+  ✓ RSS Ars Technica AI: 12 items
+  ✓ RSS CNBC AI: 12 items
+   [rss] 133 items in 3218ms
+  ✗ Reddit r/LocalLLaMA failed: Status code 429
+  ✗ Reddit r/OpenAI failed: Status code 429
+  ✓ HN "GPT": 30 raw hits
+  ✓ Google News "AI funding": 100 items
+  ✓ YouTube Google DeepMind: 15 items
+    ✓ AI Weekly: 15 items
+  Fetching web: TechPP AI...
+    ✗ TechPP AI: HTTP 403
+  Fetching web: ScienceDaily AI...
+  ✗ Reddit r/artificial failed: Status code 429
+  ✓ Google News "AI model release": 59 items
+  ✓ HN "AGI": 30 raw hits
+  ✗ Reddit r/StableDiffusion failed: Status code 429
+   [reddit] 10 items in 4238ms
+  ✓ YouTube Yannic Kilcher: 15 items
+   [youtube] 26 items in 4381ms
+  ✓ Google News "AI regulation policy": 62 items
+  ✓ HN "machine learning": 30 raw hits
+  ✓ HN "open source AI": 30 raw hits
+   [hackernews] 3 items in 5417ms
+    ✓ ScienceDaily AI: 15 items
+  Fetching web: VentureBeat AI...
+  ✓ Google News "OpenAI OR Anthropic OR Google DeepMind OR Meta AI": 100 items
+   [google-news] 88 items in 5619ms
+    ✓ VentureBeat AI: 15 items
+  Fetching web: The Next Web AI...
+    ✓ The Next Web AI: 9 items
+   [web] 54 items in 6708ms
+  Trying Nitter fallback for @OpenAI...
+  ✓ @OpenAI: 8 tweets
+  Trying Nitter fallback for @AnthropicAI...
+  ✓ @AnthropicAI: 10 tweets
+  Trying Nitter fallback for @GoogleDeepMind...
+  ✓ @GoogleDeepMind: 10 tweets
+  Trying Nitter fallback for @GoogleAI...
+  ✓ @GoogleAI: 8 tweets
+  Trying Nitter fallback for @MistralAI...
+  ✓ @MistralAI: 7 tweets
+  Trying Nitter fallback for @AIatMeta...
+  ✓ @AIatMeta: 10 tweets
+  Trying Nitter fallback for @deepseek_ai...
+  ✓ @deepseek_ai: 8 tweets
+  Trying Nitter fallback for @Alibaba_Qwen...
+  ✓ @Alibaba_Qwen: 10 tweets
+  Trying Nitter fallback for @huggingface...
+  ✓ @huggingface: 10 tweets
+  Trying Nitter fallback for @xai...
+  ✓ @xai: 10 tweets
+  Trying Nitter fallback for @MicrosoftAI...
+  ✓ @MicrosoftAI: 10 tweets
+  Trying Nitter fallback for @hf_inference...
+  ✓ @hf_inference: 10 tweets
+  📊 Total tweets fetched: 111
+   [twitter] 111 items in 211980ms
+
+📊 Total fetched: 491 items
+🧠 Enriching with LLM (Ollama if available)...
+   Enriched 491 items
+📝 Knowledge base written to C:\projects\AI news\ai-news\AI_NEWS_KNOWLEDGE_BASE.md (500 articles)
+
+✅ Done. Inserted 266 new, 225 known, pruned 22. Total 756 items in 223.4s
+
+📋 Run summary:
+   rss          133
+   google-news  88
+   hackernews   3
+   reddit       10
+   arxiv        63
+   youtube      26
+   github       3
+   web          54
+   twitter      111
+   INSERTED     266
+   TOTAL        756
+   DURATION     223.4s

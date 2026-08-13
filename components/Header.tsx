@@ -1,54 +1,118 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { countdown } from '@/lib/format';
+
 interface HeaderProps {
-  onRefresh: () => void;
-  isLoading: boolean;
+  total: number;
+  onlineSources: number;
   lastUpdated: Date | null;
+  nextRefreshAt: Date | null;
+  isRefreshing: boolean;
+  onRefresh: () => void;
 }
 
-export default function Header({ onRefresh, isLoading, lastUpdated }: HeaderProps) {
+export default function Header({
+  total,
+  onlineSources,
+  lastUpdated,
+  nextRefreshAt,
+  isRefreshing,
+  onRefresh,
+}: HeaderProps) {
+  const [, setNow] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const refreshIn = nextRefreshAt ? countdown(nextRefreshAt) : '…';
+
   return (
-    <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-4xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+    <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[#05070e]/85 backdrop-blur-xl">
+      <div className="hairline-gradient absolute top-0 inset-x-0 opacity-60" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between gap-4 py-3.5">
+          {/* Brand */}
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400/20 to-violet-500/20 border border-cyan-400/30">
+              <span className="text-cyan-300 font-display font-bold text-lg">AI</span>
+              <span className="absolute -inset-1 rounded-xl border border-cyan-400/20 animate-pulse" />
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">AI Pulse</h1>
-              <p className="text-xs text-gray-500">
-                {lastUpdated 
-                  ? `Updated ${lastUpdated.toLocaleTimeString()}`
-                  : 'Loading...'}
+            <div className="min-w-0">
+              <h1 className="font-display font-bold text-lg sm:text-xl tracking-tight text-[var(--fore)] leading-none">
+                AI <span className="gradient-text">PULSE</span>
+              </h1>
+              <p className="hidden sm:block text-[11px] text-[var(--mut)] mt-1 truncate">
+                Autonomous AI news · updated every 4h
               </p>
             </div>
           </div>
-          
-          <button
-            onClick={onRefresh}
-            disabled={isLoading}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-gray-300 transition-colors"
-          >
-            <svg 
-              className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
+
+          {/* Live / stats */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 animate-pulse-dot" />
+              </span>
+              <span className="text-[11px] font-medium tracking-widest uppercase text-emerald-300">Live</span>
+            </div>
+
+            <div className="flex items-center gap-6">
+              <div className="text-right">
+                <div className="font-mono text-sm text-[var(--fore)] tabular-nums">{formatCount(total)}</div>
+                <div className="text-[10px] uppercase tracking-wider text-[var(--dim)]">stories</div>
+              </div>
+
+              <div className="h-8 w-px bg-[var(--color-line)]" />
+
+              <div className="text-right">
+                <div className="font-mono text-sm text-[var(--fore)] tabular-nums">{onlineSources}</div>
+                <div className="text-[10px] uppercase tracking-wider text-[var(--dim)]">sources</div>
+              </div>
+
+              <div className="h-8 w-px bg-[var(--color-line)]" />
+
+              <div className="text-right hidden lg:block">
+                <div className="font-mono text-sm text-cyan-300 tabular-nums">{refreshIn}</div>
+                <div className="text-[10px] uppercase tracking-wider text-[var(--dim)]">next refresh</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-3">
+            <div className="hidden lg:block text-right">
+              <div className="text-[10px] text-[var(--dim)] uppercase tracking-wider">last sync</div>
+              <div className="font-mono text-xs text-[var(--mut)]">
+                {lastUpdated ? lastUpdated.toLocaleTimeString() : '—'}
+              </div>
+            </div>
+            <button
+              onClick={onRefresh}
+              disabled={isRefreshing}
+              className="ring-focus flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium bg-cyan-400/10 border border-cyan-400/30 text-cyan-200 hover:bg-cyan-400/20 hover:border-cyan-300/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
-              />
-            </svg>
-            {isLoading ? 'Fetching...' : 'Refresh'}
-          </button>
+              <svg
+                className={`w-4 h-4 ${isRefreshing ? 'animate-spin-slow' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              {isRefreshing ? 'Syncing…' : 'Refresh'}
+            </button>
+          </div>
         </div>
       </div>
     </header>
   );
+}
+
+function formatCount(n: number): string {
+  if (n >= 10000) return `${(n / 1000).toFixed(0)}k`;
+  return n.toString();
 }

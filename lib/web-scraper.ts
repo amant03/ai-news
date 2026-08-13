@@ -17,15 +17,15 @@ interface WebSource {
 
 const WEB_SOURCES: WebSource[] = [
   {
-    name: 'AI Weekly',
-    source: 'other',
-    url: 'https://aiweekly.co/ai-news-today',
+    name: 'AI News',
+    source: 'ai-news',
+    url: 'https://www.artificialintelligence-news.com/categories/artificial-intelligence/',
     type: 'html',
   },
   {
-    name: 'AIToolsRecap',
-    source: 'other',
-    url: 'https://aitoolsrecap.com/Blog/AINewsJuly2026.aspx',
+    name: 'AI Weekly',
+    source: 'ai-weekly',
+    url: 'https://aiweekly.co/ai-news-today',
     type: 'html',
   },
   {
@@ -35,33 +35,21 @@ const WEB_SOURCES: WebSource[] = [
     type: 'html',
   },
   {
-    name: 'Crescendo AI News',
-    source: 'other',
-    url: 'https://www.crescendo.ai/news/latest-ai-news-and-updates',
-    type: 'html',
-  },
-  {
-    name: 'Third Run Time',
-    source: 'other',
-    url: 'https://thirdruntime.com/',
-    type: 'html',
-  },
-  {
     name: 'ScienceDaily AI',
     source: 'other',
     url: 'https://www.sciencedaily.com/news/computers_math/artificial_intelligence/',
     type: 'html',
   },
   {
-    name: 'Reuters AI',
-    source: 'other',
-    url: 'https://www.reuters.com/technology/artificial-intelligence/',
+    name: 'VentureBeat AI',
+    source: 'venturebeat',
+    url: 'https://venturebeat.com/category/ai/',
     type: 'html',
   },
   {
-    name: 'AI News',
-    source: 'other',
-    url: 'https://www.artificialintelligence-news.com/categories/artificial-intelligence/',
+    name: 'The Next Web AI',
+    source: 'thenextweb',
+    url: 'https://thenextweb.com/topic/artificial-intelligence',
     type: 'html',
   },
 ];
@@ -111,9 +99,8 @@ function extractLinksFromHtml(html: string, baseUrl: string): Array<{ title: str
     seen.add(key);
 
     // Extract surrounding context as snippet
-    const fullMatch = match[0];
     const beforeContext = html.substring(Math.max(0, match.index - 200), match.index);
-    const snippet = extractSnippet(beforeContext + fullMatch);
+    const snippet = extractSnippet(beforeContext + match[0]);
 
     results.push({ title: linkText, url: href, snippet });
   }
@@ -122,9 +109,13 @@ function extractLinksFromHtml(html: string, baseUrl: string): Array<{ title: str
 }
 
 function extractSnippet(text: string): string {
+  // Cut the leading window at the last ">" so we never start mid-attribute.
+  const lastGt = text.lastIndexOf('>');
+  const start = lastGt >= 0 ? lastGt + 1 : 0;
   const cleaned = text
+    .slice(start)
     .replace(/<[^>]*>/g, ' ')
-    .replace(/\\s+/g, ' ')
+    .replace(/\s+/g, ' ')
     .trim();
   return cleaned.length > 300 ? cleaned.slice(0, 297) + '...' : cleaned;
 }
@@ -156,7 +147,7 @@ function extractArticleContent(html: string): { title: string; paragraphs: strin
   return { title, paragraphs };
 }
 
-function determinePublishedDate(html: string, baseUrl: string): string {
+function determinePublishedDate(html: string): string {
   // Try multiple date patterns
   const datePatterns = [
     /<meta[^>]*property=["']article:published_time["'][^>]*content=["']([^"']*)["']/i,
@@ -197,7 +188,6 @@ export async function scrapeWebSources(): Promise<NewsItem[]> {
       }
 
       const html = await response.text();
-      const baseUrl = new URL(source.url);
       const links = extractLinksFromHtml(html, source.url);
 
       let sourceItems = 0;
@@ -209,6 +199,7 @@ export async function scrapeWebSources(): Promise<NewsItem[]> {
 
         allItems.push({
           source: source.source,
+          source_label: source.name,
           source_type: 'web',
           title: link.title.length > 200 ? link.title.slice(0, 197) + '...' : link.title,
           summary: link.snippet.slice(0, 300),
@@ -216,7 +207,8 @@ export async function scrapeWebSources(): Promise<NewsItem[]> {
           url: link.url,
           author: source.name,
           category: category as 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other',
-          published_at: determinePublishedDate(html, source.url),
+          published_at: determinePublishedDate(html),
+          source_detail: source.name,
         });
         sourceItems++;
       }
@@ -243,7 +235,7 @@ export async function scrapeArticleContent(url: string): Promise<{ title: string
 
     const html = await response.text();
     const { title, paragraphs } = extractArticleContent(html);
-    const date = determinePublishedDate(html, url);
+    const date = determinePublishedDate(html);
 
     return {
       title: title || 'Untitled',

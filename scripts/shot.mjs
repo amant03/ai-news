@@ -1,0 +1,13 @@
+import puppeteer from 'puppeteer';
+const url = process.argv[2] || 'http://localhost:3000';
+const out = process.argv[3] || 'shot.png';
+const width = parseInt(process.argv[4] || '1440', 10);
+const height = parseInt(process.argv[5] || '900', 10);
+const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
+const page = await browser.newPage();
+await page.setViewport({ width, height, deviceScaleFactor: 1 });
+await page.goto(url, { waitUntil: 'networkidle2', timeout: 45000 });
+await new Promise(r => setTimeout(r, 2500));
+await page.screenshot({ path: out, fullPage: true });
+console.log('saved', out);
+await browser.close();

@@ -1,108 +1,135 @@
-import { NewsItem, CATEGORIES, SOURCES, Category, SourceFilter } from '@/lib/types';
+import { NewsItem, CATEGORY_COLOR, CATEGORY_LABEL } from '@/lib/types';
+import { timeAgo, formatNumber, typeIcon, typeLabel } from '@/lib/format';
 
 interface NewsCardProps {
   item: NewsItem;
+  index?: number;
+  variant?: 'grid' | 'hero';
 }
 
-function getSourceColor(source: string): string {
-  const found = SOURCES.find(s => s.value === source);
-  return found?.color || '#6b7280';
-}
+export default function NewsCard({ item, index = 0, variant = 'grid' }: NewsCardProps) {
+  const color = CATEGORY_COLOR[item.category] || '#94a3b8';
+  const isHero = variant === 'hero';
 
-function getCategoryInfo(category: string) {
-  return CATEGORIES.find(c => c.value === category) || CATEGORIES[5];
-}
-
-function timeAgo(dateString: string): string {
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-  
-  if (seconds < 60) return 'just now';
-  if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
-  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
-  if (seconds < 604800) return `${Math.floor(seconds / 86400)}d ago`;
-  return date.toLocaleDateString();
-}
-
-export default function NewsCard({ item }: NewsCardProps) {
-  const categoryInfo = getCategoryInfo(item.category);
-  const sourceColor = getSourceColor(item.source);
-  
   return (
-    <article className="group border-b border-gray-800/50 py-4 px-4 hover:bg-gray-800/30 transition-colors">
-      <div className="flex items-start gap-3">
-        {/* Source indicator */}
-        <div 
-          className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-          style={{ backgroundColor: sourceColor }}
-        />
-        
-        <div className="flex-1 min-w-0">
-          {/* Header row */}
-          <div className="flex items-center gap-2 flex-wrap mb-1">
-            <span className="text-sm font-medium text-gray-300">
-              {item.author}
+    <article
+      className={`glass rounded-2xl overflow-hidden panel-hover animate-fade-up ${
+        isHero ? 'flex flex-col' : 'flex flex-col'
+      }`}
+      style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
+    >
+      {/* Category accent strip */}
+      <div className="h-0.5 w-full flex-shrink-0" style={{ backgroundColor: color, opacity: 0.55 }} />
+
+      {/* Image / gradient header for hero */}
+      {isHero && (
+        <div
+          className="relative h-40 sm:h-52 overflow-hidden"
+          style={{ background: `linear-gradient(135deg, ${color}2e, transparent 60%)` }}
+        >
+          {item.image_url ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={item.image_url}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
+              loading="lazy"
+              onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          ) : (
+            <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `radial-gradient(circle at 20% 30%, ${color}44, transparent 50%), radial-gradient(circle at 80% 70%, ${color}33, transparent 50%)` }} />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent" />
+          <div className="absolute bottom-3 left-4 flex items-center gap-2">
+            <span
+              className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
+              style={{ backgroundColor: `${color}22`, color }}
+            >
+              {CATEGORY_LABEL[item.category] || item.category}
             </span>
-            <span className="text-gray-600">·</span>
-            <span className="text-xs text-gray-500">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--dim)]">
               {timeAgo(item.published_at)}
             </span>
-            {item.source_type === 'twitter' && item.tweet_metrics && (
-              <>
-                <span className="text-gray-600">·</span>
-                <span className="text-xs text-gray-500 flex items-center gap-1">
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                  {formatNumber(item.tweet_metrics.likeCount)}
-                </span>
-              </>
-            )}
           </div>
-          
-          {/* Title */}
-          <a 
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-100 font-medium hover:text-blue-400 transition-colors line-clamp-2"
-          >
-            {item.title}
-          </a>
-          
-          {/* Summary */}
-          {item.summary && (
-            <p className="text-sm text-gray-400 mt-1 line-clamp-2">
-              {item.summary}
-            </p>
-          )}
-          
-          {/* Footer */}
-          <div className="flex items-center gap-2 mt-2">
-            <span 
-              className="text-xs px-2 py-0.5 rounded-full"
-              style={{ 
-                backgroundColor: `${categoryInfo.color}20`,
-                color: categoryInfo.color,
-              }}
+        </div>
+      )}
+
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
+        {/* Meta row */}
+        <div className="flex items-center gap-2 flex-wrap mb-2 text-[11px]">
+          <span className="inline-flex items-center gap-1.5 text-[var(--mut)]">
+            <span
+              className="inline-flex items-center justify-center w-5 h-5 rounded-md text-[10px] font-bold"
+              style={{ backgroundColor: `${color}1c`, color }}
             >
-              {categoryInfo.label}
+              {typeIcon(item.source_type)}
             </span>
-            {item.source_type === 'twitter' && (
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
-                Tweet
-              </span>
-            )}
-          </div>
+            <span className="font-medium text-[var(--fore)]">{item.source_label || item.source}</span>
+          </span>
+          {item.source_detail && (
+            <span className="text-[var(--dim)] hidden sm:inline">{item.source_detail}</span>
+          )}
+          {!isHero && (
+            <>
+              <span className="text-[var(--dim)]">·</span>
+              <span className="font-mono text-[var(--dim)]">{timeAgo(item.published_at)}</span>
+            </>
+          )}
+        </div>
+
+        {/* Title */}
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`group/title text-[var(--fore)] font-medium leading-snug hover:text-cyan-300 transition-colors line-clamp-2 ${
+            isHero ? 'text-xl sm:text-2xl font-display font-medium' : 'text-[15px]'
+          }`}
+        >
+          {item.title}
+          <span className="inline-block ml-1 opacity-0 group-hover/title:opacity-100 -translate-x-1 group-hover/title:translate-x-0 transition-all text-cyan-300 align-baseline text-[0.85em]">
+            ↗
+          </span>
+        </a>
+
+        {/* Summary */}
+        {item.summary && !isHero && (
+          <p className="text-[13px] text-[var(--mut)] mt-2 line-clamp-2 flex-1 leading-relaxed">{item.summary}</p>
+        )}
+        {item.summary && isHero && (
+          <p className="text-sm text-[var(--mut)] mt-2 line-clamp-3 flex-1 leading-relaxed">{item.summary}</p>
+        )}
+
+        {/* Footer */}
+        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-[var(--color-line)]">
+          <span
+            className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
+            style={{ backgroundColor: `${color}18`, color }}
+          >
+            {CATEGORY_LABEL[item.category] || item.category}
+          </span>
+
+          {(item.score || item.num_comments) && (
+            <span className="flex items-center gap-2 text-[11px] font-mono text-[var(--mut)]">
+              {item.score ? <span title="score">▲ {formatNumber(item.score)}</span> : null}
+              {item.num_comments && item.source_type !== 'arxiv' ? (
+                <span title="comments">💬 {formatNumber(item.num_comments)}</span>
+              ) : null}
+            </span>
+          )}
+
+          {item.tweet_metrics && (
+            <span className="flex items-center gap-2 text-[11px] font-mono text-[var(--mut)]">
+              {item.tweet_metrics.likeCount ? <span>♥ {formatNumber(item.tweet_metrics.likeCount)}</span> : null}
+              {item.tweet_metrics.retweetCount ? <span>↻ {formatNumber(item.tweet_metrics.retweetCount)}</span> : null}
+            </span>
+          )}
+
+          <span className="ml-auto text-[10px] text-[var(--dim)] uppercase tracking-wider">
+            {typeLabel(item.source_type)}
+          </span>
         </div>
       </div>
     </article>
   );
-}
-
-function formatNumber(num: number): string {
-  if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
-  if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
-  return num.toString();
 }

@@ -1,4 +1,4 @@
-import { initDB, insertNewsItem } from './db';
+import { initDB, upsertNewsItems } from './db';
 import { NewsItem } from './types';
 
 const SEED_DATA: NewsItem[] = [
@@ -247,15 +247,7 @@ const SEED_DATA: NewsItem[] = [
 export async function seedKnowledgeBase(): Promise<number> {
   await initDB();
 
-  let inserted = 0;
-  for (const item of SEED_DATA) {
-    try {
-      const ok = await insertNewsItem(item);
-      if (ok) inserted++;
-    } catch (error) {
-      console.error(`Failed to seed: ${item.title}`, error);
-    }
-  }
+  const { inserted } = await upsertNewsItems(SEED_DATA);
 
   console.log(`🌱 Seeded ${inserted} new items into knowledge base`);
   return inserted;
