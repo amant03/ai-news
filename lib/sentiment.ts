@@ -69,6 +69,11 @@ export interface ModelSentiment {
   hot: number;            // mention velocity (last 48h / total)
 }
 
+export interface HeadlineHit {
+  title: string;
+  url: string;
+}
+
 export interface LandscapeMood {
   score: number;
   mood: 'euphoric' | 'bullish' | 'neutral' | 'cautious' | 'bearish';
@@ -76,8 +81,8 @@ export interface LandscapeMood {
   negative: number;
   neutral: number;
   total: number;
-  topPositive: string[];
-  topNegative: string[];
+  topPositive: HeadlineHit[];
+  topNegative: HeadlineHit[];
 }
 
 export interface SentimentReport {
@@ -132,13 +137,13 @@ export function analyzeSentiment(items: NewsItem[]): SentimentReport {
   const priorStart = now - 14 * 24 * 60 * 60 * 1000;
 
   const valid = items.filter(i => i.title && i.title.length > 10);
-  const landscape = { score: 0, positive: 0, negative: 0, neutral: 0, total: 0, topPositive: [] as string[], topNegative: [] as string[] };
+  const landscape = { score: 0, positive: 0, negative: 0, neutral: 0, total: 0 };
 
   const domainScores: Partial<Record<Domain, SentimentScore>> = {};
   const domainInit = (d: Domain): SentimentScore => (domainScores[d] ??= { score: 0, positive: 0, negative: 0, neutral: 0, count: 0 });
 
-  const posScored: Array<{ title: string; score: number }> = [];
-  const negScored: Array<{ title: string; score: number }> = [];
+  const posScored: Array<{ title: string; url: string; score: number }> = [];
+  const negScored: Array<{ title: string; url: string; score: number }> = [];
 
   for (const item of valid) {
     const s = scoreText(`${item.title} ${item.summary || ''}`.slice(0, 400));
@@ -153,8 +158,8 @@ export function analyzeSentiment(items: NewsItem[]): SentimentReport {
     ds.count++;
     ds.score += s;
 
-    if (bucket === 'positive') posScored.push({ title: item.title, score: s });
-    if (bucket === 'negative') negScored.push({ title: item.title, score: s });
+    if (bucket === 'positive') posScored.push({ title: item.title, url: item.url, score: s });
+    if (bucket === 'negative') negScored.push({ title: item.title, url: item.url, score: s });
   }
 
   landscape.score = valid.length ? landscape.score / valid.length : 0;
@@ -162,8 +167,8 @@ export function analyzeSentiment(items: NewsItem[]): SentimentReport {
   const moodResult: LandscapeMood = {
     ...landscape,
     mood,
-    topPositive: posScored.sort((a, b) => b.score - a.score).slice(0, 3).map(x => x.title),
-    topNegative: negScored.sort((a, b) => a.score - b.score).slice(0, 3).map(x => x.title),
+    topPositive: posScored.sort((a, b) => b.score - a.score).slice(0, 3).map(x => ({ title: x.title, url: x.url })),
+    topNegative: negScored.sort((a, b) => a.score - b.score).slice(0, 3).map(x => ({ title: x.title, url: x.url })),
   };
 
   for (const d of Object.keys(domainScores) as Domain[]) {

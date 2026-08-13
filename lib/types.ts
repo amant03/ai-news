@@ -172,3 +172,43 @@ export const SOURCE_LABEL: Record<string, string> = {
 export function sourceLabel(source: string): string {
   return SOURCE_LABEL[source] || source;
 }
+
+export const SOURCE_HOMEPAGE: Record<string, string> = {
+  openai: 'https://openai.com/news',
+  anthropic: 'https://www.anthropic.com/news',
+  google: 'https://deepmind.google/discover/blog/',
+  'google-ai': 'https://blog.google/technology/ai/',
+  meta: 'https://ai.meta.com/blog/',
+  mistral: 'https://mistral.ai/news',
+  deepseek: 'https://www.deepseek.com/',
+  qwen: 'https://qwenlm.github.io/',
+  huggingface: 'https://huggingface.co/blog',
+  x: 'https://x.com',
+  reddit: 'https://www.reddit.com/r/MachineLearning/',
+  'hacker-news': 'https://news.ycombinator.com/',
+  'google-news': 'https://news.google.com/search?q=artificial+intelligence',
+  arxiv: 'https://arxiv.org/list/cs.AI/recent',
+  youtube: 'https://www.youtube.com/results?search_query=AI',
+  github: 'https://github.com/topics/artificial-intelligence',
+  techcrunch: 'https://techcrunch.com/category/artificial-intelligence/',
+  'the-verge': 'https://www.theverge.com/ai-artificial-intelligence',
+  venturebeat: 'https://venturebeat.com/category/ai/',
+  nvidia: 'https://blogs.nvidia.com/',
+  'microsoft-ai': 'https://blogs.microsoft.com/ai/',
+  cohere: 'https://cohere.com/blog',
+  perplexity: 'https://www.perplexity.ai/hub',
+  posthog: 'https://posthog.com/blog',
+  together: 'https://www.together.ai/blog',
+  langchain: 'https://blog.langchain.dev/',
+  wired: 'https://www.wired.com/tag/artificial-intelligence/',
+  'mit-tr': 'https://www.technologyreview.com/topic/artificial-intelligence/',
+  thenextweb: 'https://thenextweb.com/artificial-intelligence',
+  arstechnica: 'https://arstechnica.com/ai/',
+  cnbc: 'https://www.cnbc.com/artificial-intelligence/',
+  xai: 'https://x.ai/news',
+  ollama: 'https://ollama.com/library',
+};
+
+export function sourceHomepage(source: string): string | undefined {
+  return SOURCE_HOMEPAGE[source] || SOURCE_HOMEPAGE[source.replace(/_/g, '-')];
+}

@@ -113,6 +113,8 @@ export async function fetchRSSFeedsFor(feeds: RSSFeedConfig[]): Promise<NewsItem
  * image URLs. Prefix them with the feed's origin so they resolve correctly.
  */
 function normalizeImageUrl(url: string, feedUrl: string): string {
+  const doubled = url.match(/https?:\/\/[^\s]+?(https?:\/\/\S+)/i);
+  if (doubled) url = doubled[1];
   if (url.startsWith('//')) return `https:${url}`;
   if (url.startsWith('/')) {
     try {

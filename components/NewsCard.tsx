@@ -1,106 +1,75 @@
 import { NewsItem, CATEGORY_COLOR, CATEGORY_LABEL } from '@/lib/types';
-import { timeAgo, formatNumber, typeIcon, typeLabel } from '@/lib/format';
+import { timeAgo, formatNumber } from '@/lib/format';
 import CoverImage from './CoverImage';
+import SourceLink from './SourceLink';
 
 interface NewsCardProps {
   item: NewsItem;
   index?: number;
   variant?: 'grid' | 'hero';
+  className?: string;
 }
 
-export default function NewsCard({ item, index = 0, variant = 'grid' }: NewsCardProps) {
+export default function NewsCard({ item, index = 0, variant = 'grid', className = '' }: NewsCardProps) {
   const color = CATEGORY_COLOR[item.category] || '#94a3b8';
   const isHero = variant === 'hero';
 
   return (
     <article
-      className={`glass rounded-2xl overflow-hidden panel-hover animate-fade-up flex flex-col`}
+      className={`group/card relative overflow-hidden rounded-2xl border border-[var(--color-line)] panel-hover animate-fade-up h-full ${
+        isHero ? 'min-h-[280px] sm:min-h-[340px]' : 'min-h-[220px]'
+      } ${className}`}
       style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
     >
-      {/* Category accent strip */}
-      <div className="h-0.5 w-full flex-shrink-0" style={{ backgroundColor: color, opacity: 0.55 }} />
+      <a href={item.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-0" aria-hidden tabIndex={-1}>
+        <CoverImage
+          item={item}
+          variant={isHero ? 'hero' : 'thumb'}
+          showCaption={false}
+          className="absolute inset-0 h-full"
+        />
+      </a>
 
-      {/* Cover: real image or generated gradient — always vivid */}
-      {isHero ? (
-        <CoverImage item={item} variant="hero" className="h-40 sm:h-52 flex-shrink-0" />
-      ) : (
-        <CoverImage item={item} variant="thumb" className="h-32 flex-shrink-0" />
-      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#05070e] via-[#05070e]/55 to-black/10 pointer-events-none" />
+      <div className="h-0.5 w-full absolute top-0 z-10" style={{ backgroundColor: color, opacity: 0.7 }} />
 
-      <div className="p-4 sm:p-5 flex flex-col flex-1">
-        {/* Meta row */}
-        <div className="flex items-center gap-2 flex-wrap mb-2 text-[11px]">
-          <span className="inline-flex items-center gap-1.5 text-[var(--mut)]">
-            <span
-              className="inline-flex items-center justify-center w-5 h-5 rounded-md text-[10px] font-bold"
-              style={{ backgroundColor: `${color}1c`, color }}
-            >
-              {typeIcon(item.source_type)}
-            </span>
-            <span className="font-medium text-[var(--fore)]">{item.source_label || item.source}</span>
-          </span>
-          {item.source_detail && (
-            <span className="text-[var(--dim)] hidden sm:inline">{item.source_detail}</span>
-          )}
-          {!isHero && (
+      <div className="absolute top-3 left-3 right-12 z-10 flex items-center gap-2">
+        <span
+          className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full backdrop-blur-md"
+          style={{ backgroundColor: `${color}33`, color }}
+        >
+          {CATEGORY_LABEL[item.category] || item.category}
+        </span>
+        <span className="text-[10px] font-medium text-white/70 truncate">{item.source_label || item.source}</span>
+      </div>
+
+      <div className="absolute top-2.5 right-2.5 z-20">
+        <SourceLink href={item.url} label={item.source_label || 'Source'} compact />
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5">
+        <h3 className={isHero ? 'text-xl sm:text-2xl' : 'text-[15px] sm:text-base'}>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`block font-display font-medium text-white leading-snug hover:text-cyan-200 transition-colors ${
+              isHero ? 'line-clamp-3' : 'line-clamp-2'
+            }`}
+          >
+            {item.title}
+          </a>
+        </h3>
+        <div className="mt-2 flex items-center gap-2 text-[10px] font-mono text-white/55">
+          <span>{timeAgo(item.published_at)}</span>
+          {(item.score || item.num_comments) && (
             <>
-              <span className="text-[var(--dim)]">·</span>
-              <span className="font-mono text-[var(--dim)]">{timeAgo(item.published_at)}</span>
+              <span>·</span>
+              {item.score ? <span>▲ {formatNumber(item.score)}</span> : null}
+              {item.num_comments && item.source_type !== 'arxiv' ? <span>💬 {formatNumber(item.num_comments)}</span> : null}
             </>
           )}
-        </div>
-
-        {/* Title */}
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`group/title text-[var(--fore)] font-medium leading-snug hover:text-cyan-300 transition-colors line-clamp-2 ${
-            isHero ? 'text-xl sm:text-2xl font-display font-medium' : 'text-[15px]'
-          }`}
-        >
-          {item.title}
-          <span className="inline-block ml-1 opacity-0 group-hover/title:opacity-100 -translate-x-1 group-hover/title:translate-x-0 transition-all text-cyan-300 align-baseline text-[0.85em]">
-            ↗
-          </span>
-        </a>
-
-        {/* Summary */}
-        {item.summary && !isHero && (
-          <p className="text-[13px] text-[var(--mut)] mt-2 line-clamp-2 flex-1 leading-relaxed">{item.summary}</p>
-        )}
-        {item.summary && isHero && (
-          <p className="text-sm text-[var(--mut)] mt-2 line-clamp-3 flex-1 leading-relaxed">{item.summary}</p>
-        )}
-
-        {/* Footer */}
-        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-[var(--color-line)]">
-          <span
-            className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: `${color}18`, color }}
-          >
-            {CATEGORY_LABEL[item.category] || item.category}
-          </span>
-
-          {(item.score || item.num_comments) && (
-            <span className="flex items-center gap-2 text-[11px] font-mono text-[var(--mut)]">
-              {item.score ? <span title="score">▲ {formatNumber(item.score)}</span> : null}
-              {item.num_comments && item.source_type !== 'arxiv' ? (
-                <span title="comments">💬 {formatNumber(item.num_comments)}</span>
-              ) : null}
-            </span>
-          )}
-
-          {item.tweet_metrics && (
-            <span className="flex items-center gap-2 text-[11px] font-mono text-[var(--mut)]">
-              {item.tweet_metrics.likeCount ? <span>♥ {formatNumber(item.tweet_metrics.likeCount)}</span> : null}
-              {item.tweet_metrics.retweetCount ? <span>↻ {formatNumber(item.tweet_metrics.retweetCount)}</span> : null}
-            </span>
-          )}
-
-          <span className="ml-auto text-[10px] text-[var(--dim)] uppercase tracking-wider">
-            {typeLabel(item.source_type)}
-          </span>
+          {item.tweet_metrics?.likeCount ? <span>♥ {formatNumber(item.tweet_metrics.likeCount)}</span> : null}
         </div>
       </div>
     </article>

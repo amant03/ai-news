@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { sourceHomepage, sourceLabel } from '@/lib/types';
 
 interface SourceHealth {
   ok: boolean;
@@ -78,6 +79,7 @@ export default function SourcePanel() {
           <ul className="space-y-2">
             {entries.map(([key, s]) => {
               const pct = Math.round((s.count / maxCount) * 100);
+              const href = sourceHomepage(key);
               return (
                 <li key={key} className="text-xs">
                   <div className="flex items-center gap-2">
@@ -85,7 +87,20 @@ export default function SourcePanel() {
                       className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.ok ? 'bg-emerald-400' : 'bg-rose-500/80'}`}
                       title={s.error || ''}
                     />
-                    <span className="text-[var(--mut)] capitalize flex-1 truncate">{key.replace(/-/g, ' ')}</span>
+                    <span className="text-[var(--mut)] capitalize flex-1 truncate">{sourceLabel(key)}</span>
+                    {href && (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${sourceLabel(key)}`}
+                        className="ring-focus text-[var(--dim)] hover:text-cyan-300"
+                      >
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
                     <span className="font-mono text-[10px] text-[var(--dim)] tabular-nums">{s.count}</span>
                   </div>
                   <div className="mt-1 ml-3.5 h-1 rounded-full bg-[var(--color-line)] overflow-hidden">

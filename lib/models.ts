@@ -48,7 +48,7 @@ export const PROVIDER_COLORS: Record<string, string> = {
   OpenAI: '#10a37f',
   Anthropic: '#d97706',
   Google: '#4285f4',
-  xAI: '#0d0d0d',
+  xAI: '#e2e8f0',
   Meta: '#3b82f6',
   Mistral: '#f97316',
   DeepSeek: '#059669',
@@ -57,7 +57,65 @@ export const PROVIDER_COLORS: Record<string, string> = {
   Microsoft: '#00a4ef',
   Moonshot: '#8b5cf6',
   Zhipu: '#f472b6',
+  'Z-ai': '#f472b6',
+  'Z.ai': '#f472b6',
+  Ollama: '#94a3b8',
+  Amazon: '#ff9900',
+  NVIDIA: '#76b900',
+  Cohere: '#d18ee2',
+  Perplexity: '#20b8cd',
+  MiniMax: '#ff6b6b',
+  ByteDance: '#fe2c55',
+  Groq: '#f97316',
+  'Together AI': '#0ea5e9',
+  Fireworks: '#fb7185',
 };
+
+export function providerColor(provider: string): string {
+  if (PROVIDER_COLORS[provider]) return PROVIDER_COLORS[provider];
+  const hit = Object.keys(PROVIDER_COLORS).find(k => k.toLowerCase() === provider.toLowerCase());
+  return hit ? PROVIDER_COLORS[hit] : '#94a3b8';
+}
+
+export interface ModelLink {
+  label: string;
+  href: string;
+}
+
+/** Public pages where a user can verify a model's numbers. */
+export function modelSourceLinks(m: {
+  id: string;
+  name: string;
+  source: string;
+  elo?: number;
+  intelligenceIndex?: number;
+  hfDownloads?: number;
+}): ModelLink[] {
+  const links: ModelLink[] = [];
+  const id = m.id.replace(/^(ollama|lmarena|freellm)\//, '');
+
+  if (m.source === 'openrouter' || (/^[a-z0-9.-]+\/[a-z0-9._-]+$/i.test(m.id) && m.source !== 'huggingface' && m.source !== 'ollama')) {
+    links.push({ label: 'OpenRouter', href: `https://openrouter.ai/${m.id}` });
+  }
+  if (m.source === 'huggingface' && m.id.includes('/')) {
+    links.push({ label: 'Hugging Face', href: `https://huggingface.co/${m.id}` });
+  } else if (m.hfDownloads && m.id.includes('/') && m.source !== 'ollama') {
+    links.push({ label: 'Hugging Face', href: `https://huggingface.co/${m.id}` });
+  }
+  if (m.source === 'ollama') {
+    links.push({ label: 'Ollama', href: `https://ollama.com/library/${id}` });
+  }
+  if (m.elo !== undefined) {
+    links.push({ label: 'LM Arena', href: 'https://lmarena.ai/leaderboard/text' });
+  }
+  if (m.intelligenceIndex !== undefined) {
+    links.push({ label: 'Artificial Analysis', href: 'https://artificialanalysis.ai/models' });
+  }
+  if (m.source === 'freellm') {
+    links.push({ label: 'FreeLLM', href: 'https://freellm.sh/' });
+  }
+  return links;
+}
 
 /**
  * The current frontier. Kept in rough recency order. These entries get merged
@@ -221,10 +279,6 @@ export const MODELS: ModelEntry[] = [
     tags: ['fast', 'agentic'],
   },
 ];
-
-export function providerColor(provider: string): string {
-  return PROVIDER_COLORS[provider] || '#94a3b8';
-}
 
 export function findModelsInItems(items: NewsItem[], limit = 12): ModelEntry[] {
   // Heuristic: match known model names in recent headlines, fall back to the
