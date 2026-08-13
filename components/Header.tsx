@@ -45,7 +45,7 @@ export default function Header({
                 AI <span className="gradient-text">PULSE</span>
               </h1>
               <p className="hidden sm:block text-[11px] text-[var(--mut)] mt-1 truncate">
-                Autonomous AI news · updated every 4h
+                AI news for everyone · updated every 4h
               </p>
             </div>
           </div>

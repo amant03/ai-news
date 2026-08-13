@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { ModelRecord } from '@/lib/model-registry';
-import { NewsItem } from '@/lib/types';
+import { Domain, NewsItem } from '@/lib/types';
 import { timeAgo } from '@/lib/format';
 import { modelSourceLinks, providerColor } from '@/lib/models';
 import ScatterChart, { ScatterPoint } from './ScatterChart';
@@ -17,15 +17,50 @@ interface ModelWatchData {
 }
 
 type SortKey = 'intelligence' | 'value' | 'popularity' | 'newest';
+type Audience = Domain | 'all';
 
 const TABS: Array<{ key: SortKey; label: string; hint: string }> = [
-  { key: 'intelligence', label: 'Leaderboard', hint: 'Cost vs accuracy' },
-  { key: 'value', label: 'Value', hint: 'Intelligence per $' },
-  { key: 'popularity', label: 'Popularity', hint: 'Downloads vs quality' },
-  { key: 'newest', label: 'Newest', hint: 'Recency vs quality' },
+  { key: 'intelligence', label: 'Smartest', hint: 'How good vs how expensive' },
+  { key: 'value', label: 'Best value', hint: 'Most capability per dollar' },
+  { key: 'popularity', label: 'Most used', hint: 'What people actually pick' },
+  { key: 'newest', label: 'Newest', hint: 'Latest releases vs quality' },
 ];
 
+const AUDIENCE: Record<Audience, { tab: SortKey; title: string; blurb: string; pick: string }> = {
+  all: {
+    tab: 'intelligence',
+    title: 'Which AI should you try?',
+    blurb: 'Each dot is a model. Higher = smarter. Further left = cheaper. The glowing line is the best trade-off.',
+    pick: 'A strong all-rounder to start with',
+  },
+  business: {
+    tab: 'value',
+    title: 'Which AI is worth the money?',
+    blurb: 'Higher = more capability per dollar. Further left = cheaper to run. Useful when you are choosing a vendor.',
+    pick: 'Best bang for buck right now',
+  },
+  tech: {
+    tab: 'intelligence',
+    title: 'Which model is actually better?',
+    blurb: 'Accuracy on the vertical axis, API cost on the horizontal. Bigger dots tend to be stronger at coding.',
+    pick: 'Strongest model on this chart',
+  },
+  research: {
+    tab: 'newest',
+    title: 'What just dropped?',
+    blurb: 'Newer models sit to the right. Higher = stronger quality scores. Use this to spot the frontier moving.',
+    pick: 'Newest high-quality release',
+  },
+  general: {
+    tab: 'intelligence',
+    title: 'Which AI should you try?',
+    blurb: 'Each dot is a model. Higher = smarter. Further left = cheaper.',
+    pick: 'A strong all-rounder to start with',
+  },
+};
+
 const TOP_N = 10;
+const LIST_PAGE = 6;
 
 const fmtNum = (n?: number, digits = 1) =>
   n === undefined ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: digits });
@@ -61,13 +96,21 @@ function fmtDateTick(v: number) {
   return d.toLocaleDateString(undefined, { month: 'short', year: '2-digit' });
 }
 
-export default function ModelWatch() {
+export default function ModelWatch({ audience = 'all' }: { audience?: Audience }) {
+  const profile = AUDIENCE[audience] || AUDIENCE.all;
   const [data, setData] = useState<ModelWatchData | null>(null);
-  const [tab, setTab] = useState<SortKey>('intelligence');
+  const [tab, setTab] = useState<SortKey>(profile.tab);
   const [q, setQ] = useState('');
-  const [showAll, setShowAll] = useState(false);
+  const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [detailOpen, setDetailOpen] = useState(false);
+
+  useEffect(() => {
+    setTab(profile.tab);
+    setPage(0);
+    setSelectedId(null);
+    setDetailOpen(false);
+  }, [audience, profile.tab]);
 
   useEffect(() => {
     let mounted = true;
@@ -87,12 +130,6 @@ export default function ModelWatch() {
     };
   }, [tab]);
 
-  useEffect(() => {
-    setShowAll(false);
-    setSelectedId(null);
-    setDetailOpen(false);
-  }, [tab]);
-
   const filtered = useMemo(() => {
     const list = data?.models || [];
     if (!q.trim()) return list;
@@ -105,25 +142,30 @@ export default function ModelWatch() {
     );
   }, [data, q]);
 
-  const visible = showAll ? filtered : filtered.slice(0, TOP_N);
-  const chartPack = useMemo(
-    () => buildChart(tab, showAll ? filtered : visible),
-    [tab, filtered, visible, showAll]
-  );
+  const chartModels = filtered.slice(0, TOP_N);
+  const pageCount = Math.max(1, Math.ceil(filtered.length / LIST_PAGE));
+  const safePage = Math.min(page, pageCount - 1);
+  const listModels = filtered.slice(safePage * LIST_PAGE, safePage * LIST_PAGE + LIST_PAGE);
+  const chartPack = useMemo(() => buildChart(tab, filtered.slice(0, TOP_N)), [tab, filtered]);
 
   const selected = useMemo(() => {
-    const id = selectedId || visible[0]?.id;
-    return filtered.find(m => m.id === id) || visible[0] || null;
-  }, [selectedId, filtered, visible]);
+    const id = selectedId || chartModels[0]?.id;
+    return filtered.find(m => m.id === id) || chartModels[0] || null;
+  }, [selectedId, filtered, chartModels]);
 
-  const heroNews = useMemo(() => (data?.modelNews || []).slice(0, 6), [data]);
-  const activeTab = TABS.find(t => t.key === tab) || TABS[0];
+  const picks = chartModels.slice(0, 3);
+  const heroNews = useMemo(() => (data?.modelNews || []).slice(0, 3), [data]);
+  const labeledIds = new Set(chartModels.map(m => m.id));
+
+  useEffect(() => {
+    setPage(0);
+  }, [tab, q]);
 
   if (!data) {
     return (
       <div className="surface rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="font-display font-medium text-sm uppercase tracking-widest">Model Watch</h2>
+          <h2 className="font-display font-medium text-sm uppercase tracking-widest">Which AI to use</h2>
           <span className="h-2 w-2 rounded-full bg-cyan-400/60 animate-pulse" />
         </div>
         <div className="skeleton h-64 rounded-xl" />
@@ -132,36 +174,22 @@ export default function ModelWatch() {
     );
   }
 
-  const labeledIds = new Set(visible.slice(0, TOP_N).map(m => m.id));
-
   return (
     <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[#0a1120] via-[#0d1322] to-[#120a20]">
       <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-violet-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-cyan-400/10 blur-3xl" />
-
       <div className="relative p-5 sm:p-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-violet-400" />
-            </span>
-            <div>
-              <h2 className="font-display font-bold text-lg tracking-tight gradient-text">MODEL WATCH</h2>
-              <p className="text-[11px] text-[var(--mut)]">
-                Top {Math.min(TOP_N, visible.length)} of {data.catalog?.total || filtered.length} · {activeTab.hint}
-              </p>
-            </div>
+        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+          <div>
+            <h2 className="font-display font-bold text-lg sm:text-xl tracking-tight gradient-text">{profile.title}</h2>
+            <p className="text-[12px] text-[var(--mut)] mt-1 max-w-2xl leading-relaxed">{profile.blurb}</p>
           </div>
-          <div className="flex items-center gap-2">
-            <input
-              value={q}
-              onChange={e => setQ(e.target.value)}
-              placeholder="Search models…"
-              className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[#0a0f1c]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-cyan-400/40"
-              aria-label="Search models"
-            />
-          </div>
+          <input
+            value={q}
+            onChange={e => setQ(e.target.value)}
+            placeholder="Find a model…"
+            className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[#0a0f1c]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-cyan-400/40"
+            aria-label="Search models"
+          />
         </div>
 
         <div className="flex gap-1.5 mb-4 flex-wrap" role="tablist">
@@ -185,14 +213,43 @@ export default function ModelWatch() {
           })}
         </div>
 
-        <div className="rounded-xl border border-[var(--color-line)] bg-[#070b14]/70 mb-4 overflow-hidden">
+        {picks.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+            {picks.map((m, i) => (
+              <button
+                key={m.id}
+                onClick={() => {
+                  setSelectedId(m.id);
+                  setDetailOpen(i === 0 ? detailOpen : true);
+                }}
+                className={`ring-focus text-left rounded-xl border p-3 transition-colors ${
+                  selected?.id === m.id ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[#0a0f1c]/60 hover:border-cyan-400/25'
+                }`}
+              >
+                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-1">
+                  {i === 0 ? profile.pick : i === 1 ? 'Runner up' : 'Also consider'}
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: providerColor(m.provider) }} />
+                  <span className="font-display text-sm font-semibold truncate">{m.name}</span>
+                </div>
+                <div className="mt-2 flex gap-3 text-[11px] font-mono text-[var(--mut)]">
+                  {avgCost(m) !== undefined && <span>{fmtCost(avgCost(m)!)}</span>}
+                  {m.intelligenceIndex !== undefined && <span className="text-cyan-200">{fmtNum(m.intelligenceIndex)} smart</span>}
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="rounded-xl border border-[var(--color-line)] bg-[#070b14]/70 overflow-hidden">
           <ScatterChart
             points={chartPack.points}
             labeledIds={labeledIds}
             selectedId={selected?.id}
             onSelect={id => {
               setSelectedId(id);
-              setDetailOpen(true);
+              setDetailOpen(false);
             }}
             xLabel={chartPack.xLabel}
             yLabel={chartPack.yLabel}
@@ -201,80 +258,101 @@ export default function ModelWatch() {
             yFormat={chartPack.yFormat}
             xLog={chartPack.xLog}
             betterCorner={chartPack.betterCorner}
+            height={260}
           />
-          <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 border-t border-[var(--color-line)]">
-            <p className="text-[10px] text-[var(--dim)]">
-              Dot size = {chartPack.sizeLabel}. Line = efficient frontier (not dominated on both axes).
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {uniqueProviders(visible).map(p => (
-                <span key={p} className="inline-flex items-center gap-1 text-[10px] text-[var(--mut)]">
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: providerColor(p) }} />
-                  {p}
-                </span>
-              ))}
-            </div>
+          <div className="border-t border-[var(--color-line)] px-3 py-2.5 flex flex-wrap gap-x-3 gap-y-1.5">
+            {chartModels.map((m, i) => (
+              <button
+                key={m.id}
+                onClick={() => setSelectedId(m.id)}
+                className={`ring-focus inline-flex items-center gap-1.5 text-[11px] ${
+                  selected?.id === m.id ? 'text-cyan-200' : 'text-[var(--mut)] hover:text-[var(--fore)]'
+                }`}
+              >
+                <span className="font-mono text-[10px] w-4 text-center rounded bg-white/10">{i + 1}</span>
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: providerColor(m.provider) }} />
+                <span className="truncate max-w-[9rem]">{m.name}</span>
+              </button>
+            ))}
           </div>
         </div>
 
         {selected && (
-          <SelectedModel
-            m={selected}
-            expanded={detailOpen}
-            onToggle={() => setDetailOpen(v => !v)}
-          />
+          <div className="mt-3">
+            <SelectedModel
+              m={selected}
+              expanded={detailOpen}
+              pickLabel="Selected"
+              onToggle={() => setDetailOpen(v => !v)}
+            />
+          </div>
         )}
 
-        {visible.length === 0 ? (
-          <p className="text-sm text-[var(--dim)] py-8 text-center">No models match “{q}”.</p>
+        {filtered.length === 0 ? (
+          <p className="text-sm text-[var(--dim)] py-6 text-center">No models match “{q}”.</p>
         ) : (
-          <ol className="mt-4 grid gap-1.5">
-            {visible.map((m, i) => (
-              <ModelChip
-                key={m.id}
-                m={m}
-                idx={i + 1}
-                active={selected?.id === m.id}
-                sort={tab}
-                onClick={() => {
-                  setSelectedId(m.id);
-                  setDetailOpen(true);
-                }}
-              />
-            ))}
-          </ol>
-        )}
-
-        {filtered.length > TOP_N && (
-          <div className="mt-3 text-center">
-            <button
-              onClick={() => setShowAll(v => !v)}
-              className="ring-focus px-4 py-2 rounded-xl text-xs font-medium text-[var(--mut)] border border-[var(--color-line)] hover:text-cyan-200 hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-all"
-            >
-              {showAll ? 'Show top 10' : `See all ${filtered.length} models`}
-            </button>
+          <div className="mt-4">
+            <ol className="grid gap-1.5">
+              {listModels.map((m, i) => (
+                <ModelChip
+                  key={m.id}
+                  m={m}
+                  idx={safePage * LIST_PAGE + i + 1}
+                  active={selected?.id === m.id}
+                  sort={tab}
+                  onClick={() => {
+                    setSelectedId(m.id);
+                    setDetailOpen(false);
+                  }}
+                />
+              ))}
+            </ol>
+            {pageCount > 1 && (
+              <div className="mt-3 flex items-center justify-center gap-2">
+                <button
+                  onClick={() => setPage(p => Math.max(0, p - 1))}
+                  disabled={safePage === 0}
+                  className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-cyan-200"
+                >
+                  Prev
+                </button>
+                <span className="font-mono text-[11px] text-[var(--dim)]">
+                  {safePage + 1} / {pageCount}
+                </span>
+                <button
+                  onClick={() => setPage(p => Math.min(pageCount - 1, p + 1))}
+                  disabled={safePage >= pageCount - 1}
+                  className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-cyan-200"
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </div>
         )}
 
         {heroNews.length > 0 && (
           <div className="mt-6 pt-4 border-t border-[var(--color-line)]">
             <h3 className="font-display font-medium text-xs uppercase tracking-widest text-[var(--mut)] mb-3">
-              Release Radar
+              Fresh model news
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {heroNews.map((n, i) => (
                 <article
                   key={`${n.url}-${i}`}
-                  className="group relative overflow-hidden rounded-xl border border-[var(--color-line)] h-28"
+                  className="group overflow-hidden rounded-xl border border-[var(--color-line)] bg-[#0b1220]"
                 >
-                  <CoverImage item={n} variant="thumb" showCaption={false} className="absolute inset-0" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#05070e] via-[#05070e]/55 to-transparent pointer-events-none" />
-                  <SourceLink href={n.url} compact className="absolute top-1.5 right-1.5 z-10" />
-                  <a href={n.url} target="_blank" rel="noopener noreferrer" className="absolute inset-x-0 bottom-0 p-2 pr-10">
-                    <p className="text-[11px] font-medium text-white leading-snug line-clamp-2 group-hover:text-cyan-200 transition-colors">
+                  <div className="relative h-24">
+                    <CoverImage item={n} variant="thumb" showCaption={false} className="absolute inset-0" />
+                    <SourceLink href={n.url} compact className="absolute top-1.5 right-1.5 z-10" />
+                  </div>
+                  <a href={n.url} target="_blank" rel="noopener noreferrer" className="block p-2.5">
+                    <p className="text-[11px] font-medium text-[var(--fore)] leading-snug line-clamp-2 group-hover:text-cyan-200 transition-colors">
                       {n.title}
                     </p>
-                    <span className="text-[9px] font-mono text-white/55">{n.source_label || n.source} · {timeAgo(n.published_at)}</span>
+                    <span className="text-[9px] font-mono text-[var(--dim)]">
+                      {n.source_label || n.source} · {timeAgo(n.published_at)}
+                    </span>
                   </a>
                 </article>
               ))}
@@ -286,49 +364,47 @@ export default function ModelWatch() {
   );
 }
 
-function SelectedModel({ m, expanded, onToggle }: { m: ModelRecord; expanded: boolean; onToggle: () => void }) {
+function SelectedModel({
+  m,
+  expanded,
+  pickLabel,
+  onToggle,
+}: {
+  m: ModelRecord;
+  expanded: boolean;
+  pickLabel: string;
+  onToggle: () => void;
+}) {
   const color = providerColor(m.provider);
   const links = modelSourceLinks(m);
   const cost = avgCost(m);
 
   return (
     <div className="rounded-xl border border-cyan-400/25 bg-cyan-400/5 p-3.5">
+      <div className="text-[10px] uppercase tracking-widest text-cyan-300/80 mb-1.5">{pickLabel}</div>
       <div className="flex items-start gap-3">
         <span className="mt-1 w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-display font-semibold text-[var(--fore)]">{m.name}</span>
             <span className="text-[11px] text-[var(--dim)]">{m.provider}</span>
-            <span className={`text-[9px] px-1.5 rounded-full border ${m.family === 'open-weights' ? 'border-emerald-400/30 text-emerald-300' : 'border-[var(--color-line)] text-[var(--dim)]'}`}>
-              {m.family === 'open-weights' ? 'open-weights' : 'closed'}
-            </span>
           </div>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-            {m.intelligenceIndex !== undefined && <Metric label="Accuracy" value={fmtNum(m.intelligenceIndex)} accent />}
-            {cost !== undefined && <Metric label="$/1M" value={fmtCost(cost)} />}
+            {m.intelligenceIndex !== undefined && <Metric label="How smart" value={fmtNum(m.intelligenceIndex)} accent />}
+            {cost !== undefined && <Metric label="Price / 1M" value={fmtCost(cost)} />}
             {m.valueScore !== undefined && <Metric label="Value" value={fmtNum(m.valueScore)} />}
-            {m.codingIndex !== undefined && <Metric label="Code" value={fmtNum(m.codingIndex)} />}
-            {m.elo !== undefined && <Metric label="Elo" value={fmtNum(m.elo, 0)} />}
-            {m.context && <Metric label="Ctx" value={m.context} />}
+            {m.codingIndex !== undefined && <Metric label="Coding" value={fmtNum(m.codingIndex)} />}
           </div>
           {expanded && m.description && (
             <p className="text-[12px] text-[var(--mut)] leading-relaxed mt-2">{m.description}</p>
           )}
-          {expanded && (
-            <div className="mt-2.5">
-              <SourcePills links={links} />
-            </div>
-          )}
+          <div className="mt-2.5">
+            <SourcePills links={expanded ? links : links.slice(0, 2)} />
+          </div>
         </div>
-        <div className="flex flex-col items-end gap-2 flex-shrink-0">
-          <SourcePills links={links.slice(0, expanded ? 0 : 2)} />
-          <button
-            onClick={onToggle}
-            className="ring-focus text-[10px] uppercase tracking-wider text-cyan-300 hover:text-cyan-200"
-          >
-            {expanded ? 'Hide detail' : 'Details'}
-          </button>
-        </div>
+        <button onClick={onToggle} className="ring-focus text-[10px] uppercase tracking-wider text-cyan-300 hover:text-cyan-200 flex-shrink-0">
+          {expanded ? 'Less' : 'More'}
+        </button>
       </div>
     </div>
   );
@@ -354,11 +430,6 @@ function ModelChip({
     sort === 'popularity' ? m.hfDownloads :
     sort === 'newest' ? undefined :
     m.intelligenceIndex ?? m.elo;
-  const scoreLabel =
-    sort === 'value' ? 'val' :
-    sort === 'popularity' ? 'dl' :
-    sort === 'newest' ? '' :
-    m.intelligenceIndex !== undefined ? 'int' : 'elo';
 
   return (
     <li>
@@ -371,12 +442,11 @@ function ModelChip({
         <span className="font-mono text-[10px] text-[var(--dim)] w-5 tabular-nums">{idx}</span>
         <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
         <span className="text-xs font-medium text-[var(--fore)] truncate flex-1">{m.name}</span>
-        <span className="hidden sm:inline text-[10px] text-[var(--dim)] truncate max-w-[7rem]">{m.provider}</span>
         {cost !== undefined && <span className="font-mono text-[10px] text-[var(--mut)]">{fmtCost(cost)}</span>}
         {sort === 'newest' && m.released && (
           <span className="font-mono text-[10px] text-[var(--dim)]">{m.released.slice(0, 10)}</span>
         )}
-        {score !== undefined && scoreLabel && (
+        {score !== undefined && (
           <span className="font-mono text-[11px] font-semibold text-cyan-200 tabular-nums">
             {sort === 'popularity' ? fmtCompact(score) : fmtNum(score)}
           </span>
@@ -393,18 +463,6 @@ function Metric({ label, value, accent }: { label: string; value: string; accent
       <span className="text-[9px] uppercase tracking-wider text-[var(--mut)]">{label}</span>
     </span>
   );
-}
-
-function uniqueProviders(models: ModelRecord[]): string[] {
-  const seen = new Set<string>();
-  const out: string[] = [];
-  for (const m of models) {
-    if (seen.has(m.provider)) continue;
-    seen.add(m.provider);
-    out.push(m.provider);
-    if (out.length >= 8) break;
-  }
-  return out;
 }
 
 function buildChart(tab: SortKey, pool: ModelRecord[]) {
@@ -436,9 +494,9 @@ function buildChart(tab: SortKey, pool: ModelRecord[]) {
         if (x === undefined || m.valueScore === undefined) return null;
         return { x: Math.max(x, 0.01), y: m.valueScore, size: quality(m) ?? 1 };
       }),
-      xLabel: 'Cost · $/1M tokens',
-      yLabel: 'Value · intelligence per $',
-      sizeLabel: 'accuracy',
+      xLabel: 'How expensive',
+      yLabel: 'Bang for buck',
+      sizeLabel: 'how smart',
       xFormat: fmtCost,
       yFormat: (v: number) => fmtNum(v, 0),
       xLog: true,
@@ -454,9 +512,9 @@ function buildChart(tab: SortKey, pool: ModelRecord[]) {
         if (!x || y === undefined) return null;
         return { x, y, size: m.mentions ?? 1 };
       }),
-      xLabel: 'Popularity · downloads',
-      yLabel: 'Quality · accuracy / Elo',
-      sizeLabel: 'mentions',
+      xLabel: 'How widely used',
+      yLabel: 'How good',
+      sizeLabel: 'buzz',
       xFormat: (v: number) => fmtCompact(v),
       yFormat: (v: number) => fmtNum(v, 0),
       xLog: true,
@@ -473,8 +531,8 @@ function buildChart(tab: SortKey, pool: ModelRecord[]) {
         if (!t || y === undefined) return null;
         return { x: t, y, size: avgCost(m) ? 1 / Math.max(avgCost(m)!, 0.05) : 1 };
       }),
-      xLabel: 'Release date',
-      yLabel: 'Quality · accuracy',
+      xLabel: 'When it launched',
+      yLabel: 'How good',
       sizeLabel: 'cheapness',
       xFormat: fmtDateTick,
       yFormat: (v: number) => fmtNum(v, 0),
@@ -483,7 +541,6 @@ function buildChart(tab: SortKey, pool: ModelRecord[]) {
     };
   }
 
-  // Leaderboard: cost vs accuracy (intelligence), bubble = coding / downloads
   return {
     points: mk(pool, m => {
       const x = avgCost(m);
@@ -491,9 +548,9 @@ function buildChart(tab: SortKey, pool: ModelRecord[]) {
       if (x === undefined || y === undefined) return null;
       return { x: Math.max(x, 0.01), y, size: m.codingIndex ?? m.hfDownloads ?? 1 };
     }),
-    xLabel: 'Cost · $/1M tokens',
-    yLabel: 'Accuracy · intelligence index',
-    sizeLabel: 'coding / reach',
+    xLabel: 'How expensive',
+    yLabel: 'How smart',
+    sizeLabel: 'coding skill',
     xFormat: fmtCost,
     yFormat: (v: number) => fmtNum(v, 0),
     xLog: true,

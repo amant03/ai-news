@@ -37,7 +37,7 @@ export default function Trending({ items, onTagClick }: TrendingProps) {
   return (
     <div className="glass rounded-2xl p-5">
       <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)] mb-4">
-        Trending Topics
+        Trending
       </h3>
       <div className="flex flex-wrap gap-2">
         {tags.map(([word, count]) => {

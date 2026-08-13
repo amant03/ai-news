@@ -57,7 +57,7 @@ export default function FilterBar({
           <input
             value={search}
             onChange={e => onSearchChange(e.target.value)}
-            placeholder="Search headlines, sources, keywords…"
+            placeholder="Search stories…"
             className="w-full pl-9 pr-9 py-2.5 rounded-xl bg-[#0a0f1c] border border-[var(--color-line)] text-sm text-[var(--fore)] placeholder:text-[var(--dim)] focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-all"
           />
           {search && (
@@ -90,7 +90,7 @@ export default function FilterBar({
       {/* Categories */}
       <div>
         <div className="no-scrollbar flex items-center gap-2 overflow-x-auto pb-1">
-          <span className="text-[10px] uppercase tracking-widest text-[var(--dim)] mr-1 flex-shrink-0 w-16">Category</span>
+          <span className="text-[10px] uppercase tracking-widest text-[var(--dim)] mr-1 flex-shrink-0 w-16">Topic</span>
           {CAT_ORDER.map(cat => {
             const count = categories.find(c => c.value === cat)?.count ?? 0;
             const color = cat === 'all' ? '#94a3b8' : CATEGORY_COLOR[cat as Category];

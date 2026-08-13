@@ -54,7 +54,7 @@ export default function SourcePanel() {
     <div className="glass rounded-2xl p-5">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)]">
-          Signal Health
+          Sources
         </h3>
         <span
           className={`flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider ${

@@ -30,9 +30,9 @@ interface ScatterChartProps {
   height?: number;
 }
 
-const VB_W = 860;
-const VB_H = 420;
-const PAD = { top: 28, right: 28, bottom: 52, left: 58 };
+const VB_W = 1100;
+const VB_H = 300;
+const PAD = { top: 22, right: 24, bottom: 44, left: 56 };
 
 function clamp(n: number, a: number, b: number) {
   return Math.max(a, Math.min(b, n));
@@ -122,7 +122,7 @@ export default function ScatterChart({
   xLog = false,
   yLog = false,
   betterCorner = 'tl',
-  height = 380,
+  height = 260,
 }: ScatterChartProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [hoverId, setHoverId] = useState<string | null>(null);
@@ -281,12 +281,12 @@ export default function ScatterChart({
           />
         )}
 
-        {layout.mapped.map((p, i) => {
+        {layout.mapped.map(p => {
           const labeled = labelSet.has(p.id);
           const active = p.id === selectedId || p.id === hoverId;
           const dim = !labeled && !active;
-          const r = dim ? Math.max(4, p.r * 0.55) : p.r;
-          const labelOnLeft = p.cx > PAD.left + plotW * 0.72;
+          const r = labeled ? 10 : dim ? 5 : 8;
+          const rank = points.findIndex(x => x.id === p.id) + 1;
           return (
             <g
               key={p.id}
@@ -294,31 +294,30 @@ export default function ScatterChart({
               onMouseEnter={() => setHoverId(p.id)}
               onMouseLeave={() => setHoverId(null)}
               onClick={() => onSelect?.(p.id)}
-              opacity={dim ? 0.38 : 1}
+              opacity={dim ? 0.35 : 1}
             >
-              <circle cx={p.cx} cy={p.cy} r={r + (active ? 5 : 0)} fill={p.color} opacity={active ? 0.18 : 0} />
+              <circle cx={p.cx} cy={p.cy} r={r + (active ? 5 : 0)} fill={p.color} opacity={active ? 0.2 : 0} />
               <circle
                 cx={p.cx}
                 cy={p.cy}
                 r={r}
                 fill={p.color}
-                fillOpacity={0.92}
+                fillOpacity={0.95}
                 stroke={active ? '#e6edf7' : 'rgba(5,7,14,0.7)'}
                 strokeWidth={active ? 2 : 1}
                 filter={labeled ? 'url(#pt-glow)' : undefined}
-                style={{ transition: 'r 160ms ease' }}
               />
-              {labeled && (
+              {labeled && rank > 0 && rank <= 10 && (
                 <text
-                  x={p.cx + (labelOnLeft ? -(r + 6) : r + 6)}
-                  y={p.cy - r - 4 + (i % 3) * 2}
-                  textAnchor={labelOnLeft ? 'end' : 'start'}
-                  fill="#e6edf7"
-                  fontSize="10"
-                  fontWeight="600"
-                  fontFamily="var(--font-instrument), sans-serif"
+                  x={p.cx}
+                  y={p.cy + 3.5}
+                  textAnchor="middle"
+                  fill="#05070e"
+                  fontSize="9"
+                  fontWeight="700"
+                  fontFamily="var(--font-plex), monospace"
                 >
-                  {p.label.length > 22 ? p.label.slice(0, 20) + '…' : p.label}
+                  {rank}
                 </text>
               )}
             </g>

@@ -40,6 +40,7 @@ export default function Home() {
   const [newItems, setNewItems] = useState<NewsItem[]>([]);
   const [onlineSources, setOnlineSources] = useState(0);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
+  const [storyPage, setStoryPage] = useState(0);
 
   const seenUrls = useRef<Set<string>>(new Set());
   const offsetRef = useRef(0);
@@ -209,6 +210,7 @@ export default function Home() {
     setSelectedCategory(category);
     setSelectedType(type);
     setNewItems([]);
+    setStoryPage(0);
   };
 
   // Client-side search filter
@@ -228,9 +230,11 @@ export default function Home() {
   }, [news, search]);
 
   const top3 = visible.slice(0, 3);
-  const hero = top3[0];
-  const heroSide = top3.slice(1);
-  const rest = visible.slice(3);
+  const rest = search.trim() ? visible : visible.slice(3);
+  const STORY_PAGE = 9;
+  const storyPages = Math.max(1, Math.ceil(rest.length / STORY_PAGE));
+  const safeStoryPage = Math.min(storyPage, storyPages - 1);
+  const pagedRest = rest.slice(safeStoryPage * STORY_PAGE, (safeStoryPage + 1) * STORY_PAGE);
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -264,7 +268,21 @@ export default function Home() {
       <Ticker items={news.slice(0, 24)} />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-        {/* New stories banner */}
+        {/* Role first — drives stories + charts */}
+        {!search.trim() && (
+          <div className="mb-5">
+            <DomainBar
+              selected={selectedDomain}
+              counts={domainCounts}
+              onChange={d => {
+                setSelectedDomain(d);
+                setNewItems([]);
+                setStoryPage(0);
+              }}
+            />
+          </div>
+        )}
+
         {newItems.length > 0 && (
           <button
             onClick={applyNew}
@@ -278,10 +296,9 @@ export default function Home() {
           </button>
         )}
 
-        {/* Category stats strip */}
         {!search.trim() && (
           <div className="surface rounded-2xl px-4 py-3 mb-6 flex items-center gap-x-5 gap-y-2 overflow-x-auto no-scrollbar">
-            <span className="text-[10px] uppercase tracking-widest text-[var(--dim)] flex-shrink-0">Feed mix</span>
+            <span className="text-[10px] uppercase tracking-widest text-[var(--dim)] flex-shrink-0">In this feed</span>
             {Object.entries(categoryCounts).map(([cat, count]) => {
               const pct = total ? Math.round((count / total) * 100) : 0;
               return (
@@ -295,51 +312,29 @@ export default function Home() {
           </div>
         )}
 
-        <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-          {/* Main column */}
-          <div className="min-w-0">
-            {/* Model Watch — the model-focused centerpiece */}
-            {!search.trim() && (
-              <div className="mb-8" id="model-watch">
-                <ModelWatch />
-              </div>
-            )}
-
-            {/* Hero */}
-            {hero && !search.trim() && (
-              <section className="space-y-5 mb-8" id="top-stories">
-                <div className="flex items-center gap-2 mb-1">
+        <div className="min-w-0">
+            {top3.length > 0 && !search.trim() && (
+              <section className="mb-8" id="top-stories">
+                <div className="flex items-center gap-2 mb-4">
                   <span className="h-px w-6 bg-cyan-400/50" />
                   <h2 className="font-display font-medium text-xs uppercase tracking-[0.25em] text-[var(--mut)]">
-                    Top Stories
+                    Top stories
                   </h2>
                 </div>
-                <div className="grid lg:grid-cols-[1.45fr_1fr] gap-5 items-stretch">
-                  <NewsCard item={hero} index={0} variant="hero" />
-                  <div className="flex flex-col gap-5">
-                    {heroSide.map((item, i) => (
-                      <NewsCard key={item.url} item={item} index={i + 1} className="flex-1" />
-                    ))}
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {top3.map((item, i) => (
+                    <NewsCard key={item.url} item={item} index={i} />
+                  ))}
                 </div>
               </section>
             )}
 
-            {/* Domain preference — business / tech / research */}
             {!search.trim() && (
-              <div className="mb-6">
-                <DomainBar
-                  selected={selectedDomain}
-                  counts={domainCounts}
-                  onChange={d => {
-                    setSelectedDomain(d);
-                    setNewItems([]);
-                  }}
-                />
+              <div className="mb-8" id="model-watch">
+                <ModelWatch audience={selectedDomain} />
               </div>
             )}
 
-            {/* Filters */}
             <div className="mb-6">
               <FilterBar
                 sources={facets.sources}
@@ -352,16 +347,18 @@ export default function Home() {
                 onSourceChange={s => resetFilters(s, selectedCategory, selectedType)}
                 onCategoryChange={c => resetFilters(selectedSource, c, selectedType)}
                 onTypeChange={t => resetFilters(selectedSource, selectedCategory, t)}
-                onSearchChange={setSearch}
+                onSearchChange={q => {
+                  setSearch(q);
+                  setStoryPage(0);
+                }}
               />
             </div>
 
-            {/* Latest */}
             <div className="flex items-center justify-between mb-4" id="latest">
               <div className="flex items-center gap-2">
                 <span className="h-px w-6 bg-violet-400/50" />
                 <h2 className="font-display font-medium text-xs uppercase tracking-[0.25em] text-[var(--mut)]">
-                  Latest Signals
+                  More stories
                 </h2>
               </div>
               <span className="font-mono text-[11px] text-[var(--dim)]">
@@ -384,62 +381,79 @@ export default function Home() {
               </div>
             ) : (
               <>
-                {rest.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {rest.map((item, i) => (
+                {pagedRest.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {pagedRest.map((item, i) => (
                       <NewsCard key={item.url} item={item} index={i} />
                     ))}
                   </div>
                 )}
-                {hero && !search.trim() && rest.length === 0 && (
+                {top3.length > 0 && !search.trim() && rest.length === 0 && (
                   <p className="text-xs text-[var(--dim)]">No more stories — the feed will grow on the next agent run.</p>
                 )}
 
-                {hasMore && !search.trim() && (
-                  <div className="mt-6 text-center">
+                {storyPages > 1 && (
+                  <div className="mt-6 flex items-center justify-center gap-2">
                     <button
-                      onClick={() => load('more')}
-                      disabled={loading}
-                      className="px-6 py-2.5 rounded-xl text-sm font-medium text-[var(--mut)] border border-[var(--color-line)] hover:text-cyan-200 hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-all disabled:opacity-50"
+                      onClick={() => setStoryPage(p => Math.max(0, p - 1))}
+                      disabled={safeStoryPage === 0}
+                      className="px-4 py-2 rounded-xl text-sm text-[var(--mut)] border border-[var(--color-line)] disabled:opacity-30 hover:text-cyan-200 hover:border-cyan-400/40"
                     >
-                      {loading ? 'Loading…' : 'Load more stories'}
+                      Prev
+                    </button>
+                    <span className="font-mono text-xs text-[var(--dim)]">
+                      {safeStoryPage + 1} / {storyPages}
+                    </span>
+                    <button
+                      onClick={async () => {
+                        const next = safeStoryPage + 1;
+                        if ((next + 1) * STORY_PAGE > rest.length && hasMore) {
+                          await load('more');
+                        }
+                        setStoryPage(next);
+                      }}
+                      disabled={safeStoryPage >= storyPages - 1 && !hasMore}
+                      className="px-4 py-2 rounded-xl text-sm text-[var(--mut)] border border-[var(--color-line)] disabled:opacity-30 hover:text-cyan-200 hover:border-cyan-400/40"
+                    >
+                      {loading ? 'Loading…' : 'Next'}
                     </button>
                   </div>
                 )}
               </>
             )}
-          </div>
 
-          {/* Sidebar */}
-          <aside className="space-y-6">
-            <AIRadar />
-            <SourcePanel />
-            <Trending items={news} onTagClick={setSearch} />
-            <div className="glass rounded-2xl p-5">
-              <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)] mb-3">
-                About
-              </h3>
-              <p className="text-xs text-[var(--mut)] leading-relaxed">
-                AI Pulse aggregates AI news automatically every 4 hours from 40+ free sources —
-                company blogs, Hacker News, Reddit, Google News, arXiv, GitHub, YouTube and X —
-                with zero paid APIs. The update loop runs as an autonomous agent on GitHub Actions.
-              </p>
-              {lastUpdated && (
-                <div className="mt-4 pt-3 border-t border-[var(--color-line)]">
-                  <div className="text-[10px] text-[var(--dim)] uppercase tracking-wider">feed snapshot</div>
-                  <div className="font-mono text-xs text-cyan-300">
-                    {total} stories · {lastUpdated.toLocaleString()}
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
+              <Trending items={news} onTagClick={setSearch} />
+              <SourcePanel />
+              <div className="glass rounded-2xl p-5">
+                <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)] mb-3">
+                  About
+                </h3>
+                <p className="text-xs text-[var(--mut)] leading-relaxed">
+                  AI Pulse is a free, always-on feed of AI news and model rankings. We collect stories
+                  every 4 hours from 40+ sources — company blogs, Hacker News, Reddit, Google News,
+                  arXiv, GitHub, YouTube and X — so you can catch up in minutes, whether you are new
+                  to AI or already building with it.
+                </p>
+                {lastUpdated && (
+                  <div className="mt-4 pt-3 border-t border-[var(--color-line)]">
+                    <div className="text-[10px] text-[var(--dim)] uppercase tracking-wider">feed snapshot</div>
+                    <div className="font-mono text-xs text-cyan-300">
+                      {total} stories · {lastUpdated.toLocaleString()}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </aside>
-        </div>
+            <div className="mt-6">
+              <AIRadar />
+            </div>
+          </div>
       </main>
 
       <footer className="border-t border-[var(--color-line)] mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--dim)]">
-          <span className="font-mono">AI PULSE // autonomous news feed</span>
+          <span className="font-mono">AI Pulse — news anyone can follow</span>
           <span className="flex items-center gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400/70" />
             {onlineSources} of {facets.sources.length || 40}+ channels online

@@ -16,7 +16,6 @@ const MOOD_META: Record<string, { label: string; color: string; icon: string }> 
 
 export default function AIRadar() {
   const [data, setData] = useState<SentimentReport | null>(null);
-  const [showAll, setShowAll] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -35,12 +34,12 @@ export default function AIRadar() {
   }, []);
 
   const ranked = data?.models || [];
-  const visible = showAll ? ranked : ranked.slice(0, 10);
+  const visible = ranked.slice(0, 10);
   const selected = ranked.find(m => m.id === selectedId) || visible[0];
 
   const points = useMemo(
     () =>
-      ranked.slice(0, showAll ? 40 : 10).map(m => ({
+      ranked.slice(0, 10).map(m => ({
         id: m.id,
         label: m.name,
         sublabel: m.provider,
@@ -49,7 +48,7 @@ export default function AIRadar() {
         y: m.sentiment.score,
         size: Math.max(m.hot, 1),
       })),
-    [ranked, showAll]
+    [ranked]
   );
 
   if (!data) {
@@ -86,8 +85,8 @@ export default function AIRadar() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
             </span>
             <div>
-              <h2 className="font-display font-bold text-lg tracking-tight gradient-text">AI MOOD RADAR</h2>
-              <p className="text-[11px] text-[var(--mut)]">Mentions vs sentiment · top models</p>
+              <h2 className="font-display font-bold text-lg tracking-tight gradient-text">AI MOOD</h2>
+              <p className="text-[11px] text-[var(--mut)]">Are people excited or worried?</p>
             </div>
           </div>
         </div>
@@ -180,7 +179,7 @@ export default function AIRadar() {
               />
             </div>
             {selected && (
-              <div className="rounded-xl border border-[var(--color-line)] bg-[#0a0f1c]/60 p-3 mb-3">
+              <div className="rounded-xl border border-[var(--color-line)] bg-[#0a0f1c]/60 p-3 mb-4">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: selected.color }} />
@@ -201,14 +200,6 @@ export default function AIRadar() {
                   </span>
                 </div>
               </div>
-            )}
-            {ranked.length > 10 && (
-              <button
-                onClick={() => setShowAll(v => !v)}
-                className="ring-focus mb-4 w-full rounded-lg border border-[var(--color-line)] py-1.5 text-[11px] text-[var(--mut)] hover:text-cyan-200 hover:border-cyan-400/40"
-              >
-                {showAll ? 'Show top 10' : `See all ${ranked.length} models`}
-              </button>
             )}
           </>
         )}
