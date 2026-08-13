@@ -377,12 +377,13 @@ export async function scrapeFreellm(): Promise<ModelRecord[]> {
     const seen = new Set<string>();
     for (const line of lines) {
       const t = line.trim();
-      if (!t || t.length > 90) continue;
-      // Provider entry: "[api-airforce Open A Api.Airforce Operational FREE ...](url)"
-      const m = t.match(/^\[([a-z0-9][a-z0-9._-]*)(?:\s|])/);
+      if (!t || !t.startsWith('[')) continue;
+      // Provider entry: "[api-airforce Open ...](https://freellm.sh/x/api-airforce) ..."
+      const m = t.match(/^\[([a-z0-9][a-z0-9._-]*(?:\s+open)?)\s*[!\]]/i);
       if (!m) continue;
-      const name = m[1];
-      if (seen.has(name)) continue;
+      const name = m[1].toLowerCase().replace(/\s+open$/i, '');
+      if (!name || seen.has(name)) continue;
+      if (/(^|\b)(home|freellm|by@0x_kaize|sort|filters|kind|collection|website|access|card|required|data|training|free|forever|tier|limited|signup|phone|credits|type|audio|code|embedding|image|text|status|overview|login|log)\b/i.test(name)) continue;
       seen.add(name);
       out.push({
         id: `freellm/${name}`,

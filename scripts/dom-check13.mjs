@@ -1,0 +1,12 @@
+import puppeteer from 'puppeteer';
+const b = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
+const p = await b.newPage();
+await p.goto('http://localhost:3000', { waitUntil: 'networkidle2', timeout: 45000 });
+await new Promise(r => setTimeout(r, 4000));
+const txt = await p.evaluate(() => document.body.innerText);
+const idx = txt.indexOf('SIGNAL HEALTH');
+console.log('signal health panel:');
+console.log(txt.slice(idx, idx + 300).split('\n').filter(l => l.trim()).slice(0, 18).join('\n'));
+console.log('---');
+console.log('has twitter channel:', /twitter/i.test(txt.slice(idx, idx + 800)));
+await b.close();

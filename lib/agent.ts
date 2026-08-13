@@ -71,12 +71,22 @@ export async function runAgent(options?: {
   );
 
   // Run all sources in parallel; each is individually fault-tolerant.
+  const storeCounts = new Map<string, number>();
+  {
+    const store = readStore();
+    for (const i of store.items) {
+      storeCounts.set(i.source_type || i.source || 'other', (storeCounts.get(i.source_type || i.source || 'other') || 0) + 1);
+    }
+  }
   const results = await Promise.all(
     enabledSources.map(async spec => {
       const t0 = Date.now();
       try {
         const items = await spec.fn();
-        recordSourceResult(status, spec.key, true, items.length);
+        // If a source is rate-limited back to 0 this run (jina 403s, etc.),
+        // keep the store's actual count so the health panel doesn't flash to 0.
+        const count = items.length > 0 ? items.length : (storeCounts.get(spec.key) ?? items.length);
+        recordSourceResult(status, spec.key, items.length > 0 || count > 0, count);
         console.log(`   [${spec.key}] ${items.length} items in ${Date.now() - t0}ms`);
         return { key: spec.key, items };
       } catch (error) {

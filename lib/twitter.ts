@@ -143,6 +143,8 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
     console.log(`   No JINA_API_KEY — limiting X scrape to ${activeAccounts.length} core accounts (${(JINA_SPACING_MS / 1000)}s spacing)`);
   }
 
+  let consecutiveRateLimit = 0;
+
   for (const account of activeAccounts) {
     let items: NewsItem[] = [];
 
@@ -150,6 +152,19 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
     // no API key required for light use; set JINA_API_KEY for higher limits).
     if (shouldScrapeX()) {
       items = await fetchViaJinaReader(account);
+      if (items.length === 0 && lastJinaRateLimited) {
+        consecutiveRateLimit++;
+        lastJinaRateLimited = false;
+      }
+    }
+
+    // jina free tier trips into a hard 403 wall for a while once the budget is
+    // spent (no login). If we see several consecutive 403s, the puppeteer
+    // fallback for every remaining account would stall the whole agent for
+    // minutes — bail out instead and keep whatever we already collected.
+    if (items.length === 0 && consecutiveRateLimit >= 3) {
+      console.log(`   ⏹ Skipping remaining X accounts — jina is rate-limited (${consecutiveRateLimit} consecutive 403s)`);
+      break;
     }
 
     // Nitter RSS when available (fast, structured).
@@ -166,6 +181,7 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
     if (items.length === 0) {
       console.log(`  ⚠ No tweets for @${account.username}`);
     } else {
+      consecutiveRateLimit = 0;
       const kept = sortForModelSignal(items).slice(0, PER_ACCOUNT_CAP);
       console.log(`  ✓ @${account.username}: ${kept.length} tweets`);
       allItems.push(...kept);
@@ -178,6 +194,8 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
   console.log(`  📊 Total tweets fetched: ${allItems.length}`);
   return allItems;
 }
+
+let lastJinaRateLimited = false;
 
 async function scrapeWithPuppeteer(account: TwitterAccount): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
@@ -362,6 +380,11 @@ async function fetchViaJinaReader(account: TwitterAccount): Promise<NewsItem[]> 
       break;
     }
     if (!res) return items;
+    if (res.status === 403) {
+      lastJinaRateLimited = true;
+      console.log(`  ✗ jina @${account.username}: HTTP 403 (rate limit)`);
+      return items;
+    }
     if (!res.ok) {
       console.log(`  ✗ jina @${account.username}: HTTP ${res.status}`);
       return items;
