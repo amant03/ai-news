@@ -1,5 +1,6 @@
 import { NewsItem, CATEGORY_COLOR, CATEGORY_LABEL } from '@/lib/types';
 import { timeAgo, formatNumber, typeIcon, typeLabel } from '@/lib/format';
+import CoverImage from './CoverImage';
 
 interface NewsCardProps {
   item: NewsItem;
@@ -13,45 +14,17 @@ export default function NewsCard({ item, index = 0, variant = 'grid' }: NewsCard
 
   return (
     <article
-      className={`glass rounded-2xl overflow-hidden panel-hover animate-fade-up ${
-        isHero ? 'flex flex-col' : 'flex flex-col'
-      }`}
+      className={`glass rounded-2xl overflow-hidden panel-hover animate-fade-up flex flex-col`}
       style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
     >
       {/* Category accent strip */}
       <div className="h-0.5 w-full flex-shrink-0" style={{ backgroundColor: color, opacity: 0.55 }} />
 
-      {/* Image / gradient header for hero */}
-      {isHero && (
-        <div
-          className="relative h-40 sm:h-52 overflow-hidden"
-          style={{ background: `linear-gradient(135deg, ${color}2e, transparent 60%)` }}
-        >
-          {item.image_url ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={item.image_url}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-40"
-              loading="lazy"
-              onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
-            />
-          ) : (
-            <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `radial-gradient(circle at 20% 30%, ${color}44, transparent 50%), radial-gradient(circle at 80% 70%, ${color}33, transparent 50%)` }} />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent" />
-          <div className="absolute bottom-3 left-4 flex items-center gap-2">
-            <span
-              className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
-              style={{ backgroundColor: `${color}22`, color }}
-            >
-              {CATEGORY_LABEL[item.category] || item.category}
-            </span>
-            <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--dim)]">
-              {timeAgo(item.published_at)}
-            </span>
-          </div>
-        </div>
+      {/* Cover: real image or generated gradient — always vivid */}
+      {isHero ? (
+        <CoverImage item={item} variant="hero" className="h-40 sm:h-52 flex-shrink-0" />
+      ) : (
+        <CoverImage item={item} variant="thumb" className="h-32 flex-shrink-0" />
       )}
 
       <div className="p-4 sm:p-5 flex flex-col flex-1">

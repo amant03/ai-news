@@ -1,6 +1,7 @@
 import { NewsItem } from './types';
 import { initDB, upsertNewsItems, pruneStore, readStore } from './db';
 import { loadSummaryCache, saveSummaryCache, enrichItem } from './ollama';
+import { classifyDomain } from './categorize';
 import { AgentStatus, readStatus, writeStatus, recordSourceResult } from './status';
 import { fetchRSSFeeds } from './rss';
 import { fetchGoogleNews } from './google-news';
@@ -114,6 +115,11 @@ export async function runAgent(options?: {
   } else {
     // Keyword categorization is already applied per-source; nothing more to do.
   }
+
+  // Every item gets an editorial domain (keyword-based, no LLM needed).
+  for (const item of allItems) {
+    item.domain = classifyDomain(item.title, item.content || item.summary);
+  }
   console.log(`   Enriched ${enriched} items`);
 
   // Persist
@@ -135,6 +141,15 @@ export async function runAgent(options?: {
     } catch (error) {
       console.log(`   KB regen skipped: ${error instanceof Error ? error.message : error}`);
     }
+  }
+
+  // Refresh the model database (OpenRouter + HF + X buzz).
+  try {
+    const { refreshModelDatabase } = await import('./model-registry');
+    const db = await refreshModelDatabase(store.items);
+    console.log(`   Model DB refreshed: ${db.counts.total} models`);
+  } catch (error) {
+    console.log(`   Model DB refresh skipped: ${error instanceof Error ? error.message : error}`);
   }
 
   const durationMs = Date.now() - start;

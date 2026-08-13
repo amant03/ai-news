@@ -12,10 +12,21 @@ interface HNItem {
   story_text?: string;
 }
 
-const QUERIES = ['AI', 'LLM', 'GPT', 'AGI', 'machine learning', 'open source AI'];
+const QUERIES = [
+  'AI',
+  'LLM',
+  'GPT',
+  'AGI',
+  'Claude',
+  'Gemini',
+  'machine learning',
+  'open source AI',
+  'neural network',
+  'GPU',
+];
 
-const MIN_POINTS = 30;
-const MAX_AGE_MS = 48 * 60 * 60 * 1000;
+const MIN_POINTS = 25;
+const MAX_AGE_MS = 72 * 60 * 60 * 1000;
 
 export async function fetchHackerNews(): Promise<NewsItem[]> {
   const allItems: NewsItem[] = [];

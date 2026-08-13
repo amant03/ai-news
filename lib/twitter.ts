@@ -31,6 +31,9 @@ const ACCOUNTS: TwitterAccount[] = [
   { username: 'karpathy', source: 'other', displayName: 'Andrej Karpathy', executive: true },
   { username: 'AravindSrinivas', source: 'perplexity', displayName: 'Aravind Srinivas', executive: true },
   { username: 'Jim_Fan', source: 'other', displayName: 'Jim Fan', executive: true },
+  { username: 'simonw', source: 'other', displayName: 'Simon Willison', executive: true },
+  { username: 'noamshazeer', source: 'other', displayName: 'Noam Shazeer', executive: true },
+  { username: 'EMostaque', source: 'stability', displayName: 'Emad Mostaque', executive: true },
 
   // Model providers — official accounts
   { username: 'OpenAI', source: 'openai', displayName: 'OpenAI' },
@@ -53,12 +56,27 @@ const ACCOUNTS: TwitterAccount[] = [
   { username: 'ollama', source: 'ollama', displayName: 'Ollama' },
   { username: 'databricks', source: 'databricks', displayName: 'Databricks' },
   { username: 'Cerebras', source: 'cerebras', displayName: 'Cerebras' },
+  { username: 'stabilityai', source: 'stability', displayName: 'Stability AI' },
+  { username: 'Replicate', source: 'replicate', displayName: 'Replicate' },
+  { username: 'EleutherAI', source: 'eleuther', displayName: 'EleutherAI' },
+  { username: 'NousResearch', source: 'nous', displayName: 'Nous Research' },
+  { username: 'phind', source: 'phind', displayName: 'Phind' },
+  { username: 'zhipu_ai', source: 'zhipu', displayName: 'Zhipu AI' },
+  { username: 'MoonshotAI', source: 'moonshot', displayName: 'Moonshot AI' },
+  { username: 'MiniMax_AI', source: 'minimax', displayName: 'MiniMax' },
+  { username: 'RWKV', source: 'rwkv', displayName: 'RWKV' },
+  { username: '01AI_org', source: '01ai', displayName: '01.AI' },
+  { username: 'LiquidAI_', source: 'liquid', displayName: 'Liquid AI' },
+  { username: 'cohereforai', source: 'cohere', displayName: 'Cohere For AI' },
 
   // Benchmark / evaluation trackers — the "who's on top" signal
   { username: 'lmarena_ai', source: 'lmarena', displayName: 'LMArena' },
   { username: 'ArtificialAnlys', source: 'artificial-analysis', displayName: 'Artificial Analysis' },
   { username: 'SWEbench', source: 'swebench', displayName: 'SWE-bench' },
   { username: 'LiveBench_org', source: 'livebench', displayName: 'LiveBench' },
+  { username: 'open_nnet', source: 'nnet', displayName: 'NN-ETF' },
+  { username: 'sasha_belitsky', source: 'other', displayName: 'Sasha Belitsky' },
+  { username: 'abacaj', source: 'other', displayName: 'Alex Baca' },
 ];
 
 const NITTER_INSTANCES = [
@@ -66,12 +84,20 @@ const NITTER_INSTANCES = [
   'https://nitter.poast.org',
   'https://nitter.privacydev.net',
   'https://nitter.space',
+  'https://nitter.kavin.rocks',
+  'https://nitter.1d4.us',
+  'https://nitter.nicfab.it',
 ];
 
 const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 // Hard cap so a noisy account can't flood the feed.
 const PER_ACCOUNT_CAP = 6;
-const TOTAL_CAP = 220;
+const TOTAL_CAP = 260;
+// jina free tier (no API key) rate-limits to ~20 rpm per IP. Hammering 46
+// accounts in a tight loop trips 403s and the whole source returns 0 tweets.
+// Without a key we scrape only the highest-signal subset with generous spacing.
+const JINA_FREE_TIER_ACCOUNTS = 20;
+const JINA_SPACING_MS = 3500;
 
 function shouldScrapeX(): boolean {
   if (process.env.DISABLE_X_SCRAPING === 'true') return false;
@@ -80,35 +106,72 @@ function shouldScrapeX(): boolean {
   return true;
 }
 
+// Model-release / benchmark keywords. When an account posts a lot, we keep
+// the model-focused tweets and drop the chit-chat.
+const MODEL_SIGNAL = /\b(model|gpt|claude|gemini|grok|llama|mistral|deepseek|qwen|sonnet|opus|haiku|release|launch|benchmark|leaderboard|fine[- ]tun|open[- ]source|weights|context|agent|reasoning|paper|new|upgrade|update|now|today)\b/i;
+
+/** Junk that jina renders from profile rails / dead pages — never real tweets. */
+const NOISE_RE =
+  /profile banner|this page doesn'?t exist|try searching for something else|^image\s*\d*:?|^!\s*image\s*\d+\s*:|^user avatar|^\d{1,2}:\d{2}\s|^replying to\b|^@[a-z0-9_]+$|account may be private|only available on the app|unable to show this account|^\d+\.\s+.+?https?:\/\/x\.com\//i;
+
+export function isNoiseTweet(title: string): boolean {
+  if (!title || title.length < 8) return true;
+  if (NOISE_RE.test(title)) return true;
+  if (/^https?:\/\//.test(title)) return true;
+  const alpha = title.replace(/[^a-zA-Z]/g, '').length;
+  return alpha < title.length * 0.3;
+}
+
+function sortForModelSignal(items: NewsItem[]): NewsItem[] {
+  return items.sort((a, b) => {
+    const sa = MODEL_SIGNAL.test(a.title) ? 1 : 0;
+    const sb = MODEL_SIGNAL.test(b.title) ? 1 : 0;
+    if (sa !== sb) return sb - sa;
+    return 0;
+  });
+}
+
 export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
   console.log('  Fetching X/Twitter timelines (best-effort)...');
   const allItems: NewsItem[] = [];
 
-  for (const account of ACCOUNTS) {
+  // Respect jina's free-tier rate limit: with no API key, scrape a focused
+  // subset of the highest-signal accounts instead of all 46 (which 403s out).
+  const hasJinaKey = !!process.env.JINA_API_KEY;
+  const activeAccounts = hasJinaKey ? ACCOUNTS : ACCOUNTS.slice(0, JINA_FREE_TIER_ACCOUNTS);
+  if (!hasJinaKey) {
+    console.log(`   No JINA_API_KEY — limiting X scrape to ${activeAccounts.length} core accounts (${(JINA_SPACING_MS / 1000)}s spacing)`);
+  }
+
+  for (const account of activeAccounts) {
     let items: NewsItem[] = [];
 
-    // Nitter RSS is the fastest, most reliable path (no login wall).
+    // jina.ai reader is the most reliable no-login path (renders the page,
+    // no API key required for light use; set JINA_API_KEY for higher limits).
     if (shouldScrapeX()) {
+      items = await fetchViaJinaReader(account);
+    }
+
+    // Nitter RSS when available (fast, structured).
+    if (items.length === 0 && shouldScrapeX()) {
       items = await fetchViaNitter(account);
     }
 
+    // Last resort: headless browser (often hits the login wall — degrades gracefully).
     if (items.length === 0 && shouldScrapeX()) {
       console.log(`  Trying Puppeteer for @${account.username}...`);
       items = await scrapeWithPuppeteer(account);
     }
 
     if (items.length === 0) {
-      items = await fetchViaGuestApi(account);
-    }
-
-    if (items.length === 0) {
       console.log(`  ⚠ No tweets for @${account.username}`);
     } else {
-      console.log(`  ✓ @${account.username}: ${items.length} tweets`);
-      allItems.push(...items.slice(0, PER_ACCOUNT_CAP));
+      const kept = sortForModelSignal(items).slice(0, PER_ACCOUNT_CAP);
+      console.log(`  ✓ @${account.username}: ${kept.length} tweets`);
+      allItems.push(...kept);
     }
 
-    await new Promise(r => setTimeout(r, 600));
+    await new Promise(r => setTimeout(r, JINA_SPACING_MS));
     if (allItems.length >= TOTAL_CAP) break;
   }
 
@@ -166,6 +229,7 @@ async function scrapeWithPuppeteer(account: TwitterAccount): Promise<NewsItem[]>
 
     for (const t of tweets) {
       if (!t.text) continue;
+      if (isNoiseTweet(t.text)) continue;
       const publishedAt = t.date || new Date().toISOString();
       if (Date.now() - new Date(publishedAt).getTime() > MAX_AGE_MS) continue;
 
@@ -238,6 +302,7 @@ async function fetchViaNitter(account: TwitterAccount): Promise<NewsItem[]> {
         if (Date.now() - tweetDate.getTime() > MAX_AGE_MS) continue;
 
         const clean = title.replace(/<[^>]*>/g, '').trim();
+        if (isNoiseTweet(clean)) continue;
         const media = entry.match(/<media:content[^>]*url=["']([^"']+)["']/i) || entry.match(/<enclosure[^>]*url=["']([^"']+)["']/i);
         const mediaUrl = media?.[1]?.replace(/&amp;/g, '&');
         items.push({
@@ -265,41 +330,139 @@ async function fetchViaNitter(account: TwitterAccount): Promise<NewsItem[]> {
   return items;
 }
 
-async function fetchViaGuestApi(account: TwitterAccount): Promise<NewsItem[]> {
+async function fetchViaJinaReader(account: TwitterAccount): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
   try {
-    const res = await fetch(`https://r.jina.ai/https://x.com/${account.username}`, {
-      signal: AbortSignal.timeout(8000),
-    });
-    if (!res.ok) return items;
+    const headers: Record<string, string> = {
+      'X-Return-Format': 'markdown',
+      'X-Timeout': '15',
+    };
+    const apiKey = process.env.JINA_API_KEY;
+    if (apiKey) headers['Authorization'] = `Bearer ${apiKey}`;
+
+    // jina free tier rate-limits hard on x.com (403). One retry with backoff,
+    // then move on — stacking retries just burns the rate-limit budget.
+    let res: Response | null = null;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        res = await fetch(`https://r.jina.ai/https://x.com/${account.username}`, {
+          signal: AbortSignal.timeout(20000),
+          headers,
+        });
+      } catch (error) {
+        if (attempt === 1) throw error;
+        await new Promise(r => setTimeout(r, 4000));
+        continue;
+      }
+      if (res.status === 403 && attempt === 0) {
+        console.log(`  ⏳ jina @${account.username}: 403, one retry in 6s...`);
+        await new Promise(r => setTimeout(r, 6000));
+        continue;
+      }
+      break;
+    }
+    if (!res) return items;
+    if (!res.ok) {
+      console.log(`  ✗ jina @${account.username}: HTTP ${res.status}`);
+      return items;
+    }
     const text = await res.text();
-    const lines = text
-      .split('\n')
-      .filter(
-        l =>
-          l.trim().length > 20 &&
-          !/^(Title|URL|URL Source|Author|Published|Updated|Published Time|Updated Time|Note|Source)\s*:/.test(l)
-      );
-    for (const line of lines.slice(0, 10)) {
-      const clean = line.replace(/^###?\s*/, '').replace(/[\[\]()#@]/g, '').trim();
-      if (clean.length < 20) continue;
+
+    // jina flattens each tweet onto one line like:
+    //   * [avatar](url) [Name](url) [@handle](url) [23h](status/123)  TEXT  [img](...) 1.2K 45 ...
+    // A tweet can also span lines inside markdown. We split the whole document
+    // on status anchors [date](x.com/<handle>/status/<id>), then attribute each
+    // following segment (minus profile plumbing) as that tweet's text.
+    const anchorRe = /\[([^\]]+)\]\(https:\/\/x\.com\/[A-Za-z0-9_]+\/status\/(\d+)\)/g;
+    const matches: Array<{ dateText: string; id: string; start: number; end: number }> = [];
+    let m: RegExpExecArray | null;
+    while ((m = anchorRe.exec(text)) !== null) {
+      matches.push({ dateText: m[1], id: m[2], start: m.index, end: anchorRe.lastIndex });
+    }
+
+    const LOGIN_RE = /log in or sign up|continue with phone|see what's happening/i;
+    const blocks: Array<{ id: string; dateText: string; text: string; img?: string }> = [];
+    for (let i = 0; i < matches.length; i++) {
+      const cur = matches[i];
+      const next = matches[i + 1];
+      const segment = text.slice(cur.end, next ? next.start : text.length);
+
+      // Cut everything after the login-wall marker (profile footer).
+      const wall = segment.search(LOGIN_RE);
+      const chunk = (wall >= 0 ? segment.slice(0, wall) : segment).trim();
+      if (!chunk) continue;
+
+      const img = chunk.match(/!\[[^\]]*\]\(([^)]+)\)/);
+      let cleaned = chunk
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+        .replace(/\[[^\]]*\]\([^)]*\)/g, ' ')
+        .replace(/[#*_>|]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      // Strip trailing engagement numbers ("1.2K 45 908 78K") and any residue
+      // handle that jina leaves before the next tweet ("@SpaceXAI").
+      cleaned = cleaned.replace(/(?:\s+@?[A-Za-z0-9_.]{1,24})?\s+(\d+[.,]?\d*[KkMm]?)+\s*$/, '').trim();
+      cleaned = cleaned.replace(/^\s*@[A-Za-z0-9_]+\s+/, '').trim();
+
+      if (cleaned.length < 15) continue;
+      if (isNoiseTweet(cleaned)) continue;
+
+      blocks.push({
+        id: cur.id,
+        dateText: cur.dateText,
+        text: cleaned,
+        img: img?.[1] && /\.(jpe?g|png|webp|gif|avif)/i.test(img[1]) ? img[1] : undefined,
+      });
+      if (blocks.length >= 12) break;
+    }
+
+    for (const b of blocks) {
+      const publishedAt = b.dateText ? dateTextToIso(b.dateText) : new Date().toISOString();
+      if (Date.now() - new Date(publishedAt).getTime() > MAX_AGE_MS) continue;
+      const clean = b.text.length > 150 ? b.text.slice(0, 147) + '...' : b.text;
       items.push({
         source: account.source,
         source_label: account.displayName,
         source_type: 'twitter',
-        title: clean.length > 150 ? clean.slice(0, 147) + '...' : clean,
-        summary: clean,
-        content: clean,
-        url: `https://x.com/${account.username}`,
+        title: clean,
+        summary: b.text,
+        content: b.text,
+        url: `https://x.com/${account.username}/status/${b.id}`,
         author: account.displayName,
         category: categorizeContent(clean, ''),
-        published_at: new Date().toISOString(),
+        published_at: publishedAt,
         source_detail: account.executive ? 'X · Founder' : 'X',
+        image_url: b.img,
         tweet_metrics: { likeCount: 0, retweetCount: 0, replyCount: 0, viewCount: 0 },
       });
     }
     return items;
-  } catch {
+  } catch (error) {
+    console.log(`  ✗ jina @${account.username}: ${error instanceof Error ? error.message : 'error'}`);
     return items;
   }
+}
+
+/**
+ * X shows relative dates in the markdown ("23h", "25m", "3d", "just now")
+ * or absolute ("Aug 10"). Convert to ISO.
+ */
+function dateTextToIso(dt: string): string {
+  const d = dt.trim().toLowerCase();
+  const now = Date.now();
+  const rel = d.match(/^(\d+)\s*(s|m|h|d)$/);
+  if (rel) {
+    const n = parseInt(rel[1], 10);
+    const unit = rel[2];
+    const ms = unit === 's' ? n * 1000 : unit === 'm' ? n * 60_000 : unit === 'h' ? n * 3_600_000 : n * 86_400_000;
+    return new Date(now - ms).toISOString();
+  }
+  if (/just now/.test(d)) return new Date().toISOString();
+  // "Aug 10" absolute — assume current year, roll back if it's in the future.
+  const year = new Date().getFullYear();
+  const parsed = new Date(`${dt}, ${year}`);
+  if (isNaN(parsed.getTime())) return new Date().toISOString();
+  if (parsed.getTime() > now) parsed.setFullYear(year - 1);
+  return parsed.toISOString();
 }

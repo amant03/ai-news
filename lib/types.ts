@@ -27,6 +27,7 @@ export interface NewsItem {
   url: string;
   author: string;
   category: Category;
+  domain?: Domain;
   published_at: string;
   created_at?: string;
   source_detail?: string;
@@ -37,6 +38,19 @@ export interface NewsItem {
 }
 
 export type Category = 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other';
+
+/**
+ * Editorial domain / vertical. Users can browse the whole feed ("all") or
+ * focus on the business side, the tech side, or research-specific news.
+ */
+export type Domain = 'business' | 'tech' | 'research' | 'general';
+
+export const DOMAIN_LABEL: Record<Domain, string> = {
+  business: 'Business',
+  tech: 'Tech',
+  research: 'Research',
+  general: 'News',
+};
 
 export type SourceFilter =
   | 'openai'

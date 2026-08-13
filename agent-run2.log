@@ -1,0 +1,180 @@
+
+> ai-news@0.2.0 agent:kb
+> npx tsx lib/run-agent.ts --kb
+
+🔄 Starting AI news agent...
+   Time: 2026-08-13T15:05:44.480Z
+   Environment: local
+  Fetching web: AI News...
+  Fetching X/Twitter timelines (best-effort)...
+  ✗ RSS OpenAI failed: Status code 403
+  ✗ RSS Perplexity failed: Status code 403
+  ✗ RSS Meta AI failed: Status code 400
+  ✗ RSS Anthropic failed: Status code 404
+  ✓ YouTube OpenAI: 15 items
+  ✓ YouTube Lex Fridman: 15 items
+  ✗ RSS Mistral failed: Status code 404
+  ✓ arXiv cs.AI: 25 entries
+  ✓ YouTube Two Minute Papers: 15 items
+  ✗ RSS NVIDIA AI failed: Status code 404
+  ✗ RSS The Next Web AI failed: Status code 404
+  ✓ arXiv cs.LG: 19 entries
+  ✗ GitHub search: HTTP 422 (rate limit may be hit)
+  ✓ YouTube AssemblyAI: 15 items
+  ✗ RSS Microsoft AI failed: Status code 410
+  ✓ arXiv cs.CL: 19 entries
+   [arxiv] 63 items in 1587ms
+  ✓ HN "AI": 30 raw hits
+  ✓ YouTube Google DeepMind: 15 items
+    ✗ AI News: HTTP 403
+  Fetching web: AI Weekly...
+  ✓ YouTube Yannic Kilcher: 15 items
+   [youtube] 19 items in 1790ms
+  ✗ RSS LangChain failed: Invalid character in entity name
+Line: 0
+Column: 2327
+Char: &
+  ✓ Google News "artificial intelligence": 100 items
+  ✓ GitHub org events: 0 items
+   [github] 0 items in 2278ms
+  ✓ Reddit r/MachineLearning: 25 items
+  ✓ Google News ""large language model"": 44 items
+  ✓ HN "LLM": 30 raw hits
+  ✗ Reddit r/LocalLLaMA failed: Status code 429
+    ✓ AI Weekly: 15 items
+  Fetching web: TechPP AI...
+    ✗ TechPP AI: HTTP 403
+  Fetching web: ScienceDaily AI...
+  ✓ Google News "AI funding": 100 items
+  ✗ RSS Cohere failed: Feed not recognized as RSS 1 or 2.
+  ✓ RSS Google DeepMind: 12 items
+  ✓ RSS Hugging Face: 12 items
+  ✓ RSS Google AI Blog: 12 items
+  ✓ RSS PostHog: 12 items
+  ✓ RSS Together AI: 12 items
+  ✓ RSS TechCrunch AI: 12 items
+  ✓ RSS The Verge AI: 10 items
+  ✓ RSS VentureBeat AI: 7 items
+  ✓ RSS Wired AI: 10 items
+  ✓ RSS MIT Tech Review: 10 items
+  ✓ RSS Ars Technica AI: 12 items
+  ✓ RSS CNBC AI: 12 items
+   [rss] 133 items in 3481ms
+  ✗ Reddit r/OpenAI failed: Status code 429
+  ✓ HN "GPT": 30 raw hits
+  ✓ Google News "AI model release": 56 items
+  ✗ Reddit r/artificial failed: Status code 429
+  Trying Puppeteer for @elonmusk...
+  ✓ HN "AGI": 30 raw hits
+  ✓ Google News "AI regulation policy": 62 items
+    ✓ ScienceDaily AI: 15 items
+  Fetching web: VentureBeat AI...
+  ✓ HN "machine learning": 30 raw hits
+  ✓ Google News "OpenAI OR Anthropic OR Google DeepMind OR Meta AI": 100 items
+   [google-news] 87 items in 4843ms
+    ✓ VentureBeat AI: 15 items
+  Fetching web: The Next Web AI...
+  ✓ Reddit r/StableDiffusion: 25 items
+   [reddit] 21 items in 5429ms
+  ✓ HN "open source AI": 30 raw hits
+   [hackernews] 1 items in 5631ms
+    ✓ The Next Web AI: 9 items
+   [web] 54 items in 5691ms
+  ✓ @elonmusk: 10 tweets
+  Trying Puppeteer for @sama...
+  ✓ @sama: 9 tweets
+  Trying Puppeteer for @DarioAmodei...
+  ✓ @DarioAmodei: 10 tweets
+  Trying Puppeteer for @demishassabis...
+  ⚠ No tweets for @demishassabis
+  Trying Puppeteer for @ylecun...
+  ✓ @ylecun: 10 tweets
+  Trying Puppeteer for @fchollet...
+  ✓ @fchollet: 10 tweets
+  Trying Puppeteer for @AndrewYNg...
+  ⚠ No tweets for @AndrewYNg
+  Trying Puppeteer for @sundarpichai...
+  ✓ @sundarpichai: 9 tweets
+  Trying Puppeteer for @gdb...
+  ✓ @gdb: 10 tweets
+  Trying Puppeteer for @miramurati...
+  ✓ @miramurati: 10 tweets
+  Trying Puppeteer for @IOEN_C...
+  ✓ @IOEN_C: 10 tweets
+  Trying Puppeteer for @karpathy...
+  ✓ @karpathy: 7 tweets
+  Trying Puppeteer for @AravindSrinivas...
+  ✓ @AravindSrinivas: 10 tweets
+  Trying Puppeteer for @Jim_Fan...
+  ⚠ No tweets for @Jim_Fan
+  Trying Puppeteer for @OpenAI...
+  ⚠ No tweets for @OpenAI
+  Trying Puppeteer for @AnthropicAI...
+  ✓ @AnthropicAI: 10 tweets
+  Trying Puppeteer for @GoogleDeepMind...
+  ⚠ No tweets for @GoogleDeepMind
+  Trying Puppeteer for @GoogleAI...
+  ✓ @GoogleAI: 8 tweets
+  Trying Puppeteer for @MistralAI...
+  ✓ @MistralAI: 7 tweets
+  Trying Puppeteer for @AIatMeta...
+  ✓ @AIatMeta: 10 tweets
+  Trying Puppeteer for @deepseek_ai...
+  ✓ @deepseek_ai: 8 tweets
+  Trying Puppeteer for @Alibaba_Qwen...
+  ✓ @Alibaba_Qwen: 10 tweets
+  Trying Puppeteer for @huggingface...
+  ✓ @huggingface: 10 tweets
+  Trying Puppeteer for @hf_inference...
+  ✓ @hf_inference: 10 tweets
+  Trying Puppeteer for @xai...
+  ✓ @xai: 10 tweets
+  Trying Puppeteer for @MicrosoftAI...
+  ✓ @MicrosoftAI: 10 tweets
+  Trying Puppeteer for @nvidia...
+  ✓ @nvidia: 10 tweets
+  Trying Puppeteer for @groqinc...
+  ✓ @groqinc: 10 tweets
+  Trying Puppeteer for @Perplexity_AI...
+  ✓ @Perplexity_AI: 10 tweets
+  Trying Puppeteer for @cohere...
+  ✓ @cohere: 10 tweets
+  Trying Puppeteer for @togethercompute...
+  ✓ @togethercompute: 10 tweets
+  Trying Puppeteer for @ollama...
+  ✓ @ollama: 10 tweets
+  Trying Puppeteer for @databricks...
+  ✓ @databricks: 10 tweets
+  Trying Puppeteer for @Cerebras...
+  ⚠ No tweets for @Cerebras
+  Trying Puppeteer for @lmarena_ai...
+  ✓ @lmarena_ai: 10 tweets
+  Trying Puppeteer for @ArtificialAnlys...
+  ✓ @ArtificialAnlys: 8 tweets
+  Trying Puppeteer for @SWEbench...
+  ✓ @SWEbench: 10 tweets
+  Trying Puppeteer for @LiveBench_org...
+  ✓ @LiveBench_org: 10 tweets
+  📊 Total tweets fetched: 192
+   [twitter] 192 items in 771145ms
+
+📊 Total fetched: 570 items
+🧠 Enriching with LLM (Ollama if available)...
+   Enriched 570 items
+📝 Knowledge base written to C:\projects\AI news\ai-news\AI_NEWS_KNOWLEDGE_BASE.md (500 articles)
+
+✅ Done. Inserted 77 new, 493 known, pruned 22. Total 791 items in 782.0s
+
+📋 Run summary:
+   rss          133
+   google-news  87
+   hackernews   1
+   reddit       21
+   arxiv        63
+   youtube      19
+   github       0
+   web          54
+   twitter      192
+   INSERTED     77
+   TOTAL        791
+   DURATION     782.0s

@@ -4,6 +4,7 @@ import path from 'path';
 import { getNewsItems, getFacets, readStore } from '@/lib/db';
 import { sourceLabel, NewsItem } from '@/lib/types';
 import { sortByRank } from '@/lib/rank';
+import { classifyDomain } from '@/lib/categorize';
 
 // GitHub raw fallback so the deployed (serverless) app always shows the
 // freshest committed data even between Vercel deploys.
@@ -60,6 +61,7 @@ export async function GET(request: NextRequest) {
     const source = searchParams.get('source') || undefined;
     const category = searchParams.get('category') || undefined;
     const sourceType = searchParams.get('sourceType') || undefined;
+    const domain = searchParams.get('domain') || undefined;
 
     // For the serverless deployment, read from the fetched snapshot.
     if (process.env.VERCEL === '1') {
@@ -82,6 +84,9 @@ export async function GET(request: NextRequest) {
       if (sourceType && sourceType !== 'all') {
         filtered = filtered.filter(i => i.source_type === sourceType);
       }
+      if (domain && domain !== 'all') {
+        filtered = filtered.filter(i => (i.domain || classifyDomain(i.title, i.summary || i.content)) === domain);
+      }
       const ranked = sortByRank(filtered);
 
       const total = ranked.length;
@@ -89,12 +94,15 @@ export async function GET(request: NextRequest) {
 
       const sourceMap = new Map<string, { label: string; type: string; count: number }>();
       const categoryMap = new Map<string, number>();
+      const domainMap = new Map<string, number>();
       for (const i of items) {
         const s = i.source || 'other';
         const e = sourceMap.get(s) || { label: i.source_label || s, type: i.source_type, count: 0 };
         e.count++;
         sourceMap.set(s, e);
         categoryMap.set(i.category, (categoryMap.get(i.category) || 0) + 1);
+        const d = i.domain || classifyDomain(i.title, i.summary || i.content);
+        domainMap.set(d, (domainMap.get(d) || 0) + 1);
       }
 
       return NextResponse.json({
@@ -108,6 +116,7 @@ export async function GET(request: NextRequest) {
             .map(([value, v]) => ({ value, label: sourceLabel(value), count: v.count, type: v.type }))
             .sort((a, b) => b.count - a.count),
           categories: [...categoryMap.entries()].map(([value, count]) => ({ value, label: value, count })),
+          domains: [...domainMap.entries()].map(([value, count]) => ({ value, label: value, count })),
         },
         lastUpdated: parsed.meta?.lastUpdated || null,
       });
@@ -115,7 +124,7 @@ export async function GET(request: NextRequest) {
 
     // Local / non-serverless: read the actual DB store.
     readStore();
-    const ranked = sortByRank(getNewsItems(5000, 0, source, category, sourceType));
+    const ranked = sortByRank(getNewsItems(5000, 0, source, category, sourceType, domain));
     const items = ranked.slice(offset, offset + limit);
     const total = ranked.length;
     const facets = getFacets();
@@ -130,6 +139,7 @@ export async function GET(request: NextRequest) {
       facets: {
         sources: facets.sources,
         categories: facets.categories,
+        domains: facets.domains,
       },
       lastUpdated: meta.lastUpdated || null,
     });

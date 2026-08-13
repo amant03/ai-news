@@ -1,4 +1,5 @@
 import { readStore, writeStore } from './db';
+import { classifyDomain } from './categorize';
 
 function stripHtml(input: string): string {
   // If we start mid-attribute (no leading "<"), cut everything up to the last ">".
@@ -43,6 +44,11 @@ const cleaned = store.items.map(item => {
   if (/^(Credit:|URL Source:)/.test(item.title) && item.summary.length < 60) {
     removed++;
     return null;
+  }
+
+  // Backfill editorial domain for items that predate domain classification.
+  if (!item.domain) {
+    item.domain = classifyDomain(item.title, item.summary || item.content || '');
   }
 
   return item;

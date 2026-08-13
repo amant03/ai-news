@@ -1,0 +1,137 @@
+
+> ai-news@0.2.0 agent
+> npx tsx lib/run-agent.ts
+
+🔄 Starting AI news agent...
+   Time: 2026-08-13T17:09:48.280Z
+   Environment: local
+  Fetching web: AI News...
+  Fetching X/Twitter timelines (best-effort)...
+   No JINA_API_KEY — limiting X scrape to 20 core accounts (3.5s spacing)
+  ✗ RSS OpenAI failed: Status code 403
+  ✗ RSS Anthropic failed: Status code 404
+  ✗ RSS Meta AI failed: Status code 400
+  ✗ RSS Microsoft AI failed: Status code 410
+  ✗ RSS Mistral failed: Status code 404
+  ✗ RSS Perplexity failed: Status code 403
+  ✓ YouTube OpenAI: 15 items
+  ✗ RSS The Next Web AI failed: Status code 404
+  ✓ YouTube Lex Fridman: 15 items
+  ✗ GitHub search: HTTP 422 (rate limit may be hit)
+  ✓ YouTube Two Minute Papers: 15 items
+  ✓ arXiv cs.AI: 25 entries
+  ✓ YouTube AssemblyAI: 15 items
+  ✓ @elonmusk: 3 tweets
+  ✓ arXiv cs.LG: 19 entries
+  ✓ HN "AI": 30 raw hits
+    ✗ AI News: HTTP 403
+  Fetching web: AI Weekly...
+  ✗ RSS LangChain failed: Invalid character in entity name
+Line: 0
+Column: 2327
+Char: &
+  ✗ RSS NVIDIA AI failed: Status code 404
+  ✓ Google News "artificial intelligence": 100 items
+  ✓ YouTube Google DeepMind: 15 items
+  ✓ arXiv cs.CL: 19 entries
+   [arxiv] 63 items in 3277ms
+  ✓ Reddit r/MachineLearning: 25 items
+  ✓ GitHub org events: 0 items
+   [github] 0 items in 3356ms
+  ✓ HN "LLM": 30 raw hits
+  ✓ YouTube Yannic Kilcher: 15 items
+   [youtube] 19 items in 3504ms
+  ✗ Reddit r/LocalLLaMA failed: Status code 429
+  ✓ Google News ""large language model"": 45 items
+    ✓ AI Weekly: 15 items
+  Fetching web: TechPP AI...
+  ✓ HN "GPT": 30 raw hits
+  ✗ Reddit r/OpenAI failed: Status code 429
+  ✗ RSS Cohere failed: Feed not recognized as RSS 1 or 2.
+  ✓ RSS Google DeepMind: 12 items
+  ✓ RSS Hugging Face: 12 items
+  ✓ RSS Google AI Blog: 12 items
+  ✓ RSS PostHog: 12 items
+  ✓ RSS Together AI: 12 items
+  ✓ RSS TechCrunch AI: 12 items
+  ✓ RSS The Verge AI: 10 items
+  ✓ RSS VentureBeat AI: 7 items
+  ✓ RSS Wired AI: 10 items
+  ✓ RSS MIT Tech Review: 10 items
+  ✓ RSS Ars Technica AI: 12 items
+  ✓ RSS CNBC AI: 12 items
+   [rss] 133 items in 4707ms
+  ✓ Google News "AI funding": 100 items
+    ✗ TechPP AI: HTTP 403
+  Fetching web: ScienceDaily AI...
+  ✓ HN "AGI": 30 raw hits
+  ✗ Reddit r/artificial failed: Status code 429
+  ✓ Google News "AI model release": 51 items
+  ✗ Reddit r/StableDiffusion failed: Status code 429
+   [reddit] 10 items in 5445ms
+  ✓ HN "Claude": 30 raw hits
+  ✓ Google News "AI regulation policy": 60 items
+  ✓ HN "Gemini": 30 raw hits
+  ✓ Google News "OpenAI OR Anthropic OR Google DeepMind OR Meta AI": 100 items
+   [google-news] 87 items in 6144ms
+    ✓ ScienceDaily AI: 15 items
+  Fetching web: VentureBeat AI...
+  ✓ @sama: 6 tweets
+    ✓ VentureBeat AI: 15 items
+  Fetching web: The Next Web AI...
+  ✓ HN "machine learning": 30 raw hits
+    ✓ The Next Web AI: 9 items
+   [web] 54 items in 7093ms
+  ✓ HN "open source AI": 30 raw hits
+  ✓ HN "neural network": 30 raw hits
+  ✓ HN "GPU": 30 raw hits
+   [hackernews] 7 items in 8859ms
+  Trying Puppeteer for @DarioAmodei...
+  ⚠ No tweets for @DarioAmodei
+  ✓ @demishassabis: 6 tweets
+  Trying Puppeteer for @ylecun...
+  ⚠ No tweets for @ylecun
+  ✓ @fchollet: 4 tweets
+  ✓ @AndrewYNg: 2 tweets
+  ✓ @sundarpichai: 5 tweets
+  ✓ @gdb: 6 tweets
+  Trying Puppeteer for @miramurati...
+  ⚠ No tweets for @miramurati
+  Trying Puppeteer for @IOEN_C...
+  ⚠ No tweets for @IOEN_C
+  Trying Puppeteer for @karpathy...
+  ⚠ No tweets for @karpathy
+  Trying Puppeteer for @AravindSrinivas...
+  ⚠ No tweets for @AravindSrinivas
+  Trying Puppeteer for @Jim_Fan...
+  ⚠ No tweets for @Jim_Fan
+  ✓ @simonw: 6 tweets
+  Trying Puppeteer for @noamshazeer...
+  ⚠ No tweets for @noamshazeer
+  ✓ @EMostaque: 6 tweets
+  ✓ @OpenAI: 4 tweets
+  ✓ @AnthropicAI: 1 tweets
+  ✓ @GoogleDeepMind: 2 tweets
+  📊 Total tweets fetched: 51
+   [twitter] 51 items in 193381ms
+
+📊 Total fetched: 424 items
+🧠 Enriching with LLM (Ollama if available)...
+   Enriched 424 items
+   Model DB refreshed: 600 models
+
+✅ Done. Inserted 87 new, 337 known, pruned 22. Total 886 items in 261.3s
+
+📋 Run summary:
+   rss          133
+   google-news  87
+   hackernews   7
+   reddit       10
+   arxiv        63
+   youtube      19
+   github       0
+   web          54
+   twitter      51
+   INSERTED     87
+   TOTAL        886
+   DURATION     261.3s

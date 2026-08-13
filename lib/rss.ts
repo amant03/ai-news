@@ -73,7 +73,7 @@ export async function fetchRSSFeedsFor(feeds: RSSFeedConfig[]): Promise<NewsItem
 
           const content = item.contentSnippet || item.content || item.summary || '';
           const publishedAt = item.pubDate || new Date().toISOString();
-          const image = extractImage(item, feed.url);
+          const image = extractImage(item as unknown as Record<string, unknown>, feed.url);
 
           items.push({
             source: feed.source,
@@ -147,17 +147,21 @@ function firstImageUrl(urls: Array<string | undefined>): string | undefined {
 function extractImage(item: Record<string, unknown>, feedUrl: string): string | undefined {
   const normalize = (u: string | undefined) => (u ? normalizeImageUrl(u, feedUrl) : undefined);
 
-  const enclosure = item.enclosure as { url?: string } | undefined;
-  const mediaContent = item.mediaContent as Array<Record<string, unknown>> | undefined;
-  const mediaThumb = item.mediaThumbnail as Array<Record<string, unknown>> | undefined;
+  const enclosure = (item.enclosure as { url?: string } | undefined) as { url?: string } | undefined;
+  const mediaContent = (item.mediaContent as Array<{ url?: string; $?: { url?: string } }> | undefined) as
+    | Array<{ url?: string; $?: { url?: string } }>
+    | undefined;
+  const mediaThumb = (item.mediaThumbnail as Array<{ $?: { url?: string } }> | undefined) as
+    | Array<{ $?: { url?: string } }>
+    | undefined;
   const mediaContentUrl = item.mediaContentUrl as string | undefined;
   const mediaThumbUrl = item.mediaThumbnailUrl as string | undefined;
 
   const fromEnclosure = enclosure?.url ? normalize(enclosure.url) : undefined;
   const fromMedia = firstImageUrl([
-    mediaContent?.[0]?.url as string | undefined,
-    mediaContent?.[0]?.$.url as string | undefined,
-    mediaThumb?.[0]?.$.url as string | undefined,
+    mediaContent?.[0]?.url,
+    mediaContent?.[0]?.$?.url,
+    mediaThumb?.[0]?.$?.url,
     mediaThumbUrl,
     mediaContentUrl,
   ]);

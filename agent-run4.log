@@ -1,0 +1,277 @@
+
+> ai-news@0.2.0 agent:kb
+> npx tsx lib/run-agent.ts --kb
+
+🔄 Starting AI news agent...
+   Time: 2026-08-13T15:53:01.617Z
+   Environment: local
+  Fetching web: AI News...
+  Fetching X/Twitter timelines (best-effort)...
+  ✗ RSS OpenAI failed: Status code 403
+  ✗ RSS Perplexity failed: Status code 403
+  ✗ RSS Anthropic failed: Status code 404
+  ✗ RSS Microsoft AI failed: Status code 410
+  ✗ RSS Meta AI failed: Status code 400
+  ✗ RSS NVIDIA AI failed: Status code 404
+  ✓ arXiv cs.AI: 25 entries
+  ✗ RSS Mistral failed: Status code 404
+  ✗ RSS The Next Web AI failed: Status code 404
+  ✓ arXiv cs.LG: 19 entries
+  ✗ GitHub search: HTTP 422 (rate limit may be hit)
+  ✗ jina @elonmusk: HTTP 403
+  ✓ arXiv cs.CL: 19 entries
+   [arxiv] 63 items in 1314ms
+  ✓ HN "AI": 30 raw hits
+  ✓ YouTube OpenAI: 15 items
+  ✓ YouTube Lex Fridman: 15 items
+  ✗ RSS LangChain failed: Invalid character in entity name
+Line: 0
+Column: 2327
+Char: &
+    ✗ AI News: HTTP 403
+  Fetching web: AI Weekly...
+  ✓ Google News "artificial intelligence": 100 items
+  ✓ YouTube Two Minute Papers: 15 items
+  ✓ YouTube AssemblyAI: 15 items
+  ✓ GitHub org events: 0 items
+   [github] 0 items in 2028ms
+  ✓ Reddit r/MachineLearning: 25 items
+  ✓ HN "LLM": 30 raw hits
+  ✓ Google News ""large language model"": 44 items
+  ✗ Reddit r/LocalLLaMA failed: Status code 429
+  ✓ YouTube Google DeepMind: 15 items
+  ✓ YouTube Yannic Kilcher: 15 items
+   [youtube] 19 items in 2762ms
+  ✗ Reddit r/OpenAI failed: Status code 429
+  ✗ RSS Cohere failed: Feed not recognized as RSS 1 or 2.
+  ✓ RSS Google DeepMind: 12 items
+  ✓ RSS Hugging Face: 12 items
+  ✓ RSS Google AI Blog: 12 items
+  ✓ RSS PostHog: 12 items
+  ✓ RSS Together AI: 12 items
+  ✓ RSS TechCrunch AI: 12 items
+  ✓ RSS The Verge AI: 10 items
+  ✓ RSS VentureBeat AI: 7 items
+  ✓ RSS Wired AI: 10 items
+  ✓ RSS MIT Tech Review: 10 items
+  ✓ RSS Ars Technica AI: 12 items
+  ✓ RSS CNBC AI: 12 items
+   [rss] 133 items in 3043ms
+    ✓ AI Weekly: 15 items
+  Fetching web: TechPP AI...
+  ✓ HN "GPT": 30 raw hits
+  ✓ Google News "AI funding": 100 items
+    ✗ TechPP AI: HTTP 403
+  Fetching web: ScienceDaily AI...
+  ✗ Reddit r/artificial failed: Status code 429
+  ✓ Google News "AI model release": 54 items
+  ✓ HN "AGI": 30 raw hits
+  ✗ Reddit r/StableDiffusion failed: Status code 429
+   [reddit] 10 items in 3584ms
+  ✓ Google News "AI regulation policy": 62 items
+  ✓ HN "Claude": 30 raw hits
+  Trying Puppeteer for @elonmusk...
+  ✓ Google News "OpenAI OR Anthropic OR Google DeepMind OR Meta AI": 100 items
+   [google-news] 87 items in 4642ms
+  ✓ HN "Gemini": 30 raw hits
+    ✓ ScienceDaily AI: 15 items
+  Fetching web: VentureBeat AI...
+  ✓ HN "machine learning": 30 raw hits
+    ✓ VentureBeat AI: 15 items
+  Fetching web: The Next Web AI...
+  ✓ HN "open source AI": 30 raw hits
+    ✓ The Next Web AI: 9 items
+   [web] 54 items in 6099ms
+  ✓ HN "neural network": 30 raw hits
+  ✓ HN "GPU": 30 raw hits
+   [hackernews] 8 items in 7329ms
+  ⚠ No tweets for @elonmusk
+  ✗ jina @sama: HTTP 403
+  Trying Puppeteer for @sama...
+  ⚠ No tweets for @sama
+  ✗ jina @DarioAmodei: HTTP 403
+  Trying Puppeteer for @DarioAmodei...
+  ⚠ No tweets for @DarioAmodei
+  ✗ jina @demishassabis: HTTP 403
+  Trying Puppeteer for @demishassabis...
+  ⚠ No tweets for @demishassabis
+  ✗ jina @ylecun: HTTP 403
+  Trying Puppeteer for @ylecun...
+  ⚠ No tweets for @ylecun
+  ✗ jina @fchollet: HTTP 403
+  Trying Puppeteer for @fchollet...
+  ⚠ No tweets for @fchollet
+  ✗ jina @AndrewYNg: HTTP 403
+  Trying Puppeteer for @AndrewYNg...
+  ⚠ No tweets for @AndrewYNg
+  ✗ jina @sundarpichai: HTTP 403
+  Trying Puppeteer for @sundarpichai...
+  ⚠ No tweets for @sundarpichai
+  ✗ jina @gdb: HTTP 403
+  Trying Puppeteer for @gdb...
+  ⚠ No tweets for @gdb
+  ✗ jina @miramurati: HTTP 403
+  Trying Puppeteer for @miramurati...
+  ⚠ No tweets for @miramurati
+  ✗ jina @IOEN_C: HTTP 403
+  Trying Puppeteer for @IOEN_C...
+  ⚠ No tweets for @IOEN_C
+  ✗ jina @karpathy: HTTP 403
+  Trying Puppeteer for @karpathy...
+  ⚠ No tweets for @karpathy
+  ✗ jina @AravindSrinivas: HTTP 403
+  Trying Puppeteer for @AravindSrinivas...
+  ⚠ No tweets for @AravindSrinivas
+  ✗ jina @Jim_Fan: HTTP 403
+  Trying Puppeteer for @Jim_Fan...
+  ⚠ No tweets for @Jim_Fan
+  ✗ jina @simonw: HTTP 403
+  Trying Puppeteer for @simonw...
+  ⚠ No tweets for @simonw
+  ✗ jina @noamshazeer: HTTP 403
+  Trying Puppeteer for @noamshazeer...
+  ⚠ No tweets for @noamshazeer
+  ✗ jina @EMostaque: HTTP 403
+  Trying Puppeteer for @EMostaque...
+  ⚠ No tweets for @EMostaque
+  ✗ jina @OpenAI: HTTP 403
+  Trying Puppeteer for @OpenAI...
+  ⚠ No tweets for @OpenAI
+  ✗ jina @AnthropicAI: HTTP 403
+  Trying Puppeteer for @AnthropicAI...
+  ⚠ No tweets for @AnthropicAI
+  ✗ jina @GoogleDeepMind: HTTP 403
+  Trying Puppeteer for @GoogleDeepMind...
+  ⚠ No tweets for @GoogleDeepMind
+  ✗ jina @GoogleAI: HTTP 403
+  Trying Puppeteer for @GoogleAI...
+  ⚠ No tweets for @GoogleAI
+  ✗ jina @MistralAI: HTTP 403
+  Trying Puppeteer for @MistralAI...
+  ⚠ No tweets for @MistralAI
+  ✗ jina @AIatMeta: HTTP 403
+  Trying Puppeteer for @AIatMeta...
+  ⚠ No tweets for @AIatMeta
+  ✗ jina @deepseek_ai: HTTP 403
+  Trying Puppeteer for @deepseek_ai...
+  ⚠ No tweets for @deepseek_ai
+  ✗ jina @Alibaba_Qwen: HTTP 403
+  Trying Puppeteer for @Alibaba_Qwen...
+  ⚠ No tweets for @Alibaba_Qwen
+  ✗ jina @huggingface: HTTP 403
+  Trying Puppeteer for @huggingface...
+  ⚠ No tweets for @huggingface
+  ✗ jina @hf_inference: HTTP 403
+  Trying Puppeteer for @hf_inference...
+  ⚠ No tweets for @hf_inference
+  ✗ jina @xai: HTTP 403
+  Trying Puppeteer for @xai...
+  ⚠ No tweets for @xai
+  ✗ jina @MicrosoftAI: HTTP 403
+  Trying Puppeteer for @MicrosoftAI...
+  ⚠ No tweets for @MicrosoftAI
+  ✗ jina @nvidia: HTTP 403
+  Trying Puppeteer for @nvidia...
+  ⚠ No tweets for @nvidia
+  ✗ jina @groqinc: HTTP 403
+  Trying Puppeteer for @groqinc...
+  ⚠ No tweets for @groqinc
+  ✗ jina @Perplexity_AI: The operation was aborted due to timeout
+  Trying Puppeteer for @Perplexity_AI...
+  ⚠ No tweets for @Perplexity_AI
+  ✗ jina @cohere: HTTP 403
+  Trying Puppeteer for @cohere...
+  ⚠ No tweets for @cohere
+  ✗ jina @togethercompute: HTTP 403
+  Trying Puppeteer for @togethercompute...
+  ⚠ No tweets for @togethercompute
+  ✗ jina @ollama: HTTP 403
+  Trying Puppeteer for @ollama...
+  ⚠ No tweets for @ollama
+  ✗ jina @databricks: HTTP 403
+  Trying Puppeteer for @databricks...
+  ⚠ No tweets for @databricks
+  ✗ jina @Cerebras: HTTP 403
+  Trying Puppeteer for @Cerebras...
+  ⚠ No tweets for @Cerebras
+  ✗ jina @stabilityai: HTTP 403
+  Trying Puppeteer for @stabilityai...
+  ⚠ No tweets for @stabilityai
+  ✗ jina @Replicate: HTTP 403
+  Trying Puppeteer for @Replicate...
+  ⚠ No tweets for @Replicate
+  ✗ jina @EleutherAI: HTTP 403
+  Trying Puppeteer for @EleutherAI...
+  ⚠ No tweets for @EleutherAI
+  ✗ jina @NousResearch: HTTP 403
+  Trying Puppeteer for @NousResearch...
+  ⚠ No tweets for @NousResearch
+  ✗ jina @phind: HTTP 403
+  Trying Puppeteer for @phind...
+  ⚠ No tweets for @phind
+  ✗ jina @zhipu_ai: HTTP 403
+  Trying Puppeteer for @zhipu_ai...
+  ⚠ No tweets for @zhipu_ai
+  ✗ jina @MoonshotAI: HTTP 403
+  Trying Puppeteer for @MoonshotAI...
+  ⚠ No tweets for @MoonshotAI
+  ✗ jina @MiniMax_AI: HTTP 403
+  Trying Puppeteer for @MiniMax_AI...
+  ⚠ No tweets for @MiniMax_AI
+  ✗ jina @RWKV: HTTP 403
+  Trying Puppeteer for @RWKV...
+  ⚠ No tweets for @RWKV
+  ✗ jina @01AI_org: HTTP 403
+  Trying Puppeteer for @01AI_org...
+  ⚠ No tweets for @01AI_org
+  ✗ jina @LiquidAI_: HTTP 403
+  Trying Puppeteer for @LiquidAI_...
+  ⚠ No tweets for @LiquidAI_
+  ✗ jina @cohereforai: HTTP 403
+  Trying Puppeteer for @cohereforai...
+  ⚠ No tweets for @cohereforai
+  ✗ jina @lmarena_ai: HTTP 403
+  Trying Puppeteer for @lmarena_ai...
+  ⚠ No tweets for @lmarena_ai
+  ✗ jina @ArtificialAnlys: HTTP 403
+  Trying Puppeteer for @ArtificialAnlys...
+  ⚠ No tweets for @ArtificialAnlys
+  ✗ jina @SWEbench: HTTP 403
+  Trying Puppeteer for @SWEbench...
+  ⚠ No tweets for @SWEbench
+  ✗ jina @LiveBench_org: HTTP 403
+  Trying Puppeteer for @LiveBench_org...
+  ⚠ No tweets for @LiveBench_org
+  ✗ jina @open_nnet: HTTP 403
+  Trying Puppeteer for @open_nnet...
+  ⚠ No tweets for @open_nnet
+  ✗ jina @sasha_belitsky: HTTP 403
+  Trying Puppeteer for @sasha_belitsky...
+  ⚠ No tweets for @sasha_belitsky
+  ✗ jina @abacaj: HTTP 403
+  Trying Puppeteer for @abacaj...
+  ⚠ No tweets for @abacaj
+  📊 Total tweets fetched: 0
+   [twitter] 0 items in 871421ms
+
+📊 Total fetched: 374 items
+🧠 Enriching with LLM (Ollama if available)...
+   Enriched 374 items
+📝 Knowledge base written to C:\projects\AI news\ai-news\AI_NEWS_KNOWLEDGE_BASE.md (500 articles)
+   Model DB refreshed: 200 models
+
+✅ Done. Inserted 38 new, 336 known, pruned 23. Total 821 items in 876.8s
+
+📋 Run summary:
+   rss          133
+   google-news  87
+   hackernews   8
+   reddit       10
+   arxiv        63
+   youtube      19
+   github       0
+   web          54
+   twitter      0
+   INSERTED     38
+   TOTAL        821
+   DURATION     876.8s

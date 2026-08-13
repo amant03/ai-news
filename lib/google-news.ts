@@ -60,7 +60,7 @@ export async function fetchGoogleNews(): Promise<NewsItem[]> {
         seen.add(key);
 
         const content = item.contentSnippet || item.content || '';
-        const image = extractGoogleNewsImage(item);
+        const image = extractGoogleNewsImage(item as unknown as Record<string, unknown>);
 
         allItems.push({
           source: 'google-news',

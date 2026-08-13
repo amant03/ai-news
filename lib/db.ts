@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { NewsItem } from './types';
 import { isDuplicate } from './dedupe';
+import { classifyDomain } from './categorize';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 const DB_FILE = path.join(DATA_DIR, 'news.json');
@@ -118,7 +119,8 @@ export function getNewsItems(
   offset = 0,
   source?: string,
   category?: string,
-  sourceType?: string
+  sourceType?: string,
+  domain?: string
 ): NewsItem[] {
   const store = readStore();
   let filtered = store.items;
@@ -132,16 +134,20 @@ export function getNewsItems(
   if (sourceType && sourceType !== 'all') {
     filtered = filtered.filter(item => item.source_type === sourceType);
   }
+  if (domain && domain !== 'all') {
+    filtered = filtered.filter(item => (item.domain || classifyDomain(item.title, item.summary || item.content)) === domain);
+  }
 
   return filtered.slice(offset, offset + limit);
 }
 
-export function getNewsCount(source?: string, category?: string, sourceType?: string): number {
+export function getNewsCount(source?: string, category?: string, sourceType?: string, domain?: string): number {
   const store = readStore();
   let filtered = store.items;
   if (source && source !== 'all') filtered = filtered.filter(item => item.source === source || item.source_label?.toLowerCase() === source.toLowerCase());
   if (category && category !== 'all') filtered = filtered.filter(item => item.category === category);
   if (sourceType && sourceType !== 'all') filtered = filtered.filter(item => item.source_type === sourceType);
+  if (domain && domain !== 'all') filtered = filtered.filter(item => (item.domain || classifyDomain(item.title, item.summary || item.content)) === domain);
   return filtered.length;
 }
 
@@ -152,11 +158,12 @@ export interface Facet {
   type: string;
 }
 
-export function getFacets(): { sources: Facet[]; categories: Facet[]; types: Facet[] } {
+export function getFacets(): { sources: Facet[]; categories: Facet[]; types: Facet[]; domains: Facet[] } {
   const store = readStore();
   const sourceMap = new Map<string, { label: string; type: string; count: number }>();
   const categoryMap = new Map<string, number>();
   const typeMap = new Map<string, number>();
+  const domainMap = new Map<string, number>();
 
   for (const item of store.items) {
     const s = item.source || 'other';
@@ -165,6 +172,8 @@ export function getFacets(): { sources: Facet[]; categories: Facet[]; types: Fac
     sourceMap.set(s, entry);
     categoryMap.set(item.category, (categoryMap.get(item.category) || 0) + 1);
     typeMap.set(item.source_type, (typeMap.get(item.source_type) || 0) + 1);
+    const d = item.domain || 'general';
+    domainMap.set(d, (domainMap.get(d) || 0) + 1);
   }
 
   const sources = [...sourceMap.entries()]
@@ -172,8 +181,9 @@ export function getFacets(): { sources: Facet[]; categories: Facet[]; types: Fac
     .sort((a, b) => b.count - a.count);
   const categories = [...categoryMap.entries()].map(([value, count]) => ({ value, label: value, count, type: 'category' }));
   const types = [...typeMap.entries()].map(([value, count]) => ({ value, label: value, count, type: 'type' }));
+  const domains = [...domainMap.entries()].map(([value, count]) => ({ value, label: value, count, type: 'domain' }));
 
-  return { sources, categories, types };
+  return { sources, categories, types, domains };
 }
 
 export function getStoreMeta() {

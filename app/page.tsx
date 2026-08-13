@@ -7,8 +7,11 @@ import FilterBar, { FacetOption } from '@/components/FilterBar';
 import NewsCard from '@/components/NewsCard';
 import SourcePanel from '@/components/SourcePanel';
 import Trending from '@/components/Trending';
+import ModelWatch from '@/components/ModelWatch';
+import AIRadar from '@/components/AIRadar';
+import DomainBar from '@/components/DomainBar';
 import SkeletonGrid from '@/components/Skeleton';
-import { NewsItem, Category, CATEGORY_COLOR } from '@/lib/types';
+import { NewsItem, Category, CATEGORY_COLOR, Domain } from '@/lib/types';
 
 const POLL_MS = 60_000;
 
@@ -16,9 +19,10 @@ interface FacetsData {
   sources: FacetOption[];
   categories: FacetOption[];
   types: FacetOption[];
+  domains: FacetOption[];
 }
 
-const EMPTY_FACETS: FacetsData = { sources: [], categories: [], types: [] };
+const EMPTY_FACETS: FacetsData = { sources: [], categories: [], types: [], domains: [] };
 
 export default function Home() {
   const [news, setNews] = useState<NewsItem[]>([]);
@@ -31,6 +35,7 @@ export default function Home() {
   const [selectedSource, setSelectedSource] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState<Category | 'all'>('all');
   const [selectedType, setSelectedType] = useState('all');
+  const [selectedDomain, setSelectedDomain] = useState<Domain | 'all'>('all');
   const [search, setSearch] = useState('');
   const [newItems, setNewItems] = useState<NewsItem[]>([]);
   const [onlineSources, setOnlineSources] = useState(0);
@@ -46,9 +51,10 @@ export default function Home() {
       if (selectedSource !== 'all') p.set('source', selectedSource);
       if (selectedCategory !== 'all') p.set('category', selectedCategory);
       if (selectedType !== 'all') p.set('sourceType', selectedType);
+      if (selectedDomain !== 'all') p.set('domain', selectedDomain);
       return p;
     },
-    [selectedSource, selectedCategory, selectedType]
+    [selectedSource, selectedCategory, selectedType, selectedDomain]
   );
 
   const load = useCallback(
@@ -78,7 +84,7 @@ export default function Home() {
           setTotal(data.total);
           setLastUpdated(new Date());
           if (data.facets?.sources) {
-            setFacets(f => ({ sources: data.facets.sources, categories: data.facets.categories, types: f.types }));
+            setFacets(f => ({ sources: data.facets.sources, categories: data.facets.categories, types: f.types, domains: data.facets.domains || f.domains }));
           }
         }
       } catch {
@@ -116,6 +122,7 @@ export default function Home() {
             sources: data.facets.sources,
             categories: data.facets.categories,
             types: f.types,
+            domains: data.facets.domains || f.domains,
           }));
         }
       }
@@ -143,6 +150,25 @@ export default function Home() {
   useEffect(() => {
     load('reset');
   }, [load]);
+
+  // Remember the user's preferred view between sessions.
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem('ai-pulse-domain');
+      if (saved === 'business' || saved === 'tech' || saved === 'research') {
+        setSelectedDomain(saved);
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+  useEffect(() => {
+    try {
+      window.localStorage.setItem('ai-pulse-domain', selectedDomain);
+    } catch {
+      /* ignore */
+    }
+  }, [selectedDomain]);
 
   useEffect(() => {
     const id = setInterval(poll, POLL_MS);
@@ -212,6 +238,14 @@ export default function Home() {
     return counts;
   }, [facets.categories]);
 
+  const domainCounts = useMemo(() => {
+    const counts: Partial<Record<Domain | 'all', number>> = { all: total };
+    for (const f of facets.domains) {
+      counts[f.value as Domain] = f.count;
+    }
+    return counts;
+  }, [facets.domains, total]);
+
   return (
     <div className="min-h-screen">
       <div className="bg-atmosphere" />
@@ -264,6 +298,13 @@ export default function Home() {
         <div className="grid lg:grid-cols-[1fr_300px] gap-6">
           {/* Main column */}
           <div className="min-w-0">
+            {/* Model Watch — the model-focused centerpiece */}
+            {!search.trim() && (
+              <div className="mb-8">
+                <ModelWatch />
+              </div>
+            )}
+
             {/* Hero */}
             {hero && !search.trim() && (
               <section className="space-y-5 mb-8">
@@ -282,6 +323,20 @@ export default function Home() {
                   </div>
                 </div>
               </section>
+            )}
+
+            {/* Domain preference — business / tech / research */}
+            {!search.trim() && (
+              <div className="mb-6">
+                <DomainBar
+                  selected={selectedDomain}
+                  counts={domainCounts}
+                  onChange={d => {
+                    setSelectedDomain(d);
+                    setNewItems([]);
+                  }}
+                />
+              </div>
             )}
 
             {/* Filters */}
@@ -357,6 +412,7 @@ export default function Home() {
 
           {/* Sidebar */}
           <aside className="space-y-6">
+            <AIRadar />
             <SourcePanel />
             <Trending items={news} onTagClick={setSearch} />
             <div className="glass rounded-2xl p-5">
