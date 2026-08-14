@@ -58,7 +58,7 @@ export default function SourcePanel() {
         </h3>
         <span
           className={`flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider ${
-            loading ? 'text-[var(--dim)]' : status?.environment === 'ci' ? 'text-cyan-300' : 'text-emerald-300'
+            loading ? 'text-[var(--dim)]' : status?.environment === 'ci' ? 'text-cyan-300' : 'text-[var(--ok)]'
           }`}
         >
           <span className={`w-1.5 h-1.5 rounded-full ${status?.environment === 'ci' ? 'bg-cyan-400' : 'bg-emerald-400'}`} />

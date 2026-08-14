@@ -16,7 +16,7 @@ export default function NewsCard({ item, index = 0, variant = 'grid', className 
 
   return (
     <article
-      className={`group/card flex flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[#0b1220] panel-hover animate-fade-up h-full ${className}`}
+      className={`group/card flex flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] card panel-hover animate-fade-up h-full ${className}`}
       style={{ animationDelay: `${Math.min(index, 8) * 70}ms` }}
     >
       <div className={`relative ${isHero ? 'h-44 sm:h-52' : 'h-32 sm:h-36'} flex-shrink-0`}>
@@ -49,7 +49,7 @@ export default function NewsCard({ item, index = 0, variant = 'grid', className 
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`block font-display font-medium text-[var(--fore)] leading-snug hover:text-cyan-200 transition-colors ${
+            className={`block font-display font-medium text-[var(--fore)] leading-snug hover:text-[var(--cyan)] transition-colors ${
               isHero ? 'line-clamp-3' : 'line-clamp-2'
             }`}
           >

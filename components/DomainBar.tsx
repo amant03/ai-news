@@ -22,16 +22,18 @@ interface DomainBarProps {
   onChange: (d: Domain | 'all') => void;
 }
 
+/**
+ * Compact sidebar widget: pick your reading view. Lives in the right rail so
+ * it never eats up the page width like the old full-width banner did.
+ */
 export default function DomainBar({ selected, counts, onChange }: DomainBarProps) {
   return (
-    <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[#0c1628] to-[#120e22] p-4 sm:p-5">
-      <div className="mb-3">
-        <p className="font-display text-base sm:text-lg font-semibold text-[var(--fore)]">Who’s reading today?</p>
-        <p className="text-[12px] text-[var(--mut)] mt-0.5">
-          We’ll show stories and model charts that match — you can switch anytime.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2" role="group" aria-label="Choose your view">
+    <section className="glass rounded-2xl p-4">
+      <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)] mb-1">
+        Who’s reading today?
+      </h3>
+      <p className="text-[11px] text-[var(--dim)] mb-3">Stories & model charts tuned to you — switch anytime.</p>
+      <div className="grid grid-cols-2 gap-2" role="group" aria-label="Choose your view">
         {DOMAIN_OPTIONS.map(opt => {
           const active = selected === opt.value;
           const count = counts[opt.value] ?? 0;
@@ -40,24 +42,21 @@ export default function DomainBar({ selected, counts, onChange }: DomainBarProps
               key={opt.value}
               onClick={() => onChange(opt.value)}
               aria-pressed={active}
-              className={`ring-focus rounded-xl border p-3.5 text-left transition-all ${
+              className={`ring-focus rounded-xl border px-3 py-2.5 text-left transition-all ${
                 active
-                  ? 'border-cyan-400/70 bg-cyan-400/12 shadow-[0_0_0_1px_rgba(56,221,245,0.25)]'
-                  : 'border-[var(--color-line)] bg-[#0a0f1c]/50 text-[var(--mut)] hover:border-cyan-400/30 hover:text-[var(--fore)]'
+                  ? 'border-[var(--accent)]/70 bg-[var(--accent)]/10'
+                  : 'border-[var(--color-line)] hover:border-[var(--mut)]'
               }`}
             >
-              <span className="flex items-center justify-between gap-2">
-                <span className={`font-display text-sm font-semibold ${active ? 'text-cyan-100' : 'text-[var(--fore)]'}`}>
-                  {opt.label}
-                </span>
-                {count > 0 && (
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${active ? 'bg-cyan-400/20 text-cyan-200' : 'bg-[var(--color-line)] text-[var(--dim)]'}`}>
-                    {count}
-                  </span>
-                )}
+              <span className={`block font-display text-[13px] font-semibold ${active ? 'text-[var(--accent)]' : 'text-[var(--fore)]'}`}>
+                {opt.label}
               </span>
-              <span className="block text-[11px] text-[var(--dim)] mt-1">{opt.who}</span>
-              <span className="block text-[11px] text-[var(--mut)] mt-0.5">{opt.hint}</span>
+              <span className="block text-[10px] text-[var(--dim)] mt-0.5 truncate">{opt.who}</span>
+              {count > 0 && (
+                <span className={`mt-1 inline-block text-[9px] px-1.5 py-px rounded-full ${active ? 'bg-[var(--accent)]/15 text-[var(--accent)]' : 'bg-[var(--input)] text-[var(--dim)]'}`}>
+                  {count} stories
+                </span>
+              )}
             </button>
           );
         })}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Unbounded, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
+import { ThemeProvider } from '@/lib/theme';
 
 const display = Unbounded({
   variable: '--font-unbounded',
@@ -74,10 +75,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  other: {
-    'theme-color': '#05070e',
-  },
 };
+
+// Set the theme before first paint to avoid a flash of the wrong color scheme.
+const themeScript = `
+(function () {
+  try {
+    var s = localStorage.getItem('ai-pulse-theme');
+    var t = s === 'light' ? 'light' : (s === 'dark' ? 'dark' : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+    document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -88,8 +98,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#05070e]">{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

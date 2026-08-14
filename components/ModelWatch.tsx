@@ -175,7 +175,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   }
 
   return (
-    <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[#0a1120] via-[#0d1322] to-[#120a20]">
+    <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[var(--panel)] via-[var(--panel-2)] to-[var(--panel)]">
       <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-violet-500/10 blur-3xl" />
       <div className="relative p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
@@ -187,7 +187,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
             value={q}
             onChange={e => setQ(e.target.value)}
             placeholder="Find a model…"
-            className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[#0a0f1c]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-cyan-400/40"
+            className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[var(--input)]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-cyan-400/40"
             aria-label="Search models"
           />
         </div>
@@ -203,7 +203,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 onClick={() => setTab(t.key)}
                 className={`ring-focus rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
                   active
-                    ? 'bg-cyan-400/15 text-cyan-200 border border-cyan-400/40'
+                    ? 'bg-cyan-400/15 text-[var(--cyan)] border border-cyan-400/40'
                     : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
                 }`}
               >
@@ -223,7 +223,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                   setDetailOpen(i === 0 ? detailOpen : true);
                 }}
                 className={`ring-focus text-left rounded-xl border p-3 transition-colors ${
-                  selected?.id === m.id ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[#0a0f1c]/60 hover:border-cyan-400/25'
+                  selected?.id === m.id ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[var(--input)]/60 hover:border-cyan-400/25'
                 }`}
               >
                 <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-1">
@@ -235,14 +235,14 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 </div>
                 <div className="mt-2 flex gap-3 text-[11px] font-mono text-[var(--mut)]">
                   {avgCost(m) !== undefined && <span>{fmtCost(avgCost(m)!)}</span>}
-                  {m.intelligenceIndex !== undefined && <span className="text-cyan-200">{fmtNum(m.intelligenceIndex)} smart</span>}
+                  {m.intelligenceIndex !== undefined && <span className="text-[var(--cyan)]">{fmtNum(m.intelligenceIndex)} smart</span>}
                 </div>
               </button>
             ))}
           </div>
         )}
 
-        <div className="rounded-xl border border-[var(--color-line)] bg-[#070b14]/70 overflow-hidden">
+        <div className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/70 overflow-hidden">
           <ScatterChart
             points={chartPack.points}
             labeledIds={labeledIds}
@@ -266,7 +266,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 key={m.id}
                 onClick={() => setSelectedId(m.id)}
                 className={`ring-focus inline-flex items-center gap-1.5 text-[11px] ${
-                  selected?.id === m.id ? 'text-cyan-200' : 'text-[var(--mut)] hover:text-[var(--fore)]'
+                  selected?.id === m.id ? 'text-[var(--cyan)]' : 'text-[var(--mut)] hover:text-[var(--fore)]'
                 }`}
               >
                 <span className="font-mono text-[10px] w-4 text-center rounded bg-white/10">{i + 1}</span>
@@ -312,7 +312,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 <button
                   onClick={() => setPage(p => Math.max(0, p - 1))}
                   disabled={safePage === 0}
-                  className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-cyan-200"
+                  className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-[var(--cyan)]"
                 >
                   Prev
                 </button>
@@ -322,7 +322,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 <button
                   onClick={() => setPage(p => Math.min(pageCount - 1, p + 1))}
                   disabled={safePage >= pageCount - 1}
-                  className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-cyan-200"
+                  className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-[var(--cyan)]"
                 >
                   Next
                 </button>
@@ -340,14 +340,14 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               {heroNews.map((n, i) => (
                 <article
                   key={`${n.url}-${i}`}
-                  className="group overflow-hidden rounded-xl border border-[var(--color-line)] bg-[#0b1220]"
+                  className="group overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--card)]"
                 >
                   <div className="relative h-24">
                     <CoverImage item={n} variant="thumb" showCaption={false} className="absolute inset-0" />
                     <SourceLink href={n.url} compact className="absolute top-1.5 right-1.5 z-10" />
                   </div>
                   <a href={n.url} target="_blank" rel="noopener noreferrer" className="block p-2.5">
-                    <p className="text-[11px] font-medium text-[var(--fore)] leading-snug line-clamp-2 group-hover:text-cyan-200 transition-colors">
+                    <p className="text-[11px] font-medium text-[var(--fore)] leading-snug line-clamp-2 group-hover:text-[var(--cyan)] transition-colors">
                       {n.title}
                     </p>
                     <span className="text-[9px] font-mono text-[var(--dim)]">
@@ -381,7 +381,7 @@ function SelectedModel({
 
   return (
     <div className="rounded-xl border border-cyan-400/25 bg-cyan-400/5 p-3.5">
-      <div className="text-[10px] uppercase tracking-widest text-cyan-300/80 mb-1.5">{pickLabel}</div>
+      <div className="text-[10px] uppercase tracking-widest text-[var(--cyan)]/80 mb-1.5">{pickLabel}</div>
       <div className="flex items-start gap-3">
         <span className="mt-1 w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
         <div className="min-w-0 flex-1">
@@ -402,7 +402,7 @@ function SelectedModel({
             <SourcePills links={expanded ? links : links.slice(0, 2)} />
           </div>
         </div>
-        <button onClick={onToggle} className="ring-focus text-[10px] uppercase tracking-wider text-cyan-300 hover:text-cyan-200 flex-shrink-0">
+        <button onClick={onToggle} className="ring-focus text-[10px] uppercase tracking-wider text-[var(--cyan)] hover:text-[var(--cyan)] flex-shrink-0">
           {expanded ? 'Less' : 'More'}
         </button>
       </div>
@@ -436,7 +436,7 @@ function ModelChip({
       <button
         onClick={onClick}
         className={`ring-focus w-full flex items-center gap-2.5 rounded-lg border px-2.5 py-2 text-left transition-colors ${
-          active ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[#0a0f1c]/50 hover:border-cyan-400/25'
+          active ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[var(--input)]/50 hover:border-cyan-400/25'
         }`}
       >
         <span className="font-mono text-[10px] text-[var(--dim)] w-5 tabular-nums">{idx}</span>
@@ -447,7 +447,7 @@ function ModelChip({
           <span className="font-mono text-[10px] text-[var(--dim)]">{m.released.slice(0, 10)}</span>
         )}
         {score !== undefined && (
-          <span className="font-mono text-[11px] font-semibold text-cyan-200 tabular-nums">
+          <span className="font-mono text-[11px] font-semibold text-[var(--cyan)] tabular-nums">
             {sort === 'popularity' ? fmtCompact(score) : fmtNum(score)}
           </span>
         )}
@@ -459,7 +459,7 @@ function ModelChip({
 function Metric({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
     <span className="inline-flex items-baseline gap-1">
-      <span className={`font-mono text-[12px] font-semibold ${accent ? 'text-cyan-300' : 'text-[var(--fore)]'}`}>{value}</span>
+      <span className={`font-mono text-[12px] font-semibold ${accent ? 'text-[var(--cyan)]' : 'text-[var(--fore)]'}`}>{value}</span>
       <span className="text-[9px] uppercase tracking-wider text-[var(--mut)]">{label}</span>
     </span>
   );

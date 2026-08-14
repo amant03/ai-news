@@ -26,6 +26,16 @@ export function usableImageUrl(raw?: string): string | undefined {
   return url;
 }
 
+/** Deterministic stock photo so every story has a real image even without one. */
+export function fallbackImageUrl(raw?: string, seed?: string): string | undefined {
+  const u = usableImageUrl(raw);
+  if (u) return u;
+  if (!seed) return undefined;
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h << 5) - h + seed.charCodeAt(i) | 0;
+  return `https://picsum.photos/seed/ai${Math.abs(h)}/640/400`;
+}
+
 /**
  * Every story always has a picture. A vivid illustrated poster sits underneath;
  * a real photo covers it when the article has one. If the photo fails, the
@@ -33,7 +43,7 @@ export function usableImageUrl(raw?: string): string | undefined {
  */
 export default function CoverImage({ item, variant = 'thumb', className = '', showCaption = false }: CoverImageProps) {
   const [failed, setFailed] = useState(false);
-  const src = usableImageUrl(item.image_url);
+  const src = fallbackImageUrl(item.image_url, item.url) || undefined;
   const showPhoto = !!src && !failed;
   const art = useMemo(() => posterArt(item), [item]);
 

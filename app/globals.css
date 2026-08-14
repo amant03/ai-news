@@ -17,9 +17,83 @@
   --color-amber: #fbbf24;
 }
 
-:root {
+/* ---------- Theme tokens (dark = default) ---------- */
+:root,
+[data-theme='dark'] {
   --background: #05070e;
   --foreground: #e6edf7;
+
+  --bg-body: #05070e;
+  --panel: #0d1322;
+  --panel-2: #111a2e;
+  --card: #0b1220;
+  --input: #0a0f1c;
+  --line: rgba(148, 163, 184, 0.12);
+
+  --fore: #e6edf7;
+  --mut: #8a97ad;
+  --dim: #5b687e;
+  --accent: #38ddf5;
+  --cyan: #7deefc;
+  --violet: #8b5cf6;
+  --amber: #fbbf24;
+  --ok: #34d399;
+  --bad: #fb7185;
+  --info: #94a3b8;
+
+  --glass-a: rgba(17, 26, 46, 0.72);
+  --glass-b: rgba(10, 15, 28, 0.55);
+  --surface-a: rgba(23, 34, 60, 0.65);
+  --surface-b: rgba(9, 14, 26, 0.55);
+  --skeleton: rgba(148, 163, 184, 0.06);
+  --scroll-track: #070a12;
+  --scroll-thumb: #1e2a44;
+  --scroll-thumb-hover: #2b3b5f;
+  --selection: rgba(56, 221, 245, 0.3);
+  --chip-bg: rgba(0, 0, 0, 0.3);
+  --chip-bg-2: rgba(10, 15, 28, 0.8);
+  --header-bg: rgba(5, 7, 14, 0.85);
+  --ticker-bg: #070b15;
+  --ticker-label-bg: #0a1120;
+}
+
+[data-theme='light'] {
+  --background: #f4f5fa;
+  --foreground: #0f172a;
+  --color-line: rgba(15, 23, 42, 0.12);
+
+  --bg-body: #f4f5fa;
+  --panel: #ffffff;
+  --panel-2: #e9ecf4;
+  --card: #ffffff;
+  --input: #eef1f7;
+  --line: rgba(15, 23, 42, 0.12);
+
+  --fore: #0f172a;
+  --mut: #475569;
+  --dim: #8494a8;
+  --accent: #0891b2;
+  --cyan: #0e7490;
+  --violet: #7c3aed;
+  --amber: #b45309;
+  --ok: #059669;
+  --bad: #e11d48;
+  --info: #64748b;
+
+  --glass-a: rgba(255, 255, 255, 0.85);
+  --glass-b: rgba(238, 241, 247, 0.8);
+  --surface-a: rgba(255, 255, 255, 0.9);
+  --surface-b: rgba(238, 241, 247, 0.85);
+  --skeleton: rgba(15, 23, 42, 0.08);
+  --scroll-track: #e9ecf2;
+  --scroll-thumb: #c3cbd8;
+  --scroll-thumb-hover: #aab4c6;
+  --selection: rgba(8, 145, 178, 0.22);
+  --chip-bg: rgba(0, 0, 0, 0.04);
+  --chip-bg-2: rgba(255, 255, 255, 0.7);
+  --header-bg: rgba(244, 245, 250, 0.88);
+  --ticker-bg: #e9ecf4;
+  --ticker-label-bg: #ffffff;
 }
 
 html {
@@ -42,7 +116,15 @@ body {
     radial-gradient(60% 50% at 15% 0%, rgba(56, 221, 245, 0.08), transparent 60%),
     radial-gradient(50% 45% at 85% 5%, rgba(139, 92, 246, 0.12), transparent 60%),
     radial-gradient(80% 60% at 50% 100%, rgba(6, 182, 212, 0.06), transparent 70%),
-    #05070e;
+    var(--bg-body);
+}
+
+[data-theme='light'] .bg-atmosphere {
+  background:
+    radial-gradient(60% 50% at 15% 0%, rgba(8, 145, 178, 0.06), transparent 60%),
+    radial-gradient(50% 45% at 85% 5%, rgba(124, 58, 237, 0.05), transparent 60%),
+    radial-gradient(80% 60% at 50% 100%, rgba(8, 145, 178, 0.04), transparent 70%),
+    var(--bg-body);
 }
 
 .bg-grid {
@@ -56,6 +138,12 @@ body {
   mask-image: radial-gradient(80% 70% at 50% 0%, black 30%, transparent 100%);
 }
 
+[data-theme='light'] .bg-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
 .noise {
   position: fixed;
   inset: 0;
@@ -67,7 +155,7 @@ body {
 
 /* ---------- Panels & surfaces ---------- */
 .glass {
-  background: linear-gradient(180deg, rgba(17, 26, 46, 0.72), rgba(10, 15, 28, 0.55));
+  background: linear-gradient(180deg, var(--glass-a), var(--glass-b));
   border: 1px solid var(--color-line);
   backdrop-filter: blur(14px);
 }
@@ -102,7 +190,7 @@ body {
 
 /* ---------- Surface / card polish ---------- */
 .surface {
-  background: linear-gradient(180deg, rgba(23, 34, 60, 0.65), rgba(9, 14, 26, 0.55));
+  background: linear-gradient(180deg, var(--surface-a), var(--surface-b));
   border: 1px solid var(--color-line);
   backdrop-filter: blur(14px);
 }
@@ -175,7 +263,7 @@ body {
   100% { background-position: 400px 0; }
 }
 .skeleton {
-  background: linear-gradient(90deg, rgba(148,163,184,0.06) 25%, rgba(148,163,184,0.14) 50%, rgba(148,163,184,0.06) 75%);
+  background: linear-gradient(90deg, var(--skeleton) 25%, rgba(148,163,184,0.14) 50%, var(--skeleton) 75%);
   background-size: 800px 100%;
   animation: shimmer 1.4s infinite linear;
 }
@@ -197,13 +285,13 @@ body {
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #070a12; }
+::-webkit-scrollbar-track { background: var(--scroll-track); }
 ::-webkit-scrollbar-thumb {
-  background: #1e2a44;
+  background: var(--scroll-thumb);
   border-radius: 6px;
-  border: 2px solid #070a12;
+  border: 2px solid var(--scroll-track);
 }
-::-webkit-scrollbar-thumb:hover { background: #2b3b5f; }
+::-webkit-scrollbar-thumb:hover { background: var(--scroll-thumb-hover); }
 
 /* ---------- Line clamp ---------- */
 .line-clamp-1 {
@@ -226,6 +314,22 @@ body {
 }
 
 ::selection {
-  background: rgba(56, 221, 245, 0.3);
+  background: var(--selection);
   color: #fff;
+}
+
+/* ---------- Card / chip theme helpers ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--color-line);
+}
+.card-2 {
+  background: var(--input);
+  border: 1px solid var(--color-line);
+}
+.chip-bg {
+  background: var(--chip-bg);
+}
+.chip-bg-2 {
+  background: var(--chip-bg-2);
 }

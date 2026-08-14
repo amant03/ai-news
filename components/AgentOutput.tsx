@@ -19,14 +19,14 @@ interface AgentRun {
 
 const SOURCE_COLOR: Record<string, string> = {
   twitter: 'text-cyan-300',
-  rss: 'text-emerald-300',
+  rss: 'text-[var(--ok)]',
   'google-news': 'text-green-300',
   hackernews: 'text-orange-300',
   reddit: 'text-red-300',
-  arxiv: 'text-rose-300',
+  arxiv: 'text-[var(--bad)]',
   youtube: 'text-red-400',
-  github: 'text-slate-300',
-  web: 'text-violet-300',
+  github: 'text-[var(--info)]',
+  web: 'text-[var(--violet)]',
 };
 
 function fmtDuration(ms: number | null): string {
@@ -103,7 +103,7 @@ export default function AgentOutput() {
       ) : (
         <div className="space-y-3 max-h-[420px] overflow-y-auto no-scrollbar pr-1">
           {runs.map(run => (
-            <div key={run.id} className="rounded-xl border border-[var(--color-line)] bg-[#0a0e1a]/60 p-3">
+            <div key={run.id} className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/60 p-3">
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2 min-w-0">
                   <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${run.status === 'ok' ? 'bg-emerald-400' : 'bg-rose-500'}`} />
@@ -116,12 +116,12 @@ export default function AgentOutput() {
 
               <div className="mt-2 grid grid-cols-4 gap-2 text-center">
                 {[
-                  ['new', run.inserted, 'text-emerald-300'],
+                  ['new', run.inserted, 'text-[var(--ok)]'],
                   ['known', run.known, 'text-[var(--mut)]'],
                   ['total', run.total_after, 'text-[var(--fore)]'],
-                  ['pruned', run.pruned, 'text-rose-300'],
+                  ['pruned', run.pruned, 'text-[var(--bad)]'],
                 ].map(([label, val, color]) => (
-                  <div key={label as string} className="rounded-lg bg-black/30 py-1.5">
+                  <div key={label as string} className="rounded-lg bg-[var(--input)]/80 py-1.5">
                     <div className={`font-mono text-sm ${color}`}>{val ?? '—'}</div>
                     <div className="text-[9px] uppercase tracking-wider text-[var(--dim)]">{label}</div>
                   </div>
@@ -133,7 +133,7 @@ export default function AgentOutput() {
                   {Object.entries(run.source_counts)
                     .sort((a, b) => b[1] - a[1])
                     .map(([src, n]) => (
-                      <span key={src} className="inline-flex items-center gap-1 rounded-full bg-black/30 border border-[var(--color-line)] px-2 py-0.5">
+                      <span key={src} className="inline-flex items-center gap-1 rounded-full bg-[var(--input)]/80 border border-[var(--color-line)] px-2 py-0.5">
                         <span className={`font-mono text-[10px] ${SOURCE_COLOR[src] || 'text-[var(--mut)]'}`}>
                           {sourceLabel(src)}
                         </span>
@@ -152,7 +152,7 @@ export default function AgentOutput() {
                 </button>
               )}
               {expanded === run.id && run.log_tail && (
-                <pre className="mt-2 text-[10px] leading-relaxed text-[var(--mut)] whitespace-pre-wrap break-words font-mono bg-black/40 rounded-lg p-2">
+                <pre className="mt-2 text-[10px] leading-relaxed text-[var(--mut)] whitespace-pre-wrap break-words font-mono bg-[var(--input)]/90 rounded-lg p-2">
                   {run.log_tail}
                 </pre>
               )}

@@ -182,7 +182,7 @@ export default function ScatterChart({
 
   if (!layout || points.length === 0) {
     return (
-      <div className="flex items-center justify-center rounded-xl border border-[var(--color-line)] bg-[#070b14]/80 text-xs text-[var(--dim)]" style={{ height }}>
+      <div className="flex items-center justify-center rounded-xl border border-[var(--color-line)] bg-[var(--input)]/80 text-xs text-[var(--dim)]" style={{ height }}>
         Not enough scored models for this view yet.
       </div>
     );
@@ -312,7 +312,7 @@ export default function ScatterChart({
                   x={p.cx}
                   y={p.cy + 3.5}
                   textAnchor="middle"
-                  fill="#05070e"
+                  fill="var(--bg-body)"
                   fontSize="9"
                   fontWeight="700"
                   fontFamily="var(--font-plex), monospace"
@@ -327,7 +327,7 @@ export default function ScatterChart({
 
       {tooltip && tipPos && (
         <div
-          className="pointer-events-none absolute z-10 w-52 rounded-xl border border-cyan-400/25 bg-[#070b14]/95 p-2.5 shadow-[0_12px_40px_-16px_rgba(34,211,238,0.45)] backdrop-blur-md"
+          className="pointer-events-none absolute z-10 w-52 rounded-xl border border-cyan-400/25 bg-[var(--input)]/95 p-2.5 shadow-[0_12px_40px_-16px_rgba(34,211,238,0.45)] backdrop-blur-md"
           style={{
             left: clamp(tipPos.left + 14, 8, (wrapRef.current?.clientWidth || 400) - 220),
             top: clamp(tipPos.top - 72, 8, (wrapRef.current?.clientHeight || 300) - 96),
@@ -340,10 +340,10 @@ export default function ScatterChart({
           {tooltip.sublabel && <div className="text-[10px] text-[var(--dim)] mb-1.5">{tooltip.sublabel}</div>}
           <div className="grid grid-cols-1 gap-0.5 font-mono text-[10px] text-[var(--mut)]">
             <div>
-              {xLabel}: <span className="text-cyan-200">{xFormat(tooltip.x)}</span>
+              {xLabel}: <span className="text-[var(--cyan)]">{xFormat(tooltip.x)}</span>
             </div>
             <div>
-              {yLabel}: <span className="text-violet-200">{yFormat(tooltip.y)}</span>
+              {yLabel}: <span className="text-[var(--violet)]">{yFormat(tooltip.y)}</span>
             </div>
             {sizeLabel && tooltip.size !== undefined && (
               <div>
@@ -354,7 +354,7 @@ export default function ScatterChart({
         </div>
       )}
 
-      <div className="absolute left-3 top-2 text-[9px] uppercase tracking-[0.18em] text-cyan-300/70">
+      <div className="absolute left-3 top-2 text-[9px] uppercase tracking-[0.18em] text-[var(--cyan)]/70">
         {betterCorner === 'tl' ? 'Better → up & cheaper' : 'Better → up & right'}
       </div>
     </div>

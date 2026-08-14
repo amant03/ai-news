@@ -16,7 +16,7 @@ export default function SourceLink({ href, label = 'Source', compact = false, cl
       rel="noopener noreferrer"
       title={`Open source: ${label}`}
       aria-label={`Open source: ${label}`}
-      className={`ring-focus inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/45 text-white/90 backdrop-blur-md hover:border-cyan-300/50 hover:bg-cyan-400/15 hover:text-cyan-100 transition-colors ${
+      className={`ring-focus inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/45 text-white/90 backdrop-blur-md hover:border-cyan-300/50 hover:bg-cyan-400/15 hover:text-[var(--cyan)] transition-colors ${
         compact ? 'w-8 h-8 justify-center' : 'px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider'
       } ${className}`}
     >
@@ -38,7 +38,7 @@ export function SourcePills({ links }: { links: Array<{ label: string; href: str
           href={l.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] bg-[#0a0f1c]/80 px-2 py-0.5 text-[10px] font-medium text-[var(--mut)] hover:text-cyan-200 hover:border-cyan-400/40 transition-colors"
+          className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--input)]/80 px-2 py-0.5 text-[10px] font-medium text-[var(--mut)] hover:text-[var(--cyan)] hover:border-cyan-400/40 transition-colors"
         >
           <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

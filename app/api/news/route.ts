@@ -4,6 +4,7 @@ import path from 'path';
 import { getNewsItems, getFacets, readStore } from '@/lib/db';
 import { sourceLabel, NewsItem } from '@/lib/types';
 import { sortByRank } from '@/lib/rank';
+import { frontPageOrder, lastNHours } from '@/lib/engagement';
 import { classifyDomain } from '@/lib/categorize';
 import { hasPg, getNewsPg, countNewsPg, getFacetsPg } from '@/lib/pg';
 
@@ -57,12 +58,16 @@ async function loadStoreText(): Promise<{ text: string; from: 'local' | 'github'
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const limit = Math.min(Math.max(parseInt(searchParams.get('limit') || '40', 10) || 40, 1), 100);
+    const limit = Math.min(Math.max(parseInt(searchParams.get('limit') || '40', 10) || 40, 1), 300);
     const offset = Math.max(parseInt(searchParams.get('offset') || '0', 10) || 0, 0);
     const source = searchParams.get('source') || undefined;
     const category = searchParams.get('category') || undefined;
     const sourceType = searchParams.get('sourceType') || undefined;
     const domain = searchParams.get('domain') || undefined;
+    // sort=latest (default) or sort=engagement — the front page & trending rail.
+    const sort = searchParams.get('sort') === 'engagement' ? 'engagement' : 'latest';
+    // Restrict to the last N hours (used by the "last 24h" trending rail).
+    const sinceHours = searchParams.get('since') ? parseInt(searchParams.get('since')!, 10) : null;
 
     // For the serverless deployment, read from the fetched snapshot.
     if (process.env.VERCEL === '1') {
@@ -88,7 +93,8 @@ export async function GET(request: NextRequest) {
       if (domain && domain !== 'all') {
         filtered = filtered.filter(i => (i.domain || classifyDomain(i.title, i.summary || i.content)) === domain);
       }
-      const ranked = sortByRank(filtered);
+      if (sinceHours) filtered = filtered.filter(i => Date.now() - new Date(i.published_at).getTime() <= sinceHours * 3600 * 1000);
+      const ranked = sort === 'engagement' ? frontPageOrder(filtered) : sortByRank(filtered);
 
       const total = ranked.length;
       const page = ranked.slice(offset, offset + limit);
@@ -125,13 +131,21 @@ export async function GET(request: NextRequest) {
 
     // Local / non-serverless: prefer PostgreSQL (full history, no pruning).
     if (hasPg()) {
-      const items = await getNewsPg({ limit, offset, source, category, sourceType, domain });
+      // For engagement ranking, pull a larger window so interactions actually
+      // decide the order instead of whatever fits in one page.
+      const fetchLimit = sort === 'engagement' ? Math.max(limit, 500) : limit;
+      const fetched = await getNewsPg({ limit: fetchLimit, offset: 0, source, category, sourceType, domain });
       const total = await countNewsPg({ source, category, sourceType, domain });
       const facets = await getFacetsPg();
       const meta = readStore().meta;
 
+      let window = fetched;
+      if (sinceHours) window = window.filter(i => Date.now() - new Date(i.published_at).getTime() <= sinceHours * 3600 * 1000);
+      if (sort === 'engagement') window = frontPageOrder(window);
+      const page = window.slice(offset, offset + limit);
+
       return NextResponse.json({
-        items,
+        items: page,
         total,
         limit,
         offset,
@@ -147,7 +161,9 @@ export async function GET(request: NextRequest) {
 
     // Local / non-serverless fallback: read the actual JSON DB store.
     readStore();
-    const ranked = sortByRank(getNewsItems(5000, 0, source, category, sourceType, domain));
+    let ranked = sortByRank(getNewsItems(5000, 0, source, category, sourceType, domain));
+    if (sinceHours) ranked = ranked.filter(i => Date.now() - new Date(i.published_at).getTime() <= sinceHours * 3600 * 1000);
+    if (sort === 'engagement') ranked = frontPageOrder(ranked);
     const items = ranked.slice(offset, offset + limit);
     const total = ranked.length;
     const facets = getFacets();

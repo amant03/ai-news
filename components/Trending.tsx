@@ -46,7 +46,7 @@ export default function Trending({ items, onTagClick }: TrendingProps) {
             <button
               key={word}
               onClick={() => onTagClick?.(word)}
-              className="ring-focus text-xs px-2.5 py-1 rounded-full border border-[var(--color-line)] text-[var(--mut)] hover:text-cyan-200 hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-all"
+              className="ring-focus text-xs px-2.5 py-1 rounded-full border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--cyan)] hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-all"
               style={{ opacity: intensity }}
             >
               {word}

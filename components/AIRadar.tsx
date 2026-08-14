@@ -73,7 +73,7 @@ export default function AIRadar() {
   const topNeg = data.landscape.topNegative[0];
 
   return (
-    <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[#07101a] via-[#0a1322] to-[#10100f]">
+    <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[var(--panel)] via-[var(--panel-2)] to-[var(--panel-2)]">
       <div className="pointer-events-none absolute -top-20 -left-20 w-64 h-64 rounded-full bg-emerald-500/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
@@ -98,7 +98,7 @@ export default function AIRadar() {
               {meta.icon} {meta.label}
             </span>
           </div>
-          <div className="h-2.5 rounded-full bg-[#0a0f1c] overflow-hidden relative">
+          <div className="h-2.5 rounded-full bg-[var(--input)] overflow-hidden relative">
             <div className="absolute inset-y-0 left-1/2 w-px bg-white/20" />
             <div
               className="h-full rounded-full transition-all duration-700"
@@ -116,15 +116,15 @@ export default function AIRadar() {
           </div>
           <div className="grid grid-cols-3 gap-2 mt-3 text-center">
             <div className="rounded-lg bg-emerald-400/10 border border-emerald-400/20 py-2">
-              <div className="font-mono text-sm font-bold text-emerald-300">{data.landscape.positive}</div>
+              <div className="font-mono text-sm font-bold text-[var(--ok)]">{data.landscape.positive}</div>
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Positive</div>
             </div>
             <div className="rounded-lg bg-slate-400/10 border border-slate-400/20 py-2">
-              <div className="font-mono text-sm font-bold text-slate-300">{data.landscape.neutral}</div>
+              <div className="font-mono text-sm font-bold text-[var(--info)]">{data.landscape.neutral}</div>
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Neutral</div>
             </div>
             <div className="rounded-lg bg-rose-400/10 border border-rose-400/20 py-2">
-              <div className="font-mono text-sm font-bold text-rose-300">{data.landscape.negative}</div>
+              <div className="font-mono text-sm font-bold text-[var(--bad)]">{data.landscape.negative}</div>
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Negative</div>
             </div>
           </div>
@@ -135,8 +135,8 @@ export default function AIRadar() {
             {topPos && (
               <div className="relative rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-3 pr-10">
                 <div className="flex items-center gap-1.5 mb-2">
-                  <span className="text-emerald-300 text-xs">▲</span>
-                  <span className="text-[10px] uppercase tracking-widest text-emerald-300/80">Hottest positive</span>
+                  <span className="text-[var(--ok)] text-xs">▲</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--ok)]/80">Hottest positive</span>
                 </div>
                 <p className="text-[11px] leading-snug text-[var(--mut)] line-clamp-2">{topPos.title}</p>
                 {topPos.url && <SourceLink href={topPos.url} compact className="absolute top-2.5 right-2.5" />}
@@ -145,8 +145,8 @@ export default function AIRadar() {
             {topNeg && (
               <div className="relative rounded-xl border border-rose-400/20 bg-rose-400/5 p-3 pr-10">
                 <div className="flex items-center gap-1.5 mb-2">
-                  <span className="text-rose-300 text-xs">▼</span>
-                  <span className="text-[10px] uppercase tracking-widest text-rose-300/80">Hottest negative</span>
+                  <span className="text-[var(--bad)] text-xs">▼</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--bad)]/80">Hottest negative</span>
                 </div>
                 <p className="text-[11px] leading-snug text-[var(--mut)] line-clamp-2">{topNeg.title}</p>
                 {topNeg.url && <SourceLink href={topNeg.url} compact className="absolute top-2.5 right-2.5" />}
@@ -162,7 +162,7 @@ export default function AIRadar() {
           <p className="text-xs text-[var(--dim)] mb-4">Building signal as fresh data lands…</p>
         ) : (
           <>
-            <div className="rounded-xl border border-[var(--color-line)] bg-[#070b14]/70 overflow-hidden mb-3">
+            <div className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/70 overflow-hidden mb-3">
               <ScatterChart
                 points={points}
                 labeledIds={labeledIds}
@@ -179,7 +179,7 @@ export default function AIRadar() {
               />
             </div>
             {selected && (
-              <div className="rounded-xl border border-[var(--color-line)] bg-[#0a0f1c]/60 p-3 mb-4">
+              <div className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/60 p-3 mb-4">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: selected.color }} />
@@ -214,14 +214,14 @@ export default function AIRadar() {
             const dir = ds.score > 0.05 ? 'up' : ds.score < -0.05 ? 'down' : 'flat';
             const color = dir === 'up' ? 'bg-emerald-400' : dir === 'down' ? 'bg-rose-400' : 'bg-slate-500';
             return (
-              <div key={d} className="rounded-xl border border-[var(--color-line)] bg-[#0a0f1c]/60 p-2.5">
+              <div key={d} className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/60 p-2.5">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-[10px] uppercase tracking-widest text-[var(--mut)]">{DOMAIN_LABEL[d]}</span>
                   <span className="font-mono text-[10px] font-bold" style={{ color: dir === 'up' ? '#34d399' : dir === 'down' ? '#fb7185' : '#94a3b8' }}>
                     {ds.score > 0 ? '+' : ''}{(ds.score * 100).toFixed(0)}
                   </span>
                 </div>
-                <div className="h-1 rounded-full bg-[#0d1322] overflow-hidden">
+                <div className="h-1 rounded-full bg-[var(--panel-2)] overflow-hidden">
                   <div className={`h-full rounded-full ${color}`} style={{ width: `${Math.min(100, Math.abs(ds.score) * 100)}%` }} />
                 </div>
               </div>
