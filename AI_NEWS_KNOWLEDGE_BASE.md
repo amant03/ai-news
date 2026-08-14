@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-14T17:14:07.553Z
-> Total Articles Tracked: 1053
+> Last Updated: 2026-08-14T18:42:12.864Z
+> Total Articles Tracked: 1142
 > Generated from AI Pulse database
 
 ---
@@ -14,57 +14,76 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 102 |
-| 🔬 **Research** | 99 |
-| 💼 **Product/Business** | 134 |
-| 🛡️ **Safety/Security** | 6 |
-| ⚖️ **Policy/Regulation** | 33 |
+| 🧠 **Model Releases** | 83 |
+| 🔬 **Research** | 96 |
+| 💼 **Product/Business** | 176 |
+| 🛡️ **Safety/Security** | 7 |
+| ⚖️ **Policy/Regulation** | 32 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 201 |
-| **arxiv** | 120 |
-| **reddit** | 33 |
-| **cnbc** | 29 |
-| **techcrunch** | 26 |
-| **the-verge** | 17 |
-| **wired** | 13 |
+| **google-news** | 197 |
+| **arxiv** | 107 |
+| **cnbc** | 28 |
+| **reddit** | 27 |
+| **techcrunch** | 25 |
+| **the-register** | 14 |
+| **zdnet** | 12 |
 | **venturebeat** | 12 |
+| **the-verge** | 11 |
 | **arstechnica** | 10 |
+| **the-decoder** | 10 |
 | **hacker-news** | 9 |
-| **Google** | 8 |
-| **Hugging Face** | 6 |
-| **other** | 3 |
+| **wired** | 8 |
+| **marktechpost** | 6 |
+| **amazon** | 5 |
+| **Hugging Face** | 4 |
+| **Google** | 4 |
 | **mit-tr** | 3 |
-| **google-ai** | 2 |
-| **xai** | 2 |
-| **stability** | 2 |
+| **other** | 2 |
+| **google-ai** | 1 |
 | **OpenAI** | 1 |
 | **github** | 1 |
+| **xai** | 1 |
 | **posthog** | 1 |
 | **artificial-analysis** | 1 |
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 102 articles
-- [🔬 Research Breakthroughs](#research-breakthroughs) — 99 articles
-- [💼 Product & Business Updates](#product--business-updates) — 134 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 6 articles
-- [⚖️ Regulation & Policy](#regulation--policy) — 33 articles
-- [📌 Other Notable News](#other-notable-news) — 126 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 83 articles
+- [🔬 Research Breakthroughs](#research-breakthroughs) — 96 articles
+- [💼 Product & Business Updates](#product--business-updates) — 176 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 7 articles
+- [⚖️ Regulation & Policy](#regulation--policy) — 32 articles
+- [📌 Other Notable News](#other-notable-news) — 106 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### EXCLUSIVE: Zuckerberg's AI Vision Promises Access, Not Power, Says Father of AGI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | Benzinga |
+
+**Summary:** Mark Zuckerberg's AI vision prioritizes access over power, according to John McCarthy, the father of Artificial General Intelligence
+
+**URL:** [https://news.google.com/rss/articles/CBMilAFBVV95cUxPalhiUnlYaWJEaEtDSGtMdnJudjE1UFp2QldBYlo4eXNRdURPem1OaVhGMmlEVGN5NF9ZZ205cmVCTW5xMFNKYi1TRWYzZjRwbGJlUEl5a18yUnFQRUxYVlZ6UDljRTIzM0FXUWJmdTY0YnY5cl9MbU5HcFEwVmZha3NERUNQdWZGSmNKT0ZWSDN2TDFp?oc=5](https://news.google.com/rss/articles/CBMilAFBVV95cUxPalhiUnlYaWJEaEtDSGtMdnJudjE1UFp2QldBYlo4eXNRdURPem1OaVhGMmlEVGN5NF9ZZ205cmVCTW5xMFNKYi1TRWYzZjRwbGJlUEl5a18yUnFQRUxYVlZ6UDljRTIzM0FXUWJmdTY0YnY5cl9MbU5HcFEwVmZha3NERUNQdWZGSmNKT0ZWSDN2TDFp?oc=5)
+
+---
 
 ### OpenAI talent exodus raises 'huge red flag' ahead of IPO 
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (59m ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -79,7 +98,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (3h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -89,12 +108,27 @@
 
 ---
 
+### Claude Code now runs daily maintenance on Anthropic's software with a 46 percent merge rate
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (6h ago) |
+| **Category** | 🧠 model |
+| **Author** | TheDecoder |
+
+**Summary:** AI model Claude Code successfully ran daily maintenance tasks on Anthropic's software with a 46% merge rate
+
+**URL:** [https://the-decoder.com/claude-code-now-runs-daily-maintenance-on-anthropics-software-with-a-46-percent-merge-rate/](https://the-decoder.com/claude-code-now-runs-daily-maintenance-on-anthropics-software-with-a-46-percent-merge-rate/)
+
+---
+
 ### Arm co-founder Hermann Hauser’s AI warning: The revolution is real, but so is the bubble risk
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -109,7 +143,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | AI Magazine |
 
@@ -124,7 +158,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Tech Times |
 
@@ -139,7 +173,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -154,7 +188,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC |
 
@@ -169,7 +203,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -184,7 +218,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | aljazeera.com |
 
@@ -199,7 +233,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -214,7 +248,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Wired AI |
 
@@ -229,7 +263,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Simons Foundation |
 
@@ -244,7 +278,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (21h ago) |
+| **Date** | August 14, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -341,6 +375,21 @@
 **Summary:** Thrive Holdings Raises $2B at $12B Valuation to Expand AI-Driven Business Acquisition Model  AI Insider
 
 **URL:** [https://news.google.com/rss/articles/CBMixgFBVV95cUxOeGN3em4wcS1IcGJuYTlPWmgtMWt5ektpbVhRb3hBTTZzUV9oZFdyT3pxbHV3YWtxeDZUZ1JZRk9FMFQyZXg0NGwyTzV3c3RCTmVOUG9CM20xSG9wTzlUdEpJVjJRdTZ0dTY3VUZzUDRWaGNZTjdudzhqazNfamxGM0VpTk1Yd3Itd1JCOTRsdkgwMWZnUEFpejJoNUx3ZEFBZ2xIMk0tNGw2LXRxTDBlYUp4RlB4NWt4NWsxQ2VYME1IQmFCV2c?oc=5](https://news.google.com/rss/articles/CBMixgFBVV95cUxOeGN3em4wcS1IcGJuYTlPWmgtMWt5ektpbVhRb3hBTTZzUV9oZFdyT3pxbHV3YWtxeDZUZ1JZRk9FMFQyZXg0NGwyTzV3c3RCTmVOUG9CM20xSG9wTzlUdEpJVjJRdTZ0dTY3VUZzUDRWaGNZTjdudzhqazNfamxGM0VpTk1Yd3Itd1JCOTRsdkgwMWZnUEFpejJoNUx3ZEFBZ2xIMk0tNGw2LXRxTDBlYUp4RlB4NWt4NWsxQ2VYME1IQmFCV2c?oc=5)
+
+---
+
+### Ling 3.0 Flash is the smartest open model at its size
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 🧠 model |
+| **Author** | TheDecoder |
+
+**Summary:** Ling 3.0 Flash surpasses other models of similar size as the smartest open model
+
+**URL:** [https://the-decoder.com/ling-3-0-flash-is-the-smartest-open-model-at-its-size/](https://the-decoder.com/ling-3-0-flash-is-the-smartest-open-model-at-its-size/)
 
 ---
 
@@ -802,7 +851,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Breakingthenews.net |
 
@@ -817,7 +866,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Cheng Qian, Wenting Zhao, Liangwei Yang |
 
@@ -832,7 +881,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Saman Marandi, Yu-Shu Hu, Mohammad Modarres |
 
@@ -847,7 +896,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Di Yang Shi, W. Bradley Knox |
 
@@ -862,7 +911,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | AmirHossein Eshghi, Hamid Saadatfar, Seyyed Ali Hoseini |
 
@@ -877,7 +926,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Aman Tyagi, Hemanth Boinpally, Jonathan Chen |
 
@@ -892,7 +941,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -907,7 +956,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Alireza Kargarzadeh, Nariman Khaledian, Navid Parvini |
 
@@ -922,7 +971,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Ankita Rajaram Naik, Anupama Murthi, Benjamin Elder |
 
@@ -937,7 +986,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Avijit Roy, Proma Roy |
 
@@ -1264,356 +1313,29 @@ That’s
 
 ---
 
-### Task- and dataset-specific information in protein language models
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Roman Joeres, Ilya Senatorov, Olga V. Kalinina |
-
-**Summary:** Protein language models (PLMs) have transferred the latest advances from natural language processing to computational biology. These models, trained on large corpora of protein sequence data, are wide
-
-**URL:** [https://arxiv.org/abs/2608.12090v1](https://arxiv.org/abs/2608.12090v1)
-
----
-
-### Look What the Probes Dragged In! Real-World Chest X-ray Shortcuts in MedCLIP
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Nikolette Pedersen, Regitze Sydendal, Veronika Cheplygina |
-
-**Summary:** Vision-language models, such as contrastive language-image pre-training (CLIP)-based approaches, have reached state-of-the-art (SOTA) results in medical artificial intelligence. However, recent work r
-
-**URL:** [https://arxiv.org/abs/2608.12086v1](https://arxiv.org/abs/2608.12086v1)
-
----
-
-### Faithful, Sufficient and Understandable: Rethinking Graph Counterfactual Explanations via Discrete Diffusion Inversion
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | David Bechtoldt, Sidney Bender |
-
-**Summary:** Graph Neural Networks (GNNs) achieve strong predictive performance on graph-structured data across domains such as chemistry, biology, and network analysis, yet they provide no intrinsic explanation o
-
-**URL:** [https://arxiv.org/abs/2608.12083v1](https://arxiv.org/abs/2608.12083v1)
-
----
-
-### Putting sign language AI into users’ hands
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 Google |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Google DeepMind |
-
-**Summary:** Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard of hearing users.
-
-**URL:** [https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/](https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/)
-
----
-
-### Google’s Pixel Watch 5 dives deeper into AI and health
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** At least there’s no new proprietary charger this year. Huzzah!! | Photo: David Imel / The Verge	
-
-The $399 Google Pixel Watch 5 isn't about the hardware. Sure, there's a new satin pyrite case finish, 
-
-**URL:** [https://www.theverge.com/tech/978094/pixel-watch-5-hands-on-made-by-google-gemini-wearables-smartwatch](https://www.theverge.com/tech/978094/pixel-watch-5-hands-on-made-by-google-gemini-wearables-smartwatch)
-
----
-
-### PSA: I’m the creator of Heretic, and I advise you to *not* use “heretic” models as text encoders for H3 (or any other model)
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | r/StableDiffusion |
-
-**Summary:** Heretic (https://github.com/p-e-w/heretic) is a widely used program for decensoring LLMs. It makes LLMs comply with requests that they previously refused. It works very well for this purpose, and the 
-
-**URL:** [https://www.reddit.com/r/StableDiffusion/comments/1vmdxzk/psa_im_the_creator_of_heretic_and_i_advise_you_to/](https://www.reddit.com/r/StableDiffusion/comments/1vmdxzk/psa_im_the_creator_of_heretic_and_i_advise_you_to/)
-
----
-
-### Claim-Level Reliability Assessment for Efficient Test-Time Reasoning
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Sen Xu, Wei Wang, Shixi Liu |
-
-**Summary:** We propose claim-level falsification as a principle for test-time scaling and instantiate it through Claim-Level Reliability Assessment (CLR), a training-free framework that reallocates test-time comp
-
-**URL:** [https://arxiv.org/abs/2608.11994v1](https://arxiv.org/abs/2608.11994v1)
-
----
-
-### Grok is now an AI ‘teammate’ you can assign work
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** You’ll have to be fine with letting Grok sign into your online accounts, however. | Image: SpaceXAI	
-
-SpaceXAI has introduced Grok Bot, an always-on AI agent service designed to behave like independen
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/978666/spacexai-grok-bot-ai-agent-beta-launch](https://www.theverge.com/ai-artificial-intelligence/978666/spacexai-grok-bot-ai-agent-beta-launch)
-
----
-
-### Accuracy and Order Sensitivity Diverge Under Label-Free Strategies
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Karl Hanna, Chen Feng |
-
-**Summary:** Multiple-choice benchmarks are widely used to evaluate large language models, but MCQ scores conflate knowledge with sensitivity to option order, which makes them unreliable measures of model knowledg
-
-**URL:** [https://arxiv.org/abs/2608.11947v1](https://arxiv.org/abs/2608.11947v1)
-
----
-
-### A Large Language Model-Based Simulation Protocol Using ChatGPT for Training Novice Critical Care Nurses in Family Crisis Communication and De-escalation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | cureus.com |
-
-**Summary:** A Large Language Model-Based Simulation Protocol Using ChatGPT for Training Novice Critical Care Nurses in Family Crisis Communication and De-escalation  cureus.com
-
-**URL:** [https://news.google.com/rss/articles/CBMimwJBVV95cUxNMlpXbFRucVNhNk9jbHF2S2VEdVhSMmY1NHQtdGhqZEwxZDkwdUYtM3R5d3R0OUlRRVFTM1RkeVU2cHhfejY0b0R6N1RFdXJhcDlqTVM0eUdMUWV3SVpMdWxvRnM1d3JuNzEtMVRiYjJQUnQ3UTUyNGVTeThUWGVGVlVZM2h0ZWdZU0g3bGlFMHpuWFdkZm1XTVN4RVV0Q0oyS05hYmRQQjdoMUdIeDNYODlmaEptckg1ZTU0RlR6bEMxTGFMcE9pcndDbUw0S2NuMmpNNXlEbEhMMWJLTld0eWV3cGRvSG5VY1VqNDdNYmtOSjRKaFNCYjRKYWR4dFY5RV9WRVp6RTUzZ0EtYW9yeUxNVm5IWXM2MnU0?oc=5](https://news.google.com/rss/articles/CBMimwJBVV95cUxNMlpXbFRucVNhNk9jbHF2S2VEdVhSMmY1NHQtdGhqZEwxZDkwdUYtM3R5d3R0OUlRRVFTM1RkeVU2cHhfejY0b0R6N1RFdXJhcDlqTVM0eUdMUWV3SVpMdWxvRnM1d3JuNzEtMVRiYjJQUnQ3UTUyNGVTeThUWGVGVlVZM2h0ZWdZU0g3bGlFMHpuWFdkZm1XTVN4RVV0Q0oyS05hYmRQQjdoMUdIeDNYODlmaEptckg1ZTU0RlR6bEMxTGFMcE9pcndDbUw0S2NuMmpNNXlEbEhMMWJLTld0eWV3cGRvSG5VY1VqNDdNYmtOSjRKaFNCYjRKYWR4dFY5RV9WRVp6RTUzZ0EtYW9yeUxNVm5IWXM2MnU0?oc=5)
-
----
-
-### Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Zhuoyang Qian, Biao Wu, Yiran Wang |
-
-**Summary:** Turning a research idea into a complete paper requires more than text generation: the system must retrieve literature, design and execute experiments, revise claims according to evidence, produce publ
-
-**URL:** [https://arxiv.org/abs/2608.11924v1](https://arxiv.org/abs/2608.11924v1)
-
----
-
-### Researchers Can Now Stress-test Language Model Safety Guards
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Quantum Zeitgeist |
-
-**Summary:** Researchers Can Now Stress-test Language Model Safety Guards  Quantum Zeitgeist
-
-**URL:** [https://news.google.com/rss/articles/CBMiggFBVV95cUxQbi10aFM4ek5BVTRHT2JmZjZuY3BXaUt4Qlg5aGNXRTBjV0s2SkN6RjkxTWRBRmJIS2pnaW5rcHg2QmI0UFdyWC1acnY4Z1FaWVR6enAxNjFiTWpyU2dOeUw4NXY1OGJLVHdsd0xTNXBFVWFJaDg3RXJqUVdBSzRFdjBR?oc=5](https://news.google.com/rss/articles/CBMiggFBVV95cUxQbi10aFM4ek5BVTRHT2JmZjZuY3BXaUt4Qlg5aGNXRTBjV0s2SkN6RjkxTWRBRmJIS2pnaW5rcHg2QmI0UFdyWC1acnY4Z1FaWVR6enAxNjFiTWpyU2dOeUw4NXY1OGJLVHdsd0xTNXBFVWFJaDg3RXJqUVdBSzRFdjBR?oc=5)
-
----
-
-### Launch HN: Discovered Materials (YC P26) – AI agents to discover new materials
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | advaith08 |
-
-**Summary:** Hey HN, we&#x27;re Advaith and Akash from Discovered Materials ( https:&#x2F;&#x2F;discoveredmaterials.com&#x2F; ).  We build AI agents that discover new materials for the semiconductor industry.GPUs 
-
-**URL:** [https://discoveredmaterials.com/research/](https://discoveredmaterials.com/research/)
-
----
-
-### Model confidence, reader expertise affect reader-LLM collaboration
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | AuntMinnie |
-
-**Summary:** Model confidence, reader expertise affect reader-LLM collaboration  AuntMinnie
-
-**URL:** [https://news.google.com/rss/articles/CBMi5wFBVV95cUxPQjZ2ZlliYjhhRlZON3RVaGJjNjBxQUctZGUxbHgzM2E5djUyQVRTcTJSUHlRa2ZGazhsR19BZGJnTnFHTE9ISmhYbkxEZHMzczF1dURCVmJVRnAwSFhLS28wOUtkRTdQaXA4SkZSMkJ2S2t3NnVtdzZHMmhHT0M2a2g3bUpWY3NLYTM1VzlzM1ZVRzZDYUhsWGt4bmNzQVhwSzFsOFNES3ZRQThUTXVYUjFuZm5XNWZSVi1ZOEZiRWxEd2tDVE5Fb2xWdE9oMVgxQTM4UHR2TWE1ZVN3cGxOM3UtSTFWSTQ?oc=5](https://news.google.com/rss/articles/CBMi5wFBVV95cUxPQjZ2ZlliYjhhRlZON3RVaGJjNjBxQUctZGUxbHgzM2E5djUyQVRTcTJSUHlRa2ZGazhsR19BZGJnTnFHTE9ISmhYbkxEZHMzczF1dURCVmJVRnAwSFhLS28wOUtkRTdQaXA4SkZSMkJ2S2t3NnVtdzZHMmhHT0M2a2g3bUpWY3NLYTM1VzlzM1ZVRzZDYUhsWGt4bmNzQVhwSzFsOFNES3ZRQThUTXVYUjFuZm5XNWZSVi1ZOEZiRWxEd2tDVE5Fb2xWdE9oMVgxQTM4UHR2TWE1ZVN3cGxOM3UtSTFWSTQ?oc=5)
-
----
-
-### Decoupled Descent: Enforcing Exact Train-Test Error Tracking Via AMP Onsager Corrections [R]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | r/MachineLearning |
-
-**Summary:** Link: https://arxiv.org/pdf/2604.27883 Hi, Most of use are familiar with the headache of training a neural network using gradient descent where the training error may go to zero but the test error may
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vlu1se/decoupled_descent_enforcing_exact_traintest_error/](https://www.reddit.com/r/MachineLearning/comments/1vlu1se/decoupled_descent_enforcing_exact_traintest_error/)
-
----
-
-### Gemini becomes Google's fastest-growing product ever as it hits 1B users
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arstechnica |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Ars Technica AI |
-
-**Summary:** But will Gemini's surge survive slowing model releases?
-
-**URL:** [https://arstechnica.com/ai/2026/08/google-says-gemini-has-reached-1b-users-faster-than-any-other-google-product/](https://arstechnica.com/ai/2026/08/google-says-gemini-has-reached-1b-users-faster-than-any-other-google-product/)
-
----
-
-### ChatGPT and Gemini both just passed 1 billion users
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** That’s a lot of people chatting with their AI friends all day. | Image: Google	
-
-For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar Pichai posted on X that a billion people
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/978113/chatgpt-gemini-1-billion-users](https://www.theverge.com/ai-artificial-intelligence/978113/chatgpt-gemini-1-billion-users)
-
----
-
-### SL2T is our breakthrough sign language-to-text model powering new features for Deaf and hard of hearing users on . Starting with American Sign Lang...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 Google |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Demis Hassabis |
-
-**Summary:** SL2T is our breakthrough sign language-to-text model powering new features for Deaf and hard of hearing users on . Starting with American Sign Language-to-English on Pixel 11, people can sign directly
-
-**URL:** [https://x.com/demishassabis/status/2087541213284946191](https://x.com/demishassabis/status/2087541213284946191)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### The new Pixel 11 line up is here, designed for Gemini Intelligence and with lots of new helpful features. A few I’m excited about: Rambler, a new v...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 Google |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Sundar Pichai |
-
-**Summary:** The new Pixel 11 line up is here, designed for Gemini Intelligence and with lots of new helpful features. A few I’m excited about: Rambler, a new voice input built for how you actually talk. Magic Cap
-
-**URL:** [https://x.com/sundarpichai/status/2087551816904974672](https://x.com/sundarpichai/status/2087551816904974672)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### The best of Gemini is right at the heart of the new Pixel 11 phones and the new Pixel Watch 5. We call it Gemini Intelligence. It’s no longer just ...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 Google |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Sundar Pichai |
-
-**Summary:** The best of Gemini is right at the heart of the new Pixel 11 phones and the new Pixel Watch 5. We call it Gemini Intelligence. It’s no longer just an operating system that helps you use your phone, it
-
-**URL:** [https://x.com/sundarpichai/status/2087548799438803148](https://x.com/sundarpichai/status/2087548799438803148)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### OpenAI introduces a new cyber model amid fears of AI cyberattacks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | Axios |
-
-**Summary:** OpenAI introduces a new cyber model amid fears of AI cyberattacks  Axios
-
-**URL:** [https://news.google.com/rss/articles/CBMikAFBVV95cUxOdEx3dTFaeDJuXzJTOXRxYmtxYUFlYTk1UTVxX2F3RVg5c2lncFZHQm5TS3hvTEJaUzFZUk4tU0ZKNUtSZy1aU1dSY2JaYkRDQ05aSDNOUTZOeWVpUG1ZNjJ5a3lqLUF5VUZ4b0JQcWRIVzFCcGVCTm5GbzNkT3p6eXZPSHhCZHhrWWNCM0I1MUo?oc=5](https://news.google.com/rss/articles/CBMikAFBVV95cUxOdEx3dTFaeDJuXzJTOXRxYmtxYUFlYTk1UTVxX2F3RVg5c2lncFZHQm5TS3hvTEJaUzFZUk4tU0ZKNUtSZy1aU1dSY2JaYkRDQ05aSDNOUTZOeWVpUG1ZNjJ5a3lqLUF5VUZ4b0JQcWRIVzFCcGVCTm5GbzNkT3p6eXZPSHhCZHhrWWNCM0I1MUo?oc=5)
-
----
-
-### Apple Silicon and macOS VMs: Faster LLM Inference with llama.cpp
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | frabonacci |
-
-**Summary:** 304 points, 43 comments on Hacker News.
-
-**URL:** [https://github.com/trycua/cua/blob/main/blog/gpu-passthrough-macos-vms.md](https://github.com/trycua/cua/blob/main/blog/gpu-passthrough-macos-vms.md)
-
----
-
 ## 🔬 Research Breakthroughs
+
+### Heavy AI Users Report Greater Gains in Advisory Practices
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (40m ago) |
+| **Category** | 🔬 research |
+| **Author** | planadviser.com |
+
+**Summary:** Heavy users of artificial intelligence (AI) report improved advisory practices, suggesting potential benefits for professionals and organizations
+
+**URL:** [https://news.google.com/rss/articles/CBMijwFBVV95cUxOcjJTY1g3VFZyY3BIb3lDM2xLRzhkZkdDamhOdFBfZktpbGlwazJuYkE0S1o5UFo4OWEyQ3dDcUFEbDAtVktsMjJWdi1mbmFadE5vMThCYUg1cFpOZGNxNDltVkdFSFNuNVk5aDlOeTJnSWpWTkh3R1Etcjg4RkxidVE3a1ZzRzB2bnJNQklyOA?oc=5](https://news.google.com/rss/articles/CBMijwFBVV95cUxOcjJTY1g3VFZyY3BIb3lDM2xLRzhkZkdDamhOdFBfZktpbGlwazJuYkE0S1o5UFo4OWEyQ3dDcUFEbDAtVktsMjJWdi1mbmFadE5vMThCYUg1cFpOZGNxNDltVkdFSFNuNVk5aDlOeTJnSWpWTkh3R1Etcjg4RkxidVE3a1ZzRzB2bnJNQklyOA?oc=5)
+
+---
 
 ### World’s First Superconducting Quantum Heat Engine Could Help Unlock Massive Quantum Computers
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 other |
-| **Date** | August 14, 2026 (2m ago) |
+| **Date** | August 14, 2026 (1h ago) |
 | **Category** | 🔬 research |
 | **Author** | ScienceDaily AI |
 
@@ -1628,7 +1350,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (58m ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 🔬 research |
 | **Author** | Communications of the ACM |
 
@@ -1643,7 +1365,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 🔬 research |
 | **Author** | www.lvivherald.com |
 
@@ -1653,12 +1375,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Study contradicts Anthropic and OpenAI claims that autonomous AI research is within reach
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 🔬 research |
+| **Author** | TheDecoder |
+
+**Summary:** A study finds that while AI agents can perform research tasks autonomously, they struggle with critical thinking and creative problem-solving.
+
+**URL:** [https://the-decoder.com/study-contradicts-anthropic-and-openai-claims-that-autonomous-ai-research-is-within-reach/](https://the-decoder.com/study-contradicts-anthropic-and-openai-claims-that-autonomous-ai-research-is-within-reach/)
+
+---
+
 ### I compiled Doom's renderer into a 21B-parameter transformer -- no training anywhere [P]
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1673,7 +1410,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 🔬 research |
 | **Author** | EurekAlert! |
 
@@ -1683,12 +1420,72 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### New AI model detects hidden signs of solar eruptions hours before they emerge
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 🔬 research |
+| **Author** | EurekAlert! |
+
+**Summary:** AI model predicts solar eruptions hours in advance
+
+**URL:** [https://news.google.com/rss/articles/CBMiXEFVX3lxTFA0SGl4Z0ZZNXlraVJWQ05BQjVBaUpjQUtGM1dDRDhReWxzT3VnNHJncjJqcnRmSnVwbVdoLWZKYmFSZy1Ca1lhc1BOajZaQWdpa3B1Y2lqWVBFOVFw?oc=5](https://news.google.com/rss/articles/CBMiXEFVX3lxTFA0SGl4Z0ZZNXlraVJWQ05BQjVBaUpjQUtGM1dDRDhReWxzT3VnNHJncjJqcnRmSnVwbVdoLWZKYmFSZy1Ca1lhc1BOajZaQWdpa3B1Y2lqWVBFOVFw?oc=5)
+
+---
+
+### Deterriorializing Artificial Intelligence: East Asia as Method — cfp
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 🔬 research |
+| **Author** | U.OSU |
+
+**Summary:** CFP for academic conference on deterriorializing AI through an East Asian perspective
+
+**URL:** [https://news.google.com/rss/articles/CBMiogFBVV95cUxPTGJESGZIWEZYbGZTb0FBQzFwcHhTUjRHMjYzMzh5XzlzblRfdTczM0pqaEliQ3Q1RVFsMURVRmlUZkRpc1hTckdXUktnQnFIZldMdXBqc3Z2M0VSajRxM3Z5ZHJET2JMWUNobHA4RnJuOXhrTm9nbFhJb1JtMTJDaG50WTdQRlN3OVkxaVZySGw3aFNISWhycTZGblJwNkFieVE?oc=5](https://news.google.com/rss/articles/CBMiogFBVV95cUxPTGJESGZIWEZYbGZTb0FBQzFwcHhTUjRHMjYzMzh5XzlzblRfdTczM0pqaEliQ3Q1RVFsMURVRmlUZkRpc1hTckdXUktnQnFIZldMdXBqc3Z2M0VSajRxM3Z5ZHJET2JMWUNobHA4RnJuOXhrTm9nbFhJb1JtMTJDaG50WTdQRlN3OVkxaVZySGw3aFNISWhycTZGblJwNkFieVE?oc=5)
+
+---
+
+### The Future of the Datacenter
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 🔬 research |
+| **Author** | The Register AI |
+
+**Summary:** A new study explores the evolving role of datacenters in the digital age, highlighting emerging trends and technologies that will shape their future.
+
+**URL:** [https://www.theregister.com/special_features/future_of_the_datacenter](https://www.theregister.com/special_features/future_of_the_datacenter)
+
+---
+
+### The State of Storage 2026
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 🔬 research |
+| **Author** | The Register AI |
+
+**Summary:** A report on the current state and future trends of storage technology, including advancements in cloud storage, solid-state drives, and data management.
+
+**URL:** [https://www.theregister.com/special_features/state_of_storage_2026](https://www.theregister.com/special_features/state_of_storage_2026)
+
+---
+
 ### Drexel Researchers Examine How Much People Really Trust Generative AI
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 🔬 research |
 | **Author** | AI Insider |
 
@@ -1703,7 +1500,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1718,7 +1515,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1733,7 +1530,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (21h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1748,7 +1545,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 13, 2026 (22h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | TechCrunch AI |
 
@@ -1763,7 +1560,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (22h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Nature |
 
@@ -1778,7 +1575,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Yaxin Luo, Haobin Jiang, Jialv Zou |
 
@@ -1793,7 +1590,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Bobo Li, Hao Fei, Tianjie Ju |
 
@@ -1808,7 +1605,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Dairu Liu, Zekun Qi, Jiayu Zeng |
 
@@ -1823,7 +1620,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Georgy Noarov, Aaron Roth |
 
@@ -1838,7 +1635,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Mingyuan Zhang |
 
@@ -1853,7 +1650,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Shangao Li, Yao Zhang, Volker Tresp |
 
@@ -1868,7 +1665,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Fanfei Li, Jana Zeller, Manuel Prada-Corral |
 
@@ -1883,7 +1680,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Weihan Meng, Hongzhu Guo, Yi Jing |
 
@@ -1898,7 +1695,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Tianyi Li, Yaxin Luo, Xinyi Shang |
 
@@ -1913,7 +1710,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Zhe Ye, Hantao Lou, Yuechun Sun |
 
@@ -1928,7 +1725,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Ishaan Kannan, Sridhar Prabhu, Saeed A. Khan |
 
@@ -1943,7 +1740,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Martin J. Wainwright |
 
@@ -1958,7 +1755,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Yunsung Chung, Yingshuo Liu, Abboud F. Hassan |
 
@@ -1973,7 +1770,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Omar Montasser |
 
@@ -1988,7 +1785,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Yuto Nishida, Hirokazu Kiyomaru, Yusuke Oda |
 
@@ -2003,7 +1800,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | David Chushig-Muzo, María Ángeles Rodríguez de Cara, Eva Milara |
 
@@ -2018,7 +1815,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Nestor R. Barraza, Gabriel Pena |
 
@@ -2033,7 +1830,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Bingqing Cheng |
 
@@ -2048,7 +1845,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Lei Bai, Jiaqi Cao, Chiyu Chen |
 
@@ -2063,7 +1860,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Sabin Roman, Ljupco Todorovski, Saso Dzeroski |
 
@@ -2078,7 +1875,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Yi-Chung Chen, Philip Jacobson, Tom Lampo |
 
@@ -2093,7 +1890,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** |  AlayaWorld Team, Kaipeng Zhang, Chuanhao Li |
 
@@ -2958,151 +2755,59 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
-### Preference Tree Optimization: Enhancing Goal-Oriented Dialogue with Look-Ahead Simulations
+## 💼 Product & Business Updates
 
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Lior Baruch, Moshe Butman, Kfir Bar |
-
-**Summary:** Developing dialogue systems capable of engaging in multi-turn, goal-oriented conversations remains a significant challenge, especially in specialized domains with limited data. This research proposes 
-
-**URL:** [https://arxiv.org/abs/2608.12062v1](https://arxiv.org/abs/2608.12062v1)
-
----
-
-### Benchmarking Trustworthiness of SLMs: Pre-trained vs. Compressed
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Haokun Lin, Kaijie Zhu, Haobo Xu |
-
-**Summary:** Small Language Models (SLMs) have emerged as a more efficient alternative to traditional Large Language Models (LLMs), offering promising potential in resource-constrained scenarios. Existing approach
-
-**URL:** [https://arxiv.org/abs/2608.11981v1](https://arxiv.org/abs/2608.11981v1)
-
----
-
-### I built an "honest" CS conference ranking: sorted by how good the trip is, not the CORE ranking [P]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | r/MachineLearning |
-
-**Summary:** Once the paper is ready, everyone checks the venue location before the acceptance rate anyway. So I built:https://honestcsrankings.org It maps ~540 upcoming CORE-ranked conferences, but ranks them by 
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vmbdk6/i_built_an_honest_cs_conference_ranking_sorted_by/](https://www.reddit.com/r/MachineLearning/comments/1vmbdk6/i_built_an_honest_cs_conference_ranking_sorted_by/)
-
----
-
-### AAAI 2027 Review: No code submission? [D]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | r/MachineLearning |
-
-**Summary:** I am now reviewing a bunch of papers for AAAI 2027 and it has surprised me the low amount of submissions with no code implementation. I don’t know if it has been only in my batch or it is common, but 
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vlqjby/aaai_2027_review_no_code_submission_d/](https://www.reddit.com/r/MachineLearning/comments/1vlqjby/aaai_2027_review_no_code_submission_d/)
-
----
-
-### imo GDPVal is probably the most important benchmark, it measures the performance of models on real world tasks Big leap in performance here to top ...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 stability |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Emad Mostaque |
-
-**Summary:** imo GDPVal is probably the most important benchmark, it measures the performance of models on real world tasks Big leap in performance here to top it at a great price, congrats to team & looking forwa
-
-**URL:** [https://x.com/EMostaque/status/2087566732525212001](https://x.com/EMostaque/status/2087566732525212001)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-ai |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 🔬 research |
-| **Author** | Google AI Blog |
-
-**Summary:** Google introduces AMIE for real-time clinical video consultations in simulated settings.
-
-**URL:** [https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/](https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/)
-
----
-
-### Regulating Data Brokers in the Age of AI: A California Case Study
+### Goodwin Procter unveils AI-enhanced tool for venture capital funding
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 🔬 research |
-| **Author** | Stanford HAI |
+| **Date** | August 15, 2026 (11m ago) |
+| **Category** | 💼 product |
+| **Author** | ABA Journal |
 
-**Summary:** Regulating Data Brokers in the Age of AI: A California Case Study  Stanford HAI
+**Summary:** Law firm Goodwin Procter has introduced an AI-powered tool to aid venture capital funding decisions
 
-**URL:** [https://news.google.com/rss/articles/CBMinAFBVV95cUxNQlJxUkpVOThQT0JyWThIcmxIMUtLV1BuTl9wekxtTXItM2dhTm5ia2VUUEQ0cEF1ckF6cDJuamx1SHY3SE1tS0xJcVhJVDF0LWhJQmprNVd2ZHc3NlNlQVZuR2dSUm9JbkZpdkd0NmNfeEl2eFJiZ1ZOZFdsX0dmbUtud1hWaXJoYWNFczFJQ21ZRmRUOFQtM2N3Tmc?oc=5](https://news.google.com/rss/articles/CBMinAFBVV95cUxNQlJxUkpVOThQT0JyWThIcmxIMUtLV1BuTl9wekxtTXItM2dhTm5ia2VUUEQ0cEF1ckF6cDJuamx1SHY3SE1tS0xJcVhJVDF0LWhJQmprNVd2ZHc3NlNlQVZuR2dSUm9JbkZpdkd0NmNfeEl2eFJiZ1ZOZFdsX0dmbUtud1hWaXJoYWNFczFJQ21ZRmRUOFQtM2N3Tmc?oc=5)
+**URL:** [https://news.google.com/rss/articles/CBMirAFBVV95cUxQNlRhVkFfTmxRS1ZHWHpSYWhFQkQ3TFRYWUUzenlib3NoMnhEMlI3aXJ2bTgzUnBaYlNxOHNVeUVISHdwenJtUVVkNEFucVhtM3haY1hFU3dEM1Z0U2NuNHZYWmlPS0xKb1F2eWpjUG82OEREcmRLWjdwVTYweDdOcExWcVd4QlN5b1ZoQU9BX1pSNHBRbXd5dmxjcTBDbE9WZVZrT3g0RURvRmtF?oc=5](https://news.google.com/rss/articles/CBMirAFBVV95cUxQNlRhVkFfTmxRS1ZHWHpSYWhFQkQ3TFRYWUUzenlib3NoMnhEMlI3aXJ2bTgzUnBaYlNxOHNVeUVISHdwenJtUVVkNEFucVhtM3haY1hFU3dEM1Z0U2NuNHZYWmlPS0xKb1F2eWpjUG82OEREcmRLWjdwVTYweDdOcExWcVd4QlN5b1ZoQU9BX1pSNHBRbXd5dmxjcTBDbE9WZVZrT3g0RURvRmtF?oc=5)
 
 ---
 
-### A Zoom Screen-Sharing Bug Let Anyone Take Over Other Devices on a Call
+### AI Turns Sports’ Dead Air Into a Selling Season
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 wired |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 🔬 research |
-| **Author** | Wired AI |
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (59m ago) |
+| **Category** | 💼 product |
+| **Author** | pymnts.com |
 
-**Summary:** Researchers say it took fewer than 20 prompts for a public AI tool to find a flaw (now fixed) allowing anyone on a Zoom call to hijack another participants’ device.
+**Summary:** AI technology is being used to turn sports' dead air into engaging content, boosting sales for sports media outlets
 
-**URL:** [https://www.wired.com/story/a-zoom-screen-sharing-bug-let-anyone-take-over-other-devices-on-a-call/](https://www.wired.com/story/a-zoom-screen-sharing-bug-let-anyone-take-over-other-devices-on-a-call/)
+**URL:** [https://news.google.com/rss/articles/CBMipAFBVV95cUxQMXBzZ3o3OTFsZk16T3VjVy16c0ZMNURYcGJCVjlOUmdkNUNxU2UxUHFHZENMblloR1pFM0FBaUhpMXBzWjhpTDVHQWxpckNudzkzOXIxLXoweUFiSi0tQThNY2laT2JRc3hQZE9VY3lleDNzaTBhcy1BdXNvcWhHUU5OQU80dndLZVl5Q0U5THJSV1Z2MEM1ZmJiMVJfdVVudGczZQ?oc=5](https://news.google.com/rss/articles/CBMipAFBVV95cUxQMXBzZ3o3OTFsZk16T3VjVy16c0ZMNURYcGJCVjlOUmdkNUNxU2UxUHFHZENMblloR1pFM0FBaUhpMXBzWjhpTDVHQWxpckNudzkzOXIxLXoweUFiSi0tQThNY2laT2JRc3hQZE9VY3lleDNzaTBhcy1BdXNvcWhHUU5OQU80dndLZVl5Q0U5THJSV1Z2MEM1ZmJiMVJfdVVudGczZQ?oc=5)
 
 ---
 
-### Prospects of Finding a ML Engineering Job [D]
+### China’s AI Models Are Catching Up. Z.ai’s GLM-5.3 Takes Aim at OpenAI & Anthropic
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 🔬 research |
-| **Author** | r/MachineLearning |
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | ibtimes.com |
 
-**Summary:** Hello all, I am wondering if a transition from a Ph.D. in electrical engineering (Quantum optics/photonics) to a job in ML is a reasonable aspiration. Personally, I have extensive software development
+**Summary:** China's AI model Z.ai's GLM-5.3 is gaining ground on global leaders OpenAI and Anthropic
 
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vlfjy3/prospects_of_finding_a_ml_engineering_job_d/](https://www.reddit.com/r/MachineLearning/comments/1vlfjy3/prospects_of_finding_a_ml_engineering_job_d/)
+**URL:** [https://news.google.com/rss/articles/CBMiogFBVV95cUxNWV9fakJGRzFrVTFlSnVNbm1QWThsUjhDMjl1UjNrREVOZmxkeFAzdVRESHJKaHNXdFJGZkVZVC0zX2hGbmxBM24xeXN6X0Vpa0Jland5WkpoX3ZiQWFjWnRmeE9tRndDTG5BYlphdnh2WjF1dC1JVlFfZ3N5MXNGeXZmNWFBRWxaOE56X0pZSUJQNzFSaWx2U1pLTGdXelR5dkE?oc=5](https://news.google.com/rss/articles/CBMiogFBVV95cUxNWV9fakJGRzFrVTFlSnVNbm1QWThsUjhDMjl1UjNrREVOZmxkeFAzdVRESHJKaHNXdFJGZkVZVC0zX2hGbmxBM24xeXN6X0Vpa0Jland5WkpoX3ZiQWFjWnRmeE9tRndDTG5BYlphdnh2WjF1dC1JVlFfZ3N5MXNGeXZmNWFBRWxaOE56X0pZSUJQNzFSaWx2U1pLTGdXelR5dkE?oc=5)
 
 ---
-
-## 💼 Product & Business Updates
 
 ### Open-source Python library + no-code web dashboard for evaluating oncology AI models at clinical decision thresholds. [P]
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (7m ago) |
+| **Date** | August 14, 2026 (1h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3117,7 +2822,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12m ago) |
+| **Date** | August 14, 2026 (1h ago) |
 | **Category** | 💼 product |
 | **Author** | Nikkei Asia |
 
@@ -3127,12 +2832,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Alibaba's Qwen team releases Qwen 3.8 models with open weights under the Apache 2.0 license
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** Alibaba's Qwen team releases new AI model Qwen 3.8 with open weights, targeting developers building local and agent-based applications
+
+**URL:** [https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/](https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/)
+
+---
+
 ### Databricks Announces $5B in Funding at $190B Valuation, Fueled by Massive Investor Demand
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18m ago) |
+| **Date** | August 14, 2026 (1h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -3142,12 +2862,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Google Meet can take notes for your in-person meetings now - here's how it works
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** Google Meet has added note-taking capabilities to its Gemini-driven meeting software, allowing users to save transcripts, share them with Google Drive, and receive an email copy.
+
+**URL:** [https://www.zdnet.com/article/google-meet-take-notes-in-person-meetings-how-it-works/](https://www.zdnet.com/article/google-meet-take-notes-in-person-meetings-how-it-works/)
+
+---
+
 ### Mark Zuckerberg has an Instagzam
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (19m ago) |
+| **Date** | August 14, 2026 (1h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -3157,12 +2892,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### OpenAI's Computer History turns your clicks and keystrokes into a searchable ChatGPT memory timeline
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** OpenAI has developed a tool called Computer History that converts user interactions into a searchable timeline for its chat models, raising concerns about data usage and training
+
+**URL:** [https://the-decoder.com/openais-computer-history-turns-your-clicks-and-keystrokes-into-a-searchable-chatgpt-memory-timeline/](https://the-decoder.com/openais-computer-history-turns-your-clicks-and-keystrokes-into-a-searchable-chatgpt-memory-timeline/)
+
+---
+
 ### You can now turn off Google Gemini&#8217;s visible watermarks
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (34m ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -3177,7 +2927,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (36m ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3192,7 +2942,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (50m ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | Stock Titan |
 
@@ -3202,12 +2952,42 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### I tested an Android app that lets anyone fight censorship - and shows your impact in real time
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** An Android app allows users to fight censorship by turning their phones into Tor proxies, making it easy for anyone to communicate without restrictions
+
+**URL:** [https://www.zdnet.com/article/snowflake-volunteer-censorship-fighting-android-app-tor/](https://www.zdnet.com/article/snowflake-volunteer-censorship-fighting-android-app-tor/)
+
+---
+
+### Maximizing the value of your Claude Code sessions
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | twapi |
+
+**Summary:** Hacker News discussion on optimizing performance in Claude Code sessions
+
+**URL:** [https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions](https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions)
+
+---
+
 ### Google will now allow users to remove visible watermark from its AI generations
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3217,12 +2997,57 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Custom reward functions for multi-turn reinforcement learning with Amazon Nova Forge
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** This article provides guidance on designing a custom reward function for multi-turn reinforcement learning with Amazon Nova Forge.
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/](https://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/)
+
+---
+
+### Dell XPS 13 review: The first budget laptop to rival Neo raises the bar for all PCs
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** The Dell XPS 13 is a budget-friendly laptop that rivals high-end models with its impressive build quality
+
+**URL:** [https://www.zdnet.com/article/dell-xps-13-spotlight/](https://www.zdnet.com/article/dell-xps-13-spotlight/)
+
+---
+
+### ChatGPT's new Computer History tracks your Mac activity to create a timeline -  but should you let it?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** ChatGPT's new feature Computer History tracks user Mac activity to create a timeline
+
+**URL:** [https://www.zdnet.com/article/chatgpt-computer-history/](https://www.zdnet.com/article/chatgpt-computer-history/)
+
+---
+
 ### Building agentic workflows with SageMaker AI and Bedrock AgentCore
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon Web Services (AWS) |
 
@@ -3232,12 +3057,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### RWX Raises $12M Series A to Scale the Dev Cloud for AI-Driven Engineering
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | AI Insider |
+
+**Summary:** RWX raises $12M in funding to scale its dev cloud for AI-driven engineering
+
+**URL:** [https://news.google.com/rss/articles/CBMirwFBVV95cUxPMTlCQnY2WTd0TGYydDRnVXZ3RE5WWnZGcmQ4X2trMUwtVG1zVVlTaTV2ckdfc3FMVlVUaE42bjJ6aUlmSDQ4ZHQwSk8xRl9YSi1sR0FsNS05Sm95Z0dzLWc0QlVrR1ZLNGpaQThCMlNzdzl4VTluSTVsRER5WEpmTkpxU3pwWmZ4R0Z5XzFZUjkwN0dlZEJmUWpTZENCakE4OE5paktuSEtSWlhTWG80?oc=5](https://news.google.com/rss/articles/CBMirwFBVV95cUxPMTlCQnY2WTd0TGYydDRnVXZ3RE5WWnZGcmQ4X2trMUwtVG1zVVlTaTV2ckdfc3FMVlVUaE42bjJ6aUlmSDQ4ZHQwSk8xRl9YSi1sR0FsNS05Sm95Z0dzLWc0QlVrR1ZLNGpaQThCMlNzdzl4VTluSTVsRER5WEpmTkpxU3pwWmZ4R0Z5XzFZUjkwN0dlZEJmUWpTZENCakE4OE5paktuSEtSWlhTWG80?oc=5)
+
+---
+
 ### FinTech funding rises to $808m this week as summer rolls on
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | FinTech Global |
 
@@ -3252,7 +3092,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3267,7 +3107,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | u1hcw9nx |
 
@@ -3277,12 +3117,42 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Show HN: Graft – Claude Code hooks that cut grep tokens by 42%
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 14, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | shrishdwi |
+
+**Summary:** Graft is a new tool that reduces the number of tokens in grep results by 42% by hooking into Claude Code's search functionality.
+
+**URL:** [https://github.com/NanoNets/Graft](https://github.com/NanoNets/Graft)
+
+---
+
+### Ryanair Taps Google AI for Operations
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | CDO Magazine |
+
+**Summary:** Ryanair is utilizing Google AI to enhance its operations
+
+**URL:** [https://news.google.com/rss/articles/CBMie0FVX3lxTE8ycm5tV0dnd0N1ODFkOGlienZaeDhxa2dOeE9MczJXZkdQLXlnUUl3elN6UW1JNUJFOHItQk9JWVBnd2Qzbk9VdTRoRmZFZm5wZUdPTXBFYmdiN1pWYjNxOUVuSkUwM09qN0x3blVObDROZTgxTzJwNGF2MA?oc=5](https://news.google.com/rss/articles/CBMie0FVX3lxTE8ycm5tV0dnd0N1ODFkOGlienZaeDhxa2dOeE9MczJXZkdQLXlnUUl3elN6UW1JNUJFOHItQk9JWVBnd2Qzbk9VdTRoRmZFZm5wZUdPTXBFYmdiN1pWYjNxOUVuSkUwM09qN0x3blVObDROZTgxTzJwNGF2MA?oc=5)
+
+---
+
 ### AI Keeps Moving to Autonomous Execution
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | Mexico Business News |
 
@@ -3292,12 +3162,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### AI Is Driving Gains at a Jobs Website. Investors Feared the Opposite.
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | Bloomberg.com |
+
+**Summary:** A jobs website sees gains driven by AI, contradicting investor expectations
+
+**URL:** [https://news.google.com/rss/articles/CBMizgFBVV95cUxPd2E0TzEtVkVNaHVJSkprRWt2TE9qbXNKZGQxS3U1bUMxUnBqNklCSW0wamdhcUVVOTFBNHpKbkJBdHo2N1NadER5Y0hvQUpyR0FoS1hsdTQzY1lsS1hGWFlvZWpLYnlyNVdkX2Y0QW5wOHViY3BUSl9SSXM4ckw5c1UxcW1LRkkyTzJ3bGNGZFlrTDVDVlJDU3NhQ2c0YkpBMEhvQ01qSXBzalUxUElJc084aGxOZnBmVjJIRWhneFRYcFBqZTdrWDh6R2haZw?oc=5](https://news.google.com/rss/articles/CBMizgFBVV95cUxPd2E0TzEtVkVNaHVJSkprRWt2TE9qbXNKZGQxS3U1bUMxUnBqNklCSW0wamdhcUVVOTFBNHpKbkJBdHo2N1NadER5Y0hvQUpyR0FoS1hsdTQzY1lsS1hGWFlvZWpLYnlyNVdkX2Y0QW5wOHViY3BUSl9SSXM4ckw5c1UxcW1LRkkyTzJ3bGNGZFlrTDVDVlJDU3NhQ2c0YkpBMEhvQ01qSXBzalUxUElJc084aGxOZnBmVjJIRWhneFRYcFBqZTdrWDh6R2haZw?oc=5)
+
+---
+
 ### Tech Visionary Says the Big AI Labs Don’t Get What People Want
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -3312,7 +3197,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | ABC30 Fresno |
 
@@ -3327,7 +3212,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3342,7 +3227,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | Ars Technica AI |
 
@@ -3352,12 +3237,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### GPT-5.6 Sol goes 14x faster as OpenAI launches Ultrafast mode powered by Cerebras
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (4h ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** OpenAI launches "Ultrafast" mode for GPT-5.6 Sol, increasing output speed to up to 750 tokens per second
+
+**URL:** [https://the-decoder.com/gpt-5-6-sol-goes-14x-faster-as-openai-launches-ultrafast-mode-powered-by-cerebras/](https://the-decoder.com/gpt-5-6-sol-goes-14x-faster-as-openai-launches-ultrafast-mode-powered-by-cerebras/)
+
+---
+
 ### Turkish 'bug hunter' startup set for global expansion after seed funding | Daily Sabah
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | Daily Sabah |
 
@@ -3372,7 +3272,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | 9to5Mac |
 
@@ -3387,7 +3287,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3402,7 +3302,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | Benzinga |
 
@@ -3417,7 +3317,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3427,12 +3327,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Hippocratic AI rolls out platform to coordinate teams of conversational voice AI agents
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (4h ago) |
+| **Category** | 💼 product |
+| **Author** | Fierce Healthcare |
+
+**Summary:** Hippocratic AI launches platform for coordinating conversational voice AI teams
+
+**URL:** [https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVzZGT0h5Ny1reHhHQzBFVlBuaEdfZ2lVR245S0RHQko0enNMUUFMZGlvUHRqdTBNTjE5TFA3NjNxYTZtRm1yOFkwUUN6LW9ueUtuUzZxS2duWFhJQTR4anRtcTdzSEJpZFYxMUVsSVU3anJSNVhQYnUxSW9ESk10MUNMY2xadWtwNlJPeHZyNW9JY0puUVhVXzhiMjBuQ0VUYmNrV1FXd29fOFEteGVvMDFGVWY2dlRkWVhvME9PTHdHajJ6TTJZeA?oc=5](https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVzZGT0h5Ny1reHhHQzBFVlBuaEdfZ2lVR245S0RHQko0enNMUUFMZGlvUHRqdTBNTjE5TFA3NjNxYTZtRm1yOFkwUUN6LW9ueUtuUzZxS2duWFhJQTR4anRtcTdzSEJpZFYxMUVsSVU3anJSNVhQYnUxSW9ESk10MUNMY2xadWtwNlJPeHZyNW9JY0puUVhVXzhiMjBuQ0VUYmNrV1FXd29fOFEteGVvMDFGVWY2dlRkWVhvME9PTHdHajJ6TTJZeA?oc=5)
+
+---
+
 ### Michael Burry warns Nvidia's $500B AI funding p...
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | Pluang |
 
@@ -3442,12 +3357,147 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Cloud Infrastructure Month 2026
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** Cloud infrastructure is expected to continue growing in 2026, with increased adoption of cloud services and advancements in technology.
+
+**URL:** [https://www.theregister.com/special_features/cloud_infrastructure_month_2026](https://www.theregister.com/special_features/cloud_infrastructure_month_2026)
+
+---
+
+### HPE: AI Explainers
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** HPE introduces AI Explanators to provide insights into AI decision-making processes
+
+**URL:** [https://www.theregister.com/explainer/ai-explainer](https://www.theregister.com/explainer/ai-explainer)
+
+---
+
+### All Vendor Voice
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** A new AI-powered platform is being developed to provide a unified voice for all vendors in the tech industry.
+
+**URL:** [https://vendorvoice.theregister.com/](https://vendorvoice.theregister.com/)
+
+---
+
+### Modernizing Financial Services with FIS and AWS
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** FIS and AWS partner to modernize financial services with cloud-based solutions
+
+**URL:** [https://vendorvoice.theregister.com/aws_fis_capital_markets/](https://vendorvoice.theregister.com/aws_fis_capital_markets/)
+
+---
+
+### Make it real with Capgemini and AWS
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** Capgemini and AWS partner to help businesses implement AI solutions
+
+**URL:** [https://vendorvoice.theregister.com/aws_capgemini/](https://vendorvoice.theregister.com/aws_capgemini/)
+
+---
+
+### Money Movement Hub
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** A new platform is launching to facilitate secure and efficient money movement globally.
+
+**URL:** [https://vendorvoice.theregister.com/aws_fis/](https://vendorvoice.theregister.com/aws_fis/)
+
+---
+
+### Nutanix: Scale Kubernetes. Not Chaos.
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** Nutanix emphasizes the importance of scaling Kubernetes for businesses to avoid chaos, highlighting its solutions to manage and optimize container orchestration.
+
+**URL:** [https://vendorvoice.theregister.com/nutantix_cloud_native_apps/](https://vendorvoice.theregister.com/nutantix_cloud_native_apps/)
+
+---
+
+### AWS New Horizon
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** AWS announces a new cloud computing platform called New Horizons, promising improved scalability and performance.
+
+**URL:** [https://vendorvoice.theregister.com/aws_new_horizon/](https://vendorvoice.theregister.com/aws_new_horizon/)
+
+---
+
+### Webinars &amp; Events
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** Upcoming webinars and events for AI enthusiasts
+
+**URL:** [https://intelligence.theregister.com/events/list/](https://intelligence.theregister.com/events/list/)
+
+---
+
 ### Google launches Gemini 3.7 Flash amid AI leadership shakeup
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | Northeast Times |
 
@@ -3462,7 +3512,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | The Motley Fool |
 
@@ -3477,7 +3527,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | Food & Wine |
 
@@ -3492,7 +3542,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3507,7 +3557,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | Search Engine Roundtable |
 
@@ -3517,12 +3567,42 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### AI advances take safety to new heights
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (6h ago) |
+| **Category** | 💼 product |
+| **Author** | American Fuel & Petrochemical Manufacturers |
+
+**Summary:** AI advancements are being used to improve safety in various industries, including the petrochemical sector
+
+**URL:** [https://news.google.com/rss/articles/CBMidEFVX3lxTE9pckd1ODI0Nm5fUTBXT3ZGUVNfQlF6ZmtTbTI3akkxRjVyaEU3TEtjaHRkcWd0TDdoRWdSdWt0cTVySjJaeFdJSk5abWczSHEwd3p1d2dSQWlKQk90Vlh6TVpUaHI4TFd6d1l4czJLY2pPVURv?oc=5](https://news.google.com/rss/articles/CBMidEFVX3lxTE9pckd1ODI0Nm5fUTBXT3ZGUVNfQlF6ZmtTbTI3akkxRjVyaEU3TEtjaHRkcWd0TDdoRWdSdWt0cTVySjJaeFdJSk5abWczSHEwd3p1d2dSQWlKQk90Vlh6TVpUaHI4TFd6d1l4czJLY2pPVURv?oc=5)
+
+---
+
+### I used OpenFactory to build my own Linux distro overnight - this AI tool is going to be big
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (6h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** AI tool OpenFactory helps users create custom Linux distributions quickly and easily
+
+**URL:** [https://www.zdnet.com/article/openfactory-is-an-impressive-new-service-that-allows-you-to-build-your-own-linux-distribution/](https://www.zdnet.com/article/openfactory-is-an-impressive-new-service-that-allows-you-to-build-your-own-linux-distribution/)
+
+---
+
 ### Team8 raises $365 million to back the next generation of AI-native enterprise companies
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | Ynetnews |
 
@@ -3532,12 +3612,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Exclusive: Tencent Hunyuan's Xu Can Transferred to WeChat WeLM – WeChat AI Enters Accelerated Development Stage
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (7h ago) |
+| **Category** | 💼 product |
+| **Author** | 36Kr |
+
+**Summary:** Tencent Hunyuan's Xu Can has been transferred to WeChat's WeLM, marking a significant development in the company's AI capabilities.
+
+**URL:** [https://news.google.com/rss/articles/CBMiU0FVX3lxTE1EdENmNTl0T042enRGTERmejhhOUtoTVlzcmtZM3Y1SmhrX0lVdGlvcHhKSTZ1aTFDZjBsZFVaX0l5RmMzaGtMMUFhdlFBaUJiRUJv?oc=5](https://news.google.com/rss/articles/CBMiU0FVX3lxTE1EdENmNTl0T042enRGTERmejhhOUtoTVlzcmtZM3Y1SmhrX0lVdGlvcHhKSTZ1aTFDZjBsZFVaX0l5RmMzaGtMMUFhdlFBaUJiRUJv?oc=5)
+
+---
+
 ### Not Micron, Not Sandisk. This Artificial Intelligence (AI) Memory Stock Could Be the Next Nvidia.
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | Yahoo Finance |
 
@@ -3552,7 +3647,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3567,7 +3662,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | TravelPulse |
 
@@ -3582,7 +3677,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | River Journal Online |
 
@@ -3597,7 +3692,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -3612,7 +3707,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3627,7 +3722,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | Counterfire |
 
@@ -3642,7 +3737,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | PA Media |
 
@@ -3652,12 +3747,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (8h ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** Zhipu AI releases GLM-5.3, a powerful open-weights coding model that boasts a 50% improvement over its predecessor
+
+**URL:** [https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/](https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/)
+
+---
+
 ### Artificial intelligence cameras on the Coronado Bridge
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | fox5sandiego.com |
 
@@ -3672,7 +3782,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | Ragan Communications |
 
@@ -3687,7 +3797,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | The Business Journals |
 
@@ -3702,7 +3812,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | thelec.net |
 
@@ -3717,7 +3827,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -3732,7 +3842,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | Latest news from Azerbaijan |
 
@@ -3747,7 +3857,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | VIR |
 
@@ -3762,7 +3872,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | The Daily Star |
 
@@ -3777,7 +3887,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | Stocktwits |
 
@@ -3792,7 +3902,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | Pittsburgh Post-Gazette |
 
@@ -3807,7 +3917,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | The Economic Times |
 
@@ -3822,7 +3932,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3837,7 +3947,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | TradingKey |
 
@@ -3847,12 +3957,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Z.ai Ships GLM-5.3 Without Retraining the Base Model: Better at Complex Coding and Long-Horizon Tasks
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 14, 2026 (10h ago) |
+| **Category** | 💼 product |
+| **Author** | MarkTechPost |
+
+**Summary:** Z.ai has released GLM-5.3, a model that improves performance in complex coding and long-horizon tasks without retraining the base model.
+
+**URL:** [https://www.marktechpost.com/2026/08/14/z-ai-ships-glm-5-3-without-retraining-the-base-model-better-at-complex-coding-and-long-horizon-tasks/](https://www.marktechpost.com/2026/08/14/z-ai-ships-glm-5-3-without-retraining-the-base-model-better-at-complex-coding-and-long-horizon-tasks/)
+
+---
+
 ### Apple finally completes its AI puzzle in the Chinese market! Partnering with Alibaba to build on-device AI capabilities enhances iPhone competitiveness and serves as a major catalyst for Alibaba's ...
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | Moomoo |
 
@@ -3867,7 +3992,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | Apple World Today |
 
@@ -3882,7 +4007,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | yellow.com |
 
@@ -3897,7 +4022,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | Deccan Chronicle |
 
@@ -3912,7 +4037,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | Providence Business News |
 
@@ -3927,7 +4052,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | The Next Web |
 
@@ -3942,7 +4067,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | fundsforngos.org |
 
@@ -3952,12 +4077,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Meet Needle 2: An Open 45M-Parameter Tool-Calling Model That Ships as a 14MB Binary and Runs a Full Session in 28MB of RAM
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 14, 2026 (12h ago) |
+| **Category** | 💼 product |
+| **Author** | MarkTechPost |
+
+**Summary:** Cactus Compute releases Needle 2, an open 45M-parameter model for tool calling that is compact and energy-efficient.
+
+**URL:** [https://www.marktechpost.com/2026/08/13/cactus-compute-needle-2-45m-parameter-tool-calling-model/](https://www.marktechpost.com/2026/08/13/cactus-compute-needle-2-45m-parameter-tool-calling-model/)
+
+---
+
 ### EXCLUSIVE: Apple trains its own AI model for China market with Alibaba's support, sources say
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Reuters |
 
@@ -3967,12 +4107,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Create a Reasoning-Focused LLM: A Practical Guide to Streaming, Curating, and Fine-Tuning the SupraLabs Reasoning Corpus
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 14, 2026 (15h ago) |
+| **Category** | 💼 product |
+| **Author** | MarkTechPost |
+
+**Summary:** A tutorial provides a practical guide for building a compact reasoning-focused language model using the SupraLabs reasoning corpus
+
+**URL:** [https://www.marktechpost.com/2026/08/13/a-practical-guide-to-streaming-curating-and-fine-tuning-the-supralabs-reasoning-corpus/](https://www.marktechpost.com/2026/08/13/a-practical-guide-to-streaming-curating-and-fine-tuning-the-supralabs-reasoning-corpus/)
+
+---
+
 ### Uber partners with China's Pony.ai for 2,000 robotaxis in Europe
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3987,7 +4142,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | 아시아경제 |
 
@@ -4002,7 +4157,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -4012,12 +4167,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### This free Android assistant fixes my biggest Gemini frustration - and keeps my data private
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (18h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** A free Android assistant called Dicio offers an alternative to Google Assistant and Gemini, but with some caveats
+
+**URL:** [https://www.zdnet.com/article/dicio-free-android-assistant-gemini-keeps-data-private/](https://www.zdnet.com/article/dicio-free-android-assistant-gemini-keeps-data-private/)
+
+---
+
 ### DIA’s artificial intelligence chief envisions ‘agent-to-agents’ interactions that support military operations
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | DefenseScoop |
 
@@ -4032,7 +4202,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Yahoo Finance |
 
@@ -4047,7 +4217,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -4062,7 +4232,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -4077,7 +4247,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -4087,12 +4257,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### I tried the new ChatGPT Desktop App for Linux - but I'll stick to my browser for now
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (21h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** Preview release of ChatGPT Desktop app for Linux available
+
+**URL:** [https://www.zdnet.com/article/openai-brings-the-chatgpt-desktop-app-to-linux/](https://www.zdnet.com/article/openai-brings-the-chatgpt-desktop-app-to-linux/)
+
+---
+
 ### Databricks wanted to raise $1B, investors wanted $15B. It settled on $5B at a $190B valuation.
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -4107,7 +4292,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (21h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -4122,7 +4307,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (21h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | American Hospital Association |
 
@@ -4132,12 +4317,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Suno Studio 2.0's new chat feature lets you talk to your DAW like it's a bandmate
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (23h ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** Suno Studio 2.0 introduces a chat feature that enables users to interact with their digital audio workstation (DAW) as if it were a bandmate, creating instruments and plugins via text.
+
+**URL:** [https://the-decoder.com/suno-studio-2-0s-new-chat-feature-lets-you-talk-to-your-daw-like-its-a-bandmate/](https://the-decoder.com/suno-studio-2-0s-new-chat-feature-lets-you-talk-to-your-daw-like-its-a-bandmate/)
+
+---
+
 ### OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work at 14x the speed
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (21h ago) |
+| **Date** | August 14, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -4152,7 +4352,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (21h ago) |
+| **Date** | August 14, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -4162,12 +4362,27 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Gemini 3.7 Flash lands with coding gains and undercuts its three-week-old predecessor's price by 50%
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 14, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** Google has released Gemini 3.7 Flash, a new AI model that outperforms its predecessor at half the cost
+
+**URL:** [https://the-decoder.com/gemini-3-7-flash-lands-with-coding-gains-and-undercuts-its-three-week-old-predecessors-price-by-50/](https://the-decoder.com/gemini-3-7-flash-lands-with-coding-gains-and-undercuts-its-three-week-old-predecessors-price-by-50/)
+
+---
+
 ### The Future of AI Investing: Harbor Debuts 5 New Ecosystem ETFs
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | ETF Database |
 
@@ -4182,7 +4397,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | qz.com |
 
@@ -4197,7 +4412,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | pr337h4m |
 
@@ -4212,7 +4427,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 venturebeat |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | VentureBeat AI |
 
@@ -4227,7 +4442,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -4242,7 +4457,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | MarkTechPost |
 
@@ -4257,7 +4472,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Peter Schneider-Kamp, Jacob Nielsen, Gianluca Barmina |
 
@@ -4272,7 +4487,7 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Hugging Face |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Hugging Face |
 
@@ -4294,6 +4509,21 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 **Summary:** Body Vision Medical secures new funding to expand its global presence with AI-powered intraoperative imaging technology
 
 **URL:** [https://news.google.com/rss/articles/CBMixAFBVV95cUxPMTREb3VDNHNMd0pRVUtzMkZWYjJ1MXV4SEI3RWVIaDYyRnhWSGNMME53NmZlSUNqX01vVDVWUEFSbmpob2JyMW9oOFpQMWpKVGp0NzRoRTJTWnFSeDRTc21uYjB3NWxPV3NXdTVEMHhZbU50M3dCM0M1RGM4VElWa1M1V2tQX3IwMGgxWjViM3EwZExraG03NzNDanBRdnFaQVN3ckNqdXBSSWxYREpPUUduV284eS1yOFdQcnRjRUk1Nmpp0gHKAUFVX3lxTFBUOGM3bmhGeGZwV2lnR1BuZEl1anJhek9wMnNndFRXSkNUai1aa3FYS1hmSkNUZ0FHUUpUeENDZ3JsOVktS0ZhNW1uZGhQTzVacDNyQm14T2dQeDRNWHZwNGZWZUxlWmlfZ0QxN19FN05ZbGRuQlgtYWd2cWZIWVFDdmZHei15RkFnc0ROYVAweTVPVG9sWTFhM19oNlkzUmFna213eDJwZVMzckxhclBHR3BibWpNY29KRUpDTWh0M0xhakVBWEdYbUE?oc=5](https://news.google.com/rss/articles/CBMixAFBVV95cUxPMTREb3VDNHNMd0pRVUtzMkZWYjJ1MXV4SEI3RWVIaDYyRnhWSGNMME53NmZlSUNqX01vVDVWUEFSbmpob2JyMW9oOFpQMWpKVGp0NzRoRTJTWnFSeDRTc21uYjB3NWxPV3NXdTVEMHhZbU50M3dCM0M1RGM4VElWa1M1V2tQX3IwMGgxWjViM3EwZExraG03NzNDanBRdnFaQVN3ckNqdXBSSWxYREpPUUduV284eS1yOFdQcnRjRUk1Nmpp0gHKAUFVX3lxTFBUOGM3bmhGeGZwV2lnR1BuZEl1anJhek9wMnNndFRXSkNUai1aa3FYS1hmSkNUZ0FHUUpUeENDZ3JsOVktS0ZhNW1uZGhQTzVacDNyQm14T2dQeDRNWHZwNGZWZUxlWmlfZ0QxN19FN05ZbGRuQlgtYWd2cWZIWVFDdmZHei15RkFnc0ROYVAweTVPVG9sWTFhM19oNlkzUmFna213eDJwZVMzckxhclBHR3BibWpNY29KRUpDTWh0M0xhakVBWEdYbUE?oc=5)
+
+---
+
+### Gemini voice calling on Android Auto keeps failing me - and Google has until September to fix it
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** Gemini's voice calling feature in Android Auto is experiencing issues, and Google has a deadline to resolve the problem
+
+**URL:** [https://www.zdnet.com/article/gemini-voice-calling-on-android-auto-keeps-failing-google-must-fix-by-september/](https://www.zdnet.com/article/gemini-voice-calling-on-android-auto-keeps-failing-google-must-fix-by-september/)
 
 ---
 
@@ -4372,6 +4602,21 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Deepseek ships improved V4 Pro, open-sources its agent software, and raises API prices
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | TheDecoder |
+
+**Summary:** Deepseek releases improved V4 Pro with open-sourced agent software and increases API prices
+
+**URL:** [https://the-decoder.com/deepseek-launches-an-improved-v4-pro-model-raises-api-prices-and-makes-its-agent-software-open-source/](https://the-decoder.com/deepseek-launches-an-improved-v4-pro-model-raises-api-prices-and-makes-its-agent-software-open-source/)
+
+---
+
 ### Exclusive | Vibe-Coding Startup Lovable Hits $13 Billion Valuation
 
 | Detail | Value |
@@ -4387,6 +4632,21 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 
 ---
 
+### Monitor on-premises and multi-cloud AI agents with AgentCore Observability
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** Amazon Bedrock AgentCore Observability enables monitoring of AI agents across multiple clouds and on-premises environments
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/monitor-on-premises-and-multi-cloud-ai-agents-with-agentcore-observability/](https://aws.amazon.com/blogs/machine-learning/monitor-on-premises-and-multi-cloud-ai-agents-with-agentcore-observability/)
+
+---
+
 ### Suno is trying to look more like a real music production tool
 
 | Detail | Value |
@@ -4399,6 +4659,51 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 **Summary:** Suno is releasing Studio 2.0 with significant upgrades that push it closer to an actual digital audio workstation (DAW), rather than a bare-bones audio editor with generative AI features. The biggest 
 
 **URL:** [https://www.theverge.com/ai-artificial-intelligence/979345/suno-studio-2-0-midi-chatbot-custom-effects](https://www.theverge.com/ai-artificial-intelligence/979345/suno-studio-2-0-midi-chatbot-custom-effects)
+
+---
+
+### This Micro RGB TV rivals pricier OLED models - and I'd recommend it, especially on sale
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** The Samsung R95H Micro RGB TV offers impressive color and contrast at a potentially lower price point than OLED models
+
+**URL:** [https://www.zdnet.com/article/samsung-r95h-micro-rgb-deal-best-buy/](https://www.zdnet.com/article/samsung-r95h-micro-rgb-deal-best-buy/)
+
+---
+
+### Automate legacy web applications with Amazon Bedrock AgentCore Browser Tool
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** Amazon Bedrock AgentCore Browser Tool automates legacy web applications with human-like interaction
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/automate-legacy-web-applications-with-amazon-bedrock-agentcore-browser-tool/](https://aws.amazon.com/blogs/machine-learning/automate-legacy-web-applications-with-amazon-bedrock-agentcore-browser-tool/)
+
+---
+
+### Accelerating M&A due diligence with Amazon Bedrock AgentCore
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** A tutorial guides the creation of an M&A due diligence system using Amazon Bedrock AgentCore
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/accelerating-ma-due-diligence-with-amazon-bedrock-agentcore/](https://aws.amazon.com/blogs/machine-learning/accelerating-ma-due-diligence-with-amazon-bedrock-agentcore/)
 
 ---
 
@@ -4444,6 +4749,36 @@ For the 14th time, a Google product has hit 1 billion users. Google CEO Sundar P
 **Summary:** Imagine a trio of bumbling, English lads who fantasize about becoming megastars while knocking back a few pints in a grimy pub somewhere in London. Picture the guys chortling and trying to one-up each
 
 **URL:** [https://www.theverge.com/entertainment/977994/higgsfield-ai-cully-hill-boys-black-list](https://www.theverge.com/entertainment/977994/higgsfield-ai-cully-hill-boys-black-list)
+
+---
+
+### I wore Samsung's and Apple's Ultra smartwatches for 3 weeks - apps made all the difference
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** A reviewer compares the features of the Apple Watch Ultra 3 and Samsung Galaxy Watch Ultra 2, highlighting how apps make a significant difference in their performance.
+
+**URL:** [https://www.zdnet.com/article/samsung-galaxy-watch-ultra-2-vs-apple-watch-ultra-3/](https://www.zdnet.com/article/samsung-galaxy-watch-ultra-2-vs-apple-watch-ultra-3/)
+
+---
+
+### You're using DND all wrong: 5 powerful Do Not Disturb settings to try on your iPhone today
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** The article suggests using iPhone's Do Not Disturb feature for productivity and focus, beyond just silencing notifications
+
+**URL:** [https://www.zdnet.com/article/iphone-do-not-disturb-tips/](https://www.zdnet.com/article/iphone-do-not-disturb-tips/)
 
 ---
 
@@ -4779,6 +5114,36 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
+### Dyna Robotics Introduces Dyna-2: A World-Action Model Pre-Trained on 1 Million Hours of Human Video
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | MarkTechPost |
+
+**Summary:** Dyna Robotics introduces Dyna-2, a world-action model pre-trained on 1 million hours of human video data.
+
+**URL:** [https://www.marktechpost.com/2026/08/13/dyna-robotics-introduces-dyna-2-a-world-action-model-pre-trained-on-1-million-hours-of-human-video/](https://www.marktechpost.com/2026/08/13/dyna-robotics-introduces-dyna-2-a-world-action-model-pre-trained-on-1-million-hours-of-human-video/)
+
+---
+
+### SpaceXAI Releases Grok 4.6: A 500K-Context Frontier Model Tuned for Long-Running Agents, Coding, and Knowledge Work
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | 💼 product |
+| **Author** | MarkTechPost |
+
+**Summary:** SpaceXAI releases Grok 4.6, a 500K-context model with high reasoning level, tied to GPT-5.6 Sol Max at 61 on the Artificial Analysis Intelligence Index
+
+**URL:** [https://www.marktechpost.com/2026/08/12/spacexai-releases-grok-4-6/](https://www.marktechpost.com/2026/08/12/spacexai-releases-grok-4-6/)
+
+---
+
 ### AI: Google’s New AI Chief ‘KK’ runs AI Product before Lab. AI-RTZ #1177
 
 | Detail | Value |
@@ -4859,7 +5224,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -4874,7 +5239,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🐦 Google |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | Sundar Pichai |
 
@@ -4886,18 +5251,48 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
+### Part 2: Amazon Bedrock cost attribution with Amazon Athena and CUDOS
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 12, 2026 (2d ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** This article guides users on visualizing and analyzing Amazon Bedrock cost attribution using Amazon Athena and CUDOS dashboards.
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/part-2-amazon-bedrock-cost-attribution-with-amazon-athena-and-cudos/](https://aws.amazon.com/blogs/machine-learning/part-2-amazon-bedrock-cost-attribution-with-amazon-athena-and-cudos/)
+
+---
+
 ### OpenAI-backed Thrive Holdings raises $2B to bring AI to the enterprise
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
 **Summary:** Thrive Holdings has raised $2 billion in new funding at a $12 billion valuation from investors like SoftBank, D1 Capital Partners, and Altimeter Capital.
 
 **URL:** [https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/](https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/)
+
+---
+
+### AllenAI Open Instruct Tulu 3 Post-Training with SFT, DPO, RLVR, GRPO, and Verifier-Based Evaluation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 12, 2026 (2d ago) |
+| **Category** | 💼 product |
+| **Author** | MarkTechPost |
+
+**Summary:** AllenAI releases a guide for customizing its Open Instruct framework for efficient LLM post-training
+
+**URL:** [https://www.marktechpost.com/2026/08/12/allenai-open-instruct-tulu-3-post-training-with-sft-dpo-rlvr-grpo-and-verifier-based-evaluation/](https://www.marktechpost.com/2026/08/12/allenai-open-instruct-tulu-3-post-training-with-sft-dpo-rlvr-grpo-and-verifier-based-evaluation/)
 
 ---
 
@@ -5006,119 +5401,47 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### Google debuts SL2T, an AI model that’s designed to understand sign language
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | SiliconANGLE |
-
-**Summary:** Google introduces SL2T, an AI model for understanding sign language
-
-**URL:** [https://news.google.com/rss/articles/CBMipwFBVV95cUxONG9uaTk1R3FiZU1YN0ZJdjdJczB2Yk9fZmgyZXBvNFhfU2x1ZU1XM09HUV9ORVZfMGlYSWlqUzZxQWRZSjkwSzZSeTViZFlxa2E5bUxsTHlwQkt3S3JzeWFwMDNMQkZnX0MyZXhDYzN2ZzhDZzFmekFwamE0Z2pvbHNobzFUWXFXZXpkek9QZ2pzWnpLS2pNZXpXdkZtV1pTa21LYWV5UQ?oc=5](https://news.google.com/rss/articles/CBMipwFBVV95cUxONG9uaTk1R3FiZU1YN0ZJdjdJczB2Yk9fZmgyZXBvNFhfU2x1ZU1XM09HUV9ORVZfMGlYSWlqUzZxQWRZSjkwSzZSeTViZFlxa2E5bUxsTHlwQkt3S3JzeWFwMDNMQkZnX0MyZXhDYzN2ZzhDZzFmekFwamE0Z2pvbHNobzFUWXFXZXpkek9QZ2pzWnpLS2pNZXpXdkZtV1pTa21LYWV5UQ?oc=5)
-
----
-
-### Of course the ChatGPT dog cancer vaccine spawned a startup
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | The Verge AI |
-
-**Summary:** Remember that much-hyped story about an Australian tech entrepreneur using ChatGPT, Grok, and other AI tools to craft a personalized cancer vaccine for his dog? Well, surprise: He's launched a startup
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/978671/ai-cured-dog-cancer-mrna-vaccine-startup-gamgee](https://www.theverge.com/ai-artificial-intelligence/978671/ai-cured-dog-cancer-mrna-vaccine-startup-gamgee)
-
----
-
-### AI code-testing startup Blacksmith’s valuation jumps almost 10x in less than a year
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | TechCrunch AI |
-
-**Summary:** Blacksmith says revenue has grown more than tenfold over the past year.
-
-**URL:** [https://techcrunch.com/2026/08/12/blacksmiths-valuation-jumps-10x-to-550m-as-ai-coding-fuels-software-validation/](https://techcrunch.com/2026/08/12/blacksmiths-valuation-jumps-10x-to-550m-as-ai-coding-fuels-software-validation/)
-
----
-
-### The Job-Interview Tattoo Guy Everyone Got Mad at Finally Explains Himself
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 wired |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Wired AI |
-
-**Summary:** LemonLime cofounder Jordan Zietz hears your criticism loud and clear. That’s why he got his startup’s logo tattooed on his shoulder.
-
-**URL:** [https://www.wired.com/story/linkedin-grindset-tattoo-guy-explains-himself/](https://www.wired.com/story/linkedin-grindset-tattoo-guy-explains-himself/)
-
----
-
-### Claude content will soon get invisible AI watermarks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Morning Brew |
-
-**Summary:** AI-generated content may be marked with invisible watermarks in the near future
-
-**URL:** [https://news.google.com/rss/articles/CBMif0FVX3lxTE9SbEgySjVyVFN3LWR3VEtCUVFPVFlaNFpDd0NsMHRyTXFFZFlteWVldUZjRWhEdmtWdDNoWUdQLXRFSDB4ZUItLWhGMzRRXzhoYjEyYm5QTkxxV2hxazRGc1Atb2NucTFZdlZZdmF3ZFdraFo5Y081cFBiUGNfbVE?oc=5](https://news.google.com/rss/articles/CBMif0FVX3lxTE9SbEgySjVyVFN3LWR3VEtCUVFPVFlaNFpDd0NsMHRyTXFFZFlteWVldUZjRWhEdmtWdDNoWUdQLXRFSDB4ZUItLWhGMzRRXzhoYjEyYm5QTkxxV2hxazRGc1Atb2NucTFZdlZZdmF3ZFdraFo5Y081cFBiUGNfbVE?oc=5)
-
----
-
-### AI Startup Cognition in New Funding Talks at $40 Billion Value
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Bloomberg.com |
-
-**Summary:** AI Startup Cognition in New Funding Talks at $40 Billion Value  Bloomberg.com
-
-**URL:** [https://news.google.com/rss/articles/CBMisgFBVV95cUxQM1YzbC1pbmE3QnN1WU95NGFWQlNrR1BlZnNfaDZvLXRKbXQ1NGJEYnlJckgyai01NFB5YkVuTWxXbGdrbW5SX1NxWUh3ek5kQ1BpM2lVV1RNME5NSUFtTzF3aVBESGhTYW5wVG9VZkdqRUt2MG1sNWhKV0x1NUE2Q0hKb2kzTkRLT19YNU9KU1JPMmthYUc3dWQwWE9malo2cG9kS2tlanBaM2N6R2hSaThR?oc=5](https://news.google.com/rss/articles/CBMisgFBVV95cUxQM1YzbC1pbmE3QnN1WU95NGFWQlNrR1BlZnNfaDZvLXRKbXQ1NGJEYnlJckgyai01NFB5YkVuTWxXbGdrbW5SX1NxWUh3ek5kQ1BpM2lVV1RNME5NSUFtTzF3aVBESGhTYW5wVG9VZkdqRUt2MG1sNWhKV0x1NUE2Q0hKb2kzTkRLT19YNU9KU1JPMmthYUc3dWQwWE9malo2cG9kS2tlanBaM2N6R2hSaThR?oc=5)
-
----
-
-### Nvidia Confirms $500 Bil AI Funding Deal. These Stocks Jump.
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | Investor's Business Daily |
-
-**Summary:** Nvidia Confirms $500 Bil AI Funding Deal. These Stocks Jump.  Investor's Business Daily
-
-**URL:** [https://news.google.com/rss/articles/CBMiggFBVV95cUxPSXdHaG5KeV9nc1drckdFVUx5SXBzdjlXVGpxQzh1Q28xMlhRR1dRSmhPak1QUGFjdzl5R2FZaS1YOU9xODZ1ckNxc3hrMXp3blo5Y05CTjMwN1NnenFlUmExQ2hLV0NIVE5VbXZQZ0lrcVEwMjhSUmNZemJwVDQ4NTFR?oc=5](https://news.google.com/rss/articles/CBMiggFBVV95cUxPSXdHaG5KeV9nc1drckdFVUx5SXBzdjlXVGpxQzh1Q28xMlhRR1dRSmhPak1QUGFjdzl5R2FZaS1YOU9xODZ1ckNxc3hrMXp3blo5Y05CTjMwN1NnenFlUmExQ2hLV0NIVE5VbXZQZ0lrcVEwMjhSUmNZemJwVDQ4NTFR?oc=5)
-
----
-
 ## 🛡️ AI Safety & Security
+
+### Apple is warning users of new spyware attacks - what to do if you're a target
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 14, 2026 (2h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | ZDNet AI |
+
+**Summary:** Apple warns users of new spyware attacks targeting high-profile individuals
+
+**URL:** [https://www.zdnet.com/article/apple-warns-targetted-spyware-attacks-what-to-do/](https://www.zdnet.com/article/apple-warns-targetted-spyware-attacks-what-to-do/)
+
+---
+
+### Autonomous AI attacks pose 'clear and present danger' to critical infrastructure
+
+                
+    Weaponized agents could turn digital intrusions into kinetic disasters, experts warn
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | The Register AI |
+
+**Summary:** Experts warn of the threat of autonomous AI attacks on critical infrastructure, potentially turning digital intrusions into physical disasters.
+
+**URL:** [https://www.theregister.com/security/2026/08/14/autonomous-ai-attacks-pose-clear-and-present-danger-to-critical-infrastructure/5287594](https://www.theregister.com/security/2026/08/14/autonomous-ai-attacks-pose-clear-and-present-danger-to-critical-infrastructure/5287594)
+
+---
 
 ### The Safety Reckoning Inside OpenAI
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Wired AI |
 
@@ -5178,7 +5501,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TechCrunch AI |
 
@@ -5188,29 +5511,44 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### NAE: Normalizing AutoEncoder
+## ⚖️ Regulation & Policy
+
+### Senate Judiciary Hearing Reveals Bipartisan Support for Federal Action on AI-Driven “Surveillance Pricing”
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | Muhammad Abdur Rafae, Niels Landwehr |
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (14m ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Consumer Finance Monitor |
 
-**Summary:** We consider the setting of Normalizing flows with approximate inverses, an established paradigm spanning both full-dimensional ($d=D$) and bottleneck ($d<D$) settings, and group these models under the
+**Summary:** A Senate Judiciary hearing shows bipartisan support for federal action on AI-driven surveillance pricing
 
-**URL:** [https://arxiv.org/abs/2608.12084v1](https://arxiv.org/abs/2608.12084v1)
+**URL:** [https://news.google.com/rss/articles/CBMi6wFBVV95cUxPcTMxbDJTWWJ4ODdvYzJYY0lLV29WQ3ZfZWh2SjJSVmd0a2ZMcW5EV2M5eVlIYWZTenk0NVFPaHZWQ0d2SFM2LW5rWl9mTWJDSkVsdjEtQUJJand2bWk3U2h2LUc2RWhLTkxyRVMwbEVyMzhvRVJYOTA3Z1lqWVFTcE16a3BrT1NUSVA0QVMwaERrR1gxQ2h3cldDVzVRS3h6VWxKM3h6VXRlbElheW5EQU54LWt3LVZBQ3pRRnVVeGVmbWZRNzNwb2V0VHZPTFJsT1FuS1ZDeTE5d1BLNjBJSnNpamdTVk9OT0RJ?oc=5](https://news.google.com/rss/articles/CBMi6wFBVV95cUxPcTMxbDJTWWJ4ODdvYzJYY0lLV29WQ3ZfZWh2SjJSVmd0a2ZMcW5EV2M5eVlIYWZTenk0NVFPaHZWQ0d2SFM2LW5rWl9mTWJDSkVsdjEtQUJJand2bWk3U2h2LUc2RWhLTkxyRVMwbEVyMzhvRVJYOTA3Z1lqWVFTcE16a3BrT1NUSVA0QVMwaERrR1gxQ2h3cldDVzVRS3h6VWxKM3h6VXRlbElheW5EQU54LWt3LVZBQ3pRRnVVeGVmbWZRNzNwb2V0VHZPTFJsT1FuS1ZDeTE5d1BLNjBJSnNpamdTVk9OT0RJ?oc=5)
 
 ---
 
-## ⚖️ Regulation & Policy
+### Suspecting court of using AI, man injected prompts in filings to try to win case
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arstechnica |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Ars Technica AI |
+
+**Summary:** Judge warns pro se litigants are using chatbots wrong and getting desperate.
+
+**URL:** [https://arstechnica.com/tech-policy/2026/08/suspecting-court-of-using-ai-man-injected-prompts-in-filings-to-try-to-win-case/](https://arstechnica.com/tech-policy/2026/08/suspecting-court-of-using-ai-man-injected-prompts-in-filings-to-try-to-win-case/)
+
+---
 
 ### Nvidia’s $500 Billion AI Funding Plan Calms Credit Markets
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | equiti.com |
 
@@ -5225,7 +5563,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Dentons |
 
@@ -5240,7 +5578,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (5h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Washington Post |
 
@@ -5250,12 +5588,27 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
+### Supercomputing Month
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | ⚖️ policy |
+| **Author** | The Register AI |
+
+**Summary:** The US government has announced Supercomputing Month to promote the development and use of high-performance computing in various fields.
+
+**URL:** [https://www.theregister.com/special_features/2025_11_supercomputing_month](https://www.theregister.com/special_features/2025_11_supercomputing_month)
+
+---
+
 ### AI in Nebraska education: Rise of AI brings increased safety concerns
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Nebraska Public Media |
 
@@ -5270,7 +5623,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Cyber Magazine |
 
@@ -5285,7 +5638,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Wired AI |
 
@@ -5300,7 +5653,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The New York Times |
 
@@ -5315,7 +5668,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TechRadar |
 
@@ -5330,7 +5683,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | CEPR |
 
@@ -5345,7 +5698,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | thelec.net |
 
@@ -5360,7 +5713,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Diplomat – Asia-Pacific Current Affairs Magazine |
 
@@ -5375,7 +5728,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | 36Kr |
 
@@ -5385,12 +5738,27 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
+### 23 low-regret recommendations for AI policy
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (17h ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Noahpinion |
+
+**Summary:** A list of 23 AI policy recommendations with minimal potential negative consequences
+
+**URL:** [https://news.google.com/rss/articles/CBMicEFVX3lxTE9fTEx2MFVXaUtmMmxGXy16ODhTeG50bWM3WlhUeDQ1QWQtMUI2eTV6ZkNTWGttRWpFSXFxTWJteHlEVm5tWHhmSFlJU0s1VWVwaEFLb1dLUndkaUotRzN0YUhuak4tTUx2Y3FoOEVTWFE?oc=5](https://news.google.com/rss/articles/CBMicEFVX3lxTE9fTEx2MFVXaUtmMmxGXy16ODhTeG50bWM3WlhUeDQ1QWQtMUI2eTV6ZkNTWGttRWpFSXFxTWJteHlEVm5tWHhmSFlJU0s1VWVwaEFLb1dLUndkaUotRzN0YUhuak4tTUx2Y3FoOEVTWFE?oc=5)
+
+---
+
 ### Cramer says investors shouldn't let past market crashes scare them out of today’s winners
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | CNBC AI |
 
@@ -5405,7 +5773,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | WKOW |
 
@@ -5420,7 +5788,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The National Law Review |
 
@@ -5435,7 +5803,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Hindu |
 
@@ -5450,7 +5818,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (22h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The National Herald |
 
@@ -5460,12 +5828,27 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
+### Notes from the Asia-Pacific region: India weighs AI legislation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 13, 2026 (1d ago) |
+| **Category** | ⚖️ policy |
+| **Author** | IAPP |
+
+**Summary:** India is considering AI legislation to regulate its use and development, amid growing concerns over data protection and job displacement.
+
+**URL:** [https://news.google.com/rss/articles/CBMijwFBVV95cUxPYThDNWU5N04tMXcyb05mMEsyVVFPc1NTTWFudGlrV3lEbVZhUnJ2Q0w0X0kwSEl3SUZFWTRCdkgtZHB1cjJQYk9tckZlWmREVW5ibVJRMGpYc283ekxLWjkwVXc5Qm83aFdtNWt2RTlvU0hBTFRSeC1DbkUxVHc2dTRoMWFodFdaOUwxSEtwaw?oc=5](https://news.google.com/rss/articles/CBMijwFBVV95cUxPYThDNWU5N04tMXcyb05mMEsyVVFPc1NTTWFudGlrV3lEbVZhUnJ2Q0w0X0kwSEl3SUZFWTRCdkgtZHB1cjJQYk9tckZlWmREVW5ibVJRMGpYc283ekxLWjkwVXc5Qm83aFdtNWt2RTlvU0hBTFRSeC1DbkUxVHc2dTRoMWFodFdaOUwxSEtwaw?oc=5)
+
+---
+
 ### CEPS Task Force on the Apply AI Strategy
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | ceps.eu |
 
@@ -5585,7 +5968,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Ebenezer Gelo, Geraud Nangue Tasse, Steven James |
 
@@ -5600,7 +5983,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Morgan Lewis |
 
@@ -5610,104 +5993,59 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### Who governs AI? The federal government's challenge to state regulation — What organizations need to know
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Reuters |
-
-**Summary:** Who governs AI? The federal government's challenge to state regulation — What organizations need to know  Reuters
-
-**URL:** [https://news.google.com/rss/articles/CBMi3AFBVV95cUxQb25WS2hTb1FUeWNDSzE0OGRYMWc1OXh3TkxmSjZfWmdXaHNTbXNZd2d2bGJfeXY0a2pKTC1QQ05fSHRTQmVINngzelhMVmh3Z2dDYlU2aks3aW1ZaDZIa19uckVJOVdqZEZYVG9pQXpGWmxCTlBKdTI5djZZd2tXaDB4UDR2QmVyTlIybEdhZ0FtUElic2o0U3RMaXpSUnhwcDMtOGFyZzFlQnpQSGtvZFVBbUdJRUhhejVYV2xLMXd2MmY0VkVuMDBQeGM3aVdsRXdWWW5zZ2FGSXJQ?oc=5](https://news.google.com/rss/articles/CBMi3AFBVV95cUxQb25WS2hTb1FUeWNDSzE0OGRYMWc1OXh3TkxmSjZfWmdXaHNTbXNZd2d2bGJfeXY0a2pKTC1QQ05fSHRTQmVINngzelhMVmh3Z2dDYlU2aks3aW1ZaDZIa19uckVJOVdqZEZYVG9pQXpGWmxCTlBKdTI5djZZd2tXaDB4UDR2QmVyTlIybEdhZ0FtUElic2o0U3RMaXpSUnhwcDMtOGFyZzFlQnpQSGtvZFVBbUdJRUhhejVYV2xLMXd2MmY0VkVuMDBQeGM3aVdsRXdWWW5zZ2FGSXJQ?oc=5)
-
----
-
-### The Role of Business: Policy Implications of Industry Leadership in AI at Stanford HAI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Medium |
-
-**Summary:** The Role of Business: Policy Implications of Industry Leadership in AI at Stanford HAI  Medium
-
-**URL:** [https://news.google.com/rss/articles/CBMiygFBVV95cUxQWUh3cFExazk3VFFSR0lRVDF3bEhwYWd0TFFFVHdfSzlxZXZnVWYxcnZNMl9naHlKZmdPSG9RTjc0MTJhbFJrS0FNeXpVOWlZc2hvaFY4MUJLU0ZpVFk0M2Q4QXdoU2FnTk5YbjlmOGdoM0Uyc3cxWjFKR1k1YnE4YTAwbEJYVTJ1V01jbmFEMXQ1RnJ3WmVDWnFnUG1QLThPRkRjdVZvanVBOXA0OWM2SXVvTlgzRUtHOWVrNmtCSnVEU0ZUeWZkdUdR?oc=5](https://news.google.com/rss/articles/CBMiygFBVV95cUxQWUh3cFExazk3VFFSR0lRVDF3bEhwYWd0TFFFVHdfSzlxZXZnVWYxcnZNMl9naHlKZmdPSG9RTjc0MTJhbFJrS0FNeXpVOWlZc2hvaFY4MUJLU0ZpVFk0M2Q4QXdoU2FnTk5YbjlmOGdoM0Uyc3cxWjFKR1k1YnE4YTAwbEJYVTJ1V01jbmFEMXQ1RnJ3WmVDWnFnUG1QLThPRkRjdVZvanVBOXA0OWM2SXVvTlgzRUtHOWVrNmtCSnVEU0ZUeWZkdUdR?oc=5)
-
----
-
-### MIT and Carnegie Mellon join CSET and Purdue to expand AGORA AI policy archive
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | EdTech Innovation Hub |
-
-**Summary:** MIT and Carnegie Mellon universities are expanding the AGORA AI policy archive by joining forces with CSET and Purdue
-
-**URL:** [https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdHRXUGZqMGhkRVAwYk93ZDNBVlg2R2lVcUliQzNVQVBPNm1iWXdVYk52b3pZUHZjLWRFUE45RkxZbm00VUlLdjRMQW1uaWxWSG1WR2lTTnp5Sk0yQ01VQlNxbUpNV2t3Rk0tY0M1X09Ca2d4X3V6bU9jREY1alFHQTR5bE94THFqSnJVb1dSQjZzWVBHTkt3czZkTjZiRXRNeTJ2U0NuX1dvT1NrcUZOeWdVRlRVczBDT1VZ?oc=5](https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdHRXUGZqMGhkRVAwYk93ZDNBVlg2R2lVcUliQzNVQVBPNm1iWXdVYk52b3pZUHZjLWRFUE45RkxZbm00VUlLdjRMQW1uaWxWSG1WR2lTTnp5Sk0yQ01VQlNxbUpNV2t3Rk0tY0M1X09Ca2d4X3V6bU9jREY1alFHQTR5bE94THFqSnJVb1dSQjZzWVBHTkt3czZkTjZiRXRNeTJ2U0NuX1dvT1NrcUZOeWdVRlRVczBDT1VZ?oc=5)
-
----
-
-### The Different Philosophies Driving AI Regulation Today
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Knowledge at Wharton |
-
-**Summary:** The Different Philosophies Driving AI Regulation Today  Knowledge at Wharton
-
-**URL:** [https://news.google.com/rss/articles/CBMioAFBVV95cUxQRTFvcVZfX3pzN2JpaW45SnBTSFBDT1VuMXd5NkRpSXcweVN4bWxpd2daaGM3V09WM19sYzRlNG4yQXQyc1VPeDNrY2hiZXJibnZIZG9wNVl5OTZtRGRpT2ZhZTNUdG1rX0J0RmkxbVZoUHcxd3lfdGxOMGxGZy1xcGFQWG84cFJyNzFGUHRLeHcxZC1hYkdRQlhkRHN0dFV6?oc=5](https://news.google.com/rss/articles/CBMioAFBVV95cUxQRTFvcVZfX3pzN2JpaW45SnBTSFBDT1VuMXd5NkRpSXcweVN4bWxpd2daaGM3V09WM19sYzRlNG4yQXQyc1VPeDNrY2hiZXJibnZIZG9wNVl5OTZtRGRpT2ZhZTNUdG1rX0J0RmkxbVZoUHcxd3lfdGxOMGxGZy1xcGFQWG84cFJyNzFGUHRLeHcxZC1hYkdRQlhkRHN0dFV6?oc=5)
-
----
-
-### Open Philanthropy Action Fund Lobbies on AI Policy
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Legis1 |
-
-**Summary:** The Open Philanthropy Action Fund is lobbying for AI policy, aiming to ensure the development of artificial intelligence aligns with human values.
-
-**URL:** [https://news.google.com/rss/articles/CBMifEFVX3lxTE5VY2tHZU1wU2xEUUV6d0Z3RG12Nk1BY21CdjZmVThKN1pzbXZSU2x6RmhfRjQtZU8zQ3U3anRlNER6Q2pxTmpSVXJiXy1lSlNHelktUGlXVW1sUXcwb2tFbjRqRmZiVW4teEVZNl9rdlBiZFkxeWxna2JLRV8?oc=5](https://news.google.com/rss/articles/CBMifEFVX3lxTE5VY2tHZU1wU2xEUUV6d0Z3RG12Nk1BY21CdjZmVThKN1pzbXZSU2x6RmhfRjQtZU8zQ3U3anRlNER6Q2pxTmpSVXJiXy1lSlNHelktUGlXVW1sUXcwb2tFbjRqRmZiVW4teEVZNl9rdlBiZFkxeWxna2JLRV8?oc=5)
-
----
-
-### Opposition to Local Data Centers Rises Sharply, Annenberg Survey Finds
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Annenberg Public Policy Center |
-
-**Summary:** Opposition to Local Data Centers Rises Sharply, Annenberg Survey Finds  Annenberg Public Policy Center
-
-**URL:** [https://news.google.com/rss/articles/CBMitAFBVV95cUxPSDJjekdZbG5LVndPZmk4al9vbU5lbFlEMjBkWk9qVlpucmN6bG55anVmWkpBdTkybmdycTIyZEt4NGVWRlVwM3pEclY0ZlVQQVJjd3JTZXNpMEk4OVRVYWRGV21PMXBVWHdBeFA1S2VNaUJzTTc0dlUtYnA0cDk3ak1nS2R3NFd3eUFjY2xSb3AyWGhkZURhVndUdG1Td1p3UVRsc2E4V2pFM3BsR1B6ZHI2QV8?oc=5](https://news.google.com/rss/articles/CBMitAFBVV95cUxPSDJjekdZbG5LVndPZmk4al9vbU5lbFlEMjBkWk9qVlpucmN6bG55anVmWkpBdTkybmdycTIyZEt4NGVWRlVwM3pEclY0ZlVQQVJjd3JTZXNpMEk4OVRVYWRGV21PMXBVWHdBeFA1S2VNaUJzTTc0dlUtYnA0cDk3ak1nS2R3NFd3eUFjY2xSb3AyWGhkZURhVndUdG1Td1p3UVRsc2E4V2pFM3BsR1B6ZHI2QV8?oc=5)
-
----
-
 ## 📌 Other Notable News
+
+### AMCIS 2026 brings global AI, IS leaders to Reno
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | unr.edu |
+
+**Summary:** AMCIS 2026 conference will bring together global AI and information security leaders in Reno
+
+**URL:** [https://news.google.com/rss/articles/CBMidEFVX3lxTE55UjNoekFsVW44NXBEZ1dwNjhaakl1YXlEbDNaYm9nYk5uSnlCLTZwdEVlbGV0YzNPWGFJU2U0eWMxRG9tU1QwS3ZJMFZCTHBiQXZYa1hoYmQtM0p5VDJIS0M0V2xfa25ERFpfMURtdklYT2Qw?oc=5](https://news.google.com/rss/articles/CBMidEFVX3lxTE55UjNoekFsVW44NXBEZ1dwNjhaakl1YXlEbDNaYm9nYk5uSnlCLTZwdEVlbGV0YzNPWGFJU2U0eWMxRG9tU1QwS3ZJMFZCTHBiQXZYa1hoYmQtM0p5VDJIS0M0V2xfa25ERFpfMURtdklYT2Qw?oc=5)
+
+---
+
+### How I Learned to Fear AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Public Books |
+
+**Summary:** A personal account of the author's growing fear of AI technology
+
+**URL:** [https://news.google.com/rss/articles/CBMiY0FVX3lxTE1yd09sdFVEQ1NkdzY5T0hMWEdzczVXSDg0S043UFVWVjVseXlhN09VTTFWTlNUZ0hpbXJKMVgyUjVpOU90SC1wWFp3Z0JrbmVsckVGRzBGdHZIanNfVTIza0x3dw?oc=5](https://news.google.com/rss/articles/CBMiY0FVX3lxTE1yd09sdFVEQ1NkdzY5T0hMWEdzczVXSDg0S043UFVWVjVseXlhN09VTTFWTlNUZ0hpbXJKMVgyUjVpOU90SC1wWFp3Z0JrbmVsckVGRzBGdHZIanNfVTIza0x3dw?oc=5)
+
+---
+
+### All Special Features
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 14, 2026 (5h ago) |
+| **Category** | 📌 other |
+| **Author** | The Register AI |
+
+**Summary:** No specific details provided in the given text
+
+**URL:** [https://www.theregister.com/special_features](https://www.theregister.com/special_features)
+
+---
 
 ### Anthropic's investor talks, Workday's stock surge, Apple's new facility and more in Morning Squawk
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5722,7 +6060,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | latchkey |
 
@@ -5737,7 +6075,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Hugging Face |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Hugging Face |
 
@@ -5752,7 +6090,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5767,7 +6105,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | businesstimes.com.sg |
 
@@ -5782,7 +6120,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5797,7 +6135,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 13, 2026 (23h ago) |
+| **Date** | August 13, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Ars Technica AI |
 
@@ -6990,7 +7328,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Consumer Finance Monitor |
 
@@ -7005,7 +7343,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Chuyue Li, Jinpeng Yu, Haozhe Wang |
 
@@ -7020,7 +7358,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Yan Deng, Fei Xu |
 
@@ -7035,7 +7373,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (1d ago) |
+| **Date** | August 12, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Reuters |
 
@@ -7255,357 +7593,6 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### Meta and Nvidia plant 'very firm flag' in open-weight AI race led by Chinese Labs
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | CNBC AI |
-
-**Summary:** With China way ahead in the market for open-weight models, Meta and Nvidia are both doing what they can to put the U.S. on the map.
-
-**URL:** [https://www.cnbc.com/2026/08/12/meta-nvidia-open-weight-ai-race-china.html](https://www.cnbc.com/2026/08/12/meta-nvidia-open-weight-ai-race-china.html)
-
----
-
-### Looking for real-world examples of predictive analytics in mortgage lending [D]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | r/MachineLearning |
-
-**Summary:** I'm researching predictive analytics for a graduate project and mortgage lending came up as an interesting use case. I understand lenders try to predict who might refinance, but what kinds of variable
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vmf7xu/looking_for_realworld_examples_of_predictive/](https://www.reddit.com/r/MachineLearning/comments/1vmf7xu/looking_for_realworld_examples_of_predictive/)
-
----
-
-### LFM2.5-VL-3B for Better and Faster Vision Capabilities for the Edge
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 Hugging Face |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Hugging Face |
-
-**Summary:** LFM2.5-VL-3B for Better and Faster Vision Capabilities for the Edge
-
-**URL:** [https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b](https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b)
-
----
-
-### 4 New Camera Tricks on Google’s Latest Pixel 11 Smartphones
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 wired |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Wired AI |
-
-**Summary:** From Magic Capture and Instant Night Sight to a built-in teleprompter, here’s a look at a few camera features on Google’s new Pixel 11 series.
-
-**URL:** [https://www.wired.com/story/new-camera-tricks-on-google-latest-pixel-11-smartphones/](https://www.wired.com/story/new-camera-tricks-on-google-latest-pixel-11-smartphones/)
-
----
-
-### Mechanist: AI as a Scientific Instrument for Discovering the Mechanisms of Intelligence
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Mengru Wang, Junfeng Fang, Shuofei Qiao |
-
-**Summary:** AI models have achieved remarkable success across diverse domains, yet the mechanisms underlying their capabilities and the risks they may pose remain poorly understood. As AI development becomes fast
-
-**URL:** [https://arxiv.org/abs/2608.12036v1](https://arxiv.org/abs/2608.12036v1)
-
----
-
-### Poly-Dialectal Neural Machine Translation System for Bangla Regional Dialects
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Rakib Ullah, Ruhul Islam Rahul, Tanbir Ahmed |
-
-**Summary:** Regional dialectal variation poses a fundamental challenge to natural language processing (NLP) in Bangla, where over 240 million speakers communicate across diverse regional variants that diverge sig
-
-**URL:** [https://arxiv.org/abs/2608.12018v1](https://arxiv.org/abs/2608.12018v1)
-
----
-
-### Asymptotic Risk Calibration for Selective Question Answering
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Shufan Lin, Sijin Dong |
-
-**Summary:** Large language models (LLMs) may generate fluent but incorrect answers, making uncertainty quantification important for reliable question answering. However, heuristic uncertainty scores cannot perfec
-
-**URL:** [https://arxiv.org/abs/2608.12008v1](https://arxiv.org/abs/2608.12008v1)
-
----
-
-### Is AI Becoming Self-Aware?. New experiments suggest that language… | by Tim Ventura | Aug, 2026
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Medium |
-
-**Summary:** Is AI Becoming Self-Aware?. New experiments suggest that language… | by Tim Ventura | Aug, 2026  Medium
-
-**URL:** [https://news.google.com/rss/articles/CBMieEFVX3lxTE40QlNPQUk1OWdtRFNHMmZ3dTUxcG9sTnJ5dFIzQ2Q5c250YXZxMy1QeVI1SE9qM1BQbmI0Nm5PdUUtVkdydG1mVkNDVDJQelJ0dm5KRVBYSjlHalppdy1UTnhNUE9YWGt6Q2JVd0ttc0RLSHdseTRIXw?oc=5](https://news.google.com/rss/articles/CBMieEFVX3lxTE40QlNPQUk1OWdtRFNHMmZ3dTUxcG9sTnJ5dFIzQ2Q5c250YXZxMy1QeVI1SE9qM1BQbmI0Nm5PdUUtVkdydG1mVkNDVDJQelJ0dm5KRVBYSjlHalppdy1UTnhNUE9YWGt6Q2JVd0ttc0RLSHdseTRIXw?oc=5)
-
----
-
-### LODESTAR: Trustworthy Entropy Is Navigated, Not Merely Measured -- Reinforced Polarizer Keeps a Frozen LLM from Being Confidently Misled by the Wrong Evidence
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Po-Jen Ko, Che-Cheng Wu, Hung-Chun Hsu |
-
-**Summary:** Predictive-distribution entropy makes a strong selection rule in retrieval-augmented question answering: across five QA benchmarks, keeping the candidate answer that a frozen respondent LLM produces w
-
-**URL:** [https://arxiv.org/abs/2608.11922v1](https://arxiv.org/abs/2608.11922v1)
-
----
-
-### Oh Lord, AI Reporters Are Actually Breaking Big News
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 wired |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Wired AI |
-
-**Summary:** Last week, an AI newsroom beat mainstream journalists—including WIRED—to a story about OpenAI and hacking. It’s just the beginning.
-
-**URL:** [https://www.wired.com/story/ai-newsrooms-are-breaking-news-now-haha-im-in-danger/](https://www.wired.com/story/ai-newsrooms-are-breaking-news-now-haha-im-in-danger/)
-
----
-
-### You’re Thinking About Online Trends All Wrong
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 wired |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Wired AI |
-
-**Summary:** From pessimism around dating to AI reshaping culture, cyber-ethnographer Ruby J. Thelot tells WIRED why people are putting too much stock into things that go viral.
-
-**URL:** [https://www.wired.com/story/youre-thinking-about-online-trends-all-wrong/](https://www.wired.com/story/youre-thinking-about-online-trends-all-wrong/)
-
----
-
-### Factors that make radiologists less likely to be fooled by large language models
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Radiology Business |
-
-**Summary:** Factors that make radiologists less likely to be fooled by large language models  Radiology Business
-
-**URL:** [https://news.google.com/rss/articles/CBMiygFBVV95cUxOMS1xMDliX29MbGdBX1VjV2FuM09nQVJCai04a21LamdKNHVocUd5Y1RqSmpEdnNEYkJtZWVocE9SNTBZSUZVRmlvTFRWQlR5Q0hEeWVsSlEtUmJiRldKRkRybUNjWlFCWnVIbHNXbEJLZzlnYXR3R1E5ZjIzQXFBNU5iQzU3VlE2emVWUmJGdzg4NS15RG1ady1ZV0tJSGFfTGd5OWp2aEl1NHBuRHRUZjdPWEtLcXJBWFdPRVRyYTc5b3pZU2Z4TjR3?oc=5](https://news.google.com/rss/articles/CBMiygFBVV95cUxOMS1xMDliX29MbGdBX1VjV2FuM09nQVJCai04a21LamdKNHVocUd5Y1RqSmpEdnNEYkJtZWVocE9SNTBZSUZVRmlvTFRWQlR5Q0hEeWVsSlEtUmJiRldKRkRybUNjWlFCWnVIbHNXbEJLZzlnYXR3R1E5ZjIzQXFBNU5iQzU3VlE2emVWUmJGdzg4NS15RG1ady1ZV0tJSGFfTGd5OWp2aEl1NHBuRHRUZjdPWEtLcXJBWFdPRVRyYTc5b3pZU2Z4TjR3?oc=5)
-
----
-
-### Google’s new AI boss inherits a race to catch OpenAI and Anthropic
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | CNBC |
-
-**Summary:** Google’s new AI boss inherits a race to catch OpenAI and Anthropic  CNBC
-
-**URL:** [https://news.google.com/rss/articles/CBMiekFVX3lxTE1GdzdHeVhqMkp3QnhRTmNUeDdGNXFPcXUzME5SR0dSenc0OG9qcFFJYk53RE5scUVzNlpneG5panpMb2pmUWlLS0dqVDJxRGJPLW9EdFlYdW1UV3RsdjB3LUVyTU1rYTYxY19DUDZjX2JWbkZaOTR4dzZ30gF_QVVfeXFMTUZqWnlpYnMzVXlYeW9XYXFDWEVhUjdjZzIxaU1VbmdRUXI1eHhkUjRGOGxkNDQ2c3RRdnRNRGVRXzFUcDNzRXQtYW5pTjNsc1lTVzRzaGNTREtYVDRzbFdrenFBVklKRDZRVW9NSnN1LXJaYl9PZ18zYXpDd05VNA?oc=5](https://news.google.com/rss/articles/CBMiekFVX3lxTE1GdzdHeVhqMkp3QnhRTmNUeDdGNXFPcXUzME5SR0dSenc0OG9qcFFJYk53RE5scUVzNlpneG5panpMb2pmUWlLS0dqVDJxRGJPLW9EdFlYdW1UV3RsdjB3LUVyTU1rYTYxY19DUDZjX2JWbkZaOTR4dzZ30gF_QVVfeXFMTUZqWnlpYnMzVXlYeW9XYXFDWEVhUjdjZzIxaU1VbmdRUXI1eHhkUjRGOGxkNDQ2c3RRdnRNRGVRXzFUcDNzRXQtYW5pTjNsc1lTVzRzaGNTREtYVDRzbFdrenFBVklKRDZRVW9NSnN1LXJaYl9PZ18zYXpDd05VNA?oc=5)
-
----
-
-### Saber denies replacing Rideshare Stimulator&#8217;s writers with ChatGPT
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | The Verge AI |
-
-**Summary:** After a former lead writer claimed Saber "replaced me with ChatGPT," CEO Matthew Karch now claims, "Neither Saber nor Unigine have replaced any writers with AI," for the Rideshare "Stimulator" game an
-
-**URL:** [https://www.theverge.com/games/978558/rideshare-stimulator-writer-ai-saber-interactive](https://www.theverge.com/games/978558/rideshare-stimulator-writer-ai-saber-interactive)
-
----
-
-### 'Author: OpenAI': Missouri lawmakers' proposed AI rules were written by AI, metadata shows
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | KSDK |
-
-**Summary:** 'Author: OpenAI': Missouri lawmakers' proposed AI rules were written by AI, metadata shows  KSDK
-
-**URL:** [https://news.google.com/rss/articles/CBMihgJBVV95cUxNNE4zUTFtSE1EdjFDdFdPUnNld3AzYVFzbWJNX25DdVFKcHh2MDB3S21ROGJoaTdZSS1FWEgwRVJiQ091MkY0bUFTZm1oOXFZbTA5MHZjRXJTeUVIS2VWYjdNVExsSl85dEtwNUNfNy1KQlhoWFdvVk9kS2FBRDFJaG5ka1E5MC1VT2dsNGc3TW1qcll4QVQxM2ZUTjdDVXZsMVNTQ1VyOThRYjJIYUtMbmMtZWFsNlpNRHlLQzJLWEFvdnoxb0h2MzJZYjN3NzdqV1F4WmMzbUY2Y3V2SWhiVXhyd0dWU2wwVk1IbFZyVms4b2pNX2VrLTVOVVVvbHNVTkFjanFB?oc=5](https://news.google.com/rss/articles/CBMihgJBVV95cUxNNE4zUTFtSE1EdjFDdFdPUnNld3AzYVFzbWJNX25DdVFKcHh2MDB3S21ROGJoaTdZSS1FWEgwRVJiQ091MkY0bUFTZm1oOXFZbTA5MHZjRXJTeUVIS2VWYjdNVExsSl85dEtwNUNfNy1KQlhoWFdvVk9kS2FBRDFJaG5ka1E5MC1VT2dsNGc3TW1qcll4QVQxM2ZUTjdDVXZsMVNTQ1VyOThRYjJIYUtMbmMtZWFsNlpNRHlLQzJLWEFvdnoxb0h2MzJZYjN3NzdqV1F4WmMzbUY2Y3V2SWhiVXhyd0dWU2wwVk1IbFZyVms4b2pNX2VrLTVOVVVvbHNVTkFjanFB?oc=5)
-
----
-
-### Why Jensen Huang’s $500 billion AI financing plan faces a big risk from China
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | CNBC |
-
-**Summary:** Why Jensen Huang’s $500 billion AI financing plan faces a big risk from China  CNBC
-
-**URL:** [https://news.google.com/rss/articles/CBMihAFBVV95cUxPYU55bUVtSkMySDZUS2RPRWpBTTRRZHhucjFpaUxWM0RoV0NuMVFPNFh1T29XMkpSR1NYRm5Oc1hUc1hnWTNVOXd5T29qXzNVTWdxRWxpal9oT1VCNk1kQVNYeW9fVDBZNG1jODVJNHN3R0lMQ19KSmwtY2JNQXM1V3ptYk7SAYoBQVVfeXFMTmt2WjUtTThxd2gzZnhqcW8wejI3WWdRNDlaZGFLaVFTZXQyZ0tkLW80RW4wSXFoMDBlNTVjZ1pnNFBpQzBQZjJFY0xHQ3Q5S2p4OHdSV05QZi01eG5XcFFmOGVHWmV6MndsZ2dNNU9NLU9FVHUzMkpmaE1DTGVEcS12NXBHcl9CWlJ3?oc=5](https://news.google.com/rss/articles/CBMihAFBVV95cUxPYU55bUVtSkMySDZUS2RPRWpBTTRRZHhucjFpaUxWM0RoV0NuMVFPNFh1T29XMkpSR1NYRm5Oc1hUc1hnWTNVOXd5T29qXzNVTWdxRWxpal9oT1VCNk1kQVNYeW9fVDBZNG1jODVJNHN3R0lMQ19KSmwtY2JNQXM1V3ptYk7SAYoBQVVfeXFMTmt2WjUtTThxd2gzZnhqcW8wejI3WWdRNDlaZGFLaVFTZXQyZ0tkLW80RW4wSXFoMDBlNTVjZ1pnNFBpQzBQZjJFY0xHQ3Q5S2p4OHdSV05QZi01eG5XcFFmOGVHWmV6MndsZ2dNNU9NLU9FVHUzMkpmaE1DTGVEcS12NXBHcl9CWlJ3?oc=5)
-
----
-
-### Neurosymbolic AI merges logic with learning
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | jonpeddie.com |
-
-**Summary:** Neurosymbolic AI merges logic with learning  jonpeddie.com
-
-**URL:** [https://news.google.com/rss/articles/CBMigAFBVV95cUxNdlhJWEc4aU5USmJ0Zm9zY1pLcEo5dnQtcUVFSzlIblF6UTZCbkNJZl9zYmZfU2UzTkJDNXNjaUZHUEJpQ1RIY3R3ZkgycTFkM3dEVmkwdUp5NUJpckZmc1ZlQTUwWmxiLWgtUEtWSDBwYU5DSWxwaDRxWGwxZXR1bg?oc=5](https://news.google.com/rss/articles/CBMigAFBVV95cUxNdlhJWEc4aU5USmJ0Zm9zY1pLcEo5dnQtcUVFSzlIblF6UTZCbkNJZl9zYmZfU2UzTkJDNXNjaUZHUEJpQ1RIY3R3ZkgycTFkM3dEVmkwdUp5NUJpckZmc1ZlQTUwWmxiLWgtUEtWSDBwYU5DSWxwaDRxWGwxZXR1bg?oc=5)
-
----
-
-### Grok 4.6 is now out 🚀🚀🚀 Smart, fast & amazing bang for buck!
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 xai |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Elon Musk |
-
-**Summary:** Grok 4.6 is now out 🚀🚀🚀 Smart, fast & amazing bang for buck!
-
-**URL:** [https://x.com/elonmusk/status/2087565020158992709](https://x.com/elonmusk/status/2087565020158992709)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### Expedia recently moved its ranking models to a state-of-the-art Keras 3 setup. Results: 30% faster training, and inference latency decreased by 70%...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 other |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | François Chollet |
-
-**Summary:** Expedia recently moved its ranking models to a state-of-the-art Keras 3 setup. Results: 30% faster training, and inference latency decreased by 70%. Read their writeup about the upgrade: 20 13
-
-**URL:** [https://x.com/fchollet/status/2087519531547701335](https://x.com/fchollet/status/2087519531547701335)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### You also get a free premium plus membership with SuperGrok Heavy but you need to cancel your existing membership to get it once signed up, not very...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🐦 stability |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Emad Mostaque |
-
-**Summary:** You also get a free premium plus membership with SuperGrok Heavy but you need to cancel your existing membership to get it once signed up, not very intuitive Can see how they are positioning this to b
-
-**URL:** [https://x.com/EMostaque/status/2087567142761775473](https://x.com/EMostaque/status/2087567142761775473)
-
-**Engagement:** ❤️ 0  🔄 0  💬 0
-
----
-
-### Another OpenAI executive takes off
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 11, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | The Verge AI |
-
-**Summary:** Brad Lightcap, OpenAI's special projects lead and the company's former COO, announced his departure after an eight-year stint at the AI lab. In an internal memo he later posted to X, Lightcap told col
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/978048/brad-lightcap-openai-executive-departure](https://www.theverge.com/ai-artificial-intelligence/978048/brad-lightcap-openai-executive-departure)
-
----
-
-### As voter anxiety over AI grows, candidates stake out positions
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 11, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Arizona Capitol Times |
-
-**Summary:** As voter anxiety over AI grows, candidates stake out positions  Arizona Capitol Times
-
-**URL:** [https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOUpfRXdzMmJsTW5Ka3JoQWRkcEpBTVRuM2pnMFA5UWhnLU10QnU3T0hkNnZoVWpKcDJEN1F3OUV0Q013RVNOdEZNY3Q2OE43QzRMUnl1V0xrR181ak5xVGhDa1BGazIycU1RWGFYMmpZX0dNQ2N4SkVfOWNDMnJfcS12cmhXZU0zRXVIdUFodWdtLTRvUzVUR19tRDhSUURXZ0hOYmxQRTc?oc=5](https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOUpfRXdzMmJsTW5Ka3JoQWRkcEpBTVRuM2pnMFA5UWhnLU10QnU3T0hkNnZoVWpKcDJEN1F3OUV0Q013RVNOdEZNY3Q2OE43QzRMUnl1V0xrR181ak5xVGhDa1BGazIycU1RWGFYMmpZX0dNQ2N4SkVfOWNDMnJfcS12cmhXZU0zRXVIdUFodWdtLTRvUzVUR19tRDhSUURXZ0hOYmxQRTc?oc=5)
-
----
-
-### Thinking of ACE? We Can Do It with Fewer Tokens
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 Hugging Face |
-| **Date** | August 11, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | Hugging Face |
-
-**Summary:** Thinking of ACE? We Can Do It with Fewer Tokens
-
-**URL:** [https://huggingface.co/blog/ibm-research/altk-evolve-sldd](https://huggingface.co/blog/ibm-research/altk-evolve-sldd)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7621,4 +7608,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-14T17:14:07.854Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-14T18:42:13.027Z by AI Pulse Knowledge Base Generator*

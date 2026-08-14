@@ -1,9 +1,106 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-14T17:23:48.774Z",
-    "count": 1130
+    "lastUpdated": "2026-08-14T18:42:08.281Z",
+    "count": 1142
   },
   "items": [
+    {
+      "source": "google-news",
+      "source_label": "ABA Journal",
+      "source_type": "google",
+      "title": "Goodwin Procter unveils AI-enhanced tool for venture capital funding",
+      "summary": "Law firm Goodwin Procter has introduced an AI-powered tool to aid venture capital funding decisions",
+      "content": "Goodwin Procter unveils AI-enhanced tool for venture capital funding  ABA Journal",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNlRhVkFfTmxRS1ZHWHpSYWhFQkQ3TFRYWUUzenlib3NoMnhEMlI3aXJ2bTgzUnBaYlNxOHNVeUVISHdwenJtUVVkNEFucVhtM3haY1hFU3dEM1Z0U2NuNHZYWmlPS0xKb1F2eWpjUG82OEREcmRLWjdwVTYweDdOcExWcVd4QlN5b1ZoQU9BX1pSNHBRbXd5dmxjcTBDbE9WZVZrT3g0RURvRmtF?oc=5",
+      "author": "ABA Journal",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 18:31:00 GMT",
+      "source_detail": "AI funding",
+      "domain": "business",
+      "id": 1786733686869,
+      "created_at": "2026-08-14T18:42:05.150Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Consumer Finance Monitor",
+      "source_type": "google",
+      "title": "Senate Judiciary Hearing Reveals Bipartisan Support for Federal Action on AI-Driven “Surveillance Pricing”",
+      "summary": "A Senate Judiciary hearing shows bipartisan support for federal action on AI-driven surveillance pricing",
+      "content": "Senate Judiciary Hearing Reveals Bipartisan Support for Federal Action on AI-Driven “Surveillance Pricing”  Consumer Finance Monitor",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPcTMxbDJTWWJ4ODdvYzJYY0lLV29WQ3ZfZWh2SjJSVmd0a2ZMcW5EV2M5eVlIYWZTenk0NVFPaHZWQ0d2SFM2LW5rWl9mTWJDSkVsdjEtQUJJand2bWk3U2h2LUc2RWhLTkxyRVMwbEVyMzhvRVJYOTA3Z1lqWVFTcE16a3BrT1NUSVA0QVMwaERrR1gxQ2h3cldDVzVRS3h6VWxKM3h6VXRlbElheW5EQU54LWt3LVZBQ3pRRnVVeGVmbWZRNzNwb2V0VHZPTFJsT1FuS1ZDeTE5d1BLNjBJSnNpamdTVk9OT0RJ?oc=5",
+      "author": "Consumer Finance Monitor",
+      "category": "policy",
+      "published_at": "Fri, 14 Aug 2026 18:28:10 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786733261803,
+      "created_at": "2026-08-14T18:42:04.835Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "planadviser.com",
+      "source_type": "google",
+      "title": "Heavy AI Users Report Greater Gains in Advisory Practices",
+      "summary": "Heavy users of artificial intelligence (AI) report improved advisory practices, suggesting potential benefits for professionals and organizations",
+      "content": "Heavy AI Users Report Greater Gains in Advisory Practices  planadviser.com",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcjJTY1g3VFZyY3BIb3lDM2xLRzhkZkdDamhOdFBfZktpbGlwazJuYkE0S1o5UFo4OWEyQ3dDcUFEbDAtVktsMjJWdi1mbmFadE5vMThCYUg1cFpOZGNxNDltVkdFSFNuNVk5aDlOeTJnSWpWTkh3R1Etcjg4RkxidVE3a1ZzRzB2bnJNQklyOA?oc=5",
+      "author": "planadviser.com",
+      "category": "research",
+      "published_at": "Fri, 14 Aug 2026 18:02:00 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786733356028,
+      "created_at": "2026-08-14T18:42:04.777Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "pymnts.com",
+      "source_type": "google",
+      "title": "AI Turns Sports’ Dead Air Into a Selling Season",
+      "summary": "AI technology is being used to turn sports' dead air into engaging content, boosting sales for sports media outlets",
+      "content": "AI Turns Sports’ Dead Air Into a Selling Season  pymnts.com",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQMXBzZ3o3OTFsZk16T3VjVy16c0ZMNURYcGJCVjlOUmdkNUNxU2UxUHFHZENMblloR1pFM0FBaUhpMXBzWjhpTDVHQWxpckNudzkzOXIxLXoweUFiSi0tQThNY2laT2JRc3hQZE9VY3lleDNzaTBhcy1BdXNvcWhHUU5OQU80dndLZVl5Q0U5THJSV1Z2MEM1ZmJiMVJfdVVudGczZQ?oc=5",
+      "author": "pymnts.com",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 17:43:11 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786733331221,
+      "created_at": "2026-08-14T18:42:04.880Z"
+    },
+    {
+      "source": "arstechnica",
+      "source_label": "Ars Technica",
+      "source_type": "rss",
+      "title": "Suspecting court of using AI, man injected prompts in filings to try to win case",
+      "summary": "Judge warns pro se litigants are using chatbots wrong and getting desperate.",
+      "content": "Judge warns pro se litigants are using chatbots wrong and getting desperate.",
+      "url": "https://arstechnica.com/tech-policy/2026/08/suspecting-court-of-using-ai-man-injected-prompts-in-filings-to-try-to-win-case/",
+      "author": "Ars Technica AI",
+      "category": "policy",
+      "published_at": "Fri, 14 Aug 2026 17:26:53 +0000",
+      "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-1793608536-1152x648.jpg",
+      "source_detail": "Ars Technica AI",
+      "domain": "general",
+      "id": 1786733263175,
+      "created_at": "2026-08-14T18:42:03.845Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "ibtimes.com",
+      "source_type": "google",
+      "title": "China’s AI Models Are Catching Up. Z.ai’s GLM-5.3 Takes Aim at OpenAI & Anthropic",
+      "summary": "China's AI model Z.ai's GLM-5.3 is gaining ground on global leaders OpenAI and Anthropic",
+      "content": "China’s AI Models Are Catching Up. Z.ai’s GLM-5.3 Takes Aim at OpenAI & Anthropic  ibtimes.com",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWV9fakJGRzFrVTFlSnVNbm1QWThsUjhDMjl1UjNrREVOZmxkeFAzdVRESHJKaHNXdFJGZkVZVC0zX2hGbmxBM24xeXN6X0Vpa0Jland5WkpoX3ZiQWFjWnRmeE9tRndDTG5BYlphdnh2WjF1dC1JVlFfZ3N5MXNGeXZmNWFBRWxaOE56X0pZSUJQNzFSaWx2U1pLTGdXelR5dkE?oc=5",
+      "author": "ibtimes.com",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 17:23:00 GMT",
+      "source_detail": "AI model release",
+      "domain": "general",
+      "id": 1786733528914,
+      "created_at": "2026-08-14T18:42:05.286Z"
+    },
     {
       "source": "other",
       "source_label": "ScienceDaily AI",
@@ -119,6 +216,38 @@
       "created_at": "2026-08-14T17:14:02.981Z"
     },
     {
+      "source": "google-news",
+      "source_label": "unr.edu",
+      "source_type": "google",
+      "title": "AMCIS 2026 brings global AI, IS leaders to Reno",
+      "summary": "AMCIS 2026 conference will bring together global AI and information security leaders in Reno",
+      "content": "AMCIS 2026 brings global AI, IS leaders to Reno  unr.edu",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE55UjNoekFsVW44NXBEZ1dwNjhaakl1YXlEbDNaYm9nYk5uSnlCLTZwdEVlbGV0YzNPWGFJU2U0eWMxRG9tU1QwS3ZJMFZCTHBiQXZYa1hoYmQtM0p5VDJIS0M0V2xfa25ERFpfMURtdklYT2Qw?oc=5",
+      "author": "unr.edu",
+      "category": "other",
+      "published_at": "Fri, 14 Aug 2026 16:53:15 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786733248326,
+      "created_at": "2026-08-14T18:42:04.969Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Benzinga",
+      "source_type": "google",
+      "title": "EXCLUSIVE: Zuckerberg's AI Vision Promises Access, Not Power, Says Father of AGI",
+      "summary": "Mark Zuckerberg's AI vision prioritizes access over power, according to John McCarthy, the father of Artificial General Intelligence",
+      "content": "EXCLUSIVE: Zuckerberg's AI Vision Promises Access, Not Power, Says Father of AGI  Benzinga",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPalhiUnlYaWJEaEtDSGtMdnJudjE1UFp2QldBYlo4eXNRdURPem1OaVhGMmlEVGN5NF9ZZ205cmVCTW5xMFNKYi1TRWYzZjRwbGJlUEl5a18yUnFQRUxYVlZ6UDljRTIzM0FXUWJmdTY0YnY5cl9MbU5HcFEwVmZha3NERUNQdWZGSmNKT0ZWSDN2TDFp?oc=5",
+      "author": "Benzinga",
+      "category": "model",
+      "published_at": "Fri, 14 Aug 2026 16:47:29 GMT",
+      "source_detail": "OpenAI OR Anthropic OR Google DeepMind OR Meta AI",
+      "domain": "general",
+      "id": 1786733762435,
+      "created_at": "2026-08-14T18:42:05.651Z"
+    },
+    {
       "source": "the-decoder",
       "source_label": "The Decoder",
       "source_type": "rss",
@@ -215,6 +344,24 @@
       "domain": "general",
       "id": 1786728837960,
       "created_at": "2026-08-14T17:23:42.785Z"
+    },
+    {
+      "source": "hacker-news",
+      "source_label": "Hacker News",
+      "source_type": "hn",
+      "title": "Maximizing the value of your Claude Code sessions",
+      "summary": "Hacker News discussion on optimizing performance in Claude Code sessions",
+      "content": "",
+      "url": "https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions",
+      "author": "twapi",
+      "category": "product",
+      "published_at": "2026-08-14T16:15:21Z",
+      "source_detail": "HN · Claude",
+      "score": 44,
+      "num_comments": 23,
+      "domain": "tech",
+      "id": 1786733145814,
+      "created_at": "2026-08-14T18:42:05.738Z"
     },
     {
       "source": "cnbc",
@@ -360,6 +507,22 @@
       "domain": "general",
       "id": 1786728345383,
       "created_at": "2026-08-14T17:14:04.040Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "AI Insider",
+      "source_type": "google",
+      "title": "RWX Raises $12M Series A to Scale the Dev Cloud for AI-Driven Engineering",
+      "summary": "RWX raises $12M in funding to scale its dev cloud for AI-driven engineering",
+      "content": "RWX Raises $12M Series A to Scale the Dev Cloud for AI-Driven Engineering  AI Insider",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMTlCQnY2WTd0TGYydDRnVXZ3RE5WWnZGcmQ4X2trMUwtVG1zVVlTaTV2ckdfc3FMVlVUaE42bjJ6aUlmSDQ4ZHQwSk8xRl9YSi1sR0FsNS05Sm95Z0dzLWc0QlVrR1ZLNGpaQThCMlNzdzl4VTluSTVsRER5WEpmTkpxU3pwWmZ4R0Z5XzFZUjkwN0dlZEJmUWpTZENCakE4OE5paktuSEtSWlhTWG80?oc=5",
+      "author": "AI Insider",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 15:55:07 GMT",
+      "source_detail": "AI funding",
+      "domain": "general",
+      "id": 1786733366466,
+      "created_at": "2026-08-14T18:42:05.232Z"
     },
     {
       "source": "google-news",
@@ -703,6 +866,22 @@
       "domain": "business",
       "id": 1786728331458,
       "created_at": "2026-08-14T17:14:02.912Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Fierce Healthcare",
+      "source_type": "google",
+      "title": "Hippocratic AI rolls out platform to coordinate teams of conversational voice AI agents",
+      "summary": "Hippocratic AI launches platform for coordinating conversational voice AI teams",
+      "content": "Hippocratic AI rolls out platform to coordinate teams of conversational voice AI agents  Fierce Healthcare",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVzZGT0h5Ny1reHhHQzBFVlBuaEdfZ2lVR245S0RHQko0enNMUUFMZGlvUHRqdTBNTjE5TFA3NjNxYTZtRm1yOFkwUUN6LW9ueUtuUzZxS2duWFhJQTR4anRtcTdzSEJpZFYxMUVsSVU3anJSNVhQYnUxSW9ESk10MUNMY2xadWtwNlJPeHZyNW9JY0puUVhVXzhiMjBuQ0VUYmNrV1FXd29fOFEteGVvMDFGVWY2dlRkWVhvME9PTHdHajJ6TTJZeA?oc=5",
+      "author": "Fierce Healthcare",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 14:00:00 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786733042475,
+      "created_at": "2026-08-14T18:42:04.926Z"
     },
     {
       "source": "google-news",
@@ -1184,6 +1363,22 @@
       "domain": "business",
       "id": 1786716259567,
       "created_at": "2026-08-14T13:51:57.160Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "36Kr",
+      "source_type": "google",
+      "title": "Exclusive: Tencent Hunyuan's Xu Can Transferred to WeChat WeLM – WeChat AI Enters Accelerated Development Stage",
+      "summary": "Tencent Hunyuan's Xu Can has been transferred to WeChat's WeLM, marking a significant development in the company's AI capabilities.",
+      "content": "Exclusive: Tencent Hunyuan's Xu Can Transferred to WeChat WeLM – WeChat AI Enters Accelerated Development Stage  36Kr",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1EdENmNTl0T042enRGTERmejhhOUtoTVlzcmtZM3Y1SmhrX0lVdGlvcHhKSTZ1aTFDZjBsZFVaX0l5RmMzaGtMMUFhdlFBaUJiRUJv?oc=5",
+      "author": "36Kr",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 11:34:59 GMT",
+      "source_detail": "\"large language model\"",
+      "domain": "general",
+      "id": 1786733133654,
+      "created_at": "2026-08-14T18:42:05.036Z"
     },
     {
       "source": "google-news",
@@ -2024,6 +2219,22 @@
       "created_at": "2026-08-14T13:51:58.081Z"
     },
     {
+      "source": "google-news",
+      "source_label": "Noahpinion",
+      "source_type": "google",
+      "title": "23 low-regret recommendations for AI policy",
+      "summary": "A list of 23 AI policy recommendations with minimal potential negative consequences",
+      "content": "23 low-regret recommendations for AI policy  Noahpinion",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9fTEx2MFVXaUtmMmxGXy16ODhTeG50bWM3WlhUeDQ1QWQtMUI2eTV6ZkNTWGttRWpFSXFxTWJteHlEVm5tWHhmSFlJU0s1VWVwaEFLb1dLUndkaUotRzN0YUhuak4tTUx2Y3FoOEVTWFE?oc=5",
+      "author": "Noahpinion",
+      "category": "policy",
+      "published_at": "Fri, 14 Aug 2026 01:39:37 GMT",
+      "source_detail": "AI regulation policy",
+      "domain": "general",
+      "id": 1786733907206,
+      "created_at": "2026-08-14T18:42:05.440Z"
+    },
+    {
       "source": "cnbc",
       "source_label": "CNBC",
       "source_type": "rss",
@@ -2822,6 +3033,22 @@
       "domain": "tech",
       "id": 1786715597547,
       "created_at": "2026-08-14T13:51:57.619Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "IAPP",
+      "source_type": "google",
+      "title": "Notes from the Asia-Pacific region: India weighs AI legislation",
+      "summary": "India is considering AI legislation to regulate its use and development, amid growing concerns over data protection and job displacement.",
+      "content": "Notes from the Asia-Pacific region: India weighs AI legislation  IAPP",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPYThDNWU5N04tMXcyb05mMEsyVVFPc1NTTWFudGlrV3lEbVZhUnJ2Q0w0X0kwSEl3SUZFWTRCdkgtZHB1cjJQYk9tckZlWmREVW5ibVJRMGpYc283ekxLWjkwVXc5Qm83aFdtNWt2RTlvU0hBTFRSeC1DbkUxVHc2dTRoMWFodFdaOUwxSEtwaw?oc=5",
+      "author": "IAPP",
+      "category": "policy",
+      "published_at": "Thu, 13 Aug 2026 17:47:17 GMT",
+      "source_detail": "AI regulation policy",
+      "domain": "general",
+      "id": 1786733249289,
+      "created_at": "2026-08-14T18:42:05.548Z"
     },
     {
       "source": "arxiv",
@@ -17916,38 +18143,6 @@
       "source_detail": "Together AI",
       "id": 1786261135478,
       "created_at": "2026-08-09T07:31:28.474Z"
-    },
-    {
-      "source": "google-ai",
-      "source_label": "Google Research",
-      "source_type": "rss",
-      "title": "Towards demystifying the creativity of diffusion models",
-      "summary": "Researchers explore ways to understand and improve the creative capabilities of diffusion models",
-      "content": "Algorithms & Theory",
-      "url": "https://research.google/blog/towards-demystifying-the-creativity-of-diffusion-models/",
-      "author": "Google Research",
-      "category": "research",
-      "published_at": "Wed, 15 Jul 2026 18:06:00 +0000",
-      "image_url": "https://storage.googleapis.com/gweb-research2023-media/original_images/Interpolation-effect-1.gif",
-      "source_detail": "Google Research",
-      "domain": "general",
-      "id": 1786728710951,
-      "created_at": "2026-08-14T17:23:40.391Z"
-    },
-    {
-      "source": "huggingface",
-      "source_label": "Hugging Face",
-      "source_type": "rss",
-      "title": "Model Routing Is Simple. Until It Isn’t.",
-      "summary": "A recent study highlights the limitations and complexities of AI model routing, revealing that simple models can be prone to errors when faced with complex tasks.",
-      "content": "",
-      "url": "https://huggingface.co/blog/ibm-research/model-routing-is-simple-until-it-isnt",
-      "author": "Hugging Face",
-      "category": "research",
-      "published_at": "Wed, 15 Jul 2026 17:27:01 GMT",
-      "source_detail": "Hugging Face",
-      "id": 1786261300800,
-      "created_at": "2026-08-09T07:31:28.399Z"
     }
   ]
 }
