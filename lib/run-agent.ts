@@ -1,5 +1,26 @@
 import { runAgent } from './agent';
 import { writeStatus, readStatus } from './status';
+import fs from 'fs';
+import path from 'path';
+
+// tsx doesn't auto-load .env.local (only Next.js does). Load it manually so
+// DATABASE_URL and other local secrets reach the agent.
+function loadLocalEnv() {
+  const file = path.join(process.cwd(), '.env.local');
+  if (!fs.existsSync(file)) return;
+  for (const line of fs.readFileSync(file, 'utf-8').split(/\r?\n/)) {
+    const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+    if (!m) continue;
+    const key = m[1];
+    let value = m[2].trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+    if (process.env[key] === undefined) process.env[key] = value;
+  }
+}
+
+loadLocalEnv();
 
 interface CliOptions {
   loop: boolean;

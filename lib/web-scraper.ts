@@ -52,6 +52,36 @@ const WEB_SOURCES: WebSource[] = [
     url: 'https://thenextweb.com/topic/artificial-intelligence',
     type: 'html',
   },
+  {
+    name: 'The Register AI',
+    source: 'the-register',
+    url: 'https://www.theregister.com/software/ai_ml/',
+    type: 'html',
+  },
+  {
+    name: 'Decrypt AI',
+    source: 'decrypt',
+    url: 'https://decrypt.co/news/artificial-intelligence',
+    type: 'html',
+  },
+  {
+    name: 'IT Pro AI',
+    source: 'itpro',
+    url: 'https://www.itpro.com/emerging-technology/artificial-intelligence',
+    type: 'html',
+  },
+  {
+    name: 'TechRepublic AI',
+    source: 'techrepublic',
+    url: 'https://www.techrepublic.com/topic/artificial-intelligence/',
+    type: 'html',
+  },
+  {
+    name: 'AI News 247',
+    source: 'ai-news-247',
+    url: 'https://ai-news.news/',
+    type: 'html',
+  },
 ];
 
 function categorizeContent(title: string, content: string): string {

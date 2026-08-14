@@ -11,6 +11,7 @@ import ModelWatch from '@/components/ModelWatch';
 import AIRadar from '@/components/AIRadar';
 import DomainBar from '@/components/DomainBar';
 import SkeletonGrid from '@/components/Skeleton';
+import AgentOutput from '@/components/AgentOutput';
 import { NewsItem, Category, CATEGORY_COLOR, Domain } from '@/lib/types';
 
 const POLL_MS = 60_000;
@@ -425,25 +426,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
               <Trending items={news} onTagClick={setSearch} />
               <SourcePanel />
-              <div className="glass rounded-2xl p-5">
-                <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)] mb-3">
-                  About
-                </h3>
-                <p className="text-xs text-[var(--mut)] leading-relaxed">
-                  AI Pulse is a free, always-on feed of AI news and model rankings. We collect stories
-                  every 4 hours from 40+ sources — company blogs, Hacker News, Reddit, Google News,
-                  arXiv, GitHub, YouTube and X — so you can catch up in minutes, whether you are new
-                  to AI or already building with it.
-                </p>
-                {lastUpdated && (
-                  <div className="mt-4 pt-3 border-t border-[var(--color-line)]">
-                    <div className="text-[10px] text-[var(--dim)] uppercase tracking-wider">feed snapshot</div>
-                    <div className="font-mono text-xs text-cyan-300">
-                      {total} stories · {lastUpdated.toLocaleString()}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <AgentOutput />
             </div>
             <div className="mt-6">
               <AIRadar />

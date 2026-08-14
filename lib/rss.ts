@@ -38,11 +38,19 @@ const RSS_FEEDS: RSSFeedConfig[] = [
   { name: 'Microsoft AI', url: 'https://blogs.microsoft.com/ai/feed/', source: 'microsoft-ai', source_label: 'Microsoft AI' },
   { name: 'NVIDIA AI', url: 'https://blogs.nvidia.com/blog/feed/', source: 'nvidia', source_label: 'NVIDIA' },
   { name: 'Google AI Blog', url: 'https://blog.google/technology/ai/rss/', source: 'google-ai', source_label: 'Google AI' },
+  { name: 'Google Research', url: 'https://research.google/blog/rss/', source: 'google-ai', source_label: 'Google Research' },
   { name: 'Perplexity', url: 'https://www.perplexity.ai/hub/feed.xml', source: 'perplexity', source_label: 'Perplexity' },
   { name: 'PostHog', url: 'https://posthog.com/blog/rss.xml', source: 'posthog', source_label: 'PostHog' },
   { name: 'Cohere', url: 'https://cohere.com/blog/rss.xml', source: 'cohere', source_label: 'Cohere' },
   { name: 'Together AI', url: 'https://www.together.ai/blog/rss.xml', source: 'together', source_label: 'Together AI' },
   { name: 'LangChain', url: 'https://blog.langchain.dev/rss/', source: 'langchain', source_label: 'LangChain' },
+  { name: 'Databricks', url: 'https://www.databricks.com/blog/feed', source: 'databricks', source_label: 'Databricks' },
+  { name: 'AI2', url: 'https://blog.allenai.org/rss', source: 'ai2', source_label: 'AI2' },
+  { name: 'EleutherAI', url: 'https://blog.eleuther.ai/rss/', source: 'eleutherai', source_label: 'EleutherAI' },
+  { name: 'Stability AI', url: 'https://stability.ai/blog/rss.xml', source: 'stability', source_label: 'Stability AI' },
+  { name: 'OpenRouter', url: 'https://openrouter.ai/blog/rss.xml', source: 'openrouter', source_label: 'OpenRouter' },
+  { name: 'Amazon ML', url: 'https://aws.amazon.com/blogs/machine-learning/feed/', source: 'amazon', source_label: 'Amazon AI' },
+  { name: 'Stanford HAI', url: 'https://hai.stanford.edu/news/rss.xml', source: 'mit-tr', source_label: 'Stanford HAI' },
 
   // Tech media
   { name: 'TechCrunch AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/', source: 'techcrunch', source_label: 'TechCrunch' },
@@ -53,6 +61,15 @@ const RSS_FEEDS: RSSFeedConfig[] = [
   { name: 'The Next Web AI', url: 'https://thenextweb.com/ai/feed', source: 'thenextweb', source_label: 'The Next Web' },
   { name: 'Ars Technica AI', url: 'https://arstechnica.com/ai/feed/', source: 'arstechnica', source_label: 'Ars Technica' },
   { name: 'CNBC AI', url: 'https://www.cnbc.com/id/19854910/device/rss/rss.html', source: 'cnbc', source_label: 'CNBC' },
+  { name: 'ZDNet AI', url: 'https://www.zdnet.com/topic/artificial-intelligence/rss.xml', source: 'zdnet', source_label: 'ZDNet' },
+  { name: 'MarkTechPost', url: 'https://www.marktechpost.com/feed/', source: 'marktechpost', source_label: 'MarkTechPost' },
+  { name: 'Unite.AI', url: 'https://www.unite.ai/feed/', source: 'uniteai', source_label: 'Unite.AI' },
+  { name: 'AIM', url: 'https://analyticsindiamag.com/feed/', source: 'aim', source_label: 'Analytics India Magazine' },
+  { name: 'ScienceDaily AI', url: 'https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml', source: 'sciencedaily', source_label: 'ScienceDaily' },
+  { name: 'GitHub Blog AI', url: 'https://github.blog/category/ai/feed/', source: 'github', source_label: 'GitHub Blog' },
+  { name: 'TheDecoder', url: 'https://the-decoder.com/feed/', source: 'the-decoder', source_label: 'The Decoder' },
+  { name: 'Towards AI', url: 'https://towardsai.net/feed', source: 'towards-ai', source_label: 'Towards AI' },
+  { name: 'Bloomberg AI', url: 'https://www.bloomberg.com/feed/artificial-intelligence', source: 'bloomberg', source_label: 'Bloomberg' },
 ];
 
 export function fetchRSSFeeds(): Promise<NewsItem[]> {

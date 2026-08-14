@@ -1,5 +1,6 @@
 import { NewsItem } from './types';
 import { initDB, upsertNewsItems, pruneStore, readStore } from './db';
+import { initPgSchema, hasPg, upsertNewsItemsPg, upsertModelsPg, recordAgentRunPg } from './pg';
 import { loadSummaryCache, saveSummaryCache, enrichItem } from './ollama';
 import { classifyDomain } from './categorize';
 import { AgentStatus, readStatus, writeStatus, recordSourceResult } from './status';
@@ -136,12 +137,42 @@ export async function runAgent(options?: {
   const { inserted, known } = await upsertNewsItems(allItems);
   const pruned = await pruneStore(30, 2500);
 
+  // Mirror into PostgreSQL (full history, no pruning) + record the run log.
+  if (hasPg()) {
+    try {
+      await initPgSchema();
+      const pgRes = await upsertNewsItemsPg(allItems);
+      console.log(`   [pg] mirrored ${pgRes.inserted} new, ${pgRes.known} known`);
+    } catch (error) {
+      console.log(`   [pg] mirror skipped: ${error instanceof Error ? error.message : error}`);
+    }
+  } else {
+    console.log('   [pg] DATABASE_URL not set — skipping Postgres mirror');
+  }
+
   const store = readStore();
   status.lastSuccess = new Date().toISOString();
   status.totalItems = store.items.length;
   status.insertedLastRun = inserted;
   saveSummaryCache(cache);
   writeStatus(status);
+
+  // Keep a permanent record of every agent run (source counts, timings, log).
+  try {
+    await recordAgentRunPg({
+      environment: process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
+      durationMs: Date.now() - start,
+      inserted,
+      known,
+      pruned,
+      totalAfter: store.items.length,
+      source_counts: sourceCounts,
+      log_tail: summarizeRun(sourceCounts, inserted, known, pruned, Date.now() - start, store.items.length),
+      status: 'ok',
+    });
+  } catch (error) {
+    console.log(`   [pg] run log skipped: ${error instanceof Error ? error.message : error}`);
+  }
 
   // Regenerate the markdown knowledge base if requested.
   if (options?.regenerateKB) {
@@ -158,6 +189,13 @@ export async function runAgent(options?: {
     const { refreshModelDatabase } = await import('./model-registry');
     const db = await refreshModelDatabase(store.items);
     console.log(`   Model DB refreshed: ${db.counts.total} models`);
+    if (hasPg()) {
+      try {
+        await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
+      } catch (error) {
+        console.log(`   [pg] model mirror skipped: ${error instanceof Error ? error.message : error}`);
+      }
+    }
   } catch (error) {
     console.log(`   Model DB refresh skipped: ${error instanceof Error ? error.message : error}`);
   }
@@ -174,4 +212,19 @@ export async function runAgent(options?: {
     durationMs,
     environment: process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
   };
+}
+
+function summarizeRun(
+  sourceCounts: Record<string, number>,
+  inserted: number,
+  known: number,
+  pruned: number,
+  durationMs: number,
+  totalAfter: number
+): string {
+  const src = Object.entries(sourceCounts)
+    .filter(([, n]) => n > 0)
+    .map(([k, n]) => `${k}=${n}`)
+    .join(', ');
+  return `inserted=${inserted} known=${known} pruned=${pruned} total=${totalAfter} duration=${(durationMs / 1000).toFixed(1)}s sources: ${src}`;
 }

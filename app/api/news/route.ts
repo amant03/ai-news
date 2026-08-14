@@ -5,6 +5,7 @@ import { getNewsItems, getFacets, readStore } from '@/lib/db';
 import { sourceLabel, NewsItem } from '@/lib/types';
 import { sortByRank } from '@/lib/rank';
 import { classifyDomain } from '@/lib/categorize';
+import { hasPg, getNewsPg, countNewsPg, getFacetsPg } from '@/lib/pg';
 
 // GitHub raw fallback so the deployed (serverless) app always shows the
 // freshest committed data even between Vercel deploys.
@@ -122,7 +123,29 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Local / non-serverless: read the actual DB store.
+    // Local / non-serverless: prefer PostgreSQL (full history, no pruning).
+    if (hasPg()) {
+      const items = await getNewsPg({ limit, offset, source, category, sourceType, domain });
+      const total = await countNewsPg({ source, category, sourceType, domain });
+      const facets = await getFacetsPg();
+      const meta = readStore().meta;
+
+      return NextResponse.json({
+        items,
+        total,
+        limit,
+        offset,
+        hasMore: offset + limit < total,
+        facets: {
+          sources: facets.sources,
+          categories: facets.categories,
+          domains: facets.domains,
+        },
+        lastUpdated: meta.lastUpdated || null,
+      });
+    }
+
+    // Local / non-serverless fallback: read the actual JSON DB store.
     readStore();
     const ranked = sortByRank(getNewsItems(5000, 0, source, category, sourceType, domain));
     const items = ranked.slice(offset, offset + limit);

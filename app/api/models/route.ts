@@ -3,6 +3,7 @@ import { NewsItem } from '@/lib/types';
 import { readModelDatabase, ModelRecord } from '@/lib/model-registry';
 import { getNewsItems, readStore } from '@/lib/db';
 import { rankKey } from '@/lib/rank';
+import { hasPg, getPool } from '@/lib/pg';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,7 +37,66 @@ export async function GET(request: NextRequest) {
   try {
     readStore();
     const items = getNewsItems(5000, 0) as NewsItem[];
-    const db = readModelDatabase();
+    let db = readModelDatabase();
+
+    // If Postgres is available, read the model catalog from there — it stays
+    // in sync with the agent and never gets overwritten by a stale JSON file.
+    if (hasPg()) {
+      try {
+        const p = getPool();
+        const res = await p!.query(
+          `SELECT id, name, provider, source, released, family, params, context, description,
+                  prompt_price, completion_price, value_score, intelligence_index, coding_index, agentic_index,
+                  hf_downloads, hf_likes, elo, arena_rank, num_votes, license, mentions, reddit_mentions,
+                  x_mentions, buzz, free_tier, local_only
+           FROM models ORDER BY intelligence_index DESC NULLS LAST`
+        );
+        const rows = res.rows as Array<Record<string, unknown>>;
+        const models = rows.map(r => ({
+          id: r.id as string,
+          name: (r.name as string) || String(r.id),
+          provider: (r.provider as string) || 'Unknown',
+          source: (r.source as string) || 'pg',
+          released: (r.released as string) || undefined,
+          family: (r.family as ModelRecord['family']) || 'closed',
+          params: (r.params as string) || undefined,
+          context: (r.context as string) || undefined,
+          description: (r.description as string) || undefined,
+          promptPrice: (r.prompt_price as number) ?? undefined,
+          completionPrice: (r.completion_price as number) ?? undefined,
+          valueScore: (r.value_score as number) ?? undefined,
+          intelligenceIndex: (r.intelligence_index as number) ?? undefined,
+          codingIndex: (r.coding_index as number) ?? undefined,
+          agenticIndex: (r.agentic_index as number) ?? undefined,
+          hfDownloads: (r.hf_downloads as number) ?? undefined,
+          hfLikes: (r.hf_likes as number) ?? undefined,
+          elo: (r.elo as number) ?? undefined,
+          arenaRank: (r.arena_rank as number) ?? undefined,
+          numVotes: (r.num_votes as number) ?? undefined,
+          license: (r.license as string) || undefined,
+          mentions: (r.mentions as number) ?? undefined,
+          redditMentions: (r.reddit_mentions as number) ?? undefined,
+          xMentions: (r.x_mentions as number) ?? undefined,
+          buzz: (r.buzz as number) ?? undefined,
+          freeTier: (r.free_tier as boolean) || undefined,
+          localOnly: (r.local_only as boolean) || undefined,
+        })) as ModelRecord[];
+        db = {
+          updatedAt: new Date().toISOString(),
+          sources: ['openrouter', 'huggingface', 'ollama', 'lmarena', 'freellm'],
+          counts: {
+            total: models.length,
+            withPricing: models.filter(m => m.promptPrice !== undefined).length,
+            withBenchmarks: models.filter(m => m.intelligenceIndex !== undefined).length,
+            withElo: models.filter(m => m.elo !== undefined).length,
+            openWeights: models.filter(m => m.family === 'open-weights').length,
+          },
+          models,
+        };
+      } catch (error) {
+        console.error('[models] pg read failed, using JSON:', error);
+      }
+    }
 
     const modelNews = items
       .filter(i => {

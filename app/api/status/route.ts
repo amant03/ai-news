@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
 import { readStatus } from '@/lib/status';
+import { hasPg, getAgentRunsPg } from '@/lib/pg';
 
 const DATA_REPO = process.env.DATA_REPO;
 const DATA_BRANCH = process.env.DATA_BRANCH || 'main';
 
 export async function GET() {
+  let status: Record<string, unknown>;
+
   // On Vercel, prefer the committed status.json from GitHub raw for live health data.
   if (process.env.VERCEL === '1' && DATA_REPO) {
     try {
@@ -12,13 +15,26 @@ export async function GET() {
         signal: AbortSignal.timeout(10000),
       });
       if (res.ok) {
-        const status = await res.json();
-        return NextResponse.json(status);
+        status = await res.json();
+      } else {
+        status = readStatus() as unknown as Record<string, unknown>;
       }
     } catch {
-      /* fall through to local */
+      status = readStatus() as unknown as Record<string, unknown>;
+    }
+  } else {
+    status = readStatus() as unknown as Record<string, unknown>;
+  }
+
+  // Attach the latest agent run history when Postgres is available.
+  if (hasPg()) {
+    try {
+      const runs = await getAgentRunsPg(5);
+      status.lastRuns = runs;
+    } catch {
+      /* best-effort */
     }
   }
 
-  return NextResponse.json(readStatus());
+  return NextResponse.json(status);
 }

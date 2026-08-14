@@ -79,6 +79,50 @@ const ACCOUNTS: TwitterAccount[] = [
   { username: 'abacaj', source: 'other', displayName: 'Alex Baca' },
 ];
 
+/**
+ * Hand-picked high-signal tweets (model releases, benchmark results) fetched
+ * directly via X's public syndication endpoint. These always run regardless of
+ * jina rate limits so the feed never misses a flagship announcement.
+ */
+const FEATURED_TWEETS: Array<{ url: string; username: string; source: string; displayName: string }> = [
+  {
+    url: 'https://x.com/ArtificialAnlys/status/2087564648325530099',
+    username: 'ArtificialAnlys',
+    source: 'artificial-analysis',
+    displayName: 'Artificial Analysis',
+  },
+  {
+    url: 'https://x.com/elonmusk/status/2087565020158992709',
+    username: 'elonmusk',
+    source: 'xai',
+    displayName: 'Elon Musk',
+  },
+  {
+    url: 'https://x.com/sama/status/2086866306167656901',
+    username: 'sama',
+    source: 'openai',
+    displayName: 'Sam Altman',
+  },
+  {
+    url: 'https://x.com/gdb/status/2086866967479341305',
+    username: 'gdb',
+    source: 'anthropic',
+    displayName: 'Greg Brockman',
+  },
+  {
+    url: 'https://x.com/sundarpichai/status/2087948583890985263',
+    username: 'sundarpichai',
+    source: 'google',
+    displayName: 'Sundar Pichai',
+  },
+  {
+    url: 'https://x.com/simonw/status/2086811799480086773',
+    username: 'simonw',
+    source: 'meta',
+    displayName: 'Simon Willison',
+  },
+];
+
 const NITTER_INSTANCES = [
   'https://nitter.net',
   'https://nitter.poast.org',
@@ -134,6 +178,23 @@ function sortForModelSignal(items: NewsItem[]): NewsItem[] {
 export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
   console.log('  Fetching X/Twitter timelines (best-effort)...');
   const allItems: NewsItem[] = [];
+
+  // Featured tweets go through X's public syndication API first — it doesn't
+  // trip the jina rate-limit wall, so flagship model news always lands.
+  for (const t of FEATURED_TWEETS) {
+    try {
+      const item = await fetchFeaturedTweet(t);
+      if (item) {
+        console.log(`  ✓ featured @${t.username}: ${item.title.slice(0, 60)}...`);
+        allItems.push(item);
+      } else {
+        console.log(`  ⚠ featured @${t.username} returned nothing`);
+      }
+    } catch (error) {
+      console.log(`  ✗ featured @${t.username}: ${error instanceof Error ? error.message : 'error'}`);
+    }
+    await new Promise(r => setTimeout(r, JINA_SPACING_MS));
+  }
 
   // Respect jina's free-tier rate limit: with no API key, scrape a focused
   // subset of the highest-signal accounts instead of all 46 (which 403s out).
@@ -193,6 +254,72 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
 
   console.log(`  📊 Total tweets fetched: ${allItems.length}`);
   return allItems;
+}
+
+interface SyndicationTweet {
+  text?: string;
+  created_at?: string;
+  id_str?: string;
+  favorite_count?: number;
+  conversation_count?: number;
+  retweet_count?: number;
+  user?: { name?: string; screen_name?: string };
+  mediaDetails?: Array<{ media_url_https?: string; type?: string }>;
+  photos?: Array<{ url?: string }>;
+}
+
+/**
+ * Fetch a single tweet via X's public syndication endpoint. No auth, no jina —
+ * much more resistant to the rate-limit walls that block the timeline scrapes.
+ */
+async function fetchFeaturedTweet(meta: { url: string; username: string; source: string; displayName: string }): Promise<NewsItem | null> {
+  const idMatch = meta.url.match(/status\/(\d+)/);
+  if (!idMatch) return null;
+  const id = idMatch[1];
+
+  const res = await fetch(`https://cdn.syndication.twimg.com/tweet-result?id=${id}&lang=en&token=x`, {
+    signal: AbortSignal.timeout(15000),
+    headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36' },
+  });
+  if (!res.ok) {
+    console.log(`   syndication @${meta.username}: HTTP ${res.status}`);
+    return null;
+  }
+  const data = (await res.json()) as SyndicationTweet;
+  if (!data?.text) return null;
+
+  const raw = data.text.replace(/https:\/\/t\.co\/\S+/g, '').replace(/\s+/g, ' ').trim();
+  const text = raw.length > 280 ? raw.slice(0, 277) + '...' : raw;
+  if (isNoiseTweet(text)) return null;
+
+  const publishedAt = data.created_at ? new Date(data.created_at).toISOString() : new Date().toISOString();
+  if (Date.now() - new Date(publishedAt).getTime() > MAX_AGE_MS) return null;
+
+  const imageUrl =
+    data.mediaDetails?.find(m => m.type === 'photo')?.media_url_https ||
+    data.photos?.[0]?.url ||
+    undefined;
+
+  return {
+    source: meta.source,
+    source_label: meta.displayName,
+    source_type: 'twitter',
+    title: text,
+    summary: text,
+    content: text,
+    url: meta.url,
+    author: meta.displayName,
+    category: categorizeContent(text, ''),
+    published_at: publishedAt,
+    source_detail: 'X',
+    image_url: imageUrl,
+    tweet_metrics: {
+      likeCount: data.favorite_count ?? 0,
+      retweetCount: data.retweet_count ?? 0,
+      replyCount: data.conversation_count ?? 0,
+      viewCount: 0,
+    },
+  };
 }
 
 let lastJinaRateLimited = false;
