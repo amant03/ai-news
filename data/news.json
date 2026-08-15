@@ -1,9 +1,25 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-15T13:31:50.763Z",
-    "count": 1276
+    "lastUpdated": "2026-08-15T14:08:02.982Z",
+    "count": 1279
   },
   "items": [
+    {
+      "source": "google-news",
+      "source_label": "AI Insider",
+      "source_type": "google",
+      "title": "China's Infiforce Raises Nearly $150M in Funding to Develop 'Ego Native World Model' for Robots.",
+      "summary": "China's Infiforce Raises Nearly $150M in Funding to Develop 'Ego Native World Model' for Robots.  AI Insider",
+      "content": "China's Infiforce Raises Nearly $150M in Funding to Develop 'Ego Native World Model' for Robots.  AI Insider",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNRjhWNkR2a19lSkphT296X1FvTVRKOS11SzNWc29HbUhXUl9oSGk5Wm4yNEtFcWxHVWh2Y3pBaFllNFQtQ0FyYm1NeFNEM2RyQVJJNXpyNTJGYWpBWUNiVjBCMmlRR0FBRUZ0dkw1cndSRjZlX0VKZEFiaFNMZDFqdFctNWRPNllwbXJJZmVBbU9MT3BfTjZ5d1RkajROdFVYTHJlZWlDNG91YWJaMGJJV0d1VF9WZXhPNHJMVmZKUWJFMTRnS3VOdA?oc=5",
+      "author": "AI Insider",
+      "category": "model",
+      "published_at": "Sat, 15 Aug 2026 14:05:35 GMT",
+      "source_detail": "AI funding",
+      "domain": "business",
+      "id": 1786803830952,
+      "created_at": "2026-08-15T14:08:01.161Z"
+    },
     {
       "source": "google-news",
       "source_label": "Seeking Alpha",
@@ -199,6 +215,25 @@
       "domain": "general",
       "id": 1786798755153,
       "created_at": "2026-08-15T12:43:46.765Z"
+    },
+    {
+      "source": "hacker-news",
+      "source_label": "Hacker News",
+      "source_type": "hn",
+      "title": "Working with AI Feels More Like Leadership Than Coding",
+      "summary": "26 points, 19 comments on Hacker News.",
+      "content": "",
+      "url": "https://allen.bargi.org/notes/working-with-ai-feels-like-leadership/",
+      "author": "allenb",
+      "category": "other",
+      "published_at": "2026-08-15T10:39:41Z",
+      "source_detail": "HN · AI",
+      "score": 26,
+      "num_comments": 19,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_Corporate_Logo.jpg/440px-Adobe_Corporate_Logo.jpg",
+      "domain": "tech",
+      "id": 1786802930180,
+      "created_at": "2026-08-15T14:08:01.395Z"
     },
     {
       "source": "google-news",
@@ -713,6 +748,22 @@
       "domain": "general",
       "id": 1786768688929,
       "created_at": "2026-08-15T04:30:20.171Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Ratopati",
+      "source_type": "google",
+      "title": "Apple Develops Own AI Model for China Market with Alibaba's Support",
+      "summary": "Apple Develops Own AI Model for China Market with Alibaba's Support  Ratopati",
+      "content": "Apple Develops Own AI Model for China Market with Alibaba's Support  Ratopati",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPcEhfLVEtMjZyUGtvM1B5WDl2bGM0czZYOHo2RHk0X19uOXp4bU9ua0VnOWFnY0ZQSS1oTWJnb1lIN3VOU2R2VEJNVVhQUDVLdFJLUFNLU0VtbXN1TFI4N2tvc3NDMjlJeTU4V0FWcWU4b3ZPZzg3eUV2SHhfUjFsQWZDdGo2SFZJNmZpYnNIYy1rZ0M0R2hGUUZoVE9ZSHc5S2VDSE9jb3NtWjZmNWhWejRfLTFmcUxlVHg3X0hQNkZ2U3cxTXNDSA?oc=5",
+      "author": "Ratopati",
+      "category": "model",
+      "published_at": "Sat, 15 Aug 2026 01:54:18 GMT",
+      "source_detail": "\"large language model\"",
+      "domain": "tech",
+      "id": 1786803369705,
+      "created_at": "2026-08-15T14:08:01.114Z"
     },
     {
       "source": "google-news",
