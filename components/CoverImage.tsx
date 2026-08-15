@@ -44,9 +44,10 @@ function placeholdUrl(seed?: string): string | undefined {
   if (!seed) return undefined;
   const h = seedHash(seed);
   const hues = [210, 260, 340, 30, 170, 290, 20, 200, 310, 150];
-  const hue = hues[h % hues.length];
-  const text = encodeURIComponent('AI');
-  return `https://placehold.co/640x400/hsl(${hue},60%25,25%25)/white?text=${text}`;
+  const bg = ['#0f2744', '#2a1548', '#14321f', '#3a2410', '#3a1020', '#0f2744', '#1a1a2e', '#1e293b', '#1c1917', '#0c1220'];
+  const fg = ['#60a5fa', '#c45cd6', '#3dd68c', '#fbbf24', '#fb7185', '#22d3ee', '#94a3b8', '#a78bfa', '#f97316', '#34d399'];
+  const i = h % hues.length;
+  return `https://placehold.co/640x400/${bg[i].replace('#','')}/${fg[i].replace('#','')}.png?text=AI`;
 }
 
 /** Best-effort image: real URL > picsum > placehold. */
@@ -71,10 +72,7 @@ export default function CoverImage({ item, variant = 'thumb', className = '', sh
   const secondarySrc = useMemo(() => {
     if (!primarySrc) return undefined;
     if (primarySrc.includes('picsum.photos')) {
-      const h = seedHash(item.url || item.title);
-      const hues = [210, 260, 340, 30, 170, 290, 20, 200, 310, 150];
-      const hue = hues[h % hues.length];
-      return `https://placehold.co/640x400/hsl(${hue},60%25,25%25)/white?text=AI`;
+      return placeholdUrl(item.url || item.title);
     }
     return undefined;
   }, [primarySrc, item.url, item.title]);
@@ -94,7 +92,8 @@ export default function CoverImage({ item, variant = 'thumb', className = '', sh
           src={primarySrc}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
           onError={() => setFailedPrimary(true)}
         />
       )}
@@ -105,7 +104,8 @@ export default function CoverImage({ item, variant = 'thumb', className = '', sh
           src={secondarySrc}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
           onError={() => setFailedSecondary(true)}
         />
       )}
