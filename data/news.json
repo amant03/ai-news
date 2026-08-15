@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-15T12:43:48.687Z",
-    "count": 1270
+    "lastUpdated": "2026-08-15T13:12:38.897Z",
+    "count": 1273
   },
   "items": [
     {
@@ -4488,6 +4488,57 @@
       "domain": "business",
       "id": 1786797429829,
       "created_at": "2026-08-15T12:35:34.909Z"
+    },
+    {
+      "source": "ai-weekly",
+      "source_label": "AI Weekly",
+      "source_type": "web",
+      "title": "SMIC weighs new capacity as AI-chip demand outruns forecasts",
+      "summary": "SMIC weighs new capacity as AI-chip demand outruns forecasts",
+      "content": "",
+      "url": "https://aiweekly.co/alerts/smic-weighs-new-capacity-as-ai-chip-orders-book-into-2027",
+      "author": "AI Weekly",
+      "category": "other",
+      "published_at": "2026-08-14T00:00:00.000Z",
+      "source_detail": "AI Weekly",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_Corporate_Logo.jpg/440px-Adobe_Corporate_Logo.jpg",
+      "domain": "tech",
+      "id": 1786799988445,
+      "created_at": "2026-08-15T13:12:38.118Z"
+    },
+    {
+      "source": "ai-weekly",
+      "source_label": "AI Weekly",
+      "source_type": "web",
+      "title": "Applied Materials Q3 beats on AI, stock still slips 5%",
+      "summary": "Applied Materials Q3 beats on AI, stock still slips 5%",
+      "content": "",
+      "url": "https://finance.yahoo.com/technology/ai/articles/applied-materials-q3-2026-earnings-114815272.html",
+      "author": "AI Weekly",
+      "category": "other",
+      "published_at": "2026-08-14T00:00:00.000Z",
+      "source_detail": "AI Weekly",
+      "image_url": "https://s.yimg.com/lo/mysterio/api/2BCD3193A1AD44FF7D93355AFB151C16C731CF8AF73A1A3563F5130BFF3C4081/subgraphmysterio/resizefill_w1200_h675;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fquartz_855%2F96ab10388527449fd51a1f6e62647ca0.jpg",
+      "domain": "business",
+      "id": 1786799644640,
+      "created_at": "2026-08-15T13:12:38.139Z"
+    },
+    {
+      "source": "ai-weekly",
+      "source_label": "AI Weekly",
+      "source_type": "web",
+      "title": "Judge sanctions plaintiff for hiding AI prompt injections in filings",
+      "summary": "Judge sanctions plaintiff for hiding AI prompt injections in filings",
+      "content": "",
+      "url": "https://www.techdirt.com/2026/08/14/pro-se-plaintiff-caught-hiding-prompt-injections-in-court-filings-responds-by-hiding-more/",
+      "author": "AI Weekly",
+      "category": "other",
+      "published_at": "2026-08-14T00:00:00.000Z",
+      "source_detail": "AI Weekly",
+      "image_url": "https://www.techdirt.com/wp-content/themes/techdirt/assets/images/td-rect-logo-white.png",
+      "domain": "general",
+      "id": 1786800096427,
+      "created_at": "2026-08-15T13:12:38.160Z"
     },
     {
       "source": "reddit",
