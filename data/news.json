@@ -1,9 +1,58 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-15T05:54:20.359Z",
-    "count": 1216
+    "lastUpdated": "2026-08-15T06:48:30.734Z",
+    "count": 1220
   },
   "items": [
+    {
+      "source": "google-news",
+      "source_label": "Moomoo",
+      "source_type": "google",
+      "title": "\"AI-Driven Financial Innovation\": The \"Vendor Guarantee\" Model for AI Chips Behind Broadcom's Sharp Decline",
+      "summary": "\"AI-Driven Financial Innovation\": The \"Vendor Guarantee\" Model for AI Chips Behind Broadcom's Sharp Decline  Moomoo",
+      "content": "\"AI-Driven Financial Innovation\": The \"Vendor Guarantee\" Model for AI Chips Behind Broadcom's Sharp Decline  Moomoo",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOR1gtT0xyU2JCLW1VVWJDMXRnVVY4SUpWSV8waWF1YWhYaTRrWU5MV1lCSmlOWDlWNmhDMTBtRzE4RmNaWTBTQWhGYzFsQ1RWaUNreVBLRmhBeFpUQjdpQnpFdjZCdDZEaEQweUZBTWg5OG9tTEt3NlZjYVo0aTIzNzBCV0tUcWd5bG1FNDFJUXRYMy1pVkdLUUlQTmNMeW5DMHVFUk9Oa2UyQQ?oc=5",
+      "author": "Moomoo",
+      "category": "model",
+      "published_at": "Sat, 15 Aug 2026 06:34:42 GMT",
+      "source_detail": "AI funding",
+      "domain": "tech",
+      "id": 1786776777230,
+      "created_at": "2026-08-15T06:48:29.289Z"
+    },
+    {
+      "source": "reddit",
+      "source_label": "r/MachineLearning",
+      "source_type": "reddit",
+      "title": "BDH-CQ: IN-CONTEXT LEARNING WITH RECURRENT LATENT REASONING [R]",
+      "summary": "We introduce BDH-CQ, a reasoning system that brings these capabilities together. Demonstrations of a previously unseen task update recurrent memory; the query is then solved through iterative computat",
+      "content": "We introduce BDH-CQ, a reasoning system that brings these capabilities together. Demonstrations of a previously unseen task update recurrent memory; the query is then solved through iterative computation in a high-dimensional latent workspace. Intermediate reasoning states are not decoded into language. BDH-CQ makes memory, adaptation, and inference part of the same computational fabric. Inputs presented at inference time continuously update the model’s recurrent memory; the model then solves a query through iterative computation in a high-dimensional latent space, without verbalizing its intermediate reasoning. Neither task identifiers nor evaluation-task demonstration pairs participate in training, and no parameters are updated at inference time. A 150M-parameter configuration reaches 29.5% pass@2 on ARC-AGI-1 at a computed $0.00070 per task, breaking through the previously reported cost–accuracy Pareto frontier. submitted by /u/moschles [link] [comments]",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1vov5r5/bdhcq_incontext_learning_with_recurrent_latent/",
+      "author": "r/MachineLearning",
+      "category": "model",
+      "published_at": "2026-08-15T06:18:15.000Z",
+      "source_detail": "r/MachineLearning",
+      "domain": "research",
+      "id": 1786777000627,
+      "created_at": "2026-08-15T06:48:29.537Z"
+    },
+    {
+      "source": "the-decoder",
+      "source_label": "The Decoder",
+      "source_type": "rss",
+      "title": "The \"tragedy of the cognitive commons\" explains how rational AI adoption could destroy entire professions' expertise",
+      "summary": "A new research paper frames AI adoption as a \"tragedy of the cognitive commons.\" Every company that cuts entry-level jobs benefits individually, but the collective expertise of entire professions erod",
+      "content": "A new research paper frames AI adoption as a \"tragedy of the cognitive commons.\" Every company that cuts entry-level jobs benefits individually, but the collective expertise of entire professions erodes. The consequences may not become visible until 2030 to 2045, when today's missing junior talent should have become tomorrow's experienced workforce.\nThe article The \"tragedy of the cognitive commons\" explains how rational AI adoption could destroy entire professions' expertise appeared first on The Decoder.",
+      "url": "https://the-decoder.com/the-tragedy-of-the-cognitive-commons-explains-how-rational-ai-adoption-could-destroy-entire-professions-expertise/",
+      "author": "TheDecoder",
+      "category": "research",
+      "published_at": "Sat, 15 Aug 2026 06:00:52 +0000",
+      "image_url": "https://the-decoder.com/wp-content/uploads/2026/08/ai_jobs_young_people_cognitive_decline.png",
+      "source_detail": "TheDecoder",
+      "domain": "research",
+      "id": 1786776667011,
+      "created_at": "2026-08-15T06:48:28.941Z"
+    },
     {
       "source": "the-decoder",
       "source_label": "The Decoder",
@@ -388,6 +437,22 @@
       "domain": "research",
       "id": 1786756961564,
       "created_at": "2026-08-15T01:11:24.007Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Reuters",
+      "source_type": "google",
+      "title": "EXCLUSIVE: US to tell partners they must pick sides in AI race with China",
+      "summary": "EXCLUSIVE: US to tell partners they must pick sides in AI race with China  Reuters",
+      "content": "EXCLUSIVE: US to tell partners they must pick sides in AI race with China  Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOQm05M3ZscW8yb1Jfdkw2QUl4Y2RzOWVXWlQ5ZzNIX0JhcnJlb1VIaHlmeFhJM082VUpua05SY3lQcVotUi1xVFVKSURVRVNBX3djVzE5M3Z6RmxDTHo5WWNsSEs2MU5RS0JaVnNfdWZwZDAtaURZUW1rNTJoYlZJWUdXZ2lSelRMV2RTdVpIQVRnMW0zTWlNU3NKbGtLU3R6cjNUTkZmUQ?oc=5",
+      "author": "Reuters",
+      "category": "other",
+      "published_at": "Fri, 14 Aug 2026 21:53:39 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786776550497,
+      "created_at": "2026-08-15T06:48:29.183Z"
     },
     {
       "source": "google-news",
