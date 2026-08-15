@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-15T12:35:38.572Z",
+  "updatedAt": "2026-08-15T12:43:52.227Z",
   "sources": [
     "openrouter",
     "huggingface",
@@ -7,7 +7,8 @@
     "lmarena",
     "freellm",
     "x",
-    "reddit"
+    "reddit",
+    "aa"
   ],
   "counts": {
     "total": 600,
@@ -201,7 +202,8 @@
       "xMentions": 0,
       "redditMentions": 0,
       "buzz": 9,
-      "hfDownloads": 27883
+      "hfDownloads": 27883,
+      "intelligenceIndex": 53
     },
     {
       "id": "lmarena/step-3.5-flash",
@@ -1566,7 +1568,8 @@
       "redditMentions": 0,
       "buzz": 2,
       "hfDownloads": 546,
-      "hfLikes": 2438
+      "hfLikes": 2438,
+      "aaSpeed": 69
     },
     {
       "id": "openai/gpt-5.6-sol",
@@ -1626,7 +1629,7 @@
       "codingIndex": 71.8,
       "agenticIndex": 58.4,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "anthropic/claude-opus-4.8",
@@ -1696,7 +1699,8 @@
       "redditMentions": 0,
       "buzz": 8,
       "hfDownloads": 306443,
-      "hfLikes": 680
+      "hfLikes": 680,
+      "aaSpeed": 340
     },
     {
       "id": "x-ai/grok-4.5",
@@ -1838,7 +1842,9 @@
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 0,
-      "buzz": 0
+      "buzz": 0,
+      "aaSpeed": 166,
+      "aaCostPerTask": 0.05
     },
     {
       "id": "google/gemini-3.5-flash",
@@ -1930,7 +1936,7 @@
       "codingIndex": 68.8,
       "agenticIndex": 23,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "qwen/qwen3.7-max",
@@ -1964,7 +1970,7 @@
       "codingIndex": 58.6,
       "agenticIndex": 36.1,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "moonshotai/kimi-k2.6",
@@ -2050,7 +2056,7 @@
       "codingIndex": 58.8,
       "agenticIndex": 31.4,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "upstage/solar-pro4",
@@ -2104,7 +2110,7 @@
       "codingIndex": 56.1,
       "agenticIndex": 31.5,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "x-ai/grok-build-0.1",
@@ -2194,7 +2200,7 @@
       "codingIndex": 52.6,
       "agenticIndex": 25.9,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -2212,7 +2218,8 @@
       "codingIndex": 49.3,
       "agenticIndex": 27.5,
       "hfDownloads": 170554,
-      "hfLikes": 267
+      "hfLikes": 267,
+      "aaSpeed": 156
     },
     {
       "id": "xiaomi/mimo-v2.5",
@@ -2542,7 +2549,7 @@
       "codingIndex": 15.6,
       "agenticIndex": 19.6,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "nvidia/nemotron-3-super-120b-a12b",
@@ -2560,7 +2567,7 @@
       "codingIndex": 37.7,
       "agenticIndex": 8.8,
       "hfDownloads": 2280543,
-      "hfLikes": 420
+      "hfLikes": 421
     },
     {
       "id": "google/gemini-3.1-flash-lite-preview",
@@ -2704,7 +2711,7 @@
       "codingIndex": 36.5,
       "agenticIndex": 3.1,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "mistralai/mistral-small-2603",
@@ -2774,7 +2781,7 @@
       "codingIndex": 16.3,
       "agenticIndex": 1.7,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "openai/gpt-oss-20b",
@@ -2826,7 +2833,7 @@
       "codingIndex": 20.2,
       "agenticIndex": 1.8,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "mistralai/mistral-medium-3.1",
@@ -2948,7 +2955,7 @@
       "codingIndex": 15.3,
       "agenticIndex": 1.8,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "mistralai/ministral-14b-2512",
@@ -2982,7 +2989,7 @@
       "codingIndex": 13.8,
       "agenticIndex": 1.9,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "meta-llama/llama-4-scout",
@@ -3052,7 +3059,7 @@
       "codingIndex": 9,
       "agenticIndex": 1.6,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "google/gemma-3-27b-it",
@@ -3118,7 +3125,7 @@
       "promptPrice": 0.45,
       "completionPrice": 3.2,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "dots-studio/dots-3-note-preview",
@@ -3146,7 +3153,7 @@
       "promptPrice": 0.5,
       "completionPrice": 2.5,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "qwen/qwen3.8-2.4t-a95b",
@@ -3234,7 +3241,9 @@
       "redditMentions": 0,
       "buzz": 0,
       "hfDownloads": 682188,
-      "hfLikes": 426
+      "hfLikes": 426,
+      "intelligenceIndex": 56,
+      "aaSpeed": 111
     },
     {
       "id": "~deepseek/deepseek-v4-flash-latest",
@@ -3694,7 +3703,7 @@
       "promptPrice": 0.75,
       "completionPrice": 4.5,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "~google/gemini-pro-latest",
@@ -3826,7 +3835,9 @@
       "promptPrice": 1.17,
       "completionPrice": 2.34,
       "hfDownloads": 306443,
-      "hfLikes": 680
+      "hfLikes": 680,
+      "intelligenceIndex": 53,
+      "aaSpeed": 90
     },
     {
       "id": "deepseek/deepseek-v4-flash",
@@ -3902,7 +3913,7 @@
       "promptPrice": 1.2,
       "completionPrice": 4,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "arcee-ai/trinity-large-thinking",
@@ -3962,7 +3973,7 @@
       "promptPrice": 0,
       "completionPrice": 0,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "google/lyria-3-clip-preview",
@@ -3976,7 +3987,7 @@
       "promptPrice": 0,
       "completionPrice": 0,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "kwaipilot/kat-coder-pro-v2",
@@ -4018,7 +4029,7 @@
       "promptPrice": 1.2,
       "completionPrice": 4,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "bytedance-seed/seed-2.0-lite",
@@ -4068,7 +4079,7 @@
       "promptPrice": 0.5,
       "completionPrice": 3,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "qwen/qwen3.5-flash-02-23",
@@ -4094,7 +4105,7 @@
       "promptPrice": 2,
       "completionPrice": 12,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "openai/gpt-5.3-codex",
@@ -4146,7 +4157,7 @@
       "promptPrice": 0.22,
       "completionPrice": 0.9,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "qwen/qwen3-max-thinking",
@@ -4198,7 +4209,7 @@
       "promptPrice": 0.3,
       "completionPrice": 1.2,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "writer/palmyra-x5",
@@ -4236,7 +4247,7 @@
       "promptPrice": 0.6,
       "completionPrice": 2.4,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "openai/gpt-5.2-codex",
@@ -4288,7 +4299,7 @@
       "promptPrice": 0.3,
       "completionPrice": 1.2,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "google/gemini-3-flash-preview",
@@ -4302,7 +4313,7 @@
       "promptPrice": 0.5,
       "completionPrice": 3,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "openai/gpt-5.2-chat",
@@ -4436,7 +4447,7 @@
       "promptPrice": 2,
       "completionPrice": 12,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "deepcogito/cogito-v2.1-671b",
@@ -4568,7 +4579,7 @@
       "promptPrice": 0.26,
       "completionPrice": 1.02,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "qwen/qwen3-vl-32b-instruct",
@@ -4610,7 +4621,7 @@
       "promptPrice": 2.5,
       "completionPrice": 2,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "qwen/qwen3-vl-8b-thinking",
@@ -4784,7 +4795,7 @@
       "promptPrice": 0.78,
       "completionPrice": 3.9,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "qwen/qwen3-coder-plus",
@@ -4856,7 +4867,7 @@
       "promptPrice": 0.26,
       "completionPrice": 0.78,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "nvidia/nemotron-nano-9b-v2",
@@ -5176,7 +5187,7 @@
       "promptPrice": 0.55,
       "completionPrice": 2.2,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "google/gemini-2.5-flash",
@@ -5216,7 +5227,7 @@
       "promptPrice": 1.25,
       "completionPrice": 10,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "deepseek/deepseek-r1-0528",
@@ -5286,7 +5297,7 @@
       "promptPrice": 1.25,
       "completionPrice": 10,
       "hfDownloads": 6098,
-      "hfLikes": 361
+      "hfLikes": 362
     },
     {
       "id": "arcee-ai/virtuoso-large",
@@ -5326,7 +5337,7 @@
       "promptPrice": 0.12,
       "completionPrice": 0.5,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "qwen/qwen3-235b-a22b",
@@ -5340,7 +5351,7 @@
       "promptPrice": 0.45,
       "completionPrice": 1.82,
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "openai/o4-mini-high",
@@ -5354,7 +5365,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "openai/o3",
@@ -5380,7 +5391,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "openai/gpt-4.1",
@@ -5568,7 +5579,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 2212155,
-      "hfLikes": 3953
+      "hfLikes": 3954
     },
     {
       "id": "perplexity/sonar",
@@ -6092,7 +6103,7 @@
       "codingIndex": 21.5,
       "agenticIndex": null,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "anthropic/claude-3-haiku",
@@ -6132,7 +6143,7 @@
       "promptPrice": 1,
       "completionPrice": 2,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "openai/gpt-4-turbo-preview",
@@ -6146,7 +6157,7 @@
       "promptPrice": 10,
       "completionPrice": 30,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "openrouter/auto",
@@ -6170,7 +6181,7 @@
       "promptPrice": 1.5,
       "completionPrice": 2,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "openai/gpt-3.5-turbo-16k",
@@ -6184,7 +6195,7 @@
       "promptPrice": 3,
       "completionPrice": 4,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "mancer/weaver",
@@ -6238,7 +6249,7 @@
       "codingIndex": 10.7,
       "agenticIndex": null,
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "openai/gpt-4",
@@ -6263,7 +6274,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 867963,
-      "hfLikes": 1007
+      "hfLikes": 1011
     },
     {
       "id": "MiniMaxAI/MiniMax-H3",
@@ -6272,7 +6283,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 2212155,
-      "hfLikes": 3953,
+      "hfLikes": 3954,
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 1,
@@ -6298,7 +6309,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 5079,
-      "hfLikes": 730
+      "hfLikes": 731
     },
     {
       "id": "unsloth/Muse-Glimmer-30B-GGUF",
@@ -6316,7 +6327,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 123157,
-      "hfLikes": 379
+      "hfLikes": 381
     },
     {
       "id": "lightx2v/Minimax-h3-Turbo",
@@ -6325,7 +6336,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 211917,
-      "hfLikes": 504
+      "hfLikes": 505
     },
     {
       "id": "larryvrh/MiniMax-H3-Turbo-Lora",
@@ -6500,7 +6511,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 6098,
-      "hfLikes": 361,
+      "hfLikes": 362,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6782,6 +6793,15 @@
       "hfLikes": 274
     },
     {
+      "id": "LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
+      "name": "Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
+      "provider": "Luffythefox",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 740390,
+      "hfLikes": 492
+    },
+    {
       "id": "Akahsizrr/fuse-1-Lite",
       "name": "Fuse-1-Lite",
       "provider": "Akahsizrr",
@@ -6790,15 +6810,6 @@
       "hfDownloads": 2273,
       "hfLikes": 120,
       "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
-      "name": "Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
-      "provider": "Luffythefox",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 740390,
-      "hfLikes": 492
     },
     {
       "id": "bottlecapai/ThinkingCap-Qwen3.6-27B",
@@ -6819,14 +6830,13 @@
       "hfLikes": 239
     },
     {
-      "id": "Kwaipilot/KAT-Coder-V2.5-Dev",
-      "name": "KAT-Coder-V2.5-Dev",
-      "provider": "Kwaipilot",
+      "id": "Kijai/MiniMax-H3-TAE",
+      "name": "MiniMax-H3-TAE",
+      "provider": "Kijai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 23434,
-      "hfLikes": 580,
-      "description": "Open-weight text-generation model on Hugging Face."
+      "hfDownloads": 0,
+      "hfLikes": 134
     },
     {
       "id": "ThorOdinson246/nl2sh-1.5b-Q4_K_M",
@@ -6836,6 +6846,16 @@
       "family": "open-weights",
       "hfDownloads": 1445,
       "hfLikes": 43,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "Kwaipilot/KAT-Coder-V2.5-Dev",
+      "name": "KAT-Coder-V2.5-Dev",
+      "provider": "Kwaipilot",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 23434,
+      "hfLikes": 580,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6995,7 +7015,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 3141991,
-      "hfLikes": 494,
+      "hfLikes": 495,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7209,6 +7229,16 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
+      "id": "Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality",
+      "name": "Qwen3.8-27B-MTPLX-Optimized-Quality",
+      "provider": "Youssofal",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 17,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
       "id": "SupraLabs/Supra2-Nano",
       "name": "Supra2-Nano",
       "provider": "Supralabs",
@@ -7216,16 +7246,6 @@
       "family": "open-weights",
       "hfDownloads": 463,
       "hfLikes": 15,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality",
-      "name": "Qwen3.8-27B-MTPLX-Optimized-Quality",
-      "provider": "Youssofal",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 16,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7545,7 +7565,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 2280543,
-      "hfLikes": 420,
+      "hfLikes": 421,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7800,16 +7820,6 @@
       "family": "open-weights",
       "hfDownloads": 478,
       "hfLikes": 1814,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "microsoft/Phi-3-mini-128k-instruct",
-      "name": "Phi-3 Mini-128k Instruct",
-      "provider": "Microsoft",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 257140,
-      "hfLikes": 1703,
       "description": "Open-weight text-generation model on Hugging Face."
     }
   ]

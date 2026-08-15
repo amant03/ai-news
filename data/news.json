@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-15T12:35:35.466Z",
-    "count": 1268
+    "lastUpdated": "2026-08-15T12:43:48.687Z",
+    "count": 1270
   },
   "items": [
     {
@@ -150,6 +150,22 @@
       "domain": "research",
       "id": 1786797650942,
       "created_at": "2026-08-15T12:35:33.610Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Davis Vanguard",
+      "source_type": "google",
+      "title": "A short history and long future for human beings",
+      "summary": "A short history and long future for human beings  Davis Vanguard",
+      "content": "A short history and long future for human beings  Davis Vanguard",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE94Qno4VkJKeDJCZS1ZTnhldmgzWGNMS3NvTUdlQkI1Z1dWY29DWm5CX2ZUQlhESm9IcGxNczNORWRxMTlvS0hvRjJTbEJpa200ZEFuN3NPbGktd0pLX3B6WEE3a0E1NnlQTXUzT0Vn?oc=5",
+      "author": "Davis Vanguard",
+      "category": "other",
+      "published_at": "Sat, 15 Aug 2026 11:00:00 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786798755153,
+      "created_at": "2026-08-15T12:43:46.765Z"
     },
     {
       "source": "google-news",
@@ -2248,6 +2264,22 @@
       "domain": "general",
       "id": 1786728637841,
       "created_at": "2026-08-14T17:14:04.079Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Siouxland Public Media",
+      "source_type": "google",
+      "title": "As another year of Siouxland schooling begins, officials discuss education trends, AI, funding & first day nerves",
+      "summary": "As another year of Siouxland schooling begins, officials discuss education trends, AI, funding & first day nerves  Siouxland Public Media",
+      "content": "As another year of Siouxland schooling begins, officials discuss education trends, AI, funding & first day nerves  Siouxland Public Media",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQYnRhZERobEI5aTZBRW9VY3Q3R2dKenNkOWFxclJTcGtmakY2Mi1BWnR0OW5PdEtZSmRxakFyVlVobnBiOEVuWm43eG9SYVNpLUhWRGw2ZHVzR25salNzQmQ1ck56S0ZSd0lLLUFReWlteVZtcGdvenRqUlUzYzd3em9tenJOWUhmY21kMzhTVGRMOGYwQVFNb1hla3UwSlRNUkdFMHIyNUJGS0tTY0tqQnQzRDQySHkwdk9VaFZfRE9NSzZyd2RhZ0U0TkpfQ3RFaGpGeDdJNnQ3V3h4M0FLemltM292eHM5bDVXbmJ6TFhQRGpVZ3Z6OUNYT0c?oc=5",
+      "author": "Siouxland Public Media",
+      "category": "product",
+      "published_at": "Fri, 14 Aug 2026 15:44:00 GMT",
+      "source_detail": "AI funding",
+      "domain": "business",
+      "id": 1786798140027,
+      "created_at": "2026-08-15T12:43:46.855Z"
     },
     {
       "source": "techcrunch",

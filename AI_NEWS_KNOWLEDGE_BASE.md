@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-15T12:35:35.524Z
-> Total Articles Tracked: 1268
+> Last Updated: 2026-08-15T12:43:48.770Z
+> Total Articles Tracked: 1270
 > Generated from AI Pulse database
 
 ---
@@ -395,7 +395,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | SQ Magazine |
 
@@ -1150,7 +1150,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (30m ago) |
+| **Date** | August 15, 2026 (38m ago) |
 | **Category** | 🔬 research |
 | **Author** | AI Insider |
 
@@ -2442,7 +2442,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (10m ago) |
+| **Date** | August 15, 2026 (19m ago) |
 | **Category** | 💼 product |
 | **Author** | Crowdfund Insider |
 
@@ -2517,7 +2517,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Nebraska Public Media |
 
@@ -2577,7 +2577,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | Fierce Network |
 
@@ -2607,7 +2607,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | pymnts.com |
 
@@ -2727,7 +2727,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2742,7 +2742,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2757,7 +2757,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2917,12 +2917,27 @@ That’s
 
 ---
 
+### As another year of Siouxland schooling begins, officials discuss education trends, AI, funding & first day nerves
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (20h ago) |
+| **Category** | 💼 product |
+| **Author** | Siouxland Public Media |
+
+**Summary:** As another year of Siouxland schooling begins, officials discuss education trends, AI, funding & first day nerves  Siouxland Public Media
+
+**URL:** [https://news.google.com/rss/articles/CBMi_AFBVV95cUxQYnRhZERobEI5aTZBRW9VY3Q3R2dKenNkOWFxclJTcGtmakY2Mi1BWnR0OW5PdEtZSmRxakFyVlVobnBiOEVuWm43eG9SYVNpLUhWRGw2ZHVzR25salNzQmQ1ck56S0ZSd0lLLUFReWlteVZtcGdvenRqUlUzYzd3em9tenJOWUhmY21kMzhTVGRMOGYwQVFNb1hla3UwSlRNUkdFMHIyNUJGS0tTY0tqQnQzRDQySHkwdk9VaFZfRE9NSzZyd2RhZ0U0TkpfQ3RFaGpGeDdJNnQ3V3h4M0FLemltM292eHM5bDVXbmJ6TFhQRGpVZ3Z6OUNYT0c?oc=5](https://news.google.com/rss/articles/CBMi_AFBVV95cUxQYnRhZERobEI5aTZBRW9VY3Q3R2dKenNkOWFxclJTcGtmakY2Mi1BWnR0OW5PdEtZSmRxakFyVlVobnBiOEVuWm43eG9SYVNpLUhWRGw2ZHVzR25salNzQmQ1ck56S0ZSd0lLLUFReWlteVZtcGdvenRqUlUzYzd3em9tenJOWUhmY21kMzhTVGRMOGYwQVFNb1hla3UwSlRNUkdFMHIyNUJGS0tTY0tqQnQzRDQySHkwdk9VaFZfRE9NSzZyd2RhZ0U0TkpfQ3RFaGpGeDdJNnQ3V3h4M0FLemltM292eHM5bDVXbmJ6TFhQRGpVZ3Z6OUNYT0c?oc=5)
+
+---
+
 ### Does Mark Zuckerberg really believe AI is ‘for everyone’?
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2937,7 +2952,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | u1hcw9nx |
 
@@ -4874,7 +4889,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -4959,21 +4974,6 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### OpenAI Foundation gives $100 million fund state AI implementation for public health
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Nextgov/FCW |
-
-**Summary:** The OpenAI Foundation is providing a $100 million fund to support the implementation of AI in public health initiatives
-
-**URL:** [https://news.google.com/rss/articles/CBMizAFBVV95cUxPeGxpQ2dOVUY5Y09weVBhQ0QwN2k0R2dPSWMzc0Jpdms5NVdnVE9UeUdOVUp3WThVdXpxMkVYaEM0ekJRLXJmX1A5bzZXMWVkOVlJY3MxSmRiWVRuWWpIc1BQbVljVTAtYW9aWmJxMWxBd1VCdVRBeG9NcGVkTmpwNXFFeHdoMXFCUU1YY1ZSSjhhR1BYMGQ1N2dmMjBwcmNVOEJoOFlGdTgwR252N05XV2p2WmstNnl1UFBsaU80VEE3d0lRNVRLS3d2NzQ?oc=5](https://news.google.com/rss/articles/CBMizAFBVV95cUxPeGxpQ2dOVUY5Y09weVBhQ0QwN2k0R2dPSWMzc0Jpdms5NVdnVE9UeUdOVUp3WThVdXpxMkVYaEM0ekJRLXJmX1A5bzZXMWVkOVlJY3MxSmRiWVRuWWpIc1BQbVljVTAtYW9aWmJxMWxBd1VCdVRBeG9NcGVkTmpwNXFFeHdoMXFCUU1YY1ZSSjhhR1BYMGQ1N2dmMjBwcmNVOEJoOFlGdTgwR252N05XV2p2WmstNnl1UFBsaU80VEE3d0lRNVRLS3d2NzQ?oc=5)
-
----
-
 ## 🛡️ AI Safety & Security
 
 ### I drove Tesla FSD, Rivian Autonomy+ ‘hands-free’ driving systems. Here’s how they compare
@@ -4981,7 +4981,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 15, 2026 (35m ago) |
+| **Date** | August 15, 2026 (43m ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CNBC AI |
 
@@ -5121,7 +5121,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Winston Taylor |
 
@@ -5181,7 +5181,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (23h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Dentons |
 
@@ -5558,7 +5558,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (10m ago) |
+| **Date** | August 15, 2026 (18m ago) |
 | **Category** | 📌 other |
 | **Author** | Seeking Alpha |
 
@@ -5573,7 +5573,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (30m ago) |
+| **Date** | August 15, 2026 (38m ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -5588,7 +5588,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 15, 2026 (35m ago) |
+| **Date** | August 15, 2026 (43m ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5603,7 +5603,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (35m ago) |
+| **Date** | August 15, 2026 (43m ago) |
 | **Category** | 📌 other |
 | **Author** | MarketWatch |
 
@@ -5625,6 +5625,21 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 **Summary:** HBCU Love: NCCU opens nation’s first HBCU artificial intelligence institute building  Texas Metro News
 
 **URL:** [https://news.google.com/rss/articles/CBMiuAFBVV95cUxPejBUbDdIZHU0NW9KNTlnWjkwR3ZVeTdfMnlIMElPLWZiQTJMcHlSS01aV1VNMVdKX3RIeWM1aHpjZlpYZVRhNmxhLXdDcnRpLWJIcEltcU12czY5WHY0RklJVXNlNzA1NVIyMmNVZ3AzWXZqNUhWNWg3WTBJU2dHdFRFb0lxUHU3TTJJeDRKQU84WjRTd29YUThFTE42YmpaZ21za05FXzY2LV93M2R1S01xZzJDQVgt?oc=5](https://news.google.com/rss/articles/CBMiuAFBVV95cUxPejBUbDdIZHU0NW9KNTlnWjkwR3ZVeTdfMnlIMElPLWZiQTJMcHlSS01aV1VNMVdKX3RIeWM1aHpjZlpYZVRhNmxhLXdDcnRpLWJIcEltcU12czY5WHY0RklJVXNlNzA1NVIyMmNVZ3AzWXZqNUhWNWg3WTBJU2dHdFRFb0lxUHU3TTJJeDRKQU84WjRTd29YUThFTE42YmpaZ21za05FXzY2LV93M2R1S01xZzJDQVgt?oc=5)
+
+---
+
+### A short history and long future for human beings
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Davis Vanguard |
+
+**Summary:** A short history and long future for human beings  Davis Vanguard
+
+**URL:** [https://news.google.com/rss/articles/CBMibkFVX3lxTE94Qno4VkJKeDJCZS1ZTnhldmgzWGNMS3NvTUdlQkI1Z1dWY29DWm5CX2ZUQlhESm9IcGxNczNORWRxMTlvS0hvRjJTbEJpa200ZEFuN3NPbGktd0pLX3B6WEE3a0E1NnlQTXUzT0Vn?oc=5](https://news.google.com/rss/articles/CBMibkFVX3lxTE94Qno4VkJKeDJCZS1ZTnhldmgzWGNMS3NvTUdlQkI1Z1dWY29DWm5CX2ZUQlhESm9IcGxNczNORWRxMTlvS0hvRjJTbEJpa200ZEFuN3NPbGktd0pLX3B6WEE3a0E1NnlQTXUzT0Vn?oc=5)
 
 ---
 
@@ -5813,7 +5828,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (7h ago) |
+| **Date** | August 15, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | chatchan |
 
@@ -5858,7 +5873,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | oneounceman |
 
@@ -5933,7 +5948,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | fool.com |
 
@@ -6023,7 +6038,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Radiology Business |
 
@@ -6038,7 +6053,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Trend Hunter |
 
@@ -7600,21 +7615,6 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### Common Health Coalition secures $100M from OpenAI Foundation to boost hepatitis C cure rates
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Fierce Healthcare |
-
-**Summary:** Common Health Coalition secures $100M from OpenAI Foundation to boost hepatitis C cure rates  Fierce Healthcare
-
-**URL:** [https://news.google.com/rss/articles/CBMiygFBVV95cUxQYXlTeTQxMmZZN182NWg2WGxzeVo0QnR6VG5IUzNDd1Z1cG93aXBlbjkyWDF0SUo1VDQ0c1YtTEs5ZHdkYUpieUdLdjhad2hYWVpjVzRaLWlYSXJKTzRib1BkMzNiS01mcGJKZnA1QTllWjlDYVhnVmhmc2cxUzNXZzhHLWJ1d01TS1ZSMF9JZ1BxY1B1NDN4OGlMU2xPZXNkUERJQ3BzZ0djWWxLblUxeGU1MzFIX1Framxtb01PaFR1UWUzQVVNS1NR?oc=5](https://news.google.com/rss/articles/CBMiygFBVV95cUxQYXlTeTQxMmZZN182NWg2WGxzeVo0QnR6VG5IUzNDd1Z1cG93aXBlbjkyWDF0SUo1VDQ0c1YtTEs5ZHdkYUpieUdLdjhad2hYWVpjVzRaLWlYSXJKTzRib1BkMzNiS01mcGJKZnA1QTllWjlDYVhnVmhmc2cxUzNXZzhHLWJ1d01TS1ZSMF9JZ1BxY1B1NDN4OGlMU2xPZXNkUERJQ3BzZ0djWWxLblUxeGU1MzFIX1Framxtb01PaFR1UWUzQVVNS1NR?oc=5)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7630,4 +7630,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-15T12:35:35.556Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-15T12:43:48.822Z by AI Pulse Knowledge Base Generator*
