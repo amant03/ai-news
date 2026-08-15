@@ -56,7 +56,7 @@ export default function AIRadar() {
       <div className="surface rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="font-display font-medium text-sm uppercase tracking-widest">AI Mood Radar</h2>
-          <span className="h-2 w-2 rounded-full bg-cyan-400/60 animate-pulse" />
+          <span className="h-2 w-2 rounded-full bg-[var(--accent)]/60 animate-pulse" />
         </div>
         <div className="skeleton h-20 rounded-xl" />
         <div className="skeleton h-20 rounded-xl" />
@@ -74,18 +74,18 @@ export default function AIRadar() {
 
   return (
     <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[var(--panel)] via-[var(--panel-2)] to-[var(--panel-2)]">
-      <div className="pointer-events-none absolute -top-20 -left-20 w-64 h-64 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-20 -left-20 w-64 h-64 rounded-full bg-[var(--ok)]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-[var(--accent)]/10 blur-3xl" />
 
       <div className="relative p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--ok)] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--ok)]" />
             </span>
             <div>
-              <h2 className="font-display font-bold text-lg tracking-tight gradient-text">AI MOOD</h2>
+              <h2 className="font-display font-semibold text-lg tracking-tight gradient-text">AI Mood</h2>
               <p className="text-[11px] text-[var(--mut)]">Are people excited or worried?</p>
             </div>
           </div>
@@ -115,15 +115,15 @@ export default function AIRadar() {
             <span>+ euphoric</span>
           </div>
           <div className="grid grid-cols-3 gap-2 mt-3 text-center">
-            <div className="rounded-lg bg-emerald-400/10 border border-emerald-400/20 py-2">
+            <div className="rounded-lg bg-[var(--ok)]/10 border border-[var(--ok)]/20 py-2">
               <div className="font-mono text-sm font-bold text-[var(--ok)]">{data.landscape.positive}</div>
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Positive</div>
             </div>
-            <div className="rounded-lg bg-slate-400/10 border border-slate-400/20 py-2">
+            <div className="rounded-lg bg-[var(--info)]/10 border border-[var(--info)]/20 py-2">
               <div className="font-mono text-sm font-bold text-[var(--info)]">{data.landscape.neutral}</div>
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Neutral</div>
             </div>
-            <div className="rounded-lg bg-rose-400/10 border border-rose-400/20 py-2">
+            <div className="rounded-lg bg-[var(--bad)]/10 border border-[var(--bad)]/20 py-2">
               <div className="font-mono text-sm font-bold text-[var(--bad)]">{data.landscape.negative}</div>
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Negative</div>
             </div>

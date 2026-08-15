@@ -49,7 +49,7 @@ export default function LatestList({ items, dense = false }: LatestListProps) {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--fore)] font-medium leading-snug line-clamp-2 group-hover:text-[var(--cyan)] transition-colors"
+                className="text-[var(--fore)] font-medium leading-snug line-clamp-2 group-hover:text-[var(--accent)] transition-colors"
               >
                 {item.title}
               </a>

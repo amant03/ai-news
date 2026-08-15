@@ -65,7 +65,7 @@ export default function Page() {
           <ol className="space-y-3">
             {top.map(item => (
               <li key={item.url}>
-                <a href={item.url} className="text-cyan-300 underline">
+                <a href={item.url} className="text-[var(--accent)] underline">
                   {item.title}
                 </a>
                 <span className="block text-xs text-[var(--dim)]">{item.source_label || item.source}</span>

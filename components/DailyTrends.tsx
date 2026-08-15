@@ -51,8 +51,8 @@ export default function DailyTrends({ items }: DailyTrendsProps) {
   return (
     <section className="glass rounded-2xl p-4">
       <header className="flex items-center justify-between mb-3">
-        <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)]">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-violet-400 mr-2 align-middle" />
+        <h3 className="font-display font-semibold text-sm uppercase tracking-widest text-[var(--fore)]">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--violet)] mr-2 align-middle" />
           Daily Trends
         </h3>
         <div className="flex items-center gap-1">
@@ -91,7 +91,7 @@ export default function DailyTrends({ items }: DailyTrendsProps) {
                   : 'border-[var(--color-line)] text-[var(--mut)] hover:border-[var(--mut)]'
               }`}
               style={{
-                backgroundColor: count > 0 ? `rgba(139, 92, 246, ${0.12 + heat * 0.5})` : 'transparent',
+                backgroundColor: count > 0 ? `rgba(154, 123, 212, ${0.12 + heat * 0.5})` : 'transparent',
                 color: isSelected ? 'var(--accent)' : undefined,
               }}
             >
@@ -116,7 +116,7 @@ export default function DailyTrends({ items }: DailyTrendsProps) {
         {dayTopics.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-2.5">
             {dayTopics.slice(0, 6).map(t => (
-              <span key={t.word} className="text-[10px] px-2 py-0.5 rounded-full bg-violet-400/10 border border-violet-400/20 text-[var(--violet)]">
+              <span key={t.word} className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--violet)]/10 border border-[var(--violet)]/20 text-[var(--violet)]">
                 {t.word}
               </span>
             ))}

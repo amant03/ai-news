@@ -15,6 +15,7 @@ import AgentOutput from '@/components/AgentOutput';
 import SkeletonGrid from '@/components/Skeleton';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder } from '@/lib/engagement';
+import { BUILD_TAG } from '@/lib/build';
 
 const POLL_MS = 60_000;
 const PAGE_SIZE = 300;
@@ -260,7 +261,6 @@ export default function Home() {
     <div className="min-h-screen">
       <div className="bg-atmosphere" />
       <div className="bg-grid" />
-      <div className="noise" />
 
       <Header
         total={total}
@@ -277,7 +277,7 @@ export default function Home() {
         {newItems.length > 0 && (
           <button
             onClick={applyNew}
-            className="ring-focus w-full mb-4 px-4 py-3 rounded-2xl bg-[var(--accent)]/10 border border-[var(--accent)]/40 text-[var(--accent)] text-sm font-medium flex items-center justify-center gap-2 animate-slide-in hover:bg-[var(--accent)]/20 transition-colors"
+            className="ring-focus w-full mb-4 px-4 py-3 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/40 text-[var(--accent)] text-sm font-medium flex items-center justify-center gap-2 animate-slide-in hover:bg-[var(--accent)]/20 transition-colors"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
@@ -305,7 +305,7 @@ export default function Home() {
 
         {!search.trim() && selectedSource === 'all' && (
           <div className="flex items-center gap-x-5 gap-y-2 overflow-x-auto no-scrollbar mb-5 text-[11px] text-[var(--dim)]">
-            <span className="text-[10px] uppercase tracking-widest flex-shrink-0">In this feed</span>
+            <span className="text-[10px] uppercase tracking-widest flex-shrink-0 kicker">In this feed</span>
             {Object.entries(categoryCounts).map(([cat, count]) => {
               const pct = total ? Math.round((count / total) * 100) : 0;
               return (
@@ -325,12 +325,12 @@ export default function Home() {
             {top3.length > 0 && (
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="h-px w-6 bg-[var(--accent)]/50" />
-                  <h2 className="font-display font-medium text-xs uppercase tracking-[0.25em] text-[var(--mut)]">
+                  <span className="h-px w-6 bg-[var(--accent)]/60" />
+                  <h2 className="font-display font-semibold text-sm uppercase tracking-[0.2em] text-[var(--fore)]">
                     Top stories
                   </h2>
                   <span className="ml-auto flex items-center gap-1.5 font-mono text-[10px] text-[var(--dim)]">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-400/70" /> most engaged
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--ok)]/70" /> most engaged
                   </span>
                 </div>
                 <HeroLead items={top3} />
@@ -338,8 +338,8 @@ export default function Home() {
             )}
 
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-px w-6 bg-[var(--accent)]/50" />
-              <h2 className="font-display font-medium text-xs uppercase tracking-[0.25em] text-[var(--mut)]">
+              <span className="h-px w-6 bg-[var(--accent)]/60" />
+              <h2 className="font-display font-semibold text-sm uppercase tracking-[0.2em] text-[var(--fore)]">
                 {search.trim() ? 'Search results' : selectedSource === 'all' ? 'Latest' : `From ${facets.sources.find(s => s.value === selectedSource)?.label || selectedSource}`}
               </h2>
               <span className="ml-auto font-mono text-[11px] text-[var(--dim)]">
@@ -406,13 +406,16 @@ export default function Home() {
 
       <footer className="border-t border-[var(--color-line)] mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--dim)]">
-          <span className="font-mono">AI Pulse — news anyone can follow</span>
+          <span className="font-display text-[var(--mut)]">AI Pulse — the daily signal on artificial intelligence</span>
           <span className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400/70" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--ok)]/70" />
             {onlineSources} of {facets.sources.length || 40}+ channels online
           </span>
           <span className="hidden md:block">
             {lastUpdated ? `synced ${lastUpdated.toLocaleString()}` : 'syncing…'}
+          </span>
+          <span className="font-mono text-[10px] text-[var(--dim)]" title="Deployment build tag">
+            build {BUILD_TAG}
           </span>
         </div>
       </footer>

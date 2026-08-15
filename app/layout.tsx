@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Unbounded, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Fraunces, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
 import { ThemeProvider } from '@/lib/theme';
 
-const display = Unbounded({
-  variable: '--font-unbounded',
+const display = Fraunces({
+  variable: '--font-fraunces',
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const sans = Instrument_Sans({

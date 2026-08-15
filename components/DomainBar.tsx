@@ -29,7 +29,7 @@ interface DomainBarProps {
 export default function DomainBar({ selected, counts, onChange }: DomainBarProps) {
   return (
     <section className="glass rounded-2xl p-4">
-      <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)] mb-1">
+      <h3 className="font-display font-semibold text-sm uppercase tracking-widest text-[var(--fore)] mb-1">
         Who’s reading today?
       </h3>
       <p className="text-[11px] text-[var(--dim)] mb-3">Stories & model charts tuned to you — switch anytime.</p>
@@ -44,7 +44,7 @@ export default function DomainBar({ selected, counts, onChange }: DomainBarProps
               aria-pressed={active}
               className={`ring-focus rounded-xl border px-3 py-2.5 text-left transition-all ${
                 active
-                  ? 'border-[var(--accent)]/70 bg-[var(--accent)]/10'
+                  ? 'border-[var(--accent)]/60 bg-[var(--accent)]/10'
                   : 'border-[var(--color-line)] hover:border-[var(--mut)]'
               }`}
             >

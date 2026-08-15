@@ -49,7 +49,7 @@ export default function NewsCard({ item, index = 0, variant = 'grid', className 
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`block font-display font-medium text-[var(--fore)] leading-snug hover:text-[var(--cyan)] transition-colors ${
+            className={`block font-display font-medium text-[var(--fore)] leading-snug hover:text-[var(--accent)] transition-colors ${
               isHero ? 'line-clamp-3' : 'line-clamp-2'
             }`}
           >

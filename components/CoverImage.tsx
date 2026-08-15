@@ -129,7 +129,7 @@ function PosterArt({ art, title, category }: { art: PosterArtSpec; title: string
       </defs>
       <rect width="400" height="240" fill={`url(#${id}-g)`} />
       <Motif kind={category} seed={art.seed} color={art.color} />
-      <text x="28" y="148" fill="white" fillOpacity="0.16" fontSize="72" fontWeight="700" fontFamily="var(--font-unbounded), sans-serif">
+      <text x="28" y="148" fill="white" fillOpacity="0.14" fontSize="84" fontWeight="600" fontFamily="var(--font-fraunces), serif">
         {initials}
       </text>
       <circle cx="332" cy="48" r="36" fill={art.color} fillOpacity="0.22" />

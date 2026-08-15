@@ -53,15 +53,15 @@ export default function SourcePanel() {
   return (
     <div className="glass rounded-2xl p-5">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)]">
+        <h3 className="font-display font-semibold text-sm uppercase tracking-widest text-[var(--fore)]">
           Sources
         </h3>
         <span
           className={`flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider ${
-            loading ? 'text-[var(--dim)]' : status?.environment === 'ci' ? 'text-cyan-300' : 'text-[var(--ok)]'
+            loading ? 'text-[var(--dim)]' : status?.environment === 'ci' ? 'text-[var(--accent)]' : 'text-[var(--ok)]'
           }`}
         >
-          <span className={`w-1.5 h-1.5 rounded-full ${status?.environment === 'ci' ? 'bg-cyan-400' : 'bg-emerald-400'}`} />
+          <span className={`w-1.5 h-1.5 rounded-full ${status?.environment === 'ci' ? 'bg-[var(--accent)]' : 'bg-[var(--ok)]'}`} />
           {status?.environment === 'ci' ? 'cloud' : 'local'}
         </span>
       </div>
@@ -94,7 +94,7 @@ export default function SourcePanel() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Open ${sourceLabel(key)}`}
-                        className="ring-focus text-[var(--dim)] hover:text-cyan-300"
+                        className="ring-focus text-[var(--dim)] hover:text-[var(--accent)]"
                       >
                         <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -124,7 +124,7 @@ export default function SourcePanel() {
       {status?.lastRun && (
         <div className="mt-3 pt-3 border-t border-[var(--color-line)]">
           <div className="text-[10px] text-[var(--dim)] uppercase tracking-wider">last agent run</div>
-          <div className="font-mono text-xs text-cyan-300">{new Date(status.lastRun).toLocaleString()}</div>
+          <div className="font-mono text-xs text-[var(--accent)]">{new Date(status.lastRun).toLocaleString()}</div>
         </div>
       )}
     </div>

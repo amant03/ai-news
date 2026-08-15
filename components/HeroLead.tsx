@@ -8,8 +8,8 @@ interface HeroLeadProps {
 }
 
 /**
- * Professional front-page "top story" cluster — a bold lead card plus a
- * ranked list of the next most-engaged stories. Clean, editorial, skimmable.
+ * Editorial front-page "top story" cluster — a bold lead card plus a
+ * ranked list of the next most-engaged stories. Asymmetric, clean, skimmable.
  */
 export default function HeroLead({ items }: HeroLeadProps) {
   if (items.length === 0) return null;
@@ -17,7 +17,7 @@ export default function HeroLead({ items }: HeroLeadProps) {
   const secondaries = rest.slice(0, 3);
 
   return (
-    <section aria-label="Top stories" className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section aria-label="Top stories" className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-4">
       {/* Lead story */}
       <LeadStory item={lead} />
 
@@ -35,23 +35,23 @@ function LeadStory({ item }: { item: NewsItem }) {
   const color = CATEGORY_COLOR[item.category] || '#94a3b8';
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--card)] panel-hover animate-fade-up h-full">
-      <a href={item.url} target="_blank" rel="noopener noreferrer" className="relative block h-64 sm:h-96 flex-shrink-0">
+      <a href={item.url} target="_blank" rel="noopener noreferrer" className="relative block h-64 sm:h-80 flex-shrink-0">
         <CoverImage item={item} variant="hero" showCaption className="absolute inset-0" />
         <span
-          className="absolute top-3 left-3 z-10 text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full backdrop-blur-md bg-black/45"
+          className="absolute top-3 left-3 z-10 text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-md bg-black/50"
           style={{ color }}
         >
           {CATEGORY_LABEL[item.category] || item.category}
         </span>
         <SourceLink href={item.url} label={item.source_label || 'Source'} compact className="absolute top-2.5 right-2.5 z-10" />
       </a>
-      <div className="p-5 flex flex-col flex-1">
-        <h2 className="font-display font-bold text-2xl sm:text-3xl leading-tight">
+      <div className="p-5 sm:p-6 flex flex-col flex-1">
+        <h2 className="font-display font-semibold text-[1.7rem] sm:text-3xl leading-[1.15] tracking-tight">
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--fore)] hover:text-[var(--cyan)] transition-colors line-clamp-3"
+            className="text-[var(--fore)] hover:text-[var(--accent)] transition-colors line-clamp-3"
           >
             {item.title}
           </a>
@@ -59,7 +59,7 @@ function LeadStory({ item }: { item: NewsItem }) {
         <p className="text-sm text-[var(--mut)] mt-3 leading-relaxed line-clamp-3">{item.summary}</p>
         <div className="mt-auto pt-5 flex items-center gap-3 text-[11px] text-[var(--dim)]">
           <span className="font-semibold text-[var(--mut)]">{item.source_label || item.source}</span>
-          <span>·</span>
+          <span aria-hidden>·</span>
           <span>{timeAgo(item.published_at)}</span>
           <StoryMetrics item={item} className="ml-auto" />
         </div>
@@ -72,7 +72,7 @@ function SecondaryStory({ item, rank }: { item: NewsItem; rank: number }) {
   const color = CATEGORY_COLOR[item.category] || '#94a3b8';
   return (
     <article className="group flex gap-4 p-4 animate-fade-up">
-      <span className="font-display font-bold text-2xl text-[var(--dim)]/60 flex-shrink-0 pt-0.5 select-none">
+      <span className="font-display font-semibold text-2xl text-[var(--dim)]/60 flex-shrink-0 pt-0.5 select-none tabular-nums">
         {String(rank).padStart(2, '0')}
       </span>
       <div className="min-w-0 flex-1">
@@ -85,12 +85,12 @@ function SecondaryStory({ item, rank }: { item: NewsItem; rank: number }) {
           </span>
           <span className="text-[10px] font-mono text-[var(--dim)]">· {timeAgo(item.published_at)}</span>
         </div>
-        <h3 className="font-display font-semibold text-base leading-snug">
+        <h3 className="font-display font-medium text-lg leading-snug tracking-tight">
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--fore)] hover:text-[var(--cyan)] transition-colors line-clamp-3"
+            className="text-[var(--fore)] hover:text-[var(--accent)] transition-colors line-clamp-3"
           >
             {item.title}
           </a>

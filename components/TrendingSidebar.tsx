@@ -30,8 +30,8 @@ export default function TrendingSidebar({ items, onSelect }: TrendingSidebarProp
   return (
     <section className="glass rounded-2xl overflow-hidden">
       <header className="flex items-center justify-between px-4 pt-4 pb-2">
-        <h3 className="font-display font-medium text-sm uppercase tracking-widest text-[var(--fore)]">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-400 mr-2 align-middle animate-pulse" />
+        <h3 className="font-display font-semibold text-sm uppercase tracking-widest text-[var(--fore)]">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)] mr-2 align-middle" />
           Trending
         </h3>
         <span className="text-[10px] font-mono text-[var(--dim)]">{max} stories</span>
@@ -85,7 +85,7 @@ export default function TrendingSidebar({ items, onSelect }: TrendingSidebarProp
                     <span className="flex-shrink-0">{timeAgo(item.published_at)}</span>
                   </p>
                   {engagementLabel(item) && (
-                    <p className="text-[10px] text-cyan-400/80 mt-0.5">{engagementLabel(item)}</p>
+                    <p className="text-[10px] text-[var(--accent)]/80 mt-0.5">{engagementLabel(item)}</p>
                   )}
                 </div>
               </a>

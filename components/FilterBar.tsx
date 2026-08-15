@@ -53,7 +53,7 @@ export default function FilterBar({
           value={search}
           onChange={e => onSearchChange(e.target.value)}
           placeholder="Search stories…"
-          className="w-full pl-9 pr-8 py-2 rounded-xl border border-[var(--color-line)] text-sm text-[var(--fore)] placeholder:text-[var(--dim)] focus:outline-none focus:border-[var(--accent)]/50 focus:ring-1 focus:ring-[var(--accent)]/30 transition-all"
+          className="w-full pl-9 pr-8 py-2 rounded-lg border border-[var(--color-line)] text-sm text-[var(--fore)] placeholder:text-[var(--dim)] focus:outline-none focus:border-[var(--accent)]/50 focus:ring-1 focus:ring-[var(--accent)]/30 transition-all"
           style={{ background: 'var(--input)' }}
         />
         {search && (
@@ -99,7 +99,7 @@ export default function FilterBar({
           value={selectedSource}
           onChange={e => onSourceChange(e.target.value)}
           aria-label="Filter by source"
-          className="appearance-none pl-3 pr-8 py-2 rounded-xl border border-[var(--color-line)] text-xs text-[var(--mut)] cursor-pointer focus:outline-none focus:border-[var(--accent)]/50 transition-all"
+          className="appearance-none pl-3 pr-8 py-2 rounded-lg border border-[var(--color-line)] text-xs text-[var(--mut)] cursor-pointer focus:outline-none focus:border-[var(--accent)]/50 transition-all"
           style={{ background: 'var(--input)' }}
         >
           <option value="all">All sources</option>
@@ -124,7 +124,7 @@ export default function FilterBar({
             onCategoryChange('all');
             onSearchChange('');
           }}
-          className="ring-focus px-3 py-2 rounded-xl text-xs text-[var(--mut)] border border-[var(--color-line)] hover:text-[var(--bad)] hover:border-rose-400/40 transition-colors flex-shrink-0"
+          className="ring-focus px-3 py-2 rounded-lg text-xs text-[var(--mut)] border border-[var(--color-line)] hover:text-[var(--bad)] hover:border-[var(--bad)]/40 transition-colors flex-shrink-0"
         >
           Reset
         </button>

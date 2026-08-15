@@ -213,12 +213,12 @@ export default function ScatterChart({
       >
         <defs>
           <linearGradient id="frontier-stroke" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.85" />
+            <stop offset="0%" stopColor="#62c9c8" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#9a7bd4" stopOpacity="0.85" />
           </linearGradient>
           <radialGradient id="better-glow" cx={betterCorner === 'tl' ? '18%' : '82%'} cy="22%" r="55%">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.14" />
-            <stop offset="70%" stopColor="#22d3ee" stopOpacity="0" />
+            <stop offset="0%" stopColor="#62c9c8" stopOpacity="0.13" />
+            <stop offset="70%" stopColor="#62c9c8" stopOpacity="0" />
           </radialGradient>
           <filter id="pt-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="2.4" result="b" />
@@ -237,7 +237,7 @@ export default function ScatterChart({
           return (
             <g key={`x-${i}`}>
               <line x1={x} y1={PAD.top} x2={x} y2={PAD.top + plotH} stroke="rgba(148,163,184,0.08)" />
-              <text x={x} y={PAD.top + plotH + 18} textAnchor="middle" fill="#5b687e" fontSize="10" fontFamily="var(--font-plex), monospace">
+              <text x={x} y={PAD.top + plotH + 18} textAnchor="middle" fill="var(--dim)" fontSize="10" fontFamily="var(--font-plex), monospace">
                 {xFormat(t)}
               </text>
             </g>
@@ -248,21 +248,21 @@ export default function ScatterChart({
           return (
             <g key={`y-${i}`}>
               <line x1={PAD.left} y1={y} x2={PAD.left + plotW} y2={y} stroke="rgba(148,163,184,0.08)" />
-              <text x={PAD.left - 8} y={y + 3} textAnchor="end" fill="#5b687e" fontSize="10" fontFamily="var(--font-plex), monospace">
+              <text x={PAD.left - 8} y={y + 3} textAnchor="end" fill="var(--dim)" fontSize="10" fontFamily="var(--font-plex), monospace">
                 {yFormat(t)}
               </text>
             </g>
           );
         })}
 
-        <text x={PAD.left + plotW / 2} y={VB_H - 8} textAnchor="middle" fill="#8a97ad" fontSize="11" letterSpacing="0.16em">
+        <text x={PAD.left + plotW / 2} y={VB_H - 8} textAnchor="middle" fill="var(--mut)" fontSize="11" letterSpacing="0.16em">
           {xLabel.toUpperCase()}
         </text>
         <text
           x={16}
           y={PAD.top + plotH / 2}
           textAnchor="middle"
-          fill="#8a97ad"
+          fill="var(--mut)"
           fontSize="11"
           letterSpacing="0.16em"
           transform={`rotate(-90 16 ${PAD.top + plotH / 2})`}
@@ -327,7 +327,7 @@ export default function ScatterChart({
 
       {tooltip && tipPos && (
         <div
-          className="pointer-events-none absolute z-10 w-52 rounded-xl border border-cyan-400/25 bg-[var(--input)]/95 p-2.5 shadow-[0_12px_40px_-16px_rgba(34,211,238,0.45)] backdrop-blur-md"
+          className="pointer-events-none absolute z-10 w-52 rounded-xl border border-[var(--accent)]/25 bg-[var(--input)]/95 p-2.5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.5)] backdrop-blur-md"
           style={{
             left: clamp(tipPos.left + 14, 8, (wrapRef.current?.clientWidth || 400) - 220),
             top: clamp(tipPos.top - 72, 8, (wrapRef.current?.clientHeight || 300) - 96),
@@ -354,7 +354,7 @@ export default function ScatterChart({
         </div>
       )}
 
-      <div className="absolute left-3 top-2 text-[9px] uppercase tracking-[0.18em] text-[var(--cyan)]/70">
+      <div className="absolute left-3 top-2 text-[9px] uppercase tracking-[0.18em] text-[var(--dim)]">
         {betterCorner === 'tl' ? 'Better → up & cheaper' : 'Better → up & right'}
       </div>
     </div>

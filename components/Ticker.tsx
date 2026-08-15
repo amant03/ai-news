@@ -14,13 +14,13 @@ export default function Ticker({ items }: TickerProps) {
     <div className="relative border-b border-[var(--color-line)] overflow-hidden" style={{ background: 'var(--ticker-bg)' }}>
       <div className="flex items-stretch">
         {/* Live label */}
-        <div className="z-10 flex items-center gap-1.5 px-3 sm:px-4 py-2 border-r border-[var(--color-line)] flex-shrink-0" style={{ background: 'var(--ticker-label-bg)' }}>
+        <div className="z-10 flex items-center gap-2 px-3 sm:px-4 py-2 border-r border-[var(--color-line)] flex-shrink-0" style={{ background: 'var(--ticker-label-bg)' }}>
           <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--ok)] opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--ok)]" />
           </span>
-          <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--cyan)] whitespace-nowrap">
-            LIVE
+          <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--ok)] whitespace-nowrap">
+            Live
           </span>
         </div>
 
@@ -34,14 +34,14 @@ export default function Ticker({ items }: TickerProps) {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2 text-xs text-[var(--mut)] hover:text-[var(--cyan)] transition-colors"
+                  className="flex items-center gap-2 px-5 py-2 text-xs text-[var(--mut)] hover:text-[var(--fore)] transition-colors"
                 >
                   <span className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
                   <span className="font-mono text-[10px] text-[var(--dim)] uppercase">
                     {item.source_label || item.source}
                   </span>
                   <span className="line-clamp-1">{item.title}</span>
-                  <span className="text-cyan-400/70" aria-hidden>↗</span>
+                  <span className="text-[var(--dim)]" aria-hidden>↗</span>
                 </a>
               );
             })}

@@ -166,7 +166,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
       <div className="surface rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="font-display font-medium text-sm uppercase tracking-widest">Which AI to use</h2>
-          <span className="h-2 w-2 rounded-full bg-cyan-400/60 animate-pulse" />
+          <span className="h-2 w-2 rounded-full bg-[var(--accent)]/60 animate-pulse" />
         </div>
         <div className="skeleton h-64 rounded-xl" />
         <div className="skeleton h-16 rounded-xl" />
@@ -180,14 +180,14 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
       <div className="relative p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
           <div>
-            <h2 className="font-display font-bold text-lg sm:text-xl tracking-tight gradient-text">{profile.title}</h2>
+            <h2 className="font-display font-semibold text-lg sm:text-2xl tracking-tight gradient-text">{profile.title}</h2>
             <p className="text-[12px] text-[var(--mut)] mt-1 max-w-2xl leading-relaxed">{profile.blurb}</p>
           </div>
           <input
             value={q}
             onChange={e => setQ(e.target.value)}
             placeholder="Find a model…"
-            className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[var(--input)]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-cyan-400/40"
+            className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[var(--input)]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
             aria-label="Search models"
           />
         </div>
@@ -203,7 +203,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 onClick={() => setTab(t.key)}
                 className={`ring-focus rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
                   active
-                    ? 'bg-cyan-400/15 text-[var(--cyan)] border border-cyan-400/40'
+                    ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
                     : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
                 }`}
               >
@@ -223,7 +223,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                   setDetailOpen(i === 0 ? detailOpen : true);
                 }}
                 className={`ring-focus text-left rounded-xl border p-3 transition-colors ${
-                  selected?.id === m.id ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[var(--input)]/60 hover:border-cyan-400/25'
+                  selected?.id === m.id ? 'border-[var(--accent)]/40 bg-[var(--accent)]/10' : 'border-[var(--color-line)] bg-[var(--input)]/60 hover:border-[var(--accent)]/25'
                 }`}
               >
                 <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-1">
@@ -380,8 +380,8 @@ function SelectedModel({
   const cost = avgCost(m);
 
   return (
-    <div className="rounded-xl border border-cyan-400/25 bg-cyan-400/5 p-3.5">
-      <div className="text-[10px] uppercase tracking-widest text-[var(--cyan)]/80 mb-1.5">{pickLabel}</div>
+    <div className="rounded-xl border border-[var(--accent)]/25 bg-[var(--accent)]/5 p-3.5">
+      <div className="text-[10px] uppercase tracking-widest text-[var(--accent)]/80 mb-1.5">{pickLabel}</div>
       <div className="flex items-start gap-3">
         <span className="mt-1 w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
         <div className="min-w-0 flex-1">
@@ -402,7 +402,7 @@ function SelectedModel({
             <SourcePills links={expanded ? links : links.slice(0, 2)} />
           </div>
         </div>
-        <button onClick={onToggle} className="ring-focus text-[10px] uppercase tracking-wider text-[var(--cyan)] hover:text-[var(--cyan)] flex-shrink-0">
+        <button onClick={onToggle} className="ring-focus text-[10px] uppercase tracking-wider text-[var(--accent)] hover:text-[var(--accent)] flex-shrink-0">
           {expanded ? 'Less' : 'More'}
         </button>
       </div>
@@ -436,7 +436,7 @@ function ModelChip({
       <button
         onClick={onClick}
         className={`ring-focus w-full flex items-center gap-2.5 rounded-lg border px-2.5 py-2 text-left transition-colors ${
-          active ? 'border-cyan-400/40 bg-cyan-400/10' : 'border-[var(--color-line)] bg-[var(--input)]/50 hover:border-cyan-400/25'
+          active ? 'border-[var(--accent)]/40 bg-[var(--accent)]/10' : 'border-[var(--color-line)] bg-[var(--input)]/50 hover:border-[var(--accent)]/25'
         }`}
       >
         <span className="font-mono text-[10px] text-[var(--dim)] w-5 tabular-nums">{idx}</span>
