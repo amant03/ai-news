@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-15T13:12:38.897Z",
-    "count": 1273
+    "lastUpdated": "2026-08-15T13:31:50.763Z",
+    "count": 1276
   },
   "items": [
     {
@@ -119,6 +119,23 @@
       "created_at": "2026-08-15T12:35:34.101Z"
     },
     {
+      "source": "marktechpost",
+      "source_label": "MarkTechPost",
+      "source_type": "rss",
+      "title": "Fine-Tuning Tool-Calling LLMs: A Complete Guide Using XYZ-Aquila-SFT and Qwen3",
+      "summary": "Implement an end-to-end fine-tuning pipeline for tool-calling language models. This tutorial covers parsing trajectories, structured tool-call extraction, Qwen-compatible ChatML rendering, and efficie",
+      "content": "Implement an end-to-end fine-tuning pipeline for tool-calling language models. This tutorial covers parsing trajectories, structured tool-call extraction, Qwen-compatible ChatML rendering, and efficient LoRA adaptation using PyTorch.\nThe post Fine-Tuning Tool-Calling LLMs: A Complete Guide Using XYZ-Aquila-SFT and Qwen3 appeared first on MarkTechPost.",
+      "url": "https://www.marktechpost.com/2026/08/15/fine-tuning-tool-calling-llms-a-complete-guide-using-xyz-aquila-sft-and-qwen3/",
+      "author": "MarkTechPost",
+      "category": "model",
+      "published_at": "Sat, 15 Aug 2026 11:28:29 +0000",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Alibaba_cloud_logo.svg/440px-Alibaba_cloud_logo.svg.png",
+      "source_detail": "MarkTechPost",
+      "domain": "tech",
+      "id": 1786801265833,
+      "created_at": "2026-08-15T13:31:48.968Z"
+    },
+    {
       "source": "google-news",
       "source_label": "Texas Metro News",
       "source_type": "google",
@@ -133,6 +150,22 @@
       "domain": "general",
       "id": 1786798295636,
       "created_at": "2026-08-15T12:35:33.846Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "theaiinsider.tech",
+      "source_type": "google",
+      "title": "Robot Orders Increase in Q2 as Automation Demand Broadens Across Industries",
+      "summary": "Robot Orders Increase in Q2 as Automation Demand Broadens Across Industries  theaiinsider.tech",
+      "content": "Robot Orders Increase in Q2 as Automation Demand Broadens Across Industries  theaiinsider.tech",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWGliTkc4LTZjRExXYVp5QURDT2NLS1Brdldkb0szZm5PNlRRaG9ydTVFbmNmQVJ0MTF4NjZtSTNrSnlSSW5JaEhyZm5NenJ1N0RYYWpncHJjbm56U1p6SjNaZVhBSFVYMFlYNWpFRFB4N25YLU1GcDZZbVRZVWItMUZScWtxNEU1bl9lcVhGY2F2Wk9EcDBWMm1ib19BV0xZRkdGdlFGNEl0UUxUaWdFbHc4MA?oc=5",
+      "author": "theaiinsider.tech",
+      "category": "other",
+      "published_at": "Sat, 15 Aug 2026 11:05:25 GMT",
+      "source_detail": "AI funding",
+      "domain": "general",
+      "id": 1786800756445,
+      "created_at": "2026-08-15T13:31:49.414Z"
     },
     {
       "source": "the-decoder",
@@ -381,6 +414,22 @@
       "domain": "general",
       "id": 1786779446043,
       "created_at": "2026-08-15T07:30:30.769Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Mashable",
+      "source_type": "google",
+      "title": "Claude to start watermarking AI-generated content",
+      "summary": "Claude to start watermarking AI-generated content  Mashable",
+      "content": "Claude to start watermarking AI-generated content  Mashable",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE10eGdicG5wZFg0SzkyU1Q5d0JyNHNvRUNxUmQ2YkNGSFd0RUhEeElOd1FMT1BCYk5SemhmRjBQRndGYVhVX2MxY09TVmwtZE16T0QxNmE0OW01TF91ZllldmxDNU9iQzBoaXBBZXdGX3o?oc=5",
+      "author": "Mashable",
+      "category": "model",
+      "published_at": "Sat, 15 Aug 2026 07:16:44 GMT",
+      "source_detail": "OpenAI OR Anthropic OR Google DeepMind OR Meta AI",
+      "domain": "tech",
+      "id": 1786801154655,
+      "created_at": "2026-08-15T13:31:49.563Z"
     },
     {
       "source": "google-news",
