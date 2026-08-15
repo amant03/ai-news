@@ -298,38 +298,6 @@ export default function Home() {
           </button>
         )}
 
-        <div className="mb-5">
-          <FilterBar
-            sources={facets.sources}
-            categories={facets.categories}
-            types={facets.types}
-            selectedSource={selectedSource}
-            selectedCategory={selectedCategory}
-            selectedType={selectedType}
-            search={search}
-            onSourceChange={s => resetFilters(s, selectedCategory, selectedType)}
-            onCategoryChange={c => resetFilters(selectedSource, c, selectedType)}
-            onTypeChange={t => resetFilters(selectedSource, selectedCategory, t)}
-            onSearchChange={setSearch}
-          />
-        </div>
-
-        {!search.trim() && selectedSource === 'all' && (
-          <div className="flex items-center gap-x-5 gap-y-2 overflow-x-auto no-scrollbar mb-5 text-[11px] text-[var(--dim)]">
-            <span className="text-[10px] uppercase tracking-widest flex-shrink-0 kicker">In this feed</span>
-            {Object.entries(categoryCounts).map(([cat, count]) => {
-              const pct = total ? Math.round((count / total) * 100) : 0;
-              return (
-                <span key={cat} className="flex items-center gap-2 flex-shrink-0">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--mut)]/50" />
-                  <span className="capitalize text-[var(--mut)]">{cat}</span>
-                  <span className="font-mono text-[10px]">{pct}%</span>
-                </span>
-              );
-            })}
-          </div>
-        )}
-
         {/* ---- Main column (engagement-first) + right rail (trending/calendar) ---- */}
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px] gap-6">
           <div className="min-w-0">
@@ -419,8 +387,19 @@ export default function Home() {
             )}
           </div>
 
-          {/* Right rail: mood + trending + calendar + panels */}
+          {/* Right rail: search + mood + trending + calendar + panels */}
           <aside className="space-y-4 lg:sticky lg:top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar pr-1">
+            {/* Search */}
+            <div className="glass rounded-2xl p-4">
+              <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2 font-medium">Search stories</div>
+              <input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Search headlines…"
+                className="ring-focus w-full rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-3 py-2 text-[13px] text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
+                aria-label="Search stories"
+              />
+            </div>
             <MoodIndicator />
             <TrendingSidebar items={news} />
             <DailyTrends items={news} />
