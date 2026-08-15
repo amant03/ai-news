@@ -284,7 +284,7 @@ export default function Home() {
 
       <Ticker items={news.slice(0, 24)} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-5">
+      <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
         {newItems.length > 0 && (
           <button
             onClick={applyNew}
@@ -331,7 +331,7 @@ export default function Home() {
         )}
 
         {/* ---- Main column (engagement-first) + right rail (trending/calendar) ---- */}
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px] gap-6">
           <div className="min-w-0">
             {top10.length > 0 && (
               <div className="mb-6">
@@ -457,7 +457,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-[var(--color-line)] mt-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--dim)]">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--dim)]">
           <span className="font-display text-[var(--mut)]">AI Pulse — the daily signal on artificial intelligence</span>
           <span className="flex items-center gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--ok)]/70" />

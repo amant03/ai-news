@@ -6,6 +6,7 @@ import { Domain, NewsItem } from '@/lib/types';
 import { providerColor } from '@/lib/models';
 import ScatterChart, { ScatterPoint } from './ScatterChart';
 import ModelDetail from './ModelDetail';
+import VerticalBarChart, { modelsToBarData } from './VerticalBarChart';
 
 interface ModelWatchData {
   models: ModelRecord[];
@@ -17,48 +18,40 @@ interface ModelWatchData {
 type SortKey = 'intelligence' | 'value' | 'popularity' | 'newest';
 type Audience = Domain | 'all';
 
-const TABS: Array<{ key: SortKey; label: string; hint: string }> = [
-  { key: 'intelligence', label: 'Smartest', hint: 'How good vs how expensive' },
-  { key: 'value', label: 'Best value', hint: 'Most capability per dollar' },
-  { key: 'popularity', label: 'Most used', hint: 'What people actually pick' },
-  { key: 'newest', label: 'Newest', hint: 'Latest releases vs quality' },
-];
-
 const AUDIENCE: Record<Audience, { tab: SortKey; title: string; blurb: string; pick: string }> = {
   all: {
     tab: 'intelligence',
     title: 'Which AI should you try?',
-    blurb: 'Each dot is a model. Higher = smarter. Further left = cheaper. The glowing line is the best trade-off.',
-    pick: 'A strong all-rounder to start with',
+    blurb: 'Leaderboard of AI models ranked by intelligence, price, speed and capabilities.',
+    pick: 'Top model',
   },
   business: {
     tab: 'value',
     title: 'Which AI is worth the money?',
-    blurb: 'Higher = more capability per dollar. Further left = cheaper to run. Useful when you are choosing a vendor.',
-    pick: 'Best bang for buck right now',
+    blurb: 'Models ranked by capability per dollar. Best for vendor evaluation.',
+    pick: 'Best value',
   },
   tech: {
     tab: 'intelligence',
     title: 'Which model is actually better?',
-    blurb: 'Accuracy on the vertical axis, API cost on the horizontal. Bigger dots tend to be stronger at coding.',
-    pick: 'Strongest model on this chart',
+    blurb: 'Compare intelligence, coding ability and cost across providers.',
+    pick: 'Smartest',
   },
   research: {
     tab: 'newest',
     title: 'What just dropped?',
-    blurb: 'Newer models sit to the right. Higher = stronger quality scores. Use this to spot the frontier moving.',
-    pick: 'Newest high-quality release',
+    blurb: 'Latest model releases sorted by quality. Watch the frontier move.',
+    pick: 'Newest',
   },
   general: {
     tab: 'intelligence',
     title: 'Which AI should you try?',
-    blurb: 'Each dot is a model. Higher = smarter. Further left = cheaper.',
-    pick: 'A strong all-rounder to start with',
+    blurb: 'Compare AI models by intelligence, cost and coding ability.',
+    pick: 'Top model',
   },
 };
 
-const TOP_N = 10;
-const LIST_PAGE = 10;
+const LIST_PAGE = 12;
 
 const fmtNum = (n?: number, digits = 1) =>
   n === undefined ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: digits });
@@ -77,21 +70,10 @@ function avgCost(m: ModelRecord): number | undefined {
   return (p + c) / 2;
 }
 
-function quality(m: ModelRecord): number | undefined {
-  if (m.intelligenceIndex !== undefined) return m.intelligenceIndex;
-  if (m.elo !== undefined) return (m.elo - 1000) / 10;
-  return undefined;
-}
-
 function fmtCost(v: number) {
   if (v <= 0.02) return 'Free';
   if (v < 1) return `$${v.toFixed(2)}`;
   return `$${v.toFixed(1)}`;
-}
-
-function fmtDateTick(v: number) {
-  const d = new Date(v);
-  return d.toLocaleDateString(undefined, { month: 'short', year: '2-digit' });
 }
 
 export default function ModelWatch({ audience = 'all' }: { audience?: Audience }) {
@@ -101,13 +83,11 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   const [q, setQ] = useState('');
   const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [detailOpen, setDetailOpen] = useState(false);
 
   useEffect(() => {
     setTab(profile.tab);
     setPage(0);
     setSelectedId(null);
-    setDetailOpen(false);
   }, [audience, profile.tab]);
 
   useEffect(() => {
@@ -140,19 +120,36 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
     );
   }, [data, q]);
 
-  const chartModels = filtered.slice(0, TOP_N);
   const pageCount = Math.max(1, Math.ceil(filtered.length / LIST_PAGE));
   const safePage = Math.min(page, pageCount - 1);
   const listModels = filtered.slice(safePage * LIST_PAGE, safePage * LIST_PAGE + LIST_PAGE);
-  const chartPack = useMemo(() => buildChart(tab, filtered.slice(0, TOP_N)), [tab, filtered]);
 
   const selected = useMemo(() => {
-    const id = selectedId || chartModels[0]?.id;
-    return filtered.find(m => m.id === id) || chartModels[0] || null;
-  }, [selectedId, filtered, chartModels]);
+    return filtered.find(m => m.id === selectedId) || filtered[0] || null;
+  }, [selectedId, filtered]);
 
-  const picks = chartModels.slice(0, 3);
-  const labeledIds = new Set(chartModels.map(m => m.id));
+  // Vertical bar chart data for highlights
+  const intelData = useMemo(() => modelsToBarData(filtered, m => m.intelligenceIndex, { maxBars: 12, highlightId: selected?.id }), [filtered, selected]);
+  const codingData = useMemo(() => modelsToBarData(filtered, m => m.codingIndex, { maxBars: 12, highlightId: selected?.id }), [filtered, selected]);
+  const costData = useMemo(() => modelsToBarData(filtered, m => avgCost(m), { maxBars: 12, highlightId: selected?.id }), [filtered, selected]);
+
+  // Scatter data
+  const scatterPoints = useMemo((): ScatterPoint[] => {
+    return filtered.slice(0, 30).map(m => {
+      const cost = avgCost(m);
+      const intel = m.intelligenceIndex ?? (m.elo !== undefined ? (m.elo - 1000) / 10 : undefined);
+      if (cost === undefined || intel === undefined) return null;
+      return {
+        id: m.id,
+        label: m.name,
+        sublabel: m.provider,
+        color: providerColor(m.provider),
+        x: Math.max(cost, 0.01),
+        y: intel,
+        size: m.codingIndex ?? 1,
+      };
+    }).filter((p): p is NonNullable<typeof p> => p !== null);
+  }, [filtered]);
 
   useEffect(() => {
     setPage(0);
@@ -162,162 +159,155 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
     return (
       <div className="surface rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="font-display font-medium text-sm uppercase tracking-widest">Which AI to use</h2>
+          <h2 className="font-display font-medium text-sm uppercase tracking-widest">Model Leaderboard</h2>
           <span className="h-2 w-2 rounded-full bg-[var(--accent)]/60 animate-pulse" />
         </div>
         <div className="skeleton h-64 rounded-xl" />
-        <div className="skeleton h-16 rounded-xl" />
       </div>
     );
   }
 
   return (
-    <section className="relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-gradient-to-br from-[var(--panel)] via-[var(--panel-2)] to-[var(--panel)]">
-      <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full bg-violet-500/10 blur-3xl" />
-      <div className="relative p-5 sm:p-6">
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+    <section className="rounded-2xl border border-[var(--color-line)] bg-[var(--card)]">
+      <div className="p-5 sm:p-6 lg:p-8">
+        {/* Header */}
+        <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
           <div>
-            <h2 className="font-display font-semibold text-lg sm:text-2xl tracking-tight gradient-text">{profile.title}</h2>
+            <h2 className="font-display font-semibold text-lg sm:text-xl tracking-tight text-[var(--fore)]">{profile.title}</h2>
             <p className="text-[12px] text-[var(--mut)] mt-1 max-w-2xl leading-relaxed">{profile.blurb}</p>
           </div>
           <input
             value={q}
             onChange={e => setQ(e.target.value)}
             placeholder="Find a model…"
-            className="ring-focus w-36 sm:w-48 rounded-lg border border-[var(--color-line)] bg-[var(--input)]/80 px-3 py-1.5 text-xs text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
+            className="ring-focus w-40 sm:w-56 rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-3 py-2 text-[13px] text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
             aria-label="Search models"
           />
         </div>
 
-        <div className="flex gap-1.5 mb-4 flex-wrap" role="tablist">
-          {TABS.map(t => {
-            const active = tab === t.key;
-            return (
-              <button
-                key={t.key}
-                role="tab"
-                aria-selected={active}
-                onClick={() => setTab(t.key)}
-                className={`ring-focus rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
-                  active
-                    ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
-                    : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
-                }`}
-              >
-                {t.label}
-              </button>
-            );
-          })}
+        {/* Sort tabs */}
+        <div className="flex gap-1.5 mb-5 flex-wrap" role="tablist">
+          {[
+            { key: 'intelligence' as SortKey, label: 'Intelligence' },
+            { key: 'value' as SortKey, label: 'Value' },
+            { key: 'popularity' as SortKey, label: 'Most Used' },
+            { key: 'newest' as SortKey, label: 'Newest' },
+          ].map(t => (
+            <button
+              key={t.key}
+              role="tab"
+              aria-selected={tab === t.key}
+              onClick={() => setTab(t.key)}
+              className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
+                tab === t.key
+                  ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
+                  : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
-        {picks.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-            {picks.map((m, i) => (
-              <button
-                key={m.id}
-                onClick={() => {
-                  setSelectedId(m.id);
-                  setDetailOpen(i === 0 ? detailOpen : true);
-                }}
-                className={`ring-focus text-left rounded-xl border p-3 transition-colors ${
-                  selected?.id === m.id ? 'border-[var(--accent)]/40 bg-[var(--accent)]/10' : 'border-[var(--color-line)] bg-[var(--input)]/60 hover:border-[var(--accent)]/25'
-                }`}
-              >
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-1">
-                  {i === 0 ? profile.pick : i === 1 ? 'Runner up' : 'Also consider'}
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: providerColor(m.provider) }} />
-                  <span className="font-display text-sm font-semibold truncate">{m.name}</span>
-                </div>
-                <div className="mt-2 flex gap-3 text-[11px] font-mono text-[var(--mut)]">
-                  {avgCost(m) !== undefined && <span>{fmtCost(avgCost(m)!)}</span>}
-                  {m.intelligenceIndex !== undefined && <span className="text-[var(--cyan)]">{fmtNum(m.intelligenceIndex)} smart</span>}
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
-
-        <div className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/70 overflow-hidden">
-          <ScatterChart
-            points={chartPack.points}
-            labeledIds={labeledIds}
-            selectedId={selected?.id}
-            onSelect={id => {
-              setSelectedId(id);
-              setDetailOpen(false);
-            }}
-            xLabel={chartPack.xLabel}
-            yLabel={chartPack.yLabel}
-            sizeLabel={chartPack.sizeLabel}
-            xFormat={chartPack.xFormat}
-            yFormat={chartPack.yFormat}
-            xLog={chartPack.xLog}
-            betterCorner={chartPack.betterCorner}
-            height={260}
-          />
-          <div className="border-t border-[var(--color-line)] px-3 py-2.5 flex flex-wrap gap-x-3 gap-y-1.5">
-            {chartModels.map((m, i) => (
-              <button
-                key={m.id}
-                onClick={() => setSelectedId(m.id)}
-                className={`ring-focus inline-flex items-center gap-1.5 text-[11px] ${
-                  selected?.id === m.id ? 'text-[var(--cyan)]' : 'text-[var(--mut)] hover:text-[var(--fore)]'
-                }`}
-              >
-                <span className="font-mono text-[10px] w-4 text-center rounded bg-white/10">{i + 1}</span>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: providerColor(m.provider) }} />
-                <span className="truncate max-w-[9rem]">{m.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {selected && (
-          <div className="mt-3 rounded-xl border border-[var(--accent)]/20 bg-[var(--accent)]/5 p-3.5 sm:p-4">
-            <ModelDetail
-              model={selected}
-              pool={filtered}
-              onSelect={id => {
-                setSelectedId(id);
-                setDetailOpen(false);
-              }}
+        {/* Highlights — vertical bar chart cards (AA-style img5) */}
+        <div className="mb-5">
+          <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2.5 font-medium">Highlights</div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            <VerticalBarChart
+              data={intelData}
+              title="Intelligence"
+              subtitle="Artificial Analysis Intelligence Index · higher is better"
+              valueFormat={v => v.toFixed(0)}
+              selectedId={selected?.id}
+              onSelect={id => setSelectedId(id)}
+            />
+            <VerticalBarChart
+              data={codingData}
+              title="Coding"
+              subtitle="Coding capability index · higher is better"
+              valueFormat={v => v.toFixed(0)}
+              selectedId={selected?.id}
+              onSelect={id => setSelectedId(id)}
+            />
+            <VerticalBarChart
+              data={costData}
+              title="Cost per Task"
+              subtitle="USD per 1M tokens (blended) · lower is better"
+              valueFormat={v => fmtCost(v)}
+              selectedId={selected?.id}
+              onSelect={id => setSelectedId(id)}
             />
           </div>
-        )}
+        </div>
 
+        {/* Leaderboard table — AA-style with colored row borders */}
+        <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2.5 font-medium">LLM Leaderboard — Comparison</div>
         {filtered.length === 0 ? (
-          <p className="text-sm text-[var(--dim)] py-6 text-center">No models match “{q}”.</p>
+          <p className="text-sm text-[var(--dim)] py-6 text-center">No models match &quot;{q}&quot;.</p>
         ) : (
-          <div className="mt-4">
+          <>
             <div className="overflow-hidden rounded-xl border border-[var(--color-line)]">
               <div className="overflow-x-auto no-scrollbar">
-                <table className="w-full min-w-[640px] text-left">
+                <table className="w-full min-w-[720px] text-left">
                   <thead>
-                    <tr className="border-b border-[var(--color-line)] bg-[var(--input)]/70">
-                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium w-10">#</th>
-                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium">Model</th>
-                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Context</th>
-                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Creator</th>
-                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">{headerScore(tab)}</th>
-                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Cost / Task</th>
+                    <tr className="border-b border-[var(--color-line)] bg-[var(--input)]/50">
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium w-10">#</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Model</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Context Window</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Creator</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Intelligence Index</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Coding Index</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Cost per Task</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[var(--color-line)]">
-                    {listModels.map((m, i) => (
-                      <LeaderboardRow
-                        key={m.id}
-                        m={m}
-                        rank={safePage * LIST_PAGE + i + 1}
-                        active={selected?.id === m.id}
-                        sort={tab}
-                        onClick={() => {
-                          setSelectedId(m.id);
-                          setDetailOpen(false);
-                        }}
-                      />
-                    ))}
+                  <tbody>
+                    {listModels.map((m, i) => {
+                      const rank = safePage * LIST_PAGE + i + 1;
+                      const color = providerColor(m.provider);
+                      const cost = avgCost(m);
+                      const isActive = selected?.id === m.id;
+
+                      return (
+                        <tr
+                          key={m.id}
+                          onClick={() => setSelectedId(m.id)}
+                          className={`group cursor-pointer transition-colors border-l-[3px] ${
+                            isActive ? 'bg-[var(--accent)]/8 border-l-[var(--accent)]' : 'hover:bg-[var(--input)]/40'
+                          }`}
+                          style={!isActive ? { borderLeftColor: color } : undefined}
+                        >
+                          <td className="px-4 py-3 font-mono text-[11px] text-[var(--dim)] tabular-nums">{rank}</td>
+                          <td className="px-4 py-3">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className={`text-[14px] font-semibold truncate ${isActive ? 'text-[var(--accent)]' : 'text-[var(--fore)] group-hover:text-[var(--cyan)]'} transition-colors`}>
+                                {m.name}
+                              </span>
+                              {m.family === 'open-weights' && (
+                                <span className="flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--ok)]/30 text-[var(--ok)]">
+                                  open
+                                </span>
+                              )}
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-[12px] text-[var(--mut)] tabular-nums">{m.context || '—'}</td>
+                          <td className="px-4 py-3 text-[12px] text-[var(--mut)]">
+                            <span className="flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                              {m.provider}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-right font-mono text-[13px] font-semibold text-[var(--cyan)] tabular-nums">
+                            {fmtNum(m.intelligenceIndex)}
+                          </td>
+                          <td className="px-4 py-3 text-right font-mono text-[12px] text-[var(--fore)] tabular-nums">
+                            {fmtNum(m.codingIndex)}
+                          </td>
+                          <td className="px-4 py-3 text-right font-mono text-[12px] text-[var(--fore)] tabular-nums">
+                            {cost !== undefined ? fmtCost(cost) : '—'}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -343,175 +333,44 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 </button>
               </div>
             )}
+          </>
+        )}
+
+        {/* Scatter chart — Intelligence vs Cost */}
+        {scatterPoints.length >= 3 && (
+          <div className="mt-5 rounded-xl border border-[var(--color-line)] bg-[var(--input)]/30 overflow-hidden">
+            <div className="px-4 pt-3 pb-1 flex items-center justify-between">
+              <span className="text-xs uppercase tracking-widest text-[var(--mut)] font-medium">Intelligence vs Cost</span>
+              <span className="text-[11px] text-[var(--dim)] font-mono">best trade-off = up-left</span>
+            </div>
+            <ScatterChart
+              points={scatterPoints}
+              labeledIds={new Set(scatterPoints.slice(0, 8).map(p => p.id))}
+              selectedId={selected?.id}
+              onSelect={id => setSelectedId(id)}
+              xLabel="How expensive"
+              yLabel="How smart"
+              sizeLabel="coding skill"
+              xFormat={v => fmtCost(v)}
+              yFormat={v => fmtNum(v, 0)}
+              xLog
+              betterCorner="tl"
+              height={240}
+            />
+          </div>
+        )}
+
+        {/* Selected model detail — AA-style model analysis */}
+        {selected && (
+          <div className="mt-5 rounded-xl border border-[var(--accent)]/20 bg-[var(--accent)]/5 p-4 sm:p-5">
+            <ModelDetail
+              model={selected}
+              pool={filtered}
+              onSelect={id => setSelectedId(id)}
+            />
           </div>
         )}
       </div>
     </section>
   );
-}
-
-function headerScore(sort: SortKey): string {
-  switch (sort) {
-    case 'value':
-      return 'Value';
-    case 'popularity':
-      return 'Usage';
-    case 'newest':
-      return 'Released';
-    default:
-      return 'Intelligence Index';
-  }
-}
-
-function LeaderboardRow({
-  m,
-  rank,
-  active,
-  sort,
-  onClick,
-}: {
-  m: ModelRecord;
-  rank: number;
-  active: boolean;
-  sort: SortKey;
-  onClick: () => void;
-}) {
-  const color = providerColor(m.provider);
-  const cost = avgCost(m);
-  const score =
-    sort === 'value' ? m.valueScore :
-    sort === 'popularity' ? m.hfDownloads :
-    sort === 'newest' ? undefined :
-    m.intelligenceIndex ?? m.elo;
-
-  return (
-    <tr
-      onClick={onClick}
-      className={`group cursor-pointer transition-colors ${
-        active ? 'bg-[var(--accent)]/10' : 'hover:bg-[var(--input)]/60'
-      }`}
-    >
-      <td className="px-3 py-2.5 font-mono text-[10px] text-[var(--dim)] tabular-nums">{rank}</td>
-      <td className="px-3 py-2.5">
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-          <span className={`text-[13px] font-semibold truncate ${active ? 'text-[var(--accent)]' : 'text-[var(--fore)] group-hover:text-[var(--cyan)]'} transition-colors`}>
-            {m.name}
-          </span>
-          {m.family === 'open-weights' && (
-            <span className="flex-shrink-0 text-[8px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--ok)]/30 text-[var(--ok)]">
-              open
-            </span>
-          )}
-        </div>
-      </td>
-      <td className="px-3 py-2.5 text-right font-mono text-[11px] text-[var(--mut)] tabular-nums">{m.context || '—'}</td>
-      <td className="px-3 py-2.5 text-right text-[11px] text-[var(--mut)]">{m.provider}</td>
-      <td className="px-3 py-2.5 text-right font-mono text-[12px] font-semibold text-[var(--cyan)] tabular-nums">
-        {sort === 'popularity' && score !== undefined
-          ? fmtCompact(score)
-          : sort === 'newest' && m.released
-            ? m.released.slice(0, 10)
-            : score !== undefined
-              ? fmtNum(score)
-              : '—'}
-      </td>
-      <td className="px-3 py-2.5 text-right font-mono text-[11px] text-[var(--fore)] tabular-nums">
-        {cost !== undefined ? fmtCost(cost) : '—'}
-      </td>
-    </tr>
-  );
-}
-
-function buildChart(tab: SortKey, pool: ModelRecord[]) {
-  const mk = (
-    rows: ModelRecord[],
-    xy: (m: ModelRecord) => { x: number; y: number; size: number } | null
-  ): ScatterPoint[] => {
-    const pts: ScatterPoint[] = [];
-    for (const m of rows) {
-      const v = xy(m);
-      if (!v) continue;
-      pts.push({
-        id: m.id,
-        label: m.name,
-        sublabel: m.provider,
-        color: providerColor(m.provider),
-        x: v.x,
-        y: v.y,
-        size: v.size,
-      });
-    }
-    return pts;
-  };
-
-  if (tab === 'value') {
-    return {
-      points: mk(pool, m => {
-        const x = avgCost(m);
-        if (x === undefined || m.valueScore === undefined) return null;
-        return { x: Math.max(x, 0.01), y: m.valueScore, size: quality(m) ?? 1 };
-      }),
-      xLabel: 'How expensive',
-      yLabel: 'Bang for buck',
-      sizeLabel: 'how smart',
-      xFormat: fmtCost,
-      yFormat: (v: number) => fmtNum(v, 0),
-      xLog: true,
-      betterCorner: 'tl' as const,
-    };
-  }
-
-  if (tab === 'popularity') {
-    return {
-      points: mk(pool, m => {
-        const x = m.hfDownloads ?? m.mentions;
-        const y = quality(m) ?? m.elo;
-        if (!x || y === undefined) return null;
-        return { x, y, size: m.mentions ?? 1 };
-      }),
-      xLabel: 'How widely used',
-      yLabel: 'How good',
-      sizeLabel: 'buzz',
-      xFormat: (v: number) => fmtCompact(v),
-      yFormat: (v: number) => fmtNum(v, 0),
-      xLog: true,
-      betterCorner: 'tr' as const,
-    };
-  }
-
-  if (tab === 'newest') {
-    return {
-      points: mk(pool, m => {
-        if (!m.released) return null;
-        const t = new Date(m.released).getTime();
-        const y = quality(m);
-        if (!t || y === undefined) return null;
-        return { x: t, y, size: avgCost(m) ? 1 / Math.max(avgCost(m)!, 0.05) : 1 };
-      }),
-      xLabel: 'When it launched',
-      yLabel: 'How good',
-      sizeLabel: 'cheapness',
-      xFormat: fmtDateTick,
-      yFormat: (v: number) => fmtNum(v, 0),
-      xLog: false,
-      betterCorner: 'tr' as const,
-    };
-  }
-
-  return {
-    points: mk(pool, m => {
-      const x = avgCost(m);
-      const y = m.intelligenceIndex ?? (m.elo !== undefined ? (m.elo - 1000) / 10 : undefined);
-      if (x === undefined || y === undefined) return null;
-      return { x: Math.max(x, 0.01), y, size: m.codingIndex ?? m.hfDownloads ?? 1 };
-    }),
-    xLabel: 'How expensive',
-    yLabel: 'How smart',
-    sizeLabel: 'coding skill',
-    xFormat: fmtCost,
-    yFormat: (v: number) => fmtNum(v, 0),
-    xLog: true,
-    betterCorner: 'tl' as const,
-  };
 }

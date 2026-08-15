@@ -237,7 +237,7 @@ export default function ScatterChart({
           return (
             <g key={`x-${i}`}>
               <line x1={x} y1={PAD.top} x2={x} y2={PAD.top + plotH} stroke="rgba(148,163,184,0.08)" />
-              <text x={x} y={PAD.top + plotH + 18} textAnchor="middle" fill="var(--dim)" fontSize="10" fontFamily="var(--font-plex), monospace">
+              <text x={x} y={PAD.top + plotH + 18} textAnchor="middle" fill="var(--dim)" fontSize="11" fontFamily="var(--font-plex), monospace">
                 {xFormat(t)}
               </text>
             </g>
@@ -248,14 +248,14 @@ export default function ScatterChart({
           return (
             <g key={`y-${i}`}>
               <line x1={PAD.left} y1={y} x2={PAD.left + plotW} y2={y} stroke="rgba(148,163,184,0.08)" />
-              <text x={PAD.left - 8} y={y + 3} textAnchor="end" fill="var(--dim)" fontSize="10" fontFamily="var(--font-plex), monospace">
+              <text x={PAD.left - 8} y={y + 3} textAnchor="end" fill="var(--dim)" fontSize="11" fontFamily="var(--font-plex), monospace">
                 {yFormat(t)}
               </text>
             </g>
           );
         })}
 
-        <text x={PAD.left + plotW / 2} y={VB_H - 8} textAnchor="middle" fill="var(--mut)" fontSize="11" letterSpacing="0.16em">
+        <text x={PAD.left + plotW / 2} y={VB_H - 8} textAnchor="middle" fill="var(--mut)" fontSize="12" letterSpacing="0.16em">
           {xLabel.toUpperCase()}
         </text>
         <text
@@ -263,7 +263,7 @@ export default function ScatterChart({
           y={PAD.top + plotH / 2}
           textAnchor="middle"
           fill="var(--mut)"
-          fontSize="11"
+          fontSize="12"
           letterSpacing="0.16em"
           transform={`rotate(-90 16 ${PAD.top + plotH / 2})`}
         >
@@ -313,7 +313,7 @@ export default function ScatterChart({
                   y={p.cy + 3.5}
                   textAnchor="middle"
                   fill="var(--bg-body)"
-                  fontSize="9"
+                  fontSize="10"
                   fontWeight="700"
                   fontFamily="var(--font-plex), monospace"
                 >
@@ -337,8 +337,8 @@ export default function ScatterChart({
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: tooltip.color }} />
             <span className="font-display text-xs font-semibold text-[var(--fore)] truncate">{tooltip.label}</span>
           </div>
-          {tooltip.sublabel && <div className="text-[10px] text-[var(--dim)] mb-1.5">{tooltip.sublabel}</div>}
-          <div className="grid grid-cols-1 gap-0.5 font-mono text-[10px] text-[var(--mut)]">
+          {tooltip.sublabel && <div className="text-[11px] text-[var(--dim)] mb-1.5">{tooltip.sublabel}</div>}
+          <div className="grid grid-cols-1 gap-0.5 font-mono text-[11px] text-[var(--mut)]">
             <div>
               {xLabel}: <span className="text-[var(--cyan)]">{xFormat(tooltip.x)}</span>
             </div>
@@ -354,7 +354,7 @@ export default function ScatterChart({
         </div>
       )}
 
-      <div className="absolute left-3 top-2 text-[9px] uppercase tracking-[0.18em] text-[var(--dim)]">
+      <div className="absolute left-3 top-2 text-[10px] uppercase tracking-[0.18em] text-[var(--dim)]">
         {betterCorner === 'tl' ? 'Better → up & cheaper' : 'Better → up & right'}
       </div>
     </div>
