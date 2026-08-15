@@ -11,6 +11,7 @@ import DailyTrends from '@/components/DailyTrends';
 import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
 import ModelNewsStrip from '@/components/ModelNewsStrip';
+import AITrends from '@/components/AITrends';
 import AIRadar from '@/components/AIRadar';
 import MoodIndicator from '@/components/MoodIndicator';
 import AgentOutput from '@/components/AgentOutput';
@@ -47,6 +48,7 @@ export default function Home() {
   const [newItems, setNewItems] = useState<NewsItem[]>([]);
   const [onlineSources, setOnlineSources] = useState(0);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
+  const [latestPage, setLatestPage] = useState(0);
 
   const seenUrls = useRef<Set<string>>(new Set());
   const offsetRef = useRef(0);
@@ -216,6 +218,7 @@ export default function Home() {
     setSelectedCategory(category);
     setSelectedType(type);
     setNewItems([]);
+    setLatestPage(0);
   };
 
   // Client-side search filter
@@ -245,6 +248,12 @@ export default function Home() {
   const top10 = mainFeed.slice(0, 10);
   const rest = mainFeed.slice(10);
 
+  // Paginate the latest feed — 10 stories per page so readers don't scroll forever.
+  const LATEST_PAGE_SIZE = 10;
+  const latestPageCount = Math.max(1, Math.ceil(rest.length / LATEST_PAGE_SIZE));
+  const safeLatestPage = Math.min(latestPage, latestPageCount - 1);
+  const latestPageItems = rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE);
+
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const f of facets.categories) counts[f.value] = f.count;
@@ -260,7 +269,7 @@ export default function Home() {
   }, [facets.domains, total]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" id="top">
       <div className="bg-atmosphere" />
       <div className="bg-grid" />
 
@@ -368,16 +377,43 @@ export default function Home() {
               <>
                 {rest.length > 0 && (
                   <div className="surface rounded-2xl px-4 py-2">
-                    <LatestList items={rest} />
+                    <LatestList items={latestPageItems} />
                   </div>
                 )}
-                {hasMore && (
-                  <button
-                    onClick={() => load('more')}
-                    className="mt-4 w-full py-3 rounded-xl border border-[var(--color-line)] text-sm text-[var(--mut)] hover:text-[var(--fore)] hover:border-[var(--mut)] transition-colors"
-                  >
-                    {loading ? 'Loading…' : `Load more (${total - offsetRef.current} remaining)`}
-                  </button>
+                {latestPageCount > 1 && (
+                  <div className="mt-4 flex items-center justify-center gap-1.5">
+                    <button
+                      onClick={() => setLatestPage(p => Math.max(0, p - 1))}
+                      disabled={safeLatestPage === 0}
+                      className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-[var(--cyan)]"
+                    >
+                      ‹ Prev
+                    </button>
+                    {pageNumbers(latestPageCount, safeLatestPage).map((n, i) =>
+                      n === '…' ? (
+                        <span key={`e-${i}`} className="px-1 text-[11px] text-[var(--dim)]">…</span>
+                      ) : (
+                        <button
+                          key={n}
+                          onClick={() => setLatestPage(Number(n))}
+                          className={`ring-focus w-8 h-8 rounded-lg text-xs font-mono tabular-nums border transition-colors ${
+                            safeLatestPage === n
+                              ? 'bg-[var(--accent)]/15 text-[var(--accent)] border-[var(--accent)]/40'
+                              : 'border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)] hover:border-[var(--mut)]'
+                          }`}
+                        >
+                          {Number(n) + 1}
+                        </button>
+                      )
+                    )}
+                    <button
+                      onClick={() => setLatestPage(p => Math.min(latestPageCount - 1, p + 1))}
+                      disabled={safeLatestPage >= latestPageCount - 1}
+                      className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-[var(--cyan)]"
+                    >
+                      Next ›
+                    </button>
+                  </div>
                 )}
               </>
             )}
@@ -404,6 +440,17 @@ export default function Home() {
           <ModelWatch audience={selectedDomain} />
         </div>
 
+        <div className="mt-8" id="trends">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="h-px w-6 bg-[var(--accent)]/60" />
+            <h2 className="font-display font-semibold text-sm uppercase tracking-[0.2em] text-[var(--fore)]">
+              AI Trends
+            </h2>
+            <span className="ml-auto font-mono text-[10px] text-[var(--dim)]">frontier intelligence by lab</span>
+          </div>
+          <AITrends />
+        </div>
+
         <div className="mt-8">
           <AIRadar />
         </div>
@@ -426,4 +473,16 @@ export default function Home() {
       </footer>
     </div>
   );
+}
+
+function pageNumbers(count: number, current: number): Array<number | '…'> {
+  if (count <= 7) return Array.from({ length: count }, (_, i) => i);
+  const out: Array<number | '…'> = [0];
+  const start = Math.max(1, current - 1);
+  const end = Math.min(count - 2, current + 1);
+  if (start > 1) out.push('…');
+  for (let i = start; i <= end; i++) out.push(i);
+  if (end < count - 2) out.push('…');
+  out.push(count - 1);
+  return out;
 }

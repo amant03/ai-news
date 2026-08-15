@@ -3,9 +3,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ModelRecord } from '@/lib/model-registry';
 import { Domain, NewsItem } from '@/lib/types';
-import { modelSourceLinks, providerColor } from '@/lib/models';
+import { providerColor } from '@/lib/models';
 import ScatterChart, { ScatterPoint } from './ScatterChart';
-import { SourcePills } from './SourceLink';
+import ModelDetail from './ModelDetail';
 
 interface ModelWatchData {
   models: ModelRecord[];
@@ -275,12 +275,14 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
         </div>
 
         {selected && (
-          <div className="mt-3">
-            <SelectedModel
-              m={selected}
-              expanded={detailOpen}
-              pickLabel="Selected"
-              onToggle={() => setDetailOpen(v => !v)}
+          <div className="mt-3 rounded-xl border border-[var(--accent)]/20 bg-[var(--accent)]/5 p-3.5 sm:p-4">
+            <ModelDetail
+              model={selected}
+              pool={filtered}
+              onSelect={id => {
+                setSelectedId(id);
+                setDetailOpen(false);
+              }}
             />
           </div>
         )}
@@ -345,52 +347,6 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
         )}
       </div>
     </section>
-  );
-}
-
-function SelectedModel({
-  m,
-  expanded,
-  pickLabel,
-  onToggle,
-}: {
-  m: ModelRecord;
-  expanded: boolean;
-  pickLabel: string;
-  onToggle: () => void;
-}) {
-  const color = providerColor(m.provider);
-  const links = modelSourceLinks(m);
-  const cost = avgCost(m);
-
-  return (
-    <div className="rounded-xl border border-[var(--accent)]/25 bg-[var(--accent)]/5 p-3.5">
-      <div className="text-[10px] uppercase tracking-widest text-[var(--accent)]/80 mb-1.5">{pickLabel}</div>
-      <div className="flex items-start gap-3">
-        <span className="mt-1 w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="font-display font-semibold text-[var(--fore)]">{m.name}</span>
-            <span className="text-[11px] text-[var(--dim)]">{m.provider}</span>
-          </div>
-          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-            {m.intelligenceIndex !== undefined && <Metric label="How smart" value={fmtNum(m.intelligenceIndex)} accent />}
-            {cost !== undefined && <Metric label="Price / 1M" value={fmtCost(cost)} />}
-            {m.valueScore !== undefined && <Metric label="Value" value={fmtNum(m.valueScore)} />}
-            {m.codingIndex !== undefined && <Metric label="Coding" value={fmtNum(m.codingIndex)} />}
-          </div>
-          {expanded && m.description && (
-            <p className="text-[12px] text-[var(--mut)] leading-relaxed mt-2">{m.description}</p>
-          )}
-          <div className="mt-2.5">
-            <SourcePills links={expanded ? links : links.slice(0, 2)} />
-          </div>
-        </div>
-        <button onClick={onToggle} className="ring-focus text-[10px] uppercase tracking-wider text-[var(--accent)] hover:text-[var(--accent)] flex-shrink-0">
-          {expanded ? 'Less' : 'More'}
-        </button>
-      </div>
-    </div>
   );
 }
 
@@ -464,15 +420,6 @@ function LeaderboardRow({
         {cost !== undefined ? fmtCost(cost) : '—'}
       </td>
     </tr>
-  );
-}
-
-function Metric({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
-  return (
-    <span className="inline-flex items-baseline gap-1">
-      <span className={`font-mono text-[12px] font-semibold ${accent ? 'text-[var(--cyan)]' : 'text-[var(--fore)]'}`}>{value}</span>
-      <span className="text-[9px] uppercase tracking-wider text-[var(--mut)]">{label}</span>
-    </span>
   );
 }
 
