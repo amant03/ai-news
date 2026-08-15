@@ -208,14 +208,36 @@ export default function Home() {
       <Ticker items={news.slice(0, 24)} />
 
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
-        {/* Hero section */}
-        <section className="mb-10">
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h1 className="text-2xl font-semibold tracking-tight">Top Stories</h1>
+        {/* Top Stories + Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8 mb-10">
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-3 mb-5">
+              <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+              <h1 className="text-2xl font-semibold tracking-tight">Top Stories</h1>
+            </div>
+            {top10.length > 0 && <HeroLead items={top10} />}
           </div>
-          {top10.length > 0 && <HeroLead items={top10} />}
-        </section>
+
+          {/* Sidebar */}
+          <aside className="space-y-4 lg:sticky lg:top-20 self-start">
+            <div className="border border-[var(--color-line)] rounded-lg p-4">
+              <div className="text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">Search</div>
+              <input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Search headlines..."
+                className="w-full rounded-lg border border-[var(--color-line)] bg-neutral-50 px-3 py-2 text-sm outline-none focus:border-violet-300 transition-colors"
+                aria-label="Search stories"
+              />
+            </div>
+            <TrendingSidebar items={news} />
+            <DomainBar
+              selected={selectedDomain}
+              counts={domainCounts}
+              onChange={d => { setSelectedDomain(d); setNewItems([]); }}
+            />
+          </aside>
+        </div>
 
         {/* Filters */}
         <section className="mb-6">
@@ -245,89 +267,66 @@ export default function Home() {
           </button>
         )}
 
-        {/* Main content + sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8">
-          <div className="min-w-0">
-            {/* Latest stories */}
-            <div className="flex items-baseline gap-3 mb-4">
-              <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-              <h2 className="text-lg font-semibold tracking-tight">
-                {search.trim() ? 'Search results' : 'Latest'}
-              </h2>
-              <span className="ml-auto text-xs text-neutral-400 tabular-nums">
-                {search.trim() ? `${visible.length} results` : `${total} stories`}
-              </span>
-            </div>
-
-            {loading && news.length === 0 ? (
-              <SkeletonGrid count={9} />
-            ) : rest.length === 0 && visible.length === 0 ? (
-              <div className="py-20 text-center text-neutral-400">
-                <p>No stories match the current filters.</p>
-                <button onClick={() => resetFilters('all', 'all', 'all')} className="mt-3 text-sm text-violet-600 hover:underline">
-                  Clear filters
-                </button>
-              </div>
-            ) : (
-              <>
-                <div className="border border-[var(--color-line)] rounded-lg">
-                  <LatestList items={latestPageItems} />
-                </div>
-                {latestPageCount > 1 && (
-                  <div className="mt-4 flex items-center justify-center gap-1.5">
-                    <button
-                      onClick={() => setLatestPage(p => Math.max(0, p - 1))}
-                      disabled={safeLatestPage === 0}
-                      className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
-                    >
-                      Prev
-                    </button>
-                    {Array.from({ length: Math.min(latestPageCount, 7) }, (_, i) => i).map(n => (
-                      <button
-                        key={n}
-                        onClick={() => setLatestPage(n)}
-                        className={`w-8 h-8 rounded-lg text-xs tabular-nums border transition-colors ${
-                          safeLatestPage === n
-                            ? 'bg-black text-white border-black'
-                            : 'border-[var(--color-line)] text-neutral-500 hover:text-black hover:border-neutral-300'
-                        }`}
-                      >
-                        {n + 1}
-                      </button>
-                    ))}
-                    <button
-                      onClick={() => setLatestPage(p => Math.min(latestPageCount - 1, p + 1))}
-                      disabled={safeLatestPage >= latestPageCount - 1}
-                      className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
-                    >
-                      Next
-                    </button>
-                  </div>
-                )}
-              </>
-            )}
+        {/* Latest stories */}
+        <section>
+          <div className="flex items-baseline gap-3 mb-4">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h2 className="text-lg font-semibold tracking-tight">
+              {search.trim() ? 'Search results' : 'Latest'}
+            </h2>
+            <span className="ml-auto text-xs text-neutral-400 tabular-nums">
+              {search.trim() ? `${visible.length} results` : `${total} stories`}
+            </span>
           </div>
 
-          {/* Sidebar */}
-          <aside className="space-y-4 lg:sticky lg:top-20 self-start">
-            <div className="border border-[var(--color-line)] rounded-lg p-4">
-              <div className="text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">Search</div>
-              <input
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                placeholder="Search headlines..."
-                className="w-full rounded-lg border border-[var(--color-line)] bg-neutral-50 px-3 py-2 text-sm outline-none focus:border-violet-300 transition-colors"
-                aria-label="Search stories"
-              />
+          {loading && news.length === 0 ? (
+            <SkeletonGrid count={9} />
+          ) : rest.length === 0 && visible.length === 0 ? (
+            <div className="py-20 text-center text-neutral-400">
+              <p>No stories match the current filters.</p>
+              <button onClick={() => resetFilters('all', 'all', 'all')} className="mt-3 text-sm text-violet-600 hover:underline">
+                Clear filters
+              </button>
             </div>
-            <TrendingSidebar items={news} />
-            <DomainBar
-              selected={selectedDomain}
-              counts={domainCounts}
-              onChange={d => { setSelectedDomain(d); setNewItems([]); }}
-            />
-          </aside>
-        </div>
+          ) : (
+            <>
+              <div className="border border-[var(--color-line)] rounded-lg">
+                <LatestList items={latestPageItems} />
+              </div>
+              {latestPageCount > 1 && (
+                <div className="mt-4 flex items-center justify-center gap-1.5">
+                  <button
+                    onClick={() => setLatestPage(p => Math.max(0, p - 1))}
+                    disabled={safeLatestPage === 0}
+                    className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
+                  >
+                    Prev
+                  </button>
+                  {Array.from({ length: Math.min(latestPageCount, 7) }, (_, i) => i).map(n => (
+                    <button
+                      key={n}
+                      onClick={() => setLatestPage(n)}
+                      className={`w-8 h-8 rounded-lg text-xs tabular-nums border transition-colors ${
+                        safeLatestPage === n
+                          ? 'bg-black text-white border-black'
+                          : 'border-[var(--color-line)] text-neutral-500 hover:text-black hover:border-neutral-300'
+                      }`}
+                    >
+                      {n + 1}
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => setLatestPage(p => Math.min(latestPageCount - 1, p + 1))}
+                    disabled={safeLatestPage >= latestPageCount - 1}
+                    className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </section>
 
         {/* Models section */}
         <section className="mt-12" id="model-watch">
