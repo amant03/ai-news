@@ -1,9 +1,25 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-15T06:48:30.734Z",
-    "count": 1220
+    "lastUpdated": "2026-08-15T07:30:32.271Z",
+    "count": 1223
   },
   "items": [
+    {
+      "source": "reddit",
+      "source_label": "r/MachineLearning",
+      "source_type": "reddit",
+      "title": "If you had a bunch of GPUs lying around, what would you actually build with them? (Running LLMs is off the table) [D]",
+      "summary": "Be honest if someone dropped a stack of high-end GPUs on your desk tomorrow, what would you actually do with them? And before the usual answers roll in: running local LLMs is banned for this thread. I",
+      "content": "Be honest if someone dropped a stack of high-end GPUs on your desk tomorrow, what would you actually do with them? And before the usual answers roll in: running local LLMs is banned for this thread. It’s been done to death and feels pretty pointless at this point. So… what else? Some niche scientific/simulation workload? Weird generative stuff that isn’t text? Distributed something-or-other? Rendering / media pipeline? Homelab experiments that actually need the horsepower? Completely unhinged personal projects? Drop your ideas. The more specific (and slightly unhinged), the better. submitted by /u/BadOk2793 [link] [comments]",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1vowcmb/if_you_had_a_bunch_of_gpus_lying_around_what/",
+      "author": "r/MachineLearning",
+      "category": "other",
+      "published_at": "2026-08-15T07:26:32.000Z",
+      "source_detail": "r/MachineLearning",
+      "domain": "general",
+      "id": 1786779446043,
+      "created_at": "2026-08-15T07:30:30.769Z"
+    },
     {
       "source": "google-news",
       "source_label": "Moomoo",
@@ -52,6 +68,41 @@
       "domain": "research",
       "id": 1786776667011,
       "created_at": "2026-08-15T06:48:28.941Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "AgUpdate",
+      "source_type": "google",
+      "title": "Artificial intelligence may aid in insect monitoring",
+      "summary": "Artificial intelligence may aid in insect monitoring  AgUpdate",
+      "content": "Artificial intelligence may aid in insect monitoring  AgUpdate",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPT1E0NDlINU05SlkxMXQ5YVZfVEljNmczMkM3cm9FRVA3MUdqMWxCQkNqelRwNWJEbi1NVzdrdXJ3blZheXl3NnVZOVowcWdIM1hWQ0lYcW5vZFYwTEJROE5xeE9HZnBseGdQZlBNWlNQQVVGeU15enUyQVFUTjdnMmJUbmRtN2NRbE9qQ2VfQXNwaXM?oc=5",
+      "author": "AgUpdate",
+      "category": "other",
+      "published_at": "Sat, 15 Aug 2026 06:00:00 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1786779152151,
+      "created_at": "2026-08-15T07:30:30.387Z"
+    },
+    {
+      "source": "hacker-news",
+      "source_label": "Hacker News",
+      "source_type": "hn",
+      "title": "Ask HN: How do you keep up with HN these days?",
+      "summary": "In the last 2-3 years, mostly because of AI, keeping up with interesting articles on HN has become harder and harder.How do you deal with it? Besides the simple solution of simply ignoring interesting",
+      "content": "In the last 2-3 years, mostly because of AI, keeping up with interesting articles on HN has become harder and harder.How do you deal with it? Besides the simple solution of simply ignoring interesting stuff more and more.",
+      "url": "https://news.ycombinator.com/item?id=49308059",
+      "author": "simonebrunozzi",
+      "category": "other",
+      "published_at": "2026-08-15T05:59:12Z",
+      "source_detail": "HN · AI",
+      "score": 28,
+      "num_comments": 40,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_Corporate_Logo.jpg/440px-Adobe_Corporate_Logo.jpg",
+      "domain": "business",
+      "id": 1786779683462,
+      "created_at": "2026-08-15T07:30:30.712Z"
     },
     {
       "source": "the-decoder",
