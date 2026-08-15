@@ -179,3 +179,15 @@ body {
   background: var(--selection);
   color: var(--foreground);
 }
+
+/* ---------- Ticker ---------- */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 120s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}

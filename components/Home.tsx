@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Header from '@/components/Header';
+import Ticker from '@/components/Ticker';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
 import HeroLead from '@/components/HeroLead';
 import LatestList from '@/components/LatestList';
@@ -203,6 +204,8 @@ export default function Home() {
         isRefreshing={refreshing}
         onRefresh={handleRefresh}
       />
+
+      <Ticker items={news.slice(0, 24)} />
 
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         {/* Hero section */}

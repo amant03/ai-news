@@ -1,15 +1,16 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Header from '@/components/Header';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import modelsData from '@/data/models.json';
 
 type Model = (typeof modelsData.models)[number];
 
 const CHART_COLORS = {
-  intelligence: '#9a7bd4',
-  speed: '#d9a35c',
-  cost: '#d06b77',
+  intelligence: '#7c3aed',
+  speed: '#eab308',
+  cost: '#f97316',
 };
 
 function BarChart({
@@ -23,100 +24,46 @@ function BarChart({
   items: { label: string; provider: string; value: number; display: string }[];
   valueLabel: string;
 }) {
-  const max = Math.max(...items.map((i) => i.value));
+  // Log scale: bar width proportional to log(value+1) for better visual spread
+  const logValues = items.map(i => Math.log10(i.value + 1));
+  const maxLog = Math.max(...logValues);
+
   return (
-    <div
-      style={{
-        background: 'var(--card)',
-        borderRadius: 12,
-        padding: '28px 24px 20px',
-        border: '1px solid var(--line)',
-        flex: 1,
-        minWidth: 280,
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
-        <span
-          style={{
-            width: 12,
-            height: 12,
-            borderRadius: 3,
-            background: color,
-            flexShrink: 0,
-          }}
-        />
-        <span
-          style={{
-            fontSize: 15,
-            fontWeight: 600,
-            color: 'var(--fore)',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          {title}
-        </span>
+    <div className="border border-[var(--color-line)] rounded-lg p-5 flex-1 min-w-[280px]">
+      <div className="flex items-center gap-2.5 mb-5">
+        <span className="w-3 h-3 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
+        <span className="text-[15px] font-semibold tracking-tight">{title}</span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {items.map((item, idx) => (
-          <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div
-                style={{
-                  flex: 1,
-                  height: 22,
-                  background: 'var(--skeleton)',
-                  borderRadius: 4,
-                  overflow: 'hidden',
-                  position: 'relative',
-                }}
-              >
-                <div
-                  style={{
-                    height: '100%',
-                    width: `${(item.value / max) * 100}%`,
-                    background: color,
-                    borderRadius: 4,
-                    opacity: 0.85,
-                    transition: 'width 0.4s ease',
-                  }}
-                />
+      <div className="flex flex-col gap-2.5">
+        {items.map((item, idx) => {
+          const logVal = Math.log10(item.value + 1);
+          const pct = (logVal / maxLog) * 100;
+          return (
+            <div key={idx} className="flex flex-col gap-1">
+              <div className="flex items-center gap-2.5">
+                <div className="flex-1 h-[22px] bg-neutral-100 rounded overflow-hidden">
+                  <div
+                    className="h-full rounded transition-all duration-500"
+                    style={{
+                      width: `${Math.max(pct, 2)}%`,
+                      backgroundColor: color,
+                      opacity: 0.85,
+                    }}
+                  />
+                </div>
+                <span className="text-xs font-semibold tabular-nums min-w-[48px] text-right">
+                  {item.display}
+                </span>
               </div>
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: 'var(--fore)',
-                  minWidth: 44,
-                  textAlign: 'right',
-                  fontVariantNumeric: 'tabular-nums',
-                }}
-              >
-                {item.display}
-              </span>
+              <div className="text-[11px] text-neutral-500 pl-0.5">
+                {item.provider} / {item.label}
+              </div>
             </div>
-            <div
-              style={{
-                fontSize: 11,
-                color: 'var(--mut)',
-                lineHeight: 1.2,
-                paddingLeft: 2,
-              }}
-            >
-              {item.provider} / {item.label}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-      <div
-        style={{
-          fontSize: 10,
-          color: 'var(--dim)',
-          marginTop: 14,
-          textTransform: 'uppercase',
-          letterSpacing: '0.06em',
-        }}
-      >
-        {valueLabel}
+      <div className="text-[10px] text-neutral-400 mt-4 uppercase tracking-wider">
+        {valueLabel} (log scale)
       </div>
     </div>
   );
@@ -124,204 +71,117 @@ function BarChart({
 
 export default function ModelsPage() {
   const [sortBy, setSortBy] = useState<'intelligenceIndex' | 'elo' | 'cost'>('intelligenceIndex');
+  const [total, setTotal] = useState(0);
+  const [onlineSources, setOnlineSources] = useState(0);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const { intelligenceTop, speedTop, costTop, allModels } = useMemo(() => {
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    try { await fetch('/api/refresh', { method: 'POST' }); }
+    catch { /* ignore */ } finally { setRefreshing(false); }
+  };
+
+  const { intelligenceTop, speedTop, costTop } = useMemo(() => {
     const models = modelsData.models as Model[];
 
-    const withIntel = models
-      .filter((m) => m.intelligenceIndex != null)
-      .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
+    const intelligenceTop = models
+      .filter(m => m.intelligenceIndex != null)
+      .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0))
+      .slice(0, 12)
+      .map(m => ({
+        label: m.name,
+        provider: m.provider,
+        value: m.intelligenceIndex ?? 0,
+        display: String(m.intelligenceIndex ?? 0),
+      }));
 
-    const intelligenceTop = withIntel.slice(0, 12).map((m) => ({
-      label: m.name,
-      provider: m.provider,
-      value: m.intelligenceIndex ?? 0,
-      display: String(m.intelligenceIndex ?? 0),
-    }));
+    const speedTop = models
+      .filter(m => m.codingIndex != null)
+      .sort((a, b) => (b.codingIndex ?? 0) - (a.codingIndex ?? 0))
+      .slice(0, 12)
+      .map(m => ({
+        label: m.name,
+        provider: m.provider,
+        value: m.codingIndex ?? 0,
+        display: `${m.codingIndex ?? 0}`,
+      }));
 
-    const withSpeed = models
-      .filter((m) => m.codingIndex != null)
-      .sort((a, b) => (b.codingIndex ?? 0) - (a.codingIndex ?? 0));
+    const costTop = models
+      .filter(m => m.promptPrice != null && m.completionPrice != null)
+      .map(m => ({ ...m, avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2 }))
+      .sort((a, b) => a.avgCost - b.avgCost)
+      .slice(0, 12)
+      .map(m => ({
+        label: m.name,
+        provider: m.provider,
+        value: m.avgCost,
+        display: `$${m.avgCost.toFixed(2)}`,
+      }));
 
-    const speedTop = withSpeed.slice(0, 12).map((m) => ({
-      label: m.name,
-      provider: m.provider,
-      value: m.codingIndex ?? 0,
-      display: `${m.codingIndex ?? 0}`,
-    }));
-
-    const withCost = models
-      .filter((m) => m.promptPrice != null && m.completionPrice != null)
-      .map((m) => ({
-        ...m,
-        avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2,
-      }))
-      .sort((a, b) => a.avgCost - b.avgCost);
-
-    const costTop = withCost.slice(0, 12).map((m) => ({
-      label: m.name,
-      provider: m.provider,
-      value: m.avgCost,
-      display: `$${m.avgCost.toFixed(2)}`,
-    }));
-
-    const allModels = models
-      .filter((m) => m.intelligenceIndex != null)
-      .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
-
-    return { intelligenceTop, speedTop, costTop, allModels };
+    return { intelligenceTop, speedTop, costTop };
   }, []);
 
   const sortedAll = useMemo(() => {
     const models = modelsData.models as Model[];
-    const withIntel = models.filter((m) => m.intelligenceIndex != null);
+    const withIntel = models.filter(m => m.intelligenceIndex != null);
 
-    if (sortBy === 'intelligenceIndex') {
-      return withIntel.sort(
-        (a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0)
-      );
-    }
-    if (sortBy === 'elo') {
-      return withIntel.sort((a, b) => (b.elo ?? 0) - (a.elo ?? 0));
-    }
+    if (sortBy === 'intelligenceIndex') return withIntel.sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
+    if (sortBy === 'elo') return withIntel.sort((a, b) => (b.elo ?? 0) - (a.elo ?? 0));
     return withIntel
-      .map((m) => ({
-        ...m,
-        avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2,
-      }))
+      .map(m => ({ ...m, avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2 }))
       .sort((a, b) => a.avgCost - b.avgCost);
   }, [sortBy]);
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'var(--bg-body)',
-        color: 'var(--fore)',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '48px 24px 80px',
-        }}
-      >
-        {/* Header */}
-        <div style={{ marginBottom: 48 }}>
-          <h1
-            style={{
-              fontSize: 32,
-              fontWeight: 700,
-              letterSpacing: '-0.03em',
-              margin: 0,
-              color: 'var(--fore)',
-            }}
-          >
-            Models
-          </h1>
-          <p
-            style={{
-              fontSize: 15,
-              color: 'var(--mut)',
-              marginTop: 8,
-              lineHeight: 1.5,
-            }}
-          >
-            Benchmark rankings, pricing, and provider info for{' '}
-            {modelsData.models.length} AI models.
+    <div className="min-h-screen">
+      <Header
+        total={total}
+        onlineSources={onlineSources}
+        lastUpdated={lastUpdated}
+        nextRefreshAt={nextRefreshAt}
+        isRefreshing={refreshing}
+        onRefresh={handleRefresh}
+      />
+      <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
+        <div className="mb-10">
+          <h1 className="text-2xl font-semibold tracking-tight">Models</h1>
+          <p className="text-sm text-neutral-500 mt-2">
+            Benchmark rankings, pricing, and provider info for {modelsData.models.length} AI models.
           </p>
         </div>
 
         {/* Highlights */}
-        <section style={{ marginBottom: 56 }}>
-          <h2
-            style={{
-              fontSize: 13,
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              color: 'var(--dim)',
-              margin: '0 0 20px',
-            }}
-          >
-            Highlights
-          </h2>
-          <div
-            style={{
-              display: 'flex',
-              gap: 16,
-              flexWrap: 'wrap',
-            }}
-          >
-            <BarChart
-              title="Intelligence"
-              color={CHART_COLORS.intelligence}
-              items={intelligenceTop}
-              valueLabel="Intelligence Index"
-            />
-            <BarChart
-              title="Coding Performance"
-              color={CHART_COLORS.speed}
-              items={speedTop}
-              valueLabel="Coding Index"
-            />
-            <BarChart
-              title="Cost per Task"
-              color={CHART_COLORS.cost}
-              items={costTop}
-              valueLabel="Avg $/M tokens"
-            />
+        <section className="mb-12">
+          <div className="flex items-baseline gap-3 mb-5">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>
+          </div>
+          <div className="flex gap-4 flex-wrap">
+            <BarChart title="Intelligence" color={CHART_COLORS.intelligence} items={intelligenceTop} valueLabel="Intelligence Index" />
+            <BarChart title="Coding Performance" color={CHART_COLORS.speed} items={speedTop} valueLabel="Coding Index" />
+            <BarChart title="Cost per Task" color={CHART_COLORS.cost} items={costTop} valueLabel="Avg $/M tokens" />
           </div>
         </section>
 
         {/* Table */}
         <section>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              marginBottom: 16,
-              flexWrap: 'wrap',
-              gap: 12,
-            }}
-          >
-            <h2
-              style={{
-                fontSize: 13,
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-                color: 'var(--dim)',
-                margin: 0,
-              }}
-            >
-              All Models
-            </h2>
-            <div style={{ display: 'flex', gap: 4 }}>
-              {(
-                [
-                  ['intelligenceIndex', 'Intelligence'],
-                  ['elo', 'ELO'],
-                  ['cost', 'Cost'],
-                ] as const
-              ).map(([key, label]) => (
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
+            <div className="flex items-baseline gap-3">
+              <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+              <h2 className="text-lg font-semibold tracking-tight">All Models</h2>
+            </div>
+            <div className="flex gap-1">
+              {([['intelligenceIndex', 'Intelligence'], ['elo', 'ELO'], ['cost', 'Cost']] as const).map(([key, label]) => (
                 <button
                   key={key}
                   onClick={() => setSortBy(key)}
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 500,
-                    padding: '6px 12px',
-                    borderRadius: 6,
-                    border: '1px solid var(--line)',
-                    background:
-                      sortBy === key ? 'var(--accent)' : 'transparent',
-                    color: sortBy === key ? '#fff' : 'var(--mut)',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s',
-                  }}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    sortBy === key
+                      ? 'bg-black text-white'
+                      : 'text-neutral-500 hover:text-black hover:bg-neutral-100'
+                  }`}
                 >
                   {label}
                 </button>
@@ -329,53 +189,22 @@ export default function ModelsPage() {
             </div>
           </div>
 
-          <div
-            style={{
-              background: 'var(--card)',
-              border: '1px solid var(--line)',
-              borderRadius: 12,
-              overflow: 'hidden',
-            }}
-          >
-            <table
-              style={{
-                width: '100%',
-                borderCollapse: 'collapse',
-                fontSize: 13,
-              }}
-            >
+          <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
+            <table className="w-full text-left text-[13px]">
               <thead>
-                <tr
-                  style={{
-                    borderBottom: '1px solid var(--line)',
-                  }}
-                >
+                <tr className="border-b border-[var(--color-line)]">
                   {[
-                    { label: 'Rank', width: 56 },
-                    { label: 'Model', width: undefined },
-                    { label: 'Provider', width: 120 },
-                    { label: 'Intelligence', width: 100 },
-                    { label: 'Coding', width: 80 },
-                    { label: 'ELO', width: 72 },
-                    { label: 'Prompt $/M', width: 90 },
-                    { label: 'Completion $/M', width: 110 },
-                    { label: 'Context', width: 80 },
-                    { label: 'Type', width: 100 },
-                  ].map((col) => (
-                    <th
-                      key={col.label}
-                      style={{
-                        textAlign: 'left',
-                        padding: '12px 16px',
-                        fontSize: 11,
-                        fontWeight: 600,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em',
-                        color: 'var(--dim)',
-                        whiteSpace: 'nowrap',
-                        width: col.width,
-                      }}
-                    >
+                    { label: 'Rank', w: 56 },
+                    { label: 'Model' },
+                    { label: 'Provider', w: 120 },
+                    { label: 'Intelligence', w: 100 },
+                    { label: 'Coding', w: 80 },
+                    { label: 'ELO', w: 72 },
+                    { label: 'Prompt $/M', w: 90 },
+                    { label: 'Context', w: 80 },
+                    { label: 'Type', w: 100 },
+                  ].map(col => (
+                    <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
                       {col.label}
                     </th>
                   ))}
@@ -383,114 +212,21 @@ export default function ModelsPage() {
               </thead>
               <tbody>
                 {sortedAll.map((m, idx) => (
-                  <tr
-                    key={m.id}
-                    style={{
-                      borderBottom: '1px solid var(--line)',
-                    }}
-                  >
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        color: 'var(--dim)',
-                        fontVariantNumeric: 'tabular-nums',
-                      }}
-                    >
-                      {idx + 1}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        fontWeight: 500,
-                        color: 'var(--fore)',
-                      }}
-                    >
-                      {m.name}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        color: 'var(--mut)',
-                      }}
-                    >
-                      {m.provider}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        fontVariantNumeric: 'tabular-nums',
-                        color: 'var(--fore)',
-                      }}
-                    >
-                      {m.intelligenceIndex ?? '—'}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        fontVariantNumeric: 'tabular-nums',
-                        color: 'var(--fore)',
-                      }}
-                    >
-                      {m.codingIndex ?? '—'}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        fontVariantNumeric: 'tabular-nums',
-                        color: 'var(--fore)',
-                      }}
-                    >
-                      {m.elo ?? '—'}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        fontVariantNumeric: 'tabular-nums',
-                        color: 'var(--fore)',
-                      }}
-                    >
-                      {m.promptPrice != null ? `$${m.promptPrice.toFixed(2)}` : '—'}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        fontVariantNumeric: 'tabular-nums',
-                        color: 'var(--fore)',
-                      }}
-                    >
-                      {m.completionPrice != null
-                        ? `$${m.completionPrice.toFixed(2)}`
-                        : '—'}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                        color: 'var(--mut)',
-                      }}
-                    >
-                      {m.context ?? '—'}
-                    </td>
-                    <td
-                      style={{
-                        padding: '10px 16px',
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: 11,
-                          padding: '2px 8px',
-                          borderRadius: 4,
-                          background:
-                            m.family === 'closed'
-                              ? 'rgba(208, 107, 119, 0.12)'
-                              : 'rgba(124, 191, 139, 0.12)',
-                          color:
-                            m.family === 'closed'
-                              ? 'var(--bad)'
-                              : 'var(--ok)',
-                          fontWeight: 500,
-                        }}
-                      >
+                  <tr key={m.id} className="border-b border-[var(--color-line)] hover:bg-neutral-50 transition-colors">
+                    <td className="py-2.5 px-4 tabular-nums text-neutral-400">{idx + 1}</td>
+                    <td className="py-2.5 px-4 font-medium">{m.name}</td>
+                    <td className="py-2.5 px-4 text-neutral-500">{m.provider}</td>
+                    <td className="py-2.5 px-4 tabular-nums">{m.intelligenceIndex ?? '—'}</td>
+                    <td className="py-2.5 px-4 tabular-nums">{m.codingIndex ?? '—'}</td>
+                    <td className="py-2.5 px-4 tabular-nums">{m.elo ?? '—'}</td>
+                    <td className="py-2.5 px-4 tabular-nums">{m.promptPrice != null ? `$${m.promptPrice.toFixed(2)}` : '—'}</td>
+                    <td className="py-2.5 px-4 text-neutral-500">{m.context ?? '—'}</td>
+                    <td className="py-2.5 px-4">
+                      <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${
+                        m.family === 'closed'
+                          ? 'bg-red-50 text-red-600'
+                          : 'bg-green-50 text-green-600'
+                      }`}>
                         {m.family === 'closed' ? 'Closed' : 'Open'}
                       </span>
                     </td>
@@ -504,7 +240,7 @@ export default function ModelsPage() {
         <div className="mt-8">
           <NewsletterSignup />
         </div>
-      </div>
+      </main>
     </div>
   );
 }
