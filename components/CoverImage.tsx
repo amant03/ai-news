@@ -26,39 +26,87 @@ export function usableImageUrl(raw?: string): string | undefined {
   return url;
 }
 
-/** Deterministic stock photo so every story has a real image even without one. */
+/** Deterministic seed hash from a string. */
+function seedHash(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h << 5) - h + s.charCodeAt(i) | 0;
+  return Math.abs(h);
+}
+
+/** Primary fallback: picsum stock photo. */
+function picsumUrl(seed?: string): string | undefined {
+  if (!seed) return undefined;
+  return `https://picsum.photos/seed/ai${seedHash(seed)}/640/400`;
+}
+
+/** Secondary fallback: placehold.co — always works, deterministic colour per seed. */
+function placeholdUrl(seed?: string): string | undefined {
+  if (!seed) return undefined;
+  const h = seedHash(seed);
+  const hues = [210, 260, 340, 30, 170, 290, 20, 200, 310, 150];
+  const hue = hues[h % hues.length];
+  const text = encodeURIComponent('AI');
+  return `https://placehold.co/640x400/hsl(${hue},60%25,25%25)/white?text=${text}`;
+}
+
+/** Best-effort image: real URL > picsum > placehold. */
 export function fallbackImageUrl(raw?: string, seed?: string): string | undefined {
   const u = usableImageUrl(raw);
   if (u) return u;
-  if (!seed) return undefined;
-  let h = 0;
-  for (let i = 0; i < seed.length; i++) h = (h << 5) - h + seed.charCodeAt(i) | 0;
-  return `https://picsum.photos/seed/ai${Math.abs(h)}/640/400`;
+  return picsumUrl(seed) || placeholdUrl(seed);
 }
 
 /**
  * Every story always has a picture. A vivid illustrated poster sits underneath;
- * a real photo covers it when the article has one. If the photo fails, the
- * illustration stays — never a blank block.
+ * a real photo covers it when the article has one. If the photo fails, we retry
+ * with a placehold.co fallback, then fall back to the SVG illustration.
  */
 export default function CoverImage({ item, variant = 'thumb', className = '', showCaption = false }: CoverImageProps) {
-  const [failed, setFailed] = useState(false);
-  const src = fallbackImageUrl(item.image_url, item.url) || undefined;
-  const showPhoto = !!src && !failed;
+  const [failedPrimary, setFailedPrimary] = useState(false);
+  const [failedSecondary, setFailedSecondary] = useState(false);
+
+  const primarySrc = fallbackImageUrl(item.image_url, item.url) || undefined;
+
+  // Secondary: if primary is picsum, try placehold.co; otherwise skip
+  const secondarySrc = useMemo(() => {
+    if (!primarySrc) return undefined;
+    if (primarySrc.includes('picsum.photos')) {
+      const h = seedHash(item.url || item.title);
+      const hues = [210, 260, 340, 30, 170, 290, 20, 200, 310, 150];
+      const hue = hues[h % hues.length];
+      return `https://placehold.co/640x400/hsl(${hue},60%25,25%25)/white?text=AI`;
+    }
+    return undefined;
+  }, [primarySrc, item.url, item.title]);
+
+  const showPrimary = !!primarySrc && !failedPrimary;
+  const showSecondary = !showPrimary && !!secondarySrc && !failedSecondary;
+  const showPhoto = showPrimary || showSecondary;
   const art = useMemo(() => posterArt(item), [item]);
 
   return (
     <div className={`${className} relative overflow-hidden`} style={{ background: art.bg }}>
       <PosterArt art={art} title={item.title} category={item.category} />
 
-      {showPhoto && (
+      {showPrimary && (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
-          src={src}
+          src={primarySrc}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
-          onError={() => setFailed(true)}
+          onError={() => setFailedPrimary(true)}
+        />
+      )}
+
+      {showSecondary && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={secondarySrc}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          onError={() => setFailedSecondary(true)}
         />
       )}
 
