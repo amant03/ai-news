@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-15T07:30:41.614Z",
+  "updatedAt": "2026-08-15T08:33:03.357Z",
   "sources": [
     "openrouter",
     "huggingface",
@@ -75,8 +75,8 @@
       "elo": 1442,
       "numVotes": 66749,
       "license": "Apache 2.0",
-      "hfDownloads": 555602,
-      "hfLikes": 383
+      "hfDownloads": 639475,
+      "hfLikes": 384
     },
     {
       "id": "qwen/qwen3.5-122b-a10b",
@@ -136,7 +136,7 @@
       "elo": 1399,
       "numVotes": 9019,
       "license": "Apache 2.0",
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -157,7 +157,7 @@
       "elo": 1369,
       "numVotes": 13764,
       "license": "Apache 2.0",
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -197,10 +197,10 @@
       "completionPrice": 3.2,
       "license": "MIT",
       "numVotes": 27883,
-      "mentions": 7,
+      "mentions": 8,
       "xMentions": 0,
       "redditMentions": 0,
-      "buzz": 7,
+      "buzz": 8,
       "hfDownloads": 27883
     },
     {
@@ -1543,8 +1543,8 @@
       "xMentions": 0,
       "redditMentions": 0,
       "buzz": 0,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "x-ai/grok-4.6",
@@ -1607,7 +1607,7 @@
       "xMentions": 0,
       "redditMentions": 0,
       "buzz": 0,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -1626,7 +1626,7 @@
       "codingIndex": 71.8,
       "agenticIndex": 58.4,
       "hfDownloads": 9334,
-      "hfLikes": 188
+      "hfLikes": 189
     },
     {
       "id": "anthropic/claude-opus-4.8",
@@ -1964,7 +1964,7 @@
       "codingIndex": 58.6,
       "agenticIndex": 36.1,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "moonshotai/kimi-k2.6",
@@ -1981,7 +1981,7 @@
       "intelligenceIndex": 45.1,
       "codingIndex": 61.8,
       "agenticIndex": 31.2,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -1999,7 +1999,7 @@
       "intelligenceIndex": 43,
       "codingIndex": 60.8,
       "agenticIndex": 30.3,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -2104,7 +2104,7 @@
       "codingIndex": 56.1,
       "agenticIndex": 31.5,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "x-ai/grok-build-0.1",
@@ -2139,8 +2139,8 @@
       "intelligenceIndex": 40.5,
       "codingIndex": 54.5,
       "agenticIndex": 29,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "openai/gpt-5.4-nano",
@@ -2194,7 +2194,7 @@
       "codingIndex": 52.6,
       "agenticIndex": 25.9,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -2212,7 +2212,7 @@
       "codingIndex": 49.3,
       "agenticIndex": 27.5,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "xiaomi/mimo-v2.5",
@@ -2281,8 +2281,8 @@
       "intelligenceIndex": 37.7,
       "codingIndex": 53.7,
       "agenticIndex": 27.5,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "openai/gpt-5.1",
@@ -2349,7 +2349,7 @@
       "intelligenceIndex": 36,
       "codingIndex": 46.8,
       "agenticIndex": 21.7,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -2387,8 +2387,8 @@
       "intelligenceIndex": 32.1,
       "codingIndex": 41.9,
       "agenticIndex": 21.6,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "stepfun/step-3.7-flash",
@@ -2473,7 +2473,7 @@
       "intelligenceIndex": 29.7,
       "codingIndex": 43.4,
       "agenticIndex": 14.4,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -2507,7 +2507,7 @@
       "intelligenceIndex": 26.1,
       "codingIndex": 39.3,
       "agenticIndex": 11,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -2542,7 +2542,7 @@
       "codingIndex": 15.6,
       "agenticIndex": 19.6,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "nvidia/nemotron-3-super-120b-a12b",
@@ -2559,7 +2559,7 @@
       "intelligenceIndex": 25.7,
       "codingIndex": 37.7,
       "agenticIndex": 8.8,
-      "hfDownloads": 2317138,
+      "hfDownloads": 2280543,
       "hfLikes": 420
     },
     {
@@ -2616,7 +2616,7 @@
       "redditMentions": 0,
       "buzz": 0,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "cohere/command-a",
@@ -2667,8 +2667,8 @@
       "intelligenceIndex": 21.8,
       "codingIndex": 28.7,
       "agenticIndex": 7,
-      "hfDownloads": 555602,
-      "hfLikes": 383
+      "hfDownloads": 639475,
+      "hfLikes": 384
     },
     {
       "id": "qwen/qwen3-coder-next",
@@ -2685,7 +2685,7 @@
       "intelligenceIndex": 21.3,
       "codingIndex": 36.2,
       "agenticIndex": 8.9,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -2704,7 +2704,7 @@
       "codingIndex": 36.5,
       "agenticIndex": 3.1,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "mistralai/mistral-small-2603",
@@ -2774,7 +2774,7 @@
       "codingIndex": 16.3,
       "agenticIndex": 1.7,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "openai/gpt-oss-20b",
@@ -2807,7 +2807,7 @@
       "intelligenceIndex": 15.2,
       "codingIndex": 21.2,
       "agenticIndex": 1.6,
-      "hfDownloads": 1202497,
+      "hfDownloads": 1199812,
       "hfLikes": 3156
     },
     {
@@ -2826,7 +2826,7 @@
       "codingIndex": 20.2,
       "agenticIndex": 1.8,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "mistralai/mistral-medium-3.1",
@@ -2861,7 +2861,7 @@
       "intelligenceIndex": 14.6,
       "codingIndex": 12.1,
       "agenticIndex": 1.8,
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -2896,7 +2896,7 @@
       "codingIndex": 14.4,
       "agenticIndex": 2,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "meta-llama/llama-4-maverick",
@@ -2913,7 +2913,7 @@
       "intelligenceIndex": 14.5,
       "codingIndex": 16.3,
       "agenticIndex": 1.2,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -2947,8 +2947,8 @@
       "intelligenceIndex": 11.4,
       "codingIndex": 15.3,
       "agenticIndex": 1.8,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "mistralai/ministral-14b-2512",
@@ -2981,8 +2981,8 @@
       "intelligenceIndex": 10.4,
       "codingIndex": 13.8,
       "agenticIndex": 1.9,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "meta-llama/llama-4-scout",
@@ -2999,7 +2999,7 @@
       "intelligenceIndex": 10.3,
       "codingIndex": 8.2,
       "agenticIndex": 1.1,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -3051,8 +3051,8 @@
       "intelligenceIndex": 8.3,
       "codingIndex": 9,
       "agenticIndex": 1.6,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "google/gemma-3-27b-it",
@@ -3069,7 +3069,7 @@
       "intelligenceIndex": 7.4,
       "codingIndex": 10.1,
       "agenticIndex": 0.3,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -3103,7 +3103,7 @@
       "intelligenceIndex": 5.5,
       "codingIndex": 5.8,
       "agenticIndex": 0.3,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -3118,7 +3118,7 @@
       "promptPrice": 0.45,
       "completionPrice": 3.2,
       "hfDownloads": 9334,
-      "hfLikes": 188
+      "hfLikes": 189
     },
     {
       "id": "dots-studio/dots-3-note-preview",
@@ -3132,7 +3132,7 @@
       "promptPrice": 0,
       "completionPrice": 0,
       "hfDownloads": 11,
-      "hfLikes": 145
+      "hfLikes": 147
     },
     {
       "id": "bytedance-seed/seed-2-1-turbo",
@@ -3146,7 +3146,7 @@
       "promptPrice": 0.5,
       "completionPrice": 2.5,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "qwen/qwen3.8-2.4t-a95b",
@@ -3160,7 +3160,7 @@
       "promptPrice": 2,
       "completionPrice": 6,
       "hfDownloads": 9334,
-      "hfLikes": 188
+      "hfLikes": 189
     },
     {
       "id": "bytedance-seed/seed-2.0-code",
@@ -3245,8 +3245,8 @@
       "family": "open-weights",
       "context": "1M",
       "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family.",
-      "promptPrice": 0.08,
-      "completionPrice": 0.16,
+      "promptPrice": 0.07,
+      "completionPrice": 0.14,
       "hfDownloads": 289560,
       "hfLikes": 678
     },
@@ -3289,7 +3289,7 @@
       "description": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>). Laguna S 2.1 is a 118B total parameter model with 8B active parameters, scoring 70.2% on Terminal-Bench 2.1 and...",
       "promptPrice": 0.09,
       "completionPrice": 0.18,
-      "hfDownloads": 206487,
+      "hfDownloads": 208517,
       "hfLikes": 301
     },
     {
@@ -3325,7 +3325,7 @@
       "description": "KAT-Coder-Air V2.5 is a flagship-level Agentic Coding model that can directly hand over an entire issue or an entire business workflow to it, allowing it to autonomously locate and make...",
       "promptPrice": 0.15,
       "completionPrice": 0.6,
-      "hfDownloads": 22542,
+      "hfDownloads": 23434,
       "hfLikes": 579
     },
     {
@@ -3339,7 +3339,7 @@
       "description": "KAT-Coder-Pro V2.5 is a flagship-level Agentic Coding model that can directly hand over an entire issue or an entire business workflow to it, allowing it to autonomously locate and make...",
       "promptPrice": 0.74,
       "completionPrice": 2.96,
-      "hfDownloads": 22542,
+      "hfDownloads": 23434,
       "hfLikes": 579
     },
     {
@@ -3427,7 +3427,7 @@
       "description": "Laguna XS 2.1 is the latest coding agent model in the 33B-A3B category from [Poolside](https://poolside.ai/) and a step forward from their Laguna XS.2 model (released in April 2026). It combines...",
       "promptPrice": 0.06,
       "completionPrice": 0.12,
-      "hfDownloads": 206487,
+      "hfDownloads": 208517,
       "hfLikes": 301
     },
     {
@@ -3509,8 +3509,8 @@
       "xMentions": 0,
       "redditMentions": 1,
       "buzz": 5,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "~anthropic/claude-fable-latest",
@@ -3523,8 +3523,8 @@
       "description": "This model always redirects to the latest model in the Claude Fable family.",
       "promptPrice": 10,
       "completionPrice": 50,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "nex-agi/nex-n2-pro",
@@ -3554,7 +3554,7 @@
       "promptPrice": 0,
       "completionPrice": 0,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "anthropic/claude-opus-4.8-fast",
@@ -3672,7 +3672,7 @@
       "codingIndex": 13.8,
       "agenticIndex": null,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "~anthropic/claude-haiku-latest",
@@ -3698,7 +3698,7 @@
       "promptPrice": 0.75,
       "completionPrice": 4.5,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "~google/gemini-pro-latest",
@@ -3723,7 +3723,7 @@
       "description": "This model always redirects to the latest model in the MoonshotAI Kimi family.",
       "promptPrice": 2.8,
       "completionPrice": 14,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -3775,8 +3775,8 @@
       "description": "Qwen3.5 Plus (April 2026) is a large-scale multimodal language model from Alibaba. It accepts text, image, and video input and produces text output, with a 1M token context window. This...",
       "promptPrice": 0.3,
       "completionPrice": 1.8,
-      "hfDownloads": 555602,
-      "hfLikes": 383
+      "hfDownloads": 639475,
+      "hfLikes": 384
     },
     {
       "id": "qwen/qwen3.6-flash",
@@ -3789,8 +3789,8 @@
       "description": "Qwen3.6 Flash is a fast, efficient language model from Alibaba's Qwen 3.6 series. It supports text, image, and video input with a 1M token context window. Tiered pricing kicks in...",
       "promptPrice": 0.19,
       "completionPrice": 1.13,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "qwen/qwen3.6-max-preview",
@@ -3803,8 +3803,8 @@
       "description": "Qwen3.6-Max-Preview is a proprietary frontier model from Alibaba Cloud built on a sparse mixture-of-experts architecture with approximately 1 trillion total parameters. It is optimized for agentic coding, tool use, and..",
       "promptPrice": 1.03,
       "completionPrice": 6.16,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "openai/gpt-5.5-pro",
@@ -3842,7 +3842,7 @@
       "context": "1M",
       "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and...",
       "promptPrice": 0.07,
-      "completionPrice": 0.15,
+      "completionPrice": 0.14,
       "hfDownloads": 289560,
       "hfLikes": 678
     },
@@ -3891,7 +3891,7 @@
       "family": "closed",
       "context": "2M",
       "description": "The Pareto Router maintains a tiered shortlist of strong coding models, ranked by [Artificial Analysis](https://artificialanalysis.ai/) coding percentiles. Set min_coding_score between 0 and 1 on the [pareto-router plugi",
-      "hfDownloads": 22542,
+      "hfDownloads": 23434,
       "hfLikes": 579
     },
     {
@@ -3906,7 +3906,7 @@
       "promptPrice": 1.2,
       "completionPrice": 4,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "arcee-ai/trinity-large-thinking",
@@ -3923,7 +3923,7 @@
       "intelligenceIndex": null,
       "codingIndex": 25.8,
       "agenticIndex": null,
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -4022,7 +4022,7 @@
       "promptPrice": 1.2,
       "completionPrice": 4,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "bytedance-seed/seed-2.0-lite",
@@ -4135,8 +4135,8 @@
       "description": "The Qwen3.5 native vision-language series Plus models are built on a hybrid architecture that integrates linear attention mechanisms with sparse mixture-of-experts models, achieving higher inference efficiency. In a vari",
       "promptPrice": 0.26,
       "completionPrice": 1.56,
-      "hfDownloads": 555602,
-      "hfLikes": 383
+      "hfDownloads": 639475,
+      "hfLikes": 384
     },
     {
       "id": "minimax/minimax-m2.5",
@@ -4150,7 +4150,7 @@
       "promptPrice": 0.22,
       "completionPrice": 0.9,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "qwen/qwen3-max-thinking",
@@ -4163,7 +4163,7 @@
       "description": "Qwen3-Max-Thinking is the flagship reasoning model in the Qwen3 series, designed for high-stakes cognitive tasks that require deep, multi-step reasoning. By significantly scaling model capacity and reinforcement learning",
       "promptPrice": 0.78,
       "completionPrice": 3.9,
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -4202,7 +4202,7 @@
       "promptPrice": 0.3,
       "completionPrice": 1.2,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "writer/palmyra-x5",
@@ -4240,7 +4240,7 @@
       "promptPrice": 0.6,
       "completionPrice": 2.4,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "openai/gpt-5.2-codex",
@@ -4292,7 +4292,7 @@
       "promptPrice": 0.3,
       "completionPrice": 1.2,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "google/gemini-3-flash-preview",
@@ -4493,7 +4493,7 @@
       "intelligenceIndex": null,
       "codingIndex": 21,
       "agenticIndex": null,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -4531,7 +4531,7 @@
       "description": "Voxtral Small is an enhancement of Mistral Small 3, incorporating state-of-the-art audio input capabilities while retaining best-in-class text performance. It excels at speech transcription, translation and audio underst",
       "promptPrice": 0.1,
       "completionPrice": 0.3,
-      "hfDownloads": 3246020,
+      "hfDownloads": 3324645,
       "hfLikes": 917
     },
     {
@@ -4558,7 +4558,7 @@
       "promptPrice": 0,
       "completionPrice": 0,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "minimax/minimax-m2",
@@ -4572,7 +4572,7 @@
       "promptPrice": 0.26,
       "completionPrice": 1.02,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "qwen/qwen3-vl-32b-instruct",
@@ -4585,7 +4585,7 @@
       "description": "Qwen3-VL-32B-Instruct is a large-scale multimodal vision-language model designed for high-precision understanding and reasoning across text, images, and video. With 32 billion parameters, it combines deep visual percepti",
       "promptPrice": 0.1,
       "completionPrice": 0.42,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -4614,7 +4614,7 @@
       "promptPrice": 2.5,
       "completionPrice": 2,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "qwen/qwen3-vl-8b-thinking",
@@ -4627,7 +4627,7 @@
       "description": "Qwen3-VL-8B-Thinking is the reasoning-optimized variant of the Qwen3-VL-8B multimodal model, designed for advanced visual and textual reasoning across complex scenes, documents, and temporal sequences. It integrates enha",
       "promptPrice": 0.18,
       "completionPrice": 2.1,
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -4641,7 +4641,7 @@
       "description": "Qwen3-VL-8B-Instruct is a multimodal vision-language model from the Qwen3-VL series, built for high-fidelity understanding and reasoning across text, images, and video. It features improved multimodal fusion with Interle",
       "promptPrice": 0.12,
       "completionPrice": 0.45,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -4681,7 +4681,7 @@
       "description": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Thinking variant enhances reasoning in STEM, math, and complex tasks. It excels...",
       "promptPrice": 0.2,
       "completionPrice": 2.4,
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -4695,7 +4695,7 @@
       "description": "Qwen3-VL-30B-A3B-Instruct is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Instruct variant optimizes instruction-following for general multimodal tasks. It e",
       "promptPrice": 0.13,
       "completionPrice": 0.52,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -4759,7 +4759,7 @@
       "description": "Qwen3-VL-235B-A22B Thinking is a multimodal model that unifies strong text generation with visual understanding across images and video. The Thinking model is optimized for multimodal reasoning in STEM and math....",
       "promptPrice": 0.4,
       "completionPrice": 4,
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -4773,7 +4773,7 @@
       "description": "Qwen3-VL-235B-A22B Instruct is an open-weight multimodal model that unifies strong text generation with visual understanding across images and video. The Instruct model targets general vision-language use (VQA, document ",
       "promptPrice": 0.26,
       "completionPrice": 1.04,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -4787,8 +4787,8 @@
       "description": "Qwen3-Max is an updated release built on the Qwen3 series, offering major improvements in reasoning, instruction following, multilingual support, and long-tail knowledge coverage compared to the January 2025 version. It.",
       "promptPrice": 0.78,
       "completionPrice": 3.9,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "qwen/qwen3-coder-plus",
@@ -4801,7 +4801,7 @@
       "description": "Qwen3 Coder Plus is Alibaba's proprietary version of the Open Source Qwen3 Coder 480B A35B. It is a powerful coding agent model specializing in autonomous programming via tool calling and...",
       "promptPrice": 0.65,
       "completionPrice": 3.25,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -4845,7 +4845,7 @@
       "description": "Qwen3 Coder Flash is Alibaba's fast and cost efficient version of their proprietary Qwen3 Coder Plus. It is a powerful coding agent model specializing in autonomous programming via tool calling...",
       "promptPrice": 0.2,
       "completionPrice": 0.98,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -4859,8 +4859,8 @@
       "description": "Qwen Plus 0728, based on the Qwen3 foundation model, is a 1 million context hybrid reasoning model with a balanced performance, speed, and cost combination.",
       "promptPrice": 0.26,
       "completionPrice": 0.78,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "nvidia/nemotron-nano-9b-v2",
@@ -4874,7 +4874,7 @@
       "promptPrice": 0,
       "completionPrice": 0,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "moonshotai/kimi-k2-0905",
@@ -4887,7 +4887,7 @@
       "description": "Kimi K2 0905 is the September update of [Kimi K2 0711](moonshotai/kimi-k2). It is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32...",
       "promptPrice": 0.6,
       "completionPrice": 2.5,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -4901,7 +4901,7 @@
       "description": "Hermes 4 70B is a hybrid reasoning model from Nous Research, built on Meta-Llama-3.1-70B. It introduces the same hybrid mode as the larger 405B release, allowing the model to either...",
       "promptPrice": 0.13,
       "completionPrice": 0.4,
-      "hfDownloads": 683317,
+      "hfDownloads": 740390,
       "hfLikes": 491
     },
     {
@@ -4915,7 +4915,7 @@
       "description": "Hermes 4 is a large-scale reasoning model built on Meta-Llama-3.1-405B and released by Nous Research. It introduces a hybrid reasoning mode, where the model can choose to deliberate internally with...",
       "promptPrice": 1,
       "completionPrice": 3,
-      "hfDownloads": 683317,
+      "hfDownloads": 740390,
       "hfLikes": 491
     },
     {
@@ -4993,7 +4993,7 @@
       "description": "Qwen3-Coder-30B-A3B-Instruct is a 30.5B parameter Mixture-of-Experts (MoE) model with 128 experts (8 active per forward pass), designed for advanced code generation, repository-scale understanding, and agentic tool use. ",
       "promptPrice": 0.07,
       "completionPrice": 0.28,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -5031,7 +5031,7 @@
       "description": "Qwen3-Coder-480B-A35B-Instruct is a Mixture-of-Experts (MoE) code generation model developed by the Qwen team. It is optimized for agentic coding tasks such as function calling, tool use, and long-context reasoning over.",
       "promptPrice": 0.3,
       "completionPrice": 1,
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896
     },
     {
@@ -5071,7 +5071,7 @@
       "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose ",
       "promptPrice": 0.09,
       "completionPrice": 0.55,
-      "hfDownloads": 3246020,
+      "hfDownloads": 3324645,
       "hfLikes": 917
     },
     {
@@ -5085,7 +5085,7 @@
       "description": "Kimi K2 Instruct is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32 billion active per forward pass. It is optimized for...",
       "promptPrice": 0.57,
       "completionPrice": 2.3,
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -5099,8 +5099,8 @@
       "description": "Venice Uncensored Dolphin Mistral 24B Venice Edition is a fine-tuned variant of Mistral-Small-24B-Instruct-2501, developed by dphn.ai in collaboration with Venice.ai. This model is designed as an “uncensored” instruct-tu",
       "promptPrice": 0.2,
       "completionPrice": 0.9,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "tencent/hunyuan-a13b-instruct",
@@ -5180,7 +5180,7 @@
       "promptPrice": 0.55,
       "completionPrice": 2.2,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "google/gemini-2.5-flash",
@@ -5261,7 +5261,7 @@
       "intelligenceIndex": null,
       "codingIndex": 3.2,
       "agenticIndex": null,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -5315,7 +5315,7 @@
       "description": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification. Similar to previous versions, it can be used to classify content in both LLM...",
       "promptPrice": 0.18,
       "completionPrice": 0.18,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -5329,8 +5329,8 @@
       "description": "Qwen3, the latest generation in the Qwen large language model series, features both dense and mixture-of-experts (MoE) architectures to excel in reasoning, multilingual support, and advanced agent tasks. Its unique...",
       "promptPrice": 0.12,
       "completionPrice": 0.5,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "qwen/qwen3-235b-a22b",
@@ -5343,8 +5343,8 @@
       "description": "Qwen3-235B-A22B is a 235B parameter mixture-of-experts (MoE) model developed by Qwen, activating 22B parameters per forward pass. It supports seamless switching between a \"thinking\" mode for complex reasoning, math, and.",
       "promptPrice": 0.45,
       "completionPrice": 1.82,
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "openai/o4-mini-high",
@@ -5358,7 +5358,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "openai/o3",
@@ -5384,7 +5384,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "openai/gpt-4.1",
@@ -5439,7 +5439,7 @@
       "intelligenceIndex": null,
       "codingIndex": 2.7,
       "agenticIndex": null,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -5545,7 +5545,7 @@
       "description": "Qwen2.5-VL is proficient in recognizing common objects such as flowers, birds, fish, and insects. It is also highly capable of analyzing texts, charts, icons, graphics, and layouts within images.",
       "promptPrice": 0.25,
       "completionPrice": 0.75,
-      "hfDownloads": 12095503,
+      "hfDownloads": 12315563,
       "hfLikes": 1542
     },
     {
@@ -5572,7 +5572,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 1997541,
-      "hfLikes": 3935
+      "hfLikes": 3940
     },
     {
       "id": "perplexity/sonar",
@@ -5597,7 +5597,7 @@
       "description": "DeepSeek R1 Distill Llama 70B is a distilled large language model based on [Llama-3.3-70B-Instruct](/meta-llama/llama-3.3-70b-instruct), using outputs from [DeepSeek R1](/deepseek/deepseek-r1). The model combines advance",
       "promptPrice": 0.8,
       "completionPrice": 0.8,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -5637,7 +5637,7 @@
       "description": "Euryale L3.3 70B is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.2](/models/sao10k/l3-euryale-70b).",
       "promptPrice": 0.65,
       "completionPrice": 0.75,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -5747,7 +5747,7 @@
       "description": "Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen). Qwen2.5-Coder brings the following improvements upon CodeQwen1.5: - Significantly improvements in **code genera",
       "promptPrice": 0.66,
       "completionPrice": 1,
-      "hfDownloads": 2446823,
+      "hfDownloads": 2445457,
       "hfLikes": 180
     },
     {
@@ -5785,7 +5785,7 @@
       "description": "Qwen2.5 7B is the latest series of Qwen large language models. Qwen2.5 brings the following improvements upon Qwen2: - Significantly more knowledge and has greatly improved capabilities in coding and...",
       "promptPrice": 0.1,
       "completionPrice": 0.2,
-      "hfDownloads": 12095503,
+      "hfDownloads": 12315563,
       "hfLikes": 1542
     },
     {
@@ -5839,7 +5839,7 @@
       "description": "Qwen2.5 72B is the latest series of Qwen large language models. Qwen2.5 brings the following improvements upon Qwen2: - Significantly more knowledge and has greatly improved capabilities in coding and...",
       "promptPrice": 0.36,
       "completionPrice": 0.4,
-      "hfDownloads": 12095503,
+      "hfDownloads": 12315563,
       "hfLikes": 1542
     },
     {
@@ -5881,7 +5881,7 @@
       "description": "Euryale L3.1 70B v2.2 is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.1](/models/sao10k/l3-euryale-70b).",
       "promptPrice": 0.85,
       "completionPrice": 0.85,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -5923,7 +5923,7 @@
       "description": "Lunaris 8B is a versatile generalist and roleplaying model based on Llama 3. It's a strategic merge of multiple models, designed to balance creativity with improved logic and general knowledge....",
       "promptPrice": 0.04,
       "completionPrice": 0.05,
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1
     },
     {
@@ -5982,7 +5982,7 @@
       "promptPrice": 0.02,
       "completionPrice": 0.03,
       "hfDownloads": 119572,
-      "hfLikes": 261
+      "hfLikes": 262
     },
     {
       "id": "openai/gpt-4o-mini",
@@ -6023,7 +6023,7 @@
       "description": "Gemma 2 27B by Google is an open model built from the same research and technology used to create the [Gemini models](/models?q=gemini). Gemma models are well-suited for a variety of...",
       "promptPrice": 0.65,
       "completionPrice": 0.65,
-      "hfDownloads": 5118286,
+      "hfDownloads": 5116843,
       "hfLikes": 1092
     },
     {
@@ -6096,7 +6096,7 @@
       "codingIndex": 21.5,
       "agenticIndex": null,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "anthropic/claude-3-haiku",
@@ -6136,7 +6136,7 @@
       "promptPrice": 1,
       "completionPrice": 2,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "openai/gpt-4-turbo-preview",
@@ -6150,7 +6150,7 @@
       "promptPrice": 10,
       "completionPrice": 30,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "openrouter/auto",
@@ -6174,7 +6174,7 @@
       "promptPrice": 1.5,
       "completionPrice": 2,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "openai/gpt-3.5-turbo-16k",
@@ -6188,7 +6188,7 @@
       "promptPrice": 3,
       "completionPrice": 4,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "mancer/weaver",
@@ -6242,7 +6242,7 @@
       "codingIndex": 10.7,
       "agenticIndex": null,
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "openai/gpt-4",
@@ -6267,7 +6267,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 935
+      "hfLikes": 949
     },
     {
       "id": "MiniMaxAI/MiniMax-H3",
@@ -6276,7 +6276,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 1997541,
-      "hfLikes": 3935,
+      "hfLikes": 3940,
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 1,
@@ -6288,8 +6288,8 @@
       "provider": "Lightricks",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 207830,
-      "hfLikes": 879,
+      "hfDownloads": 378439,
+      "hfLikes": 883,
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 1,
@@ -6302,7 +6302,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 63,
-      "hfLikes": 695
+      "hfLikes": 705
     },
     {
       "id": "unsloth/Muse-Glimmer-30B-GGUF",
@@ -6320,7 +6320,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 355
+      "hfLikes": 362
     },
     {
       "id": "lightx2v/Minimax-h3-Turbo",
@@ -6329,7 +6329,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 149865,
-      "hfLikes": 498
+      "hfLikes": 499
     },
     {
       "id": "larryvrh/MiniMax-H3-Turbo-Lora",
@@ -6338,7 +6338,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 751
+      "hfLikes": 752
     },
     {
       "id": "DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
@@ -6346,8 +6346,8 @@
       "provider": "Davidau",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2891524,
-      "hfLikes": 2027
+      "hfDownloads": 2983500,
+      "hfLikes": 2028
     },
     {
       "id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4",
@@ -6356,7 +6356,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 119572,
-      "hfLikes": 261,
+      "hfLikes": 262,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6366,7 +6366,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 2283,
-      "hfLikes": 240
+      "hfLikes": 242
     },
     {
       "id": "LiquidAI/LFM2.5-2.6B",
@@ -6383,22 +6383,22 @@
       "buzz": 0
     },
     {
-      "id": "Kijai/MiniMax-H3_comfy",
-      "name": "MiniMax-H3 Comfy",
-      "provider": "Kijai",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 346
-    },
-    {
       "id": "fal/MiniMax-H3-Realism-People-LoRA",
       "name": "MiniMax-H3-Realism-People-LoRA",
       "provider": "Fal",
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 9060,
-      "hfLikes": 187
+      "hfLikes": 188
+    },
+    {
+      "id": "Kijai/MiniMax-H3_comfy",
+      "name": "MiniMax-H3 Comfy",
+      "provider": "Kijai",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 347
     },
     {
       "id": "Qwen/Qwen3.8-2.4T-A95B-FP8",
@@ -6407,7 +6407,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 9334,
-      "hfLikes": 188,
+      "hfLikes": 189,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6417,7 +6417,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 10106,
-      "hfLikes": 174
+      "hfLikes": 175
     },
     {
       "id": "SexGod1979/PinkCherry_MiniMax-H3",
@@ -6444,7 +6444,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 11,
-      "hfLikes": 145,
+      "hfLikes": 147,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6464,7 +6464,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 140
+      "hfLikes": 142
     },
     {
       "id": "LiquidAI/LFM2.5-VL-3B",
@@ -6486,7 +6486,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 112975,
-      "hfLikes": 318
+      "hfLikes": 319
     },
     {
       "id": "Comfy-Org/MiniMax-Music-3",
@@ -6555,6 +6555,15 @@
       "hfLikes": 106
     },
     {
+      "id": "ethanfel/Qwen3-VL-32B-Ultra-Heretic-H3-ComfyUI-INT8-ConvRot",
+      "name": "Qwen3-VL-32B-Ultra-Heretic-H3-ComfyUI-INT8-ConvRot",
+      "provider": "Ethanfel",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 494
+    },
+    {
       "id": "unsloth/Qwen3.8-2.4T-A95B-GGUF",
       "name": "Qwen3.8-2.4T-A95B-GGUF",
       "provider": "Unsloth",
@@ -6563,15 +6572,6 @@
       "hfDownloads": 8573,
       "hfLikes": 98,
       "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "ethanfel/Qwen3-VL-32B-Ultra-Heretic-H3-ComfyUI-INT8-ConvRot",
-      "name": "Qwen3-VL-32B-Ultra-Heretic-H3-ComfyUI-INT8-ConvRot",
-      "provider": "Ethanfel",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 492
     },
     {
       "id": "Wan-AI/Wan2.2-Animate-2-14B",
@@ -6583,22 +6583,22 @@
       "hfLikes": 123
     },
     {
-      "id": "baidu/Unlimited-OCR",
-      "name": "Unlimited-OCR",
-      "provider": "Baidu",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 2937795,
-      "hfLikes": 4051
-    },
-    {
       "id": "froggeric/Qwen-Fixed-Chat-Templates",
       "name": "Qwen-Fixed-Chat-Templates",
       "provider": "Froggeric",
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 1109
+      "hfLikes": 1110
+    },
+    {
+      "id": "baidu/Unlimited-OCR",
+      "name": "Unlimited-OCR",
+      "provider": "Baidu",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 3048228,
+      "hfLikes": 4051
     },
     {
       "id": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
@@ -6615,7 +6615,7 @@
       "provider": "Hauhaucs",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2332009,
+      "hfDownloads": 2472324,
       "hfLikes": 3430
     },
     {
@@ -6628,22 +6628,13 @@
       "hfLikes": 119
     },
     {
-      "id": "lightx2v/MiniMax-H3-Prompt-Rewriter-LoRA",
-      "name": "MiniMax-H3-Prompt-Rewriter-LoRA",
-      "provider": "Lightx2v",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 732,
-      "hfLikes": 154
-    },
-    {
       "id": "DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF",
       "name": "Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF",
       "provider": "Davidau",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 555602,
-      "hfLikes": 383
+      "hfDownloads": 639475,
+      "hfLikes": 384
     },
     {
       "id": "Alissonerdx/CharacterSheet",
@@ -6652,7 +6643,16 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 160
+      "hfLikes": 161
+    },
+    {
+      "id": "lightx2v/MiniMax-H3-Prompt-Rewriter-LoRA",
+      "name": "MiniMax-H3-Prompt-Rewriter-LoRA",
+      "provider": "Lightx2v",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 732,
+      "hfLikes": 154
     },
     {
       "id": "black-forest-labs/FLUX.1-dev",
@@ -6713,12 +6713,21 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
+      "id": "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
+      "name": "Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
+      "provider": "Hauhaucs",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 353725,
+      "hfLikes": 613
+    },
+    {
       "id": "audnai/penclaw-Kimi-K3.0-abliterated-GGUF",
       "name": "Penclaw-Kimi-K3.0 Abliterated-GGUF",
       "provider": "Audnai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 221,
+      "hfDownloads": 278,
       "hfLikes": 197
     },
     {
@@ -6729,15 +6738,6 @@
       "family": "open-weights",
       "hfDownloads": 38858,
       "hfLikes": 55
-    },
-    {
-      "id": "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
-      "name": "Qwen3.6-27B-Uncensored-HauhauCS-Aggressive",
-      "provider": "Hauhaucs",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 353233,
-      "hfLikes": 612
     },
     {
       "id": "Inner-Reflections/MiniMax-H3-Looping-Sketch-Anime",
@@ -6776,12 +6776,22 @@
       "hfLikes": 89
     },
     {
+      "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
+      "name": "Qwen3.8-27B-Uncensored-GGUF",
+      "provider": "Jonathancoletti",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 52,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
       "id": "LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
       "name": "Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
       "provider": "Luffythefox",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 683317,
+      "hfDownloads": 740390,
       "hfLikes": 491
     },
     {
@@ -6795,22 +6805,12 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
-      "name": "Qwen3.8-27B-Uncensored-GGUF",
-      "provider": "Jonathancoletti",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 49,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
       "id": "bottlecapai/ThinkingCap-Qwen3.6-27B",
       "name": "ThinkingCap-Qwen3.6-27B",
       "provider": "Bottlecapai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 33281,
+      "hfDownloads": 32550,
       "hfLikes": 658
     },
     {
@@ -6823,22 +6823,22 @@
       "hfLikes": 183
     },
     {
-      "id": "mistralai/Shieldstral-1.0-3B",
-      "name": "Shieldstral-1.0-3B",
-      "provider": "Mistral",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 12533,
-      "hfLikes": 238
-    },
-    {
       "id": "Kijai/MiniMax-H3-TAE",
       "name": "MiniMax-H3-TAE",
       "provider": "Kijai",
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 0,
-      "hfLikes": 133
+      "hfLikes": 134
+    },
+    {
+      "id": "mistralai/Shieldstral-1.0-3B",
+      "name": "Shieldstral-1.0-3B",
+      "provider": "Mistral",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 13877,
+      "hfLikes": 238
     },
     {
       "id": "Kwaipilot/KAT-Coder-V2.5-Dev",
@@ -6846,7 +6846,7 @@
       "provider": "Kwaipilot",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 22542,
+      "hfDownloads": 23434,
       "hfLikes": 579,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -6881,6 +6881,16 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
+      "id": "Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed",
+      "name": "Qwen3.8-27B-MTPLX-Optimized-Speed",
+      "provider": "Youssofal",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 32,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
       "id": "Jiunsong/SuperDeepseek-V4-Flash-abliterated-MQ-2xDGX",
       "name": "SuperDeepseek-V4-Flash Abliterated-MQ-2xDGX",
       "provider": "Jiunsong",
@@ -6891,22 +6901,12 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed",
-      "name": "Qwen3.8-27B-MTPLX-Optimized-Speed",
-      "provider": "Youssofal",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 31,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
       "id": "prism-ml/Ternary-Bonsai-27B-gguf",
       "name": "Ternary-Bonsai-27B Gguf",
       "provider": "Prism-ml",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 821968,
+      "hfDownloads": 775667,
       "hfLikes": 1211,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -6966,7 +6966,7 @@
       "provider": "Ornith-ai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 4804041,
+      "hfDownloads": 4913507,
       "hfLikes": 646,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -6981,13 +6981,13 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "ornith-ai/Ornith-1.0-35B-GGUF",
-      "name": "Ornith-1.0-35B-GGUF",
-      "provider": "Ornith-ai",
+      "id": "prism-ml/Bonsai-27B-gguf",
+      "name": "Bonsai-27B Gguf",
+      "provider": "Prism-ml",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 3652349,
-      "hfLikes": 1038,
+      "hfDownloads": 1801896,
+      "hfLikes": 775,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6996,18 +6996,18 @@
       "provider": "Openbmb",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 1103159,
+      "hfDownloads": 1105545,
       "hfLikes": 1060,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "prism-ml/Bonsai-27B-gguf",
-      "name": "Bonsai-27B Gguf",
-      "provider": "Prism-ml",
+      "id": "ornith-ai/Ornith-1.0-35B-GGUF",
+      "name": "Ornith-1.0-35B-GGUF",
+      "provider": "Ornith-ai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2039441,
-      "hfLikes": 774,
+      "hfDownloads": 3817951,
+      "hfLikes": 1038,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7026,7 +7026,7 @@
       "provider": "Ornith-ai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 3023086,
+      "hfDownloads": 3141991,
       "hfLikes": 494,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7066,8 +7066,58 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 77374,
+      "hfDownloads": 78596,
       "hfLikes": 682,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "sakamakismile/Qwen3.8-27B-MTP-NVFP4",
+      "name": "Qwen3.8-27B-MTP-NVFP4",
+      "provider": "Sakamakismile",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 18,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "LiquidAI/LFM2.5-8B-A1B",
+      "name": "LFM2.5-8B-A1B",
+      "provider": "Liquid AI",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 172704,
+      "hfLikes": 722,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "huihui-ai/Huihui-GLM-5.2-abliterated-GGUF",
+      "name": "Huihui-GLM-5.2 Abliterated-GGUF",
+      "provider": "Huihui-ai",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 25540,
+      "hfLikes": 326,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "drowzeys/DeepSeek-V4-Flash-DSpark-Abliterated-Uncensored",
+      "name": "DeepSeek-V4-Flash-DSpark-Abliterated-Uncensored",
+      "provider": "Drowzeys",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 12536,
+      "hfLikes": 55,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF",
+      "name": "Kwaipilot_KAT-Coder-V2.5-Dev-GGUF",
+      "provider": "Bartowski",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 229872,
+      "hfLikes": 116,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7078,46 +7128,6 @@
       "family": "open-weights",
       "hfDownloads": 69922,
       "hfLikes": 48,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "LiquidAI/LFM2.5-8B-A1B",
-      "name": "LFM2.5-8B-A1B",
-      "provider": "Liquid AI",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 175319,
-      "hfLikes": 722,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "huihui-ai/Huihui-GLM-5.2-abliterated-GGUF",
-      "name": "Huihui-GLM-5.2 Abliterated-GGUF",
-      "provider": "Huihui-ai",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 24570,
-      "hfLikes": 326,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "drowzeys/DeepSeek-V4-Flash-DSpark-Abliterated-Uncensored",
-      "name": "DeepSeek-V4-Flash-DSpark-Abliterated-Uncensored",
-      "provider": "Drowzeys",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 12380,
-      "hfLikes": 55,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "bartowski/Kwaipilot_KAT-Coder-V2.5-Dev-GGUF",
-      "name": "Kwaipilot_KAT-Coder-V2.5-Dev-GGUF",
-      "provider": "Bartowski",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 214969,
-      "hfLikes": 116,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7166,7 +7176,7 @@
       "provider": "Unsloth",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 8644175,
+      "hfDownloads": 9295713,
       "hfLikes": 896,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7176,7 +7186,7 @@
       "provider": "Nanbeige",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 48684,
+      "hfDownloads": 54414,
       "hfLikes": 701,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7186,7 +7196,7 @@
       "provider": "Eschalabs",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 6257,
+      "hfDownloads": 6663,
       "hfLikes": 253,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7221,22 +7231,12 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "sakamakismile/Qwen3.8-27B-MTP-NVFP4",
-      "name": "Qwen3.8-27B-MTP-NVFP4",
-      "provider": "Sakamakismile",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 16,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
       "id": "ornith-ai/Ornith-1.0-9B",
       "name": "Ornith-1.0-9B",
       "provider": "Ornith-ai",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2455538,
+      "hfDownloads": 2467752,
       "hfLikes": 530,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7246,7 +7246,7 @@
       "provider": "Unsloth",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 206487,
+      "hfDownloads": 208517,
       "hfLikes": 301,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7256,18 +7256,8 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 29660008,
+      "hfDownloads": 30110264,
       "hfLikes": 1513,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "antirez/deepseek-v4-gguf",
-      "name": "Deepseek V4 Gguf",
-      "provider": "Antirez",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 1164789,
-      "hfLikes": 442,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7306,7 +7296,7 @@
       "provider": "Trl-internal-testing",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 15222284,
+      "hfDownloads": 16153404,
       "hfLikes": 20,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7326,7 +7316,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 12095503,
+      "hfDownloads": 12315563,
       "hfLikes": 1542,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7336,7 +7326,7 @@
       "provider": "NVIDIA",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 11698237,
+      "hfDownloads": 12119552,
       "hfLikes": 553,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7346,7 +7336,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 11623818,
+      "hfDownloads": 11260053,
       "hfLikes": 796,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7356,18 +7346,8 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 7284056,
+      "hfDownloads": 7113174,
       "hfLikes": 517,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "Qwen/Qwen2.5-3B-Instruct",
-      "name": "Qwen2.5-3B-Instruct",
-      "provider": "Qwen",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 6733583,
-      "hfLikes": 550,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7376,18 +7356,18 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 6638944,
+      "hfDownloads": 6910965,
       "hfLikes": 591,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "google/gemma-3-1b-it",
-      "name": "Gemma-3-1b It",
-      "provider": "Google",
+      "id": "Qwen/Qwen2.5-3B-Instruct",
+      "name": "Qwen2.5-3B-Instruct",
+      "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 5118286,
-      "hfLikes": 1092,
+      "hfDownloads": 6811632,
+      "hfLikes": 550,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7396,8 +7376,18 @@
       "provider": "Farbodtavakkoli",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 4965114,
+      "hfDownloads": 5167822,
       "hfLikes": 12,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "google/gemma-3-1b-it",
+      "name": "Gemma-3-1b It",
+      "provider": "Google",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 5116843,
+      "hfLikes": 1092,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7406,7 +7396,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 4709881,
+      "hfDownloads": 4775261,
       "hfLikes": 680,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7416,7 +7406,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 4627386,
+      "hfDownloads": 4683685,
       "hfLikes": 49,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7436,7 +7426,7 @@
       "provider": "Hmellor",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 4171785,
+      "hfDownloads": 3981803,
       "hfLikes": 1,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7446,7 +7436,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 3246020,
+      "hfDownloads": 3324645,
       "hfLikes": 917,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7456,7 +7446,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 3200695,
+      "hfDownloads": 3068579,
       "hfLikes": 357,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7486,8 +7476,18 @@
       "provider": "Farbodtavakkoli",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2737215,
+      "hfDownloads": 2597764,
       "hfLikes": 0,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "Qwen/Qwen2.5-0.5B",
+      "name": "Qwen2.5-0.5B",
+      "provider": "Qwen",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 2561093,
+      "hfLikes": 436,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7498,16 +7498,6 @@
       "family": "open-weights",
       "hfDownloads": 2510241,
       "hfLikes": 1723,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "Qwen/Qwen2.5-0.5B",
-      "name": "Qwen2.5-0.5B",
-      "provider": "Qwen",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 2507186,
-      "hfLikes": 436,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7526,7 +7516,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2446823,
+      "hfDownloads": 2445457,
       "hfLikes": 180,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7536,8 +7526,8 @@
       "provider": "NVIDIA",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2424615,
-      "hfLikes": 557,
+      "hfDownloads": 2434044,
+      "hfLikes": 556,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7546,7 +7536,7 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2403258,
+      "hfDownloads": 2396283,
       "hfLikes": 37,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7576,7 +7566,7 @@
       "provider": "NVIDIA",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2317138,
+      "hfDownloads": 2280543,
       "hfLikes": 420,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7586,8 +7576,18 @@
       "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2191957,
+      "hfDownloads": 2203034,
       "hfLikes": 73,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "name": "Qwen2.5-Coder-7B-Instruct",
+      "provider": "Qwen",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 2132258,
+      "hfLikes": 772,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7601,13 +7601,13 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "Qwen/Qwen2.5-Coder-7B-Instruct",
-      "name": "Qwen2.5-Coder-7B-Instruct",
-      "provider": "Qwen",
+      "id": "HuggingFaceTB/SmolLM2-135M",
+      "name": "SmolLM2-135M",
+      "provider": "Huggingfacetb",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 2024007,
-      "hfLikes": 771,
+      "hfDownloads": 2051670,
+      "hfLikes": 224,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7621,13 +7621,13 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "HuggingFaceTB/SmolLM2-135M",
-      "name": "SmolLM2-135M",
-      "provider": "Huggingfacetb",
+      "id": "Qwen/Qwen2.5-32B-Instruct",
+      "name": "Qwen2.5-32B-Instruct",
+      "provider": "Qwen",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 1974165,
-      "hfLikes": 224,
+      "hfDownloads": 1933904,
+      "hfLikes": 355,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7710,7 +7710,7 @@
       "provider": "DeepSeek",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 1202497,
+      "hfDownloads": 1199812,
       "hfLikes": 3156,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7730,7 +7730,7 @@
       "provider": "Meta",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 1622251,
+      "hfDownloads": 1699866,
       "hfLikes": 2533,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7760,7 +7760,7 @@
       "provider": "Moonshot",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 179738,
+      "hfDownloads": 185993,
       "hfLikes": 2374,
       "description": "Open-weight text-generation model on Hugging Face."
     },
@@ -7800,7 +7800,7 @@
       "provider": "NVIDIA",
       "source": "huggingface",
       "family": "open-weights",
-      "hfDownloads": 10054,
+      "hfDownloads": 10551,
       "hfLikes": 2070,
       "description": "Open-weight text-generation model on Hugging Face."
     },
