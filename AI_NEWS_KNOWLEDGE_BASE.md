@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-15T01:11:25.238Z
-> Total Articles Tracked: 1198
+> Last Updated: 2026-08-15T04:30:22.050Z
+> Total Articles Tracked: 1209
 > Generated from AI Pulse database
 
 ---
@@ -14,32 +14,32 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 79 |
-| 🔬 **Research** | 82 |
-| 💼 **Product/Business** | 175 |
-| 🛡️ **Safety/Security** | 8 |
-| ⚖️ **Policy/Regulation** | 32 |
+| 🧠 **Model Releases** | 74 |
+| 🔬 **Research** | 83 |
+| 💼 **Product/Business** | 174 |
+| 🛡️ **Safety/Security** | 9 |
+| ⚖️ **Policy/Regulation** | 31 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 224 |
-| **arxiv** | 68 |
+| **google-news** | 232 |
+| **arxiv** | 63 |
 | **reddit** | 29 |
 | **cnbc** | 29 |
-| **techcrunch** | 19 |
+| **techcrunch** | 18 |
 | **the-register** | 16 |
 | **decrypt** | 13 |
 | **hacker-news** | 12 |
 | **zdnet** | 12 |
 | **venturebeat** | 12 |
 | **the-decoder** | 11 |
-| **the-verge** | 10 |
 | **wired** | 9 |
 | **arstechnica** | 9 |
-| **marktechpost** | 6 |
+| **the-verge** | 9 |
 | **amazon** | 5 |
+| **marktechpost** | 5 |
 | **Google** | 4 |
 | **Hugging Face** | 3 |
 | **other** | 2 |
@@ -52,12 +52,12 @@
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 79 articles
-- [🔬 Research Breakthroughs](#research-breakthroughs) — 82 articles
-- [💼 Product & Business Updates](#product--business-updates) — 175 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 8 articles
-- [⚖️ Regulation & Policy](#regulation--policy) — 32 articles
-- [📌 Other Notable News](#other-notable-news) — 124 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 74 articles
+- [🔬 Research Breakthroughs](#research-breakthroughs) — 83 articles
+- [💼 Product & Business Updates](#product--business-updates) — 174 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 9 articles
+- [⚖️ Regulation & Policy](#regulation--policy) — 31 articles
+- [📌 Other Notable News](#other-notable-news) — 129 articles
 
 ---
 
@@ -71,7 +71,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 15, 2026 (26m ago) |
+| **Date** | August 15, 2026 (3h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Register AI |
 
@@ -89,7 +89,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | Axios |
 
@@ -104,7 +104,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | foreignpolicyjournal.com |
 
@@ -119,7 +119,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | Nikkei Asia |
 
@@ -134,7 +134,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -152,7 +152,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Register AI |
 
@@ -170,7 +170,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -185,7 +185,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -200,7 +200,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -215,7 +215,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -230,7 +230,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -245,7 +245,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -260,7 +260,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Bioengineer.org |
 
@@ -275,7 +275,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | surprisetalk |
 
@@ -290,7 +290,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | Axios |
 
@@ -305,7 +305,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | SQ Magazine |
 
@@ -320,7 +320,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | Benzinga |
 
@@ -335,7 +335,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -345,12 +345,27 @@
 
 ---
 
+### Apple Partners With Alibaba to Launch China-Specific AI Model – DTH
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (12h ago) |
+| **Category** | 🧠 model |
+| **Author** | Daily Tech News Show |
+
+**Summary:** Apple Partners With Alibaba to Launch China-Specific AI Model – DTH  Daily Tech News Show
+
+**URL:** [https://news.google.com/rss/articles/CBMiqwFBVV95cUxQQW9IVkgtemVOUlMxYWdnenZkcVVYOG9OTm5PUngzMjhrYW5ITktwU0N3Tnc3Z1Q2dXdxNzhZa1NRd080Ym5xcFgwaEJxbS11cURGV013Nnk2UEY5aW04bnFkNUo1b1oweUFQZ3pZTkJGM0p1WllWd1FWVUNfSDV2UVE5RkZNb0x1ODFnMWVCWDVSZnA1MW1ZUFVHTnAtLTlZeDJhemZmcmpLOTjSAbABQVVfeXFMUENZUXhrd0lBUFdlZlpHdnZGNEtsXzNpV0JtVjlDSC13T1NydUZISGFycDJkVFFzYWwzbml4X3UxeTdPSkFucXdNaXZGS1V6MndmcUxxZ0UxbkdvNXVLVGNhRlhvZDM5Ri1hYUhwWXN6R3YtMUR5YzVCV25XS0haSUdVZktMOHh0TllNZmlPRGJ0YXYyWmxuVDBwTHdTSFBid2VaTkRzc2JWelctemZRMnY?oc=5](https://news.google.com/rss/articles/CBMiqwFBVV95cUxQQW9IVkgtemVOUlMxYWdnenZkcVVYOG9OTm5PUngzMjhrYW5ITktwU0N3Tnc3Z1Q2dXdxNzhZa1NRd080Ym5xcFgwaEJxbS11cURGV013Nnk2UEY5aW04bnFkNUo1b1oweUFQZ3pZTkJGM0p1WllWd1FWVUNfSDV2UVE5RkZNb0x1ODFnMWVCWDVSZnA1MW1ZUFVHTnAtLTlZeDJhemZmcmpLOTjSAbABQVVfeXFMUENZUXhrd0lBUFdlZlpHdnZGNEtsXzNpV0JtVjlDSC13T1NydUZISGFycDJkVFFzYWwzbml4X3UxeTdPSkFucXdNaXZGS1V6MndmcUxxZ0UxbkdvNXVLVGNhRlhvZDM5Ri1hYUhwWXN6R3YtMUR5YzVCV25XS0haSUdVZktMOHh0TllNZmlPRGJ0YXYyWmxuVDBwTHdTSFBid2VaTkRzc2JWelctemZRMnY?oc=5)
+
+---
+
 ### Kog is going deeper to squeeze more inference out of GPUs
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -365,7 +380,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -380,7 +395,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Nature |
 
@@ -395,7 +410,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -410,7 +425,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | AI Magazine |
 
@@ -425,7 +440,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | Tech Times |
 
@@ -440,7 +455,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -455,7 +470,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC |
 
@@ -470,7 +485,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -485,7 +500,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (23h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | aljazeera.com |
 
@@ -998,7 +1013,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | WSMV |
 
@@ -1013,7 +1028,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | China Daily |
 
@@ -1173,96 +1188,6 @@ That’s
 
 ---
 
-### Class Activation Mapping in Explainable Computer Vision: A Method-Centered Review of CNN, Transformer, and Foundation-Model-Era Visual Explanations
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | AmirHossein Eshghi, Hamid Saadatfar, Seyyed Ali Hoseini |
-
-**Summary:** Class activation mapping (CAM) is one of the most widely used visual explanation families in explainable artificial intelligence. Its purpose is intuitive: it converts internal model evidence into a h
-
-**URL:** [https://arxiv.org/abs/2608.12299v1](https://arxiv.org/abs/2608.12299v1)
-
----
-
-### Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Aman Tyagi, Hemanth Boinpally, Jonathan Chen |
-
-**Summary:** Modern black-box Image-to-Video (I2V) models offer powerful capabilities in automated content creation, yet their lack of fine-grained control and reliability presents significant challenges in profes
-
-**URL:** [https://arxiv.org/abs/2608.12290v1](https://arxiv.org/abs/2608.12290v1)
-
----
-
-### Twitch streamers can now opt out from training Amazon’s AI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** Twitch users can now opt out of allowing their content to be used to train Amazon's generative AI models. Opting out means that "your streams, VODs, clips, stream chats, and pictures and text on your 
-
-**URL:** [https://www.theverge.com/tech/979112/twitch-streamers-can-now-opt-out-from-training-amazons-ai](https://www.theverge.com/tech/979112/twitch-streamers-can-now-opt-out-from-training-amazons-ai)
-
----
-
-### Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Alireza Kargarzadeh, Nariman Khaledian, Navid Parvini |
-
-**Summary:** Large language models can extract richer signals from financial news than fixed sentiment lexicons, and recent work has explored feeding such signals into portfolio construction. We study an uncertain
-
-**URL:** [https://arxiv.org/abs/2608.12283v1](https://arxiv.org/abs/2608.12283v1)
-
----
-
-### VAKRA: Evaluating Multi-Hop Reasoning Across APIs and Retrieval Under Tool-Use Policies
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Ankita Rajaram Naik, Anupama Murthi, Benjamin Elder |
-
-**Summary:** Agents deployed in enterprise settings must reason across structured APIs and document collections, yet existing benchmarks evaluate these capabilities in isolation. We introduce VAKRA (e\textbf{V}alu
-
-**URL:** [https://arxiv.org/abs/2608.12282v1](https://arxiv.org/abs/2608.12282v1)
-
----
-
-### Structural Silence: When AI Infrastructure Fails Speakers of Underrepresented Languages
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Avijit Roy, Proma Roy |
-
-**Summary:** Artificial intelligence tools for education and language support are increasingly framed as scalable responses to access gaps in under-resourced communities. Yet the infrastructure underlying these to
-
-**URL:** [https://arxiv.org/abs/2608.12278v1](https://arxiv.org/abs/2608.12278v1)
-
----
-
 ## 🔬 Research Breakthroughs
 
 ### AC comment and our reply disappeared on OpenReview [D]
@@ -1270,7 +1195,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (39m ago) |
+| **Date** | August 15, 2026 (3h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1285,7 +1210,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1300,7 +1225,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 🔬 research |
 | **Author** | planadviser.com |
 
@@ -1315,7 +1240,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 other |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 🔬 research |
 | **Author** | ScienceDaily AI |
 
@@ -1330,7 +1255,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | Communications of the ACM |
 
@@ -1345,7 +1270,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | www.lvivherald.com |
 
@@ -1360,7 +1285,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | TheDecoder |
 
@@ -1375,7 +1300,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1390,7 +1315,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | EurekAlert! |
 
@@ -1405,7 +1330,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 🔬 research |
 | **Author** | EurekAlert! |
 
@@ -1420,7 +1345,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 🔬 research |
 | **Author** | U.OSU |
 
@@ -1435,7 +1360,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 🔬 research |
 | **Author** | The Register AI |
 
@@ -1450,7 +1375,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 🔬 research |
 | **Author** | The Register AI |
 
@@ -1465,7 +1390,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | AI Insider |
 
@@ -1480,7 +1405,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -2495,14 +2420,44 @@ That’s
 
 ---
 
+### AI and the Courts: New Frontiers in Legal Writing and Research for New York Judges and Litigators
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 13, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | New York State Bar Association |
+
+**Summary:** AI and the Courts: New Frontiers in Legal Writing and Research for New York Judges and Litigators  New York State Bar Association
+
+**URL:** [https://news.google.com/rss/articles/CBMitgFBVV95cUxPdlRxZERMSU52eGk3dHpwWnRZWi1yYWRzcHZ6OUpjaXRoMGkydmlmZ2RjVmhEX0FuU3Biam5sMXM4WkxqTm5IT1NkN21GVkotYWtYVXo3ZHNnTWF5TFhPMVd5bUcteGZEQ0hZZDduQmpza2lFUE8wTXFpYWswNTJxdFVNTnBXNTh0cF9JNUsxOURlcFp6djN0ZFBBSkRMRjkzYlVwVWdZaVBndjExdHlFVnlxOWhndw?oc=5](https://news.google.com/rss/articles/CBMitgFBVV95cUxPdlRxZERMSU52eGk3dHpwWnRZWi1yYWRzcHZ6OUpjaXRoMGkydmlmZ2RjVmhEX0FuU3Biam5sMXM4WkxqTm5IT1NkN21GVkotYWtYVXo3ZHNnTWF5TFhPMVd5bUcteGZEQ0hZZDduQmpza2lFUE8wTXFpYWswNTJxdFVNTnBXNTh0cF9JNUsxOURlcFp6djN0ZFBBSkRMRjkzYlVwVWdZaVBndjExdHlFVnlxOWhndw?oc=5)
+
+---
+
 ## 💼 Product & Business Updates
+
+### Nvidia scales back funding guarantee for Ohio OpenAI data center, WSJ reports
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (4h ago) |
+| **Category** | 💼 product |
+| **Author** | Reuters |
+
+**Summary:** Nvidia scales back funding guarantee for Ohio OpenAI data center, WSJ reports  Reuters
+
+**URL:** [https://news.google.com/rss/articles/CBMitwFBVV95cUxPWjY4Y0RmbnNIZU5fWV83TGxRb0M1T0hva0dCRUtWQzcxclJ5TW02NExHQzREZmwwenZIQjh5eU01YjYycGMxNUg5MlJuZVh5RGQyM0M1MHB1Znhld2x2OXFFNF93OGg3SUJMYUNsMTZjZ2VQemtkM3M0SnVDam1vSHNKVUJCWHpKbzVzLXdLWmtlZElxYW5BS0c3MU9iRk41Ty1LUzY4TWl4YVQtRElKWHNFSzg0dTA?oc=5](https://news.google.com/rss/articles/CBMitwFBVV95cUxPWjY4Y0RmbnNIZU5fWV83TGxRb0M1T0hva0dCRUtWQzcxclJ5TW02NExHQzREZmwwenZIQjh5eU01YjYycGMxNUg5MlJuZVh5RGQyM0M1MHB1Znhld2x2OXFFNF93OGg3SUJMYUNsMTZjZ2VQemtkM3M0SnVDam1vSHNKVUJCWHpKbzVzLXdLWmtlZElxYW5BS0c3MU9iRk41Ty1LUzY4TWl4YVQtRElKWHNFSzg0dTA?oc=5)
+
+---
 
 ### AI investment is reshaping the U.S. startup market, and the best employers are proving it
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | MarketScale |
 
@@ -2517,7 +2472,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | Nebraska Public Media |
 
@@ -2532,7 +2487,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | StocksToTrade |
 
@@ -2547,7 +2502,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC |
 
@@ -2562,7 +2517,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | Crunchbase News |
 
@@ -2577,7 +2532,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | Fierce Network |
 
@@ -2592,7 +2547,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | ABA Journal |
 
@@ -2607,7 +2562,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | pymnts.com |
 
@@ -2622,7 +2577,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | ibtimes.com |
 
@@ -2637,7 +2592,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -2652,7 +2607,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | Nikkei Asia |
 
@@ -2667,7 +2622,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2682,7 +2637,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2697,7 +2652,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2712,7 +2667,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2727,7 +2682,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2742,7 +2697,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2757,7 +2712,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2772,7 +2727,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | Stock Titan |
 
@@ -2787,7 +2742,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2802,7 +2757,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | twapi |
 
@@ -2817,7 +2772,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2832,7 +2787,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon ML |
 
@@ -2847,7 +2802,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2862,7 +2817,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2877,7 +2832,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon Web Services (AWS) |
 
@@ -2892,7 +2847,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2907,7 +2862,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | FinTech Global |
 
@@ -2922,7 +2877,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2937,7 +2892,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | u1hcw9nx |
 
@@ -2952,7 +2907,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | shrishdwi |
 
@@ -2967,7 +2922,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | CDO Magazine |
 
@@ -2982,7 +2937,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | Mexico Business News |
 
@@ -2997,7 +2952,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | Bloomberg.com |
 
@@ -3012,7 +2967,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -3027,7 +2982,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | ABC30 Fresno |
 
@@ -3042,7 +2997,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3057,7 +3012,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Ars Technica AI |
 
@@ -3072,7 +3027,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -3087,7 +3042,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Daily Sabah |
 
@@ -3102,7 +3057,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | 9to5Mac |
 
@@ -3117,7 +3072,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3132,7 +3087,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Benzinga |
 
@@ -3147,7 +3102,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3162,7 +3117,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Fierce Healthcare |
 
@@ -3177,7 +3132,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Pluang |
 
@@ -3192,7 +3147,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3207,7 +3162,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3222,7 +3177,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3237,7 +3192,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3252,7 +3207,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3267,7 +3222,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3282,7 +3237,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3297,7 +3252,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3312,7 +3267,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3327,7 +3282,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Northeast Times |
 
@@ -3342,7 +3297,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Motley Fool |
 
@@ -3357,7 +3312,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Food & Wine |
 
@@ -3372,7 +3327,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3387,7 +3342,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Search Engine Roundtable |
 
@@ -3402,7 +3357,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | American Fuel & Petrochemical Manufacturers |
 
@@ -3417,7 +3372,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -3432,7 +3387,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Ynetnews |
 
@@ -3447,7 +3402,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | 36Kr |
 
@@ -3462,7 +3417,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | Yahoo Finance |
 
@@ -3477,7 +3432,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (13h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3492,7 +3447,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | TravelPulse |
 
@@ -3507,7 +3462,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | River Journal Online |
 
@@ -3522,7 +3477,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -3537,7 +3492,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -3552,7 +3507,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | Counterfire |
 
@@ -3567,7 +3522,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | PA Media |
 
@@ -3582,7 +3537,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -3597,7 +3552,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | fox5sandiego.com |
 
@@ -3612,7 +3567,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | Ragan Communications |
 
@@ -3627,7 +3582,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | The Business Journals |
 
@@ -3642,7 +3597,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | thelec.net |
 
@@ -3657,7 +3612,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 14, 2026 (15h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -3672,7 +3627,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Latest news from Azerbaijan |
 
@@ -3687,7 +3642,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | VIR |
 
@@ -3702,7 +3657,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | The Daily Star |
 
@@ -3717,7 +3672,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Stocktwits |
 
@@ -3732,7 +3687,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Pittsburgh Post-Gazette |
 
@@ -3747,7 +3702,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | The Economic Times |
 
@@ -3762,7 +3717,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3777,7 +3732,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | TradingKey |
 
@@ -3792,7 +3747,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | MarkTechPost |
 
@@ -3807,7 +3762,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Moomoo |
 
@@ -3822,7 +3777,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (17h ago) |
+| **Date** | August 14, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Apple World Today |
 
@@ -3837,7 +3792,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | yellow.com |
 
@@ -3852,7 +3807,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Deccan Chronicle |
 
@@ -3867,7 +3822,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Providence Business News |
 
@@ -3882,7 +3837,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (18h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | The Next Web |
 
@@ -3897,7 +3852,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | fundsforngos.org |
 
@@ -3912,7 +3867,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | MarkTechPost |
 
@@ -3927,7 +3882,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Reuters |
 
@@ -3942,7 +3897,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | MarkTechPost |
 
@@ -4994,7 +4949,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | finance.biggo.com |
 
@@ -5096,44 +5051,29 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### OpenAI-backed Thrive Holdings raises $2B to bring AI to the enterprise
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | TechCrunch AI |
-
-**Summary:** Thrive Holdings has raised $2 billion in new funding at a $12 billion valuation from investors like SoftBank, D1 Capital Partners, and Altimeter Capital.
-
-**URL:** [https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/](https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/)
-
----
-
-### AllenAI Open Instruct Tulu 3 Post-Training with SFT, DPO, RLVR, GRPO, and Verifier-Based Evaluation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 marktechpost |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | MarkTechPost |
-
-**Summary:** AllenAI releases a guide for customizing its Open Instruct framework for efficient LLM post-training
-
-**URL:** [https://www.marktechpost.com/2026/08/12/allenai-open-instruct-tulu-3-post-training-with-sft-dpo-rlvr-grpo-and-verifier-based-evaluation/](https://www.marktechpost.com/2026/08/12/allenai-open-instruct-tulu-3-post-training-with-sft-dpo-rlvr-grpo-and-verifier-based-evaluation/)
-
----
-
 ## 🛡️ AI Safety & Security
+
+### Colorado Releases Proposed Rules for Its AI and Chatbot Safety Laws: These Create More Operational Work than the Statutes Suggest
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (2h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | Seyfarth Shaw |
+
+**Summary:** Colorado Releases Proposed Rules for Its AI and Chatbot Safety Laws: These Create More Operational Work than the Statutes Suggest  Seyfarth Shaw
+
+**URL:** [https://news.google.com/rss/articles/CBMiggJBVV95cUxQblNjaGlsV2NpUVEzWGZXUUhOUzR4cVhtWlZXSnFXTFFzUWVfbEZGR0tkUms3LW11SkRJYWM4SjBQSERONHoxVWdPVEtjYTNsLV9qZE9rYTEta1NuWENWRlNPdXdUYkZleDBzOEpzWlJLUHB4UW9Mdi14RFlJZEl3Qlgwa1FEbENNdGg5Mlp6N010ZzQyTlQ4VmpsY1BBbkZUUElUQmRpY0E2SDJ5eGU3c04wUjdDR0ZoSFR5Q0hQSlVFU3NSV0hjVFdnRURtZ0lpNmpGbjAxemtKWDVvX0o2RFNPaTNjNFhaRmtYQ2htMU5aaVhiMkhtZl94WGVPbkRxaXc?oc=5](https://news.google.com/rss/articles/CBMiggJBVV95cUxQblNjaGlsV2NpUVEzWGZXUUhOUzR4cVhtWlZXSnFXTFFzUWVfbEZGR0tkUms3LW11SkRJYWM4SjBQSERONHoxVWdPVEtjYTNsLV9qZE9rYTEta1NuWENWRlNPdXdUYkZleDBzOEpzWlJLUHB4UW9Mdi14RFlJZEl3Qlgwa1FEbENNdGg5Mlp6N010ZzQyTlQ4VmpsY1BBbkZUUElUQmRpY0E2SDJ5eGU3c04wUjdDR0ZoSFR5Q0hQSlVFU3NSV0hjVFdnRURtZ0lpNmpGbjAxemtKWDVvX0o2RFNPaTNjNFhaRmtYQ2htMU5aaVhiMkhtZl94WGVPbkRxaXc?oc=5)
+
+---
 
 ### Z.ai Security Disclosure
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Alifatisk |
 
@@ -5148,7 +5088,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | ZDNet AI |
 
@@ -5166,7 +5106,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | The Register AI |
 
@@ -5258,7 +5198,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (10h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Consumer Finance Monitor |
 
@@ -5273,7 +5213,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 14, 2026 (7h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Ars Technica AI |
 
@@ -5288,7 +5228,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | equiti.com |
 
@@ -5303,7 +5243,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Dentons |
 
@@ -5318,7 +5258,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (11h ago) |
+| **Date** | August 14, 2026 (14h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Washington Post |
 
@@ -5333,7 +5273,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Register AI |
 
@@ -5348,7 +5288,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (17h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Nebraska Public Media |
 
@@ -5363,7 +5303,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Cyber Magazine |
 
@@ -5378,7 +5318,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (14h ago) |
+| **Date** | August 14, 2026 (18h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Wired AI |
 
@@ -5393,7 +5333,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The New York Times |
 
@@ -5408,7 +5348,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (16h ago) |
+| **Date** | August 14, 2026 (19h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TechRadar |
 
@@ -5423,7 +5363,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (23h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | CEPR |
 
@@ -5438,7 +5378,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (19h ago) |
+| **Date** | August 14, 2026 (23h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | thelec.net |
 
@@ -5453,7 +5393,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Diplomat – Asia-Pacific Current Affairs Magazine |
 
@@ -5468,7 +5408,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | 36Kr |
 
@@ -5483,7 +5423,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (23h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Noahpinion |
 
@@ -5718,29 +5658,89 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### EU AI Act’s Transparency Rules: What Went Into Effect on 2 August?
+## 📌 Other Notable News
+
+### Silver Lake production studio says adapting to AI is key to turning industry around
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Morgan Lewis |
+| **Date** | August 15, 2026 (10m ago) |
+| **Category** | 📌 other |
+| **Author** | NBC Los Angeles |
 
-**Summary:** The European Union's AI Act has implemented transparency rules, which went into effect on August 2
+**Summary:** Silver Lake production studio says adapting to AI is key to turning industry around  NBC Los Angeles
 
-**URL:** [https://news.google.com/rss/articles/CBMixgFBVV95cUxPRHJUMzhTZTlCRnR0MGc4bFQtRTJqck1iT09WRWlnUHN4aTQxeHI3MWRLX3hFMUlNemRrbTR5NjhwT2F6X2xuVmY3ckF2dElveDhEc01uZTVHenQ1ZjQzRXZWdGlJa3hLOTRQYkxJQUhENmE0X0NpSUQwWVY3UnZfMC0tekNRYnhieUluVzZscVNkUGFIOXJpUTZzSWxmTU9vSEdSQTNSVVlzMjdWVWRWNTVLTUp5dFFmZzNucmRydDBQZUFSTUE?oc=5](https://news.google.com/rss/articles/CBMixgFBVV95cUxPRHJUMzhTZTlCRnR0MGc4bFQtRTJqck1iT09WRWlnUHN4aTQxeHI3MWRLX3hFMUlNemRrbTR5NjhwT2F6X2xuVmY3ckF2dElveDhEc01uZTVHenQ1ZjQzRXZWdGlJa3hLOTRQYkxJQUhENmE0X0NpSUQwWVY3UnZfMC0tekNRYnhieUluVzZscVNkUGFIOXJpUTZzSWxmTU9vSEdSQTNSVVlzMjdWVWRWNTVLTUp5dFFmZzNucmRydDBQZUFSTUE?oc=5)
+**URL:** [https://news.google.com/rss/articles/CBMirgFBVV95cUxPMDZna2t6YndreFNoZFl5eUdYdjhQekFld2EtWmljN3hhU2NwVkxac0lHVkxLaF9BYjhWZzgwdTY1Sk9oQU9IU3hzcjZYcFNjV25OdXNGc282Ui1Ea3ZSSTJRTzhpTHRaZWx1SUVCdGYzUlJhTjEwVGJPM0VGY3A3RkFQNG5aRmpQeEhJcWpLa3BOT2hLc0RRR3VYV1QyV1NMQW5nbTVIb2l0bG5URFHSAbYBQVVfeXFMTjY5YU1xakV1Y2JIODFOT1g3a2lXT09ZSUlVV2xuQnJqY2Izdm1xRGZsYnQ0VVdKMkVlZEtMdENiVUF3TWNOWmhISkNFQkt5MnFYcDNoQzRNX1RaWFF3SUI3X3JrZFdidkZUc0tWYVN6V0tiajZVSm4wSzlfUzhKRDFZYXRlSjRfMzVVZDBSNk1mN0xCLTNockc5VFh5b3Z1dTJVc1RqSmRpQjBGb0dYN2lrZ1ZzRHc?oc=5](https://news.google.com/rss/articles/CBMirgFBVV95cUxPMDZna2t6YndreFNoZFl5eUdYdjhQekFld2EtWmljN3hhU2NwVkxac0lHVkxLaF9BYjhWZzgwdTY1Sk9oQU9IU3hzcjZYcFNjV25OdXNGc282Ui1Ea3ZSSTJRTzhpTHRaZWx1SUVCdGYzUlJhTjEwVGJPM0VGY3A3RkFQNG5aRmpQeEhJcWpLa3BOT2hLc0RRR3VYV1QyV1NMQW5nbTVIb2l0bG5URFHSAbYBQVVfeXFMTjY5YU1xakV1Y2JIODFOT1g3a2lXT09ZSUlVV2xuQnJqY2Izdm1xRGZsYnQ0VVdKMkVlZEtMdENiVUF3TWNOWmhISkNFQkt5MnFYcDNoQzRNX1RaWFF3SUI3X3JrZFdidkZUc0tWYVN6V0tiajZVSm4wSzlfUzhKRDFZYXRlSjRfMzVVZDBSNk1mN0xCLTNockc5VFh5b3Z1dTJVc1RqSmRpQjBGb0dYN2lrZ1ZzRHc?oc=5)
 
 ---
 
-## 📌 Other Notable News
+### AI Infrastructure Debt Piles Up as Nvidia Raises $500B
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | briefs.co |
+
+**Summary:** AI Infrastructure Debt Piles Up as Nvidia Raises $500B  briefs.co
+
+**URL:** [https://news.google.com/rss/articles/CBMikgFBVV95cUxNNkZUWkJXY2gwbDZiZUJWSkVEZTFJWTlaZ0xXcFFOekNPc3VVSTVtbHV3aS1rcWVBejJLQ251NkZhTjFEZ0Vqd0ZrSXZsN3lXdFprSDFfblFOckFEWk85Nmg1V2ZEQkJja3EwOVUzYmJWVExNVU1uVlFwZ1o4VGt5T2pseG5hZWo3SzItUUlUemNsUQ?oc=5](https://news.google.com/rss/articles/CBMikgFBVV95cUxNNkZUWkJXY2gwbDZiZUJWSkVEZTFJWTlaZ0xXcFFOekNPc3VVSTVtbHV3aS1rcWVBejJLQ251NkZhTjFEZ0Vqd0ZrSXZsN3lXdFprSDFfblFOckFEWk85Nmg1V2ZEQkJja3EwOVUzYmJWVExNVU1uVlFwZ1o4VGt5T2pseG5hZWo3SzItUUlUemNsUQ?oc=5)
+
+---
+
+### UC introduces AI Buddy Program for staff amid learning, privacy concerns
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Daily Bruin |
+
+**Summary:** UC introduces AI Buddy Program for staff amid learning, privacy concerns  Daily Bruin
+
+**URL:** [https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdTl1ZlN2dWE2VDgzM2lGOVZWWWlzYmw5UWp4cmlzNkhjcXBLaVNxdWJ6VXJ0T3dtZkJNOWZKQ2RlWUJmTk1keGNyZmY3dzAzT1hfcnFCY0Npanhfb0xFajFCeFN5TUJ6MEtUTG1JLXpkR0lLSXk3SDhPTUx0WDhzUFI1Y0lpaDVNaVZIUUxtX3Z4NDhzRmY5NUhzelRiNGFScTdybjNsN0NrUQ?oc=5](https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdTl1ZlN2dWE2VDgzM2lGOVZWWWlzYmw5UWp4cmlzNkhjcXBLaVNxdWJ6VXJ0T3dtZkJNOWZKQ2RlWUJmTk1keGNyZmY3dzAzT1hfcnFCY0Npanhfb0xFajFCeFN5TUJ6MEtUTG1JLXpkR0lLSXk3SDhPTUx0WDhzUFI1Y0lpaDVNaVZIUUxtX3Z4NDhzRmY5NUhzelRiNGFScTdybjNsN0NrUQ?oc=5)
+
+---
+
+### How scammers use artificial intelligence to target you
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | fox13memphis.com |
+
+**Summary:** How scammers use artificial intelligence to target you  fox13memphis.com
+
+**URL:** [https://news.google.com/rss/articles/CBMi1AFBVV95cUxPck1tT0lDLVFQeXRHQjJScU8wN2xHNWl6SEFiQk8tcU9JMTZ1dHhObUxHbWRHLUs5YmZUM1hXaVJIaVF3cEdVTW1ENUJEVjExdWRvVWZFcmJud1ZQRkxqWl9LQWpSdVhFS0ZpdzV2WFFBT2VvZkQ1aDZXNWh1bnoxdlRGc2g4MGVodGtXSUJNNmlORGoxV1Bnblk1UjhxcXEzbWVBV0ZMOXJmbFBXeWxBOVMtWU4wSjY5cXpoUjBEcXByaU51eGlZWTNmeUhoTnJHQ2ZxZQ?oc=5](https://news.google.com/rss/articles/CBMi1AFBVV95cUxPck1tT0lDLVFQeXRHQjJScU8wN2xHNWl6SEFiQk8tcU9JMTZ1dHhObUxHbWRHLUs5YmZUM1hXaVJIaVF3cEdVTW1ENUJEVjExdWRvVWZFcmJud1ZQRkxqWl9LQWpSdVhFS0ZpdzV2WFFBT2VvZkQ1aDZXNWh1bnoxdlRGc2g4MGVodGtXSUJNNmlORGoxV1Bnblk1UjhxcXEzbWVBV0ZMOXJmbFBXeWxBOVMtWU4wSjY5cXpoUjBEcXByaU51eGlZWTNmeUhoTnJHQ2ZxZQ?oc=5)
+
+---
+
+### Artificial intelligence or artificial scarcity?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Revolutionary Communist Party |
+
+**Summary:** Artificial intelligence or artificial scarcity?  Revolutionary Communist Party
+
+**URL:** [https://news.google.com/rss/articles/CBMieEFVX3lxTE1NX3U3aFgtdzdyZThidHIzbmtROGNTbGJGdGg5bmVwVVpmaFRXdzY3cGhraG5sM2VtZmVDeVplM2o2RmJQWTBTdzVTT1J1MXJpTTBxMEticlNWenRCeUkxaWxiNnJFS1NTZzd4SENINHA3bk5lZjd2bw?oc=5](https://news.google.com/rss/articles/CBMieEFVX3lxTE1NX3U3aFgtdzdyZThidHIzbmtROGNTbGJGdGg5bmVwVVpmaFRXdzY3cGhraG5sM2VtZmVDeVplM2o2RmJQWTBTdzVTT1J1MXJpTTBxMEticlNWenRCeUkxaWxiNnJFS1NTZzd4SENINHA3bk5lZjd2bw?oc=5)
+
+---
 
 ### SK Hynix vs. Monday.com: Which Technology Stock Is a Better Buy in 2026 Amid the Artificial Intelligence Boom?
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | fool.com |
 
@@ -5755,7 +5755,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1h ago) |
+| **Date** | August 14, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | pymnts.com |
 
@@ -5770,7 +5770,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | BBC |
 
@@ -5785,7 +5785,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | WKMG |
 
@@ -5800,7 +5800,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5815,7 +5815,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | Radiology Business |
 
@@ -5830,7 +5830,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | Trend Hunter |
 
@@ -5845,7 +5845,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Epstein Becker Green |
 
@@ -5860,7 +5860,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Interconnects AI |
 
@@ -5875,7 +5875,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Wired AI |
 
@@ -5890,7 +5890,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | UNESCO |
 
@@ -5905,7 +5905,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (4h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | The Christian Science Monitor |
 
@@ -5920,7 +5920,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Providence Business News |
 
@@ -5935,7 +5935,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Communications of the ACM |
 
@@ -5957,7 +5957,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -5979,7 +5979,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -5994,7 +5994,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -6009,7 +6009,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -6024,7 +6024,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -6039,7 +6039,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -6054,7 +6054,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -6069,7 +6069,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -6079,12 +6079,27 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
+### Howard University College of Engineering and Architecture Expands STEM Pathways with Transformative Summer AI and Robotics Programs
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (8h ago) |
+| **Category** | 📌 other |
+| **Author** | The Dig at Howard University |
+
+**Summary:** Howard University College of Engineering and Architecture Expands STEM Pathways with Transformative Summer AI and Robotics Programs  The Dig at Howard University
+
+**URL:** [https://news.google.com/rss/articles/CBMi0gFBVV95cUxNdy1COWJtQ1p4aWE1ZXkzMFl0SE9VUllZQm9oSHNfdFgyc0NXTV9URmJRVWxCMzlsTGx4T25pelhmZXI5a1RNMXgxb1RPa1ptOE5qRmpncVJla1B0LVdnNEJMVE1EdE1UQUZtZHVQUHlkajJrdmczWUtrYU9ZRlh2dlAxRmZDSkZnME5RWkNGRmFQOWwwbDh0ZERtY3o4NWtUU3luYW9pWjVqVmNJbHZJWm1meGY2OUw5dHdPVUU4Qlk5NjZBa09zcTVVN1NCcU5qVVE?oc=5](https://news.google.com/rss/articles/CBMi0gFBVV95cUxNdy1COWJtQ1p4aWE1ZXkzMFl0SE9VUllZQm9oSHNfdFgyc0NXTV9URmJRVWxCMzlsTGx4T25pelhmZXI5a1RNMXgxb1RPa1ptOE5qRmpncVJla1B0LVdnNEJMVE1EdE1UQUZtZHVQUHlkajJrdmczWUtrYU9ZRlh2dlAxRmZDSkZnME5RWkNGRmFQOWwwbDh0ZERtY3o4NWtUU3luYW9pWjVqVmNJbHZJWm1meGY2OUw5dHdPVUU4Qlk5NjZBa09zcTVVN1NCcU5qVVE?oc=5)
+
+---
+
 ### Like it or not, AI psycho-oncology care is already happening. Urgently needed: An ethical framework Developers and mental health providers must share the same goal: Safe, equitable, trustworthy, an...
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (5h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | The Cancer Letter |
 
@@ -6099,7 +6114,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -6114,7 +6129,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -6129,7 +6144,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (6h ago) |
+| **Date** | August 14, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | AccuWeather |
 
@@ -6144,7 +6159,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Jimmc414 |
 
@@ -6159,7 +6174,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Insider |
 
@@ -6174,7 +6189,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (8h ago) |
+| **Date** | August 14, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | unr.edu |
 
@@ -6189,7 +6204,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (9h ago) |
+| **Date** | August 14, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Insider |
 
@@ -6204,7 +6219,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (10h ago) |
+| **Date** | August 14, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Public Books |
 
@@ -6219,7 +6234,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -6234,7 +6249,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | HR Executive |
 
@@ -6249,7 +6264,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (12h ago) |
+| **Date** | August 14, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -6264,7 +6279,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (20h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Devdiscourse |
 
@@ -6279,7 +6294,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (22h ago) |
+| **Date** | August 14, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | latchkey |
 
@@ -7262,7 +7277,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Engelsberg Ideas |
 
@@ -7277,7 +7292,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The Futurum Group |
 
@@ -7292,7 +7307,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The New York Times |
 
@@ -7307,7 +7322,7 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (1d ago) |
+| **Date** | August 13, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | 디지털투데이 |
 
@@ -7602,21 +7617,6 @@ Microsoft is finally beginning to combine its consumer and commercial Copilot AI
 
 ---
 
-### EXCLUSIVE: Inside the Google executive moves that led to its big AI reshuffle
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 12, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Reuters |
-
-**Summary:** EXCLUSIVE: Inside the Google executive moves that led to its big AI reshuffle  Reuters
-
-**URL:** [https://news.google.com/rss/articles/CBMiowFBVV95cUxOSU94aktXTlJLQ3ppVXlTTWcyZVhBNU9oT09IMXQ2UG1IenF5ZjBPemNWdDZJVFFuNk45N3VnWW8wUzhMaU1pNkQ1UXU1SnJJWFNxM29MQkFyQmp1Qy1sbE5aX3lZQ2JOX0taWW90WFpGRTFuUXI5TDRpN0FlVmItb196ZHlMMlU2VWNCLUxNa19GOXkzanZLdGM5My1CWXhLMU9B?oc=5](https://news.google.com/rss/articles/CBMiowFBVV95cUxOSU94aktXTlJLQ3ppVXlTTWcyZVhBNU9oT09IMXQ2UG1IenF5ZjBPemNWdDZJVFFuNk45N3VnWW8wUzhMaU1pNkQ1UXU1SnJJWFNxM29MQkFyQmp1Qy1sbE5aX3lZQ2JOX0taWW90WFpGRTFuUXI5TDRpN0FlVmItb196ZHlMMlU2VWNCLUxNa19GOXkzanZLdGM5My1CWXhLMU9B?oc=5)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7632,4 +7632,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-15T01:11:25.271Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-15T04:30:22.100Z by AI Pulse Knowledge Base Generator*
