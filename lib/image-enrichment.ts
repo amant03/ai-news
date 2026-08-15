@@ -174,8 +174,8 @@ function matchEntity(text: string): string | undefined {
 /*  Public API                                                        */
 /* ------------------------------------------------------------------ */
 
-const CONCURRENCY = 8;
-const FETCH_TIMEOUT = 6000;
+const CONCURRENCY = 20;
+const FETCH_TIMEOUT = 4000;
 
 /**
  * Enrich items that are missing an image_url.
@@ -184,7 +184,12 @@ const FETCH_TIMEOUT = 6000;
  * - Mutates items in-place (sets `image_url`).
  */
 export async function enrichImages(items: NewsItem[]): Promise<{ fetched: number; entity: number; failed: number }> {
-  const needEnrichment = items.filter(i => !i.image_url || !isValidImageUrl(i.image_url));
+  const needEnrichment = items.filter(i => {
+    if (i.image_url && isValidImageUrl(i.image_url)) return false;
+    // Skip Google News redirect URLs — they won't resolve to article pages
+    if (i.url && /news\.google\.com/i.test(i.url)) return false;
+    return true;
+  });
   console.log(`🖼️  Enriching images for ${needEnrichment.length}/${items.length} items (concurrency=${CONCURRENCY})…`);
 
   let fetched = 0;

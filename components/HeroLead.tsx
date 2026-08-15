@@ -48,7 +48,7 @@ function LeadStory({ item }: { item: NewsItem }) {
   const color = CATEGORY_COLOR[item.category] || '#94a3b8';
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--card)] panel-hover animate-fade-up h-full">
-      <a href={item.url} target="_blank" rel="noopener noreferrer" className="relative block h-64 sm:h-80 flex-shrink-0">
+      <a href={item.url} target="_blank" rel="noopener noreferrer" className="relative block h-52 sm:h-64 flex-shrink-0">
         <CoverImage item={item} variant="hero" showCaption className="absolute inset-0" />
         <span
           className="absolute top-3 left-3 z-10 text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-md bg-black/50"
@@ -84,8 +84,8 @@ function LeadStory({ item }: { item: NewsItem }) {
 function SecondaryStory({ item, rank }: { item: NewsItem; rank: number }) {
   const color = CATEGORY_COLOR[item.category] || '#94a3b8';
   return (
-    <article className="group flex gap-4 p-4 animate-fade-up">
-      <span className="font-display font-semibold text-2xl text-[var(--dim)]/60 flex-shrink-0 pt-0.5 select-none tabular-nums">
+    <article className="group flex gap-3 p-3 animate-fade-up">
+      <span className="font-display font-semibold text-xl text-[var(--dim)]/60 flex-shrink-0 pt-0.5 select-none tabular-nums">
         {String(rank).padStart(2, '0')}
       </span>
       <div className="min-w-0 flex-1">
@@ -98,7 +98,7 @@ function SecondaryStory({ item, rank }: { item: NewsItem; rank: number }) {
           </span>
           <span className="text-[10px] font-mono text-[var(--dim)]">· {timeAgo(item.published_at)}</span>
         </div>
-        <h3 className="font-display font-medium text-lg leading-snug tracking-tight">
+        <h3 className="font-display font-medium text-[15px] leading-snug tracking-tight">
           <a
             href={item.url}
             target="_blank"
@@ -120,26 +120,31 @@ function SecondaryStory({ item, rank }: { item: NewsItem; rank: number }) {
 function MiniStory({ item, rank }: { item: NewsItem; rank: number }) {
   const color = CATEGORY_COLOR[item.category] || '#94a3b8';
   return (
-    <article className="group flex flex-col rounded-2xl border border-[var(--color-line)] bg-[var(--card)] p-3 panel-hover animate-fade-up">
-      <div className="flex items-center gap-2 mb-1.5">
-        <span className="font-mono text-[10px] text-[var(--dim)] tabular-nums">{String(rank).padStart(2, '0')}</span>
-        <span className="text-[9px] font-semibold uppercase tracking-widest" style={{ color }}>
-          {CATEGORY_LABEL[item.category] || item.category}
-        </span>
+    <article className="group flex flex-col rounded-2xl border border-[var(--color-line)] bg-[var(--card)] overflow-hidden panel-hover animate-fade-up">
+      {/* Thumbnail */}
+      <div className="relative h-24 flex-shrink-0 overflow-hidden">
+        <CoverImage item={item} variant="thumb" className="absolute inset-0" />
       </div>
-      <a
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[13px] font-medium leading-snug text-[var(--fore)] line-clamp-3 group-hover:text-[var(--accent)] transition-colors"
-      >
-        {item.title}
-      </a>
-      <div className="mt-auto pt-2 flex items-center gap-2 text-[9px] font-mono text-[var(--dim)]">
-        <span className="truncate text-[var(--mut)]">{item.source_label || item.source}</span>
-        <span aria-hidden>·</span>
-        <span className="flex-shrink-0">{timeAgo(item.published_at)}</span>
-        <StoryMetrics item={item} className="ml-auto" />
+      <div className="p-2.5 flex flex-col flex-1 min-h-0">
+        <div className="flex items-center gap-1.5 mb-1">
+          <span className="font-mono text-[9px] text-[var(--dim)] tabular-nums">{String(rank).padStart(2, '0')}</span>
+          <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color }}>
+            {CATEGORY_LABEL[item.category] || item.category}
+          </span>
+        </div>
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[12px] font-medium leading-snug text-[var(--fore)] line-clamp-2 group-hover:text-[var(--accent)] transition-colors"
+        >
+          {item.title}
+        </a>
+        <div className="mt-auto pt-1.5 flex items-center gap-1.5 text-[8px] font-mono text-[var(--dim)]">
+          <span className="truncate text-[var(--mut)]">{item.source_label || item.source}</span>
+          <span aria-hidden>·</span>
+          <span className="flex-shrink-0">{timeAgo(item.published_at)}</span>
+        </div>
       </div>
     </article>
   );
