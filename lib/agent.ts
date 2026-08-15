@@ -13,6 +13,7 @@ import { fetchYouTube } from './youtube';
 import { fetchGitHub } from './github';
 import { fetchTwitterTimeline } from './twitter';
 import { scrapeWebSources } from './web-scraper';
+import { enrichImages } from './image-enrichment';
 
 interface SourceSpec {
   key: string;
@@ -106,6 +107,14 @@ export async function runAgent(options?: {
   }
 
   console.log(`\n📊 Total fetched: ${allItems.length} items`);
+
+  // Enrich images: fetch og:image from article URLs, fall back to company/founder photos.
+  try {
+    const imgResult = await enrichImages(allItems);
+    console.log(`   Images: ${imgResult.fetched} og:image + ${imgResult.entity} entity fallback, ${imgResult.failed} still missing`);
+  } catch (err) {
+    console.log(`   Image enrichment skipped: ${err instanceof Error ? err.message : err}`);
+  }
 
   // Enrich summaries/categories (Ollama when available, else keyword fallback).
   let enriched = 0;

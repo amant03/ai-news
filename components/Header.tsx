@@ -14,10 +14,11 @@ interface HeaderProps {
 }
 
 const NAV = [
-  { href: '#top', label: 'News' },
-  { href: '#model-watch', label: 'Models' },
-  { href: '#trends', label: 'AI Trends' },
-  { href: '#daily-trends', label: 'Daily Trends' },
+  { href: '/', label: 'News' },
+  { href: '/models', label: 'Models' },
+  { href: '/image', label: 'Image' },
+  { href: '/trends', label: 'AI Trends' },
+  { href: '/leaderboards', label: 'Leaderboards' },
 ];
 
 /**
@@ -42,21 +43,11 @@ export default function Header({
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Highlight the nav item for the section currently in view.
+  // Highlight the nav item for the current route.
   useEffect(() => {
-    const ids = NAV.map(n => n.href.slice(1));
-    const onScroll = () => {
-      const probe = window.scrollY + window.innerHeight * 0.35;
-      let current = '#top';
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= probe) current = `#${id}`;
-      }
-      setActive(current);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const path = window.location.pathname;
+    const match = NAV.find(n => n.href === path);
+    setActive(match ? match.href : '#top');
   }, []);
 
   const refreshIn = nextRefreshAt ? countdown(nextRefreshAt) : '…';
@@ -66,10 +57,10 @@ export default function Header({
       className="sticky top-0 z-50 border-b border-[var(--color-line)] backdrop-blur-xl"
       style={{ background: 'var(--header-bg)' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 py-2.5">
           {/* Brand mark — top left */}
-          <a href="#top" className="flex items-center gap-2.5 group min-w-0" aria-label="AI Pulse home">
+          <a href="/" className="flex items-center gap-2.5 group min-w-0" aria-label="AI Pulse home">
             <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--accent)]/20 to-[var(--violet)]/20 border border-[var(--accent)]/30">
               <span className="text-[var(--accent)] font-display font-bold text-sm tracking-tight">AI</span>
               <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[var(--ok)] animate-pulse" />
