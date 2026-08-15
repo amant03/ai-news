@@ -24,9 +24,7 @@ function BarChart({
   items: { label: string; provider: string; value: number; display: string }[];
   valueLabel: string;
 }) {
-  // Log scale: bar width proportional to log(value+1) for better visual spread
-  const logValues = items.map(i => Math.log10(i.value + 1));
-  const maxLog = Math.max(...logValues);
+  const max = Math.max(...items.map(i => i.value));
 
   return (
     <div className="border border-[var(--color-line)] rounded-lg p-5 flex-1 min-w-[280px]">
@@ -36,8 +34,7 @@ function BarChart({
       </div>
       <div className="flex flex-col gap-2.5">
         {items.map((item, idx) => {
-          const logVal = Math.log10(item.value + 1);
-          const pct = (logVal / maxLog) * 100;
+          const pct = (Math.pow(item.value, 1.5) / Math.pow(max, 1.5)) * 100;
           return (
             <div key={idx} className="flex flex-col gap-1">
               <div className="flex items-center gap-2.5">
