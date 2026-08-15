@@ -14,6 +14,8 @@ import { fetchGitHub } from './github';
 import { fetchTwitterTimeline } from './twitter';
 import { scrapeWebSources } from './web-scraper';
 import { enrichImages } from './image-enrichment';
+import { fetchAAData, mergeAAIntoModels } from './aa-scraper';
+import { readModelDatabase, writeModelDatabase } from './model-registry';
 
 interface SourceSpec {
   key: string;
@@ -207,6 +209,30 @@ export async function runAgent(options?: {
     }
   } catch (error) {
     console.log(`   Model DB refresh skipped: ${error instanceof Error ? error.message : error}`);
+  }
+
+  // Artificial Analysis: enrich model data with intelligence scores, speed, cost.
+  try {
+    const aaData = await fetchAAData();
+    if (aaData.length > 0) {
+      const db = readModelDatabase();
+      if (db) {
+        const { updated, added } = mergeAAIntoModels(db.models as unknown as Array<Record<string, unknown>>, aaData);
+        db.updatedAt = new Date().toISOString();
+        if (!db.sources.includes('aa')) db.sources.push('aa');
+        writeModelDatabase(db);
+        console.log(`   [aa] Merged AA data: ${updated} updated, ${added} new models`);
+        if (hasPg()) {
+          try {
+            await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
+          } catch (error) {
+            console.log(`   [pg] AA model mirror skipped: ${error instanceof Error ? error.message : error}`);
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(`   AA enrichment skipped: ${error instanceof Error ? error.message : error}`);
   }
 
   const durationMs = Date.now() - start;

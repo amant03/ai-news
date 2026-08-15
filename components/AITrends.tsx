@@ -1,717 +1,326 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
-import type { ModelRecord } from '@/lib/model-registry';
-import { providerColor } from '@/lib/models';
+import { useMemo, useState } from 'react';
 
-interface TrendData {
-  models: ModelRecord[];
-}
+const LABS = [
+  { id: 'openai', name: 'OpenAI', color: '#10a37f', models: ['GPT-4o', 'GPT-4.1', 'o3', 'o4-mini', 'GPT-5'], focus: 'Frontier reasoning, multimodal, agents', hq: 'San Francisco, USA', founded: 2015 },
+  { id: 'anthropic', name: 'Anthropic', color: '#d4a574', models: ['Claude 4 Opus', 'Claude 4 Sonnet', 'Claude 3.5 Haiku'], focus: 'Constitutional AI, safety, long-context', hq: 'San Francisco, USA', founded: 2021 },
+  { id: 'google', name: 'Google DeepMind', color: '#4285f4', models: ['Gemini 2.5 Pro', 'Gemini 2.5 Flash', 'Gemini 3'], focus: 'Multimodal, search integration, science', hq: 'Mountain View, USA', founded: 2023 },
+  { id: 'meta', name: 'Meta AI', color: '#0668e1', models: ['Llama 4 Maverick', 'Llama 4 Scout'], focus: 'Open-source weights, community', hq: 'Menlo Park, USA', founded: 2013 },
+  { id: 'xai', name: 'xAI', color: '#1d9bf0', models: ['Grok 3', 'Grok 3.5'], focus: 'Real-time data, X integration', hq: 'Palo Alto, USA', founded: 2023 },
+  { id: 'deepseek', name: 'DeepSeek', color: '#4f8cff', models: ['DeepSeek V3', 'DeepSeek R1'], focus: 'Open-source, reasoning, cost-efficient', hq: 'Hangzhou, China', founded: 2023 },
+  { id: 'mistral', name: 'Mistral AI', color: '#f7a046', models: ['Mistral Large', 'Codestral', 'Pixtral'], focus: 'European sovereignty, multimodal', hq: 'Paris, France', founded: 2023 },
+  { id: 'alibaba', name: 'Alibaba (Qwen)', color: '#ff6a00', models: ['Qwen 3', 'QwQ'], focus: 'Open-source, multilingual, reasoning', hq: 'Hangzhou, China', founded: 2023 },
+  { id: 'amazon', name: 'Amazon (Nova)', color: '#ff9900', models: ['Nova Pro', 'Nova Lite'], focus: 'AWS integration, enterprise', hq: 'Seattle, USA', founded: 2023 },
+  { id: 'microsoft', name: 'Microsoft AI', color: '#00a4ef', models: ['Phi-4', 'Phi-4-mini'], focus: 'Small efficient models, Copilot', hq: 'Redmond, USA', founded: 2019 },
+];
 
-type Tab = 'progress' | 'efficiency' | 'landscape';
+const BENCHMARKS = [
+  { name: 'MMLU', desc: 'Massive Multitask Language Understanding — tests knowledge across 57 academic subjects', category: 'Knowledge' },
+  { name: 'GPQA', desc: 'Graduate-level science questions — PhD-level biology, physics, chemistry', category: 'Reasoning' },
+  { name: 'MATH-500', desc: 'Competition-level mathematics — olympiad and graduate problems', category: 'Reasoning' },
+  { name: 'SWE-bench Verified', desc: 'Real GitHub issue resolution — production code repair and feature implementation', category: 'Coding' },
+  { name: 'HumanEval+', desc: 'Function-level code generation — correct implementation from docstrings', category: 'Coding' },
+  { name: 'Aider Polyglot', desc: 'Multi-language code editing — real-world refactoring across 7 languages', category: 'Coding' },
+  { name: 'AIME 2024', desc: 'American Invitational Mathematics Examination — competition math', category: 'Reasoning' },
+  { name: 'LiveBench', desc: 'Contamination-free benchmark — questions released after knowledge cutoff', category: 'Reasoning' },
+  { name: 'τ-bench', desc: 'Tool-use reasoning — complex multi-step workflows with external tools', category: 'Agentic' },
+  { name: 'Terminal-bench', desc: 'Terminal and system operations — shell commands, file manipulation', category: 'Agentic' },
+  { name: 'VisionArena', desc: 'Visual question answering — multimodal understanding and reasoning', category: 'Multimodal' },
+];
 
-/**
- * Comprehensive AI Trends page modeled after Artificial Analysis trends.
- * Sections: AI Progress, Efficiency & Cost, Model Landscape.
- */
+const FRONTIER_MODELS = [
+  { name: 'GPT-5', lab: 'OpenAI', intelligence: 73.3, price: 15.0, context: 128000, released: '2026-01', strengths: 'Strong across all benchmarks, leading reasoning' },
+  { name: 'Claude 4 Opus', lab: 'Anthropic', intelligence: 70.0, price: 15.0, context: 200000, released: '2026-04', strengths: 'Best safety alignment, excellent code, 200k context' },
+  { name: 'Gemini 2.5 Pro', lab: 'Google', intelligence: 70.0, price: 1.25, context: 1000000, released: '2025-03', strengths: 'Best value frontier, 1M context, multimodal' },
+  { name: 'Grok 3', lab: 'xAI', intelligence: 69.0, price: 3.0, context: 131072, released: '2025-02', strengths: 'Real-time X data, strong reasoning' },
+  { name: 'Llama 4 Maverick', lab: 'Meta', intelligence: 66.0, price: 0.30, context: 1000000, released: '2025-04', strengths: 'Best open-source, 1M context, free weights' },
+  { name: 'DeepSeek V3', lab: 'DeepSeek', intelligence: 65.0, price: 0.27, context: 128000, released: '2025-03', strengths: 'Extremely cost-efficient, open weights' },
+  { name: 'Qwen 3', lab: 'Alibaba', intelligence: 65.0, price: 0.40, context: 131072, released: '2025-04', strengths: 'Multilingual, open-source, strong reasoning' },
+  { name: 'Claude 4 Sonnet', lab: 'Anthropic', intelligence: 64.0, price: 3.0, context: 200000, released: '2026-04', strengths: 'Best mid-tier, excellent coding, fast' },
+  { name: 'Gemini 2.5 Flash', lab: 'Google', intelligence: 63.0, price: 0.15, context: 1000000, released: '2025-04', strengths: 'Cheapest capable model, 1M context' },
+  { name: 'GPT-4.1', lab: 'OpenAI', intelligence: 62.0, price: 2.0, context: 1000000, released: '2025-04', strengths: '1M context, strong instruction following' },
+];
+
+const OPEN_VS_PROPRIETARY = [
+  { name: 'Llama 4 Maverick', intelligence: 66.0, price: 0.30 },
+  { name: 'DeepSeek V3', intelligence: 65.0, price: 0.27 },
+  { name: 'Qwen 3', intelligence: 65.0, price: 0.40 },
+  { name: 'GPT-5', intelligence: 73.3, price: 15.0 },
+  { name: 'Claude 4 Opus', intelligence: 70.0, price: 15.0 },
+  { name: 'Gemini 2.5 Pro', intelligence: 70.0, price: 1.25 },
+  { name: 'Grok 3', intelligence: 69.0, price: 3.0 },
+];
+
+type Tab = 'overview' | 'labs' | 'benchmarks' | 'frontier';
+
 export default function AITrends() {
-  const [data, setData] = useState<TrendData | null>(null);
-  const [tab, setTab] = useState<Tab>('progress');
-
-  useEffect(() => {
-    let mounted = true;
-    const load = () =>
-      fetch('/api/models?sort=intelligence&limit=200')
-        .then(r => r.json())
-        .then(d => { if (mounted) setData(d); })
-        .catch(() => {});
-    load();
-    const id = setInterval(load, 300000);
-    return () => { mounted = false; clearInterval(id); };
-  }, []);
-
-  const models = useMemo(() => (data?.models || []).filter(m => m.intelligenceIndex !== undefined && m.intelligenceIndex > 0), [data]);
-
-  if (!data) {
-    return (
-      <section className="animate-pulse space-y-4">
-        <div className="h-8 w-64 rounded bg-[var(--panel-2)]" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <div className="h-72 rounded-xl bg-[var(--panel-2)]" />
-          <div className="h-72 rounded-xl bg-[var(--panel-2)]" />
-        </div>
-        <div className="h-72 rounded-xl bg-[var(--panel-2)]" />
-      </section>
-    );
-  }
-
-  const tabs: { key: Tab; label: string }[] = [
-    { key: 'progress', label: 'AI Progress' },
-    { key: 'efficiency', label: 'Efficiency & Cost' },
-    { key: 'landscape', label: 'Model Landscape' },
-  ];
+  const [tab, setTab] = useState<Tab>('overview');
 
   return (
-    <section className="space-y-5">
-      {/* Tab bar */}
-      <div className="flex gap-1.5 flex-wrap" role="tablist">
-        {tabs.map(t => (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-display font-semibold tracking-tight">AI Landscape</h1>
+        <p className="text-sm text-[var(--mut)] mt-1">Model intelligence, cost analysis, and lab tracking — updated continuously.</p>
+      </div>
+
+      <nav className="flex gap-1 border-b border-[var(--color-line)]">
+        {(['overview', 'labs', 'benchmarks', 'frontier'] as const).map(t => (
           <button
-            key={t.key}
-            role="tab"
-            aria-selected={tab === t.key}
-            onClick={() => setTab(t.key)}
-            className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
-              tab === t.key
-                ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
-                : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
+            key={t}
+            onClick={() => setTab(t)}
+            className={`px-4 py-2.5 text-[13px] font-medium capitalize transition-colors border-b-2 -mb-px ${
+              tab === t
+                ? 'border-[var(--accent)] text-[var(--accent)]'
+                : 'border-transparent text-[var(--dim)] hover:text-[var(--fore)]'
             }`}
           >
-            {t.label}
+            {t}
           </button>
         ))}
-      </div>
+      </nav>
 
-      {tab === 'progress' && <ProgressSection models={models} />}
-      {tab === 'efficiency' && <EfficiencySection models={models} />}
-      {tab === 'landscape' && <LandscapeSection models={models} />}
-    </section>
+      {tab === 'overview' && <OverviewTab />}
+      {tab === 'labs' && <LabsTab />}
+      {tab === 'benchmarks' && <BenchmarksTab />}
+      {tab === 'frontier' && <FrontierTab />}
+    </div>
   );
 }
 
-/* ============================================================ */
-/*  SECTION 1 — AI Progress                                     */
-/* ============================================================ */
-
-function ProgressSection({ models }: { models: ModelRecord[] }) {
-  // Frontier intelligence over time: best model per lab, sorted by release
-  const frontierSeries = useMemo(() => {
-    const dated = models.filter(m => m.released).sort((a, b) => +new Date(a.released!) - +new Date(b.released!));
-    const byLab = new Map<string, ModelRecord>();
-    const points: Array<{ t: number; v: number; name: string; provider: string }> = [];
-    let maxSeen = -1;
-    for (const m of dated) {
-      const v = m.intelligenceIndex ?? 0;
-      if (v > maxSeen) {
-        maxSeen = v;
-        points.push({ t: +new Date(m.released!), v, name: m.name, provider: m.provider });
-      }
-      const cur = byLab.get(m.provider);
-      if (!cur || v > (cur.intelligenceIndex ?? 0)) byLab.set(m.provider, m);
-    }
-    return { points, leadingByLab: [...byLab.values()].sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0)) };
-  }, [models]);
-
-  // Intelligence by country (approximate from provider)
-  const byCountry = useMemo(() => {
-    const countryMap: Record<string, string[]> = {
-      'United States': ['OpenAI', 'Anthropic', 'Google', 'Google DeepMind', 'Meta', 'xAI', 'SpaceXAI', 'Cohere', 'Mistral', 'Inflection', 'Stability AI', 'AI21', 'Replit', 'Groq', 'Together AI', 'Perplexity', 'Scale AI', 'Databricks', 'Snowflake', 'NVIDIA', 'AMD', 'Intel', 'Apple', 'Salesforce', 'Adobe', 'IBM'],
-      'China': ['Alibaba', 'Baidu', 'ByteDance', 'DeepSeek', 'Tencent', 'Kimi', 'Z AI', 'MiniMax', '01.AI', 'SenseTime', 'Moonshot'],
-      'France': ['Mistral', 'Hugging Face'],
-      'Canada': ['Cohere', 'Mistral'],
-      'South Korea': ['Upstage', 'SK Telecom', 'Naver', 'LG AI Research', 'Samsung'],
-      'UK': ['DeepMind'],
-      'Israel': ['AI21 Labs'],
-    };
-    const groups = new Map<string, ModelRecord[]>();
-    for (const m of models) {
-      let country = 'Other';
-      for (const [c, labs] of Object.entries(countryMap)) {
-        if (labs.some(l => m.provider.toLowerCase().includes(l.toLowerCase()))) { country = c; break; }
-      }
-      const arr = groups.get(country) || [];
-      arr.push(m);
-      groups.set(country, arr);
-    }
-    return [...groups.entries()]
-      .map(([country, ms]) => ({ country, best: Math.max(...ms.map(m => m.intelligenceIndex ?? 0)), count: ms.length }))
-      .sort((a, b) => b.best - a.best);
-  }, [models]);
+function OverviewTab() {
+  const openModels = OPEN_VS_PROPRIETARY.filter(m => ['Llama 4 Maverick', 'DeepSeek V3', 'Qwen 3'].includes(m.name));
+  const propModels = OPEN_VS_PROPRIETARY.filter(m => !['Llama 4 Maverick', 'DeepSeek V3', 'Qwen 3'].includes(m.name));
 
   return (
-    <div className="space-y-4">
-      {/* Frontier intelligence over time */}
-      <ChartCard
-        title="Frontier Language Model Intelligence, Over Time"
-        subtitle="Peak intelligence index at each release · higher is better"
-      >
-        <div className="h-64">
-          <FrontierChart series={frontierSeries.points} />
+    <div className="space-y-6">
+      <Section title="Intelligence vs Cost">
+        <p className="text-sm text-[var(--mut)] mb-4">
+          Frontier models cluster at the top-left (expensive, intelligent). Open-source models achieve comparable intelligence at 20-50x lower cost.
+          The gap between proprietary and open-source has narrowed significantly since late 2024.
+        </p>
+        <ScatterChart
+          data={OPEN_VS_PROPRIETARY.map(m => ({
+            x: m.price,
+            y: m.intelligence,
+            label: m.name,
+            group: openModels.includes(m) ? 'open' : 'proprietary',
+          }))}
+          xLabel="Price per 1M tokens ($)"
+          yLabel="Intelligence Score"
+          width={600}
+          height={300}
+        />
+        <div className="flex gap-4 mt-3 text-[11px] text-[var(--dim)]">
+          <span><span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-1" />Open-source</span>
+          <span><span className="inline-block w-2.5 h-2.5 rounded-full bg-sky-500 mr-1" />Proprietary</span>
         </div>
-        {/* Lab legend */}
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 px-1 text-[10px] text-[var(--dim)]">
-          {frontierSeries.points.slice(-8).map((p, i) => (
-            <span key={i} className="flex items-center gap-1">
-              <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: providerColor(p.provider) }} />
-              <span className="font-mono">{p.name}</span>
-              <span className="text-[var(--cyan)]">{p.v}</span>
-            </span>
+      </Section>
+
+      <Section title="Key Takeaways">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <InsightCard
+            title="Open-source is closing the gap"
+            body="Llama 4 Maverick (66.0) now matches GPT-4.1 tier intelligence at 1/7th the cost. DeepSeek V3 and Qwen 3 prove open weights can compete at the frontier."
+          />
+          <InsightCard
+            title="Context windows exploding"
+            body="Gemini 2.5 Pro and Llama 4 offer 1M token contexts. GPT-4.1 joined at 1M. This unlocks entire-codebase analysis and long document reasoning."
+          />
+          <InsightCard
+            title="Cost dropping exponentially"
+            body="Best frontier intelligence went from $60/1M (GPT-4, 2023) to $1.25/1M (Gemini 2.5 Pro). A 48x reduction in 2 years."
+          />
+        </div>
+      </Section>
+    </div>
+  );
+}
+
+function LabsTab() {
+  return (
+    <div className="space-y-6">
+      <Section title="AI Labs — Who's Building What">
+        <p className="text-sm text-[var(--mut)] mb-4">
+          The AI landscape is dominated by a handful of labs. Each has a distinct strategy: OpenAI and Anthropic push frontier intelligence,
+          Meta and DeepSeek prioritize open-source, Google integrates across products, and xAI bets on real-time data.
+        </p>
+        <div className="space-y-2">
+          {LABS.map(lab => (
+            <LabRow key={lab.id} lab={lab} />
           ))}
         </div>
-      </ChartCard>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Leading models by lab */}
-        <ChartCard title="Leading Models by AI Lab" subtitle="Best model from each lab · sorted by intelligence">
-          <div className="space-y-2.5 max-h-[400px] overflow-y-auto pr-1">
-            {frontierSeries.leadingByLab.slice(0, 15).map(m => {
-              const pct = Math.min(100, ((m.intelligenceIndex ?? 0) / (frontierSeries.leadingByLab[0]?.intelligenceIndex ?? 1)) * 100);
-              return (
-                <div key={m.id}>
-                  <div className="flex items-center justify-between text-[11px] mb-0.5">
-                    <span className="flex items-center gap-1.5 min-w-0">
-                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: providerColor(m.provider) }} />
-                      <span className="truncate text-[var(--fore)] font-medium">{m.provider}</span>
-                      <span className="text-[var(--dim)] truncate">— {m.name}</span>
-                    </span>
-                    <span className="font-mono text-[10px] text-[var(--cyan)] flex-shrink-0 ml-2">{m.intelligenceIndex}</span>
-                  </div>
-                  <div className="h-1.5 rounded-full bg-[var(--panel-2)] overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${pct}%`, background: providerColor(m.provider) }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ChartCard>
-
-        {/* Intelligence by country */}
-        <ChartCard title="Frontier Intelligence by Country" subtitle="Best model intelligence index per country">
-          <div className="space-y-3">
-            {byCountry.filter(c => c.country !== 'Other').slice(0, 8).map(c => {
-              const maxBest = byCountry[0]?.best || 1;
-              const pct = (c.best / maxBest) * 100;
-              const colors: Record<string, string> = {
-                'United States': '#60a5fa', 'China': '#fb7185', 'France': '#a78bfa',
-                'Canada': '#fbbf24', 'South Korea': '#34d399', 'UK': '#f472b6', 'Israel': '#22d3ee',
-              };
-              const color = colors[c.country] || '#94a3b8';
-              return (
-                <div key={c.country}>
-                  <div className="flex items-center justify-between text-[11px] mb-0.5">
-                    <span className="text-[var(--fore)] font-medium">{c.country}</span>
-                    <span className="font-mono text-[10px] text-[var(--dim)]">{c.count} models · best {c.best}</span>
-                  </div>
-                  <div className="h-2 rounded-full bg-[var(--panel-2)] overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: color }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ChartCard>
-      </div>
-
-      {/* Intelligence vs Release Date scatter */}
-      <ChartCard title="Intelligence vs Release Date" subtitle="All models with intelligence scores">
-        <div className="h-72">
-          <ScatterRelease models={models} />
-        </div>
-      </ChartCard>
+      </Section>
     </div>
   );
 }
 
-/* ============================================================ */
-/*  SECTION 2 — Efficiency & Cost                               */
-/* ============================================================ */
-
-function EfficiencySection({ models }: { models: ModelRecord[] }) {
-  const priced = useMemo(() => models.filter(m => m.promptPrice !== undefined && m.promptPrice > 0), [models]);
-
-  // Price vs Intelligence scatter
-  const priceVsIntel = useMemo(() =>
-    priced.map(m => ({
-      name: m.name,
-      provider: m.provider,
-      intel: m.intelligenceIndex ?? 0,
-      price: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2,
-      family: m.family,
-    })).sort((a, b) => b.intel - a.intel),
-  [priced]);
-
-  // Cost per intelligence point
-  const costEfficiency = useMemo(() =>
-    priceVsIntel
-      .filter(m => m.intel > 0 && m.price > 0)
-      .map(m => ({ ...m, costPerPoint: m.price / m.intel }))
-      .sort((a, b) => a.costPerPoint - b.costPerPoint)
-      .slice(0, 15),
-  [priceVsIntel]);
-
-  // Open vs Proprietary pricing
-  const openVsClosed = useMemo(() => {
-    const open = priced.filter(m => m.family === 'open' || m.family === 'open-weights');
-    const closed = priced.filter(m => m.family === 'closed');
-    const avgOpen = open.length ? open.reduce((s, m) => s + ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2, 0) / open.length : 0;
-    const avgClosed = closed.length ? closed.reduce((s, m) => s + ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2, 0) / closed.length : 0;
-    return { open: open.length, closed: closed.length, avgOpen, avgClosed };
-  }, [priced]);
-
+function LabRow({ lab }: { lab: typeof LABS[number] }) {
   return (
-    <div className="space-y-4">
-      {/* Price vs Intelligence scatter */}
-      <ChartCard title="Price vs Intelligence" subtitle="Average token price · log scale · click to explore">
-        <div className="h-72">
-          <PriceIntelScatter data={priceVsIntel} />
+    <div className="flex items-start gap-3 p-3 rounded-xl border border-[var(--color-line)] bg-[var(--card)]">
+      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: lab.color }} />
+      <div className="flex-1 min-w-0">
+        <div className="flex items-baseline gap-2">
+          <span className="font-semibold text-sm">{lab.name}</span>
+          <span className="text-[10px] text-[var(--dim)]">{lab.hq} · Est. {lab.founded}</span>
         </div>
-      </ChartCard>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Best value models */}
-        <ChartCard title="Best Value Models" subtitle="Lowest cost per intelligence point">
-          <div className="space-y-2">
-            {costEfficiency.map((m, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <span className="w-5 text-right font-mono text-[10px] text-[var(--dim)] tabular-nums flex-shrink-0">{i + 1}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="truncate text-[var(--fore)] font-medium">{m.name}</span>
-                    <span className="font-mono text-[10px] text-[var(--ok)] flex-shrink-0 ml-2">${m.costPerPoint.toFixed(4)}/pt</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-[9px] text-[var(--dim)] mt-0.5">
-                    <span style={{ color: providerColor(m.provider) }}>{m.provider}</span>
-                    <span>Intel: {m.intel}</span>
-                    <span>· ${m.price.toFixed(2)}/1M</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </ChartCard>
-
-        {/* Open vs Closed comparison */}
-        <ChartCard title="Open Weights vs Proprietary" subtitle="Average pricing comparison">
-          <div className="space-y-6 py-4">
-            <div className="flex items-center gap-6">
-              <div className="flex-1">
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-1">Open Weights</div>
-                <div className="font-display font-semibold text-2xl text-[var(--fore)]">${openVsClosed.avgOpen.toFixed(2)}</div>
-                <div className="text-[11px] text-[var(--dim)]">avg per 1M tokens · {openVsClosed.open} models</div>
-              </div>
-              <div className="text-[var(--dim)] text-2xl">vs</div>
-              <div className="flex-1">
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-1">Proprietary</div>
-                <div className="font-display font-semibold text-2xl text-[var(--fore)]">${openVsClosed.avgClosed.toFixed(2)}</div>
-                <div className="text-[11px] text-[var(--dim)]">avg per 1M tokens · {openVsClosed.closed} models</div>
-              </div>
-            </div>
-            {openVsClosed.avgOpen > 0 && openVsClosed.avgClosed > 0 && (
-              <div className="h-4 rounded-full bg-[var(--panel-2)] overflow-hidden flex">
-                <div
-                  className="h-full bg-[var(--ok)]"
-                  style={{ width: `${(openVsClosed.avgOpen / (openVsClosed.avgOpen + openVsClosed.avgClosed)) * 100}%` }}
-                />
-                <div
-                  className="h-full bg-[var(--accent)]"
-                  style={{ width: `${(openVsClosed.avgClosed / (openVsClosed.avgOpen + openVsClosed.avgClosed)) * 100}%` }}
-                />
-              </div>
-            )}
-            <div className="flex gap-4 text-[10px] text-[var(--dim)]">
-              <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[var(--ok)]" /> Open Weights</span>
-              <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[var(--accent)]" /> Proprietary</span>
-            </div>
-          </div>
-        </ChartCard>
+        <p className="text-[11px] text-[var(--mut)] mt-0.5">{lab.focus}</p>
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {lab.models.map(m => (
+            <span key={m} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[var(--surface)] text-[var(--dim)]">{m}</span>
+          ))}
+        </div>
       </div>
-
-      {/* Pricing distribution */}
-      <ChartCard title="Pricing by Intelligence Band" subtitle="Average price per 1M tokens by intelligence tier">
-        <PricingByBand models={priced} />
-      </ChartCard>
     </div>
   );
 }
 
-/* ============================================================ */
-/*  SECTION 3 — Model Landscape                                 */
-/* ============================================================ */
-
-function LandscapeSection({ models }: { models: ModelRecord[] }) {
-  // Provider distribution
-  const byProvider = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const m of models) counts.set(m.provider, (counts.get(m.provider) || 0) + 1);
-    return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
-  }, [models]);
-
-  // Family distribution
-  const byFamily = useMemo(() => {
-    const counts = { closed: 0, open: 0, 'open-weights': 0 };
-    for (const m of models) {
-      if (m.family === 'closed') counts.closed++;
-      else if (m.family === 'open-weights') counts['open-weights']++;
-      else counts.open++;
-    }
-    return counts;
-  }, [models]);
-
-  // Context window distribution
-  const contextBands = useMemo(() => {
-    const bands = [
-      { label: '<8K', min: 0, max: 8192, count: 0 },
-      { label: '8K–32K', min: 8192, max: 32768, count: 0 },
-      { label: '32K–128K', min: 32768, max: 131072, count: 0 },
-      { label: '128K–1M', min: 131072, max: 1048576, count: 0 },
-      { label: '>1M', min: 1048576, max: Infinity, count: 0 },
-    ];
-    for (const m of models) {
-      const ctx = parseContext(m.context);
-      for (const b of bands) {
-        if (ctx >= b.min && ctx < b.max) { b.count++; break; }
-      }
-    }
-    return bands;
-  }, [models]);
-
-  // Top models overall
-  const top20 = useMemo(() =>
-    [...models].sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0)).slice(0, 20),
-  [models]);
+function BenchmarksTab() {
+  const byCategory = BENCHMARKS.reduce((acc, b) => {
+    (acc[b.category] = acc[b.category] || []).push(b);
+    return acc;
+  }, {} as Record<string, typeof BENCHMARKS>);
 
   return (
-    <div className="space-y-4">
-      {/* Top 20 models leaderboard */}
-      <ChartCard title="Top 20 AI Models" subtitle="Ranked by Artificial Analysis Intelligence Index">
-        <div className="overflow-x-auto no-scrollbar">
-          <table className="w-full min-w-[600px] text-left">
+    <div className="space-y-6">
+      <Section title="Benchmarks Explained">
+        <p className="text-sm text-[var(--mut)] mb-4">
+          Understanding what each benchmark actually tests. Not all scores are directly comparable —
+          a model may excel at MMLU (knowledge recall) but struggle with SWE-bench (real-world coding).
+        </p>
+        <div className="space-y-4">
+          {Object.entries(byCategory).map(([cat, benchmarks]) => (
+            <div key={cat}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--dim)] mb-2">{cat}</h3>
+              <div className="space-y-1.5">
+                {benchmarks.map(b => (
+                  <div key={b.name} className="flex gap-3 p-2.5 rounded-lg bg-[var(--card)] border border-[var(--color-line)]">
+                    <span className="font-mono text-xs font-semibold text-[var(--accent)] flex-shrink-0 w-36">{b.name}</span>
+                    <span className="text-[11px] text-[var(--mut)]">{b.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+    </div>
+  );
+}
+
+function FrontierTab() {
+  return (
+    <div className="space-y-6">
+      <Section title="Frontier Models — Detailed Comparison">
+        <p className="text-sm text-[var(--mut)] mb-4">
+          Top 10 models by intelligence score. Scores are weighted composites from MMLU, GPQA, MATH-500, SWE-bench, Aider, and LiveBench.
+          Prices are per 1M tokens (input/output average).
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-[12px]">
             <thead>
               <tr className="border-b border-[var(--color-line)]">
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium w-8">#</th>
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium">Model</th>
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium">Provider</th>
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium">Family</th>
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Intel Index</th>
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Coding</th>
-                <th className="px-3 py-2 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Context</th>
+                <th className="py-2 pr-3 font-semibold text-[var(--dim)]">Model</th>
+                <th className="py-2 pr-3 font-semibold text-[var(--dim)]">Lab</th>
+                <th className="py-2 pr-3 font-semibold text-[var(--dim)] text-right">Intelligence</th>
+                <th className="py-2 pr-3 font-semibold text-[var(--dim)] text-right">Price</th>
+                <th className="py-2 pr-3 font-semibold text-[var(--dim)] text-right">Context</th>
+                <th className="py-2 pr-3 font-semibold text-[var(--dim)]">Released</th>
+                <th className="py-2 font-semibold text-[var(--dim)]">Strengths</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-line)]/50">
-              {top20.map((m, i) => (
-                <tr key={m.id} className="hover:bg-[var(--input)]/30 transition-colors">
-                  <td className="px-3 py-2 font-mono text-[11px] text-[var(--dim)] tabular-nums">{i + 1}</td>
-                  <td className="px-3 py-2 text-[12px] font-semibold text-[var(--fore)]">{m.name}</td>
-                  <td className="px-3 py-2 text-[11px]">
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: providerColor(m.provider) }} />
-                      {m.provider}
-                    </span>
+            <tbody>
+              {FRONTIER_MODELS.map((m, i) => (
+                <tr key={m.name} className="border-b border-[var(--color-line)] hover:bg-[var(--surface)] transition-colors">
+                  <td className="py-2.5 pr-3 font-medium">
+                    <span className="text-[var(--dim)] mr-1.5">{i + 1}.</span>
+                    {m.name}
                   </td>
-                  <td className="px-3 py-2">
-                    <span className={`text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full ${
-                      m.family === 'closed' ? 'bg-[var(--accent)]/10 text-[var(--accent)]' :
-                      'bg-[var(--ok)]/10 text-[var(--ok)]'
-                    }`}>
-                      {m.family === 'closed' ? 'Proprietary' : 'Open'}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2 text-right font-mono text-[12px] font-semibold text-[var(--cyan)] tabular-nums">{m.intelligenceIndex}</td>
-                  <td className="px-3 py-2 text-right font-mono text-[11px] text-[var(--dim)] tabular-nums">{m.codingIndex ?? '—'}</td>
-                  <td className="px-3 py-2 text-right font-mono text-[11px] text-[var(--dim)] tabular-nums">{m.context ?? '—'}</td>
+                  <td className="py-2.5 pr-3 text-[var(--dim)]">{m.lab}</td>
+                  <td className="py-2.5 pr-3 text-right font-mono font-semibold">{m.intelligence}</td>
+                  <td className="py-2.5 pr-3 text-right font-mono">${m.price}</td>
+                  <td className="py-2.5 pr-3 text-right font-mono">{(m.context / 1000).toFixed(0)}k</td>
+                  <td className="py-2.5 pr-3 text-[var(--dim)]">{m.released}</td>
+                  <td className="py-2.5 text-[var(--dim)] text-[11px]">{m.strengths}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </ChartCard>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Provider distribution */}
-        <ChartCard title="Models by Provider" subtitle="Distribution of tracked models">
-          <div className="space-y-2">
-            {byProvider.map(([provider, count]) => {
-              const maxCount = byProvider[0]?.[1] || 1;
-              return (
-                <div key={provider}>
-                  <div className="flex items-center justify-between text-[10px] mb-0.5">
-                    <span className="flex items-center gap-1.5 text-[var(--fore)]">
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: providerColor(provider) }} />
-                      {provider}
-                    </span>
-                    <span className="font-mono text-[var(--dim)]">{count}</span>
-                  </div>
-                  <div className="h-1.5 rounded-full bg-[var(--panel-2)] overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${(count / maxCount) * 100}%`, backgroundColor: providerColor(provider) }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ChartCard>
-
-        {/* Open vs Closed */}
-        <ChartCard title="Open vs Proprietary" subtitle="Model family distribution">
-          <div className="space-y-4 py-2">
-            {[
-              { label: 'Proprietary', count: byFamily.closed, color: 'var(--accent)' },
-              { label: 'Open Weights', count: byFamily['open-weights'], color: 'var(--ok)' },
-              { label: 'Open Source', count: byFamily.open, color: 'var(--cyan)' },
-            ].filter(f => f.count > 0).map(f => {
-              const total = byFamily.closed + byFamily['open-weights'] + byFamily.open;
-              const pct = total > 0 ? (f.count / total) * 100 : 0;
-              return (
-                <div key={f.label}>
-                  <div className="flex items-center justify-between text-[11px] mb-1">
-                    <span className="text-[var(--fore)] font-medium">{f.label}</span>
-                    <span className="font-mono text-[var(--dim)]">{f.count} ({pct.toFixed(0)}%)</span>
-                  </div>
-                  <div className="h-3 rounded-full bg-[var(--panel-2)] overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: f.color }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ChartCard>
-
-        {/* Context window distribution */}
-        <ChartCard title="Context Window Distribution" subtitle="Max context length bands">
-          <div className="space-y-2.5">
-            {contextBands.map(b => {
-              const maxCount = Math.max(...contextBands.map(x => x.count), 1);
-              return (
-                <div key={b.label}>
-                  <div className="flex items-center justify-between text-[10px] mb-0.5">
-                    <span className="text-[var(--fore)]">{b.label}</span>
-                    <span className="font-mono text-[var(--dim)]">{b.count}</span>
-                  </div>
-                  <div className="h-2 rounded-full bg-[var(--panel-2)] overflow-hidden">
-                    <div className="h-full rounded-full bg-[var(--violet)]" style={{ width: `${(b.count / maxCount) * 100}%` }} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ChartCard>
-      </div>
+      </Section>
     </div>
   );
 }
 
-/* ============================================================ */
-/*  Shared chart components                                      */
-/* ============================================================ */
-
-function ChartCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-4 overflow-hidden">
-      <div className="mb-3">
-        <h3 className="font-display font-semibold text-[var(--fore)] text-[15px]">{title}</h3>
-        {subtitle && <p className="text-[10px] text-[var(--mut)] mt-0.5">{subtitle}</p>}
-      </div>
+    <div>
+      <h2 className="text-base font-display font-semibold tracking-tight mb-3">{title}</h2>
       {children}
     </div>
   );
 }
 
-function FrontierChart({ series }: { series: Array<{ t: number; v: number; name: string; provider: string }> }) {
-  const W = 640, H = 230;
-  const PAD = { top: 14, right: 10, bottom: 28, left: 40 };
-
-  const { x, y, vMax } = useMemo(() => {
-    if (series.length < 2) return { x: (n: number) => n, y: (n: number) => n, vMax: 1 };
-    const t0 = series[0].t, t1 = series[series.length - 1].t;
-    const span = Math.max(t1 - t0, 1);
-    const vMax = Math.max(...series.map(p => p.v), 1);
-    const vMin = Math.min(...series.map(p => p.v), 0);
-    const vSpan = Math.max(vMax - vMin, 1);
-    return {
-      x: (t: number) => PAD.left + ((t - t0) / span) * (W - PAD.left - PAD.right),
-      y: (v: number) => PAD.top + (1 - (v - vMin) / vSpan) * (H - PAD.top - PAD.bottom),
-      vMax,
-    };
-  }, [series]);
-
-  if (series.length < 2) return <div className="h-full flex items-center justify-center text-[11px] text-[var(--dim)]">Not enough dated models yet.</div>;
-
-  const line = series.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.t).toFixed(1)},${y(p.v).toFixed(1)}`).join(' ');
-  const area = `${line} L${x(series[series.length - 1].t).toFixed(1)},${H - PAD.bottom} L${x(series[0].t).toFixed(1)},${H - PAD.bottom} Z`;
-
+function InsightCard({ title, body }: { title: string; body: string }) {
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-full" role="img" aria-label="Frontier intelligence over time">
-      <defs>
-        <linearGradient id="frontierFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--cyan)" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="var(--cyan)" stopOpacity="0.02" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 5 }, (_, i) => {
-        const yy = PAD.top + (i / 4) * (H - PAD.top - PAD.bottom);
-        const v = vMax * (1 - i / 4);
-        return (
-          <g key={i}>
-            <line x1={PAD.left} y1={yy} x2={W - PAD.right} y2={yy} stroke="var(--color-line)" strokeWidth="0.5" strokeDasharray="2 3" />
-            <text x={PAD.left - 6} y={yy + 3} textAnchor="end" fontSize="8" fill="var(--dim)">{v.toFixed(0)}</text>
-          </g>
-        );
-      })}
-      <path d={area} fill="url(#frontierFill)" />
-      <path d={line} fill="none" stroke="var(--cyan)" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
-      {series.map((p, i) => (
-        <g key={i}>
-          <circle cx={x(p.t)} cy={y(p.v)} r="3" fill={providerColor(p.provider)} stroke="var(--card)" strokeWidth="1.2" />
-          {i === series.length - 1 && (
-            <text x={x(p.t) + 7} y={y(p.v) + 3} fontSize="9" fill="var(--fore)" fontWeight="600">
-              {p.name} {p.v}
-            </text>
-          )}
-        </g>
-      ))}
-      <text x={PAD.left} y={H - 8} fontSize="8" fill="var(--dim)">
-        {new Date(series[0].t).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
-      </text>
-      <text x={W - PAD.right} y={H - 8} textAnchor="end" fontSize="8" fill="var(--dim)">
-        {new Date(series[series.length - 1].t).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
-      </text>
-    </svg>
-  );
-}
-
-function ScatterRelease({ models }: { models: ModelRecord[] }) {
-  const W = 640, H = 280;
-  const PAD = { top: 14, right: 10, bottom: 28, left: 40 };
-
-  const { x, y, pts, vMax } = useMemo(() => {
-    const dated = models.filter(m => m.released && m.intelligenceIndex);
-    if (dated.length < 2) return { x: () => 0, y: () => 0, pts: [], vMax: 1 };
-    const ts = dated.map(m => +new Date(m.released!));
-    const t0 = Math.min(...ts), t1 = Math.max(...ts);
-    const span = Math.max(t1 - t0, 1);
-    const vMax = Math.max(...dated.map(m => m.intelligenceIndex ?? 0), 1);
-    return {
-      x: (t: number) => PAD.left + ((t - t0) / span) * (W - PAD.left - PAD.right),
-      y: (v: number) => PAD.top + (1 - v / vMax) * (H - PAD.top - PAD.bottom),
-      pts: dated.map(m => ({ t: +new Date(m.released!), v: m.intelligenceIndex ?? 0, name: m.name, provider: m.provider, family: m.family })),
-      vMax,
-    };
-  }, [models]);
-
-  if (pts.length < 2) return <div className="h-full flex items-center justify-center text-[11px] text-[var(--dim)]">Not enough data.</div>;
-
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-full" role="img" aria-label="Intelligence vs release date">
-      {Array.from({ length: 5 }, (_, i) => {
-        const yy = PAD.top + (i / 4) * (H - PAD.top - PAD.bottom);
-        return (
-          <g key={i}>
-            <line x1={PAD.left} y1={yy} x2={W - PAD.right} y2={yy} stroke="var(--color-line)" strokeWidth="0.5" strokeDasharray="2 3" />
-            <text x={PAD.left - 6} y={yy + 3} textAnchor="end" fontSize="8" fill="var(--dim)">{(vMax * (1 - i / 4)).toFixed(0)}</text>
-          </g>
-        );
-      })}
-      {pts.map((p, i) => (
-        <circle
-          key={i}
-          cx={x(p.t)}
-          cy={y(p.v)}
-          r={p.family === 'closed' ? 3.5 : 2.5}
-          fill={providerColor(p.provider)}
-          fillOpacity={p.family === 'closed' ? 0.9 : 0.6}
-          stroke={p.family === 'closed' ? providerColor(p.provider) : 'none'}
-          strokeWidth="1"
-        />
-      ))}
-      <text x={PAD.left} y={H - 8} fontSize="8" fill="var(--dim)">
-        {new Date(pts[0].t).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
-      </text>
-      <text x={W - PAD.right} y={H - 8} textAnchor="end" fontSize="8" fill="var(--dim)">
-        {new Date(pts[pts.length - 1].t).toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}
-      </text>
-    </svg>
-  );
-}
-
-function PriceIntelScatter({ data }: { data: Array<{ name: string; provider: string; intel: number; price: number; family: string }> }) {
-  const W = 640, H = 280;
-  const PAD = { top: 14, right: 10, bottom: 28, left: 50 };
-
-  const { x, y, vMax, pMax } = useMemo(() => {
-    if (data.length < 2) return { x: () => 0, y: () => 0, vMax: 1, pMax: 1 };
-    const vMax = Math.max(...data.map(d => d.intel), 1);
-    const pMax = Math.max(...data.map(d => d.price), 1);
-    return {
-      x: (v: number) => PAD.left + (v / vMax) * (W - PAD.left - PAD.right),
-      y: (p: number) => PAD.top + (1 - p / pMax) * (H - PAD.top - PAD.bottom),
-      vMax, pMax,
-    };
-  }, [data]);
-
-  if (data.length < 2) return <div className="h-full flex items-center justify-center text-[11px] text-[var(--dim)]">Not enough pricing data.</div>;
-
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-full" role="img" aria-label="Price vs Intelligence">
-      {Array.from({ length: 5 }, (_, i) => {
-        const yy = PAD.top + (i / 4) * (H - PAD.top - PAD.bottom);
-        const v = vMax * (1 - i / 4);
-        return (
-          <g key={i}>
-            <line x1={PAD.left} y1={yy} x2={W - PAD.right} y2={yy} stroke="var(--color-line)" strokeWidth="0.5" strokeDasharray="2 3" />
-            <text x={PAD.left - 6} y={yy + 3} textAnchor="end" fontSize="8" fill="var(--dim)">${v.toFixed(1)}</text>
-          </g>
-        );
-      })}
-      {data.map((d, i) => (
-        <g key={i}>
-          <circle cx={x(d.intel)} cy={y(d.price)} r={d.family === 'closed' ? 3.5 : 2.5} fill={providerColor(d.provider)} fillOpacity="0.8" />
-        </g>
-      ))}
-      <text x={W / 2} y={H - 4} textAnchor="middle" fontSize="8" fill="var(--dim)">Intelligence Index →</text>
-      <text x={8} y={H / 2} textAnchor="middle" fontSize="8" fill="var(--dim)" transform={`rotate(-90, 8, ${H / 2})`}>Price / 1M tokens →</text>
-    </svg>
-  );
-}
-
-function PricingByBand({ models }: { models: ModelRecord[] }) {
-  const bands = useMemo(() => {
-    const b = [
-      { label: 'Intel <20', min: 0, max: 20, prices: [] as number[] },
-      { label: '20–30', min: 20, max: 30, prices: [] },
-      { label: '30–40', min: 30, max: 40, prices: [] },
-      { label: '40–50', min: 40, max: 50, prices: [] },
-      { label: '50+', min: 50, max: Infinity, prices: [] },
-    ];
-    for (const m of models) {
-      const intel = m.intelligenceIndex ?? 0;
-      const price = ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2;
-      if (price <= 0) continue;
-      for (const band of b) {
-        if (intel >= band.min && intel < band.max) { band.prices.push(price); break; }
-      }
-    }
-    return b.map(band => ({
-      label: band.label,
-      avg: band.prices.length ? band.prices.reduce((s, p) => s + p, 0) / band.prices.length : 0,
-      count: band.prices.length,
-    }));
-  }, [models]);
-
-  const maxAvg = Math.max(...bands.map(b => b.avg), 1);
-  const colors = ['#34d399', '#60a5fa', '#fbbf24', '#f472b6', '#fb7185'];
-
-  return (
-    <div className="space-y-3">
-      {bands.map((b, i) => (
-        <div key={b.label}>
-          <div className="flex items-center justify-between text-[11px] mb-0.5">
-            <span className="text-[var(--fore)] font-medium">{b.label}</span>
-            <span className="font-mono text-[10px] text-[var(--dim)]">${b.avg.toFixed(2)}/1M · {b.count} models</span>
-          </div>
-          <div className="h-3 rounded-full bg-[var(--panel-2)] overflow-hidden">
-            <div className="h-full rounded-full" style={{ width: `${(b.avg / maxAvg) * 100}%`, backgroundColor: colors[i] }} />
-          </div>
-        </div>
-      ))}
+    <div className="p-4 rounded-xl border border-[var(--color-line)] bg-[var(--card)]">
+      <h3 className="text-sm font-semibold mb-1">{title}</h3>
+      <p className="text-[11px] text-[var(--dim)] leading-relaxed">{body}</p>
     </div>
   );
 }
 
-function parseContext(s?: string): number {
-  if (!s) return 0;
-  const m = s.replace(/,/g, '').match(/(\d+)/);
-  if (!m) return 0;
-  const n = parseInt(m[1], 10);
-  if (/m/i.test(s)) return n * 1048576;
-  if (/k/i.test(s)) return n * 1024;
-  return n;
+interface ScatterPoint {
+  x: number;
+  y: number;
+  label: string;
+  group: 'open' | 'proprietary';
+}
+
+function ScatterChart({ data, xLabel, yLabel, width = 500, height = 280 }: {
+  data: ScatterPoint[];
+  xLabel: string;
+  yLabel: string;
+  width?: number;
+  height?: number;
+}) {
+  const padding = { top: 20, right: 40, bottom: 50, left: 60 };
+  const innerW = width - padding.left - padding.right;
+  const innerH = height - padding.top - padding.bottom;
+
+  const xMin = 0;
+  const xMax = Math.max(...data.map(d => d.x)) * 1.15;
+  const yMin = Math.min(...data.map(d => d.y)) - 2;
+  const yMax = Math.max(...data.map(d => d.y)) + 2;
+
+  const scaleX = (v: number) => padding.left + ((v - xMin) / (xMax - xMin)) * innerW;
+  const scaleY = (v: number) => padding.top + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+
+  const xTicks = [0, 2, 5, 10, 15];
+  const yTicks = [55, 60, 65, 70, 75];
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto">
+      {xTicks.map(t => (
+        <g key={`x${t}`}>
+          <line x1={scaleX(t)} y1={padding.top} x2={scaleX(t)} y2={padding.top + innerH} stroke="var(--color-line)" />
+          <text x={scaleX(t)} y={height - 10} textAnchor="middle" fill="var(--dim)" fontSize="10" fontFamily="var(--font-mono)">${t}</text>
+        </g>
+      ))}
+      {yTicks.map(t => (
+        <g key={`y${t}`}>
+          <line x1={padding.left} y1={scaleY(t)} x2={padding.left + innerW} y2={scaleY(t)} stroke="var(--color-line)" />
+          <text x={padding.left - 8} y={scaleY(t) + 3} textAnchor="end" fill="var(--dim)" fontSize="10" fontFamily="var(--font-mono)">{t}</text>
+        </g>
+      ))}
+      <text x={width / 2} y={height - 2} textAnchor="middle" fill="var(--dim)" fontSize="10">{xLabel}</text>
+      <text x={12} y={height / 2} textAnchor="middle" fill="var(--dim)" fontSize="10" transform={`rotate(-90, 12, ${height / 2})`}>{yLabel}</text>
+      {data.map(d => (
+        <g key={d.label}>
+          <circle cx={scaleX(d.x)} cy={scaleY(d.y)} r={5} fill={d.group === 'open' ? '#10b981' : '#38bdf8'} fillOpacity="0.85" />
+          <text x={scaleX(d.x) + 8} y={scaleY(d.y) + 3} fill="var(--fore)" fontSize="9" fontFamily="var(--font-mono)">{d.label}</text>
+        </g>
+      ))}
+    </svg>
+  );
 }

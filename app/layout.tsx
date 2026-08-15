@@ -1,18 +1,13 @@
 import type { Metadata } from 'next';
-import { Fraunces, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Inter, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
 import { ThemeProvider } from '@/lib/theme';
 
-const display = Fraunces({
-  variable: '--font-fraunces',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-});
-
-const sans = Instrument_Sans({
+const inter = Inter({
   variable: '--font-instrument',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const mono = IBM_Plex_Mono({
@@ -26,39 +21,16 @@ const url = siteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title: {
-    default: `${SITE_NAME} — Live AI News & Model Leaderboard`,
+    default: `${SITE_NAME} — AI News & Model Analysis`,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  keywords: [
-    'AI news',
-    'AI models',
-    'LLM leaderboard',
-    'model comparison',
-    'OpenAI',
-    'Anthropic',
-    'Claude',
-    'GPT',
-    'Gemini',
-    'artificial intelligence',
-    'cost vs accuracy',
-    'open weights',
-  ],
+  keywords: ['AI news', 'AI models', 'LLM leaderboard', 'model comparison', 'artificial intelligence'],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   category: 'technology',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
+  robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -72,17 +44,14 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
   },
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
 };
 
-// Set the theme before first paint to avoid a flash of the wrong color scheme.
 const themeScript = `
 (function () {
   try {
     var s = localStorage.getItem('ai-pulse-theme');
-    var t = s === 'light' ? 'light' : (s === 'dark' ? 'dark' : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+    var t = s === 'dark' ? 'dark' : (s === 'light' ? 'light' : 'light');
     document.documentElement.setAttribute('data-theme', t);
     document.documentElement.style.colorScheme = t;
   } catch (e) {}
@@ -97,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
+      className={`${inter.variable} ${mono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

@@ -2,19 +2,13 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Header from '@/components/Header';
-import Ticker from '@/components/Ticker';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
 import HeroLead from '@/components/HeroLead';
 import LatestList from '@/components/LatestList';
 import TrendingSidebar from '@/components/TrendingSidebar';
-import DailyTrends from '@/components/DailyTrends';
 import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
-import ModelNewsStrip from '@/components/ModelNewsStrip';
 import AITrends from '@/components/AITrends';
-import AIRadar from '@/components/AIRadar';
-import MoodIndicator from '@/components/MoodIndicator';
-import AgentOutput from '@/components/AgentOutput';
 import SkeletonGrid from '@/components/Skeleton';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder } from '@/lib/engagement';
@@ -96,9 +90,7 @@ export default function Home() {
             setFacets(f => ({ sources: data.facets.sources, categories: data.facets.categories, types: f.types, domains: data.facets.domains || f.domains }));
           }
         }
-      } catch {
-        /* network error — keep existing data */
-      } finally {
+      } catch { /* keep existing */ } finally {
         setLoading(false);
       }
     },
@@ -111,35 +103,17 @@ export default function Home() {
     try {
       const res = await fetch('/api/news?limit=40');
       const data = await res.json();
-
       if (Array.isArray(data.items)) {
         const leadingNew: NewsItem[] = [];
         for (const item of data.items) {
-          if (!seenUrls.current.has(item.url)) {
-            leadingNew.push(item);
-          } else if (leadingNew.length > 0) {
-            break;
-          }
+          if (!seenUrls.current.has(item.url)) leadingNew.push(item);
+          else if (leadingNew.length > 0) break;
         }
-        if (leadingNew.length > 0) {
-          setNewItems(leadingNew);
-        }
+        if (leadingNew.length > 0) setNewItems(leadingNew);
         setTotal(data.total ?? total);
         setLastUpdated(new Date());
-        if (data.facets?.sources) {
-          setFacets(f => ({
-            sources: data.facets.sources,
-            categories: data.facets.categories,
-            types: f.types,
-            domains: data.facets.domains || f.domains,
-          }));
-        }
       }
-    } catch {
-      /* ignore */
-    } finally {
-      pollBusy.current = false;
-    }
+    } catch { /* ignore */ } finally { pollBusy.current = false; }
   }, [total]);
 
   const pollStatus = useCallback(async () => {
@@ -151,43 +125,24 @@ export default function Home() {
         setOnlineSources(entries.filter(s => s.ok).length);
       }
       if (data?.nextRun) setNextRefreshAt(new Date(data.nextRun));
-    } catch {
-      /* ignore */
-    }
+    } catch { /* ignore */ }
   }, []);
 
-  useEffect(() => {
-    load('reset');
-  }, [load]);
-
-  // Remember the user's preferred view between sessions.
+  useEffect(() => { load('reset'); }, [load]);
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem('ai-pulse-domain');
-      if (saved === 'business' || saved === 'tech' || saved === 'research') {
-        setSelectedDomain(saved);
-      }
-    } catch {
-      /* ignore */
-    }
+      if (saved === 'business' || saved === 'tech' || saved === 'research') setSelectedDomain(saved);
+    } catch { /* ignore */ }
   }, []);
   useEffect(() => {
-    try {
-      window.localStorage.setItem('ai-pulse-domain', selectedDomain);
-    } catch {
-      /* ignore */
-    }
+    try { window.localStorage.setItem('ai-pulse-domain', selectedDomain); } catch { /* ignore */ }
   }, [selectedDomain]);
-
   useEffect(() => {
     const id = setInterval(poll, POLL_MS);
     const statusId = setInterval(pollStatus, POLL_MS);
     const initialStatus = setTimeout(pollStatus, 0);
-    return () => {
-      clearInterval(id);
-      clearInterval(statusId);
-      clearTimeout(initialStatus);
-    };
+    return () => { clearInterval(id); clearInterval(statusId); clearTimeout(initialStatus); };
   }, [poll, pollStatus]);
 
   const applyNew = () => {
@@ -202,43 +157,22 @@ export default function Home() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    try {
-      await fetch('/api/refresh', { method: 'POST' });
-      await load('reset');
-      await pollStatus();
-    } catch {
-      /* ignore */
-    } finally {
-      setRefreshing(false);
-    }
+    try { await fetch('/api/refresh', { method: 'POST' }); await load('reset'); await pollStatus(); }
+    catch { /* ignore */ } finally { setRefreshing(false); }
   };
 
   const resetFilters = (source: string, category: Category | 'all', type: string) => {
-    setSelectedSource(source);
-    setSelectedCategory(category);
-    setSelectedType(type);
-    setNewItems([]);
-    setLatestPage(0);
+    setSelectedSource(source); setSelectedCategory(category); setSelectedType(type);
+    setNewItems([]); setLatestPage(0);
   };
 
-  // Client-side search filter
   const visible = useMemo(() => {
     let list = news;
     const q = search.trim().toLowerCase();
-    if (q) {
-      list = list.filter(
-        i =>
-          i.title.toLowerCase().includes(q) ||
-          (i.summary || '').toLowerCase().includes(q) ||
-          (i.source_label || '').toLowerCase().includes(q) ||
-          (i.source_detail || '').toLowerCase().includes(q)
-      );
-    }
+    if (q) list = list.filter(i => i.title.toLowerCase().includes(q) || (i.summary || '').toLowerCase().includes(q) || (i.source_label || '').toLowerCase().includes(q));
     return list;
   }, [news, search]);
 
-  // MAIN FEED: engagement-first (most interactions / upvotes / views).
-  // Filtered & searched views fall back to recency so browsing stays natural.
   const mainFeed = useMemo(() => {
     const q = search.trim();
     if (q) return visible;
@@ -248,31 +182,19 @@ export default function Home() {
   const top10 = mainFeed.slice(0, 10);
   const rest = mainFeed.slice(10);
 
-  // Paginate the latest feed — 10 stories per page so readers don't scroll forever.
   const LATEST_PAGE_SIZE = 10;
   const latestPageCount = Math.max(1, Math.ceil(rest.length / LATEST_PAGE_SIZE));
   const safeLatestPage = Math.min(latestPage, latestPageCount - 1);
   const latestPageItems = rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE);
 
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const f of facets.categories) counts[f.value] = f.count;
-    return counts;
-  }, [facets.categories]);
-
   const domainCounts = useMemo(() => {
     const counts: Partial<Record<Domain | 'all', number>> = { all: total };
-    for (const f of facets.domains) {
-      counts[f.value as Domain] = f.count;
-    }
+    for (const f of facets.domains) counts[f.value as Domain] = f.count;
     return counts;
   }, [facets.domains, total]);
 
   return (
     <div className="min-h-screen" id="top">
-      <div className="bg-atmosphere" />
-      <div className="bg-grid" />
-
       <Header
         total={total}
         onlineSources={onlineSources}
@@ -282,48 +204,54 @@ export default function Home() {
         onRefresh={handleRefresh}
       />
 
-      <Ticker items={news.slice(0, 24)} />
+      <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
+        {/* Hero section */}
+        <section className="mb-10">
+          <div className="flex items-baseline gap-3 mb-5">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h1 className="text-2xl font-semibold tracking-tight">Top Stories</h1>
+          </div>
+          {top10.length > 0 && <HeroLead items={top10} />}
+        </section>
 
-      <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        {/* Filters */}
+        <section className="mb-6">
+          <FilterBar
+            sources={facets.sources}
+            categories={facets.categories}
+            types={facets.types}
+            selectedSource={selectedSource}
+            selectedCategory={selectedCategory}
+            selectedType={selectedType}
+            search={search}
+            onSourceChange={s => { setSelectedSource(s); setNewItems([]); }}
+            onCategoryChange={c => { setSelectedCategory(c); setNewItems([]); }}
+            onTypeChange={t => { setSelectedType(t); setNewItems([]); }}
+            onSearchChange={setSearch}
+          />
+        </section>
+
+        {/* New items banner */}
         {newItems.length > 0 && (
           <button
             onClick={applyNew}
-            className="ring-focus w-full mb-4 px-4 py-3 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/40 text-[var(--accent)] text-sm font-medium flex items-center justify-center gap-2 animate-slide-in hover:bg-[var(--accent)]/20 transition-colors"
+            className="w-full mb-4 px-4 py-2.5 rounded-lg bg-violet-50 border border-violet-200 text-violet-700 text-sm font-medium flex items-center justify-center gap-2 hover:bg-violet-100 transition-colors"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
-            </span>
+            <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
             {newItems.length} new {newItems.length === 1 ? 'story' : 'stories'} — click to view
           </button>
         )}
 
-        {/* ---- Main column (engagement-first) + right rail (trending/calendar) ---- */}
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px] gap-6">
+        {/* Main content + sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8">
           <div className="min-w-0">
-            {top10.length > 0 && (
-              <div className="mb-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="h-px w-6 bg-[var(--accent)]/60" />
-                  <h2 className="font-display font-semibold text-sm uppercase tracking-[0.2em] text-[var(--fore)]">
-                    Top stories
-                  </h2>
-                  <span className="ml-auto flex items-center gap-1.5 font-mono text-[10px] text-[var(--dim)]">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--ok)]/70" /> most engaged
-                  </span>
-                </div>
-                <HeroLead items={top10} />
-              </div>
-            )}
-
-            <ModelNewsStrip />
-
-            <div className="flex items-center gap-2 mb-3">
-              <span className="h-px w-6 bg-[var(--accent)]/60" />
-              <h2 className="font-display font-semibold text-sm uppercase tracking-[0.2em] text-[var(--fore)]">
-                {search.trim() ? 'Search results' : selectedSource === 'all' ? 'Latest' : `From ${facets.sources.find(s => s.value === selectedSource)?.label || selectedSource}`}
+            {/* Latest stories */}
+            <div className="flex items-baseline gap-3 mb-4">
+              <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+              <h2 className="text-lg font-semibold tracking-tight">
+                {search.trim() ? 'Search results' : 'Latest'}
               </h2>
-              <span className="ml-auto font-mono text-[11px] text-[var(--dim)]">
+              <span className="ml-auto text-xs text-neutral-400 tabular-nums">
                 {search.trim() ? `${visible.length} results` : `${total} stories`}
               </span>
             </div>
@@ -331,55 +259,45 @@ export default function Home() {
             {loading && news.length === 0 ? (
               <SkeletonGrid count={9} />
             ) : rest.length === 0 && visible.length === 0 ? (
-              <div className="glass rounded-2xl py-20 text-center">
-                <div className="text-4xl mb-3 opacity-60">◌</div>
-                <p className="text-[var(--mut)]">No stories match the current filters.</p>
-                <button
-                  onClick={() => resetFilters('all', 'all', 'all')}
-                  className="ring-focus mt-4 text-sm text-[var(--accent)] hover:opacity-80"
-                >
+              <div className="py-20 text-center text-neutral-400">
+                <p>No stories match the current filters.</p>
+                <button onClick={() => resetFilters('all', 'all', 'all')} className="mt-3 text-sm text-violet-600 hover:underline">
                   Clear filters
                 </button>
               </div>
             ) : (
               <>
-                {rest.length > 0 && (
-                  <div className="surface rounded-2xl px-4 py-2">
-                    <LatestList items={latestPageItems} />
-                  </div>
-                )}
+                <div className="border border-[var(--color-line)] rounded-lg">
+                  <LatestList items={latestPageItems} />
+                </div>
                 {latestPageCount > 1 && (
                   <div className="mt-4 flex items-center justify-center gap-1.5">
                     <button
                       onClick={() => setLatestPage(p => Math.max(0, p - 1))}
                       disabled={safeLatestPage === 0}
-                      className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-[var(--cyan)]"
+                      className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
                     >
-                      ‹ Prev
+                      Prev
                     </button>
-                    {pageNumbers(latestPageCount, safeLatestPage).map((n, i) =>
-                      n === '…' ? (
-                        <span key={`e-${i}`} className="px-1 text-[11px] text-[var(--dim)]">…</span>
-                      ) : (
-                        <button
-                          key={n}
-                          onClick={() => setLatestPage(Number(n))}
-                          className={`ring-focus w-8 h-8 rounded-lg text-xs font-mono tabular-nums border transition-colors ${
-                            safeLatestPage === n
-                              ? 'bg-[var(--accent)]/15 text-[var(--accent)] border-[var(--accent)]/40'
-                              : 'border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)] hover:border-[var(--mut)]'
-                          }`}
-                        >
-                          {Number(n) + 1}
-                        </button>
-                      )
-                    )}
+                    {Array.from({ length: Math.min(latestPageCount, 7) }, (_, i) => i).map(n => (
+                      <button
+                        key={n}
+                        onClick={() => setLatestPage(n)}
+                        className={`w-8 h-8 rounded-lg text-xs tabular-nums border transition-colors ${
+                          safeLatestPage === n
+                            ? 'bg-black text-white border-black'
+                            : 'border-[var(--color-line)] text-neutral-500 hover:text-black hover:border-neutral-300'
+                        }`}
+                      >
+                        {n + 1}
+                      </button>
+                    ))}
                     <button
                       onClick={() => setLatestPage(p => Math.min(latestPageCount - 1, p + 1))}
                       disabled={safeLatestPage >= latestPageCount - 1}
-                      className="ring-focus px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-[var(--mut)] disabled:opacity-30 hover:text-[var(--cyan)]"
+                      className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
                     >
-                      Next ›
+                      Next
                     </button>
                   </div>
                 )}
@@ -387,81 +305,52 @@ export default function Home() {
             )}
           </div>
 
-          {/* Right rail: search + mood + trending + calendar + panels */}
-          <aside className="space-y-4 lg:sticky lg:top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar pr-1">
-            {/* Search */}
-            <div className="glass rounded-2xl p-4">
-              <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2 font-medium">Search stories</div>
+          {/* Sidebar */}
+          <aside className="space-y-4 lg:sticky lg:top-20 self-start">
+            <div className="border border-[var(--color-line)] rounded-lg p-4">
+              <div className="text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">Search</div>
               <input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                placeholder="Search headlines…"
-                className="ring-focus w-full rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-3 py-2 text-[13px] text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
+                placeholder="Search headlines..."
+                className="w-full rounded-lg border border-[var(--color-line)] bg-neutral-50 px-3 py-2 text-sm outline-none focus:border-violet-300 transition-colors"
                 aria-label="Search stories"
               />
             </div>
-            <MoodIndicator />
             <TrendingSidebar items={news} />
-            <DailyTrends items={news} />
             <DomainBar
               selected={selectedDomain}
               counts={domainCounts}
-              onChange={d => {
-                setSelectedDomain(d);
-                setNewItems([]);
-              }}
+              onChange={d => { setSelectedDomain(d); setNewItems([]); }}
             />
-            <AgentOutput />
           </aside>
         </div>
 
-        <div className="mt-8" id="model-watch">
+        {/* Models section */}
+        <section className="mt-12" id="model-watch">
+          <div className="flex items-baseline gap-3 mb-5">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h2 className="text-lg font-semibold tracking-tight">Models</h2>
+          </div>
           <ModelWatch audience={selectedDomain} />
-        </div>
+        </section>
 
-        <div className="mt-8" id="trends">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="h-px w-6 bg-[var(--accent)]/60" />
-            <h2 className="font-display font-semibold text-sm uppercase tracking-[0.2em] text-[var(--fore)]">
-              AI Trends
-            </h2>
-            <span className="ml-auto font-mono text-[10px] text-[var(--dim)]">frontier intelligence by lab</span>
+        {/* AI Trends section */}
+        <section className="mt-12" id="trends">
+          <div className="flex items-baseline gap-3 mb-5">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h2 className="text-lg font-semibold tracking-tight">AI Landscape</h2>
           </div>
           <AITrends />
-        </div>
-
-        <div className="mt-8">
-          <AIRadar />
-        </div>
+        </section>
       </main>
 
-      <footer className="border-t border-[var(--color-line)] mt-10">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--dim)]">
-          <span className="font-display text-[var(--mut)]">AI Pulse — the daily signal on artificial intelligence</span>
-          <span className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--ok)]/70" />
-            {onlineSources} of {facets.sources.length || 40}+ channels online
-          </span>
-          <span className="hidden md:block">
-            {lastUpdated ? `synced ${lastUpdated.toLocaleString()}` : 'syncing…'}
-          </span>
-          <span className="font-mono text-[10px] text-[var(--dim)]" title="Deployment build tag">
-            build {BUILD_TAG}
-          </span>
+      <footer className="border-t border-[var(--color-line)]">
+        <div className="max-w-[1400px] mx-auto px-5 py-6 flex items-center justify-between text-xs text-neutral-400">
+          <span className="font-medium text-neutral-600">AI Pulse</span>
+          <span>build {BUILD_TAG}</span>
         </div>
       </footer>
     </div>
   );
-}
-
-function pageNumbers(count: number, current: number): Array<number | '…'> {
-  if (count <= 7) return Array.from({ length: count }, (_, i) => i);
-  const out: Array<number | '…'> = [0];
-  const start = Math.max(1, current - 1);
-  const end = Math.min(count - 2, current + 1);
-  if (start > 1) out.push('…');
-  for (let i = start; i <= end; i++) out.push(i);
-  if (end < count - 2) out.push('…');
-  out.push(count - 1);
-  return out;
 }

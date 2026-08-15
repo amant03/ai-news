@@ -142,6 +142,7 @@ const TOTAL_CAP = 260;
 // Without a key we scrape only the highest-signal subset with generous spacing.
 const JINA_FREE_TIER_ACCOUNTS = 20;
 const JINA_SPACING_MS = 3500;
+const NITTER_SPACING_MS = 800;
 
 function shouldScrapeX(): boolean {
   if (process.env.DISABLE_X_SCRAPING === 'true') return false;
@@ -204,33 +205,30 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
     console.log(`   No JINA_API_KEY — limiting X scrape to ${activeAccounts.length} core accounts (${(JINA_SPACING_MS / 1000)}s spacing)`);
   }
 
-  let consecutiveRateLimit = 0;
+  let consecutiveNitterFail = 0;
 
   for (const account of activeAccounts) {
     let items: NewsItem[] = [];
 
-    // jina.ai reader is the most reliable no-login path (renders the page,
-    // no API key required for light use; set JINA_API_KEY for higher limits).
+    // Nitter RSS is the primary path: fast, structured, no auth required.
     if (shouldScrapeX()) {
-      items = await fetchViaJinaReader(account);
-      if (items.length === 0 && lastJinaRateLimited) {
-        consecutiveRateLimit++;
-        lastJinaRateLimited = false;
+      items = await fetchViaNitter(account);
+      if (items.length === 0) {
+        consecutiveNitterFail++;
+      } else {
+        consecutiveNitterFail = 0;
       }
     }
 
-    // jina free tier trips into a hard 403 wall for a while once the budget is
-    // spent (no login). If we see several consecutive 403s, the puppeteer
-    // fallback for every remaining account would stall the whole agent for
-    // minutes — bail out instead and keep whatever we already collected.
-    if (items.length === 0 && consecutiveRateLimit >= 3) {
-      console.log(`   ⏹ Skipping remaining X accounts — jina is rate-limited (${consecutiveRateLimit} consecutive 403s)`);
+    // If nitter fails for 5+ consecutive accounts, it's likely down — skip the rest.
+    if (items.length === 0 && consecutiveNitterFail >= 5) {
+      console.log(`   ⏹ Skipping remaining X accounts — nitter is unreachable (${consecutiveNitterFail} consecutive failures)`);
       break;
     }
 
-    // Nitter RSS when available (fast, structured).
+    // jina reader is the fallback when nitter is down or returns nothing.
     if (items.length === 0 && shouldScrapeX()) {
-      items = await fetchViaNitter(account);
+      items = await fetchViaJinaReader(account);
     }
 
     // Last resort: headless browser (often hits the login wall — degrades gracefully).
@@ -242,7 +240,6 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
     if (items.length === 0) {
       console.log(`  ⚠ No tweets for @${account.username}`);
     } else {
-      consecutiveRateLimit = 0;
       const kept = sortForModelSignal(items).slice(0, PER_ACCOUNT_CAP);
       console.log(`  ✓ @${account.username}: ${kept.length} tweets`);
       allItems.push(...kept);
