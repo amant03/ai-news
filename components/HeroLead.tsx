@@ -8,25 +8,38 @@ interface HeroLeadProps {
 }
 
 /**
- * Editorial front-page "top story" cluster — a bold lead card plus a
- * ranked list of the next most-engaged stories. Asymmetric, clean, skimmable.
+ * Editorial front-page "top story" cluster — a bold lead card plus a ranked
+ * list of the next most-engaged stories, finished with a compact strip of
+ * the remainder so the whole Top 10 is on the page. Asymmetric and skimmable.
  */
 export default function HeroLead({ items }: HeroLeadProps) {
   if (items.length === 0) return null;
   const [lead, ...rest] = items;
-  const secondaries = rest.slice(0, 3);
+  const secondaries = rest.slice(0, 4);
+  const tail = rest.slice(4, 10);
 
   return (
-    <section aria-label="Top stories" className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-4">
-      {/* Lead story */}
-      <LeadStory item={lead} />
+    <section aria-label="Top stories" className="space-y-3">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-3">
+        {/* Lead story */}
+        <LeadStory item={lead} />
 
-      {/* Ranked secondary stories */}
-      <div className="flex flex-col divide-y divide-[var(--color-line)] rounded-2xl border border-[var(--color-line)] card overflow-hidden">
-        {secondaries.map((item, i) => (
-          <SecondaryStory key={item.url} item={item} rank={i + 2} />
-        ))}
+        {/* Ranked secondary stories */}
+        <div className="flex flex-col divide-y divide-[var(--color-line)] rounded-2xl border border-[var(--color-line)] card overflow-hidden">
+          {secondaries.map((item, i) => (
+            <SecondaryStory key={item.url} item={item} rank={i + 2} />
+          ))}
+        </div>
       </div>
+
+      {/* Ranks 6–10 as a compact strip */}
+      {tail.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
+          {tail.map((item, i) => (
+            <MiniStory key={item.url} item={item} rank={i + 6} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -99,6 +112,34 @@ function SecondaryStory({ item, rank }: { item: NewsItem; rank: number }) {
           <span className="truncate text-[var(--mut)]">{item.source_label || item.source}</span>
           <StoryMetrics item={item} />
         </p>
+      </div>
+    </article>
+  );
+}
+
+function MiniStory({ item, rank }: { item: NewsItem; rank: number }) {
+  const color = CATEGORY_COLOR[item.category] || '#94a3b8';
+  return (
+    <article className="group flex flex-col rounded-2xl border border-[var(--color-line)] bg-[var(--card)] p-3 panel-hover animate-fade-up">
+      <div className="flex items-center gap-2 mb-1.5">
+        <span className="font-mono text-[10px] text-[var(--dim)] tabular-nums">{String(rank).padStart(2, '0')}</span>
+        <span className="text-[9px] font-semibold uppercase tracking-widest" style={{ color }}>
+          {CATEGORY_LABEL[item.category] || item.category}
+        </span>
+      </div>
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[13px] font-medium leading-snug text-[var(--fore)] line-clamp-3 group-hover:text-[var(--accent)] transition-colors"
+      >
+        {item.title}
+      </a>
+      <div className="mt-auto pt-2 flex items-center gap-2 text-[9px] font-mono text-[var(--dim)]">
+        <span className="truncate text-[var(--mut)]">{item.source_label || item.source}</span>
+        <span aria-hidden>·</span>
+        <span className="flex-shrink-0">{timeAgo(item.published_at)}</span>
+        <StoryMetrics item={item} className="ml-auto" />
       </div>
     </article>
   );

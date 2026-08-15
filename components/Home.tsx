@@ -10,7 +10,9 @@ import TrendingSidebar from '@/components/TrendingSidebar';
 import DailyTrends from '@/components/DailyTrends';
 import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
+import ModelNewsStrip from '@/components/ModelNewsStrip';
 import AIRadar from '@/components/AIRadar';
+import MoodIndicator from '@/components/MoodIndicator';
 import AgentOutput from '@/components/AgentOutput';
 import SkeletonGrid from '@/components/Skeleton';
 import { NewsItem, Category, Domain } from '@/lib/types';
@@ -240,8 +242,8 @@ export default function Home() {
     return frontPageOrder(visible);
   }, [visible, search]);
 
-  const top3 = mainFeed.slice(0, 3);
-  const rest = mainFeed.slice(3);
+  const top10 = mainFeed.slice(0, 10);
+  const rest = mainFeed.slice(10);
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -322,7 +324,7 @@ export default function Home() {
         {/* ---- Main column (engagement-first) + right rail (trending/calendar) ---- */}
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-6">
           <div className="min-w-0">
-            {top3.length > 0 && (
+            {top10.length > 0 && (
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="h-px w-6 bg-[var(--accent)]/60" />
@@ -333,9 +335,11 @@ export default function Home() {
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--ok)]/70" /> most engaged
                   </span>
                 </div>
-                <HeroLead items={top3} />
+                <HeroLead items={top10} />
               </div>
             )}
+
+            <ModelNewsStrip />
 
             <div className="flex items-center gap-2 mb-3">
               <span className="h-px w-6 bg-[var(--accent)]/60" />
@@ -379,8 +383,9 @@ export default function Home() {
             )}
           </div>
 
-          {/* Right rail: trending + daily trends + panels */}
+          {/* Right rail: mood + trending + calendar + panels */}
           <aside className="space-y-4 lg:sticky lg:top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar pr-1">
+            <MoodIndicator />
             <TrendingSidebar items={news} />
             <DailyTrends items={news} />
             <DomainBar

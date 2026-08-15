@@ -3,11 +3,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ModelRecord } from '@/lib/model-registry';
 import { Domain, NewsItem } from '@/lib/types';
-import { timeAgo } from '@/lib/format';
 import { modelSourceLinks, providerColor } from '@/lib/models';
 import ScatterChart, { ScatterPoint } from './ScatterChart';
-import CoverImage from './CoverImage';
-import SourceLink, { SourcePills } from './SourceLink';
+import { SourcePills } from './SourceLink';
 
 interface ModelWatchData {
   models: ModelRecord[];
@@ -60,7 +58,7 @@ const AUDIENCE: Record<Audience, { tab: SortKey; title: string; blurb: string; p
 };
 
 const TOP_N = 10;
-const LIST_PAGE = 6;
+const LIST_PAGE = 10;
 
 const fmtNum = (n?: number, digits = 1) =>
   n === undefined ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: digits });
@@ -154,7 +152,6 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   }, [selectedId, filtered, chartModels]);
 
   const picks = chartModels.slice(0, 3);
-  const heroNews = useMemo(() => (data?.modelNews || []).slice(0, 3), [data]);
   const labeledIds = new Set(chartModels.map(m => m.id));
 
   useEffect(() => {
@@ -292,21 +289,37 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
           <p className="text-sm text-[var(--dim)] py-6 text-center">No models match “{q}”.</p>
         ) : (
           <div className="mt-4">
-            <ol className="grid gap-1.5">
-              {listModels.map((m, i) => (
-                <ModelChip
-                  key={m.id}
-                  m={m}
-                  idx={safePage * LIST_PAGE + i + 1}
-                  active={selected?.id === m.id}
-                  sort={tab}
-                  onClick={() => {
-                    setSelectedId(m.id);
-                    setDetailOpen(false);
-                  }}
-                />
-              ))}
-            </ol>
+            <div className="overflow-hidden rounded-xl border border-[var(--color-line)]">
+              <div className="overflow-x-auto no-scrollbar">
+                <table className="w-full min-w-[640px] text-left">
+                  <thead>
+                    <tr className="border-b border-[var(--color-line)] bg-[var(--input)]/70">
+                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium w-10">#</th>
+                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium">Model</th>
+                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Context</th>
+                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Creator</th>
+                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">{headerScore(tab)}</th>
+                      <th className="px-3 py-2.5 text-[9px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Cost / Task</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[var(--color-line)]">
+                    {listModels.map((m, i) => (
+                      <LeaderboardRow
+                        key={m.id}
+                        m={m}
+                        rank={safePage * LIST_PAGE + i + 1}
+                        active={selected?.id === m.id}
+                        sort={tab}
+                        onClick={() => {
+                          setSelectedId(m.id);
+                          setDetailOpen(false);
+                        }}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
             {pageCount > 1 && (
               <div className="mt-3 flex items-center justify-center gap-2">
                 <button
@@ -328,35 +341,6 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                 </button>
               </div>
             )}
-          </div>
-        )}
-
-        {heroNews.length > 0 && (
-          <div className="mt-6 pt-4 border-t border-[var(--color-line)]">
-            <h3 className="font-display font-medium text-xs uppercase tracking-widest text-[var(--mut)] mb-3">
-              Fresh model news
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-              {heroNews.map((n, i) => (
-                <article
-                  key={`${n.url}-${i}`}
-                  className="group overflow-hidden rounded-xl border border-[var(--color-line)] bg-[var(--card)]"
-                >
-                  <div className="relative h-24">
-                    <CoverImage item={n} variant="thumb" showCaption={false} className="absolute inset-0" />
-                    <SourceLink href={n.url} compact className="absolute top-1.5 right-1.5 z-10" />
-                  </div>
-                  <a href={n.url} target="_blank" rel="noopener noreferrer" className="block p-2.5">
-                    <p className="text-[11px] font-medium text-[var(--fore)] leading-snug line-clamp-2 group-hover:text-[var(--cyan)] transition-colors">
-                      {n.title}
-                    </p>
-                    <span className="text-[9px] font-mono text-[var(--dim)]">
-                      {n.source_label || n.source} · {timeAgo(n.published_at)}
-                    </span>
-                  </a>
-                </article>
-              ))}
-            </div>
           </div>
         )}
       </div>
@@ -410,15 +394,28 @@ function SelectedModel({
   );
 }
 
-function ModelChip({
+function headerScore(sort: SortKey): string {
+  switch (sort) {
+    case 'value':
+      return 'Value';
+    case 'popularity':
+      return 'Usage';
+    case 'newest':
+      return 'Released';
+    default:
+      return 'Intelligence Index';
+  }
+}
+
+function LeaderboardRow({
   m,
-  idx,
+  rank,
   active,
   sort,
   onClick,
 }: {
   m: ModelRecord;
-  idx: number;
+  rank: number;
   active: boolean;
   sort: SortKey;
   onClick: () => void;
@@ -432,27 +429,41 @@ function ModelChip({
     m.intelligenceIndex ?? m.elo;
 
   return (
-    <li>
-      <button
-        onClick={onClick}
-        className={`ring-focus w-full flex items-center gap-2.5 rounded-lg border px-2.5 py-2 text-left transition-colors ${
-          active ? 'border-[var(--accent)]/40 bg-[var(--accent)]/10' : 'border-[var(--color-line)] bg-[var(--input)]/50 hover:border-[var(--accent)]/25'
-        }`}
-      >
-        <span className="font-mono text-[10px] text-[var(--dim)] w-5 tabular-nums">{idx}</span>
-        <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-        <span className="text-xs font-medium text-[var(--fore)] truncate flex-1">{m.name}</span>
-        {cost !== undefined && <span className="font-mono text-[10px] text-[var(--mut)]">{fmtCost(cost)}</span>}
-        {sort === 'newest' && m.released && (
-          <span className="font-mono text-[10px] text-[var(--dim)]">{m.released.slice(0, 10)}</span>
-        )}
-        {score !== undefined && (
-          <span className="font-mono text-[11px] font-semibold text-[var(--cyan)] tabular-nums">
-            {sort === 'popularity' ? fmtCompact(score) : fmtNum(score)}
+    <tr
+      onClick={onClick}
+      className={`group cursor-pointer transition-colors ${
+        active ? 'bg-[var(--accent)]/10' : 'hover:bg-[var(--input)]/60'
+      }`}
+    >
+      <td className="px-3 py-2.5 font-mono text-[10px] text-[var(--dim)] tabular-nums">{rank}</td>
+      <td className="px-3 py-2.5">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+          <span className={`text-[13px] font-semibold truncate ${active ? 'text-[var(--accent)]' : 'text-[var(--fore)] group-hover:text-[var(--cyan)]'} transition-colors`}>
+            {m.name}
           </span>
-        )}
-      </button>
-    </li>
+          {m.family === 'open-weights' && (
+            <span className="flex-shrink-0 text-[8px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--ok)]/30 text-[var(--ok)]">
+              open
+            </span>
+          )}
+        </div>
+      </td>
+      <td className="px-3 py-2.5 text-right font-mono text-[11px] text-[var(--mut)] tabular-nums">{m.context || '—'}</td>
+      <td className="px-3 py-2.5 text-right text-[11px] text-[var(--mut)]">{m.provider}</td>
+      <td className="px-3 py-2.5 text-right font-mono text-[12px] font-semibold text-[var(--cyan)] tabular-nums">
+        {sort === 'popularity' && score !== undefined
+          ? fmtCompact(score)
+          : sort === 'newest' && m.released
+            ? m.released.slice(0, 10)
+            : score !== undefined
+              ? fmtNum(score)
+              : '—'}
+      </td>
+      <td className="px-3 py-2.5 text-right font-mono text-[11px] text-[var(--fore)] tabular-nums">
+        {cost !== undefined ? fmtCost(cost) : '—'}
+      </td>
+    </tr>
   );
 }
 

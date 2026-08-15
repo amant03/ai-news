@@ -30,10 +30,7 @@ export function usableImageUrl(raw?: string): string | undefined {
 export function fallbackImageUrl(raw?: string, seed?: string): string | undefined {
   const u = usableImageUrl(raw);
   if (u) return u;
-  if (!seed) return undefined;
-  let h = 0;
-  for (let i = 0; i < seed.length; i++) h = (h << 5) - h + seed.charCodeAt(i) | 0;
-  return `https://picsum.photos/seed/ai${Math.abs(h)}/640/400`;
+  return undefined;
 }
 
 /**
@@ -119,6 +116,8 @@ function posterArt(item: NewsItem): PosterArtSpec {
 function PosterArt({ art, title, category }: { art: PosterArtSpec; title: string; category: Category }) {
   const initials = (title || 'AI').replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase() || 'AI';
   const id = `p${art.seed}`;
+  const words = title.split(/\s+/).filter(Boolean).slice(0, 6);
+  const lines = words.length ? [words.slice(0, 3).join(' '), words.slice(3, 6).join(' ')].filter(Boolean) : [];
   return (
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden>
       <defs>
@@ -126,14 +125,31 @@ function PosterArt({ art, title, category }: { art: PosterArtSpec; title: string
           <stop offset="0%" stopColor={art.color} stopOpacity="0.55" />
           <stop offset="100%" stopColor={art.color} stopOpacity="0" />
         </radialGradient>
+        <pattern id={`${id}-grid`} width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" strokeOpacity="0.05" />
+        </pattern>
       </defs>
       <rect width="400" height="240" fill={`url(#${id}-g)`} />
+      <rect width="400" height="240" fill={`url(#${id}-grid)`} />
       <Motif kind={category} seed={art.seed} color={art.color} />
-      <text x="28" y="148" fill="white" fillOpacity="0.14" fontSize="84" fontWeight="600" fontFamily="var(--font-fraunces), serif">
-        {initials}
+      {lines.length > 0 && (
+        <text x="26" y="60" fill="white" fillOpacity="0.92" fontSize="17" fontWeight="600" fontFamily="var(--font-fraunces), serif" letterSpacing="0.01em">
+          {lines[0]}
+        </text>
+      )}
+      {lines.length > 1 && (
+        <text x="26" y="80" fill="white" fillOpacity="0.92" fontSize="17" fontWeight="600" fontFamily="var(--font-fraunces), serif" letterSpacing="0.01em">
+          {lines[1]}
+        </text>
+      )}
+      <text x="26" y="216" fill="white" fillOpacity="0.55" fontSize="11" fontWeight="500" fontFamily="var(--font-instrument), sans-serif" letterSpacing="0.22em">
+        {CATEGORY_LABEL[category] || category}
       </text>
       <circle cx="332" cy="48" r="36" fill={art.color} fillOpacity="0.22" />
       <circle cx="332" cy="48" r="18" fill={art.color} fillOpacity="0.55" />
+      <text x="26" y="32" fill="white" fillOpacity="0.35" fontSize="40" fontWeight="700" fontFamily="var(--font-fraunces), serif">
+        {initials}
+      </text>
     </svg>
   );
 }
