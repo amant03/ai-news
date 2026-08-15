@@ -66,6 +66,40 @@ export function frontPageOrder(items: NewsItem[]): NewsItem[] {
   });
 }
 
+/**
+ * Diversified top stories: picks the top story from each source first,
+ * then fills remaining slots with the next highest-engagement stories.
+ * This ensures no single source dominates the top stories.
+ */
+export function diversifiedTopStories(items: NewsItem[], count: number): NewsItem[] {
+  const sorted = frontPageOrder(items);
+  const picked: NewsItem[] = [];
+  const usedSources = new Map<string, number>(); // source -> count picked
+
+  // Pass 1: pick top 1-2 stories per source (max 2 from any source)
+  for (const item of sorted) {
+    if (picked.length >= count) break;
+    const src = item.source_label || item.source;
+    const srcCount = usedSources.get(src) || 0;
+    if (srcCount >= 2) continue;
+    picked.push(item);
+    usedSources.set(src, srcCount + 1);
+  }
+
+  // Pass 2: fill remaining slots from sorted list, skip already picked
+  if (picked.length < count) {
+    const pickedUrls = new Set(picked.map(i => i.url));
+    for (const item of sorted) {
+      if (picked.length >= count) break;
+      if (!pickedUrls.has(item.url)) {
+        picked.push(item);
+      }
+    }
+  }
+
+  return picked;
+}
+
 /** Stories published within the last `hours`, newest first. */
 export function lastNHours(items: NewsItem[], hours: number): NewsItem[] {
   const cutoff = Date.now() - hours * 60 * 60 * 1000;

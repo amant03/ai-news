@@ -6,13 +6,12 @@ import Ticker from '@/components/Ticker';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
 import HeroLead from '@/components/HeroLead';
 import LatestList from '@/components/LatestList';
-import TrendingSidebar from '@/components/TrendingSidebar';
 import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
 import AITrends from '@/components/AITrends';
 import SkeletonGrid from '@/components/Skeleton';
 import { NewsItem, Category, Domain } from '@/lib/types';
-import { frontPageOrder } from '@/lib/engagement';
+import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
 import { BUILD_TAG } from '@/lib/build';
 
 const POLL_MS = 60_000;
@@ -180,10 +179,20 @@ export default function Home() {
     return frontPageOrder(visible);
   }, [visible, search]);
 
-  const top10 = mainFeed.slice(0, 10);
-  const rest = mainFeed.slice(10);
+  const top10 = useMemo(() => {
+    const q = search.trim();
+    if (q) return mainFeed.slice(0, 10);
+    return diversifiedTopStories(visible, 10);
+  }, [visible, search, mainFeed]);
 
-  const LATEST_PAGE_SIZE = 10;
+  const rest = useMemo(() => {
+    const q = search.trim();
+    if (q) return mainFeed.slice(10);
+    const topUrls = new Set(top10.map(i => i.url));
+    return mainFeed.filter(i => !topUrls.has(i.url));
+  }, [mainFeed, search, top10]);
+
+  const LATEST_PAGE_SIZE = 15;
   const latestPageCount = Math.max(1, Math.ceil(rest.length / LATEST_PAGE_SIZE));
   const safeLatestPage = Math.min(latestPage, latestPageCount - 1);
   const latestPageItems = rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE);
@@ -208,36 +217,23 @@ export default function Home() {
       <Ticker items={news.slice(0, 24)} />
 
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
-        {/* Top Stories + Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8 mb-10">
-          <div className="min-w-0">
-            <div className="flex items-baseline gap-3 mb-5">
-              <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-              <h1 className="text-2xl font-semibold tracking-tight">Top Stories</h1>
-            </div>
-            {top10.length > 0 && <HeroLead items={top10} />}
+        {/* Top Stories - full width */}
+        <section className="mb-10">
+          <div className="flex items-baseline gap-3 mb-5">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h1 className="text-2xl font-semibold tracking-tight">Top Stories</h1>
           </div>
+          {top10.length > 0 && <HeroLead items={top10} />}
+        </section>
 
-          {/* Sidebar */}
-          <aside className="space-y-4 lg:sticky lg:top-20 self-start">
-            <div className="border border-[var(--color-line)] rounded-lg p-4">
-              <div className="text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">Search</div>
-              <input
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                placeholder="Search headlines..."
-                className="w-full rounded-lg border border-[var(--color-line)] bg-neutral-50 px-3 py-2 text-sm outline-none focus:border-violet-300 transition-colors"
-                aria-label="Search stories"
-              />
-            </div>
-            <TrendingSidebar items={news} />
-            <DomainBar
-              selected={selectedDomain}
-              counts={domainCounts}
-              onChange={d => { setSelectedDomain(d); setNewItems([]); }}
-            />
-          </aside>
-        </div>
+        {/* Who's Reading */}
+        <section className="mb-8">
+          <DomainBar
+            selected={selectedDomain}
+            counts={domainCounts}
+            onChange={d => { setSelectedDomain(d); setNewItems([]); }}
+          />
+        </section>
 
         {/* Filters */}
         <section className="mb-6">
@@ -280,7 +276,7 @@ export default function Home() {
           </div>
 
           {loading && news.length === 0 ? (
-            <SkeletonGrid count={9} />
+            <SkeletonGrid count={15} />
           ) : rest.length === 0 && visible.length === 0 ? (
             <div className="py-20 text-center text-neutral-400">
               <p>No stories match the current filters.</p>

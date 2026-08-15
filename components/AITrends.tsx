@@ -2,158 +2,110 @@
 
 import { useState, useMemo } from 'react';
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  ScatterChart,
-  Scatter,
-  BarChart,
-  Bar,
-  Cell,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  ResponsiveContainer, ScatterChart, Scatter, BarChart, Bar, Cell,
 } from 'recharts';
 import {
-  MODELS_TIMELINE,
-  LAB_COLORS,
-  COUNTRY_COLORS,
-  getLabsByLatestIntelligence,
-  getLabModels,
-  getBestModelPerLab,
+  MODELS_TIMELINE, LAB_COLORS, COUNTRY_COLORS,
+  getLabsByLatestIntelligence, getLabModels, getBestModelPerLab,
   type ModelTimeline,
 } from '@/lib/trends-data';
 
-type Section = 'progress' | 'efficiency' | 'countries' | 'labs' | 'opensource';
+type Section = 'progress' | 'efficiency' | 'countries' | 'opensource' | 'architecture';
 
 const SECTIONS: { id: Section; label: string }[] = [
   { id: 'progress', label: 'AI Progress' },
   { id: 'efficiency', label: 'Efficiency' },
   { id: 'countries', label: 'Country Analysis' },
-  { id: 'labs', label: 'Leading Models by Lab' },
   { id: 'opensource', label: 'Open Source Models' },
+  { id: 'architecture', label: 'Model Architecture' },
 ];
 
-const BAND_COLORS: Record<string, string> = {
-  'Intelligence < 20': '#60a5fa',
-  '20 ≤ Intelligence < 40': '#34d399',
-  '40 ≤ Intelligence < 50': '#f472b6',
-  'Intelligence ≥ 50': '#7c3aed',
-};
-
-function SectionCard({
-  title,
-  subtitle,
-  children,
-}: {
-  title: string;
-  subtitle: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="border border-[var(--color-line)] rounded-lg p-6 bg-[var(--card)]">
-      <h3 className="text-lg font-semibold tracking-tight mb-1">{title}</h3>
-      <p className="text-[12px] text-neutral-500 mb-5 max-w-[60ch] leading-relaxed">
-        {subtitle}
-      </p>
-      {children}
-    </div>
-  );
-}
+/* ─── Helpers ─── */
 
 function formatDate(iso: string) {
   const d = new Date(iso);
-  const months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-  ];
-  return `${months[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
+  const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${m[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
 }
 
-/* ─── Custom Tooltip Components ─── */
+function formatQuarter(iso: string) {
+  const d = new Date(iso);
+  const q = Math.floor(d.getMonth() / 3) + 1;
+  return `Q${q} ${d.getFullYear()}`;
+}
 
-function ProgressTooltip({ active, payload, label }: any) {
+/* ─── Section Card (AA style) ─── */
+
+function SectionCard({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
+  return (
+    <div className="border border-[var(--color-line)] rounded-lg bg-[var(--card)]">
+      <div className="px-6 pt-6 pb-4">
+        <h3 className="text-[17px] font-semibold tracking-tight mb-1">{title}</h3>
+        <p className="text-[12px] text-[var(--dim)] max-w-[70ch] leading-relaxed">{subtitle}</p>
+      </div>
+      <div className="px-6 pb-6">{children}</div>
+    </div>
+  );
+}
+
+/* ─── Custom Tooltips ─── */
+
+function IntelTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs space-y-0.5">
-      <p className="font-semibold text-neutral-800 mb-1">{formatDate(String(label))}</p>
-      {payload.map((entry: any) => (
-        <div key={entry.dataKey} className="flex items-center gap-2">
-          <span
-            className="w-2 h-2 rounded-full shrink-0"
-            style={{ backgroundColor: entry.color }}
-          />
-          <span className="text-neutral-500">{entry.dataKey}:</span>
-          <span className="font-medium text-neutral-800">{entry.value}</span>
+    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
+      <div className="font-medium mb-1">{label}</div>
+      {payload.map((p: any, i: number) => (
+        <div key={i} className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
+          <span className="text-[var(--dim)]">{p.name}:</span>
+          <span className="font-medium">{p.value?.toFixed(1)}</span>
         </div>
       ))}
     </div>
   );
 }
 
-function EfficiencyTooltip({ active, payload, label }: any) {
+function PriceTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs space-y-0.5">
-      <p className="font-semibold text-neutral-800 mb-1">{formatDate(String(label))}</p>
-      {payload.map((entry: any) => {
-        const price = Math.pow(2, entry.value);
-        const priceStr =
-          price < 0.01
-            ? '<$0.01'
-            : price < 1
-              ? `$${price.toFixed(2)}`
-              : `$${price.toFixed(0)}`;
-        return (
-          <div key={entry.dataKey} className="flex items-center gap-2">
-            <span
-              className="w-2 h-2 rounded-full shrink-0"
-              style={{ backgroundColor: entry.color }}
-            />
-            <span className="text-neutral-500">{entry.dataKey}:</span>
-            <span className="font-medium text-neutral-800">{priceStr}</span>
-          </div>
-        );
-      })}
+    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
+      <div className="font-medium mb-1">{label}</div>
+      {payload.map((p: any, i: number) => (
+        <div key={i} className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
+          <span className="text-[var(--dim)]">{p.name}:</span>
+          <span className="font-medium">${p.value?.toFixed(2)}</span>
+        </div>
+      ))}
     </div>
   );
 }
 
-function CountryTooltip({ active, payload, label }: any) {
+function ScatterTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
+  const d = payload[0]?.payload;
+  if (!d) return null;
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs space-y-0.5">
-      <p className="font-semibold text-neutral-800 mb-1">{formatDate(String(label))}</p>
-      {payload.map((entry: any) => (
-        <div key={entry.dataKey} className="flex items-center gap-2">
-          <span
-            className="w-2 h-2 rounded-full shrink-0"
-            style={{ backgroundColor: entry.color }}
-          />
-          <span className="text-neutral-500">{entry.dataKey}:</span>
-          <span className="font-medium text-neutral-800">{entry.value}</span>
-        </div>
-      ))}
+    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
+      <div className="font-medium">{d.name}</div>
+      <div className="text-[var(--dim)]">{d.lab} · {formatDate(d.date)}</div>
+      <div className="mt-1">Intelligence: <span className="font-medium">{d.intelligence}</span></div>
+      {d.price != null && <div>Price: <span className="font-medium">${d.price}/1M</span></div>}
     </div>
   );
 }
 
 function BarTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
-  const data = payload[0]?.payload;
-  if (!data) return null;
+  const d = payload[0]?.payload;
+  if (!d) return null;
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs space-y-0.5">
-      <p className="font-semibold text-neutral-800">{data.lab}</p>
-      <p className="text-neutral-600">{data.modelName}</p>
-      <p className="text-neutral-500">
-        Intelligence: <span className="font-medium text-neutral-800">{data.intelligence}</span>
-      </p>
-      <p className="text-neutral-500">
-        Date: <span className="font-medium text-neutral-800">{formatDate(data.date)}</span>
-      </p>
+    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
+      <div className="font-medium">{d.name}</div>
+      <div className="text-[var(--dim)]">{d.lab}</div>
+      <div className="mt-1">Intelligence: <span className="font-medium">{d.intelligence}</span></div>
     </div>
   );
 }
@@ -163,611 +115,445 @@ function BarTooltip({ active, payload }: any) {
 export default function AITrends() {
   const [activeSection, setActiveSection] = useState<Section>('progress');
 
+  /* ─── Data Prep ─── */
+  const topLabs = useMemo(() => getLabsByLatestIntelligence().slice(0, 10), []);
+
+  const intelOverTime = useMemo(() => {
+    const byLab: Record<string, ModelTimeline[]> = {};
+    for (const m of MODELS_TIMELINE) {
+      if (!byLab[m.lab]) byLab[m.lab] = [];
+      byLab[m.lab].push(m);
+    }
+    const dates = [...new Set(MODELS_TIMELINE.map(m => m.date))].sort();
+    return dates.map(date => {
+      const row: Record<string, any> = { date, label: formatDate(date) };
+      for (const lab of topLabs) {
+        const models = (byLab[lab] || []).filter(m => m.date <= date);
+        if (models.length) row[lab] = models[models.length - 1].intelligence;
+      }
+      return row;
+    });
+  }, [topLabs]);
+
+  const bestPerLab = useMemo(() => getBestModelPerLab().slice(0, 15), []);
+
+  const priceOverTime = useMemo(() => {
+    const bands = [
+      { label: 'Intelligence < 20', min: 0, max: 20, color: '#60a5fa' },
+      { label: '20 ≤ Intelligence < 40', min: 20, max: 40, color: '#34d399' },
+      { label: '40 ≤ Intelligence < 50', min: 40, max: 50, color: '#f472b6' },
+      { label: 'Intelligence ≥ 50', min: 50, max: 999, color: '#7c3aed' },
+    ];
+    const dates = [...new Set(MODELS_TIMELINE.filter(m => m.price != null).map(m => m.date))].sort();
+    return dates.map(date => {
+      const row: Record<string, any> = { date, label: formatDate(date) };
+      const avail = MODELS_TIMELINE.filter(m => m.date <= date && m.price != null);
+      for (const band of bands) {
+        const inBand = avail.filter(m => m.intelligence >= band.min && m.intelligence < band.max);
+        if (inBand.length) {
+          row[band.label] = inBand.reduce((s, m) => s + m.price!, 0) / inBand.length;
+        }
+      }
+      return row;
+    });
+  }, []);
+
+  const speedOverTime = useMemo(() => {
+    const bands = [
+      { label: 'Intelligence < 20', min: 0, max: 20, color: '#60a5fa' },
+      { label: '20 ≤ Intelligence < 40', min: 20, max: 40, color: '#34d399' },
+      { label: '40 ≤ Intelligence < 50', min: 40, max: 50, color: '#f472b6' },
+      { label: 'Intelligence ≥ 50', min: 50, max: 999, color: '#7c3aed' },
+    ];
+    const dates = [...new Set(MODELS_TIMELINE.filter(m => m.speed != null).map(m => m.date))].sort();
+    return dates.map(date => {
+      const row: Record<string, any> = { date, label: formatDate(date) };
+      const avail = MODELS_TIMELINE.filter(m => m.date <= date && m.speed != null);
+      for (const band of bands) {
+        const inBand = avail.filter(m => m.intelligence >= band.min && m.intelligence < band.max);
+        if (inBand.length) {
+          row[band.label] = inBand.reduce((s, m) => s + m.speed!, 0) / inBand.length;
+        }
+      }
+      return row;
+    });
+  }, []);
+
+  const countryOverTime = useMemo(() => {
+    const countries = Object.keys(COUNTRY_COLORS);
+    const byCountry: Record<string, ModelTimeline[]> = {};
+    for (const m of MODELS_TIMELINE) {
+      if (!byCountry[m.country]) byCountry[m.country] = [];
+      byCountry[m.country].push(m);
+    }
+    const dates = [...new Set(MODELS_TIMELINE.map(m => m.date))].sort();
+    return dates.map(date => {
+      const row: Record<string, any> = { date, label: formatDate(date) };
+      for (const c of countries) {
+        const models = (byCountry[c] || []).filter(m => m.date <= date);
+        if (models.length) row[c] = models[models.length - 1].intelligence;
+      }
+      return row;
+    });
+  }, []);
+
+  const scatterData = useMemo(() =>
+    MODELS_TIMELINE.filter(m => m.intelligence > 15).map(m => ({
+      ...m,
+      releaseDate: new Date(m.date).getTime(),
+    })),
+  []);
+
+  const openVsProp = useMemo(() => {
+    const dates = [...new Set(MODELS_TIMELINE.map(m => m.date))].sort();
+    return dates.map(date => {
+      const avail = MODELS_TIMELINE.filter(m => m.date <= date);
+      const open = avail.filter(m => m.isOpen);
+      const prop = avail.filter(m => !m.isOpen);
+      const row: Record<string, any> = { date, label: formatDate(date) };
+      if (open.length) row['Open Weights'] = open.reduce((s, m) => s + m.intelligence, 0) / open.length;
+      if (prop.length) row['Proprietary'] = prop.reduce((s, m) => s + m.intelligence, 0) / prop.length;
+      return row;
+    });
+  }, []);
+
+  const BAND_COLORS: Record<string, string> = {
+    'Intelligence < 20': '#60a5fa',
+    '20 ≤ Intelligence < 40': '#34d399',
+    '40 ≤ Intelligence < 50': '#f472b6',
+    'Intelligence ≥ 50': '#7c3aed',
+  };
+
   return (
     <div className="flex gap-8">
       {/* Sidebar nav */}
-      <aside className="hidden lg:block w-48 shrink-0 sticky top-20 self-start">
-        <nav className="space-y-1">
+      <nav className="hidden lg:block w-48 shrink-0 sticky top-20 self-start">
+        <div className="space-y-1">
           {SECTIONS.map(s => (
             <button
               key={s.id}
               onClick={() => setActiveSection(s.id)}
-              className={`flex items-center gap-2.5 w-full text-left px-3 py-2 text-sm rounded-lg transition-colors ${
+              className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
                 activeSection === s.id
-                  ? 'font-semibold text-black'
-                  : 'text-neutral-400 hover:text-black'
+                  ? 'bg-black text-white font-medium'
+                  : 'text-[var(--dim)] hover:text-[var(--fore)] hover:bg-[var(--surface)]'
               }`}
             >
-              <span
-                className={`w-2 h-2 rounded-sm shrink-0 ${
-                  activeSection === s.id ? 'bg-black' : 'bg-neutral-300'
-                }`}
-              />
               {s.label}
             </button>
           ))}
-        </nav>
-      </aside>
+        </div>
+      </nav>
 
-      {/* Mobile section picker */}
-      <div className="lg:hidden mb-4 w-full">
-        <select
-          value={activeSection}
-          onChange={e => setActiveSection(e.target.value as Section)}
-          className="w-full border border-[var(--color-line)] rounded-lg px-3 py-2 text-sm"
-        >
-          {SECTIONS.map(s => (
-            <option key={s.id} value={s.id}>
-              {s.label}
-            </option>
-          ))}
-        </select>
+      {/* Mobile section tabs */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[var(--background)] border-t border-[var(--color-line)] px-2 py-2 flex gap-1 overflow-x-auto">
+        {SECTIONS.map(s => (
+          <button
+            key={s.id}
+            onClick={() => setActiveSection(s.id)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
+              activeSection === s.id
+                ? 'bg-black text-white'
+                : 'text-[var(--dim)] border border-[var(--color-line)]'
+            }`}
+          >
+            {s.label}
+          </button>
+        ))}
       </div>
 
       {/* Content */}
-      <div className="flex-1 min-w-0">
-        {activeSection === 'progress' && <ProgressSection />}
-        {activeSection === 'efficiency' && <EfficiencySection />}
-        {activeSection === 'countries' && <CountrySection />}
-        {activeSection === 'labs' && <LabsSection />}
-        {activeSection === 'opensource' && <OpenSourceSection />}
+      <div className="flex-1 min-w-0 space-y-8 pb-20 lg:pb-0">
+
+        {/* ═══ AI Progress ═══ */}
+        {activeSection === 'progress' && (
+          <>
+            <SectionCard
+              title="Frontier Language Model Intelligence, Over Time"
+              subtitle="Artificial Analysis Intelligence Index — tracking the continued advancement of AI and the position of each leading AI company."
+            >
+              <div className="flex flex-wrap gap-2 mb-4">
+                {topLabs.map(lab => (
+                  <span key={lab} className="inline-flex items-center gap-1.5 text-[11px]">
+                    <span className="w-2 h-2 rounded-full" style={{ background: LAB_COLORS[lab] || '#6b7280' }} />
+                    {lab}
+                  </span>
+                ))}
+              </div>
+              <ResponsiveContainer width="100%" height={400}>
+                <LineChart data={intelOverTime}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+                  <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
+                  <Tooltip content={<IntelTooltip />} />
+                  {topLabs.map(lab => (
+                    <Line
+                      key={lab}
+                      type="monotone"
+                      dataKey={lab}
+                      stroke={LAB_COLORS[lab] || '#6b7280'}
+                      strokeWidth={2}
+                      dot={false}
+                      connectNulls
+                    />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            </SectionCard>
+
+            <SectionCard
+              title="Leading Models by AI Lab"
+              subtitle="Highest Artificial Analysis Intelligence Index achieved by each AI lab."
+            >
+              <ResponsiveContainer width="100%" height={Math.max(300, bestPerLab.length * 40)}>
+                <BarChart data={bestPerLab} layout="vertical" margin={{ left: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
+                  <XAxis type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
+                  <YAxis type="category" dataKey="lab" tick={{ fontSize: 11 }} width={100} />
+                  <Tooltip content={<BarTooltip />} />
+                  <Bar dataKey="intelligence" radius={[0, 4, 4, 0]} barSize={24}>
+                    {bestPerLab.map((m, i) => (
+                      <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </SectionCard>
+
+            <SectionCard
+              title="Intelligence Index vs. Release Date"
+              subtitle="Scatter plot of all models — intelligence index plotted against release date."
+            >
+              <ResponsiveContainer width="100%" height={400}>
+                <ScatterChart>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis
+                    dataKey="releaseDate"
+                    type="number"
+                    tick={{ fontSize: 11 }}
+                    domain={['dataMin', 'dataMax']}
+                    tickFormatter={(v) => formatDate(new Date(v).toISOString())}
+                  />
+                  <YAxis dataKey="intelligence" type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
+                  <Tooltip content={<ScatterTooltip />} />
+                  <Scatter data={scatterData} fill="#7c3aed">
+                    {scatterData.map((m, i) => (
+                      <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} />
+                    ))}
+                  </Scatter>
+                </ScatterChart>
+              </ResponsiveContainer>
+            </SectionCard>
+          </>
+        )}
+
+        {/* ═══ Efficiency ═══ */}
+        {activeSection === 'efficiency' && (
+          <>
+            <SectionCard
+              title="Language Model Inference Price, by Intelligence Index Band, Over Time"
+              subtitle="Price in USD per 1M tokens (7:2:1 blend of cache, input, and output token prices). Bands use Artificial Analysis Intelligence Index."
+            >
+              <div className="flex flex-wrap gap-2 mb-4">
+                {Object.entries(BAND_COLORS).map(([label, color]) => (
+                  <span key={label} className="inline-flex items-center gap-1.5 text-[11px]">
+                    <span className="w-2 h-2 rounded-full" style={{ background: color }} />
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <ResponsiveContainer width="100%" height={350}>
+                <LineChart data={priceOverTime}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+                  <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+                  <Tooltip content={<PriceTooltip />} />
+                  {Object.entries(BAND_COLORS).map(([label, color]) => (
+                    <Line key={label} type="monotone" dataKey={label} stroke={color} strokeWidth={2} dot={false} connectNulls />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            </SectionCard>
+
+            <SectionCard
+              title="Language Model Output Speed, by Intelligence Index Band, Over Time"
+              subtitle="Output tokens per second. Bands use Artificial Analysis Intelligence Index."
+            >
+              <div className="flex flex-wrap gap-2 mb-4">
+                {Object.entries(BAND_COLORS).map(([label, color]) => (
+                  <span key={label} className="inline-flex items-center gap-1.5 text-[11px]">
+                    <span className="w-2 h-2 rounded-full" style={{ background: color }} />
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <ResponsiveContainer width="100%" height={350}>
+                <LineChart data={speedOverTime}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+                  <YAxis tick={{ fontSize: 11 }} />
+                  <Tooltip content={({ active, payload, label }: any) => {
+                    if (!active || !payload?.length) return null;
+                    return (
+                      <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
+                        <div className="font-medium mb-1">{label}</div>
+                        {payload.map((p: any, i: number) => (
+                          <div key={i} className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
+                            <span className="text-[var(--dim)]">{p.name}:</span>
+                            <span className="font-medium">{p.value?.toFixed(0)} tok/s</span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  }} />
+                  {Object.entries(BAND_COLORS).map(([label, color]) => (
+                    <Line key={label} type="monotone" dataKey={label} stroke={color} strokeWidth={2} dot={false} connectNulls />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            </SectionCard>
+          </>
+        )}
+
+        {/* ═══ Country Analysis ═══ */}
+        {activeSection === 'countries' && (
+          <SectionCard
+            title="Frontier Language Model Intelligence By Country, Over Time"
+            subtitle="Tracking AI progress by country — the best intelligence score achieved by models from each country."
+          >
+            <div className="flex flex-wrap gap-2 mb-4">
+              {Object.entries(COUNTRY_COLORS).map(([country, color]) => (
+                <span key={country} className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full" style={{ background: color }} />
+                  {country}
+                </span>
+              ))}
+            </div>
+            <ResponsiveContainer width="100%" height={400}>
+              <LineChart data={countryOverTime}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+                <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
+                <Tooltip content={<IntelTooltip />} />
+                {Object.entries(COUNTRY_COLORS).map(([country, color]) => (
+                  <Line key={country} type="monotone" dataKey={country} stroke={color} strokeWidth={2} dot={false} connectNulls />
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+          </SectionCard>
+        )}
+
+        {/* ═══ Open Source ═══ */}
+        {activeSection === 'opensource' && (
+          <>
+            <SectionCard
+              title="Progress in Open Weights vs. Proprietary Intelligence"
+              subtitle="Comparing the intelligence trajectory of open weights models versus proprietary models over time."
+            >
+              <div className="flex gap-4 mb-4">
+                <span className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full bg-[#34d399]" /> Open Weights
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full bg-[#7c3aed]" /> Proprietary
+                </span>
+              </div>
+              <ResponsiveContainer width="100%" height={350}>
+                <LineChart data={openVsProp}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+                  <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
+                  <Tooltip content={<IntelTooltip />} />
+                  <Line type="monotone" dataKey="Open Weights" stroke="#34d399" strokeWidth={2} dot={false} connectNulls />
+                  <Line type="monotone" dataKey="Proprietary" stroke="#7c3aed" strokeWidth={2} dot={false} connectNulls />
+                </LineChart>
+              </ResponsiveContainer>
+            </SectionCard>
+
+            <SectionCard
+              title="Intelligence Index by Open Weights / Proprietary"
+              subtitle="All models plotted — intelligence index colored by license type."
+            >
+              <div className="flex gap-4 mb-4">
+                <span className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full bg-[#7c3aed]" /> Proprietary
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full bg-[#34d399]" /> Open Weights
+                </span>
+              </div>
+              <ResponsiveContainer width="100%" height={400}>
+                <ScatterChart>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis dataKey="releaseDate" type="number" tick={{ fontSize: 11 }} domain={['dataMin', 'dataMax']}
+                    tickFormatter={(v) => formatDate(new Date(v).toISOString())} />
+                  <YAxis dataKey="intelligence" type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
+                  <Tooltip content={<ScatterTooltip />} />
+                  <Scatter data={scatterData}>
+                    {scatterData.map((m, i) => (
+                      <Cell key={i} fill={m.isOpen ? '#34d399' : '#7c3aed'} />
+                    ))}
+                  </Scatter>
+                </ScatterChart>
+              </ResponsiveContainer>
+            </SectionCard>
+          </>
+        )}
+
+        {/* ═══ Model Architecture ═══ */}
+        {activeSection === 'architecture' && (
+          <>
+            <SectionCard
+              title="Intelligence Index vs. Release Date by Model Architecture"
+              subtitle="Comparing Dense vs Mixture of Experts (MoE) architectures over time."
+            >
+              <div className="flex gap-4 mb-4">
+                <span className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full bg-[#3b82f6]" /> Dense
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px]">
+                  <span className="w-2 h-2 rounded-full bg-[#f97316]" /> MoE
+                </span>
+              </div>
+              <ResponsiveContainer width="100%" height={400}>
+                <ScatterChart>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+                  <XAxis dataKey="releaseDate" type="number" tick={{ fontSize: 11 }} domain={['dataMin', 'dataMax']}
+                    tickFormatter={(v) => formatDate(new Date(v).toISOString())} />
+                  <YAxis dataKey="intelligence" type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
+                  <Tooltip content={<ScatterTooltip />} />
+                  <Scatter data={scatterData.filter(m => !m.isOpen || m.intelligence > 25)}>
+                    {scatterData.filter(m => !m.isOpen || m.intelligence > 25).map((m, i) => (
+                      <Cell key={i} fill={m.lab === 'DeepSeek' || m.lab === 'xAI' ? '#f97316' : '#3b82f6'} />
+                    ))}
+                  </Scatter>
+                </ScatterChart>
+              </ResponsiveContainer>
+            </SectionCard>
+
+            <SectionCard
+              title="Model Size: Total and Active Parameters"
+              subtitle="Comparison between total model parameters and parameters active during inference."
+            >
+              <ResponsiveContainer width="100%" height={Math.max(300, bestPerLab.length * 40)}>
+                <BarChart data={bestPerLab} layout="vertical" margin={{ left: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
+                  <XAxis type="number" tick={{ fontSize: 11 }} />
+                  <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={120} />
+                  <Tooltip content={<BarTooltip />} />
+                  <Bar dataKey="intelligence" radius={[0, 4, 4, 0]} barSize={20}>
+                    {bestPerLab.map((m, i) => (
+                      <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </SectionCard>
+          </>
+        )}
+
       </div>
-    </div>
-  );
-}
-
-/* ─── AI Progress ─── */
-
-function ProgressSection() {
-  const labs = getLabsByLatestIntelligence().slice(0, 10);
-
-  const chartData = useMemo(() => {
-    const allDates = new Set<string>();
-    const labSeries: Record<string, Record<string, number | undefined>> = {};
-
-    for (const lab of labs) {
-      labSeries[lab] = {};
-      for (const m of getLabModels(lab)) {
-        allDates.add(m.date);
-        labSeries[lab][m.date] = m.intelligence;
-      }
-    }
-
-    return Array.from(allDates)
-      .sort()
-      .map(date => {
-        const row: Record<string, string | number> = { date };
-        for (const lab of labs) {
-          const val = labSeries[lab][date];
-          if (val !== undefined) row[lab] = val;
-        }
-        return row;
-      });
-  }, [labs]);
-
-  const scatterData = useMemo(
-    () =>
-      MODELS_TIMELINE.filter(m => m.price != null && m.price > 0).map(m => ({
-        name: m.name,
-        lab: m.lab,
-        price: m.price,
-        intelligence: m.intelligence,
-        date: m.date,
-      })),
-    []
-  );
-
-  return (
-    <div className="space-y-10">
-      <SectionCard
-        title="Frontier Language Model Intelligence, Over Time"
-        subtitle="Tracking the intelligence index of leading AI models as they release. Each line represents a lab's best model over time."
-      >
-        <ResponsiveContainer width="100%" height={400}>
-          <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
-            <XAxis
-              dataKey="date"
-              tickFormatter={formatDate}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              interval="preserveStartEnd"
-            />
-            <YAxis
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              domain={[0, 70]}
-              label={{
-                value: 'Intelligence Index',
-                angle: -90,
-                position: 'insideLeft',
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <Tooltip content={<ProgressTooltip />} />
-            <Legend
-              wrapperStyle={{ fontSize: 11 }}
-              iconType="circle"
-              iconSize={8}
-            />
-            {labs.map(lab => (
-              <Line
-                key={lab}
-                type="monotone"
-                dataKey={lab}
-                stroke={LAB_COLORS[lab] || '#6b7280'}
-                strokeWidth={2}
-                dot={{ r: 3, strokeWidth: 1, stroke: '#fff' }}
-                activeDot={{ r: 5, strokeWidth: 1, stroke: '#fff' }}
-                connectNulls
-                name={lab}
-              />
-            ))}
-          </LineChart>
-        </ResponsiveContainer>
-      </SectionCard>
-
-      <SectionCard
-        title="Intelligence vs Cost"
-        subtitle="Intelligence score plotted against average cost per 1M tokens. Lower-right is the sweet spot."
-      >
-        <ResponsiveContainer width="100%" height={350}>
-          <ScatterChart>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
-            <XAxis
-              type="number"
-              dataKey="price"
-              name="Price"
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              label={{
-                value: 'Price per 1M tokens (USD)',
-                position: 'insideBottom',
-                offset: -5,
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <YAxis
-              type="number"
-              dataKey="intelligence"
-              name="Intelligence"
-              domain={[0, 70]}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              label={{
-                value: 'Intelligence',
-                angle: -90,
-                position: 'insideLeft',
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <Tooltip
-              cursor={{ strokeDasharray: '3 3' }}
-              content={({ active, payload }) => {
-                if (!active || !payload?.length) return null;
-                const d = payload[0]?.payload;
-                return (
-                  <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs">
-                    <p className="font-semibold text-neutral-800">{d?.name}</p>
-                    <p className="text-neutral-500">{d?.lab}</p>
-                    <p className="text-neutral-500">
-                      Intelligence: <span className="font-medium text-neutral-800">{d?.intelligence}</span>
-                    </p>
-                    <p className="text-neutral-500">
-                      Price: <span className="font-medium text-neutral-800">
-                        ${d?.price?.toFixed(2)}
-                      </span>
-                    </p>
-                  </div>
-                );
-              }}
-            />
-            <Scatter
-              data={scatterData}
-              fillOpacity={0.85}
-            >
-              {scatterData.map((entry, i) => (
-                <Cell
-                  key={i}
-                  fill={LAB_COLORS[entry.lab] || '#6b7280'}
-                />
-              ))}
-            </Scatter>
-          </ScatterChart>
-        </ResponsiveContainer>
-      </SectionCard>
-    </div>
-  );
-}
-
-/* ─── Efficiency ─── */
-
-function EfficiencySection() {
-  const withPrice = useMemo(
-    () => MODELS_TIMELINE.filter(m => m.price != null && m.price > 0),
-    []
-  );
-
-  const bands = useMemo(
-    () => [
-      { label: 'Intelligence < 20', filter: (m: ModelTimeline) => m.intelligence < 20 },
-      { label: '20 ≤ Intelligence < 40', filter: (m: ModelTimeline) => m.intelligence >= 20 && m.intelligence < 40 },
-      { label: '40 ≤ Intelligence < 50', filter: (m: ModelTimeline) => m.intelligence >= 40 && m.intelligence < 50 },
-      { label: 'Intelligence ≥ 50', filter: (m: ModelTimeline) => m.intelligence >= 50 },
-    ],
-    []
-  );
-
-  const chartData = useMemo(() => {
-    const allDates = new Set<string>();
-    const bandSeries: Record<string, Record<string, number | undefined>> = {};
-
-    for (const band of bands) {
-      bandSeries[band.label] = {};
-      for (const m of withPrice.filter(band.filter).sort(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-      )) {
-        allDates.add(m.date);
-        bandSeries[band.label][m.date] = Math.log2(m.price! + 0.01);
-      }
-    }
-
-    return Array.from(allDates)
-      .sort()
-      .map(date => {
-        const row: Record<string, string | number> = { date };
-        for (const band of bands) {
-          const val = bandSeries[band.label][date];
-          if (val !== undefined) row[band.label] = val;
-        }
-        return row;
-      });
-  }, [withPrice, bands]);
-
-  return (
-    <div className="space-y-10">
-      <SectionCard
-        title="Language Model Inference Price, Over Time"
-        subtitle="Average $/1M tokens for models at different intelligence levels. Prices have dropped dramatically — frontier intelligence is 48x cheaper than in 2023."
-      >
-        <ResponsiveContainer width="100%" height={350}>
-          <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
-            <XAxis
-              dataKey="date"
-              tickFormatter={formatDate}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              interval="preserveStartEnd"
-            />
-            <YAxis
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              domain={[-6, 5]}
-              tickFormatter={v => {
-                const price = Math.pow(2, v);
-                if (price < 0.01) return '<$0.01';
-                if (price < 1) return `$${price.toFixed(2)}`;
-                return `$${price.toFixed(0)}`;
-              }}
-              label={{
-                value: 'Price (log₂ scale)',
-                angle: -90,
-                position: 'insideLeft',
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <Tooltip content={<EfficiencyTooltip />} />
-            <Legend
-              wrapperStyle={{ fontSize: 11 }}
-              iconType="circle"
-              iconSize={8}
-            />
-            {bands.map(band => (
-              <Line
-                key={band.label}
-                type="monotone"
-                dataKey={band.label}
-                stroke={BAND_COLORS[band.label]}
-                strokeWidth={2}
-                dot={{ r: 3, strokeWidth: 1, stroke: '#fff' }}
-                activeDot={{ r: 5, strokeWidth: 1, stroke: '#fff' }}
-                connectNulls
-                name={band.label}
-              />
-            ))}
-          </LineChart>
-        </ResponsiveContainer>
-      </SectionCard>
-
-      <SectionCard
-        title="Price vs Intelligence — Best Value Models"
-        subtitle="Which models give you the most intelligence per dollar? Points in the bottom-right are the best value."
-      >
-        <ResponsiveContainer width="100%" height={350}>
-          <ScatterChart>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
-            <XAxis
-              type="number"
-              dataKey="price"
-              name="Price"
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              label={{
-                value: 'Price per 1M tokens (USD)',
-                position: 'insideBottom',
-                offset: -5,
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <YAxis
-              type="number"
-              dataKey="intelligence"
-              name="Intelligence"
-              domain={[0, 70]}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              label={{
-                value: 'Intelligence',
-                angle: -90,
-                position: 'insideLeft',
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <Tooltip
-              cursor={{ strokeDasharray: '3 3' }}
-              content={({ active, payload }) => {
-                if (!active || !payload?.length) return null;
-                const d = payload[0]?.payload;
-                return (
-                  <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs">
-                    <p className="font-semibold text-neutral-800">{d?.name}</p>
-                    <p className="text-neutral-500">{d?.lab}</p>
-                    <p className="text-neutral-500">
-                      Intelligence: <span className="font-medium text-neutral-800">{d?.intelligence}</span>
-                    </p>
-                    <p className="text-neutral-500">
-                      Price: <span className="font-medium text-neutral-800">
-                        ${d?.price?.toFixed(2)}
-                      </span>
-                    </p>
-                  </div>
-                );
-              }}
-            />
-            <Scatter data={withPrice.map(m => ({
-              name: m.name,
-              lab: m.lab,
-              price: m.price,
-              intelligence: m.intelligence,
-            }))}>
-              {withPrice.map((m, i) => (
-                <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} fillOpacity={0.85} />
-              ))}
-            </Scatter>
-          </ScatterChart>
-        </ResponsiveContainer>
-      </SectionCard>
-    </div>
-  );
-}
-
-/* ─── Country Analysis ─── */
-
-function CountrySection() {
-  const countries = useMemo(() => {
-    const maxByCountry: Record<string, number> = {};
-    for (const m of MODELS_TIMELINE) {
-      maxByCountry[m.country] = Math.max(maxByCountry[m.country] || 0, m.intelligence);
-    }
-    return Object.entries(maxByCountry)
-      .filter(([, score]) => score >= 20)
-      .sort(([, a], [, b]) => b - a)
-      .map(([c]) => c);
-  }, []);
-
-  const chartData = useMemo(() => {
-    const allDates = new Set<string>();
-    const countrySeries: Record<string, Record<string, number | undefined>> = {};
-
-    for (const country of countries) {
-      countrySeries[country] = {};
-      for (const m of MODELS_TIMELINE.filter(m => m.country === country).sort(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-      )) {
-        allDates.add(m.date);
-        countrySeries[country][m.date] = m.intelligence;
-      }
-    }
-
-    return Array.from(allDates)
-      .sort()
-      .map(date => {
-        const row: Record<string, string | number> = { date };
-        for (const country of countries) {
-          const val = countrySeries[country][date];
-          if (val !== undefined) row[country] = val;
-        }
-        return row;
-      });
-  }, [countries]);
-
-  return (
-    <div className="space-y-10">
-      <SectionCard
-        title="Frontier Language Model Intelligence by Country, Over Time"
-        subtitle="Each country's highest intelligence score at any point in time. The US and China lead, with France and the UK emerging."
-      >
-        <ResponsiveContainer width="100%" height={350}>
-          <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" />
-            <XAxis
-              dataKey="date"
-              tickFormatter={formatDate}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              interval="preserveStartEnd"
-            />
-            <YAxis
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-              domain={[0, 70]}
-              label={{
-                value: 'Intelligence Index',
-                angle: -90,
-                position: 'insideLeft',
-                style: { fontSize: 11, fill: '#999' },
-              }}
-            />
-            <Tooltip content={<CountryTooltip />} />
-            <Legend
-              wrapperStyle={{ fontSize: 11 }}
-              iconType="circle"
-              iconSize={8}
-            />
-            {countries.map(country => (
-              <Line
-                key={country}
-                type="monotone"
-                dataKey={country}
-                stroke={COUNTRY_COLORS[country] || '#6b7280'}
-                strokeWidth={2}
-                dot={{ r: 3, strokeWidth: 1, stroke: '#fff' }}
-                activeDot={{ r: 5, strokeWidth: 1, stroke: '#fff' }}
-                connectNulls
-                name={country}
-              />
-            ))}
-          </LineChart>
-        </ResponsiveContainer>
-      </SectionCard>
-    </div>
-  );
-}
-
-/* ─── Leading Models by Lab ─── */
-
-function LabsSection() {
-  const barData = useMemo(() => {
-    return getBestModelPerLab()
-      .slice(0, 15)
-      .map(({ lab, model }) => ({
-        lab,
-        modelName: model.name,
-        intelligence: model.intelligence,
-        date: model.date,
-        color: LAB_COLORS[lab] || '#6b7280',
-      }));
-  }, []);
-
-  return (
-    <div className="space-y-10">
-      <SectionCard
-        title="Leading Models by AI Lab"
-        subtitle="The highest intelligence index achieved by each AI lab."
-      >
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart
-            data={barData}
-            layout="vertical"
-            margin={{ left: 20, right: 30 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" horizontal={false} />
-            <XAxis
-              type="number"
-              domain={[0, 70]}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-            />
-            <YAxis
-              type="category"
-              dataKey="lab"
-              width={90}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-            />
-            <Tooltip content={<BarTooltip />} cursor={{ fill: 'rgba(0,0,0,0.04)' }} />
-            <Bar
-              dataKey="intelligence"
-              radius={[0, 4, 4, 0]}
-              barSize={20}
-            >
-              {barData.map((entry, i) => (
-                <Cell key={i} fill={entry.color} fillOpacity={0.85} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </SectionCard>
-    </div>
-  );
-}
-
-/* ─── Open Source Models ─── */
-
-function OpenSourceSection() {
-  const openData = useMemo(() => {
-    return MODELS_TIMELINE.filter(m => m.isOpen)
-      .sort((a, b) => b.intelligence - a.intelligence)
-      .slice(0, 20)
-      .map(m => ({
-        name: m.name,
-        lab: m.lab,
-        intelligence: m.intelligence,
-        date: m.date,
-        price: m.price,
-        color: LAB_COLORS[m.lab] || '#6b7280',
-      }));
-  }, []);
-
-  return (
-    <div className="space-y-10">
-      <SectionCard
-        title="Open Source Models — Intelligence Rankings"
-        subtitle="The most capable open-weight models available. Open-source has closed the gap with proprietary models."
-      >
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart
-            data={openData}
-            layout="vertical"
-            margin={{ left: 20, right: 30 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e5e5" horizontal={false} />
-            <XAxis
-              type="number"
-              domain={[0, 70]}
-              tick={{ fontSize: 11, fontFamily: 'ui-monospace' }}
-            />
-            <YAxis
-              type="category"
-              dataKey="name"
-              width={120}
-              tick={{ fontSize: 10, fontFamily: 'ui-monospace' }}
-            />
-            <Tooltip
-              content={({ active, payload }) => {
-                if (!active || !payload?.length) return null;
-                const d = payload[0]?.payload;
-                return (
-                  <div className="rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm text-xs">
-                    <p className="font-semibold text-neutral-800">{d?.name}</p>
-                    <p className="text-neutral-500">{d?.lab}</p>
-                    <p className="text-neutral-500">
-                      Intelligence: <span className="font-medium text-neutral-800">{d?.intelligence}</span>
-                    </p>
-                    <p className="text-neutral-500">
-                      Price: <span className="font-medium text-neutral-800">
-                        {d?.price != null ? `$${d.price.toFixed(2)}` : 'N/A'}
-                      </span>
-                    </p>
-                    <p className="text-neutral-500">
-                      Released: <span className="font-medium text-neutral-800">{formatDate(d?.date)}</span>
-                    </p>
-                  </div>
-                );
-              }}
-              cursor={{ fill: 'rgba(0,0,0,0.04)' }}
-            />
-            <Bar
-              dataKey="intelligence"
-              radius={[0, 4, 4, 0]}
-              barSize={18}
-            >
-              {openData.map((entry, i) => (
-                <Cell key={i} fill={entry.color} fillOpacity={0.85} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </SectionCard>
     </div>
   );
 }

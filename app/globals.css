@@ -180,6 +180,52 @@ body {
   color: var(--foreground);
 }
 
+/* ---------- Dark mode: override hardcoded Tailwind colors ---------- */
+[data-theme='dark'] body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+[data-theme='dark'] .bg-black { background-color: var(--card) !important; }
+[data-theme='dark'] .bg-white { background-color: var(--card) !important; }
+[data-theme='dark'] .bg-neutral-100 { background-color: #1e1e24 !important; }
+[data-theme='dark'] .bg-neutral-200 { background-color: #26262d !important; }
+[data-theme='dark'] .bg-neutral-50 { background-color: #16161b !important; }
+[data-theme='dark'] .bg-green-500 { background-color: #4ade80 !important; }
+[data-theme='dark'] .bg-violet-50 { background-color: rgba(154, 123, 212, 0.1) !important; }
+
+[data-theme='dark'] .text-black { color: var(--fore) !important; }
+[data-theme='dark'] .text-white { color: #0b0b0d !important; }
+[data-theme='dark'] .text-neutral-400 { color: var(--dim) !important; }
+[data-theme='dark'] .text-neutral-500 { color: var(--dim) !important; }
+[data-theme='dark'] .text-neutral-600 { color: var(--mut) !important; }
+[data-theme='dark'] .text-violet-600 { color: var(--accent) !important; }
+[data-theme='dark'] .text-violet-700 { color: var(--accent) !important; }
+
+[data-theme='dark'] .border-neutral-100 { border-color: #2a2a32 !important; }
+[data-theme='dark'] .border-neutral-200 { border-color: #2a2a32 !important; }
+[data-theme='dark'] .border-neutral-300 { border-color: #33333d !important; }
+[data-theme='dark'] .border-black { border-color: #33333d !important; }
+[data-theme='dark'] .border-violet-200 { border-color: rgba(154, 123, 212, 0.25) !important; }
+
+[data-theme='dark'] .hover\:text-black:hover { color: var(--fore) !important; }
+[data-theme='dark'] .hover\:bg-neutral-200:hover { background-color: #2a2a32 !important; }
+[data-theme='dark'] .hover\:border-neutral-300:hover { border-color: #44444f !important; }
+
+[data-theme='dark'] .ring-focus:focus-visible {
+  box-shadow: 0 0 0 2px rgba(217, 163, 92, 0.35), 0 0 0 4px rgba(217, 163, 92, 0.1) !important;
+}
+
+[data-theme='dark'] .divide-\[var\(--color-line\)\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--color-line) !important;
+}
+
+/* Glass effect for dark mode cards */
+[data-theme='dark'] .glass {
+  background: var(--card) !important;
+  border: 1px solid var(--color-line) !important;
+}
+
 /* ---------- Ticker ---------- */
 @keyframes ticker {
   from { transform: translateX(0); }
