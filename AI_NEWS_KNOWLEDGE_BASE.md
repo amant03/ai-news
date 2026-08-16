@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-16T01:15:14.653Z
-> Total Articles Tracked: 1344
+> Last Updated: 2026-08-16T04:35:11.711Z
+> Total Articles Tracked: 1359
 > Generated from AI Pulse database
 
 ---
@@ -14,9 +14,9 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 71 |
-| 🔬 **Research** | 78 |
-| 💼 **Product/Business** | 161 |
+| 🧠 **Model Releases** | 73 |
+| 🔬 **Research** | 76 |
+| 💼 **Product/Business** | 158 |
 | 🛡️ **Safety/Security** | 8 |
 | ⚖️ **Policy/Regulation** | 27 |
 
@@ -24,18 +24,18 @@
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 220 |
-| **arxiv** | 52 |
-| **ai-weekly** | 46 |
-| **cnbc** | 24 |
-| **reddit** | 23 |
+| **google-news** | 223 |
+| **ai-weekly** | 51 |
+| **arxiv** | 49 |
+| **cnbc** | 23 |
+| **reddit** | 22 |
 | **hacker-news** | 21 |
-| **techcrunch** | 17 |
 | **the-decoder** | 17 |
+| **techcrunch** | 16 |
 | **the-register** | 16 |
 | **decrypt** | 14 |
 | **zdnet** | 13 |
-| **the-verge** | 9 |
+| **the-verge** | 8 |
 | **wired** | 7 |
 | **marktechpost** | 4 |
 | **arstechnica** | 4 |
@@ -46,27 +46,71 @@
 | **venturebeat** | 1 |
 | **google-ai** | 1 |
 | **OpenAI** | 1 |
-| **github** | 1 |
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 71 articles
-- [🔬 Research Breakthroughs](#research-breakthroughs) — 78 articles
-- [💼 Product & Business Updates](#product--business-updates) — 161 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 73 articles
+- [🔬 Research Breakthroughs](#research-breakthroughs) — 76 articles
+- [💼 Product & Business Updates](#product--business-updates) — 158 articles
 - [🛡️ AI Safety & Security](#ai-safety--security) — 8 articles
 - [⚖️ Regulation & Policy](#regulation--policy) — 27 articles
-- [📌 Other Notable News](#other-notable-news) — 155 articles
+- [📌 Other Notable News](#other-notable-news) — 158 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### Anthropic tests AI model more powerful than Mythos, says no release plans yet | 'We've not run all our typical tests on Model 2' | Inshorts
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (6m ago) |
+| **Category** | 🧠 model |
+| **Author** | Inshorts |
+
+**Summary:** Anthropic tests AI model more powerful than Mythos, says no release plans yet | 'We've not run all our typical tests on Model 2' | Inshorts  Inshorts
+
+**URL:** [https://news.google.com/rss/articles/CBMivAFBVV95cUxNd1dmTmdCM0JRYUtqWFdTcU5mRDUxVEtONGQtUHViNUFNNU9DYklyMG81TklCU1pwU2NxWGYyZ1ZZLWNNeV81MGlUbkJuNXpUZDBSdmxBWWU5TUdmeWtuckRmMC1hbnkzSFpSZmgyeGZNZ3FFVmsyVGM0VkJRUjFWVGtjbGFuMW1pdTlBeHA4Tjh6TTd5b1pOdzI1ZGFfU0pVdGtja1VXTHcyZDFxZk5KYzRZQm5tbjJGZGwteNIBwgFBVV95cUxNbFR1WmFOcWxhQUNYRkFvUm83WFZjRkJ0Snc1dHpDbVd6XzJDa1JfT3RfaHFzUFlLUWMxWk5KQ2t2YU5pb1owam13cUZ6TkszcFRDc29UMTRLMk1NUHdicEZXNUlBRGNCcXJWM2puc3pHU3lmMTNUWGtqMDFuZTFBWVB3TUxCLVRCUkh1WXlwQ0RyZmxES0lZZ1I4VW9JX0loUGZQUXNxNVRFQVBlSHJDZUVWU1JEWVdIRzBGVmRPU01pUQ?oc=5](https://news.google.com/rss/articles/CBMivAFBVV95cUxNd1dmTmdCM0JRYUtqWFdTcU5mRDUxVEtONGQtUHViNUFNNU9DYklyMG81TklCU1pwU2NxWGYyZ1ZZLWNNeV81MGlUbkJuNXpUZDBSdmxBWWU5TUdmeWtuckRmMC1hbnkzSFpSZmgyeGZNZ3FFVmsyVGM0VkJRUjFWVGtjbGFuMW1pdTlBeHA4Tjh6TTd5b1pOdzI1ZGFfU0pVdGtja1VXTHcyZDFxZk5KYzRZQm5tbjJGZGwteNIBwgFBVV95cUxNbFR1WmFOcWxhQUNYRkFvUm83WFZjRkJ0Snc1dHpDbVd6XzJDa1JfT3RfaHFzUFlLUWMxWk5KQ2t2YU5pb1owam13cUZ6TkszcFRDc29UMTRLMk1NUHdicEZXNUlBRGNCcXJWM2puc3pHU3lmMTNUWGtqMDFuZTFBWVB3TUxCLVRCUkh1WXlwQ0RyZmxES0lZZ1I4VW9JX0loUGZQUXNxNVRFQVBlSHJDZUVWU1JEWVdIRzBGVmRPU01pUQ?oc=5)
+
+---
+
+### Alibaba’s Qwen crosses 3 billion downloads, outpacing Google and Meta’s open AI models
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (24m ago) |
+| **Category** | 🧠 model |
+| **Author** | Storyboard18 |
+
+**Summary:** Alibaba’s Qwen crosses 3 billion downloads, outpacing Google and Meta’s open AI models  Storyboard18
+
+**URL:** [https://news.google.com/rss/articles/CBMiywFBVV95cUxNNGtEX0RRbC1QZjRrSFB0eDJkTDhtb25MS2J5bVZJaHFmVUhDR1FEeFRlaVlMMENLM1VCRmxjUmx2ZUlxR0s3YWxGQ3ZKU0VQX0JObkdSVDlDS2wyUXp5QkJWN2VoR25TRXQ4eXUydUxGbmFaSFZzZU1MSzFWUUo2UXBuci1tOG9hcTZNTUlNa3RsMFhEd3kydUUySlk4enNRZTRTUGk3cTNwdmdaaEM4WEJ1NEJqVm1YaEt1WjFWWEpOWVpWM3JCbUZ6WdIB0AFBVV95cUxQRmRnY1FLVEQ3c0dILXhPSEZiYUJ0SW1LYVBpM3lZLUtSXzAtZllnYWMwWUxxN0xyTkhnRDlmQlMxWGprZjFQejA5M3VLMFkxRUczc3VRdE5hNWpLVVliMTZUaFVxcnZtaVZIWmtyNVc2djI2YmRJMnVWRlJ4UHQ5TDJGcUFKQXdENlBTX0xVcTA1N1psc2F5b1BocWJORVZkMW9LWUFHRm1RRXp6VFBtQlZ3RXFGR0xVck9rejFjandxNzJGdElvQ0lvbXNnendr?oc=5](https://news.google.com/rss/articles/CBMiywFBVV95cUxNNGtEX0RRbC1QZjRrSFB0eDJkTDhtb25MS2J5bVZJaHFmVUhDR1FEeFRlaVlMMENLM1VCRmxjUmx2ZUlxR0s3YWxGQ3ZKU0VQX0JObkdSVDlDS2wyUXp5QkJWN2VoR25TRXQ4eXUydUxGbmFaSFZzZU1MSzFWUUo2UXBuci1tOG9hcTZNTUlNa3RsMFhEd3kydUUySlk4enNRZTRTUGk3cTNwdmdaaEM4WEJ1NEJqVm1YaEt1WjFWWEpOWVpWM3JCbUZ6WdIB0AFBVV95cUxQRmRnY1FLVEQ3c0dILXhPSEZiYUJ0SW1LYVBpM3lZLUtSXzAtZllnYWMwWUxxN0xyTkhnRDlmQlMxWGprZjFQejA5M3VLMFkxRUczc3VRdE5hNWpLVVliMTZUaFVxcnZtaVZIWmtyNVc2djI2YmRJMnVWRlJ4UHQ5TDJGcUFKQXdENlBTX0xVcTA1N1psc2F5b1BocWJORVZkMW9LWUFHRm1RRXp6VFBtQlZ3RXFGR0xVck9rejFjandxNzJGdElvQ0lvbXNnendr?oc=5)
+
+---
+
+### Home province of DeepSeek, Moonshot founders seeks to retain future AI talent
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | South China Morning Post |
+
+**Summary:** Home province of DeepSeek, Moonshot founders seeks to retain future AI talent  South China Morning Post
+
+**URL:** [https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZG9WYjhBREN3RFhWNFdaYXp2eDJPT2pybFQ0M3JNYXQzNE9vdzBlT04tTmNPa1hMWTE1LWt1LWhiMVB5cWFMYnJrdE5NU0JRNnV0ODdzNHZBZ2Q4UUtObGQ5VFFiQTB6Z09reUU2bGE4b05CX19mRGNiRFRfRHg0Wk9fSzJBOXRaQ19iVFpfNmtKdW9La09mdkY0TVVSbF9jbkVBQWZhWXI4ZTlXTlVySVI5cWRZVTgzcG9DZ2xKUWVpd0FXZGJfRA?oc=5](https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZG9WYjhBREN3RFhWNFdaYXp2eDJPT2pybFQ0M3JNYXQzNE9vdzBlT04tTmNPa1hMWTE1LWt1LWhiMVB5cWFMYnJrdE5NU0JRNnV0ODdzNHZBZ2Q4UUtObGQ5VFFiQTB6Z09reUU2bGE4b05CX19mRGNiRFRfRHg0Wk9fSzJBOXRaQ19iVFpfNmtKdW9La09mdkY0TVVSbF9jbkVBQWZhWXI4ZTlXTlVySVI5cWRZVTgzcG9DZ2xKUWVpd0FXZGJfRA?oc=5)
+
+---
 
 ### Anthropic shares more details about how Claude’s new watermarks will work
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 15, 2026 (6h ago) |
+| **Date** | August 15, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -81,7 +125,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (6h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -96,7 +140,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (8h ago) |
+| **Date** | August 15, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | Yellow.com |
 
@@ -111,7 +155,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 15, 2026 (8h ago) |
+| **Date** | August 15, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -126,7 +170,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -141,7 +185,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | simplywall.st |
 
@@ -156,7 +200,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (11h ago) |
+| **Date** | August 15, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | AI Insider |
 
@@ -171,7 +215,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -186,7 +230,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (15h ago) |
+| **Date** | August 15, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | naplesnews.com |
 
@@ -201,7 +245,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (16h ago) |
+| **Date** | August 15, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -216,7 +260,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (17h ago) |
+| **Date** | August 15, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Mashable |
 
@@ -231,7 +275,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (18h ago) |
+| **Date** | August 15, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Moomoo |
 
@@ -246,7 +290,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (18h ago) |
+| **Date** | August 15, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -261,7 +305,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 15, 2026 (19h ago) |
+| **Date** | August 15, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -276,7 +320,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (20h ago) |
+| **Date** | August 15, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | calcalistech.com |
 
@@ -291,7 +335,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (23h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Ratopati |
 
@@ -643,6 +687,21 @@
 
 ---
 
+### Apple has trained its own AI for China rather than using Gemini
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (1d ago) |
+| **Category** | 🧠 model |
+| **Author** | AppleInsider |
+
+**Summary:** Apple has trained its own AI for China rather than using Gemini  AppleInsider
+
+**URL:** [https://news.google.com/rss/articles/CBMiqgFBVV95cUxQcDJ3ZndVMWVCNmRhRXFEN0JTeFp3Y3p0R3l3OXFkQ0p2dXRfZmRCdl9yU0ozeEJTaVhobDN4Wl9JbmFzUmo1VjlKVDZCT0xCRmJtZnNWaTN0Y2Q3UENDU3R4bEtma1JmWWNRYUFZa1lxLTJaSms5d2ZQaHNnUV9sRF9abE9XOUVORTc3WDFGbG80SV80cWhsWW1Gd096Q2MxTUUtOFhpcnAzdw?oc=5](https://news.google.com/rss/articles/CBMiqgFBVV95cUxQcDJ3ZndVMWVCNmRhRXFEN0JTeFp3Y3p0R3l3OXFkQ0p2dXRfZmRCdl9yU0ozeEJTaVhobDN4Wl9JbmFzUmo1VjlKVDZCT0xCRmJtZnNWaTN0Y2Q3UENDU3R4bEtma1JmWWNRYUFZa1lxLTJaSms5d2ZQaHNnUV9sRF9abE9XOUVORTc3WDFGbG80SV80cWhsWW1Gd096Q2MxTUUtOFhpcnAzdw?oc=5)
+
+---
+
 ### Back in the Harness: DeepSeek continues its pivot towards agentic AI
 
 | Detail | Value |
@@ -753,7 +812,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | aljazeera.com |
 
@@ -928,6 +987,21 @@
 
 ---
 
+### Claude Max subscribers cancel over watermark that follows their writing
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | AI Weekly |
+
+**Summary:** Claude Max subscribers cancel over watermark that follows their writing
+
+**URL:** [https://aiweekly.co/alerts/claude-max-subscribers-cancel-over-anthropics-new-watermark](https://aiweekly.co/alerts/claude-max-subscribers-cancel-over-anthropics-new-watermark)
+
+---
+
 ### Reddit stock jumps on inclusion in S&P 500
 
 | Detail | Value |
@@ -1093,52 +1167,6 @@
 
 ---
 
-### Two public Kentucky universities launch artificial intelligence degrees this fall
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | WKMS |
-
-**Summary:** Two public Kentucky universities launch artificial intelligence degrees this fall  WKMS
-
-**URL:** [https://news.google.com/rss/articles/CBMiwAFBVV95cUxQejRoSklFeF9SWHJCV3R5RXRfc1ZkTmc2MWpqU29ORjdGdGVSSmgxLUtFckE2dkh1S1lvRS0tLW1XcDUwcGo0czhJalFtUkZ2cWxaWjlha1BwdjZvbFF4ZmNPZXBraDhwMjNNVFl3SExZZzZObzF2Rm81X1NpUml3M0VPMDRBU0VnSDY2Mm8xRWMwdDZBck1EODY2VWZkS3VBb0NqS2ZvWkNSMnQ5MW5uTTBFUVZydms2TWcwRFFOWU0?oc=5](https://news.google.com/rss/articles/CBMiwAFBVV95cUxQejRoSklFeF9SWHJCV3R5RXRfc1ZkTmc2MWpqU29ORjdGdGVSSmgxLUtFckE2dkh1S1lvRS0tLW1XcDUwcGo0czhJalFtUkZ2cWxaWjlha1BwdjZvbFF4ZmNPZXBraDhwMjNNVFl3SExZZzZObzF2Rm81X1NpUml3M0VPMDRBU0VnSDY2Mm8xRWMwdDZBck1EODY2VWZkS3VBb0NqS2ZvWkNSMnQ5MW5uTTBFUVZydms2TWcwRFFOWU0?oc=5)
-
----
-
-### Google unveils Gemini Omni as experts detail new model
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Tech Buzz |
-
-**Summary:** Google unveils Gemini Omni as experts detail new model  The Tech Buzz
-
-**URL:** [https://news.google.com/rss/articles/CBMikAFBVV95cUxNeEZsajRxMy00N3J2LXBOVzJvTGZORXBhbWdQQUtiTlhPQ3BPdWRMYXRaSGpmc3E5bXptNTY3amJqcE9DSmZyV2dhQ2pRc1NXWnpjNTBKWkRxc29OODhOdWdnZVBINm82YUhVLU5TQWYwSGVtV1BldnFtUEJ4RFFDdGFDY3pONVRSb1RqQ0oybm4?oc=5](https://news.google.com/rss/articles/CBMikAFBVV95cUxNeEZsajRxMy00N3J2LXBOVzJvTGZORXBhbWdQQUtiTlhPQ3BPdWRMYXRaSGpmc3E5bXptNTY3amJqcE9DSmZyV2dhQ2pRc1NXWnpjNTBKWkRxc29OODhOdWdnZVBINm82YUhVLU5TQWYwSGVtV1BldnFtUEJ4RFFDdGFDY3pONVRSb1RqQ0oybm4?oc=5)
-
----
-
-### Does Google even want to win at AI?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** Today on Decoder, I’m talking with Hayden Field, The Verge’s senior AI reporter, about a question that’s been rocketing around the tech industry for the past week: Is Google losing the AI race?
-That’s
-
-**URL:** [https://www.theverge.com/podcast/979370/google-deepmind-ai-race-lose-jeff-dean-demis-hassabis](https://www.theverge.com/podcast/979370/google-deepmind-ai-race-lose-jeff-dean-demis-hassabis)
-
----
-
 ## 🔬 Research Breakthroughs
 
 ### NeurIPS 2026 Author Notifications Close to ICLR Deadline [D]
@@ -1146,7 +1174,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1161,7 +1189,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | AI Insider |
 
@@ -1176,7 +1204,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 15, 2026 (14h ago) |
+| **Date** | August 15, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | TheDecoder |
 
@@ -1191,7 +1219,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (15h ago) |
+| **Date** | August 15, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | Cureus |
 
@@ -1206,7 +1234,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 15, 2026 (19h ago) |
+| **Date** | August 15, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | TheDecoder |
 
@@ -1348,6 +1376,21 @@ That’s
 **Summary:** The convergence of soft electronics and AI is advancing materials and intelligent systems
 
 **URL:** [https://news.google.com/rss/articles/CBMiXEFVX3lxTE56Z1BfSUI3ZjNIdHpzNC11cWVwZUxrUFUzSTVTTXNaS0E2OUpGUEFqVUxRU05Ca01jOUhDNklrb183OGVrR3ZsUHkxYkU2WHB5eWREcmRRbUlZbWhO?oc=5](https://news.google.com/rss/articles/CBMiXEFVX3lxTE56Z1BfSUI3ZjNIdHpzNC11cWVwZUxrUFUzSTVTTXNaS0E2OUpGUEFqVUxRU05Ca01jOUhDNklrb183OGVrR3ZsUHkxYkU2WHB5eWREcmRRbUlZbWhO?oc=5)
+
+---
+
+### FRI Healthcare Report: Study committee members want rules on AI in healthcare to protect patients’ data
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 14, 2026 (1d ago) |
+| **Category** | 🔬 research |
+| **Author** | WisBusiness |
+
+**Summary:** FRI Healthcare Report: Study committee members want rules on AI in healthcare to protect patients’ data  WisBusiness
+
+**URL:** [https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVFV3NzluQWd5SVpmbXE0N3M5WXJ3bzBVVTZ3dTlMa09yUkt0VXJWRldEY0ZXSGQ0a2pqREhNSDE1azdBZ2FiRlFkSVV6T2xKdXp3VjQxcWo1WnFoT25Kb2c1MjNMRWswSmRvdVJfZXRPZkMxZHJWZEVnNGw0R1gyZlNPOWdrazhlR21TRG9GcWN6NllQeHh1djY2RGNFbUMtcWo3VmN5V0dQeUU0ZDZwbHZ3LTBXRk9EUjVfR3hDNTNwT2ItVk5LZkhmTmtFTkNH?oc=5](https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVFV3NzluQWd5SVpmbXE0N3M5WXJ3bzBVVTZ3dTlMa09yUkt0VXJWRldEY0ZXSGQ0a2pqREhNSDE1azdBZ2FiRlFkSVV6T2xKdXp3VjQxcWo1WnFoT25Kb2c1MjNMRWswSmRvdVJfZXRPZkMxZHJWZEVnNGw0R1gyZlNPOWdrazhlR21TRG9GcWN6NllQeHh1djY2RGNFbUMtcWo3VmN5V0dQeUU0ZDZwbHZ3LTBXRk9EUjVfR3hDNTNwT2ItVk5LZkhmTmtFTkNH?oc=5)
 
 ---
 
@@ -2266,59 +2309,29 @@ That’s
 
 ---
 
-### Beyond Local Accuracy: A Protocol-Level Identifiability Audit for Controlled LLM Reasoning Evaluation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Junhao Luo, Ning Huang, Ziqi Sha |
-
-**Summary:** Researchers propose a protocol-level identifiability audit to evaluate the accuracy of large language models (LLMs) in controlled settings
-
-**URL:** [https://arxiv.org/abs/2608.13326v1](https://arxiv.org/abs/2608.13326v1)
-
----
-
-### Refusing Intent, Not Form: Wrapper-Based Intent-Group Supervision for LLM Safety
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Ping Wu, Haibo Tong, Feifei Zhao |
-
-**Summary:** Researchers propose a new method to improve the safety of large language models by pairing wrapped harmful prompts with benign counterexamples
-
-**URL:** [https://arxiv.org/abs/2608.13304v1](https://arxiv.org/abs/2608.13304v1)
-
----
-
-### Mixture of Training: Recombining Small-Scale Scaffolded Pretraining Runs into a Larger Language Model
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Mohammed Sabry, Sean Augenstein, Keith Rush |
-
-**Summary:** Researchers introduce Mixture of Training (MoT), a modular pre-training procedure that trains smaller blocks of a large language model separately and then recombines them.
-
-**URL:** [https://arxiv.org/abs/2608.13277v1](https://arxiv.org/abs/2608.13277v1)
-
----
-
 ## 💼 Product & Business Updates
+
+### Digi Power X (DGXX) Stock Slides As AI Buildout Hinges On Funding
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | simplywall.st |
+
+**Summary:** Digi Power X (DGXX) Stock Slides As AI Buildout Hinges On Funding  simplywall.st
+
+**URL:** [https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWXZXcVJSak1KR1YwSGhVeXZGcjZWMkJmYTliQ2tGRnhybTd6R2MxUkVYdUNpd09LM1A2OVNDU2RfXy1IYUdKMDBqVjVfNlM3VF9sQkhxT2Z0QV94amR0WjNPbTB2SVFxTjBVWE5ZQzhTcFJOMmNvRFN1ak1QaWpkQjBrVVJOQVJUM0x2S0VGcWhaZEVnSkM4blZraEZ5QURyX3NaeEtNLVFEZG1kX0ZlZ3VnckVlbU5rNnBhVUs4dE1obmFlRUJzUlZlQzVvaFBI0gHQAUFVX3lxTFBZdldxUlJqTUpHVjBIaFV5dkZyNlYyQmZhOWJDa0ZGeHJtN3pHYzFSRVh1Q2l3T0szUDY5U0NTZF9fLUhhR0owMGpWNV82UzdUX2xCSHFPZnRBX3hqZHRaM09tMHZJUXFOMFVYTllDOFNwUk4yY29EU3VqTVBpamRCMGtVUk5BUlQzTHZLRUZxaFpkRWdKQzhuVmtoRnlBRHJfc1p4S00tUURkbWRfRmVndWdyRWVtTms2cGFVSzh0TWhuYWVFQnNSVmVDNW9oUEg?oc=5](https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWXZXcVJSak1KR1YwSGhVeXZGcjZWMkJmYTliQ2tGRnhybTd6R2MxUkVYdUNpd09LM1A2OVNDU2RfXy1IYUdKMDBqVjVfNlM3VF9sQkhxT2Z0QV94amR0WjNPbTB2SVFxTjBVWE5ZQzhTcFJOMmNvRFN1ak1QaWpkQjBrVVJOQVJUM0x2S0VGcWhaZEVnSkM4blZraEZ5QURyX3NaeEtNLVFEZG1kX0ZlZ3VnckVlbU5rNnBhVUs4dE1obmFlRUJzUlZlQzVvaFBI0gHQAUFVX3lxTFBZdldxUlJqTUpHVjBIaFV5dkZyNlYyQmZhOWJDa0ZGeHJtN3pHYzFSRVh1Q2l3T0szUDY5U0NTZF9fLUhhR0owMGpWNV82UzdUX2xCSHFPZnRBX3hqZHRaM09tMHZJUXFOMFVYTllDOFNwUk4yY29EU3VqTVBpamRCMGtVUk5BUlQzTHZLRUZxaFpkRWdKQzhuVmtoRnlBRHJfc1p4S00tUURkbWRfRmVndWdyRWVtTms2cGFVSzh0TWhuYWVFQnNSVmVDNW9oUEg?oc=5)
+
+---
 
 ### Notice of Funding Opportunity: American Innovation Hub: AI & Digital Skills for the Creative & Tech Economy
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (3h ago) |
+| **Date** | August 15, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | U.S. Embassy & Consulates in Indonesia (.gov) |
 
@@ -2333,7 +2346,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 15, 2026 (8h ago) |
+| **Date** | August 15, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2348,7 +2361,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | timothysykes.com |
 
@@ -2363,7 +2376,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (12h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Crowdfund Insider |
 
@@ -2378,7 +2391,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 15, 2026 (17h ago) |
+| **Date** | August 15, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2393,7 +2406,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (20h ago) |
+| **Date** | August 15, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | AI: Reset to Zero |
 
@@ -3863,7 +3876,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | Reuters |
 
@@ -3878,7 +3891,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | MarkTechPost |
 
@@ -4668,66 +4681,6 @@ That’s
 
 ---
 
-### Accel Closes $550M India Fund as Part of $3.5B Global Raise, Betting on AI-Driven Startup Growth
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Insider |
-
-**Summary:** Accel Closes $550M India Fund as Part of $3.5B Global Raise, Betting on AI-Driven Startup Growth  AI Insider
-
-**URL:** [https://news.google.com/rss/articles/CBMiywFBVV95cUxQaVpxWEV4ZS1FVVVBNUFnZGRtUmwzYnBNUHhLLTFkNlkzT3FyLThPWmFObzlyTVF4a1FiR19zYWVzMUNBTXFXRy1BSVJBdXFSaE1FSjIwbEFMWFZKOXl1NDZNYmdBdTl1OUdpWGt0YnJVMzVPQjNXS3lDYlBHdXFSTFNCQjc5VlRTdTlzY015ZHJyYkEyTlFtc25GazRwNVlDRDdhNzJLN1pEQ3pBTEstcjR3SUxwZEREUVU1M3ZNZDRudzJLYVp1LWx1TQ?oc=5](https://news.google.com/rss/articles/CBMiywFBVV95cUxQaVpxWEV4ZS1FVVVBNUFnZGRtUmwzYnBNUHhLLTFkNlkzT3FyLThPWmFObzlyTVF4a1FiR19zYWVzMUNBTXFXRy1BSVJBdXFSaE1FSjIwbEFMWFZKOXl1NDZNYmdBdTl1OUdpWGt0YnJVMzVPQjNXS3lDYlBHdXFSTFNCQjc5VlRTdTlzY015ZHJyYkEyTlFtc25GazRwNVlDRDdhNzJLN1pEQ3pBTEstcjR3SUxwZEREUVU1M3ZNZDRudzJLYVp1LWx1TQ?oc=5)
-
----
-
-### Vibe-Coding Startup Lovable Announces $400M Series C at $13.3B Valuation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Insider |
-
-**Summary:** Vibe-Coding Startup Lovable Announces $400M Series C at $13.3B Valuation  AI Insider
-
-**URL:** [https://news.google.com/rss/articles/CBMirAFBVV95cUxOYUthajB0RmhqdEJhUVhDeGUxQXJra2l2NEd3S0RaUTVoR0QtLXF1Wkp2akNaSVlSdFQyTF82TEU2Ym15NGF5Tk5IUzJlaUpvVHdNaU1wZ1N4SFgteGN1TWpsbE04Vi1XUkh5NzlCanI3blBwNUZaNTgwMVFKTFpBSGxQakRHcHBWbkQtYU1ESkI3bHFPZzJPZDdmQ0JBT3dvLWk0ajhjUnNYWlNS?oc=5](https://news.google.com/rss/articles/CBMirAFBVV95cUxOYUthajB0RmhqdEJhUVhDeGUxQXJra2l2NEd3S0RaUTVoR0QtLXF1Wkp2akNaSVlSdFQyTF82TEU2Ym15NGF5Tk5IUzJlaUpvVHdNaU1wZ1N4SFgteGN1TWpsbE04Vi1XUkh5NzlCanI3blBwNUZaNTgwMVFKTFpBSGxQakRHcHBWbkQtYU1ESkI3bHFPZzJPZDdmQ0JBT3dvLWk0ajhjUnNYWlNS?oc=5)
-
----
-
-### Anthropic in Talks to Buy AI Startup Decart for $6 Billion
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Bloomberg.com |
-
-**Summary:** AI startup Decart is reportedly set to be acquired by Anthropic for $6 billion
-
-**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxOcndiYjc4YjFtVWFuSWFlRDlpRENlLTV6R1NscU5wS2tCZW1YU1RTQlFDczBmelUxaDJDVVk4SlRuZ2t4cEtNbEw4eVJ6cnBwVGNHOHhadTVKREx2c0QyazF0bF9qeDlVLTJkY21GNjdzdXhJaGVMb1R2UnQ2eDNpSTVqcENRRE1nVWNhNm1IMUVpX0VkRDNyZzVxTmhjc181c0QtbkNCWjVGeXVEeEFic254TQ?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxOcndiYjc4YjFtVWFuSWFlRDlpRENlLTV6R1NscU5wS2tCZW1YU1RTQlFDczBmelUxaDJDVVk4SlRuZ2t4cEtNbEw4eVJ6cnBwVGNHOHhadTVKREx2c0QyazF0bF9qeDlVLTJkY21GNjdzdXhJaGVMb1R2UnQ2eDNpSTVqcENRRE1nVWNhNm1IMUVpX0VkRDNyZzVxTmhjc181c0QtbkNCWjVGeXVEeEFic254TQ?oc=5)
-
----
-
-### Databricks wraps $5 billion funding round at $190 billion valuation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | CNBC AI |
-
-**Summary:** Databricks is benefitting off of the agentic AI wave.
-
-**URL:** [https://www.cnbc.com/2026/08/13/databricks-funding-round-190-billion-valuation.html](https://www.cnbc.com/2026/08/13/databricks-funding-round-190-billion-valuation.html)
-
----
-
 ## 🛡️ AI Safety & Security
 
 ### Woman claims her stepfather used Grok to transform childhood photo into explicit imagery
@@ -4735,7 +4688,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 15, 2026 (3h ago) |
+| **Date** | August 15, 2026 (7h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TechCrunch AI |
 
@@ -4750,7 +4703,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CNBC AI |
 
@@ -4765,7 +4718,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (22h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Seyfarth Shaw |
 
@@ -4860,7 +4813,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Tech Times |
 
@@ -4875,7 +4828,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 15, 2026 (17h ago) |
+| **Date** | August 15, 2026 (20h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TheDecoder |
 
@@ -4890,7 +4843,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (22h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Winston Taylor |
 
@@ -5100,7 +5053,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Diplomat – Asia-Pacific Current Affairs Magazine |
 
@@ -5115,7 +5068,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | 36Kr |
 
@@ -5130,7 +5083,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Noahpinion |
 
@@ -5262,12 +5215,57 @@ That’s
 
 ## 📌 Other Notable News
 
+### Amazon vs. Microsoft: Which Cloud Computing Behemoth Is the Better Artificial Intelligence (AI) Buy Today?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (9m ago) |
+| **Category** | 📌 other |
+| **Author** | The Motley Fool |
+
+**Summary:** Amazon vs. Microsoft: Which Cloud Computing Behemoth Is the Better Artificial Intelligence (AI) Buy Today?  The Motley Fool
+
+**URL:** [https://news.google.com/rss/articles/CBMimAFBVV95cUxPM1FCYXIybzhHOWVXcW1saE1EZjJyOUpjeU9McDY4NmhjSXF0SnZZM0FoMlZSeWd2b3p3SHpfNWRXVjFzeVUxaVUySUJwYVlKWU4yV2locHJpRkV4MF9aSlRlbmZlVWNuWnQwSUNsUFgycWRqWEtnbzVTbllpVWQ2S29kb1VqYmx0NjVMbmdDVFJ5UHZJbmRpMQ?oc=5](https://news.google.com/rss/articles/CBMimAFBVV95cUxPM1FCYXIybzhHOWVXcW1saE1EZjJyOUpjeU9McDY4NmhjSXF0SnZZM0FoMlZSeWd2b3p3SHpfNWRXVjFzeVUxaVUySUJwYVlKWU4yV2locHJpRkV4MF9aSlRlbmZlVWNuWnQwSUNsUFgycWRqWEtnbzVTbllpVWQ2S29kb1VqYmx0NjVMbmdDVFJ5UHZJbmRpMQ?oc=5)
+
+---
+
+### No more photos, profiles, or matches: In the future of dating apps, AI will choose your partner
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (35m ago) |
+| **Category** | 📌 other |
+| **Author** | EL PAÍS English |
+
+**Summary:** No more photos, profiles, or matches: In the future of dating apps, AI will choose your partner  EL PAÍS English
+
+**URL:** [https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSjFFQzlvMFBTRmVmWFR6T2RfVWFIYlU4WktoS1JkbkNjcUNQdHNBVmdZMDAycnhFajlmQkpJcUNiZExkNk9ZME9WVzRmcEFrVjN4a1dfMVBFMExWX0NaWmtoQ0s4LVVDVFdUWFZJMzFMdzZKWDhlTExBZjg5MXdaRVp1cnNOcGFXMWxza09rSjJYaWNoc0lqMmUyMDlQQnF5VkhBdkVXSEJNTmxadERrOHUyaDdhcE5VakZrYnVFbC1GSWpMQzZDOExTVkYycUN0QjBscEM2THkwOW9w0gHwAUFVX3lxTE42S1JWbUVneTFMdEE3N1BPSC1wRXpOTWZlU3lnT2p0eHFlVnZ0Q3hFWVEzZU0zMmhZUkw0bDlUbG1Ca1M1ZXVaRXBfZDJoRzAwV2VHMHZHV2NMekR1SE5ScWlHNFdEWnZnRlU5QnpqWUp6THFDajJUeGZYcDZHUzdxMGJiXzBGNlZUQ3ZPUHh2VndHUFduUmVWQnd4NnZUTzdJa0pLMHkwX085Tlo4c1JkRWVhenlQM0d6Y0pWZHlTTFNYR3c2MWdZc0RJNVBvZ0l2ZkZ1cnZBTE1ZZzk1YXhtbmdPbkh0Q2JNY1VlNTE2LQ?oc=5](https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSjFFQzlvMFBTRmVmWFR6T2RfVWFIYlU4WktoS1JkbkNjcUNQdHNBVmdZMDAycnhFajlmQkpJcUNiZExkNk9ZME9WVzRmcEFrVjN4a1dfMVBFMExWX0NaWmtoQ0s4LVVDVFdUWFZJMzFMdzZKWDhlTExBZjg5MXdaRVp1cnNOcGFXMWxza09rSjJYaWNoc0lqMmUyMDlQQnF5VkhBdkVXSEJNTmxadERrOHUyaDdhcE5VakZrYnVFbC1GSWpMQzZDOExTVkYycUN0QjBscEM2THkwOW9w0gHwAUFVX3lxTE42S1JWbUVneTFMdEE3N1BPSC1wRXpOTWZlU3lnT2p0eHFlVnZ0Q3hFWVEzZU0zMmhZUkw0bDlUbG1Ca1M1ZXVaRXBfZDJoRzAwV2VHMHZHV2NMekR1SE5ScWlHNFdEWnZnRlU5QnpqWUp6THFDajJUeGZYcDZHUzdxMGJiXzBGNlZUQ3ZPUHh2VndHUFduUmVWQnd4NnZUTzdJa0pLMHkwX085Tlo4c1JkRWVhenlQM0d6Y0pWZHlTTFNYR3c2MWdZc0RJNVBvZ0l2ZkZ1cnZBTE1ZZzk1YXhtbmdPbkh0Q2JNY1VlNTE2LQ?oc=5)
+
+---
+
+### Bernie Sanders Says ‘We Want Human Beings to Be Able to Control AI,’ Demands Pause Amid Fears of Catastro
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (47m ago) |
+| **Category** | 📌 other |
+| **Author** | Benzinga |
+
+**Summary:** Bernie Sanders Says ‘We Want Human Beings to Be Able to Control AI,’ Demands Pause Amid Fears of Catastro  Benzinga
+
+**URL:** [https://news.google.com/rss/articles/CBMi-AFBVV95cUxOYzcySGw0a1RrRnNHaW9LS0R1Qkt3UmxoZGZmZlA4R0tEc3J1RWtJWnltdVYzT3FfQWdqc1BkMlFUYmxVQnZjZ05iUjZjazFxc0duREZ5OVprZkh1U3dCV3JramZxOTU0eHBCZHdSdHJPT3lyX1pDTkszVGhaLWRNaWJWWjUtbW5USjdpZXBVcFpHaGV4V09GS2hfUDZSNzVsX1czWGFTLUpaLWh1SWViYVRfd1BzX0hnYTFFQTdDd3V5WVkzRlFJekdLdUJ4LWpTVWxrY1hFM3pQS1RkYmdWNTRNeUV0c1FuSHluQnItZ1J2MmhvUXB1Zw?oc=5](https://news.google.com/rss/articles/CBMi-AFBVV95cUxOYzcySGw0a1RrRnNHaW9LS0R1Qkt3UmxoZGZmZlA4R0tEc3J1RWtJWnltdVYzT3FfQWdqc1BkMlFUYmxVQnZjZ05iUjZjazFxc0duREZ5OVprZkh1U3dCV3JramZxOTU0eHBCZHdSdHJPT3lyX1pDTkszVGhaLWRNaWJWWjUtbW5USjdpZXBVcFpHaGV4V09GS2hfUDZSNzVsX1czWGFTLUpaLWh1SWViYVRfd1BzX0hnYTFFQTdDd3V5WVkzRlFJekdLdUJ4LWpTVWxrY1hFM3pQS1RkYmdWNTRNeUV0c1FuSHluQnItZ1J2MmhvUXB1Zw?oc=5)
+
+---
+
 ### AI ambitions could push SpaceX to tens of trillions in value by the 2030s, analyst argues
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (40m ago) |
+| **Date** | August 16, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | MarketScale |
 
@@ -5282,7 +5280,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1h ago) |
+| **Date** | August 15, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | patmcguinness.substack.com |
 
@@ -5297,7 +5295,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (2h ago) |
+| **Date** | August 15, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Fresno Bee |
 
@@ -5312,7 +5310,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (2h ago) |
+| **Date** | August 15, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC |
 
@@ -5327,7 +5325,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (2h ago) |
+| **Date** | August 15, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | KQED |
 
@@ -5342,7 +5340,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (3h ago) |
+| **Date** | August 15, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | Dakota News Now |
 
@@ -5352,12 +5350,27 @@ That’s
 
 ---
 
+### Alibaba's Open-Source AI Reaches 3 Billion Downloads, Topping Google and Meta
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 15, 2026 (6h ago) |
+| **Category** | 📌 other |
+| **Author** | Briefs Finance |
+
+**Summary:** Alibaba's Open-Source AI Reaches 3 Billion Downloads, Topping Google and Meta  Briefs Finance
+
+**URL:** [https://news.google.com/rss/articles/CBMikgFBVV95cUxPNHNXOEpXaGhpSmxFUnh0TFIwRTRtMS01Y3UxRUdobndvS0tZMTA0cVNpWTBEcXNQV0lrT0xYV2xfZnhyUnJiT1kwaGp6VldjTkVlR3hoejVsY2V2SVhId2dENi1sR09md1FGMGhhZFpOMWU3THJxVE4tTGlzUHVMcGxBM1dBWkwxVUdnZkI1WmZ0Zw?oc=5](https://news.google.com/rss/articles/CBMikgFBVV95cUxPNHNXOEpXaGhpSmxFUnh0TFIwRTRtMS01Y3UxRUdobndvS0tZMTA0cVNpWTBEcXNQV0lrT0xYV2xfZnhyUnJiT1kwaGp6VldjTkVlR3hoejVsY2V2SVhId2dENi1sR09md1FGMGhhZFpOMWU3THJxVE4tTGlzUHVMcGxBM1dBWkwxVUdnZkI1WmZ0Zw?oc=5)
+
+---
+
 ### Meta and Nvidia plant a flag in China-led open-weight AI race
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (3h ago) |
+| **Date** | August 15, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Memeburn |
 
@@ -5372,7 +5385,7 @@ That’s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 15, 2026 (4h ago) |
+| **Date** | August 15, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | The Verge AI |
 
@@ -5389,7 +5402,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (5h ago) |
+| **Date** | August 15, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -5404,7 +5417,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (6h ago) |
+| **Date** | August 15, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | AnodicElegy |
 
@@ -5419,7 +5432,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (6h ago) |
+| **Date** | August 15, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | Dealroom |
 
@@ -5434,7 +5447,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (6h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | Mashable |
 
@@ -5449,7 +5462,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (6h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -5464,7 +5477,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (7h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | rzk |
 
@@ -5479,7 +5492,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (7h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5494,7 +5507,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (7h ago) |
+| **Date** | August 15, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | The Jewelry Wire |
 
@@ -5509,7 +5522,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (8h ago) |
+| **Date** | August 15, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | U.S. National Science Foundation (.gov) |
 
@@ -5524,7 +5537,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | FireRescue1 |
 
@@ -5539,7 +5552,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5554,7 +5567,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | pseudolus |
 
@@ -5569,7 +5582,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (9h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | KTVU |
 
@@ -5584,7 +5597,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | West Central Tribune |
 
@@ -5599,7 +5612,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | thestreet.com |
 
@@ -5614,7 +5627,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 15, 2026 (10h ago) |
+| **Date** | August 15, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5629,7 +5642,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (11h ago) |
+| **Date** | August 15, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | m-i-l |
 
@@ -5644,7 +5657,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (11h ago) |
+| **Date** | August 15, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | gregzeng95 |
 
@@ -5659,7 +5672,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (11h ago) |
+| **Date** | August 15, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | scresswell |
 
@@ -5674,7 +5687,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (12h ago) |
+| **Date** | August 15, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Anon84 |
 
@@ -5689,7 +5702,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (12h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Seeking Alpha |
 
@@ -5704,7 +5717,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -5719,7 +5732,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5734,7 +5747,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | MarketWatch |
 
@@ -5749,7 +5762,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Inspenet |
 
@@ -5764,7 +5777,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (13h ago) |
+| **Date** | August 15, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | hoover.org |
 
@@ -5779,7 +5792,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (14h ago) |
+| **Date** | August 15, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Texas Metro News |
 
@@ -5794,7 +5807,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (14h ago) |
+| **Date** | August 15, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | theaiinsider.tech |
 
@@ -5809,7 +5822,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (14h ago) |
+| **Date** | August 15, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Davis Vanguard |
 
@@ -5824,7 +5837,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (14h ago) |
+| **Date** | August 15, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | allenb |
 
@@ -5839,7 +5852,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (15h ago) |
+| **Date** | August 15, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Daily Camera |
 
@@ -5854,7 +5867,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 15, 2026 (15h ago) |
+| **Date** | August 15, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5869,7 +5882,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (15h ago) |
+| **Date** | August 15, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | matheusmoreira |
 
@@ -5884,7 +5897,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (15h ago) |
+| **Date** | August 15, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Bloomberg |
 
@@ -5899,7 +5912,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (16h ago) |
+| **Date** | August 15, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | tallahassee.com |
 
@@ -5914,7 +5927,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 15, 2026 (16h ago) |
+| **Date** | August 15, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Wired AI |
 
@@ -5929,7 +5942,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (16h ago) |
+| **Date** | August 15, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Manufacturing Digital |
 
@@ -5944,7 +5957,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (17h ago) |
+| **Date** | August 15, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Magazine |
 
@@ -5959,7 +5972,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 15, 2026 (17h ago) |
+| **Date** | August 15, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5974,7 +5987,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (18h ago) |
+| **Date** | August 15, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Barron's |
 
@@ -5989,7 +6002,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (19h ago) |
+| **Date** | August 15, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | AgUpdate |
 
@@ -6004,7 +6017,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (19h ago) |
+| **Date** | August 15, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | simonebrunozzi |
 
@@ -6019,7 +6032,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (19h ago) |
+| **Date** | August 15, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | PRWeb |
 
@@ -6034,7 +6047,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (20h ago) |
+| **Date** | August 15, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | SiliconANGLE |
 
@@ -6049,7 +6062,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (20h ago) |
+| **Date** | August 15, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | chatchan |
 
@@ -6064,7 +6077,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (20h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | exponentialview.co |
 
@@ -6079,7 +6092,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (20h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | NBC Los Angeles |
 
@@ -6094,7 +6107,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (22h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | oneounceman |
 
@@ -6109,7 +6122,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (22h ago) |
+| **Date** | August 15, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | briefs.co |
 
@@ -6753,7 +6766,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Devdiscourse |
 
@@ -6768,7 +6781,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (1d ago) |
+| **Date** | August 14, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | latchkey |
 
@@ -7258,6 +7271,66 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 
 ---
 
+### businessinsider.com
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** businessinsider.com
+
+**URL:** [https://www.businessinsider.com/claude-users-cancel-subscriptions-citing-anthropic-new-ai-watermark-2026-8](https://www.businessinsider.com/claude-users-cancel-subscriptions-citing-anthropic-new-ai-watermark-2026-8)
+
+---
+
+### AI buildout hides $70B off-balance-sheet credit backstops
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** AI buildout hides $70B off-balance-sheet credit backstops
+
+**URL:** [https://aiweekly.co/node/10063](https://aiweekly.co/node/10063)
+
+---
+
+### Shanghai STAR 50 up 29% in 2026, P/E tops 150 on AI frenzy
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** Shanghai STAR 50 up 29% in 2026, P/E tops 150 on AI frenzy
+
+**URL:** [https://aiweekly.co/node/10060](https://aiweekly.co/node/10060)
+
+---
+
+### Unitree&#039;s G1 and R1 humanoids become social-media influencers
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** Unitree&#039;s G1 and R1 humanoids become social-media influencers
+
+**URL:** [https://aiweekly.co/node/10059](https://aiweekly.co/node/10059)
+
+---
+
 ### TMLR Relevance and Prestige [D]
 
 | Detail | Value |
@@ -7532,81 +7605,6 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 
 ---
 
-### Meta Joins OpenAI and BlackRock in Sealing Union Pacts for AI Data Centers
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Tech Times |
-
-**Summary:** Meta Joins OpenAI and BlackRock in Sealing Union Pacts for AI Data Centers  Tech Times
-
-**URL:** [https://news.google.com/rss/articles/CBMiugFBVV95cUxPemxHcFROSktsV0ZDdEYxcGxTQmQ4MnQyMVRwQ25XOXhvUlFRYVJWLXdNT3pxWmdFNHJmOTNhdmZVbHR2ZDFpcmtHdWFPUEZpM3VETTJFN2hJNVFhMzhxZWhiVVI3VHRsWDduNC1uRDRtVmZZRDd3bjhvMU5kWHZJMUN4Sy1nZEhaeWRQb183WkdDN1hfeG1Ub3c3TUFndWdOcFpCbXRRUFdiR0tVd2p3RUJpeEJLTGFXQXc?oc=5](https://news.google.com/rss/articles/CBMiugFBVV95cUxPemxHcFROSktsV0ZDdEYxcGxTQmQ4MnQyMVRwQ25XOXhvUlFRYVJWLXdNT3pxWmdFNHJmOTNhdmZVbHR2ZDFpcmtHdWFPUEZpM3VETTJFN2hJNVFhMzhxZWhiVVI3VHRsWDduNC1uRDRtVmZZRDd3bjhvMU5kWHZJMUN4Sy1nZEhaeWRQb183WkdDN1hfeG1Ub3c3TUFndWdOcFpCbXRRUFdiR0tVd2p3RUJpeEJLTGFXQXc?oc=5)
-
----
-
-### Apple in talks to pay publishers to provide Siri with current news: report
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | TechCrunch AI |
-
-**Summary:** The tech giant has considered a nine-figure budget for the payments, according to the WSJ.
-
-**URL:** [https://techcrunch.com/2026/08/13/apple-in-talks-to-pay-publishers-to-provide-siri-with-current-news-report/](https://techcrunch.com/2026/08/13/apple-in-talks-to-pay-publishers-to-provide-siri-with-current-news-report/)
-
----
-
-### [huggingface/trl] fix/6166-grpo-none-logprob
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 github |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | albertvillanova |
-
-**Summary:** fix/6166-grpo-none-logprob
-
-**URL:** [https://github.com/huggingface/trl](https://github.com/huggingface/trl)
-
----
-
-### Minimax h3 can do cinematic fighting scene but they need to fix the distortion/smearing issue
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | r/StableDiffusion |
-
-**Summary:** submitted by /u/Devajyoti1231 [link] [comments]
-
-**URL:** [https://www.reddit.com/r/StableDiffusion/comments/1vnbtkz/minimax_h3_can_do_cinematic_fighting_scene_but/](https://www.reddit.com/r/StableDiffusion/comments/1vnbtkz/minimax_h3_can_do_cinematic_fighting_scene_but/)
-
----
-
-### AI Frenzy Brings Dual Valuation Deals into the Mainstream
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 13, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | newcomer.co |
-
-**Summary:** AI Frenzy Brings Dual Valuation Deals into the Mainstream  newcomer.co
-
-**URL:** [https://news.google.com/rss/articles/CBMicEFVX3lxTE0zNDJtM2ZKNG5IZFhEU1hIU0pMS2xfb2VNY3JGa1Q0eWlWR2NkQ0V5QnJvTGRqaS1RZXdlRjRiNTd2RWh2cUt6YnV3X1ZHT1lnSm8tVWZGdDdTWDhoSmJnbElIY21QeHJ3dWRKVVROeDg?oc=5](https://news.google.com/rss/articles/CBMicEFVX3lxTE0zNDJtM2ZKNG5IZFhEU1hIU0pMS2xfb2VNY3JGa1Q0eWlWR2NkQ0V5QnJvTGRqaS1RZXdlRjRiNTd2RWh2cUt6YnV3X1ZHT1lnSm8tVWZGdDdTWDhoSmJnbElIY21QeHJ3dWRKVVROeDg?oc=5)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7622,4 +7620,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-16T01:15:14.696Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-16T04:35:11.753Z by AI Pulse Knowledge Base Generator*
