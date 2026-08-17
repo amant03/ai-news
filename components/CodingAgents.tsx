@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  ScatterChart, Scatter, Cell,
+  ScatterChart, Scatter, Cell, ReferenceArea, ReferenceLine, ComposedChart, Line,
 } from 'recharts';
 import { CODING_AGENTS, AGENT_PROVIDER_COLORS, type CodingAgent } from '@/lib/coding-agents-data';
 
@@ -80,6 +80,115 @@ function AgentScatterTooltip({ active, payload }: any) {
   );
 }
 
+function median(values: number[]): number {
+  if (!values.length) return 0;
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+interface AttractiveScatterProps {
+  data: Array<{ label: string; index: number; [k: string]: any }>;
+  xKey: string;
+  xLabel: string;
+  xFormatter: (v: number) => string;
+  showPareto?: boolean;
+}
+
+/**
+ * Scatter of Index (y) vs an "efficiency" axis (x, lower is better).
+ * Shades the most attractive quadrant (upper-left: high index, low x)
+ * in green and optionally draws the Pareto frontier as a stepped line.
+ */
+function AttractiveScatter({ data, xKey, xLabel, xFormatter, showPareto }: AttractiveScatterProps) {
+  const values = useMemo(() => data.map(d => d[xKey]).filter((v): v is number => typeof v === 'number'), [data, xKey]);
+  const indices = useMemo(() => data.map(d => d.index).filter((v): v is number => typeof v === 'number'), [data]);
+
+  const { xMin, xMax, xMed, yMin, yMax, yMed } = useMemo(() => {
+    const xs = values;
+    const ys = indices;
+    return {
+      xMin: Math.min(...xs, 0),
+      xMax: Math.max(...xs),
+      xMed: median(xs),
+      yMin: Math.floor((Math.min(...ys) - 5) / 10) * 10,
+      yMax: Math.ceil((Math.max(...ys) + 5) / 10) * 10,
+      yMed: median(ys),
+    };
+  }, [values, indices]);
+
+  const pareto = useMemo(() => {
+    if (!showPareto) return [];
+    const pts = data
+      .filter(d => typeof d[xKey] === 'number')
+      .map(d => ({ x: d[xKey] as number, y: d.index as number }))
+      .sort((a, b) => a.x - b.x);
+    const frontier: { x: number; y: number }[] = [];
+    let maxY = -Infinity;
+    for (const p of pts) {
+      if (p.y > maxY) {
+        frontier.push(p);
+        maxY = p.y;
+      }
+    }
+    return frontier;
+  }, [data, xKey, showPareto]);
+
+  return (
+    <div>
+      <div className="flex flex-wrap gap-4 mb-4">
+        <span className="inline-flex items-center gap-1.5 text-[11px]">
+          <span className="w-3 h-3 rounded-sm bg-[#22c55e]/20 border border-[#22c55e]/60" /> Most attractive quadrant
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-[11px]">
+          <span className="w-2 h-2 rounded-full bg-[#7c3aed]" /> Index
+        </span>
+        {showPareto && (
+          <span className="inline-flex items-center gap-1.5 text-[11px]">
+            <span className="w-4 h-0.5 bg-[#ef4444]" /> Pareto line
+          </span>
+        )}
+      </div>
+      <ResponsiveContainer width="100%" height={420}>
+        <ComposedChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
+          <XAxis
+            dataKey={xKey} type="number" tick={{ fontSize: 11 }} name={xLabel}
+            domain={[xMin, xMax]} tickFormatter={(v) => xFormatter(v)}
+          />
+          <YAxis dataKey="index" type="number" tick={{ fontSize: 11 }} domain={[yMin, yMax]} name="Index" unit="%" />
+          <Tooltip content={<AgentScatterTooltip />} />
+          {/* Most attractive quadrant: upper-left */}
+          <ReferenceArea
+            x1={xMin} x2={xMed}
+            y1={yMed} y2={yMax}
+            fill="#22c55e"
+            fillOpacity={0.08}
+            stroke="none"
+            ifOverflow="extendDomain"
+          />
+          {/* Pareto frontier */}
+          {showPareto && pareto.length > 1 && (
+            <Line
+              data={pareto}
+              dataKey="y"
+              stroke="#ef4444"
+              strokeWidth={1.5}
+              dot={false}
+              strokeDasharray="0 0"
+            />
+          )}
+          <Scatter data={data}>
+            {data.map((a, i) => (
+              <Cell key={i} fill={providerColor(a.provider)} />
+            ))}
+          </Scatter>
+        </ComposedChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
 /* ─── Main Component ─── */
 
 export default function CodingAgents() {
@@ -87,6 +196,9 @@ export default function CodingAgents() {
 
   const sortedByIndex = useMemo(() => [...CODING_AGENTS].sort((a, b) => b.index - a.index), []);
   const top15 = sortedByIndex.slice(0, 15);
+  const sortedByTokens = useMemo(() => [...top15].sort((a, b) => b.totalTokens - a.totalTokens), [top15]);
+  const sortedByCost = useMemo(() => [...top15].sort((a, b) => b.cost - a.cost), [top15]);
+  const sortedByTime = useMemo(() => [...top15].sort((a, b) => b.wallTime - a.wallTime), [top15]);
 
   const scatterByTokens = useMemo(() => {
     return CODING_AGENTS.map(a => ({ ...a }));
@@ -106,7 +218,7 @@ export default function CodingAgents() {
       label: a.label,
       index: a.index,
       color: providerColor(a.provider),
-    }));
+    })).sort((a, b) => b.index - a.index);
   }, []);
 
   return (
@@ -175,10 +287,12 @@ export default function CodingAgents() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {['DeepSWE', 'Terminal-Bench v2', 'SWE-Atlas-QnA'].map((benchmark, bi) => {
-                  const data = top15.map(a => {
-                    const ev = a.evals.find(e => e.benchmark === benchmark);
-                    return { label: a.label, value: ev ? ev.reward * 100 : 0, provider: a.provider };
-                  });
+                  const data = top15
+                    .map(a => {
+                      const ev = a.evals.find(e => e.benchmark === benchmark);
+                      return { label: a.label, value: ev ? ev.reward * 100 : 0, provider: a.provider };
+                    })
+                    .sort((a, b) => b.value - a.value);
                   const colors = ['#7c3aed', '#34d399', '#f472b6'];
                   return (
                     <div key={benchmark} className="border border-[var(--color-line)] rounded-lg p-4">
@@ -253,7 +367,7 @@ export default function CodingAgents() {
               </span>
             </div>
             <ResponsiveContainer width="100%" height={Math.max(400, top15.length * 42)}>
-              <BarChart data={top15} layout="vertical" margin={{ left: 12 }}>
+              <BarChart data={sortedByTokens} layout="vertical" margin={{ left: 12 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => formatTokens(v)} />
                 <YAxis type="category" dataKey="label" tick={{ fontSize: 11 }} width={190} />
@@ -282,24 +396,14 @@ export default function CodingAgents() {
           <div className="mt-6">
             <SectionCard
               title="Coding Agent Index vs. Total Tokens"
-              subtitle="Each point is a coding-agent variant. Farther left means lower average total token usage per task; higher on the chart means higher benchmark performance. The most efficient agents sit toward the upper-left."
+              subtitle="Each point is a coding-agent variant. Farther left means lower average total token usage per task; higher on the chart means higher benchmark performance. Agents toward the upper-left achieve stronger results with fewer tokens."
             >
-              <ResponsiveContainer width="100%" height={400}>
-                <ScatterChart>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis
-                    dataKey="totalTokens" type="number" tick={{ fontSize: 11 }} name="Total Tokens"
-                    tickFormatter={(v) => formatTokens(v)}
-                  />
-                  <YAxis dataKey="index" type="number" tick={{ fontSize: 11 }} domain={[20, 70]} name="Index" unit="%" />
-                  <Tooltip content={<AgentScatterTooltip />} />
-                  <Scatter data={scatterByTokens}>
-                    {scatterByTokens.map((a, i) => (
-                      <Cell key={i} fill={providerColor(a.provider)} />
-                    ))}
-                  </Scatter>
-                </ScatterChart>
-              </ResponsiveContainer>
+              <AttractiveScatter
+                data={scatterByTokens}
+                xKey="totalTokens"
+                xLabel="Total Tokens"
+                xFormatter={(v) => formatTokens(v)}
+              />
             </SectionCard>
           </div>
         </>
@@ -313,7 +417,7 @@ export default function CodingAgents() {
             subtitle="Average pay-per-token API cost per task (USD). Lower is better."
           >
             <ResponsiveContainer width="100%" height={Math.max(400, top15.length * 42)}>
-              <BarChart data={top15} layout="vertical" margin={{ left: 12 }}>
+              <BarChart data={sortedByCost} layout="vertical" margin={{ left: 12 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
                 <YAxis type="category" dataKey="label" tick={{ fontSize: 11 }} width={190} />
@@ -330,21 +434,15 @@ export default function CodingAgents() {
           <div className="mt-6">
             <SectionCard
               title="Coding Agent Index vs. Cost per Task"
-              subtitle="Each point is a coding-agent variant. Farther left means lower average cost per task; higher means stronger benchmark performance. The most efficient agents sit toward the upper-left."
+              subtitle="Each point is a coding-agent variant. Farther left means lower average cost per task; higher means stronger benchmark performance. The most efficient agents sit toward the upper-left: stronger results at lower cost."
             >
-              <ResponsiveContainer width="100%" height={400}>
-                <ScatterChart>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="cost" type="number" tick={{ fontSize: 11 }} name="Cost (USD)" tickFormatter={(v) => `$${v}`} />
-                  <YAxis dataKey="index" type="number" tick={{ fontSize: 11 }} domain={[20, 70]} name="Index" unit="%" />
-                  <Tooltip content={<AgentScatterTooltip />} />
-                  <Scatter data={scatterByCost}>
-                    {scatterByCost.map((a, i) => (
-                      <Cell key={i} fill={providerColor(a.provider)} />
-                    ))}
-                  </Scatter>
-                </ScatterChart>
-              </ResponsiveContainer>
+              <AttractiveScatter
+                data={scatterByCost}
+                xKey="cost"
+                xLabel="Cost (USD)"
+                xFormatter={(v) => `$${v}`}
+                showPareto
+              />
             </SectionCard>
           </div>
         </>
@@ -358,7 +456,7 @@ export default function CodingAgents() {
             subtitle="Average agent wall time per task. Lower is better."
           >
             <ResponsiveContainer width="100%" height={Math.max(400, top15.length * 42)}>
-              <BarChart data={top15} layout="vertical" margin={{ left: 12 }}>
+              <BarChart data={sortedByTime} layout="vertical" margin={{ left: 12 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => formatTime(v)} />
                 <YAxis type="category" dataKey="label" tick={{ fontSize: 11 }} width={190} />
@@ -377,19 +475,12 @@ export default function CodingAgents() {
               title="Coding Agent Index vs. Execution Time"
               subtitle="Each point is a coding-agent variant. Farther left means shorter average agent runtime per task; higher means stronger benchmark performance. Agents toward the upper-left deliver stronger results in less active agent time."
             >
-              <ResponsiveContainer width="100%" height={400}>
-                <ScatterChart>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="wallTime" type="number" tick={{ fontSize: 11 }} name="Time (s)" tickFormatter={(v) => formatTime(v)} />
-                  <YAxis dataKey="index" type="number" tick={{ fontSize: 11 }} domain={[20, 70]} name="Index" unit="%" />
-                  <Tooltip content={<AgentScatterTooltip />} />
-                  <Scatter data={scatterByTime}>
-                    {scatterByTime.map((a, i) => (
-                      <Cell key={i} fill={providerColor(a.provider)} />
-                    ))}
-                  </Scatter>
-                </ScatterChart>
-              </ResponsiveContainer>
+              <AttractiveScatter
+                data={scatterByTime}
+                xKey="wallTime"
+                xLabel="Time (s)"
+                xFormatter={(v) => formatTime(v)}
+              />
             </SectionCard>
           </div>
         </>

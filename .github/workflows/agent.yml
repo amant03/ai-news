@@ -2,7 +2,6 @@ name: AI News Agent
 
 on:
   schedule:
-    # Every 4 hours
     - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
@@ -22,12 +21,12 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # puppeteer is a runtime dep but X scraping is disabled in CI — skip Chromium download entirely.
   PUPPETEER_SKIP_DOWNLOAD: "true"
 
 jobs:
   agent:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
     steps:
@@ -46,19 +45,22 @@ jobs:
         run: npm ci
 
       - name: Run agent
+        timeout-minutes: 15
         run: npx tsx lib/run-agent.ts --kb ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
         env:
           AGENT_MODE: ci
-          # X scraping is blocked from datacenter IPs; keep CI fast.
           DISABLE_X_SCRAPING: "true"
           OLLAMA_URL: ""
 
-      - name: Commit fresh data
+      - name: Commit and push fresh data
+        if: success()
         run: |
           git config user.name "ai-news-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/news.json data/models.json data/status.json AI_NEWS_KNOWLEDGE_BASE.md
-          git commit -m "chore: refresh AI news $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "No changes to commit"
-          git fetch origin main
-          git rebase origin/main --autostash || echo "Rebase skipped (up to date)"
-          git push origin HEAD:main || echo "Push skipped (no changes or conflict)"
+          git add data/news.json data/models.json data/status.json data/aa-models.json AI_NEWS_KNOWLEDGE_BASE.md
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "chore: refresh AI news $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push origin HEAD:main
+          fi

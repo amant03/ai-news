@@ -74,7 +74,19 @@ export async function runAgent(options?: {
       (!sourceFilter || sourceFilter.includes(s.key))
   );
 
-  // Run all sources in parallel; each is individually fault-tolerant.
+  // Run all sources in parallel; each is individually fault-tolerant and has a
+  // hard timeout so a hung feed (RSS, web scraper) can't block the entire run.
+  const SOURCE_TIMEOUT_MS = 60_000; // 60 seconds max per source
+
+  function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+    return Promise.race([
+      promise,
+      new Promise<T>((_, reject) =>
+        setTimeout(() => reject(new Error(`${label} timed out after ${ms / 1000}s`)), ms)
+      ),
+    ]);
+  }
+
   const storeCounts = new Map<string, number>();
   {
     const store = readStore();
@@ -86,7 +98,7 @@ export async function runAgent(options?: {
     enabledSources.map(async spec => {
       const t0 = Date.now();
       try {
-        const items = await spec.fn();
+        const items = await withTimeout(spec.fn(), SOURCE_TIMEOUT_MS, spec.key);
         // If a source is rate-limited back to 0 this run (jina 403s, etc.),
         // keep the store's actual count so the health panel doesn't flash to 0.
         const count = items.length > 0 ? items.length : (storeCounts.get(spec.key) ?? items.length);

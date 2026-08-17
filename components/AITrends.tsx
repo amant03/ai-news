@@ -10,6 +10,7 @@ import {
   getLabsByLatestIntelligence, getLabModels, getBestModelPerLab,
   type ModelTimeline,
 } from '@/lib/trends-data';
+import HierarchicalEdgeBundling from '@/components/HierarchicalEdgeBundling';
 
 type Section = 'progress' | 'efficiency' | 'countries' | 'opensource' | 'architecture';
 
@@ -54,15 +55,18 @@ function SectionCard({ title, subtitle, children }: { title: string; subtitle: s
 function IntelTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
+    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs max-h-[200px] overflow-y-auto">
       <div className="font-medium mb-1">{label}</div>
-      {payload.map((p: any, i: number) => (
-        <div key={i} className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-          <span className="text-[var(--dim)]">{p.name}:</span>
-          <span className="font-medium">{p.value?.toFixed(1)}</span>
-        </div>
-      ))}
+      {payload
+        .filter((p: any) => p.value != null)
+        .sort((a: any, b: any) => (b.value || 0) - (a.value || 0))
+        .map((p: any, i: number) => (
+          <div key={i} className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.color }} />
+            <span className="text-[var(--dim)] truncate">{p.name}:</span>
+            <span className="font-medium ml-auto">{p.value?.toFixed(1)}</span>
+          </div>
+        ))}
     </div>
   );
 }
@@ -114,28 +118,56 @@ function BarTooltip({ active, payload }: any) {
 
 export default function AITrends() {
   const [activeSection, setActiveSection] = useState<Section>('progress');
+  const [highlightedLab, setHighlightedLab] = useState<string | null>(null);
 
   /* ─── Data Prep ─── */
   const topLabs = useMemo(() => getLabsByLatestIntelligence().slice(0, 10), []);
 
+  /* ─── Quarterly Intelligence Over Time (last 2 years) ─── */
   const intelOverTime = useMemo(() => {
-    const byLab: Record<string, ModelTimeline[]> = {};
+    const TWO_YEARS_AGO = '2024-08-15';
+    const quarterly: Record<string, Record<string, number>> = {};
+
     for (const m of MODELS_TIMELINE) {
-      if (!byLab[m.lab]) byLab[m.lab] = [];
-      byLab[m.lab].push(m);
+      if (m.date < TWO_YEARS_AGO) continue;
+      const d = new Date(m.date);
+      const q = Math.floor(d.getMonth() / 3) + 1;
+      const key = `Q${q} ${d.getFullYear()}`;
+      if (!quarterly[key]) quarterly[key] = {};
+      // Take the latest intelligence for each lab per quarter
+      if (!quarterly[key][m.lab] || m.intelligence > quarterly[key][m.lab]) {
+        quarterly[key][m.lab] = m.intelligence;
+      }
     }
-    const dates = [...new Set(MODELS_TIMELINE.map(m => m.date))].sort();
-    return dates.map(date => {
-      const row: Record<string, any> = { date, label: formatDate(date) };
+
+    const quarters = Object.keys(quarterly).sort((a, b) => {
+      const [qa, ya] = a.match(/Q(\d) (\d+)/)!.slice(1).map(Number);
+      const [qb, yb] = b.match(/Q(\d) (\d+)/)!.slice(1).map(Number);
+      return (ya * 4 + qa) - (yb * 4 + qb);
+    });
+
+    return quarters.map(q => {
+      const row: Record<string, any> = { quarter: q };
       for (const lab of topLabs) {
-        const models = (byLab[lab] || []).filter(m => m.date <= date);
-        if (models.length) row[lab] = models[models.length - 1].intelligence;
+        if (quarterly[q][lab] != null) row[lab] = quarterly[q][lab];
       }
       return row;
     });
   }, [topLabs]);
 
-  const bestPerLab = useMemo(() => getBestModelPerLab().slice(0, 15), []);
+  const bestPerLab = useMemo(
+    () =>
+      getBestModelPerLab()
+        .slice(0, 15)
+        .map(({ lab, model }) => ({
+          lab,
+          name: model.name,
+          intelligence: model.intelligence,
+          date: model.date,
+          price: model.price,
+        })),
+    []
+  );
 
   const priceOverTime = useMemo(() => {
     const bands = [
@@ -270,30 +302,46 @@ export default function AITrends() {
           <>
             <SectionCard
               title="Frontier Language Model Intelligence, Over Time"
-              subtitle="Artificial Analysis Intelligence Index — tracking the continued advancement of AI and the position of each leading AI company."
+              subtitle="Quarterly intelligence scores for the top 10 AI labs over the last 2 years (Q3 2024 — Q3 2026). Click a lab to highlight its line."
             >
               <div className="flex flex-wrap gap-2 mb-4">
-                {topLabs.map(lab => (
-                  <span key={lab} className="inline-flex items-center gap-1.5 text-[11px]">
-                    <span className="w-2 h-2 rounded-full" style={{ background: LAB_COLORS[lab] || '#6b7280' }} />
-                    {lab}
-                  </span>
-                ))}
+                {topLabs.map(lab => {
+                  const active = !highlightedLab || highlightedLab === lab;
+                  return (
+                    <button
+                      key={lab}
+                      onClick={() => setHighlightedLab(highlightedLab === lab ? null : lab)}
+                      className={`inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-full border transition-all ${
+                        active
+                          ? 'border-[var(--color-line)] opacity-100'
+                          : 'border-transparent opacity-30'
+                      }`}
+                    >
+                      <span
+                        className="w-2.5 h-2.5 rounded-sm flex-shrink-0"
+                        style={{ background: LAB_COLORS[lab] || '#6b7280' }}
+                      />
+                      {lab}
+                    </button>
+                  );
+                })}
               </div>
               <ResponsiveContainer width="100%" height={400}>
                 <LineChart data={intelOverTime}>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
+                  <XAxis dataKey="quarter" tick={{ fontSize: 11 }} interval={0} angle={-35} textAnchor="end" height={50} />
                   <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
                   <Tooltip content={<IntelTooltip />} />
                   {topLabs.map(lab => (
                     <Line
                       key={lab}
-                      type="monotone"
+                      type="stepAfter"
                       dataKey={lab}
                       stroke={LAB_COLORS[lab] || '#6b7280'}
-                      strokeWidth={2}
-                      dot={false}
+                      strokeWidth={highlightedLab === lab ? 3 : highlightedLab ? 1 : 2}
+                      strokeOpacity={!highlightedLab || highlightedLab === lab ? 1 : 0.15}
+                      dot={!highlightedLab || highlightedLab === lab ? { r: 4, strokeWidth: 2, fill: '#fff', stroke: LAB_COLORS[lab] || '#6b7280' } : false}
+                      activeDot={highlightedLab === lab ? { r: 6, strokeWidth: 2, fill: '#fff', stroke: LAB_COLORS[lab] || '#6b7280' } : undefined}
                       connectNulls
                     />
                   ))}
@@ -418,6 +466,7 @@ export default function AITrends() {
 
         {/* ═══ Country Analysis ═══ */}
         {activeSection === 'countries' && (
+          <>
           <SectionCard
             title="Frontier Language Model Intelligence By Country, Over Time"
             subtitle="Tracking AI progress by country — the best intelligence score achieved by models from each country."
@@ -442,6 +491,25 @@ export default function AITrends() {
               </LineChart>
             </ResponsiveContainer>
           </SectionCard>
+
+          <div className="mt-6">
+            <SectionCard
+              title="AI Supply & Demand: Global Flow Network"
+              subtitle="How AI resources flow between countries — investment capital, GPU/compute supply, AI talent migration, and model/API access. Based on Stanford AI Index 2025, OECD AI Compute, and BIS supply chain data."
+            >
+              <p className="text-[12px] text-[var(--dim)] leading-relaxed mb-5 max-w-[80ch]">
+                This hierarchical edge bundling chart visualizes the interconnected flows of AI resources across the globe.
+                Each node represents a country, grouped by region. Curved edges connect countries with active AI resource flows —
+                thicker lines indicate larger flows. The chart reveals how the United States sits at the center of the global AI
+                ecosystem, acting as both the largest supplier of compute and models, and the largest destination for AI talent
+                and investment. China emerges as the second-largest hub, with strong flows across Asia-Pacific. The data
+                highlights the concentration of AI production in North America and Asia, while Europe, the Middle East, and
+                India are primarily demand-side participants in the global AI economy.
+              </p>
+              <HierarchicalEdgeBundling />
+            </SectionCard>
+          </div>
+          </>
         )}
 
         {/* ═══ Open Source ═══ */}
