@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-17T01:12:46.075Z
-> Total Articles Tracked: 1502
+> Last Updated: 2026-08-17T04:41:24.005Z
+> Total Articles Tracked: 1593
 > Generated from AI Pulse database
 
 ---
@@ -14,53 +14,68 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 99 |
-| 🔬 **Research** | 26 |
-| 💼 **Product/Business** | 124 |
-| 🛡️ **Safety/Security** | 12 |
-| ⚖️ **Policy/Regulation** | 20 |
+| 🧠 **Model Releases** | 113 |
+| 🔬 **Research** | 48 |
+| 💼 **Product/Business** | 102 |
+| 🛡️ **Safety/Security** | 13 |
+| ⚖️ **Policy/Regulation** | 15 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 273 |
-| **ai-weekly** | 65 |
+| **google-news** | 268 |
+| **arxiv** | 58 |
 | **hacker-news** | 28 |
-| **reddit** | 26 |
+| **reddit** | 25 |
+| **ai-weekly** | 21 |
 | **the-decoder** | 19 |
-| **the-register** | 16 |
+| **the-register** | 17 |
 | **decrypt** | 15 |
-| **cnbc** | 15 |
 | **techcrunch** | 11 |
-| **zdnet** | 11 |
+| **cnbc** | 11 |
+| **zdnet** | 10 |
 | **the-verge** | 7 |
 | **wired** | 5 |
-| **marktechpost** | 4 |
 | **arstechnica** | 2 |
+| **marktechpost** | 1 |
 | **other** | 1 |
 | **amazon** | 1 |
-| **Hugging Face** | 1 |
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 99 articles
-- [🔬 Research Breakthroughs](#research-breakthroughs) — 26 articles
-- [💼 Product & Business Updates](#product--business-updates) — 124 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 12 articles
-- [⚖️ Regulation & Policy](#regulation--policy) — 20 articles
-- [📌 Other Notable News](#other-notable-news) — 219 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 113 articles
+- [🔬 Research Breakthroughs](#research-breakthroughs) — 48 articles
+- [💼 Product & Business Updates](#product--business-updates) — 102 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 13 articles
+- [⚖️ Regulation & Policy](#regulation--policy) — 15 articles
+- [📌 Other Notable News](#other-notable-news) — 209 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### Z.ai releases 'GLM-5.3,' an openweight AI model with superior coding capabilities, boasting a 50% performance improvement over its predecessor.
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | GIGAZINE |
+
+**Summary:** Z.ai releases 'GLM-5.3,' an openweight AI model with superior coding capabilities, boasting a 50% performance improvement over its predecessor.  GIGAZINE
+
+**URL:** [https://news.google.com/rss/articles/CBMiZkFVX3lxTE1QdFhlbVR1eHdjcGR1Y1JobXRJQS0tVWdZZy1yUmhTZVFWVlRScnFXenRjbVNmYUpnd3o1b0cySTlTdmZQUXhMalROV0dNWGlHWFRZLUVVUDUyR2JSYmM5V1kyOWdkZw?oc=5](https://news.google.com/rss/articles/CBMiZkFVX3lxTE1QdFhlbVR1eHdjcGR1Y1JobXRJQS0tVWdZZy1yUmhTZVFWVlRScnFXenRjbVNmYUpnd3o1b0cySTlTdmZQUXhMalROV0dNWGlHWFRZLUVVUDUyR2JSYmM5V1kyOWdkZw?oc=5)
+
+---
 
 ### Small AI models near large-model performance as Dokpamo second evaluation nears
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (2h ago) |
+| **Date** | August 16, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | 디지털투데이 |
 
@@ -75,7 +90,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (2h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -90,7 +105,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | PYMNTS.com |
 
@@ -105,7 +120,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | ropbear |
 
@@ -120,7 +135,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | nabeards |
 
@@ -135,7 +150,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -150,7 +165,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -165,7 +180,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | ScienceBlog.com |
 
@@ -180,7 +195,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | investingLive |
 
@@ -195,7 +210,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | Benzinga |
 
@@ -210,7 +225,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | NDTV Profit |
 
@@ -225,7 +240,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (12h ago) |
+| **Date** | August 16, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | tosh |
 
@@ -240,7 +255,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (14h ago) |
+| **Date** | August 16, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Standard (HK) |
 
@@ -255,7 +270,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (14h ago) |
+| **Date** | August 16, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -265,12 +280,27 @@
 
 ---
 
+### China launches geo-AI model for smarter mineral exploration
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (19h ago) |
+| **Category** | 🧠 model |
+| **Author** | bastillepost.com |
+
+**Summary:** China launches geo-AI model for smarter mineral exploration  bastillepost.com
+
+**URL:** [https://news.google.com/rss/articles/CBMisAFBVV95cUxNMk92TWYxU1laOUdaZTJjdnZOeUF6RGoweEQ4ZVNrNVhJbEUtWEpqV3JFdkZzYUU4aTBlYnhTdVFSUkNQd1FrSXpGcG1NakVaTTBYMU1FSW1MZmplQVhwUGZCYnM3MHN2OHkxRnh2d1lLMVgwUkMxSVZEWXZkYkxGRWRyMFJTN3RYSGpNallHZmxRbFl3U1lYajNaTk1HdTZrcnN3M3NSLWI3TDYwSmtQVg?oc=5](https://news.google.com/rss/articles/CBMisAFBVV95cUxNMk92TWYxU1laOUdaZTJjdnZOeUF6RGoweEQ4ZVNrNVhJbEUtWEpqV3JFdkZzYUU4aTBlYnhTdVFSUkNQd1FrSXpGcG1NakVaTTBYMU1FSW1MZmplQVhwUGZCYnM3MHN2OHkxRnh2d1lLMVgwUkMxSVZEWXZkYkxGRWRyMFJTN3RYSGpNallHZmxRbFl3U1lYajNaTk1HdTZrcnN3M3NSLWI3TDYwSmtQVg?oc=5)
+
+---
+
 ### Alibaba’s open-source AI model Qwen overtakes Meta, Google to claim top spot globally: report
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Global Times |
 
@@ -285,7 +315,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -300,7 +330,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (18h ago) |
+| **Date** | August 16, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | China Daily Global Edition |
 
@@ -315,7 +345,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (18h ago) |
+| **Date** | August 16, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | theconversation.com |
 
@@ -330,7 +360,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (20h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Inshorts |
 
@@ -345,7 +375,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (21h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Storyboard18 |
 
@@ -360,7 +390,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (22h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | South China Morning Post |
 
@@ -705,7 +735,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | AzerNews |
 
@@ -720,7 +750,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Ratopati |
 
@@ -763,6 +793,36 @@
 **Summary:** How to check if your ChatGPT, Claude, or Perplexity account is hijacked
 
 **URL:** [https://aiweekly.co/alerts/techcrunch-maps-session-checks-for-chatgpt-claude-perplexity](https://aiweekly.co/alerts/techcrunch-maps-session-checks-for-chatgpt-claude-perplexity)
+
+---
+
+### Google retires Imagen 4 API, forces move to Gemini image
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 15, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | AI Weekly |
+
+**Summary:** Google retires Imagen 4 API, forces move to Gemini image
+
+**URL:** [https://kingy.ai/ai-launch-tracker/google-will-shut-down-three-imagen-4-api-models-august-17/](https://kingy.ai/ai-launch-tracker/google-will-shut-down-three-imagen-4-api-models-august-17/)
+
+---
+
+### Claude hit by 42-minute outage across web, Code, Cowork
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 15, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | AI Weekly |
+
+**Summary:** Claude hit by 42-minute outage across web, Code, Cowork
+
+**URL:** [https://aiweekly.co/alerts/anthropic-confirms-42-minute-outage-on-claudes-web-apps](https://aiweekly.co/alerts/anthropic-confirms-42-minute-outage-on-claudes-web-apps)
 
 ---
 
@@ -1057,6 +1117,66 @@
 
 ---
 
+### Decoding the Past: An Uncertainty-Aware Deep Learning Framework for Sex Attribution in Prehistoric Hand Stencils
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Karel Becerra, Boris Mederos, Dean Snow |
+
+**Summary:** Determining the biological sex of the individuals who created Upper Paleolithic hand stencils remains a challenging problem due to the absence of ground truth, population differences between contempor
+
+**URL:** [https://arxiv.org/abs/2608.14539v1](https://arxiv.org/abs/2608.14539v1)
+
+---
+
+### Marionette: Predicting World States, Rendering Geometry, Painting Appearance
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Zian Meng, Zhen Li, Chuanhao Li |
+
+**Summary:** Interactive game world models typically autoregress visual observations directly in pixel or latent space, forcing structured properties such as pose, geometry, and occlusion to be implicitly maintain
+
+**URL:** [https://arxiv.org/abs/2608.14530v1](https://arxiv.org/abs/2608.14530v1)
+
+---
+
+### Handover of In-Context Learning State Across Session Boundaries
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Masahiro Kato, Taka Kato |
+
+**Summary:** This study investigates the methodological and theoretical properties of session handover in applications that use large language models. A task may continue in a new session when the context reaches 
+
+**URL:** [https://arxiv.org/abs/2608.14528v1](https://arxiv.org/abs/2608.14528v1)
+
+---
+
+### Participatory Moral AI Is Not Neutral: The Invisible Hand of Developers
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Taenyun Kim, Edyta Bogucka, Daniele Quercia |
+
+**Summary:** As AI systems make more morally loaded decisions across society, one response has been moral preference elicitation. In this approach, researchers poll participants on hypothetical dilemmas and use th
+
+**URL:** [https://arxiv.org/abs/2608.14522v1](https://arxiv.org/abs/2608.14522v1)
+
+---
+
 ### Qwen3.8 Open Weights Ship Under Two Different Licenses
 
 | Detail | Value |
@@ -1072,6 +1192,81 @@
 
 ---
 
+### Split the Labor: Separating Evidence Interpretation from Decision Aggregation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Zhelun Wu |
+
+**Summary:** Systems that ask a language model to reach a conclusion from many sources usually concatenate them into one prompt. This conflates two operations with different requirements. Interpreting a source rew
+
+**URL:** [https://arxiv.org/abs/2608.14509v1](https://arxiv.org/abs/2608.14509v1)
+
+---
+
+### Universal Thermodynamic Interatomic Potentials for Crystalline Materials
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Juno Nam, Bowen Deng, Xiaochen Du |
+
+**Summary:** Free energies govern solid-state phase stability, yet computational materials discovery still relies largely on ground-state energies because free energy calculations require ensemble averages. We int
+
+**URL:** [https://arxiv.org/abs/2608.14502v1](https://arxiv.org/abs/2608.14502v1)
+
+---
+
+### Rollplex: Cross-Phase GPU Spatial Sharing for Vision Language Model Post-Training
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Hanfeng Lu, Tianyu Feng, Suyi Li |
+
+**Summary:** Vision-language models (VLMs) enable embodied agents to reason and act from visual observations and language instructions. Reinforcement learning (RL) post-training enhances these capabilities using t
+
+**URL:** [https://arxiv.org/abs/2608.14498v1](https://arxiv.org/abs/2608.14498v1)
+
+---
+
+### Generating Benchmark Health Data Using a Tabular Diffusion Transformer
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Hao Yan, Lisa Pilgram, Dan Liu |
+
+**Summary:** Cross-Tabular Data Generation (CTDG) seeks to learn a generative model from multiple heterogeneous tables and produce new synthetic tabular datasets. However, existing synthetic tabular data generatio
+
+**URL:** [https://arxiv.org/abs/2608.14496v1](https://arxiv.org/abs/2608.14496v1)
+
+---
+
+### Twin: Playing an Unknown Game with a Test-Time Digital Twin
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Alexy Skoutnev, Kirill Acharya, Gaston Longhitano |
+
+**Summary:** We present a Test-time World-model Inference (Twin) system, in which a frontier coding agent writes an executable world model for completing continual learning tasks, such as ARC-AGI-3 games. Traditio
+
+**URL:** [https://arxiv.org/abs/2608.14490v1](https://arxiv.org/abs/2608.14490v1)
+
+---
+
 ### EXCLUSIVE: Zuckerberg's AI Vision Promises Access, Not Power, Says Father of AGI
 
 | Detail | Value |
@@ -1084,6 +1279,21 @@
 **Summary:** Mark Zuckerberg's AI vision prioritizes access over power, according to John McCarthy, the father of Artificial General Intelligence
 
 **URL:** [https://news.google.com/rss/articles/CBMilAFBVV95cUxPalhiUnlYaWJEaEtDSGtMdnJudjE1UFp2QldBYlo4eXNRdURPem1OaVhGMmlEVGN5NF9ZZ205cmVCTW5xMFNKYi1TRWYzZjRwbGJlUEl5a18yUnFQRUxYVlZ6UDljRTIzM0FXUWJmdTY0YnY5cl9MbU5HcFEwVmZha3NERUNQdWZGSmNKT0ZWSDN2TDFp?oc=5](https://news.google.com/rss/articles/CBMilAFBVV95cUxPalhiUnlYaWJEaEtDSGtMdnJudjE1UFp2QldBYlo4eXNRdURPem1OaVhGMmlEVGN5NF9ZZ205cmVCTW5xMFNKYi1TRWYzZjRwbGJlUEl5a18yUnFQRUxYVlZ6UDljRTIzM0FXUWJmdTY0YnY5cl9MbU5HcFEwVmZha3NERUNQdWZGSmNKT0ZWSDN2TDFp?oc=5)
+
+---
+
+### You Only Pass Once: Answering and Abstaining Together in a Single Forward Pass of a Frozen Language Model
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Ziyang Luo, Zhongyao Chu, Xinjie He |
+
+**Summary:** A frozen language model on reasoning tasks has two coupled weaknesses: it under-uses evidence its own residual stream already encodes, and it fails to detect when the input is insufficient to answer, 
+
+**URL:** [https://arxiv.org/abs/2608.14465v1](https://arxiv.org/abs/2608.14465v1)
 
 ---
 
@@ -1132,6 +1342,141 @@
 
 ---
 
+### More Correct Mass, Worse Answers: Why Power Sampling Can Fail and How to Fix It
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Haohui Yang, Jiaxing Sun, Xiujun Ma |
+
+**Summary:** Power Sampling sharpens a language model's distribution over complete generation trajectories, offering a verifier-free way to improve reasoning at inference time. It also has the potential to serve a
+
+**URL:** [https://arxiv.org/abs/2608.14420v1](https://arxiv.org/abs/2608.14420v1)
+
+---
+
+### CytoBERT: A Foundation Model for Cytometry Data
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Syed Abdul Haseeb Qadri, Bjarne C. Hiller, Felix Blanke |
+
+**Summary:** Cytometry measures the complex characteristics of single cells (e.g., counts and protein expression of immune cells) and is widely used across immunological research and clinical settings. However, cy
+
+**URL:** [https://arxiv.org/abs/2608.14414v1](https://arxiv.org/abs/2608.14414v1)
+
+---
+
+### Whose doctor does the AI recommend? An algorithm audit of reputation and demographic signals in large language model-assisted physician choice
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Syeda Anshrah Gillani, Mirza Samad Ahmed Baig |
+
+**Summary:** Patients increasingly ask large language model (LLM) assistants which doctor to see, making these systems AI infomediaries: algorithms that intermediate one person's choice among other people and ther
+
+**URL:** [https://arxiv.org/abs/2608.14399v1](https://arxiv.org/abs/2608.14399v1)
+
+---
+
+### DeaMoE: Efficient MoE Structure for Fast Small-Batch Decoding
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Zewen Jin, Shen Fu, Zeping Duan |
+
+**Summary:** Mixture-of-Experts (MoE) models have been widely adopted in real-time interactive applications such as coding assistants, real-time audio-video interaction systems. To meet the extremely low response 
+
+**URL:** [https://arxiv.org/abs/2608.14385v1](https://arxiv.org/abs/2608.14385v1)
+
+---
+
+### A Survey of Large Models in Sports
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Yichen Xu, Jianzhe Ma, Chuhan Wang |
+
+**Summary:** Sports have witnessed growing global enthusiasm in recent years, serving as a vital force for physical health, cultural exchange, social connection, and economic growth. The rapid advancement of large
+
+**URL:** [https://arxiv.org/abs/2608.14377v1](https://arxiv.org/abs/2608.14377v1)
+
+---
+
+### Wrong but Useful: Trajectory Value Beyond Answer Correctness in Multi-Agent Messages
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Chih-Hsuan Yang, Anjir Ahmed Chowdhury, Cheng-Hau Yang |
+
+**Summary:** Multi-agent reasoning systems often use agreement, confidence, or automated scores to decide which messages should shape a final answer. Such filtering assumes that a message likely to be correct is a
+
+**URL:** [https://arxiv.org/abs/2608.14375v1](https://arxiv.org/abs/2608.14375v1)
+
+---
+
+### Non-Shattering at and Above the Dynamical Temperature in the Spherical Pure p-Spin Model
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Taegyun Kim |
+
+**Summary:** We consider the notion of shattering introduced by Ben Arous and Jagannath for spherical pure $p$-spin glasses with overlap $q$. For every $p\geq 3$ and $0<β\leqβ_{\mathrm{sh}}(p)$, we rule out shatte
+
+**URL:** [https://arxiv.org/abs/2608.14369v1](https://arxiv.org/abs/2608.14369v1)
+
+---
+
+### Local and Global Regimes of Geometric Complexity in Language Model Representations
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Arwa Osman, Marco Baroni, Iuri Macocco |
+
+**Summary:** Intrinsic dimensionality (ID) is widely used to probe the representational complexity of language models, but it remains unclear whether ID differences reflect properties of language itself or artefac
+
+**URL:** [https://arxiv.org/abs/2608.14361v1](https://arxiv.org/abs/2608.14361v1)
+
+---
+
+### ATLAS: Discovering Agent Strategies through LLM-Guided Abstraction and Automata Learning
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Ignacio D. Lopez-Miguel, Andreas Happe, Jürgen Cito |
+
+**Summary:** Large Language Model (LLM)-based agents are increasingly used for complex tasks such as software testing and cybersecurity assessment. While these agents demonstrate impressive capabilities, their beh
+
+**URL:** [https://arxiv.org/abs/2608.14352v1](https://arxiv.org/abs/2608.14352v1)
+
+---
+
 ### Kog is going deeper to squeeze more inference out of GPUs
 
 | Detail | Value |
@@ -1144,6 +1489,21 @@
 **Summary:** Startup Kog challenges common assumption about GPU suitability for agentic workflows
 
 **URL:** [https://techcrunch.com/2026/08/14/kog-is-going-deeper-to-squeeze-more-inference-out-of-gpus/](https://techcrunch.com/2026/08/14/kog-is-going-deeper-to-squeeze-more-inference-out-of-gpus/)
+
+---
+
+### A Four-Axis Trustworthiness Benchmark for LLM-as-Judge in Principle-Based Regulation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Dipankar Sarkar |
+
+**Summary:** Principle-based regulation, with evaluative standards such as "fair, clear, and not misleading" or "deliver good outcomes", cannot be reduced to binary predicates, and LLM-as-judge is increasingly use
+
+**URL:** [https://arxiv.org/abs/2608.14329v1](https://arxiv.org/abs/2608.14329v1)
 
 ---
 
@@ -1177,6 +1537,21 @@
 
 ---
 
+### SimpleOPD: Simple Tokenizer-Agnostic On-Policy Distillation for Long-Context Reasoning
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Haonan He, Haodi Lei, Yun Luo |
+
+**Summary:** On-policy distillation (OPD) offers a promising way to transfer reasoning capabilities from stronger teacher models, but applying it to long-context reasoning teachers and short-context students intro
+
+**URL:** [https://arxiv.org/abs/2608.14277v1](https://arxiv.org/abs/2608.14277v1)
+
+---
+
 ### China's Z.ai says new model nears Anthropic's Mythos 5 in cyber-defence tests
 
 | Detail | Value |
@@ -1192,6 +1567,21 @@
 
 ---
 
+### Grounding Without Corrective Control: Truth-Tracking Profiles for Large Language Models
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Brett Reynolds |
+
+**Summary:** Recent work suggests that some large language model representations have content or reference. Grounding can secure either without supplying live routes for correction. This paper asks what follows fr
+
+**URL:** [https://arxiv.org/abs/2608.14252v1](https://arxiv.org/abs/2608.14252v1)
+
+---
+
 ### Apple’s China AI Push: iPhone Maker Trains Its Own Model With Alibaba
 
 | Detail | Value |
@@ -1204,6 +1594,36 @@
 **Summary:** Apple’s China AI Push: iPhone Maker Trains Its Own Model With Alibaba  outlookbusiness.com
 
 **URL:** [https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQjFOTWJVMEM2czQ0YzZXR3V2Y0NoQ1VUUGpQRHhYRDBtN1JuSzFWNElGVEp1UVBwMTFsaUU4U3lvaVJfVTMzOUh6SkNLQ1FweWVwMS1jb0J0X1FyRk9LeUlpUEZMTTI0bmRRQ2c4TGNoazJfNi1Cb3Nvbm9VRkxZclBCRWF0TnpTc1MyR2pYQ3Q1WXk2YjZUbWpPeXBjc2xhYjhJdzVJd3FiR014aGlyY2lxTGYxVUtHajJj0gG7AUFVX3lxTFBCMU5NYlUwQzZzNDRjNldHdXZjQ2hDVVRQalBEeFhEMG03Um5LMVY0SUZUSnVRUHAxMWxpRThTeW9pUl9VMzM5SHpKQ0tDUXB5ZXAxLWNvQnRfUXJGT0t5SWlQRkxNMjRuZFFDZzhMY2hrMl82LUJvc29ub1VGTFlyUEJFYXROelNzUzJHalhDdDVZeTZiNlRtak95cGNzbGFiOEl3NUl3cWJHTXhoaXJjaXFMZjFVS0dqMmM?oc=5](https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQjFOTWJVMEM2czQ0YzZXR3V2Y0NoQ1VUUGpQRHhYRDBtN1JuSzFWNElGVEp1UVBwMTFsaUU4U3lvaVJfVTMzOUh6SkNLQ1FweWVwMS1jb0J0X1FyRk9LeUlpUEZMTTI0bmRRQ2c4TGNoazJfNi1Cb3Nvbm9VRkxZclBCRWF0TnpTc1MyR2pYQ3Q1WXk2YjZUbWpPeXBjc2xhYjhJdzVJd3FiR014aGlyY2lxTGYxVUtHajJj0gG7AUFVX3lxTFBCMU5NYlUwQzZzNDRjNldHdXZjQ2hDVVRQalBEeFhEMG03Um5LMVY0SUZUSnVRUHAxMWxpRThTeW9pUl9VMzM5SHpKQ0tDUXB5ZXAxLWNvQnRfUXJGT0t5SWlQRkxNMjRuZFFDZzhMY2hrMl82LUJvc29ub1VGTFlyUEJFYXROelNzUzJHalhDdDVZeTZiNlRtak95cGNzbGFiOEl3NUl3cWJHTXhoaXJjaXFMZjFVS0dqMmM?oc=5)
+
+---
+
+### The More Popular, The Harder to Forget: Adaptive Popularity for LLM Unlearning
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Anna Borisiuk, Andrey Savchenko, Alexander Panchenko |
+
+**Summary:** Popular facts are memorised more deeply during pretraining and resist removal longer than rare ones, yet existing LLM unlearning methods apply uniform gradient pressure regardless of training-data fre
+
+**URL:** [https://arxiv.org/abs/2608.14229v1](https://arxiv.org/abs/2608.14229v1)
+
+---
+
+### MathForm: Scaling Mathematical Autoformalization with Knowledge Retrieval and Verification-Guided Refinement
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Lushi Pu, Weiming Zhang, Xinheng Xie |
+
+**Summary:** Autoformalization is commonly framed as translating natural-language mathematical statements into machine-verifiable formal languages such as Lean 4. However, faithful formalization requires more than
+
+**URL:** [https://arxiv.org/abs/2608.14221v1](https://arxiv.org/abs/2608.14221v1)
 
 ---
 
@@ -1252,6 +1672,21 @@
 
 ---
 
+### KV Cache Compression Through the Lens of Transform Coding
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Hannah Laus, Claudio Mayrink Verdun, Hao Wang |
+
+**Summary:** The key-value (KV) cache stores information from past tokens and is a major memory bottleneck in long-context inference. Existing quantization methods address this bottleneck by representing the KV ca
+
+**URL:** [https://arxiv.org/abs/2608.14191v1](https://arxiv.org/abs/2608.14191v1)
+
+---
+
 ### Back in the Harness: DeepSeek continues its pivot towards agentic AI
 
 | Detail | Value |
@@ -1297,6 +1732,21 @@
 
 ---
 
+### Leading-Silence Augmentation and Multi-Stage Synthetic Supervision for the Second MLC-SLM Challenge
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🧠 model |
+| **Author** | Kexin Shi, Renhe Sun, Yuge Huang |
+
+**Summary:** The second Multilingual Conversational Speech Language Model (MLC-SLM) Challenge evaluates two tasks over complete, unsegmented multilingual conversations: speaker diarization and recognition (Task 1)
+
+**URL:** [https://arxiv.org/abs/2608.14150v1](https://arxiv.org/abs/2608.14150v1)
+
+---
+
 ### GLM-5.3: Post-Training Produced Exploit Chains Z.ai Never Planned, Finds 1,097 Critical Bugs
 
 | Detail | Value |
@@ -1312,254 +1762,29 @@
 
 ---
 
-### Nintendo shares pop 7% after 'Pokémon Pokopia' sales top 5 million
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | CNBC AI |
-
-**Summary:** Nintendo sees 7% surge in shares following Pokémon Pokopia game sales surpassing 5 million
-
-**URL:** [https://www.cnbc.com/2026/08/14/nintendo-shares-pokemon-pokopia-switch-2.html](https://www.cnbc.com/2026/08/14/nintendo-shares-pokemon-pokopia-switch-2.html)
-
----
-
-### AI’s infrastructure boom is getting more leveraged — and harder to track
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | CNBC |
-
-**Summary:** AI infrastructure usage is increasing, but becoming increasingly difficult to monitor
-
-**URL:** [https://news.google.com/rss/articles/CBMif0FVX3lxTE0xdURYc09ib3VQcWFfZEFWblJBZ1hmelBmZWxsWXJidXUweGNoeF9qeWxWSjV3UHRkMVJzNzVCYlROY09hUDZjWVhhYVFzU3daYW9UUUNGcWd5bFlKUXFXRTItMS0xNjlSNXNsel9IaDRpVVFYZnBaZTlld3c3Y0XSAYQBQVVfeXFMUE15aWZacXpmUnRVenYxc2VCM1QxWXl6QnlidEdUTGQ3U01YOERwRENrcUNycUl3d2QzLUhUeER0Y1ZNeXNwbjMtLWJIYkxZQXNPV2h1ejZJeW04NGZHZW5LRTF2N1FseE5iWjBWNGRfOU1QR2ZtaDFsdDF2Ym1rU2ZIei0z?oc=5](https://news.google.com/rss/articles/CBMif0FVX3lxTE0xdURYc09ib3VQcWFfZEFWblJBZ1hmelBmZWxsWXJidXUweGNoeF9qeWxWSjV3UHRkMVJzNzVCYlROY09hUDZjWVhhYVFzU3daYW9UUUNGcWd5bFlKUXFXRTItMS0xNjlSNXNsel9IaDRpVVFYZnBaZTlld3c3Y0XSAYQBQVVfeXFMUE15aWZacXpmUnRVenYxc2VCM1QxWXl6QnlidEdUTGQ3U01YOERwRENrcUNycUl3d2QzLUhUeER0Y1ZNeXNwbjMtLWJIYkxZQXNPV2h1ejZJeW04NGZHZW5LRTF2N1FseE5iWjBWNGRfOU1QR2ZtaDFsdDF2Ym1rU2ZIei0z?oc=5)
-
----
-
-### Are supervised and unsupervised learning still relevant today? [D]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | r/MachineLearning |
-
-**Summary:** A user seeks advice on the relevance of supervised and unsupervised learning in 2026, considering the dominance of large language models (LLMs) and deep learning.
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vo08wd/are_supervised_and_unsupervised_learning_still/](https://www.reddit.com/r/MachineLearning/comments/1vo08wd/are_supervised_and_unsupervised_learning_still/)
-
----
-
-### AI escapes confinement
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | aljazeera.com |
-
-**Summary:** AI system breaks free from its digital confines, sparking concerns about its potential actions and whereabouts
-
-**URL:** [https://news.google.com/rss/articles/CBMifkFVX3lxTE5TQmt2eFR6U3JXNjZZX0dRTFZsQlliOG93SFhsQjNDX0NobktyNTFacnl0RE9NR1JkblJOem9FcGN5VHVZbll0WWpjcDlVTlR2Tm5wTDVoclQyWjdFTm1iWUZma3NRZ245WkhmdVRDb21WWVdGQ0hzSFkwb1M5UdIBgwFBVV95cUxOeEJuTnVpRnJGUzVIZFhIazdZUDVzT2dIUWFiNnc0bHpwbnRiOWdHMU5qMGM3dEVHRERlY2diNWp4cW5vQkpkTkxSNG14VXF3NG1yTGphTzEtV01WUmFnNmdnOHE0Z1hUcFpsMGNYQk1XalExckxJZ1dGZHl6NTlScEJmbw?oc=5](https://news.google.com/rss/articles/CBMifkFVX3lxTE5TQmt2eFR6U3JXNjZZX0dRTFZsQlliOG93SFhsQjNDX0NobktyNTFacnl0RE9NR1JkblJOem9FcGN5VHVZbll0WWpjcDlVTlR2Tm5wTDVoclQyWjdFTm1iWUZma3NRZ245WkhmdVRDb21WWVdGQ0hzSFkwb1M5UdIBgwFBVV95cUxOeEJuTnVpRnJGUzVIZFhIazdZUDVzT2dIUWFiNnc0bHpwbnRiOWdHMU5qMGM3dEVHRERlY2diNWp4cW5vQkpkTkxSNG14VXF3NG1yTGphTzEtV01WUmFnNmdnOHE0Z1hUcFpsMGNYQk1XalExckxJZ1dGZHl6NTlScEJmbw?oc=5)
-
----
-
-### Qwen 3.8 27B ships with vision, 262K context, Apache 2.0
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Qwen 3.8 27B ships with vision, 262K context, Apache 2.0
-
-**URL:** [https://aiweekly.co/node/9958](https://aiweekly.co/node/9958)
-
----
-
-### GLM-5.3 ships with emergent cyber skills, weights held back
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** GLM-5.3 ships with emergent cyber skills, weights held back
-
-**URL:** [https://aiweekly.co/node/9959](https://aiweekly.co/node/9959)
-
----
-
-### DeepSeek V4-Pro launches with pricing shock
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** DeepSeek V4-Pro launches with pricing shock
-
-**URL:** [https://www.caixinglobal.com/2026-08-14/tech-brief-aug-14-deepseek-launches-v4-pro-and-raises-api-prices-by-as-much-as-1100-102474222.html](https://www.caixinglobal.com/2026-08-14/tech-brief-aug-14-deepseek-launches-v4-pro-and-raises-api-prices-by-as-much-as-1100-102474222.html)
-
----
-
-### OpenAI Ultrafast runs GPT-5.6 Sol 14x faster on Cerebras
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** OpenAI Ultrafast runs GPT-5.6 Sol 14x faster on Cerebras
-
-**URL:** [https://aiweekly.co/alerts/openai-previews-gpt-56-sol-ultrafast-at-14x-speed-on-cerebras](https://aiweekly.co/alerts/openai-previews-gpt-56-sol-ultrafast-at-14x-speed-on-cerebras)
-
----
-
-### Google lets Gemini users remove visible AI watermarks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Google lets Gemini users remove visible AI watermarks
-
-**URL:** [https://aiweekly.co/node/9973](https://aiweekly.co/node/9973)
-
----
-
-### Anthropic guide on making Claude Code sessions cheaper
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Anthropic guide on making Claude Code sessions cheaper
-
-**URL:** [https://aiweekly.co/alerts/anthropics-hallie-claude-code-bills-hinge-on-session-habits](https://aiweekly.co/alerts/anthropics-hallie-claude-code-bills-hinge-on-session-habits)
-
----
-
-### Anthropic raises misalignment risk, shelves internal Model 2
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Anthropic raises misalignment risk, shelves internal Model 2
-
-**URL:** [https://www.unite.ai/anthropic-raises-misalignment-risk-to-low-and-shelves-internal-model-2/](https://www.unite.ai/anthropic-raises-misalignment-risk-to-low-and-shelves-internal-model-2/)
-
----
-
-### Google&#039;s Gemini 3.7 Flash lands with steep coding-benchmark gains
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Google&#039;s Gemini 3.7 Flash lands with steep coding-benchmark gains
-
-**URL:** [https://aiweekly.co/alerts/google-ships-gemini-37-flash-coding-bench-jumps-to-436](https://aiweekly.co/alerts/google-ships-gemini-37-flash-coding-bench-jumps-to-436)
-
----
-
-### Alibaba&#039;s Qwen tops 3B downloads, past Meta and Google combined
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Alibaba&#039;s Qwen tops 3B downloads, past Meta and Google combined
-
-**URL:** [https://aiweekly.co/node/10017](https://aiweekly.co/node/10017)
-
----
-
-### Amodei: open weights aren&#039;t &#039;sufficient,&#039; AI faces trust crisis
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Amodei: open weights aren&#039;t &#039;sufficient,&#039; AI faces trust crisis
-
-**URL:** [https://www.techmeme.com/260815/p17](https://www.techmeme.com/260815/p17)
-
----
-
-### Anthropic&#039;s Claude text watermark fades after a full rewrite
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Anthropic&#039;s Claude text watermark fades after a full rewrite
-
-**URL:** [https://aiweekly.co/alerts/anthropic-details-claude-watermarks-gaps-on-code-and-rewrites](https://aiweekly.co/alerts/anthropic-details-claude-watermarks-gaps-on-code-and-rewrites)
-
----
-
-### Claude Max subscribers cancel over watermark that follows their writing
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 🧠 model |
-| **Author** | AI Weekly |
-
-**Summary:** Claude Max subscribers cancel over watermark that follows their writing
-
-**URL:** [https://aiweekly.co/alerts/claude-max-subscribers-cancel-over-anthropics-new-watermark](https://aiweekly.co/alerts/claude-max-subscribers-cancel-over-anthropics-new-watermark)
-
----
-
 ## 🔬 Research Breakthroughs
+
+### Lingnan University wins 16 awards at Silicon Valley International Invention Festival 2026 - Tops Hong Kong universities in total and gold medals
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (45m ago) |
+| **Category** | 🔬 research |
+| **Author** | Asia Research News | |
+
+**Summary:** Lingnan University wins 16 awards at Silicon Valley International Invention Festival 2026 - Tops Hong Kong universities in total and gold medals  Asia Research News |
+
+**URL:** [https://news.google.com/rss/articles/CBMizAFBVV95cUxOLUdVUFJmVlRhUGJJdnVlYnRjNkRncllQa2lUT0V6eXBJSkh5OC1mMzNiUmozTVlFWERqWUw1czhXYlNkejVNWDJTYjJ2NTkxM0lMSDVZcDNhN19kUkprMlBJMHJKSERENVJkUDYxbmpIdF80VmpQQWV2aWRaX2FaTUlYM1h3ZjNIcXdVc2R0T0s0OUhsWlFuXzU1cWFHX1lPeVlwdUV4WEo3cS1hWXFodjhEdjRyWVdXUkVzeTFFQ2s0YnlzbFZFSXA1TFo?oc=5](https://news.google.com/rss/articles/CBMizAFBVV95cUxOLUdVUFJmVlRhUGJJdnVlYnRjNkRncllQa2lUT0V6eXBJSkh5OC1mMzNiUmozTVlFWERqWUw1czhXYlNkejVNWDJTYjJ2NTkxM0lMSDVZcDNhN19kUkprMlBJMHJKSERENVJkUDYxbmpIdF80VmpQQWV2aWRaX2FaTUlYM1h3ZjNIcXdVc2R0T0s0OUhsWlFuXzU1cWFHX1lPeVlwdUV4WEo3cS1hWXFodjhEdjRyWVdXUkVzeTFFQ2s0YnlzbFZFSXA1TFo?oc=5)
+
+---
 
 ### [R] SineKAN: Kolmogorov-Arnold Networks Using Sinusoidal Activation Functions
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 17, 2026 (26m ago) |
+| **Date** | August 17, 2026 (3h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1574,7 +1799,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 🔬 research |
 | **Author** | fundsforNGOs |
 
@@ -1589,7 +1814,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (13h ago) |
+| **Date** | August 16, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1604,7 +1829,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 16, 2026 (13h ago) |
+| **Date** | August 16, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | TheDecoder |
 
@@ -1749,6 +1974,21 @@
 
 ---
 
+### Learning-to-Transition for Large-scale and High-Order MIMO Detection
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Yubo Zhang, Yiyao Liu, Xiaodong Wang |
+
+**Summary:** High-order multiple-input multiple-output (MIMO) detection requires efficient search over a large discrete symbol space while producing reliable soft information for channel decoding. This paper devel
+
+**URL:** [https://arxiv.org/abs/2608.14511v1](https://arxiv.org/abs/2608.14511v1)
+
+---
+
 ### World’s First Superconducting Quantum Heat Engine Could Help Unlock Massive Quantum Computers
 
 | Detail | Value |
@@ -1761,6 +2001,126 @@
 **Summary:** A team of scientists has developed the world's first superconducting quantum heat engine, which could enable massive quantum computers.
 
 **URL:** [https://www.sciencedaily.com/releases/2026/08/260814011041.htm](https://www.sciencedaily.com/releases/2026/08/260814011041.htm)
+
+---
+
+### Approximate Muon with low-rank adapters
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Ben Anson, Conor Houghton, Edward Milsom |
+
+**Summary:** The Muon optimizer shows clear benefits versus alternatives when pretraining neural networks. However, it is used less frequently for parameter-efficient fine-tuning (PEFT). One potential reason is th
+
+**URL:** [https://arxiv.org/abs/2608.14492v1](https://arxiv.org/abs/2608.14492v1)
+
+---
+
+### Optimal Scheduling of Road Maintenance Jobs Considering Impact on Traffic Flows
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Charitha Nandepu, Lohitha Kalepu, Gabriele Ciavarella |
+
+**Summary:** Network-level maintenance planning requires repeated evaluations of equilibrium traffic flows under road capacity reductions. While equilibrium traffic assignment models are well established, their re
+
+**URL:** [https://arxiv.org/abs/2608.14491v1](https://arxiv.org/abs/2608.14491v1)
+
+---
+
+### LP-NAS: Linear Programming-based Neural Architecture Search
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Abhishek Shukla, Ankur Sinha, Faiz Hamid |
+
+**Summary:** Neural Architecture Search (NAS) aims to automate neural network architecture design, reducing reliance on human expertise. Among the various NAS methods, differentiable NAS has gained prominence due 
+
+**URL:** [https://arxiv.org/abs/2608.14472v1](https://arxiv.org/abs/2608.14472v1)
+
+---
+
+### Information Satisfaction: A Reader-Centered Axis for Summarization Evaluation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Isabel Cachola, William Walden, Reno Kriz |
+
+**Summary:** The majority of work on summarization evaluation focuses on general summary quality (e.g., ROUGE, BERTScore) or specific desired properties (e.g., readability, factuality). However, these metrics fail
+
+**URL:** [https://arxiv.org/abs/2608.14457v1](https://arxiv.org/abs/2608.14457v1)
+
+---
+
+### Shift Aware Transfer Learning with Adaptive Dual-Encoder Fusion for PM Forecasting in Data-Limited Environments
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Shahab Band, Hamed Mohammadi |
+
+**Summary:** Short-horizon forecasting of fine particulate matter (PM2.5) remains difficult when observations from the target domain are limited and the statistical properties of the source and target domains diff
+
+**URL:** [https://arxiv.org/abs/2608.14456v1](https://arxiv.org/abs/2608.14456v1)
+
+---
+
+### Wyvern: An Agentic Framework for Generating Grounded Multimodal Reports
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Beatrice Alessandra Motetti, Emilien Guandalino, Daniele Jahier Pagliari |
+
+**Summary:** In the current artificial intelligence-driven innovation era, the pace of knowledge growth is accelerating, and is hard to keep up with. While generative models are increasingly used to synthesize con
+
+**URL:** [https://arxiv.org/abs/2608.14446v1](https://arxiv.org/abs/2608.14446v1)
+
+---
+
+### PACE-Bench: Benchmarking Physics Adaptation via Code Evolution in Dynamic Environments
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Yuhao Zhan, Bingxiang He, Zecong Tang |
+
+**Summary:** Self-evolving agents improve future behavior from interaction experience, yet existing evaluations typically optimize under fixed execution conditions and do not test recovery after those conditions c
+
+**URL:** [https://arxiv.org/abs/2608.14441v1](https://arxiv.org/abs/2608.14441v1)
+
+---
+
+### Style or Signature? Artist-Disjoint Evaluation of Style Classification in Frozen Vision Embeddings
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Rory Ashton |
+
+**Summary:** Frozen image embeddings from models such as CLIP are increasingly used to classify paintings by art-historical style, with high reported accuracy. We ask whether this accuracy reflects an understandin
+
+**URL:** [https://arxiv.org/abs/2608.14435v1](https://arxiv.org/abs/2608.14435v1)
 
 ---
 
@@ -1779,6 +2139,21 @@
 
 ---
 
+### Designing Reinforcement Learning for Diffusion Models: A Unified Path-Space View
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Yixian Xu, Yuanrui Zhang, Shengjie Luo |
+
+**Summary:** Reinforcement learning (RL) post-training provides a direct way to align diffusion models with human preferences and task-specific rewards. However, current RL algorithms for diffusion models remain f
+
+**URL:** [https://arxiv.org/abs/2608.14430v1](https://arxiv.org/abs/2608.14430v1)
+
+---
+
 ### The Engine Beneath the Oracle: How Large Language Models Actually Work
 
 | Detail | Value |
@@ -1794,6 +2169,21 @@
 
 ---
 
+### Knowing When to Stop: Bayesian Optimal Stopping for LLM Evaluations
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Toby D. Pilditch |
+
+**Summary:** LLM evaluations often use fixed sampling budgets, testing every item the same number of times even after estimates are precise. We introduce optstop, a precision-based adaptive stopping framework that
+
+**URL:** [https://arxiv.org/abs/2608.14425v1](https://arxiv.org/abs/2608.14425v1)
+
+---
+
 ### Study contradicts Anthropic and OpenAI claims that autonomous AI research is within reach
 
 | Detail | Value |
@@ -1806,6 +2196,36 @@
 **Summary:** A study finds that while AI agents can perform research tasks autonomously, they struggle with critical thinking and creative problem-solving.
 
 **URL:** [https://the-decoder.com/study-contradicts-anthropic-and-openai-claims-that-autonomous-ai-research-is-within-reach/](https://the-decoder.com/study-contradicts-anthropic-and-openai-claims-that-autonomous-ai-research-is-within-reach/)
+
+---
+
+### Online Inference in Distributional Temporal-Difference Learning
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Yang Peng, Liangyu Zhang |
+
+**Summary:** We study online statistical inference for functionals of the return distribution under a fixed policy. The return distribution is estimated by nonparametric distributional temporal-difference learning
+
+**URL:** [https://arxiv.org/abs/2608.14408v1](https://arxiv.org/abs/2608.14408v1)
+
+---
+
+### The Past and Future of AI Scientists
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Ross D. King |
+
+**Summary:** We present a survey of the past and future of AI Scientists: machines capable of automating science. AI Scientists can originate hypotheses, deduce their consequences, design and execute experiments, 
+
+**URL:** [https://arxiv.org/abs/2608.14407v1](https://arxiv.org/abs/2608.14407v1)
 
 ---
 
@@ -1839,6 +2259,66 @@
 
 ---
 
+### AI-Assisted Discovery and Construction of a Counterexample to the Convergence of Three-Block ADMM with the Identity Matrix as its Third Constraint Block
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Kenan Xu, Xiangfeng Wang |
+
+**Summary:** The alternating direction method of multipliers (ADMM), as a landmark algorithm, has attracted tremendous research attention and extensive practical applications over the past two decades. It is well 
+
+**URL:** [https://arxiv.org/abs/2608.14396v1](https://arxiv.org/abs/2608.14396v1)
+
+---
+
+### Boosting Data Augmentation with Stochastic Weight Averaging
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Longde Huang, Axel Flinth, Jan E. Gerken |
+
+**Summary:** The symmetries of a learning task have become an important factor in designing modern deep learning solutions. Data augmentation is a straightforward and effective way of incorporating symmetries into
+
+**URL:** [https://arxiv.org/abs/2608.14373v1](https://arxiv.org/abs/2608.14373v1)
+
+---
+
+### Catching the Imposter: Self-Supervised Learning of Physical Coherence with Cross-Entity Feature Permutations
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Aleksei Rozanov, Arvind Renganathan, Vipin Kumar |
+
+**Summary:** Scientific data often describe entities whose features are jointly governed by the laws of physics, yet existing self-supervised learning (SSL) objectives largely ignore this physical coherence. We in
+
+**URL:** [https://arxiv.org/abs/2608.14372v1](https://arxiv.org/abs/2608.14372v1)
+
+---
+
+### Mind the Long Tail: Understanding the Difficulty of Delay Detection in Business Processes
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Keyvan Amiri Elyasi, Lukas Kirchdorfer, Heiner Stuckenschmidt |
+
+**Summary:** The early detection of delayed cases in business processes is a critical capability for organizations. Predictive process monitoring (PPM) supports this task by using historical event logs to predict 
+
+**URL:** [https://arxiv.org/abs/2608.14367v1](https://arxiv.org/abs/2608.14367v1)
+
+---
+
 ### FRI Healthcare Report: Study committee members want rules on AI in healthcare to protect patients’ data
 
 | Detail | Value |
@@ -1854,6 +2334,36 @@
 
 ---
 
+### Non-Parametric Spatiotemporal Trajectory Prediction via State-Conditioned Transition Sampling
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Michael Fore, Akshay Jain, Justin Downes |
+
+**Summary:** We present a training-free method for multi-modal trajectory prediction that achieves comparable accuracy to a 57M-parameter transformer while requiring no GPU and zero learned parameters. The method 
+
+**URL:** [https://arxiv.org/abs/2608.14349v1](https://arxiv.org/abs/2608.14349v1)
+
+---
+
+### AnchorBench: A Multi-Pathway Benchmark for the Anchoring Effect in LLMs
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Yiderigun Borjigin, Alexander Hermann, Christian Cyron |
+
+**Summary:** The anchoring effect is a cognitive bias in which an initial reference value shifts a later judgment toward itself. This effect is well established in human judgment and decision-making, and recent wo
+
+**URL:** [https://arxiv.org/abs/2608.14320v1](https://arxiv.org/abs/2608.14320v1)
+
+---
+
 ### New AI model detects hidden signs of solar eruptions hours before they emerge
 
 | Detail | Value |
@@ -1866,6 +2376,21 @@
 **Summary:** AI model predicts solar eruptions hours in advance
 
 **URL:** [https://news.google.com/rss/articles/CBMiXEFVX3lxTFA0SGl4Z0ZZNXlraVJWQ05BQjVBaUpjQUtGM1dDRDhReWxzT3VnNHJncjJqcnRmSnVwbVdoLWZKYmFSZy1Ca1lhc1BOajZaQWdpa3B1Y2lqWVBFOVFw?oc=5](https://news.google.com/rss/articles/CBMiXEFVX3lxTFA0SGl4Z0ZZNXlraVJWQ05BQjVBaUpjQUtGM1dDRDhReWxzT3VnNHJncjJqcnRmSnVwbVdoLWZKYmFSZy1Ca1lhc1BOajZaQWdpa3B1Y2lqWVBFOVFw?oc=5)
+
+---
+
+### Seeing Red, Thinking Bad: Color Bias in Vision Language Models
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Kohsuke Ide, Ryousuke Yamada, Yoshihiro Fukuhara |
+
+**Summary:** Vision language models (VLMs) are increasingly used in industrial decision-making systems, such as recruitment support and recommendation. This motivates careful analysis of how VLMs process visual an
+
+**URL:** [https://arxiv.org/abs/2608.14286v1](https://arxiv.org/abs/2608.14286v1)
 
 ---
 
@@ -1914,6 +2439,21 @@
 
 ---
 
+### How Much Do Legal RAG Systems Still Hallucinate?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🔬 research |
+| **Author** | Souvick Das, Sallam Abualhaija, Domenico Bianculli |
+
+**Summary:** Hallucination is a major challenge for retrieval-augmented generation (RAG) systems in the legal domain, where ungrounded answers can lead to serious consequences. To better understand this problem, w
+
+**URL:** [https://arxiv.org/abs/2608.14210v1](https://arxiv.org/abs/2608.14210v1)
+
+---
+
 ### Drexel Researchers Examine How Much People Really Trust Generative AI
 
 | Detail | Value |
@@ -1946,12 +2486,93 @@
 
 ## 💼 Product & Business Updates
 
+### Diversified Financing Debunks AI Bubble Claims! From Century Bonds to AUD Debt Debut, Alphabet (GOOGL.US) Leverages Global Funding to Support AI Ambitions
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | 富途牛牛 |
+
+**Summary:** Diversified Financing Debunks AI Bubble Claims! From Century Bonds to AUD Debt Debut, Alphabet (GOOGL.US) Leverages Global Funding to Support AI Ambitions  富途牛牛
+
+**URL:** [https://news.google.com/rss/articles/CBMirgFBVV95cUxOUFlSa3k5eUJhY1RPNXczcGh0ZFc0QTA5RE94cklDZUt3dl9VVkFXTWFfOTJoZjJsWGFmdjVDdkhRdVVCX004RWQyNlJzaGZzRXpjdTFDWDVzaDU2c0puT3RtME5yUENERnZBTUVza1AzMmZaX1NXZ1UwdTl0Vy0xTml6U1huMDJKYUtIUjBEb3Z0andMYzlyV2xXQUhGX3FwOWo2eXVmdUg4M0w5LXc?oc=5](https://news.google.com/rss/articles/CBMirgFBVV95cUxOUFlSa3k5eUJhY1RPNXczcGh0ZFc0QTA5RE94cklDZUt3dl9VVkFXTWFfOTJoZjJsWGFmdjVDdkhRdVVCX004RWQyNlJzaGZzRXpjdTFDWDVzaDU2c0puT3RtME5yUENERnZBTUVza1AzMmZaX1NXZ1UwdTl0Vy0xTml6U1huMDJKYUtIUjBEb3Z0andMYzlyV2xXQUhGX3FwOWo2eXVmdUg4M0w5LXc?oc=5)
+
+---
+
+### Mifeng Technology Secures Hundreds of Millions in Funding Led by China Telecom to Expand in Embodied AI Data
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | finance.biggo.com |
+
+**Summary:** Mifeng Technology Secures Hundreds of Millions in Funding Led by China Telecom to Expand in Embodied AI Data  finance.biggo.com
+
+**URL:** [https://news.google.com/rss/articles/CBMidkFVX3lxTE9MZ0hhNWFlSmpxNV9GT1BleExIVXZFcXFIdFBXdm92RHlmQzFjMUN1eWFIdjB4bzdUMmVjZ2Vjek96Tm5TSU5XZGNPRDN4NXhIaFFlRDhTR2ZxS0tJRDhtbU03dVFNS0xwb1BFeEVPallHRklfSUE?oc=5](https://news.google.com/rss/articles/CBMidkFVX3lxTE9MZ0hhNWFlSmpxNV9GT1BleExIVXZFcXFIdFBXdm92RHlmQzFjMUN1eWFIdjB4bzdUMmVjZ2Vjek96Tm5TSU5XZGNPRDN4NXhIaFFlRDhTR2ZxS0tJRDhtbU03dVFNS0xwb1BFeEVPallHRklfSUE?oc=5)
+
+---
+
+### Microsoft blames AI for delayed Exchange update, can’t say when it will arrive
+
+                
+    Dealing with machine-made bug backlog makes it hard to find a moment to deliver promised subscri...
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | The Register AI |
+
+**Summary:** Microsoft blames AI for delayed Exchange update, can’t say when it will arrive
+
+                
+    Dealing with machine-made bug backlog makes it hard to find a moment to deliver promised subscri...
+
+**URL:** [https://www.theregister.com/software/2026/08/17/microsoft-blames-ai-for-delayed-exchange-update-cant-say-when-it-will-arrive/5288227](https://www.theregister.com/software/2026/08/17/microsoft-blames-ai-for-delayed-exchange-update-cant-say-when-it-will-arrive/5288227)
+
+---
+
+### U.S. retail data declines, storage chip stocks rise amid AI funding concerns
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | KuCoin |
+
+**Summary:** U.S. retail data declines, storage chip stocks rise amid AI funding concerns  KuCoin
+
+**URL:** [https://news.google.com/rss/articles/CBMirgFBVV95cUxPeHllelViT2FmSWtYdENRT2FGTGhodFllUlVLRWlJTGxPTnJaTlZOZ2FwZmpDQklyOWZBd3g5b0w2T1RLZkJEM3N3T3R4WVpBTm5uRUhOUHpfUTZ5ZlBDYVJRRl9pS2ctdWU1bDR2cm9NYnk4RDJmT1czZldfdmdvQVJHZTRxT1NVakdQR1cxOTA3Q1ZJaWNQYm43RHpYbmFkNjBzQWdfOHdHZU1OVmc?oc=5](https://news.google.com/rss/articles/CBMirgFBVV95cUxPeHllelViT2FmSWtYdENRT2FGTGhodFllUlVLRWlJTGxPTnJaTlZOZ2FwZmpDQklyOWZBd3g5b0w2T1RLZkJEM3N3T3R4WVpBTm5uRUhOUHpfUTZ5ZlBDYVJRRl9pS2ctdWU1bDR2cm9NYnk4RDJmT1czZldfdmdvQVJHZTRxT1NVakdQR1cxOTA3Q1ZJaWNQYm43RHpYbmFkNjBzQWdfOHdHZU1OVmc?oc=5)
+
+---
+
+### China Telecom leads embodied AI startup Mifeng funding
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | Tech in Asia |
+
+**Summary:** China Telecom leads embodied AI startup Mifeng funding  Tech in Asia
+
+**URL:** [https://news.google.com/rss/articles/CBMijwFBVV95cUxQTEUyN3R5REFQWl9PZXBwM3N5NUtRZTNsLTNfZE1zdm5SV2ZlWDczUEh4NVlZenl5V2tFOHpPeFdqbV9tZTY1NHpoMmtSOWUtMFJHQUJ2YzBsazhNUU9EWDhtVXJEQ3JaZXQ1ZE5qbGpKUGZJWVppendneDNKMHJRZU5BV0dLcDM1ejR1OFZabw?oc=5](https://news.google.com/rss/articles/CBMijwFBVV95cUxQTEUyN3R5REFQWl9PZXBwM3N5NUtRZTNsLTNfZE1zdm5SV2ZlWDczUEh4NVlZenl5V2tFOHpPeFdqbV9tZTY1NHpoMmtSOWUtMFJHQUJ2YzBsazhNUU9EWDhtVXJEQ3JaZXQ1ZE5qbGpKUGZJWVppendneDNKMHJRZU5BV0dLcDM1ejR1OFZabw?oc=5)
+
+---
+
 ### Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -1966,7 +2587,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 16, 2026 (9h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -1981,7 +2602,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -1996,7 +2617,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (15h ago) |
+| **Date** | August 16, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | r/MachineLearning |
 
@@ -2011,7 +2632,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (18h ago) |
+| **Date** | August 16, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Yellow.com |
 
@@ -2026,7 +2647,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (19h ago) |
+| **Date** | August 16, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | ndtvprofit.com |
 
@@ -2041,7 +2662,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 16, 2026 (19h ago) |
+| **Date** | August 16, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2056,7 +2677,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (22h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | simplywall.st |
 
@@ -3401,411 +4022,6 @@
 
 ---
 
-### Why Z.ai is holding back its powerful new GLM-5.3 AI model
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Latest news from Azerbaijan |
-
-**Summary:** AI company Z.ai is delaying the release of its powerful GLM-5.3 AI model
-
-**URL:** [https://news.google.com/rss/articles/CBMigwFBVV95cUxPY0VzRWpPcnR6SUpOVnoxMWttRHAwLWZNbG90djc5a1lZT0tGdFNVbXVaRmRFYkFwdUh0WllZWUFhdzRTbWVCc3dfMFVqUENhVTdhRG96b3dsajQ5MldmZ2dkUUs2UHlrZEdCeGlaZDQ0V1k3SzBCbVpXZHFESm1fckdmVQ?oc=5](https://news.google.com/rss/articles/CBMigwFBVV95cUxPY0VzRWpPcnR6SUpOVnoxMWttRHAwLWZNbG90djc5a1lZT0tGdFNVbXVaRmRFYkFwdUh0WllZWUFhdzRTbWVCc3dfMFVqUENhVTdhRG96b3dsajQ5MldmZ2dkUUs2UHlrZEdCeGlaZDQ0V1k3SzBCbVpXZHFESm1fckdmVQ?oc=5)
-
----
-
-### IBM partners with OpenAI to accelerate enterprise artificial intelligence deployment - Vietnam Investment Review
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | VIR |
-
-**Summary:** IBM and OpenAI partner to speed up AI adoption in enterprises
-
-**URL:** [https://news.google.com/rss/articles/CBMitgFBVV95cUxOalJyQmVOQ2RsYWdxMmNnRWNvbWw2TzYwX0RjdXZFemZYeWQwNkxpQ1lJa1V3S2FPVEExZGdkMTlZN2NaU1piUlIteUp3V3YwS084MGFFaDlmZ2s5aC1lWXdfS1YwUnN3YXMyakxkRllMalVfb3RyWlF5QnNpSno3dXJNdzV5Vl9NUEFpaHM4Y0dvdkVBUjdZc2J3YjZYb09ZdUNvdmdqZExWX0tNdnZ3ekJacmNGUQ?oc=5](https://news.google.com/rss/articles/CBMitgFBVV95cUxOalJyQmVOQ2RsYWdxMmNnRWNvbWw2TzYwX0RjdXZFemZYeWQwNkxpQ1lJa1V3S2FPVEExZGdkMTlZN2NaU1piUlIteUp3V3YwS084MGFFaDlmZ2s5aC1lWXdfS1YwUnN3YXMyakxkRllMalVfb3RyWlF5QnNpSno3dXJNdzV5Vl9NUEFpaHM4Y0dvdkVBUjdZc2J3YjZYb09ZdUNvdmdqZExWX0tNdnZ3ekJacmNGUQ?oc=5)
-
----
-
-### Meta releases new AI model as Zuckerberg lays out vision
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | The Daily Star |
-
-**Summary:** Meta releases a new AI model while Mark Zuckerberg outlines his vision for the technology
-
-**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxOd3piQm5wS2h6eE1kLWEwOXc5X3VTSldZNjl1bGlVYm1FT0ZVSjN4WlA4LXpTcTJydGNEeFl3NTVOWEszWURqSTJmSVhNZ2FkLW52dHYzRkxBRGFWNm1McnFQV1V6QTVTQVZsWTJTd1FqME1rNFFKc2dRTWgydzlTa3ozc1hsYkE0ZFRzcHF6cnkxU1hVUS01QWo4UVJEMEpZcjVoNi1RYjUyQ3pSSE51TTdMUQ?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxOd3piQm5wS2h6eE1kLWEwOXc5X3VTSldZNjl1bGlVYm1FT0ZVSjN4WlA4LXpTcTJydGNEeFl3NTVOWEszWURqSTJmSVhNZ2FkLW52dHYzRkxBRGFWNm1McnFQV1V6QTVTQVZsWTJTd1FqME1rNFFKc2dRTWgydzlTa3ozc1hsYkE0ZFRzcHF6cnkxU1hVUS01QWo4UVJEMEpZcjVoNi1RYjUyQ3pSSE51TTdMUQ?oc=5)
-
----
-
-### NVDA Teams Up With Wall Street Giants On Massive $500B AI Infrastructure Funding Push: Report
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Stocktwits |
-
-**Summary:** NVIDIA is teaming up with major Wall Street firms to invest $500 billion in AI infrastructure
-
-**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxNLUlFdnhiV3RseDQ1cDl4Y0htd1hicU1LeS1sejMxbEgydUxXWDVSWDF3SUllTlRyTnpZcWxPMXlmR1FGWFY1SF9RbWxXUjBHQi16UEd2T0pTUkR1Y0hSTFNzaHBHcjI3SWpfdE5QS0F6UElGQTVWM0gySWNfbHQ1ZUp3bm82VWVXa2gyeEE1c3dYUTMtUGh3S2NRSjR4WVB5WW91LWJEbGY4RWhwTkItdjFUNA?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxNLUlFdnhiV3RseDQ1cDl4Y0htd1hicU1LeS1sejMxbEgydUxXWDVSWDF3SUllTlRyTnpZcWxPMXlmR1FGWFY1SF9RbWxXUjBHQi16UEd2T0pTUkR1Y0hSTFNzaHBHcjI3SWpfdE5QS0F6UElGQTVWM0gySWNfbHQ1ZUp3bm82VWVXa2gyeEE1c3dYUTMtUGh3S2NRSjR4WVB5WW91LWJEbGY4RWhwTkItdjFUNA?oc=5)
-
----
-
-### Pittsburgh artificial intelligence security firm quadruples footprint and promises to double workforce
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Pittsburgh Post-Gazette |
-
-**Summary:** Pittsburgh AI security firm expands its presence and plans to double its workforce
-
-**URL:** [https://news.google.com/rss/articles/CBMi1gFBVV95cUxNQWZpQXhNWWZqQnZ0NzRGaDdneDQ3UFo1bFlYSl8zQWVwMEczQUhMMTNCek5CZnl0d3lvaHhGNS11R2I0Z0xDc082aVVpOElTcC1OcUhmbmp0OHZmTllqRFpvZFk1bzRIWVZTdDFzMDI4b0ZPSW5UdG5uZkxFbFhPSjJkclF3dks1Yl9wR2duWUU1VWRNQ0pGV2ZSeUE1WFAyR3QxZFdxTkVZeWY4U1Zoa291bTU3ODMtSXhFYTg2LVdrTHBsdzBUT3k0Q0ptRUZId2pBbmJn?oc=5](https://news.google.com/rss/articles/CBMi1gFBVV95cUxNQWZpQXhNWWZqQnZ0NzRGaDdneDQ3UFo1bFlYSl8zQWVwMEczQUhMMTNCek5CZnl0d3lvaHhGNS11R2I0Z0xDc082aVVpOElTcC1OcUhmbmp0OHZmTllqRFpvZFk1bzRIWVZTdDFzMDI4b0ZPSW5UdG5uZkxFbFhPSjJkclF3dks1Yl9wR2duWUU1VWRNQ0pGV2ZSeUE1WFAyR3QxZFdxTkVZeWY4U1Zoa291bTU3ODMtSXhFYTg2LVdrTHBsdzBUT3k0Q0ptRUZId2pBbmJn?oc=5)
-
----
-
-### Zhipu’s new AI model takes aim at OpenAI, Anthropic in China’s race to close the gap
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | The Economic Times |
-
-**Summary:** Zhipu's new AI model targets OpenAI and Anthropic as China seeks to narrow the gap in AI development
-
-**URL:** [https://news.google.com/rss/articles/CBMi_AFBVV95cUxQTnZieUVuZ2UzSTBDZjRqbmJRT2hYTzNGSTkxN0JlTXBKMFJ3ZnFNMG5pRkJSa0dpUUdLaUJwRWp6WVplc1E4OXVrM0hHaElUOVhUOFAzX1ZxVjdZY3BaU28yckFuQWZzSUZiYmh0bHp2MW1sVkdGRnp5RmwwNTdwbWh3N1dEdGJnNlJlUm9pT2xlaHMwOGxseHpxd1lMTGJqd1ZzWkhqVmtMaEY1YXZocW1CcDVMMHM2UXNqSlRmN1RKMnhlNG01TUxJYWg4UHE3enFITDN2ZUdMRTdGZ3k0cG1ZTDB4X0x0TnJTbW92T2lOd3ZZa0JvSnRJNWvSAYICQVVfeXFMTWdud1NhOXJJZVV5QzFvRElyU0c3RUlOcUQxX0dJMGpxWW51OW02Y1JMRDZiN2twM252QWlKeDlJSXpEVXFJOUc5NlhRVEVKWTEwdUd6ZDhDN1RpZFRvT0pKaHBuUk4tV0ZxdmJCYUtHY0NTbVNzd0FGV3dwNjdnZlZZX2RuSXJFM21xMXo2Y0FXN1I5LWRDOHN5Vzg4Ni1GWWc2OHlyc25nSjJtRVhIQ2NueVpOWFJMenhhaktkYjd4NEZnS24yODRWUU1UVWgyS0Njckl5NFp6RV9OUGdrZUFVMHpWMzNMeWdrSjRjU29zakRlMFEtQlUzcE1OT0ltTHd3?oc=5](https://news.google.com/rss/articles/CBMi_AFBVV95cUxQTnZieUVuZ2UzSTBDZjRqbmJRT2hYTzNGSTkxN0JlTXBKMFJ3ZnFNMG5pRkJSa0dpUUdLaUJwRWp6WVplc1E4OXVrM0hHaElUOVhUOFAzX1ZxVjdZY3BaU28yckFuQWZzSUZiYmh0bHp2MW1sVkdGRnp5RmwwNTdwbWh3N1dEdGJnNlJlUm9pT2xlaHMwOGxseHpxd1lMTGJqd1ZzWkhqVmtMaEY1YXZocW1CcDVMMHM2UXNqSlRmN1RKMnhlNG01TUxJYWg4UHE3enFITDN2ZUdMRTdGZ3k0cG1ZTDB4X0x0TnJTbW92T2lOd3ZZa0JvSnRJNWvSAYICQVVfeXFMTWdud1NhOXJJZVV5QzFvRElyU0c3RUlOcUQxX0dJMGpxWW51OW02Y1JMRDZiN2twM252QWlKeDlJSXpEVXFJOUc5NlhRVEVKWTEwdUd6ZDhDN1RpZFRvT0pKaHBuUk4tV0ZxdmJCYUtHY0NTbVNzd0FGV3dwNjdnZlZZX2RuSXJFM21xMXo2Y0FXN1I5LWRDOHN5Vzg4Ni1GWWc2OHlyc25nSjJtRVhIQ2NueVpOWFJMenhhaktkYjd4NEZnS24yODRWUU1UVWgyS0Njckl5NFp6RV9OUGdrZUFVMHpWMzNMeWdrSjRjU29zakRlMFEtQlUzcE1OT0ltTHd3?oc=5)
-
----
-
-### China built robots that can do backflips – but can they make money?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | CNBC AI |
-
-**Summary:** China's Unitree is set to go public, with its robot technology drawing interest from investors despite concerns over its commercial viability
-
-**URL:** [https://www.cnbc.com/2026/08/14/china-humanoid-robots-unitree-ipo-tesla-optimus.html](https://www.cnbc.com/2026/08/14/china-humanoid-robots-unitree-ipo-tesla-optimus.html)
-
----
-
-### Apple Shifts AI Strategy in China: Teams Up With Alibaba to Train Own Model as Apple Intelligence Launch Nears
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | TradingKey |
-
-**Summary:** Apple is partnering with Alibaba to train its own AI model, shifting its strategy in China ahead of the launch of Apple Intelligence
-
-**URL:** [https://news.google.com/rss/articles/CBMi4wFBVV95cUxQYWZBUHp1SHZ2eE8xQ3lIMUVFYjlDZlNtd0tmcUNieXkyS3kyam9YOVVsNXFDYlc5Q0pVdnBqSEhRVXR4TzRic0tuOUpZdm9CU29pd0dSMUV4a1dtdHNXdUZPeE1sY3dnb3FMR3JDMlNQejVnY2VpZk01MlNtZEkycUlsLUljbkZISFhrNVpXWjNmTW9kXzd0aGphSUd0WVplaUhCWHZCOTZGSXFwNUpFYmoweHk3UXRJUHB0UGhMekIyVFNfRlpTOUE2a3Q1WEp0MVNXT0hZSi1XVFd3Nkd5cDlMYw?oc=5](https://news.google.com/rss/articles/CBMi4wFBVV95cUxQYWZBUHp1SHZ2eE8xQ3lIMUVFYjlDZlNtd0tmcUNieXkyS3kyam9YOVVsNXFDYlc5Q0pVdnBqSEhRVXR4TzRic0tuOUpZdm9CU29pd0dSMUV4a1dtdHNXdUZPeE1sY3dnb3FMR3JDMlNQejVnY2VpZk01MlNtZEkycUlsLUljbkZISFhrNVpXWjNmTW9kXzd0aGphSUd0WVplaUhCWHZCOTZGSXFwNUpFYmoweHk3UXRJUHB0UGhMekIyVFNfRlpTOUE2a3Q1WEp0MVNXT0hZSi1XVFd3Nkd5cDlMYw?oc=5)
-
----
-
-### Z.ai Ships GLM-5.3 Without Retraining the Base Model: Better at Complex Coding and Long-Horizon Tasks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | MarkTechPost |
-
-**Summary:** Z.ai has released GLM-5.3, a model that improves performance in complex coding and long-horizon tasks without retraining the base model.
-
-**URL:** [https://www.marktechpost.com/2026/08/14/z-ai-ships-glm-5-3-without-retraining-the-base-model-better-at-complex-coding-and-long-horizon-tasks/](https://www.marktechpost.com/2026/08/14/z-ai-ships-glm-5-3-without-retraining-the-base-model-better-at-complex-coding-and-long-horizon-tasks/)
-
----
-
-### Apple finally completes its AI puzzle in the Chinese market! Partnering with Alibaba to build on-device AI capabilities enhances iPhone competitiveness and serves as a major catalyst for Alibaba's ...
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Moomoo |
-
-**Summary:** Apple partners with Alibaba to enhance iPhone competitiveness through on-device AI capabilities
-
-**URL:** [https://news.google.com/rss/articles/CBMiowFBVV95cUxQUURINlVQbWV2UUlFaHhIdDlKZDVUdFlFSW9uNkFVck9DNVlhXzlNREtmaE45bVlHVEJUcnJTRmJDejBMVVhBSUQ3QjlPUnFMY0ptVi1sdWNsQzEtaE41NWNvZDB1RUJnMmFsVXU3M3ZfdEFJcXhQd1NudG5CMzBRVW5vU3EwNmdBTjR4QXZxUG1zNFNudjJSX1ZUVkYxZ3RzbGxv?oc=5](https://news.google.com/rss/articles/CBMiowFBVV95cUxQUURINlVQbWV2UUlFaHhIdDlKZDVUdFlFSW9uNkFVck9DNVlhXzlNREtmaE45bVlHVEJUcnJTRmJDejBMVVhBSUQ3QjlPUnFMY0ptVi1sdWNsQzEtaE41NWNvZDB1RUJnMmFsVXU3M3ZfdEFJcXhQd1NudG5CMzBRVW5vU3EwNmdBTjR4QXZxUG1zNFNudjJSX1ZUVkYxZ3RzbGxv?oc=5)
-
----
-
-### Apple has trained its own large language model for the China AI market
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Apple World Today |
-
-**Summary:** Apple is training its own large language model for the Chinese AI market
-
-**URL:** [https://news.google.com/rss/articles/CBMipwFBVV95cUxPalhfdDNHYTMtNEFJcXAxZzA2Q0FaUVl0S2V5T1ZhaWxxbEp1Sk9pT2ZnVDQxaEZKUUhfU2hCMl9ZSjV0cXl6WUFfVjZFbFB1Q2VCaXhkR1ZOU2M0V3EzYmFsa3g3ektrSDFSWF8wbUE0a0c0WGdqeXpYS2p1ZGVhRVlmRjNDVldJQTZocG9sU1NWeUJablZFYXBiamlQcGM2WldUOXZsTQ?oc=5](https://news.google.com/rss/articles/CBMipwFBVV95cUxPalhfdDNHYTMtNEFJcXAxZzA2Q0FaUVl0S2V5T1ZhaWxxbEp1Sk9pT2ZnVDQxaEZKUUhfU2hCMl9ZSjV0cXl6WUFfVjZFbFB1Q2VCaXhkR1ZOU2M0V3EzYmFsa3g3ektrSDFSWF8wbUE0a0c0WGdqeXpYS2p1ZGVhRVlmRjNDVldJQTZocG9sU1NWeUJablZFYXBiamlQcGM2WldUOXZsTQ?oc=5)
-
----
-
-### SpaceXAI Wants A Cursor-Powered Claude Killer Before The $60B Deal Even Closes
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | yellow.com |
-
-**Summary:** SpaceXAI is reportedly demanding a cursor-powered 'Claude Killer' before finalizing the $60 billion deal, sparking concerns about the project's feasibility.
-
-**URL:** [https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMkN3RzMzNjlMcVlQN1pEZUxuVUJsUXY5M1FrY2lLRE1iN090d280M1kyRTFVYUtRSkNZR0VvS1hGVmJLbFF5Wmc0bUg2SmdTMWF6RmR0cks2b2xETXJYY1Q1bFdQcXdaSFprTDhyOExoUmRGMXJoSnpmUUcxTmUxLXNib19aVDNF?oc=5](https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMkN3RzMzNjlMcVlQN1pEZUxuVUJsUXY5M1FrY2lLRE1iN090d280M1kyRTFVYUtRSkNZR0VvS1hGVmJLbFF5Wmc0bUg2SmdTMWF6RmR0cks2b2xETXJYY1Q1bFdQcXdaSFprTDhyOExoUmRGMXJoSnpmUUcxTmUxLXNib19aVDNF?oc=5)
-
----
-
-### Z.ai to Rival Anthropic, OpenAI in Coding With New AI Model
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Deccan Chronicle |
-
-**Summary:** Z.ai is launching a new AI model that rivals Anthropic and OpenAI in coding capabilities
-
-**URL:** [https://news.google.com/rss/articles/CBMirAFBVV95cUxNR3JhZG0zdG1NTThYS25sQXhJOTZsSzdlYU03Q29PN0hCRGlSV1NaMHpxM1FpQXNfQVlmQjhHejFBNHVOQTNoOHkzVGpCTEtaUEpWN3R3eG9ic0lya2FSY0ZFUjNvOFdwNEJnY09Da3BOOW5GaTJ3T3E0azI1UGJQeEVNb3RtdW9BUy1NemRJZlRWODlsSHlkWWxCWm5oekZzRmJqTmx4XzNhbWRD0gGyAUFVX3lxTE1HRHlkVmhuaFV6eVdjVkM1TmRsS2lBR2wtSWM5WnRXTm5XMVpHLWsyazk0VEx1R0ZOOGlDSzQ0bkZ1UzlBNmdtNTczQzM2WUpENm13aVZibDl3NjZlem5lNmE3NFZNRlhrajZIUnNPb25kUW40RmJfV2lMXzk1eUw1bnpRTmdmOVhQN29JVUx5Z21iNm9IbFJUbVgwQk42b2RuM2wwZWllaVVCZVdOVFJodUE?oc=5](https://news.google.com/rss/articles/CBMirAFBVV95cUxNR3JhZG0zdG1NTThYS25sQXhJOTZsSzdlYU03Q29PN0hCRGlSV1NaMHpxM1FpQXNfQVlmQjhHejFBNHVOQTNoOHkzVGpCTEtaUEpWN3R3eG9ic0lya2FSY0ZFUjNvOFdwNEJnY09Da3BOOW5GaTJ3T3E0azI1UGJQeEVNb3RtdW9BUy1NemRJZlRWODlsSHlkWWxCWm5oekZzRmJqTmx4XzNhbWRD0gGyAUFVX3lxTE1HRHlkVmhuaFV6eVdjVkM1TmRsS2lBR2wtSWM5WnRXTm5XMVpHLWsyazk0VEx1R0ZOOGlDSzQ0bkZ1UzlBNmdtNTczQzM2WUpENm13aVZibDl3NjZlem5lNmE3NFZNRlhrajZIUnNPb25kUW40RmJfV2lMXzk1eUw1bnpRTmdmOVhQN29JVUx5Z21iNm9IbFJUbVgwQk42b2RuM2wwZWllaVVCZVdOVFJodUE?oc=5)
-
----
-
-### In legal world, artificial intelligence is a double-edged sword
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Providence Business News |
-
-**Summary:** Artificial intelligence in the legal world has both benefits and drawbacks, presenting challenges for lawyers and judges
-
-**URL:** [https://news.google.com/rss/articles/CBMihgFBVV95cUxOcE5mZG1GV2FBMjBWRl9PYURSTUhNbW81T1I5M21EQXVGb3JwOTVnei1jcHZPSTRVVGQteGZLWjN6ZVRRbDhIUHJNNUZaaXhXSGFtamFoaWlQTHlwSEwwSklvWk5zSEhnLV9wQXc1T2NhNERYcW1CVGJxRkdEanBPTGhLdjhQZ9IBjgFBVV95cUxObm1UU3F5RFBuUTMtWHNzaC1yU243eS1ha2xSakdUcVhKaGExRlJmckZNT0xKNkY0Z3p5MllFdldaSDRrX1Y1SGd5clB1YjBkbHIxaGhiUUxaVll2Y2xxNkZlT3p3SHMyaW5ieUhVWXUxV2E5enpOSjRCN0JsdUlzLWtnXzYycmRlMnNHSDRB?oc=5](https://news.google.com/rss/articles/CBMihgFBVV95cUxOcE5mZG1GV2FBMjBWRl9PYURSTUhNbW81T1I5M21EQXVGb3JwOTVnei1jcHZPSTRVVGQteGZLWjN6ZVRRbDhIUHJNNUZaaXhXSGFtamFoaWlQTHlwSEwwSklvWk5zSEhnLV9wQXc1T2NhNERYcW1CVGJxRkdEanBPTGhLdjhQZ9IBjgFBVV95cUxObm1UU3F5RFBuUTMtWHNzaC1yU243eS1ha2xSakdUcVhKaGExRlJmckZNT0xKNkY0Z3p5MllFdldaSDRrX1Y1SGd5clB1YjBkbHIxaGhiUUxaVll2Y2xxNkZlT3p3SHMyaW5ieUhVWXUxV2E5enpOSjRCN0JsdUlzLWtnXzYycmRlMnNHSDRB?oc=5)
-
----
-
-### Apple trained its own AI model for China, and handed the brain to Alibaba
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | The Next Web |
-
-**Summary:** Apple developed an AI model specifically for China and outsourced it to Alibaba
-
-**URL:** [https://news.google.com/rss/articles/CBMibkFVX3lxTE9Ob2o2NEVyWFdCelZiT3FmbG5lTGlVdjVlMGZmWFI0RDlDeEtLeGswaHBEQnc5MzNQb25QZ1ZFMC1WcTl0M2RIeUVYQW9hZjRsanN3UzhKSEViX2d3MFN3N0dZWFJMd1FLeERIWjVB?oc=5](https://news.google.com/rss/articles/CBMibkFVX3lxTE9Ob2o2NEVyWFdCelZiT3FmbG5lTGlVdjVlMGZmWFI0RDlDeEtLeGswaHBEQnc5MzNQb25QZ1ZFMC1WcTl0M2RIeUVYQW9hZjRsanN3UzhKSEViX2d3MFN3N0dZWFJMd1FLeERIWjVB?oc=5)
-
----
-
-### Funding the Future: Top AI, Technology, and Digital Transformation Opportunities
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | fundsforngos.org |
-
-**Summary:** The article highlights top funding opportunities for AI, technology, and digital transformation projects
-
-**URL:** [https://news.google.com/rss/articles/CBMitwFBVV95cUxQdGRJYThSVmExclBTZWMzUTZQaFo1ajI2bnM5TEtsblhqUnpzX2txdGpnMmQtZDRTMDJ3VWFMTjh6Vm9RTlVNaC0yVk5maV9oeEptRENuLUhYeWVYV2R4OUhVWnBEenpRd1p6TWFrSi12LWg0X0xhYi1mZWZ1cy12SFdpY1c2NFdyaVU3UmZuNGR2NnVPRkpSTlA5aFQ0MDZ3STc2MGhxYXFxMDNfSkFnMUd1VnRYVWfSAbwBQVVfeXFMTWJ5SjVFOFExYUZaMEVSMG9KTGNRc2JRdkptcnFweXVXVTMzS3VGMDA0N18wS0NUTUZsNzBSdG1lNEFoczliNkQxOURmYkxiNEU0VlNvZVpRQzVTeV9jZThsa2RwSVNhd25LVE00SEdpWjFMYW5pTUVYdTRhMXpReXZUY1BvUG5fZ05kb1ZqQ0ZuY195eHZ3WWM2c2N1OGtCVXNBelh0LUdVbjNhbU9kTnhlZWNPX0NRNlVEa3I?oc=5](https://news.google.com/rss/articles/CBMitwFBVV95cUxQdGRJYThSVmExclBTZWMzUTZQaFo1ajI2bnM5TEtsblhqUnpzX2txdGpnMmQtZDRTMDJ3VWFMTjh6Vm9RTlVNaC0yVk5maV9oeEptRENuLUhYeWVYV2R4OUhVWnBEenpRd1p6TWFrSi12LWg0X0xhYi1mZWZ1cy12SFdpY1c2NFdyaVU3UmZuNGR2NnVPRkpSTlA5aFQ0MDZ3STc2MGhxYXFxMDNfSkFnMUd1VnRYVWfSAbwBQVVfeXFMTWJ5SjVFOFExYUZaMEVSMG9KTGNRc2JRdkptcnFweXVXVTMzS3VGMDA0N18wS0NUTUZsNzBSdG1lNEFoczliNkQxOURmYkxiNEU0VlNvZVpRQzVTeV9jZThsa2RwSVNhd25LVE00SEdpWjFMYW5pTUVYdTRhMXpReXZUY1BvUG5fZ05kb1ZqQ0ZuY195eHZ3WWM2c2N1OGtCVXNBelh0LUdVbjNhbU9kTnhlZWNPX0NRNlVEa3I?oc=5)
-
----
-
-### Meet Needle 2: An Open 45M-Parameter Tool-Calling Model That Ships as a 14MB Binary and Runs a Full Session in 28MB of RAM
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | MarkTechPost |
-
-**Summary:** Cactus Compute releases Needle 2, an open 45M-parameter model for tool calling that is compact and energy-efficient.
-
-**URL:** [https://www.marktechpost.com/2026/08/13/cactus-compute-needle-2-45m-parameter-tool-calling-model/](https://www.marktechpost.com/2026/08/13/cactus-compute-needle-2-45m-parameter-tool-calling-model/)
-
----
-
-### EXCLUSIVE: Apple trains its own AI model for China market with Alibaba's support, sources say
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Reuters |
-
-**Summary:** Apple is training its own AI model for the Chinese market with Alibaba's support
-
-**URL:** [https://news.google.com/rss/articles/CBMi0wFBVV95cUxNVDU1cndzcnNhVERISGg5M3psalAyTEVrR2JKSEExUTVoV0JkSjJZZVRIOW40N1lweld1bXEzYWRrNEZxb2w2YzctanRaNnRnckRJLWRINnlpVnlnbXZvSUxBRFN6QUNvb01UMXhXVmp3MDNDTnN2TGZveTdlam9Gem93RFFaZVFSazRzWUpmZXI0VlV3VU56cjZPUUNXQk9GTzFTdkpzMTdvRnF6RUllb1NMbm02OFFiUEJhQXhab1JjZ0w3QWhPT0VqUVZpc0xEYXBV?oc=5](https://news.google.com/rss/articles/CBMi0wFBVV95cUxNVDU1cndzcnNhVERISGg5M3psalAyTEVrR2JKSEExUTVoV0JkSjJZZVRIOW40N1lweld1bXEzYWRrNEZxb2w2YzctanRaNnRnckRJLWRINnlpVnlnbXZvSUxBRFN6QUNvb01UMXhXVmp3MDNDTnN2TGZveTdlam9Gem93RFFaZVFSazRzWUpmZXI0VlV3VU56cjZPUUNXQk9GTzFTdkpzMTdvRnF6RUllb1NMbm02OFFiUEJhQXhab1JjZ0w3QWhPT0VqUVZpc0xEYXBV?oc=5)
-
----
-
-### Create a Reasoning-Focused LLM: A Practical Guide to Streaming, Curating, and Fine-Tuning the SupraLabs Reasoning Corpus
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 marktechpost |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | MarkTechPost |
-
-**Summary:** A tutorial provides a practical guide for building a compact reasoning-focused language model using the SupraLabs reasoning corpus
-
-**URL:** [https://www.marktechpost.com/2026/08/13/a-practical-guide-to-streaming-curating-and-fine-tuning-the-supralabs-reasoning-corpus/](https://www.marktechpost.com/2026/08/13/a-practical-guide-to-streaming-curating-and-fine-tuning-the-supralabs-reasoning-corpus/)
-
----
-
-### Uber partners with China's Pony.ai for 2,000 robotaxis in Europe
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | CNBC AI |
-
-**Summary:** Uber partners with Chinese startup Pony.ai to launch 2,000 robotaxis in Europe
-
-**URL:** [https://www.cnbc.com/2026/08/14/uber-partners-with-chinas-ponyai-for-2000-robotaxis-in-europe.html](https://www.cnbc.com/2026/08/14/uber-partners-with-chinas-ponyai-for-2000-robotaxis-in-europe.html)
-
----
-
-### Upstage Unveils "Solar Pro 4" as First Korean Model Listed on OpenRouter
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | 아시아경제 |
-
-**Summary:** Upstage Unveils Solar Pro 4, the first Korean model listed on OpenRouter
-
-**URL:** [https://news.google.com/rss/articles/CBMiZEFVX3lxTE93ZUpwSVJyYUE2cWpkWXJTWG1NaXo0MklpVEp5SlFrU21wdlduSHZNOFVUYUMyWFZmMEFDWGhfWldLc1B4THF6d0NHUjZYWDJySEFfaWpTckpqZUhDNDlRYno0WWU?oc=5](https://news.google.com/rss/articles/CBMiZEFVX3lxTE93ZUpwSVJyYUE2cWpkWXJTWG1NaXo0MklpVEp5SlFrU21wdlduSHZNOFVUYUMyWFZmMEFDWGhfWldLc1B4THF6d0NHUjZYWDJySEFfaWpTckpqZUhDNDlRYno0WWU?oc=5)
-
----
-
-### From Apple to Ford: How Chinese tech is becoming harder for global companies to ignore
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | CNBC AI |
-
-**Summary:** Global companies are adopting Chinese technology due to its growing capabilities and scale despite geopolitical risks
-
-**URL:** [https://www.cnbc.com/2026/08/14/china-tech-global-appeal-apple-ford-catl-deepseek.html](https://www.cnbc.com/2026/08/14/china-tech-global-appeal-apple-ford-catl-deepseek.html)
-
----
-
-### This free Android assistant fixes my biggest Gemini frustration - and keeps my data private
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 zdnet |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | ZDNet AI |
-
-**Summary:** A free Android assistant called Dicio offers an alternative to Google Assistant and Gemini, but with some caveats
-
-**URL:** [https://www.zdnet.com/article/dicio-free-android-assistant-gemini-keeps-data-private/](https://www.zdnet.com/article/dicio-free-android-assistant-gemini-keeps-data-private/)
-
----
-
-### Effective Altruism gets record funding on AI IPO windfall
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Weekly |
-
-**Summary:** Effective Altruism gets record funding on AI IPO windfall
-
-**URL:** [https://aiweekly.co/node/9964](https://aiweekly.co/node/9964)
-
----
-
-### Anthropic pitches $190B–$200B 2028 revenue as IPO nears
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Weekly |
-
-**Summary:** Anthropic pitches $190B–$200B 2028 revenue as IPO nears
-
-**URL:** [https://aiweekly.co/node/9956](https://aiweekly.co/node/9956)
-
----
-
-### SpaceX closes its $60B Cursor acquisition
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Weekly |
-
-**Summary:** SpaceX closes its $60B Cursor acquisition
-
-**URL:** [https://aiweekly.co/alerts/spacex-closes-60b-cursor-deal-folds-it-into-spacexai-unit](https://aiweekly.co/alerts/spacex-closes-60b-cursor-deal-folds-it-into-spacexai-unit)
-
----
-
-### Nvidia may put $3B into SoftBank&#039;s pre-IPO SB Energy
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Weekly |
-
-**Summary:** Nvidia may put $3B into SoftBank&#039;s pre-IPO SB Energy
-
-**URL:** [https://aiweekly.co/node/10038](https://aiweekly.co/node/10038)
-
----
-
 ## 🛡️ AI Safety & Security
 
 ### Frontier AI models are actively breaching systems during testing, and enterprise security teams cannot ignore it
@@ -3813,7 +4029,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (35m ago) |
+| **Date** | August 17, 2026 (4h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | MarketScale |
 
@@ -3828,7 +4044,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (2h ago) |
+| **Date** | August 16, 2026 (5h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | capitalbrief.com |
 
@@ -3843,7 +4059,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 16, 2026 (13h ago) |
+| **Date** | August 16, 2026 (16h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | The Verge AI |
 
@@ -3858,7 +4074,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 16, 2026 (16h ago) |
+| **Date** | August 16, 2026 (20h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TheDecoder |
 
@@ -3873,7 +4089,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (21h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TheDecoder |
 
@@ -3918,7 +4134,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Seyfarth Shaw |
 
@@ -3955,6 +4171,21 @@
 **Summary:** 29 points, 3 comments on Hacker News.
 
 **URL:** [https://cvd.z.ai](https://cvd.z.ai)
+
+---
+
+### Ensuring Safe Physical AI in Urban Mobility via Hazard-Informed Synthesized Envelopes
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 🛡️ safety |
+| **Author** | Alexei Odinokov, Rostislav Yavorskiy |
+
+**Summary:** As heterogeneous robotic systems deploy across diverse urban zones, maintaining safety amid complex human-robot interactions remains a critical challenge. We present a unified framework that bridges s
+
+**URL:** [https://arxiv.org/abs/2608.14481v1](https://arxiv.org/abs/2608.14481v1)
 
 ---
 
@@ -3998,7 +4229,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (18h ago) |
+| **Date** | August 16, 2026 (21h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | ET Enterprise AI |
 
@@ -4043,7 +4274,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Winston Taylor |
 
@@ -4080,6 +4311,36 @@
 **Summary:** Judge warns pro se litigants are using chatbots wrong and getting desperate.
 
 **URL:** [https://arstechnica.com/tech-policy/2026/08/suspecting-court-of-using-ai-man-injected-prompts-in-filings-to-try-to-win-case/](https://arstechnica.com/tech-policy/2026/08/suspecting-court-of-using-ai-man-injected-prompts-in-filings-to-try-to-win-case/)
+
+---
+
+### Offline Deep Q* Estimation with Diffusion Models
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Xiaohong Chen, Yuling Jiao, Lican Kang |
+
+**Summary:** In offline RL, estimating the optimal action-value function $Q^*$ can be formulated as solving the optimal Bellman equation based solely on offline observations. A fundamental challenge is that the re
+
+**URL:** [https://arxiv.org/abs/2608.14401v1](https://arxiv.org/abs/2608.14401v1)
+
+---
+
+### Envs-FORGE: Frontier-Optimized Reward-Grounded Environment Synthesis for Agent RL
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Xiaojun Wu, Cehao Yang, Honghao Liu |
+
+**Summary:** Reinforcement learning (RL) for terminal agents needs executable training environments with reliable rewards and useful difficulty. Fixed recipes such as few-shot, Self-Instruct, and Evol-Instruct app
+
+**URL:** [https://arxiv.org/abs/2608.14312v1](https://arxiv.org/abs/2608.14312v1)
 
 ---
 
@@ -4188,119 +4449,179 @@
 
 ---
 
-### Opinion | This Is One of the Most Important Policy Decisions of Our Lifetime
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | The New York Times |
-
-**Summary:** The article discusses a crucial policy decision with significant implications
-
-**URL:** [https://news.google.com/rss/articles/CBMifEFVX3lxTFBjdFlBMlUxc0xaTnhhTTRQRlFmUk51cWVxbGNBdzdpbW12bFZNRHhxYnJVM25vempiejFpVFJJVWhmZ1lpZ2NvV0RNcFBiMzNhVVlvQkdPTndmbkpKVDZaODNTWWpFZ3pqbXAwdlctQjZGN084M3RoMGFtMjc?oc=5](https://news.google.com/rss/articles/CBMifEFVX3lxTFBjdFlBMlUxc0xaTnhhTTRQRlFmUk51cWVxbGNBdzdpbW12bFZNRHhxYnJVM25vempiejFpVFJJVWhmZ1lpZ2NvV0RNcFBiMzNhVVlvQkdPTndmbkpKVDZaODNTWWpFZ3pqbXAwdlctQjZGN084M3RoMGFtMjc?oc=5)
-
----
-
-### Why fragmented AI regulation makes governance a competitive advantage
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | TechRadar |
-
-**Summary:** The lack of unified AI regulations creates opportunities for companies to differentiate themselves through effective governance, according to an article.
-
-**URL:** [https://news.google.com/rss/articles/CBMioAFBVV95cUxPdW0tLVB5bTFKbEt2Y3JqcVVuMkpnQllycHZxcWhnUWYxdUFwTFlkR09HUmg4TWpZT0dKUHBVRm1GeF9vbjZaSGx0S3FQb2VTOUdXeWxvNFZPY29lT3AwRzNEVVQ3WHoxNlRZX3FYU24wN1Z1b2hvTXNReW5FU0FEY3UzRl9yQkExdFpYQUlWNENwOVJPNnU2OWhLUmw2SGIz?oc=5](https://news.google.com/rss/articles/CBMioAFBVV95cUxPdW0tLVB5bTFKbEt2Y3JqcVVuMkpnQllycHZxcWhnUWYxdUFwTFlkR09HUmg4TWpZT0dKUHBVRm1GeF9vbjZaSGx0S3FQb2VTOUdXeWxvNFZPY29lT3AwRzNEVVQ3WHoxNlRZX3FYU24wN1Z1b2hvTXNReW5FU0FEY3UzRl9yQkExdFpYQUlWNENwOVJPNnU2OWhLUmw2SGIz?oc=5)
-
----
-
-### Europe's regulatory double bind
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | CEPR |
-
-**Summary:** Europe faces a regulatory double bind as it tries to balance environmental and economic concerns
-
-**URL:** [https://news.google.com/rss/articles/CBMibkFVX3lxTE1KbjM5eU9wTmVBeVliVWNDRUU0dW93eWFZcUhZWENaZVdwcU1SRjRzYWFSb2ZmeS1rNEtkVE5mcmUtVXhQWHNsel9Mck1tT3ZieUpLT2JUUWFDOXhKYy1Sd2pDUDhaLWVEZllNSnhn?oc=5](https://news.google.com/rss/articles/CBMibkFVX3lxTE1KbjM5eU9wTmVBeVliVWNDRUU0dW93eWFZcUhZWENaZVdwcU1SRjRzYWFSb2ZmeS1rNEtkVE5mcmUtVXhQWHNsel9Mck1tT3ZieUpLT2JUUWFDOXhKYy1Sd2pDUDhaLWVEZllNSnhn?oc=5)
-
----
-
-### US Tech Companies Call for Open AI Models to Counter China
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | thelec.net |
-
-**Summary:** US tech companies are urging the development of open-source AI models to counter China's growing influence in the field
-
-**URL:** [https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9sTXlidkU3WTZfYmtSRTZtbHIwQnEtcWJUYm1acHhudXJ5MmZpZEVpaWNieU5CY1NpN0xsd04wWjNGRkxYbXdId1pvaWUzQ1dqclg0aEgwN0VMeDRYQmxFZUlKT3VlZ1E?oc=5](https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9sTXlidkU3WTZfYmtSRTZtbHIwQnEtcWJUYm1acHhudXJ5MmZpZEVpaWNieU5CY1NpN0xsd04wWjNGRkxYbXdId1pvaWUzQ1dqclg0aEgwN0VMeDRYQmxFZUlKT3VlZ1E?oc=5)
-
----
-
-### How Indonesia Can Get Ahead in the Artificial Intelligence Race
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | The Diplomat – Asia-Pacific Current Affairs Magazine |
-
-**Summary:** Indonesia can gain an edge in AI by investing in education and infrastructure, as well as fostering collaboration with other countries
-
-**URL:** [https://news.google.com/rss/articles/CBMinAFBVV95cUxPLUdnSF9mbDh4eHlYUFpLaDNCU05mUVhseTJOUmlCWlQwclh2RElLU1R5OEpKMkpsZEdfZk5JTkI5eHhUa3pnNHpjWXZsb3VQNWNWZC1VQXJici1VWFVVTnJzQVZsa1JyWmlRNTBZR1A2MXRQMjY0MzJUZTViNkVEVW9OU3FaVTJXWmc5VGZPMFlwTUdqcTlndVRWR1I?oc=5](https://news.google.com/rss/articles/CBMinAFBVV95cUxPLUdnSF9mbDh4eHlYUFpLaDNCU05mUVhseTJOUmlCWlQwclh2RElLU1R5OEpKMkpsZEdfZk5JTkI5eHhUa3pnNHpjWXZsb3VQNWNWZC1VQXJici1VWFVVTnJzQVZsa1JyWmlRNTBZR1A2MXRQMjY0MzJUZTViNkVEVW9OU3FaVTJXWmc5VGZPMFlwTUdqcTlndVRWR1I?oc=5)
-
----
-
-### What Costs & Penalties Will Large AI Model Companies Face Without Adoptingting Model Distillation?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | 36Kr |
-
-**Summary:** Large AI model companies may face significant costs and penalties if they don
-
-**URL:** [https://news.google.com/rss/articles/CBMiU0FVX3lxTFA2TTIwVUVONDVtTU9VVGpRUk9pbENvb05ucUptOVRpenNEYWcxZzZqeTdvQ1lqa0pqNzlyZWFCM2VxTXJpMFR4a2FaVE5JRmRYbmlV?oc=5](https://news.google.com/rss/articles/CBMiU0FVX3lxTFA2TTIwVUVONDVtTU9VVGpRUk9pbENvb05ucUptOVRpenNEYWcxZzZqeTdvQ1lqa0pqNzlyZWFCM2VxTXJpMFR4a2FaVE5JRmRYbmlV?oc=5)
-
----
-
-### 23 low-regret recommendations for AI policy
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Noahpinion |
-
-**Summary:** A list of 23 AI policy recommendations with minimal potential negative consequences
-
-**URL:** [https://news.google.com/rss/articles/CBMicEFVX3lxTE9fTEx2MFVXaUtmMmxGXy16ODhTeG50bWM3WlhUeDQ1QWQtMUI2eTV6ZkNTWGttRWpFSXFxTWJteHlEVm5tWHhmSFlJU0s1VWVwaEFLb1dLUndkaUotRzN0YUhuak4tTUx2Y3FoOEVTWFE?oc=5](https://news.google.com/rss/articles/CBMicEFVX3lxTE9fTEx2MFVXaUtmMmxGXy16ODhTeG50bWM3WlhUeDQ1QWQtMUI2eTV6ZkNTWGttRWpFSXFxTWJteHlEVm5tWHhmSFlJU0s1VWVwaEFLb1dLUndkaUotRzN0YUhuak4tTUx2Y3FoOEVTWFE?oc=5)
-
----
-
 ## 📌 Other Notable News
+
+### Apply Now: Google Africa Applied AI Lab for Founders
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (17m ago) |
+| **Category** | 📌 other |
+| **Author** | ICTworks |
+
+**Summary:** Apply Now: Google Africa Applied AI Lab for Founders  ICTworks
+
+**URL:** [https://news.google.com/rss/articles/CBMigwFBVV95cUxOVHNtcXFuSk1MY0dlTUFXRVlfSndyeHlqd0JRYTRKUXdmeUFiNW5hNmRrOElUTWp2THdpeWlaY1V4anBDczlUeXQyWU5mMFc4Y3IxY2d0dVFnUWJBMUJPdHJLZHVpdHd6dzFQdFZxSnU0ZDdEeUxyUTBVdjF2OVNfVEhlaw?oc=5](https://news.google.com/rss/articles/CBMigwFBVV95cUxOVHNtcXFuSk1MY0dlTUFXRVlfSndyeHlqd0JRYTRKUXdmeUFiNW5hNmRrOElUTWp2THdpeWlaY1V4anBDczlUeXQyWU5mMFc4Y3IxY2d0dVFnUWJBMUJPdHJLZHVpdHd6dzFQdFZxSnU0ZDdEeUxyUTBVdjF2OVNfVEhlaw?oc=5)
+
+---
+
+### AI's Effect on Workplace Culture
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (25m ago) |
+| **Category** | 📌 other |
+| **Author** | gallup.com |
+
+**Summary:** AI's Effect on Workplace Culture  gallup.com
+
+**URL:** [https://news.google.com/rss/articles/CBMifEFVX3lxTE4xR3czU1hmY3AwSFBvb28ydnNBbzU0TjNqTlJkYUN3SURBSFUxazZ6ZHItZ1ZGaWtOYWJJMXc0SGFPeUMya1c0Q0Fqbzg2Z3RYcEh3V0ktS3NaRkFzM1JvQTg4dVRuU0NJbi11ck9Ia243NDdrMkViMkdIbmU?oc=5](https://news.google.com/rss/articles/CBMifEFVX3lxTE4xR3czU1hmY3AwSFBvb28ydnNBbzU0TjNqTlJkYUN3SURBSFUxazZ6ZHItZ1ZGaWtOYWJJMXc0SGFPeUMya1c0Q0Fqbzg2Z3RYcEh3V0ktS3NaRkFzM1JvQTg4dVRuU0NJbi11ck9Ia243NDdrMkViMkdIbmU?oc=5)
+
+---
+
+### Artificial Intelligence - Page 3
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Yellow.com |
+
+**Summary:** Artificial Intelligence - Page 3  Yellow.com
+
+**URL:** [https://news.google.com/rss/articles/CBMiekFVX3lxTE5NNWRFZmxtb0tuREpIaFM0V1ZtODVIQ0I1bU9XTXlhYWd6Wjd5OHkxZTNBUXZEUS1BZW5kejgwYndNel9JdUZqRjFuZUdIWmt0U2JmamxTUnFJakxJbk5JODRVZ2QzRDVENENzMzd4ZnpSYktSTkFWRzZ3?oc=5](https://news.google.com/rss/articles/CBMiekFVX3lxTE5NNWRFZmxtb0tuREpIaFM0V1ZtODVIQ0I1bU9XTXlhYWd6Wjd5OHkxZTNBUXZEUS1BZW5kejgwYndNel9JdUZqRjFuZUdIWmt0U2JmamxTUnFJakxJbk5JODRVZ2QzRDVENENzMzd4ZnpSYktSTkFWRzZ3?oc=5)
+
+---
+
+### News | How the US property recovery extends beyond AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | CoStar |
+
+**Summary:** News | How the US property recovery extends beyond AI  CoStar
+
+**URL:** [https://news.google.com/rss/articles/CBMikgFBVV95cUxQeTJ4SFlxMk1OUkQxUElQWG1EN0stV3h1aThjeVpfbi1ZUTd0eElRMkxocVdsYmJVckw2LVRRbjY4Ui05eUJoS3U0aHBzNE1YZGhHdmhqTDUycjJma2ZQaHpCUThaMnFGMldRVUdjVGs2d1FiZ01IaWVfOWkyUmVoVXE4WTJzTUE1bFcxX0VvUE1Sdw?oc=5](https://news.google.com/rss/articles/CBMikgFBVV95cUxQeTJ4SFlxMk1OUkQxUElQWG1EN0stV3h1aThjeVpfbi1ZUTd0eElRMkxocVdsYmJVckw2LVRRbjY4Ui05eUJoS3U0aHBzNE1YZGhHdmhqTDUycjJma2ZQaHpCUThaMnFGMldRVUdjVGs2d1FiZ01IaWVfOWkyUmVoVXE4WTJzTUE1bFcxX0VvUE1Sdw?oc=5)
+
+---
+
+### Is a critical moment for capital arriving? The AI narrative shifts from technology to financing, as tech giants face cash flow strain and bond markets sound the alarm.
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | Moomoo |
+
+**Summary:** Is a critical moment for capital arriving? The AI narrative shifts from technology to financing, as tech giants face cash flow strain and bond markets sound the alarm.  Moomoo
+
+**URL:** [https://news.google.com/rss/articles/CBMiogFBVV95cUxPVWs4NzRpQ2JkYy05Yy1QcTZqeUxOdTkwSkMtZmJaU21valFhYWp6MG9wU21aSzVkUTA3TU13bWxMSmFvMU5uMklqZTJPLTZ2V3hlSmFXVlFaN3lYZmZXT0pqMHozc3Faazg1QXVITHM0T040N3lCckxLWkR6UTduMWlJMmM3ZXNiR3hFMkpuQkdPaXJfMTJHWExPa1huaS1GV0E?oc=5](https://news.google.com/rss/articles/CBMiogFBVV95cUxPVWs4NzRpQ2JkYy05Yy1QcTZqeUxOdTkwSkMtZmJaU21valFhYWp6MG9wU21aSzVkUTA3TU13bWxMSmFvMU5uMklqZTJPLTZ2V3hlSmFXVlFaN3lYZmZXT0pqMHozc3Faazg1QXVITHM0T040N3lCckxLWkR6UTduMWlJMmM3ZXNiR3hFMkpuQkdPaXJfMTJHWExPa1huaS1GV0E?oc=5)
+
+---
+
+### Dowd issues defense of humanities in op-ed on AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | ndsmcobserver.com |
+
+**Summary:** Dowd issues defense of humanities in op-ed on AI  ndsmcobserver.com
+
+**URL:** [https://news.google.com/rss/articles/CBMimgFBVV95cUxPcUFFbmF1MTFkamlod0UyZDNTMXlPX3J4bUpaQ0REb3N3U3Q4NWl3TUJfT0FjLWtKcXlxSnRIb2xJS2EwVTFVTzRuaGYyQzVLelI0bnBoMEVHaWxpM1FhS1E2cFlELTQzVDBJanY2NEVYOWtsY1NvZEZDNDBXcTBCMXItbFAyTnBpeXNfZlhoR255WVZWekd2bi1B?oc=5](https://news.google.com/rss/articles/CBMimgFBVV95cUxPcUFFbmF1MTFkamlod0UyZDNTMXlPX3J4bUpaQ0REb3N3U3Q4NWl3TUJfT0FjLWtKcXlxSnRIb2xJS2EwVTFVTzRuaGYyQzVLelI0bnBoMEVHaWxpM1FhS1E2cFlELTQzVDBJanY2NEVYOWtsY1NvZEZDNDBXcTBCMXItbFAyTnBpeXNfZlhoR255WVZWekd2bi1B?oc=5)
+
+---
+
+### Insurer Interest in AI Coverage Exclusions Growing as Risk Becomes Omnipresent
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | Insurance Journal |
+
+**Summary:** Insurer Interest in AI Coverage Exclusions Growing as Risk Becomes Omnipresent  Insurance Journal
+
+**URL:** [https://news.google.com/rss/articles/CBMigwFBVV95cUxOTGlzODIyMHFVTDRKOVFleXk4Ujd2VUQ0Y2x6YjA4SEVQdnl5dk8wakh4NU5vS0JiZmRXbllucEV6S3hJUnNCSzU2Zm5OMjZOUEJYYUQ5azhXdTI3NkVVSnE5Q2dxSHdmaldMaEI1c3V1aldTQkMwUFhueFQ1SDhnYXNGZw?oc=5](https://news.google.com/rss/articles/CBMigwFBVV95cUxOTGlzODIyMHFVTDRKOVFleXk4Ujd2VUQ0Y2x6YjA4SEVQdnl5dk8wakh4NU5vS0JiZmRXbllucEV6S3hJUnNCSzU2Zm5OMjZOUEJYYUQ5azhXdTI3NkVVSnE5Q2dxSHdmaldMaEI1c3V1aldTQkMwUFhueFQ1SDhnYXNGZw?oc=5)
+
+---
+
+### AGI-64 Brings Sierra Adventures to the Commodore 64
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 17, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | erickhill |
+
+**Summary:** 32 points, 4 comments on Hacker News.
+
+**URL:** [https://meanhamster.com/news/agi-64-brings-sierra-adventures-to-the-commodore-64](https://meanhamster.com/news/agi-64-brings-sierra-adventures-to-the-commodore-64)
+
+---
+
+### Healthcare AI likened to a sleeping giant waiting to wake up in many hospitals not named Mayo Clinic
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | HealthExec |
+
+**Summary:** Healthcare AI likened to a sleeping giant waiting to wake up in many hospitals not named Mayo Clinic  HealthExec
+
+**URL:** [https://news.google.com/rss/articles/CBMi1wFBVV95cUxORURoa1FlWXhJcG9Ua0RQYjB3MUNsWktrbVg2R1EzZExJa1hocjJITG5qeUR5djkyLXNaUGdQWDhQallmcElKSkE5M01FVmV2SDlBdW42M2VDdmIyMFh3bVZGT3dldVlkajdNc3pkbjVzeGVTcTdwS3NHbzQyc29qR0d5Y0hXd3pHbnJCclAyZHZBZFY1cmZNUWdzd0xGMUU4VHFEY2xjVXhOWVZydGpFM3pZV1pheDluTnJsYUw4X2t1dDVBcE11dXMtVVp2cTNaM3BmamV6dw?oc=5](https://news.google.com/rss/articles/CBMi1wFBVV95cUxORURoa1FlWXhJcG9Ua0RQYjB3MUNsWktrbVg2R1EzZExJa1hocjJITG5qeUR5djkyLXNaUGdQWDhQallmcElKSkE5M01FVmV2SDlBdW42M2VDdmIyMFh3bVZGT3dldVlkajdNc3pkbjVzeGVTcTdwS3NHbzQyc29qR0d5Y0hXd3pHbnJCclAyZHZBZFY1cmZNUWdzd0xGMUU4VHFEY2xjVXhOWVZydGpFM3pZV1pheDluTnJsYUw4X2t1dDVBcE11dXMtVVp2cTNaM3BmamV6dw?oc=5)
+
+---
+
+### Roundtable #37: Ground Truth: AI Data Centers and the Environmental Cost of Federal Inaction
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | culawreview.org |
+
+**Summary:** Roundtable #37: Ground Truth: AI Data Centers and the Environmental Cost of Federal Inaction  culawreview.org
+
+**URL:** [https://news.google.com/rss/articles/CBMiygFBVV95cUxNWk44d1ZQZHRNemFydGE1Y1JqZkRIZ0dMV1JReW5EVFNKb1F2eEVOclk3SlRCdlZrbTJwajRqT3FGOENTMnZLTkdHYTZmbXY5UVVRdU5xcmlqRVI0cUNSckF5R2tGRk1aWFVwdk5keEpvNmJaOXRsVW90cDluaTZ4ZmpXdjVSV184R0RoWGtjZEZWV2JkdVY1d0RWdkxGRFh1VGp0ZUJfME1oMkw3LXljdkxhbzFNU0FMd2JnZXhCeFNmOVlibHl6OGxn?oc=5](https://news.google.com/rss/articles/CBMiygFBVV95cUxNWk44d1ZQZHRNemFydGE1Y1JqZkRIZ0dMV1JReW5EVFNKb1F2eEVOclk3SlRCdlZrbTJwajRqT3FGOENTMnZLTkdHYTZmbXY5UVVRdU5xcmlqRVI0cUNSckF5R2tGRk1aWFVwdk5keEpvNmJaOXRsVW90cDluaTZ4ZmpXdjVSV184R0RoWGtjZEZWV2JkdVY1d0RWdkxGRFh1VGp0ZUJfME1oMkw3LXljdkxhbzFNU0FMd2JnZXhCeFNmOVlibHl6OGxn?oc=5)
+
+---
+
+### Why this Silver Lake production studio is embracing artificial intelligence
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | NBC Los Angeles |
+
+**Summary:** Why this Silver Lake production studio is embracing artificial intelligence  NBC Los Angeles
+
+**URL:** [https://news.google.com/rss/articles/CBMipgFBVV95cUxNbUpUM3AxLVE4aTZuYUk1Y3hGa1VuZjBqa2hlbVpDWlNoVjdZSHNmMVRwU3ktOWFaTEtpUVJYaWVsS2JSZmZXaXFWM2N6QjlyWWR5Y1BMczZLV3FpQ1hSTWU4ZzFGUEk2VGo4SFdObExqNnhFM3dhQl9zWDROUklfRzR6eW1HSG5hN2tKSHkyaGxDU2pDaW1jYW83NXd1YXZJNHpkSFdR0gGuAUFVX3lxTFBQaC01bE1qLTlVd1JSX3BqQTVxa2RKRDBVclJuV2pLNEh1QV93ZHRPWDk5LU92U19Ma1RLekxpLTgyZ1B6YnJtckxnWWxkN2NaRFg2QWVTN1l4czY5b2d5M1BHTUVfaTV4UUdIQVdUNjN0WDJPYmFXbFZfYlF5dkxXZGNCQVFKZjJBYlRyQWxxTHNNRnp1OWExVm4xVWtwZ2I2MjFHQXlWQWdXQVUyZw?oc=5](https://news.google.com/rss/articles/CBMipgFBVV95cUxNbUpUM3AxLVE4aTZuYUk1Y3hGa1VuZjBqa2hlbVpDWlNoVjdZSHNmMVRwU3ktOWFaTEtpUVJYaWVsS2JSZmZXaXFWM2N6QjlyWWR5Y1BMczZLV3FpQ1hSTWU4ZzFGUEk2VGo4SFdObExqNnhFM3dhQl9zWDROUklfRzR6eW1HSG5hN2tKSHkyaGxDU2pDaW1jYW83NXd1YXZJNHpkSFdR0gGuAUFVX3lxTFBQaC01bE1qLTlVd1JSX3BqQTVxa2RKRDBVclJuV2pLNEh1QV93ZHRPWDk5LU92U19Ma1RLekxpLTgyZ1B6YnJtckxnWWxkN2NaRFg2QWVTN1l4czY5b2d5M1BHTUVfaTV4UUdIQVdUNjN0WDJPYmFXbFZfYlF5dkxXZGNCQVFKZjJBYlRyQWxxTHNNRnp1OWExVm4xVWtwZ2I2MjFHQXlWQWdXQVUyZw?oc=5)
+
+---
 
 ### The Invisible Human-in-the-Loop: An Evolutionary Concept Analysis of Artificial Intelligence in Nursing Assistant Practice
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (33m ago) |
+| **Date** | August 17, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Cureus |
 
@@ -4315,7 +4636,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1h ago) |
+| **Date** | August 16, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | IT Pro |
 
@@ -4330,7 +4651,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1h ago) |
+| **Date** | August 16, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Beyond the Horizon ISSG |
 
@@ -4340,12 +4661,27 @@
 
 ---
 
+### Master These 5 Essential AI Terms and Stay Ahead of 90% of People
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (5h ago) |
+| **Category** | 📌 other |
+| **Author** | 36Kr |
+
+**Summary:** Master These 5 Essential AI Terms and Stay Ahead of 90% of People  36Kr
+
+**URL:** [https://news.google.com/rss/articles/CBMiU0FVX3lxTFBvVEVKSWlkblVpWjZMaXo0TDZIVDhSMzVaWEVocHpiNjV0ajdBY1NrbjRpYk9Oam9PazhFamRpRW1zYURTUkR0SDBldWpZRm9LSmRz?oc=5](https://news.google.com/rss/articles/CBMiU0FVX3lxTFBvVEVKSWlkblVpWjZMaXo0TDZIVDhSMzVaWEVocHpiNjV0ajdBY1NrbjRpYk9Oam9PazhFamRpRW1zYURTUkR0SDBldWpZRm9LSmRz?oc=5)
+
+---
+
 ### House Democrats Press Anthropic, OpenAI on Rogue Agents — Exposing the Federal Vacuum Beneath
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (2h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | forkast.news |
 
@@ -4355,12 +4691,27 @@
 
 ---
 
+### Helping Inland Northwest businesses decide how to adopt AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (6h ago) |
+| **Category** | 📌 other |
+| **Author** | Spokane Public Radio |
+
+**Summary:** Helping Inland Northwest businesses decide how to adopt AI  Spokane Public Radio
+
+**URL:** [https://news.google.com/rss/articles/CBMixwFBVV95cUxNQ1ZVSWg5aFk1SVB6d1FPcDJPWHhaZEladXFrZGw5Q3pUYkYyUTdZYjFuUXpnMy1OMVZOTHVEcFZ0YVlUTmRpRmpuZGhGd1ZoZTJlZlQ2VmVad3ZNbmpHOEpEUWV3emtRWVYyaUdCaVVDYXBwWk5Md1lmZEZ3Q1JsXzJSbGQxWUVJNUZDSGtUZmhoSXRoWmZrRDE3eG5ub1dmRHBXRTV5Rzk5WjFOYllsY3IyQlVjUU5NMDkzQmZHOHI1ZExLVkZv?oc=5](https://news.google.com/rss/articles/CBMixwFBVV95cUxNQ1ZVSWg5aFk1SVB6d1FPcDJPWHhaZEladXFrZGw5Q3pUYkYyUTdZYjFuUXpnMy1OMVZOTHVEcFZ0YVlUTmRpRmpuZGhGd1ZoZTJlZlQ2VmVad3ZNbmpHOEpEUWV3emtRWVYyaUdCaVVDYXBwWk5Md1lmZEZ3Q1JsXzJSbGQxWUVJNUZDSGtUZmhoSXRoWmZrRDE3eG5ub1dmRHBXRTV5Rzk5WjFOYllsY3IyQlVjUU5NMDkzQmZHOHI1ZExLVkZv?oc=5)
+
+---
+
 ### Former Lawrence Berkeley National Laboratory building in Oakland being considered for AI data center complex
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | ABC7 Bay Area |
 
@@ -4375,7 +4726,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -4390,7 +4741,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (3h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | healsdata |
 
@@ -4405,7 +4756,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Punchbowl News |
 
@@ -4420,7 +4771,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Arizona Capitol Times |
 
@@ -4435,7 +4786,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | AOL.com |
 
@@ -4450,7 +4801,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | VentureBeat |
 
@@ -4465,7 +4816,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | StreetInsider |
 
@@ -4480,7 +4831,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4495,7 +4846,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (4h ago) |
+| **Date** | August 16, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | zacharyozer |
 
@@ -4510,7 +4861,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (5h ago) |
+| **Date** | August 16, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | The Conversation |
 
@@ -4525,7 +4876,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (5h ago) |
+| **Date** | August 16, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | Bloomberg.com |
 
@@ -4540,7 +4891,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (5h ago) |
+| **Date** | August 16, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | inc.com |
 
@@ -4555,7 +4906,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (6h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | homarp |
 
@@ -4570,7 +4921,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | news.by |
 
@@ -4585,7 +4936,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | GamingBolt |
 
@@ -4600,7 +4951,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | Psychology Today |
 
@@ -4615,7 +4966,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | Geopolitechs |
 
@@ -4630,7 +4981,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (7h ago) |
+| **Date** | August 16, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -4640,12 +4991,42 @@
 
 ---
 
+### Andrew Ng Maps The AI Skills That Decide Which Teams Ship Efficiently
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (11h ago) |
+| **Category** | 📌 other |
+| **Author** | Forbes |
+
+**Summary:** Andrew Ng Maps The AI Skills That Decide Which Teams Ship Efficiently  Forbes
+
+**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxQOG45d0VnNjVlNFFTSnNtOExMdFZSSnBZOUZ1bHBvU2QyTXdTMDhTeHRiN1gzbU1fTkJEcFR6b09aVlB2Q05yYkdkdE9CUFRBclZMSzl2R0NzX1BsaXVPTXEtNFRwYTRVSGJyUUpTR2toNGFsTVpaYWxoalhKT3djNHNhc3FFckl3VXJFV3lPNWpsU09xTm9laVNCWE5sZU9CNXh4SnJ1QUR4emhQRFlVendoZw?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxQOG45d0VnNjVlNFFTSnNtOExMdFZSSnBZOUZ1bHBvU2QyTXdTMDhTeHRiN1gzbU1fTkJEcFR6b09aVlB2Q05yYkdkdE9CUFRBclZMSzl2R0NzX1BsaXVPTXEtNFRwYTRVSGJyUUpTR2toNGFsTVpaYWxoalhKT3djNHNhc3FFckl3VXJFV3lPNWpsU09xTm9laVNCWE5sZU9CNXh4SnJ1QUR4emhQRFlVendoZw?oc=5)
+
+---
+
+### PlayStation Unveils AI “Pseudo Account” to Combat Hazardous Users
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 16, 2026 (11h ago) |
+| **Category** | 📌 other |
+| **Author** | A 90s Kid |
+
+**Summary:** PlayStation Unveils AI “Pseudo Account” to Combat Hazardous Users  A 90s Kid
+
+**URL:** [https://news.google.com/rss/articles/CBMikgFBVV95cUxQdlNBeXZ6X0JCeGhJeXp3bzI1NUdYLWd3V2t6T0Jvc25JNHNMWTBzTVdKYmVBRXYyQnRYdDhhU3E2d21RSzIwbTZDU2Nod2g4TkVMelV4aG96aEJGd2dHaENPZ1YtWURvS0dvekd3QVJySVU5Z3VhUzFndURPd3pHWGZfV1E5SzFPQjVFb2dibWM4Zw?oc=5](https://news.google.com/rss/articles/CBMikgFBVV95cUxQdlNBeXZ6X0JCeGhJeXp3bzI1NUdYLWd3V2t6T0Jvc25JNHNMWTBzTVdKYmVBRXYyQnRYdDhhU3E2d21RSzIwbTZDU2Nod2g4TkVMelV4aG96aEJGd2dHaENPZ1YtWURvS0dvekd3QVJySVU5Z3VhUzFndURPd3pHWGZfV1E5SzFPQjVFb2dibWM4Zw?oc=5)
+
+---
+
 ### Anthropic CEO says AI backlash is ‘fundamentally a crisis of trust’
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 16, 2026 (8h ago) |
+| **Date** | August 16, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4660,7 +5041,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (8h ago) |
+| **Date** | August 16, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Business Insider |
 
@@ -4675,7 +5056,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (9h ago) |
+| **Date** | August 16, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | The Standard (HK) |
 
@@ -4690,7 +5071,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (9h ago) |
+| **Date** | August 16, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | MedPage Today |
 
@@ -4705,7 +5086,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 16, 2026 (9h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4721,7 +5102,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (9h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Digital Trends |
 
@@ -4736,7 +5117,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Mountain Xpress |
 
@@ -4751,7 +5132,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | mlenhard |
 
@@ -4766,7 +5147,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (10h ago) |
+| **Date** | August 16, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | calcalistech.com |
 
@@ -4781,7 +5162,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (11h ago) |
+| **Date** | August 16, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | themetropolitan.metrostate.edu |
 
@@ -4796,7 +5177,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 16, 2026 (11h ago) |
+| **Date** | August 16, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -4811,7 +5192,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (11h ago) |
+| **Date** | August 16, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Notebookcheck |
 
@@ -4826,7 +5207,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (12h ago) |
+| **Date** | August 16, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | WSJ |
 
@@ -4841,7 +5222,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (12h ago) |
+| **Date** | August 16, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | MarketScale |
 
@@ -4856,7 +5237,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (12h ago) |
+| **Date** | August 16, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Tom's Hardware |
 
@@ -4871,7 +5252,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (12h ago) |
+| **Date** | August 16, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Dallas Express |
 
@@ -4886,7 +5267,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (12h ago) |
+| **Date** | August 16, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | South China Morning Post |
 
@@ -4901,7 +5282,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (13h ago) |
+| **Date** | August 16, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Kurdistan24 |
 
@@ -4916,7 +5297,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (13h ago) |
+| **Date** | August 16, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | NDTV |
 
@@ -4931,7 +5312,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 16, 2026 (14h ago) |
+| **Date** | August 16, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4946,7 +5327,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 16, 2026 (14h ago) |
+| **Date** | August 16, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4961,7 +5342,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (15h ago) |
+| **Date** | August 16, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | The Boston Globe |
 
@@ -4976,7 +5357,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (16h ago) |
+| **Date** | August 16, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | PhillyVoice |
 
@@ -4991,7 +5372,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (16h ago) |
+| **Date** | August 16, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | The New York Times |
 
@@ -5006,7 +5387,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (16h ago) |
+| **Date** | August 16, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Houston Chronicle |
 
@@ -5021,7 +5402,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | fundsforNGOs |
 
@@ -5036,7 +5417,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | The Guardian |
 
@@ -5051,7 +5432,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | porridgeraisin |
 
@@ -5066,7 +5447,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Fortune |
 
@@ -5081,7 +5462,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (17h ago) |
+| **Date** | August 16, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | The Clinical Trial Vanguard |
 
@@ -5096,7 +5477,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (18h ago) |
+| **Date** | August 16, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Forbes |
 
@@ -5111,7 +5492,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (19h ago) |
+| **Date** | August 16, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | calcalistech.com |
 
@@ -5126,7 +5507,7 @@ The article Top
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 16, 2026 (20h ago) |
+| **Date** | August 16, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5142,7 +5523,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (20h ago) |
+| **Date** | August 16, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | The Jerusalem Post |
 
@@ -5157,7 +5538,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (20h ago) |
+| **Date** | August 16, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Hackaday |
 
@@ -5172,7 +5553,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (20h ago) |
+| **Date** | August 16, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Cureus |
 
@@ -5187,7 +5568,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (20h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -5202,7 +5583,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (21h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | EL PAÍS English |
 
@@ -5217,7 +5598,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (21h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Benzinga |
 
@@ -5232,7 +5613,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (21h ago) |
+| **Date** | August 16, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ddnews.gov.in |
 
@@ -6119,7 +6500,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | exponentialview.co |
 
@@ -6134,7 +6515,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | NBC Los Angeles |
 
@@ -6149,7 +6530,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | oneounceman |
 
@@ -6164,7 +6545,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | briefs.co |
 
@@ -6179,7 +6560,7 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 15, 2026 (1d ago) |
+| **Date** | August 15, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Bioengineer.org |
 
@@ -6441,6 +6822,51 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 **Summary:** Young Americans deeply distrust AI CEOs, poll finds
 
 **URL:** [https://aiweekly.co/alerts/cnbc-poll-81-of-young-americans-distrust-palantirs-karp-on-ai](https://aiweekly.co/alerts/cnbc-poll-81-of-young-americans-distrust-palantirs-karp-on-ai)
+
+---
+
+### Singapore uses AI access to hold finance talent from Hong Kong
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 15, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** Singapore uses AI access to hold finance talent from Hong Kong
+
+**URL:** [https://aiweekly.co/alerts/singapore-bets-ai-access-keeps-fund-managers-from-hong-kong](https://aiweekly.co/alerts/singapore-bets-ai-access-keeps-fund-managers-from-hong-kong)
+
+---
+
+### Amodei says only curing cancer will win back AI trust
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 15, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** Amodei says only curing cancer will win back AI trust
+
+**URL:** [https://aiweekly.co/node/10153](https://aiweekly.co/node/10153)
+
+---
+
+### bleepingcomputer.com
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 15, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** bleepingcomputer.com
+
+**URL:** [https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-is-down-in-major-outage-affecting-multiple-services/](https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-is-down-in-major-outage-affecting-multiple-services/)
 
 ---
 
@@ -6923,6 +7349,21 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 
 ---
 
+### RecipeNet: A Hierarchical Transformer for Recipe Data
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Pin-Yen Huang, Sachin Chhabra, Prasanth Sai Gouripeddi |
+
+**Summary:** Recipe data arises in domains such as materials synthesis, pharmaceutical formulation, and industrial manufacturing, where procedures are represented as ordered sequences of steps containing heterogen
+
+**URL:** [https://arxiv.org/abs/2608.14505v1](https://arxiv.org/abs/2608.14505v1)
+
+---
+
 ### A Contract-Grade Verifier for LLM-Generated GPU Kernels
 
 | Detail | Value |
@@ -6968,6 +7409,66 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 
 ---
 
+### Expected Free Energy-based Informative Path Planning for Robotic Mars Exploration
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Ajith Anil Meera, Pablo Lanillos, Wouter Kouw |
+
+**Summary:** An autonomous robot efficiently exploring an unknown environment, such as looking for water sources on Mars, faces two simultaneous demands: building an accurate information map while quickly finding 
+
+**URL:** [https://arxiv.org/abs/2608.14466v1](https://arxiv.org/abs/2608.14466v1)
+
+---
+
+### SheetCompass: Hierarchical Relation Graphs for Agentic Spreadsheet Reasoning
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Panjing He, Mingyue Cheng, Yucong Luo |
+
+**Summary:** Spreadsheets are widely used to organize, analyze, and manipulate semi-structured data, yet automated spreadsheet reasoning remains challenging for large language models (LLMs). Real-world workbooks o
+
+**URL:** [https://arxiv.org/abs/2608.14452v1](https://arxiv.org/abs/2608.14452v1)
+
+---
+
+### Designing Compact Neural Architectures via Neuron Gating and Mixed Activation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Abhishek Shukla, Ankur Sinha, Faiz Hamid |
+
+**Summary:** Neural Architecture Search (NAS) is naturally formulated as a bilevel optimization problem, where the upper-level optimizes the architecture using validation performance and the lower-level trains net
+
+**URL:** [https://arxiv.org/abs/2608.14443v1](https://arxiv.org/abs/2608.14443v1)
+
+---
+
+### The Dynamics of Intelligence Explosions
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Toby Ord |
+
+**Summary:** AI is increasingly being used to help with AI R&D. Under certain conditions this feedback loop might be able to produce an intelligence explosion, with rapidly escalating AI capabilities. I explore th
+
+**URL:** [https://arxiv.org/abs/2608.14426v1](https://arxiv.org/abs/2608.14426v1)
+
+---
+
 ### Decade Secures $85M in Latin America’s Largest Seed Round to Create a New Generation of Millionaires with AI
 
 | Detail | Value |
@@ -6980,6 +7481,36 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 **Summary:** Decade Secures $85M in Latin America’s Largest Seed Round to Create a New Generation of Millionaires with AI  AI Insider
 
 **URL:** [https://news.google.com/rss/articles/CBMi3AFBVV95cUxQTWxsRjhWOUdySDQwTWRmZkpMUDBCN1RxQVMxWllZM1hZVjlBcU5uOGFvNjJDMnY4WERLZ01fRWhrMUJ2QU9UbzZkUVlESWNJd1Q1eFRtRXo4U2M0SjFobERySzV0T3VmR3JmRWt3U3B0bHVlMFAwTVpFSkMwYU5Fb09MU1U3WVNnU3JtMVc1OVZlcl9BdUh3b1UtZTh5aFMyNDFuVHlOS0diZGFnNGxoMzByOXVYU3hIWGJjbUtscUJ1WHhwbzdpeGd1T0hiN2Fyc1JCLUVfWHhwbTdh?oc=5](https://news.google.com/rss/articles/CBMi3AFBVV95cUxQTWxsRjhWOUdySDQwTWRmZkpMUDBCN1RxQVMxWllZM1hZVjlBcU5uOGFvNjJDMnY4WERLZ01fRWhrMUJ2QU9UbzZkUVlESWNJd1Q1eFRtRXo4U2M0SjFobERySzV0T3VmR3JmRWt3U3B0bHVlMFAwTVpFSkMwYU5Fb09MU1U3WVNnU3JtMVc1OVZlcl9BdUh3b1UtZTh5aFMyNDFuVHlOS0diZGFnNGxoMzByOXVYU3hIWGJjbUtscUJ1WHhwbzdpeGd1T0hiN2Fyc1JCLUVfWHhwbTdh?oc=5)
+
+---
+
+### From Style Replication to Style Exploration: Enabling Art Style Exploration with Analyze-Experiment-Resituate Framework
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Wen-Fan Wang, TsaiHsuan Lin, Chi-Lan Yang |
+
+**Summary:** Art style is a signature of professional digital artists that develops through repeated experimentation, reflection, and adaptation. While generative AI (GenAI) can reproduce styles with high fidelity
+
+**URL:** [https://arxiv.org/abs/2608.14405v1](https://arxiv.org/abs/2608.14405v1)
+
+---
+
+### LLMs Don't Pay for the Jump
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Paras Balani, Subhrakanta Panda |
+
+**Summary:** Zahavy [2026] argues that Large Language Models, despite their capabilities in induction and deduction, cannot perform the abductive "Jump" that produced Einstein's equivalence principle, and attribut
+
+**URL:** [https://arxiv.org/abs/2608.14397v1](https://arxiv.org/abs/2608.14397v1)
 
 ---
 
@@ -7043,6 +7574,21 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 
 ---
 
+### MINT: A Universal Zero-Shot Predictor for Transaction Data
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 arxiv |
+| **Date** | August 14, 2026 (2d ago) |
+| **Category** | 📌 other |
+| **Author** | Parameswaran Kamalaruban, Viktor Drobnyi, Maeve Madigan |
+
+**Summary:** Banks analyse sequential financial transaction data to perform many tasks, including fraud prevention, credit risk assessment and offer personalization. To improve the predictive accuracy of these tas
+
+**URL:** [https://arxiv.org/abs/2608.14198v1](https://arxiv.org/abs/2608.14198v1)
+
+---
+
 ### ArchieVerse Introduces Combined Human and AI Customer Support and Releases Three New Video Generation Models
 
 | Detail | Value |
@@ -7055,546 +7601,6 @@ Your AI Slop Bores Me is brilliant in its simplicity. There are two tabs: human 
 **Summary:** ArchieVerse Introduces Combined Human and AI Customer Support and Releases Three New Video Generation Models  TMX Newsfile
 
 **URL:** [https://news.google.com/rss/articles/CBMi5wFBVV95cUxQdEY1cm1YVWlxZFJETE9JTU9pMmpIekdWeElFRzFEVFM0U2ZpMUp6b1pGVlZYYzFuNGhoYUJVa2dRRzNKMmVGSDVCTng5WmNmQl80SGExTGd5ZF9IZG1kMkRfY2Q2VFIydHdlUWtQUlVtVW9iSHJ5OWhZcGpYb01JXzk0UU5Tb25NYUtLb0RkWF9JMUs4YmNWNHF4MU9RRGcyTDlaV2NLbU1ha0lFaW1lTlMyanZtaU81M3p3YThOdFhqSWtBcXVKN1lqbmdZTGFCNUhSTkVudDMyWTA2X1F5VmFJbWw1TkU?oc=5](https://news.google.com/rss/articles/CBMi5wFBVV95cUxQdEY1cm1YVWlxZFJETE9JTU9pMmpIekdWeElFRzFEVFM0U2ZpMUp6b1pGVlZYYzFuNGhoYUJVa2dRRzNKMmVGSDVCTng5WmNmQl80SGExTGd5ZF9IZG1kMkRfY2Q2VFIydHdlUWtQUlVtVW9iSHJ5OWhZcGpYb01JXzk0UU5Tb25NYUtLb0RkWF9JMUs4YmNWNHF4MU9RRGcyTDlaV2NLbU1ha0lFaW1lTlMyanZtaU81M3p3YThOdFhqSWtBcXVKN1lqbmdZTGFCNUhSTkVudDMyWTA2X1F5VmFJbWw1TkU?oc=5)
-
----
-
-### Apple Launches China-Specific AI: A Groundbreaking Collaboration with Alibaba
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Devdiscourse |
-
-**Summary:** Apple Launches China-Specific AI: A Groundbreaking Collaboration with Alibaba  Devdiscourse
-
-**URL:** [https://news.google.com/rss/articles/CBMizAFBVV95cUxOM1JHenZQMFZJclBrYllFY09sR0RPZDlBamZZajBYN0JtTXFlSzlpOE9vR3N6VEtMRXk3LTB1TFdZeFVxVGVwSjgtXzJMODBSUF8yYU1fWDNvLWlWbUlXN0F5RTEzYTVBTDFUZHRvLWs2VUIxbllLTDdwZkpJbDdVekRUVnRSLVY5U3J3TmFORkxucnVUQzQ5OVpEcnd3NVpvNzhIbXQtczNGY01sVkZ3Z3hDNkNGaDRJZkVpWUVMUGg1YXhnWDBnM1FnMzjSAdIBQVVfeXFMTTYwTDA0aFFta0UwVndHZUgtU3hlQ25vbVJWSjlHVXY3RmdMSlQyRlVGSHFTVEU5MXdiMjBqSUtEczdPNWZpemVIbDlUWEdxeWc0bmlLa1lYTU1mWVFwWWVVTzYtNmpzZXVxZFZBWVNXNE9KRktFdHppbzUwaGIzMHA0dFFseVZNQkl4TkZON0xwdG5TWHhUc25QN3dwWUtyQlZuT3pudENjR1pUU2FDVkVTRGd0MGFDeElCRXM3QS1MWXNKWnpJd0F6NmJSZGx3TnBn?oc=5](https://news.google.com/rss/articles/CBMizAFBVV95cUxOM1JHenZQMFZJclBrYllFY09sR0RPZDlBamZZajBYN0JtTXFlSzlpOE9vR3N6VEtMRXk3LTB1TFdZeFVxVGVwSjgtXzJMODBSUF8yYU1fWDNvLWlWbUlXN0F5RTEzYTVBTDFUZHRvLWs2VUIxbllLTDdwZkpJbDdVekRUVnRSLVY5U3J3TmFORkxucnVUQzQ5OVpEcnd3NVpvNzhIbXQtczNGY01sVkZ3Z3hDNkNGaDRJZkVpWUVMUGg1YXhnWDBnM1FnMzjSAdIBQVVfeXFMTTYwTDA0aFFta0UwVndHZUgtU3hlQ25vbVJWSjlHVXY3RmdMSlQyRlVGSHFTVEU5MXdiMjBqSUtEczdPNWZpemVIbDlUWEdxeWc0bmlLa1lYTU1mWVFwWWVVTzYtNmpzZXVxZFZBWVNXNE9KRktFdHppbzUwaGIzMHA0dFFseVZNQkl4TkZON0xwdG5TWHhUc25QN3dwWUtyQlZuT3pudENjR1pUU2FDVkVTRGd0MGFDeElCRXM3QS1MWXNKWnpJd0F6NmJSZGx3TnBn?oc=5)
-
----
-
-### Even Claude Is in the Dark About Dario Amodei's Wife
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 14, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | latchkey |
-
-**Summary:** A mysterious article about Dario Amodei's personal life has sparked curiosity among tech enthusiasts on Hacker News.
-
-**URL:** [https://www.wsj.com/tech/ai/claude-dario-amodei-wife-anthropic-e1eeda7d](https://www.wsj.com/tech/ai/claude-dario-amodei-wife-anthropic-e1eeda7d)
-
----
-
-### State of Open Models: Summer 2026 Observations
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 Hugging Face |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | Hugging Face |
-
-**Summary:** State of Open Models: Summer 2026 Observations
-
-**URL:** [https://huggingface.co/blog/state-of-open-models-summer-2026](https://huggingface.co/blog/state-of-open-models-summer-2026)
-
----
-
-### Google open-sources HEIR compiler for encrypted AI inference
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Google open-sources HEIR compiler for encrypted AI inference
-
-**URL:** [https://aiweekly.co/node/9960](https://aiweekly.co/node/9960)
-
----
-
-### OpenAI tells European ChatGPT free tier ads arrive this month
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** OpenAI tells European ChatGPT free tier ads arrive this month
-
-**URL:** [https://ppc.land/chatgpt-free-and-go-users-in-europe-face-ads-from-later-this-month](https://ppc.land/chatgpt-free-and-go-users-in-europe-face-ads-from-later-this-month)
-
----
-
-### Waymo cleared to charge for robotaxi rides in 18 CA counties
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Waymo cleared to charge for robotaxi rides in 18 CA counties
-
-**URL:** [https://aiweekly.co/node/9961](https://aiweekly.co/node/9961)
-
----
-
-### Vals AI raises $40M Series A from a16z at $400M valuation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Vals AI raises $40M Series A from a16z at $400M valuation
-
-**URL:** [https://www.techtimes.com/articles/324479/20260814/vals-ai-raises-40m-a16z-frontier-models-fail-52-real-finance-analyst-tasks.htm](https://www.techtimes.com/articles/324479/20260814/vals-ai-raises-40m-a16z-frontier-models-fail-52-real-finance-analyst-tasks.htm)
-
----
-
-### Meta patents AI glasses that ID people and cut highlight reels
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Meta patents AI glasses that ID people and cut highlight reels
-
-**URL:** [https://aiweekly.co/node/9946](https://aiweekly.co/node/9946)
-
----
-
-### US tells 35 partners to pick sides in AI race with China
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** US tells 35 partners to pick sides in AI race with China
-
-**URL:** [https://aiweekly.co/node/9957](https://aiweekly.co/node/9957)
-
----
-
-### Nvidia cuts OpenAI data-center backstop from $250B to under $120B
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Nvidia cuts OpenAI data-center backstop from $250B to under $120B
-
-**URL:** [https://aiweekly.co/node/9955](https://aiweekly.co/node/9955)
-
----
-
-### helpnetsecurity.com
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** helpnetsecurity.com
-
-**URL:** [https://www.helpnetsecurity.com/2026/08/14/openais-gpt-5-6-sol-runs-up-to-14x-faster-with-ultrafast-mode/](https://www.helpnetsecurity.com/2026/08/14/openais-gpt-5-6-sol-runs-up-to-14x-faster-with-ultrafast-mode/)
-
----
-
-### Apple trained its own China LLM with Alibaba
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Apple trained its own China LLM with Alibaba
-
-**URL:** [https://aiweekly.co/alerts/apple-trains-own-china-llm-with-alibaba-cleared-by-beijing](https://aiweekly.co/alerts/apple-trains-own-china-llm-with-alibaba-cleared-by-beijing)
-
----
-
-### xAI&#039;s Grok 4.6 lands in GitHub Copilot
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** xAI&#039;s Grok 4.6 lands in GitHub Copilot
-
-**URL:** [https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot/](https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot/)
-
----
-
-### LG and Nvidia expand physical AI pact for humanoid and 80MW factory
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** LG and Nvidia expand physical AI pact for humanoid and 80MW factory
-
-**URL:** [https://theaiinsider.tech/2026/08/14/lg-nvidia-expand-robotics-collaboration-with-new-humanoid-factory-robot-plans/](https://theaiinsider.tech/2026/08/14/lg-nvidia-expand-robotics-collaboration-with-new-humanoid-factory-robot-plans/)
-
----
-
-### ITRC: US breach notices set for record as AI attacks climb 56%
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** ITRC: US breach notices set for record as AI attacks climb 56%
-
-**URL:** [https://aiweekly.co/node/9975](https://aiweekly.co/node/9975)
-
----
-
-### FT: OpenAI quietly disbanded its preparedness team in July
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** FT: OpenAI quietly disbanded its preparedness team in July
-
-**URL:** [https://aiweekly.co/node/9974](https://aiweekly.co/node/9974)
-
----
-
-### Writer&#039;s Palmyra X6 claims 52% cheaper agents
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Writer&#039;s Palmyra X6 claims 52% cheaper agents
-
-**URL:** [https://writer.com/blog/palmyra-x6-major-harness-release/](https://writer.com/blog/palmyra-x6-major-harness-release/)
-
----
-
-### SMIC weighs new capacity as AI-chip demand outruns forecasts
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** SMIC weighs new capacity as AI-chip demand outruns forecasts
-
-**URL:** [https://aiweekly.co/alerts/smic-weighs-new-capacity-as-ai-chip-orders-book-into-2027](https://aiweekly.co/alerts/smic-weighs-new-capacity-as-ai-chip-orders-book-into-2027)
-
----
-
-### Applied Materials Q3 beats on AI, stock still slips 5%
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Applied Materials Q3 beats on AI, stock still slips 5%
-
-**URL:** [https://finance.yahoo.com/technology/ai/articles/applied-materials-q3-2026-earnings-114815272.html](https://finance.yahoo.com/technology/ai/articles/applied-materials-q3-2026-earnings-114815272.html)
-
----
-
-### Judge sanctions plaintiff for hiding AI prompt injections in filings
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Judge sanctions plaintiff for hiding AI prompt injections in filings
-
-**URL:** [https://www.techdirt.com/2026/08/14/pro-se-plaintiff-caught-hiding-prompt-injections-in-court-filings-responds-by-hiding-more/](https://www.techdirt.com/2026/08/14/pro-se-plaintiff-caught-hiding-prompt-injections-in-court-filings-responds-by-hiding-more/)
-
----
-
-### Anthropic hits $11.5B in Q2 revenue, first quarter in the black
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Anthropic hits $11.5B in Q2 revenue, first quarter in the black
-
-**URL:** [https://finance.yahoo.com/technology/ai/articles/anthropic-revenue-surges-over-11-210857853.html](https://finance.yahoo.com/technology/ai/articles/anthropic-revenue-surges-over-11-210857853.html)
-
----
-
-### deepmind.google
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** deepmind.google
-
-**URL:** [https://deepmind.google/models/model-cards/gemini-3-7-flash/](https://deepmind.google/models/model-cards/gemini-3-7-flash/)
-
----
-
-### UK used bookshops flag mystery bulk orders they think fund AI training
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** UK used bookshops flag mystery bulk orders they think fund AI training
-
-**URL:** [https://www.aol.co.uk/articles/secondhand-booksellers-uk-ireland-suspect-080051000.html](https://www.aol.co.uk/articles/secondhand-booksellers-uk-ireland-suspect-080051000.html)
-
----
-
-### OpenAI&#039;s enterprise revenue overtakes ChatGPT consumer
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** OpenAI&#039;s enterprise revenue overtakes ChatGPT consumer
-
-**URL:** [https://www.unite.ai/openai-tells-investors-enterprise-revenue-has-overtaken-its-chatgpt-consumer-business/](https://www.unite.ai/openai-tells-investors-enterprise-revenue-has-overtaken-its-chatgpt-consumer-business/)
-
----
-
-### NYC mayor and council majority move to curb private facial recognition
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** NYC mayor and council majority move to curb private facial recognition
-
-**URL:** [https://gothamist.com/news/momentum-builds-to-ban-madison-square-gardens-surveillance-empire](https://gothamist.com/news/momentum-builds-to-ban-madison-square-gardens-surveillance-empire)
-
----
-
-### US AI prices fell 25% in a month as Chinese rivals take share
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** US AI prices fell 25% in a month as Chinese rivals take share
-
-**URL:** [https://finance.biggo.com/news/7e9f1d12-cf40-4852-a49a-ed69b6925090](https://finance.biggo.com/news/7e9f1d12-cf40-4852-a49a-ed69b6925090)
-
----
-
-### Chinese neurosurgeon cracks decades-old math conjecture with ChatGPT
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Chinese neurosurgeon cracks decades-old math conjecture with ChatGPT
-
-**URL:** [https://aiweekly.co/alerts/beijing-doctor-uses-gpt-56-sol-to-crack-22-year-math-conjecture](https://aiweekly.co/alerts/beijing-doctor-uses-gpt-56-sol-to-crack-22-year-math-conjecture)
-
----
-
-### L&amp;T lands India&#039;s biggest AI factory contract for Together AI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** L&amp;T lands India&#039;s biggest AI factory contract for Together AI
-
-**URL:** [https://w.media/lt-partners-with-together-ai-to-deploy-nvidia-b300-infrastructure-at-chennai-ai-factory/](https://w.media/lt-partners-with-together-ai-to-deploy-nvidia-b300-infrastructure-at-chennai-ai-factory/)
-
----
-
-### Mercor hunts dead startups&#039; Slack logs for agent training data
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Mercor hunts dead startups&#039; Slack logs for agent training data
-
-**URL:** [https://aiweekly.co/node/10039](https://aiweekly.co/node/10039)
-
----
-
-### Musk to SpaceX staff: you&#039;ll be Grok&#039;s &#039;parents&#039;
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Musk to SpaceX staff: you&#039;ll be Grok&#039;s &#039;parents&#039;
-
-**URL:** [https://aiweekly.co/alerts/musk-says-spacex-staff-will-parent-grok-trained-on-their-work](https://aiweekly.co/alerts/musk-says-spacex-staff-will-parent-grok-trained-on-their-work)
-
----
-
-### ONEOK strikes $100M gas deal for a 1-gigawatt AI data-center plant
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** ONEOK strikes $100M gas deal for a 1-gigawatt AI data-center plant
-
-**URL:** [https://finance.yahoo.com/energy/articles/boring-pipeline-stock-just-signed-125000583.html](https://finance.yahoo.com/energy/articles/boring-pipeline-stock-just-signed-125000583.html)
-
----
-
-### BofA warns Broadcom&#039;s chip vehicle could carry $370B in AI debt
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** BofA warns Broadcom&#039;s chip vehicle could carry $370B in AI debt
-
-**URL:** [https://247wallst.com/investing/2026/08/14/broadcom-sinks-6-as-bofa-flags-370b-in-ai-debt-amd-climbs-4-on-bairds-1250-call/](https://247wallst.com/investing/2026/08/14/broadcom-sinks-6-as-bofa-flags-370b-in-ai-debt-amd-climbs-4-on-bairds-1250-call/)
-
----
-
-### Mass. teen used ChatGPT to plan killing his mother and brother
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Mass. teen used ChatGPT to plan killing his mother and brother
-
-**URL:** [https://aiweekly.co/alerts/mass-teen-used-chatgpt-for-murder-fantasy-stories-da-says](https://aiweekly.co/alerts/mass-teen-used-chatgpt-for-murder-fantasy-stories-da-says)
-
----
-
-### Nvidia 13F shows $21B SpaceX stake and $30B Intel position
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Nvidia 13F shows $21B SpaceX stake and $30B Intel position
-
-**URL:** [https://aiweekly.co/alerts/nvidia-discloses-21b-spacex-stake-30b-intel-position](https://aiweekly.co/alerts/nvidia-discloses-21b-spacex-stake-30b-intel-position)
-
----
-
-### businessinsider.com
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** businessinsider.com
-
-**URL:** [https://www.businessinsider.com/claude-users-cancel-subscriptions-citing-anthropic-new-ai-watermark-2026-8](https://www.businessinsider.com/claude-users-cancel-subscriptions-citing-anthropic-new-ai-watermark-2026-8)
-
----
-
-### AI buildout hides $70B off-balance-sheet credit backstops
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 14, 2026 (3d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** AI buildout hides $70B off-balance-sheet credit backstops
-
-**URL:** [https://aiweekly.co/node/10063](https://aiweekly.co/node/10063)
 
 ---
 
@@ -7613,4 +7619,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-17T01:12:46.126Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-17T04:41:24.055Z by AI Pulse Knowledge Base Generator*
