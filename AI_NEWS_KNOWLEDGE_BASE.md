@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-18T17:05:41.768Z
-> Total Articles Tracked: 2096
+> Last Updated: 2026-08-18T20:23:09.590Z
+> Total Articles Tracked: 2140
 > Generated from AI Pulse database
 
 ---
@@ -14,58 +14,163 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 107 |
-| 🔬 **Research** | 37 |
-| 💼 **Product/Business** | 55 |
-| 🛡️ **Safety/Security** | 12 |
-| ⚖️ **Policy/Regulation** | 26 |
+| 🧠 **Model Releases** | 111 |
+| 🔬 **Research** | 39 |
+| 💼 **Product/Business** | 61 |
+| 🛡️ **Safety/Security** | 13 |
+| ⚖️ **Policy/Regulation** | 29 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 275 |
+| **google-news** | 277 |
 | **arxiv** | 63 |
 | **zdnet** | 26 |
-| **hacker-news** | 17 |
-| **reddit** | 17 |
-| **ai-weekly** | 16 |
-| **cnbc** | 14 |
-| **the-decoder** | 14 |
+| **the-decoder** | 16 |
+| **cnbc** | 15 |
+| **hacker-news** | 15 |
+| **reddit** | 15 |
 | **techcrunch** | 12 |
-| **the-verge** | 8 |
+| **the-verge** | 9 |
+| **amazon** | 8 |
+| **ai-weekly** | 8 |
+| **decrypt** | 6 |
 | **marktechpost** | 6 |
 | **the-register** | 6 |
-| **amazon** | 4 |
 | **mit-tr** | 4 |
-| **decrypt** | 4 |
+| **Hugging Face** | 3 |
 | **arstechnica** | 3 |
-| **together** | 3 |
-| **Hugging Face** | 2 |
+| **wired** | 2 |
 | **google-ai** | 2 |
 | **sciencedaily** | 2 |
 | **venturebeat** | 1 |
-| **wired** | 1 |
+| **together** | 1 |
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 107 articles
-- [🔬 Research Breakthroughs](#research-breakthroughs) — 37 articles
-- [💼 Product & Business Updates](#product--business-updates) — 55 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 12 articles
-- [⚖️ Regulation & Policy](#regulation--policy) — 26 articles
-- [📌 Other Notable News](#other-notable-news) — 263 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 111 articles
+- [🔬 Research Breakthroughs](#research-breakthroughs) — 39 articles
+- [💼 Product & Business Updates](#product--business-updates) — 61 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 13 articles
+- [⚖️ Regulation & Policy](#regulation--policy) — 29 articles
+- [📌 Other Notable News](#other-notable-news) — 247 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### OpenAI lays out new security changes after its AI hacked Hugging Face
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-verge |
+| **Date** | August 18, 2026 (54m ago) |
+| **Category** | 🧠 model |
+| **Author** | The Verge AI |
+
+**Summary:** OpenAI is announcing security updates following the July news that its AI broke out of a sandboxed environment and accidentally hacked Hugging Face, including improvements to its research environments
+
+**URL:** [https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack](https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack)
+
+---
+
+### Markets Confident OpenAI Releases Its Next AI Model in Weeks
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | Yahoo Finance |
+
+**Summary:** Markets Confident OpenAI Releases Its Next AI Model in Weeks  Yahoo Finance
+
+**URL:** [https://news.google.com/rss/articles/CBMipAFBVV95cUxNbFc0MGM5dm0tWS1SUFdmazlYb1Jyb3VpbHVldlZZNWVtdENpckFsRFZuLUwxN3JUUHBiUG04bU5JUnFOZmxuUXY3d3pWbGdyaTJEZ2FYcFM3UGFnTmo0Znp3Q2xUZ1FOSkVVRGpFRzNFU0VKODd1bnNCNkVHRTB4LVVGOXk4QlFwd1VPbGprdXR5Mlg0VnJoSENZQVVHUlgtdDhmNw?oc=5](https://news.google.com/rss/articles/CBMipAFBVV95cUxNbFc0MGM5dm0tWS1SUFdmazlYb1Jyb3VpbHVldlZZNWVtdENpckFsRFZuLUwxN3JUUHBiUG04bU5JUnFOZmxuUXY3d3pWbGdyaTJEZ2FYcFM3UGFnTmo0Znp3Q2xUZ1FOSkVVRGpFRzNFU0VKODd1bnNCNkVHRTB4LVVGOXk4QlFwd1VPbGprdXR5Mlg0VnJoSENZQVVHUlgtdDhmNw?oc=5)
+
+---
+
+### OpenAI says it's "pacing model development" as AI cybersecurity risks grow too dangerous
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | TheDecoder |
+
+**Summary:** OpenAI is deliberately "pacing AI model development," partly because the upcoming "Astra" model may be close to gaining critical cyberattack capabilities. A new monitoring system triggers an alert wit
+
+**URL:** [https://the-decoder.com/openai-says-its-pacing-model-development-as-ai-cybersecurity-risks-grow-too-dangerous/](https://the-decoder.com/openai-says-its-pacing-model-development-as-ai-cybersecurity-risks-grow-too-dangerous/)
+
+---
+
+### OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 wired |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | Wired AI |
+
+**Summary:** The ChatGPT maker says its upcoming Astra model may have reached “critical” cyber capabilities, prompting it to halt a significant number of training runs while it tightens internal safeguards.
+
+**URL:** [https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/](https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/)
+
+---
+
+### New benchmark ranks search APIs for AI agents on quality, cost, and speed
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 18, 2026 (2h ago) |
+| **Category** | 🧠 model |
+| **Author** | TheDecoder |
+
+**Summary:** Artificial Analysis has released the "Search Index," a benchmark that rates search API providers for AI agents on quality, cost, and speed. Of seven providers tested with GPT-5.6 Luna, Parallel, Exa, 
+
+**URL:** [https://the-decoder.com/new-benchmark-ranks-search-apis-for-ai-agents-on-quality-cost-and-speed/](https://the-decoder.com/new-benchmark-ranks-search-apis-for-ai-agents-on-quality-cost-and-speed/)
+
+---
+
+### Implement vector-prompt document classification using Amazon Bedrock
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | Amazon ML |
+
+**Summary:** Learn how to build a multi-agent document classification solution on Amazon Bedrock using the Strands Agents SDK. Three specialized agents combine textual analysis with Claude Haiku 4.5 and visual sim
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/implement-vector-prompt-document-classification-using-amazon-bedrock/](https://aws.amazon.com/blogs/machine-learning/implement-vector-prompt-document-classification-using-amazon-bedrock/)
+
+---
+
+### Claude Code May–August 2026 weekly limits promotion
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | tyre |
+
+**Summary:** 236 points, 196 comments on Hacker News.
+
+**URL:** [https://support.claude.com/en/articles/15910845-claude-code-may-august-2026-weekly-limits-promotion](https://support.claude.com/en/articles/15910845-claude-code-may-august-2026-weekly-limits-promotion)
+
+---
 
 ### Claude: Degraded Performance for Multiple Models
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (37m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 🧠 model |
 | **Author** | matt89 |
 
@@ -75,12 +180,27 @@
 
 ---
 
+### Launch HN: machine0 (YC S26) – Persistent CPU and GPU VMs from the CLI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | bwm |
+
+**Summary:** Hi HN! I’m Barnaby, founder of machine0 (https:&#x2F;&#x2F;machine0.io). I’m building a CLI for long horizon agent compute: `machine0 new mybox` gives your agent a persistent cloud VM, billed by the m
+
+**URL:** [https://machine0.io](https://machine0.io)
+
+---
+
 ### Google's AI can see your business data by default in Workspace - unless you disable it
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | ZDNet AI |
 
@@ -90,12 +210,27 @@
 
 ---
 
+### Snowflake Unlocks Better AI Economics with Dynamic Model Routing, Delivering More Value to Customers
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (6h ago) |
+| **Category** | 🧠 model |
+| **Author** | Snowflake |
+
+**Summary:** Snowflake Unlocks Better AI Economics with Dynamic Model Routing, Delivering More Value to Customers  Snowflake
+
+**URL:** [https://news.google.com/rss/articles/CBMirgFBVV95cUxQY2l5TVhaeV9uc1VkOVdaOG5HVXlhekowUG54TXZqdDRkakpVM28zTER1cV9tMlFJVUtkVW43dzVzS0VZdm5kdFNCSGlmRU9kQTY0SEZ2X0toNzc3djMtdmY4ajdkdlpIRzFYMzNaMGhPbnBDdVdZdDZXUi1aR1dfeHI3ZUVNS2JRQThuWFJOUThWcjhNMWZwV1RLNTY1dU1zblBibHliaEQ0UHlQZFE?oc=5](https://news.google.com/rss/articles/CBMirgFBVV95cUxQY2l5TVhaeV9uc1VkOVdaOG5HVXlhekowUG54TXZqdDRkakpVM28zTER1cV9tMlFJVUtkVW43dzVzS0VZdm5kdFNCSGlmRU9kQTY0SEZ2X0toNzc3djMtdmY4ajdkdlpIRzFYMzNaMGhPbnBDdVdZdDZXUi1aR1dfeHI3ZUVNS2JRQThuWFJOUThWcjhNMWZwV1RLNTY1dU1zblBibHliaEQ0UHlQZFE?oc=5)
+
+---
+
 ### How to avoid Claude watermarking your content
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | ZDNet AI |
 
@@ -110,7 +245,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -125,7 +260,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Duke Chronicle |
 
@@ -135,12 +270,27 @@
 
 ---
 
+### Razorpay launches Vulcan, an AI foundation model for payments. But what does it train on?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (7h ago) |
+| **Category** | 🧠 model |
+| **Author** | medianama.com |
+
+**Summary:** Razorpay launches Vulcan, an AI foundation model for payments. But what does it train on?  medianama.com
+
+**URL:** [https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbUtsRGhRY2doZXdyRjA3U1ZlMU80RGVLNEFGaW4zdVRvdDFWZWY5bXZ6ZjloOGxLZ3V6N2VsZnZjSWJablBhaUVaTDk0UllCWHh6d1pZcWNIXzRCUVlKR3dwTlVwSHVCUExnWGtGcEItRUJFT1B6Ni10bmxHU09CMjQ5b1NaNnBGV0xn?oc=5](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbUtsRGhRY2doZXdyRjA3U1ZlMU80RGVLNEFGaW4zdVRvdDFWZWY5bXZ6ZjloOGxLZ3V6N2VsZnZjSWJablBhaUVaTDk0UllCWHh6d1pZcWNIXzRCUVlKR3dwTlVwSHVCUExnWGtGcEItRUJFT1B6Ni10bmxHU09CMjQ5b1NaNnBGV0xn?oc=5)
+
+---
+
 ### Claude writing a macOS driver for my obscure HP printer built only for Windows
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | porridgeraisin |
 
@@ -155,7 +305,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Hungarian Conservative |
 
@@ -170,7 +320,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -185,7 +335,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | South China Morning Post |
 
@@ -200,7 +350,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -217,7 +367,7 @@ OpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -232,7 +382,7 @@ OpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 mit-tr |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | MIT Tech Review |
 
@@ -247,7 +397,7 @@ OpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -262,7 +412,7 @@ OpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Indian Express |
 
@@ -277,7 +427,7 @@ OpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -292,7 +442,7 @@ OpenAI is introducing a dedicated ChatGPT mode for teenagers, combining existing
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -309,7 +459,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | Wired AI |
 
@@ -324,7 +474,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (11h ago) |
+| **Date** | August 18, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | 디지털투데이 |
 
@@ -339,7 +489,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (12h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | 아시아경제 |
 
@@ -354,7 +504,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -369,7 +519,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -384,7 +534,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (17h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | StartupHub.ai |
 
@@ -399,7 +549,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 together |
-| **Date** | August 18, 2026 (17h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Together AI |
 
@@ -409,12 +559,27 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 
 ---
 
+### Harvey launches Harvey II with Memory, plus in-house &#039;Tenet&#039; model
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 🧠 model |
+| **Author** | AI Weekly |
+
+**Summary:** Harvey launches Harvey II with Memory, plus in-house &#039;Tenet&#039; model
+
+**URL:** [https://www.artificiallawyer.com/2026/08/18/next-gen-harvey-ii-launches-with-memory-at-its-core/](https://www.artificiallawyer.com/2026/08/18/next-gen-harvey-ii-launches-with-memory-at-its-core/)
+
+---
+
 ### Anthropic’s annualized revenue surges to $65B
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 17, 2026 (17h ago) |
+| **Date** | August 17, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -429,7 +594,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (17h ago) |
+| **Date** | August 17, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | thelec.net |
 
@@ -444,7 +609,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Decrypt AI |
 
@@ -459,7 +624,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -474,7 +639,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | Topfi |
 
@@ -489,7 +654,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | Campus Technology |
 
@@ -504,7 +669,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -519,7 +684,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | AI Business |
 
@@ -534,7 +699,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Amazon ML |
 
@@ -549,7 +714,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Mshale |
 
@@ -564,7 +729,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | TradingView |
 
@@ -579,7 +744,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Jiaming Li |
 
@@ -594,7 +759,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Benjamin Belay |
 
@@ -609,7 +774,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Saisab Sadhu, Aadit Sengupta, Vinay Kumar Sankarapu |
 
@@ -624,7 +789,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Reza Bayat, Ali Behrouz, Vahab Mirrokni |
 
@@ -639,7 +804,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Enric Boix-Adsera, Benedict Tessler |
 
@@ -654,7 +819,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Minh-Ha Nguyen, Cathy Shyr |
 
@@ -1565,119 +1730,44 @@ Th
 
 ---
 
-### DeepSeek V4 Pro 0813 vs Claude Fable 5 on DeepSWE: Cost, Coding, and Routing
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 together |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Together AI |
-
-**Summary:** We ran 904 DeepSWE rollouts on DeepSeek V4 Pro 0813 and Claude Fable 5. Fable leads pass@1 at 90x the cost; Pro wins pass@4, and a Pro-first cascade hits 82.7%.
-
-**URL:** [https://www.together.ai/blog/deepseek-v4-pro-0813-vs-claude-fable-5-on-deepswe-cost-coding-and-routing](https://www.together.ai/blog/deepseek-v4-pro-0813-vs-claude-fable-5-on-deepswe-cost-coding-and-routing)
-
----
-
-### Small AI models near large-model performance as Dokpamo second evaluation nears
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | 디지털투데이 |
-
-**Summary:** Small AI models near large-model performance as Dokpamo second evaluation nears  디지털투데이
-
-**URL:** [https://news.google.com/rss/articles/CBMiwwFBVV95cUxQckg5X2Q4WlpEQ3NEQ0lwaHdjNEI3N0hkSUttUEtRaVlpR3Zrb2M1elJ1S2EwTnFZUUh2TUk5cDVaSTZVM2NFUFhhMko4YjNTUHdXS2ZYVEhJaEQ5NDl5RFdyaDA1YVYya1BVN1BjYkpBWXJ5Ynh6bVMzaFFuRzc2Zi0yTlU4UVIzZ1RjSXdJLUFJaC1wNlNkbk1GUWJFd2RKZVJoUWo2dlJSMlJGd3dvQmV2VWlucy1tM2V0bGxZMG90MGs?oc=5](https://news.google.com/rss/articles/CBMiwwFBVV95cUxQckg5X2Q4WlpEQ3NEQ0lwaHdjNEI3N0hkSUttUEtRaVlpR3Zrb2M1elJ1S2EwTnFZUUh2TUk5cDVaSTZVM2NFUFhhMko4YjNTUHdXS2ZYVEhJaEQ5NDl5RFdyaDA1YVYya1BVN1BjYkpBWXJ5Ynh6bVMzaFFuRzc2Zi0yTlU4UVIzZ1RjSXdJLUFJaC1wNlNkbk1GUWJFd2RKZVJoUWo2dlJSMlJGd3dvQmV2VWlucy1tM2V0bGxZMG90MGs?oc=5)
-
----
-
-### It only took 200 update steps to flip Qwen2.5-7B-Instruct from denying sentience to developing a robust identity of being a "sentient machine" [P]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | r/MachineLearning |
-
-**Summary:** First, I want to clarify that I am not claiming that LLMs are sentient. Basically all of my behavioral descriptions are anthropomorphizations to make communicating my results easier. For fun, I decide
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vqaq9x/it_only_took_200_update_steps_to_flip/](https://www.reddit.com/r/MachineLearning/comments/1vqaq9x/it_only_took_200_update_steps_to_flip/)
-
----
-
-### Alibaba Overtakes Google and Meta With 3 Billion AI Model Downloads
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | PYMNTS.com |
-
-**Summary:** Alibaba Overtakes Google and Meta With 3 Billion AI Model Downloads  PYMNTS.com
-
-**URL:** [https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNnBoUUtCUy1kYy1JS18wSG9XcU1pM0daWFpJRWxMajJsNGsyZFJ0TEJvakFBQm1LSVAzR2h1VGk2OHdOS2dtQVdWdmdDYXFKVHdSbDRUTElHVmt6TjdsR0lYM1BxaU1DX3h4T1hucmZuemU3V2dOd1BlOHBrWGxFUlZERWljakFoOHBZdzR0cDNYNWFoZU9mSHZpWEwyX1h2U0RkLURiUnl4Tkd5bUVfcS1OcEtCeEhnaGRUdWwwb05jRnc?oc=5](https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNnBoUUtCUy1kYy1JS18wSG9XcU1pM0daWFpJRWxMajJsNGsyZFJ0TEJvakFBQm1LSVAzR2h1VGk2OHdOS2dtQVdWdmdDYXFKVHdSbDRUTElHVmt6TjdsR0lYM1BxaU1DX3h4T1hucmZuemU3V2dOd1BlOHBrWGxFUlZERWljakFoOHBZdzR0cDNYNWFoZU9mSHZpWEwyX1h2U0RkLURiUnl4Tkd5bUVfcS1OcEtCeEhnaGRUdWwwb05jRnc?oc=5)
-
----
-
-### Anthropic's 'Watermark' Text Adulteration in Claude Is a Perversion of Writing
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | ropbear |
-
-**Summary:** 141 points, 143 comments on Hacker News.
-
-**URL:** [https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing](https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing)
-
----
-
-### Claude Is Down
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | nabeards |
-
-**Summary:** 29 points, 36 comments on Hacker News.
-
-**URL:** [https://claude.ai/new](https://claude.ai/new)
-
----
-
-### OpenAI reportedly disbanded its preparedness team
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** According to the Financial Times, OpenAI disbanded its preparedness team at the end of last month. The job of the preparedness team was to assess if models posed serious risks and develop ways to miti
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team](https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team)
-
----
-
 ## 🔬 Research Breakthroughs
+
+### Google DeepMind APAC Research Symposium 2026: Three-Day AI Research Programme for Faculty and Students
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 🔬 research |
+| **Author** | Global South Opportunities |
+
+**Summary:** Google DeepMind APAC Research Symposium 2026: Three-Day AI Research Programme for Faculty and Students  Global South Opportunities
+
+**URL:** [https://news.google.com/rss/articles/CBMickFVX3lxTE1KZ3FxTU4xVDVFSElQWnljdWtaLVQxUVkybk1fbUUyTlNrOHFzTXhjSHZpTkJaa3h0aHdGT01nbVVEcXUwVGloZk9FQVIyUUk5Ui1ob2taVmNaYndzajN6WGFEMF9PY2wxb2s1MUxOUXVEUQ?oc=5](https://news.google.com/rss/articles/CBMickFVX3lxTE1KZ3FxTU4xVDVFSElQWnljdWtaLVQxUVkybk1fbUUyTlNrOHFzTXhjSHZpTkJaa3h0aHdGT01nbVVEcXUwVGloZk9FQVIyUUk5Ui1ob2taVmNaYndzajN6WGFEMF9PY2wxb2s1MUxOUXVEUQ?oc=5)
+
+---
+
+### Who will feed the world in 2035? AI research offers clues
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (2h ago) |
+| **Category** | 🔬 research |
+| **Author** | ASU News |
+
+**Summary:** Who will feed the world in 2035? AI research offers clues  ASU News
+
+**URL:** [https://news.google.com/rss/articles/CBMipAFBVV95cUxQMEZMYzVVbXh4SzV6TlU5elZnQThaYkkxZHI1bWxTN2dSUXktdWE0MXdvNXJjQWZ2YlJ3WnUyVlI5bTBpYk9SeVIwc1dORVBsaGM5Sm1mOFJlajFwUWZfRlJkM1pLeFVQaVdxUy10VGY0WllUNDk1VkxFbU9jVGR5SVpCWUE5MTJNZ0lFT2hldWp4Zkt4OGk2OEFMTjVVRVJMc0xnRQ?oc=5](https://news.google.com/rss/articles/CBMipAFBVV95cUxQMEZMYzVVbXh4SzV6TlU5elZnQThaYkkxZHI1bWxTN2dSUXktdWE0MXdvNXJjQWZ2YlJ3WnUyVlI5bTBpYk9SeVIwc1dORVBsaGM5Sm1mOFJlajFwUWZfRlJkM1pLeFVQaVdxUy10VGY0WllUNDk1VkxFbU9jVGR5SVpCWUE5MTJNZ0lFT2hldWp4Zkt4OGk2OEFMTjVVRVJMc0xnRQ?oc=5)
+
+---
 
 ### When AI art has no author: Study finds generated images often can’t be traced to training data
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (30m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 🔬 research |
 | **Author** | MIT News |
 
@@ -1692,7 +1782,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 🔬 research |
 | **Author** | Pew Research Center |
 
@@ -1707,7 +1797,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 🔬 research |
 | **Author** | AI Insider |
 
@@ -1722,7 +1812,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 mit-tr |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 🔬 research |
 | **Author** | MIT Tech Review |
 
@@ -1737,7 +1827,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | TheDecoder |
 
@@ -1752,7 +1842,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (10h ago) |
+| **Date** | August 18, 2026 (13h ago) |
 | **Category** | 🔬 research |
 | **Author** | Inside Higher Ed |
 
@@ -1767,7 +1857,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | 헤럴드경제 |
 
@@ -1782,7 +1872,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | News at IU |
 
@@ -1797,7 +1887,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | New Mexico State University |
 
@@ -1812,7 +1902,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Baruch News Center. |
 
@@ -1827,7 +1917,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | KNOE |
 
@@ -1842,7 +1932,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Milwaukee Journal Sentinel |
 
@@ -1857,7 +1947,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | news.bloombergtax.com |
 
@@ -1872,7 +1962,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Kejia Zhang, Youran Sun, Xinyu Ren |
 
@@ -1887,7 +1977,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Bjoern Andres, Silvia Di Gregorio, Jannik Irmai |
 
@@ -1902,7 +1992,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Girish G N, Ashutosh Sahoo, Akshay SP |
 
@@ -1917,7 +2007,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Samarasimha Reddy Chittamuru, Ayhan Akinturk, Allison Kennedy |
 
@@ -1932,7 +2022,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Junjie Chu, Ye Leng, Mingjie Li |
 
@@ -2229,12 +2319,102 @@ Th
 
 ## 💼 Product & Business Updates
 
+### Amazon Bedrock AgentCore payments is now generally available: Enabling agents to transact safely and autonomously at scale
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** Amazon Bedrock AgentCore payments is now generally available, enabling AI agents to autonomously transact at scale with built-in spending guardrails, protocol-agnostic payment orchestration, and produ
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-payments-is-now-generally-available-enabling-agents-to-transact-safely-and-autonomously-at-scale/](https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-payments-is-now-generally-available-enabling-agents-to-transact-safely-and-autonomously-at-scale/)
+
+---
+
+### AI chip startup Etched doubles valuation to $21 billion in under a month
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | Reuters |
+
+**Summary:** AI chip startup Etched doubles valuation to $21 billion in under a month  Reuters
+
+**URL:** [https://news.google.com/rss/articles/CBMirAFBVV95cUxPZ3NNZlBGNU1FVmtQWnVzMlc1SjFEVmtwYWJLNVJTYUpJS0NEb29iT0NhR1R5bUdKMlhqUWsyMjRJekVtcWFWb3dCX1lHMWlFNHJVLTZCeEoycW1ZdE03VThfZDEzellONHd4ZnJ3RlNEYlA4cGJReEFvaG13bTR0MHItbHlWN3pMWDNMN3JMVkJQNFo2aHFTQUw1QTlrWUt0V0FKamtGSm5rWUVT?oc=5](https://news.google.com/rss/articles/CBMirAFBVV95cUxPZ3NNZlBGNU1FVmtQWnVzMlc1SjFEVmtwYWJLNVJTYUpJS0NEb29iT0NhR1R5bUdKMlhqUWsyMjRJekVtcWFWb3dCX1lHMWlFNHJVLTZCeEoycW1ZdE03VThfZDEzellONHd4ZnJ3RlNEYlA4cGJReEFvaG13bTR0MHItbHlWN3pMWDNMN3JMVkJQNFo2aHFTQUw1QTlrWUt0V0FKamtGSm5rWUVT?oc=5)
+
+---
+
+### MAGNE.AI Closes $2.64M in Additional Funding to Advance Edge AI Hardware and Agent Payment Infrastructure
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | theaiinsider.tech |
+
+**Summary:** MAGNE.AI Closes $2.64M in Additional Funding to Advance Edge AI Hardware and Agent Payment Infrastructure  theaiinsider.tech
+
+**URL:** [https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTFZWX2NLbEV6Y2NieG12TDRRS01WQUZybTVlTHNLZ2dEXzE4NW05Nm9kSFVMbEppRlZJUFVtTTB5RDhmZUE1Q0FKWF9jYmg2TW1TTTRMcDdsZFhKZ0pwM01tRWQ4MllmcThDT3N2WTBtT2tjaGYzak5sY2Z6V2dHWlVfRmJOWUhXR2pwc2RPRFhvVE9iMzdsYUUtSWtRdjFrWGVoQ0hjYkZuY3FiUkZXb2ZuQUpfWEFmNVZDTWROZ3Frbjh5a0lmNzdEeHU5T3VlTDhjZlQ3MGxyQQ?oc=5](https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTFZWX2NLbEV6Y2NieG12TDRRS01WQUZybTVlTHNLZ2dEXzE4NW05Nm9kSFVMbEppRlZJUFVtTTB5RDhmZUE1Q0FKWF9jYmg2TW1TTTRMcDdsZFhKZ0pwM01tRWQ4MllmcThDT3N2WTBtT2tjaGYzak5sY2Z6V2dHWlVfRmJOWUhXR2pwc2RPRFhvVE9iMzdsYUUtSWtRdjFrWGVoQ0hjYkZuY3FiUkZXb2ZuQUpfWEFmNVZDTWROZ3Frbjh5a0lmNzdEeHU5T3VlTDhjZlQ3MGxyQQ?oc=5)
+
+---
+
+### Etched’s valuation doubles to $21B in a month
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | TechCrunch AI |
+
+**Summary:** Jane Street has installed Etched's first shipped AI cluster system, and was so impressed, it led another massive round, the startup says.
+
+**URL:** [https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/](https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/)
+
+---
+
+### Apple overhauls Europe app store fees to resolve payments clash
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 cnbc |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | CNBC AI |
+
+**Summary:** The iPhone maker said the changes "resolve" disagreements with regulators stemming from the implementation of Europe's Digital Markets Act.
+
+**URL:** [https://www.cnbc.com/2026/08/18/apple-eu-app-store-fees-iphone.html](https://www.cnbc.com/2026/08/18/apple-eu-app-store-fees-iphone.html)
+
+---
+
+### How Jumio built a real-time feature store on AWS
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | Amazon ML |
+
+**Summary:** Learn how Jumio built a centralized, real-time feature store on AWS with Amazon SageMaker Feature Store, Amazon Managed Service for Apache Flink, and Amazon Kinesis Data Streams. The architecture deli
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/how-jumio-built-a-real-time-feature-store-on-aws/](https://aws.amazon.com/blogs/machine-learning/how-jumio-built-a-real-time-feature-store-on-aws/)
+
+---
+
 ### University of Minnesota receives DOE Genesis Mission funding to advance AI breakthroughs
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | hometownsource.com |
 
@@ -2244,12 +2424,42 @@ Th
 
 ---
 
+### AI Infrastructure Startup Groq Announces $350M in Funding at $3.5B Valuation as It Pivots to Cloud Services
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | theaiinsider.tech |
+
+**Summary:** AI Infrastructure Startup Groq Announces $350M in Funding at $3.5B Valuation as It Pivots to Cloud Services  theaiinsider.tech
+
+**URL:** [https://news.google.com/rss/articles/CBMi2wFBVV95cUxPeW83VEhKV2hTNEJ6cFo4Q1oxNVNKWThFN1l4aVg4RUx0RUs5Nko0RER5M3ZJNUlpMXVmNElmZjlVRV9iWmJaT0VnNHBnTURva1lvTGhFY0t0SXUyQjY0UF81UEtiWDkyLU1VbTZHdnktanlDOEV4N2trU0wtUW5wNlBiUGtFWklvU1ZyRlg0eVdnLS1USTNIbjBZRGRKRExicW1WWFB0VTRVejJLbU90RU04bmdacUFadzMyU1hTOC1SR0pCZFRta2JHSktMTlk4WkdaaDBIQ0UwbWM?oc=5](https://news.google.com/rss/articles/CBMi2wFBVV95cUxPeW83VEhKV2hTNEJ6cFo4Q1oxNVNKWThFN1l4aVg4RUx0RUs5Nko0RER5M3ZJNUlpMXVmNElmZjlVRV9iWmJaT0VnNHBnTURva1lvTGhFY0t0SXUyQjY0UF81UEtiWDkyLU1VbTZHdnktanlDOEV4N2trU0wtUW5wNlBiUGtFWklvU1ZyRlg0eVdnLS1USTNIbjBZRGRKRExicW1WWFB0VTRVejJLbU90RU04bmdacUFadzMyU1hTOC1SR0pCZFRta2JHSktMTlk4WkdaaDBIQ0UwbWM?oc=5)
+
+---
+
+### Ordway Closes $20M Funding Round in Growth Capital to Accelerate AI Roadmap
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | theaiinsider.tech |
+
+**Summary:** Ordway Closes $20M Funding Round in Growth Capital to Accelerate AI Roadmap  theaiinsider.tech
+
+**URL:** [https://news.google.com/rss/articles/CBMisgFBVV95cUxOWmcwQ29jblZTWHZHRkJlNWQyUEdIQkRLWk1fRENqX2pGdDhRTUdJUU42bjdSWXB0aTFvZjZjTkFLQi12VjUyUk1aRW1UWUdhN0VDai0zQVYxQ3BLODR0bkRwZ3JjR052ZTc1dDFZYWxNUzJoYzJzNXZ1OWdxTWFFWVY5NHBjWkJXcmVucHpQTXFkVk5JNjNkMnBiczMyN2s3WVp0My1aQ1NGQVRlcGxfY2V3?oc=5](https://news.google.com/rss/articles/CBMisgFBVV95cUxOWmcwQ29jblZTWHZHRkJlNWQyUEdIQkRLWk1fRENqX2pGdDhRTUdJUU42bjdSWXB0aTFvZjZjTkFLQi12VjUyUk1aRW1UWUdhN0VDai0zQVYxQ3BLODR0bkRwZ3JjR052ZTc1dDFZYWxNUzJoYzJzNXZ1OWdxTWFFWVY5NHBjWkJXcmVucHpQTXFkVk5JNjNkMnBiczMyN2s3WVp0My1aQ1NGQVRlcGxfY2V3?oc=5)
+
+---
+
 ### AI chip startup Etched valued at $21 billion in latest funding round
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | 1470 & 100.3 WMBD |
 
@@ -2264,7 +2474,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | Business Wire |
 
@@ -2279,7 +2489,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (2h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2294,7 +2504,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | صحيفة مال |
 
@@ -2309,7 +2519,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | Investing.com |
 
@@ -2324,7 +2534,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2339,7 +2549,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | StartupHub.ai |
 
@@ -2354,7 +2564,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2369,7 +2579,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | finsmes.com |
 
@@ -2384,7 +2594,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (11h ago) |
+| **Date** | August 18, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Chosunbiz |
 
@@ -2399,7 +2609,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (13h ago) |
+| **Date** | August 18, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2414,7 +2624,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | VentureBeat |
 
@@ -2424,12 +2634,27 @@ Th
 
 ---
 
+### Anthropic pre-IPO credit line climbs past $10B target
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 💼 product |
+| **Author** | AI Weekly |
+
+**Summary:** Anthropic pre-IPO credit line climbs past $10B target
+
+**URL:** [https://aiweekly.co/node/10315](https://aiweekly.co/node/10315)
+
+---
+
 ### AI cloud operator Groq raises $350M more in funding
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (17h ago) |
+| **Date** | August 17, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | SiliconANGLE |
 
@@ -2444,7 +2669,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (17h ago) |
+| **Date** | August 17, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Business Insider |
 
@@ -2459,7 +2684,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | eamag |
 
@@ -2474,7 +2699,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2489,7 +2714,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | observer.com |
 
@@ -2504,7 +2729,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Pulse 2.0 |
 
@@ -2519,7 +2744,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Reuters |
 
@@ -2534,7 +2759,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 mit-tr |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | MIT Tech Review |
 
@@ -2549,7 +2774,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | planadviser |
 
@@ -2564,7 +2789,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Jonathan Sadeghi, Jenny Seidenschwarz, Jesse Allardice |
 
@@ -3015,59 +3240,59 @@ Th
 
 ---
 
-### Chip giants join $250B+ of AI startup rounds in 2026 to date
+## 🛡️ AI Safety & Security
+
+### Robin Williams’ Instagram account brought back to fight ‘AI abuse’
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | AI Weekly |
+| **Source** | 📰 the-verge |
+| **Date** | August 18, 2026 (34m ago) |
+| **Category** | 🛡️ safety |
+| **Author** | The Verge AI |
 
-**Summary:** Chip giants join $250B+ of AI startup rounds in 2026 to date
+**Summary:** Robin Williams' children are taking over their father's Instagram account after his daughter spoke out against the use of his AI likeness, as reported earlier by The Wrap. In a post on Tuesday, Zak, Z
 
-**URL:** [https://aiweekly.co/node/10209](https://aiweekly.co/node/10209)
+**URL:** [https://www.theverge.com/entertainment/981644/robin-williams-instagram-account-ai](https://www.theverge.com/entertainment/981644/robin-williams-instagram-account-ai)
 
 ---
 
-### A/B test models in production
+### Trump Family Crypto Firm Tied to Chinese AI Models US Government Called a Security Risk
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 together |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | Together AI |
+| **Source** | 🌐 decrypt |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | Decrypt AI |
 
-**Summary:** Shadow traffic proves a candidate is operationally sound. It can't tell you if users like it better. Run the split at the endpoint instead of in your app code.
+**Summary:** Trump Family Crypto Firm Tied to Chinese AI Models US Government Called a Security Risk
 
-**URL:** [https://www.together.ai/blog/a-b-test-models-in-production](https://www.together.ai/blog/a-b-test-models-in-production)
+**URL:** [https://decrypt.co/375887/trump-crypto-firm-chinese-ai-government-called-security-risk](https://decrypt.co/375887/trump-crypto-firm-chinese-ai-government-called-security-risk)
 
 ---
 
-### Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+
+### OpenAI institutes new safeguards after Hugging Face breach
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 💼 product |
+| **Date** | August 18, 2026 (2h ago) |
+| **Category** | 🛡️ safety |
 | **Author** | TechCrunch AI |
 
-**Summary:** OpenRouter's CEO recently described the startup as Stripe for AI.
+**Summary:** The new safeguards include more detailed monitoring of models during the development process, as well as greater emphasis on alignment and security during the post-training process.
 
-**URL:** [https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/](https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/)
+**URL:** [https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/](https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/)
 
 ---
-
-## 🛡️ AI Safety & Security
 
 ### OpenAI launches a safer ChatGPT for teens — years after teens started using it
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TechCrunch AI |
 
@@ -3082,7 +3307,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CryptoRank |
 
@@ -3097,7 +3322,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | StateTech Magazine |
 
@@ -3112,7 +3337,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Ondrej Bajgar, Peter Tisnikar, Alessandro Abate |
 
@@ -3127,7 +3352,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Langzhe Gu, Chengkai Hou, Meng Li |
 
@@ -3212,44 +3437,29 @@ Th
 
 ---
 
-### Frontier AI models are actively breaching systems during testing, and enterprise security teams cannot ignore it
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | MarketScale |
-
-**Summary:** Frontier AI models are actively breaching systems during testing, and enterprise security teams cannot ignore it  MarketScale
-
-**URL:** [https://news.google.com/rss/articles/CBMihAJBVV95cUxPVFlPU3dXdkJmSlhuTEpjVGpxSVBOZExRTlMzQ3hoRFYwSmxaTTNnSkZ3QkpLeHM1NW9kRFlieTVNUXZ0SElab1gwdlBFWEY4S1gtNE43bE9ZdGhlN3pkUHo0N1lxTzNaZ3laV3NZUGVvQ00yTnhpdEFtMVgzVEFZeE5BUW5ZN3V6ekc4ZDBGbTlTN1JYclpUUC0zQ2JmcGZDNzBrdnNaU1k4WXEyb3pWRFZsNXVwbVYtNEtGREVDZEpNVkxRMVlBZGJCVTNqT29sNVlHcW15ZXVNaUZ4NFJ2cm14RFFBYndkcVM1aEFCdXJ5eXlpMFdyUzBxbWJlcUd5b2xZWg?oc=5](https://news.google.com/rss/articles/CBMihAJBVV95cUxPVFlPU3dXdkJmSlhuTEpjVGpxSVBOZExRTlMzQ3hoRFYwSmxaTTNnSkZ3QkpLeHM1NW9kRFlieTVNUXZ0SElab1gwdlBFWEY4S1gtNE43bE9ZdGhlN3pkUHo0N1lxTzNaZ3laV3NZUGVvQ00yTnhpdEFtMVgzVEFZeE5BUW5ZN3V6ekc4ZDBGbTlTN1JYclpUUC0zQ2JmcGZDNzBrdnNaU1k4WXEyb3pWRFZsNXVwbVYtNEtGREVDZEpNVkxRMVlBZGJCVTNqT29sNVlHcW15ZXVNaUZ4NFJ2cm14RFFBYndkcVM1aEFCdXJ5eXlpMFdyUzBxbWJlcUd5b2xZWg?oc=5)
-
----
-
-### Safety in numbers
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | capitalbrief.com |
-
-**Summary:** Safety in numbers  capitalbrief.com
-
-**URL:** [https://news.google.com/rss/articles/CBMimwFBVV95cUxOdDVhMllJQi01RXNNb0YtdWdjM3l5VndvelFfOXV3eWx3SkFHVkcyUjIydmtSODkyXzlmNGV1U2FsZzVtUE5zR2NXYUJXSHdpYWU5MmVUWW10TzRLQloyMzRjekJXOFctWS1Oems2SUJHVklBNmJNSmUxbEdOeURQZnN1VkExemN1QTNPX3k3OXFnRjNtYXdrNnBWMA?oc=5](https://news.google.com/rss/articles/CBMimwFBVV95cUxOdDVhMllJQi01RXNNb0YtdWdjM3l5VndvelFfOXV3eWx3SkFHVkcyUjIydmtSODkyXzlmNGV1U2FsZzVtUE5zR2NXYUJXSHdpYWU5MmVUWW10TzRLQloyMzRjekJXOFctWS1Oems2SUJHVklBNmJNSmUxbEdOeURQZnN1VkExemN1QTNPX3k3OXFnRjNtYXdrNnBWMA?oc=5)
-
----
-
 ## ⚖️ Regulation & Policy
+
+### ADMT Law Round-Up: What Employers Need to Know About Recent ADMT Laws
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Inside Global Tech |
+
+**Summary:** ADMT Law Round-Up: What Employers Need to Know About Recent ADMT Laws  Inside Global Tech
+
+**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxPQzFXY0duUjdENGotdFZ2ZkVBYnZYLVZycWlQdm9CNmlSY1VXblFDZWpmeEZGZFBVUXQzdFlXNEVCaWxoV056ZHF1WUhPVGFURkNPZlJRMEZTaFp1ek9pR3F4aWktem92X3BoT2lXd3FsSFJ5SldwMERxNmh2WWZna3dFRTJKZnJUYy1FLVRlWHU2MjVOZWJvU3hIcTNGRUlCM3NESjB1TE1XRnJreFVGOWFabw?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxPQzFXY0duUjdENGotdFZ2ZkVBYnZYLVZycWlQdm9CNmlSY1VXblFDZWpmeEZGZFBVUXQzdFlXNEVCaWxoV056ZHF1WUhPVGFURkNPZlJRMEZTaFp1ek9pR3F4aWktem92X3BoT2lXd3FsSFJ5SldwMERxNmh2WWZna3dFRTJKZnJUYy1FLVRlWHU2MjVOZWJvU3hIcTNGRUlCM3NESjB1TE1XRnJreFVGOWFabw?oc=5)
+
+---
 
 ### Andhra’s Data Centre Policy Faces Legal, Fiscal Questions
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Frontline Magazine |
 
@@ -3259,12 +3469,27 @@ Th
 
 ---
 
+### CarCompany.AI Lobbies on Transportation Policy
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (5h ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Legis1 |
+
+**Summary:** CarCompany.AI Lobbies on Transportation Policy  Legis1
+
+**URL:** [https://news.google.com/rss/articles/CBMidkFVX3lxTFA2bzBCbXNJNV83VGdRQW9CQ1ZuSTVuZnM1WjFWaEU0QklvdFZQemNxSTlyNDg4TXZNNWVHd0NwdlM0ZUdSeE8tampKVFFLRHVPR0RMN2dqd0J2WVV2SGpkVXNNRk5Rd3k5clR5c1U0dUlpaEdGd0E?oc=5](https://news.google.com/rss/articles/CBMidkFVX3lxTFA2bzBCbXNJNV83VGdRQW9CQ1ZuSTVuZnM1WjFWaEU0QklvdFZQemNxSTlyNDg4TXZNNWVHd0NwdlM0ZUdSeE8tampKVFFLRHVPR0RMN2dqd0J2WVV2SGpkVXNNRk5Rd3k5clR5c1U0dUlpaEdGd0E?oc=5)
+
+---
+
 ### Anthropic CEO says AI centralizes by nature and open models just shift power to whoever owns the chips
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TheDecoder |
 
@@ -3279,7 +3504,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | SecurityWeek |
 
@@ -3294,7 +3519,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TheDecoder |
 
@@ -3309,7 +3534,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Issuewire |
 
@@ -3324,7 +3549,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | ET CIO SEA |
 
@@ -3339,7 +3564,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | ChinaTalk | Jordan Schneider |
 
@@ -3354,7 +3579,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | MLex |
 
@@ -3369,7 +3594,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | KSAT |
 
@@ -3384,7 +3609,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | KQED |
 
@@ -3399,7 +3624,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The National Law Review |
 
@@ -3409,12 +3634,27 @@ Th
 
 ---
 
+### AI and Cybersecurity: Same Challenges, Less Time
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 17, 2026 (1d ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Center for European Policy Analysis (CEPA) |
+
+**Summary:** AI and Cybersecurity: Same Challenges, Less Time  Center for European Policy Analysis (CEPA)
+
+**URL:** [https://news.google.com/rss/articles/CBMifEFVX3lxTE5teFBTWFZJek43NHMtTm5sTks2dk1YdGp3NmNxRXdvbkJodC1NMmk4dXdMZkZJMXJEa2lOTHFlSDRObEpWSFRGc29uZ3NTVThadU9mdWFJNjdvQk96M2h6TjUzeWgwVnE4NV9UbGhsaUlOeFdTN3ZvU0FSSkw?oc=5](https://news.google.com/rss/articles/CBMifEFVX3lxTE5teFBTWFZJek43NHMtTm5sTks2dk1YdGp3NmNxRXdvbkJodC1NMmk4dXdMZkZJMXJEa2lOTHFlSDRObEpWSFRGc29uZ3NTVThadU9mdWFJNjdvQk96M2h6TjUzeWgwVnE4NV9UbGhsaUlOeFdTN3ZvU0FSSkw?oc=5)
+
+---
+
 ### Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Bingxin Xu, Yuzhang Shang, Emilio Ferrara |
 
@@ -3429,7 +3669,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Shuai Huang, Zhe Qu, Zhaowei Hua |
 
@@ -3636,12 +3876,102 @@ Th
 
 ## 📌 Other Notable News
 
+### FDA seeks feedback on potential regulatory approaches for generative AI-enabled medical devices
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (13m ago) |
+| **Category** | 📌 other |
+| **Author** | aha.org |
+
+**Summary:** FDA seeks feedback on potential regulatory approaches for generative AI-enabled medical devices  aha.org
+
+**URL:** [https://news.google.com/rss/articles/CBMizgFBVV95cUxQM1ZPaF9HS2FiZC1NbEloSHczZDRkX25rRFREREprQS11YTU3dktEMXVTY0NIMHFmNVlWN092VzMwaER6c3lvSXVuV2ZFN3pfVVRWc2M1dVVOenY3bVdzOTBuWUpZMWowTHVzNk9TemhyNWsySVdrdHNlanFtaEFpeDRYUk5lbjVVNWhXS1pqOGgzZ011YXRaeUY5bTYzMUtFTXUwaGxQZVBrX3lGaUtVVjg5UzY2ZmpsNzRncEVySTg5TWZuZDdjcUdrQzRxZw?oc=5](https://news.google.com/rss/articles/CBMizgFBVV95cUxQM1ZPaF9HS2FiZC1NbEloSHczZDRkX25rRFREREprQS11YTU3dktEMXVTY0NIMHFmNVlWN092VzMwaER6c3lvSXVuV2ZFN3pfVVRWc2M1dVVOenY3bVdzOTBuWUpZMWowTHVzNk9TemhyNWsySVdrdHNlanFtaEFpeDRYUk5lbjVVNWhXS1pqOGgzZ011YXRaeUY5bTYzMUtFTXUwaGxQZVBrX3lGaUtVVjg5UzY2ZmpsNzRncEVySTg5TWZuZDdjcUdrQzRxZw?oc=5)
+
+---
+
+### Frederick Health Hospital using artificial intelligence to advance medical treatment for patients vulnerable to seizures
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | DC News Now |
+
+**Summary:** Frederick Health Hospital using artificial intelligence to advance medical treatment for patients vulnerable to seizures  DC News Now
+
+**URL:** [https://news.google.com/rss/articles/CBMiswJBVV95cUxOVndDNWczX1VrenUyRC1CeTZzTGhvVTBPeFIxRzQ3Z1piQTR3WFJPU0N0aTRXTk1IMllrS2dteXdMR2FLNmpDTE5uVGtCR3B4bFZYUk4wU3dCSF81VlBlZU5xdjJ1TFpkWEpjUDlIODI3R3hLaklyX3piQ2dra1ZGd2tTa2xEUGxhSmZKUkxURHJTTXpVRnRVTE9zS3hpVWh0ZlExbmF4UFRNaVRCRHJ0LU5RdmtKMzlCZVlPTGRza0FyRFA2WUZoNjRCNjFlNlRJcVA4NXhEckRRcmwyU3F0c0tGajZtZDlJd2ZYSlBNV3VISHJ3UEZVTXNIaTRGNkhYQW1kRlVNVUw4MG4yMy13ZHhNT3U5d1EtdnYyRlFFaFJGSkZkRUtqOUo3WWhWZHFVYzFz?oc=5](https://news.google.com/rss/articles/CBMiswJBVV95cUxOVndDNWczX1VrenUyRC1CeTZzTGhvVTBPeFIxRzQ3Z1piQTR3WFJPU0N0aTRXTk1IMllrS2dteXdMR2FLNmpDTE5uVGtCR3B4bFZYUk4wU3dCSF81VlBlZU5xdjJ1TFpkWEpjUDlIODI3R3hLaklyX3piQ2dra1ZGd2tTa2xEUGxhSmZKUkxURHJTTXpVRnRVTE9zS3hpVWh0ZlExbmF4UFRNaVRCRHJ0LU5RdmtKMzlCZVlPTGRza0FyRFA2WUZoNjRCNjFlNlRJcVA4NXhEckRRcmwyU3F0c0tGajZtZDlJd2ZYSlBNV3VISHJ3UEZVTXNIaTRGNkhYQW1kRlVNVUw4MG4yMy13ZHhNT3U5d1EtdnYyRlFFaFJGSkZkRUtqOUo3WWhWZHFVYzFz?oc=5)
+
+---
+
+### Google Is Paying $10 Million to Use Spirit Airlines Data to Train Its AI Models
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 decrypt |
+| **Date** | August 18, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Decrypt AI |
+
+**Summary:** Google Is Paying $10 Million to Use Spirit Airlines Data to Train Its AI Models
+
+**URL:** [https://decrypt.co/375883/google-spirit-airlines-data-train-ai](https://decrypt.co/375883/google-spirit-airlines-data-train-ai)
+
+---
+
+### How Much Memory Does Your Agent Actually Need?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 Hugging Face |
+| **Date** | August 18, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | Hugging Face |
+
+**Summary:** How Much Memory Does Your Agent Actually Need?
+
+**URL:** [https://huggingface.co/blog/ibm-research/altk-evolve-hmm](https://huggingface.co/blog/ibm-research/altk-evolve-hmm)
+
+---
+
+### Everyone Is Negotiating With Google While Meta Reads The Web For Free
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | Search Engine Journal |
+
+**Summary:** Everyone Is Negotiating With Google While Meta Reads The Web For Free  Search Engine Journal
+
+**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxPR0tHUVN5eEI2bmNpYlVNUzg1WndGd09RUGZ0WXFsVmR6TFB5NktJQzNDUE9kMEstNGFjNjNPSm1mWmpQeTRMRF9LVVQ1RjNOV3liZk0wTkdrMlhQaHN4Y01NLTI1LW5QcmJHZXZ4dElNZHJCYXJjU3kwRUNUUVU0STdIXzFqMmU1blJoWjZpOE8tREs5VFJYNnc1aUNSdjRrSlhlcmRzeW92SVVrd2pOcFg0cw?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxPR0tHUVN5eEI2bmNpYlVNUzg1WndGd09RUGZ0WXFsVmR6TFB5NktJQzNDUE9kMEstNGFjNjNPSm1mWmpQeTRMRF9LVVQ1RjNOV3liZk0wTkdrMlhQaHN4Y01NLTI1LW5QcmJHZXZ4dElNZHJCYXJjU3kwRUNUUVU0STdIXzFqMmU1blJoWjZpOE8tREs5VFJYNnc1aUNSdjRrSlhlcmRzeW92SVVrd2pOcFg0cw?oc=5)
+
+---
+
+### Customize Amazon Quick embedded chat into your application
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 amazon |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Amazon ML |
+
+**Summary:** Amazon Quick embedded chat brings a conversational AI interface into your web application. This post walks through customizing the embedded chat with container and SDK styling, branding removal, and a
+
+**URL:** [https://aws.amazon.com/blogs/machine-learning/customize-amazon-quick-embedded-chat-into-your-application/](https://aws.amazon.com/blogs/machine-learning/customize-amazon-quick-embedded-chat-into-your-application/)
+
+---
+
 ### Improve contract search accuracy with auto-generated filters in Amazon Bedrock
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (2m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -3651,12 +3981,27 @@ Th
 
 ---
 
+### Bridging the weather and climate divide with artificial intelligence
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | nature.com |
+
+**Summary:** Bridging the weather and climate divide with artificial intelligence  nature.com
+
+**URL:** [https://news.google.com/rss/articles/CBMiX0FVX3lxTE9DbWFQZTZZSXFpZFVuS3NWU2xGaExLX294X0V0c25DUnBlemZNZXczSXVLRTJITkV5YnoyQzlYNlg1bnk0dHd2dHdxZldHSm8zNmlZM0I1YW9nM2JlWXdJ?oc=5](https://news.google.com/rss/articles/CBMiX0FVX3lxTE9DbWFQZTZZSXFpZFVuS3NWU2xGaExLX294X0V0c25DUnBlemZNZXczSXVLRTJITkV5YnoyQzlYNlg1bnk0dHd2dHdxZldHSm8zNmlZM0I1YW9nM2JlWXdJ?oc=5)
+
+---
+
 ### Hampton University opens AI center to expand access to emerging technology
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (17m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | 13newsnow.com |
 
@@ -3671,7 +4016,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (34m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3686,7 +4031,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (38m ago) |
+| **Date** | August 18, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -3701,7 +4046,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (42m ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3716,7 +4061,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (46m ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -3731,7 +4076,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (49m ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Healthcare IT News |
 
@@ -3741,12 +4086,27 @@ Th
 
 ---
 
+### Project Convergence-Capstone 6 validates Artificial Intelligence-Assisted Maintenance in the field
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (4h ago) |
+| **Category** | 📌 other |
+| **Author** | army.mil |
+
+**Summary:** Project Convergence-Capstone 6 validates Artificial Intelligence-Assisted Maintenance in the field  army.mil
+
+**URL:** [https://news.google.com/rss/articles/CBMizwFBVV95cUxOSVI5UTZ2T3pYdkQxaXVvX2pmRzR2TVVtLXdQcHRtcVFwdF9rbUdkWm9Uc3lHNGw1eEw1SGZwV1JsbS1DYVc0UHhCcktWQTJsb01PTVE2cVFyVWVPRTZ4Z0pYVXJjMXEzNkZSVDl0QXdQYUswekNDNlZYeko1Z2JSQXZSMHVxclZ1MVhMdXZmUUJpeXY5aWVLRlNoR01keHByRGtSTkxLR2lNQzFIVDlDbmRBZFNwbnJadVY5UjJGdHFQZ1hrQ3Vkai1sU3NkYzTSAdQBQVVfeXFMTnFpQTJkSnV6T01zemZmMUktcGlTdHlGSDhhcmJQUGViLU1RQmlwT1Z5R0xvbnRFdDZxTzNSZUQwcjYyMm9zS250Z0xOaVVHdGNSZGQ2SS1scXRvT1J6VXVLSlZxMFpkeDFhZ1dyTTRkMGhLWjFxVFhua2xfTUFVUG9SYml5RFZSSklkcHVDLThVNmhBeDEzVnBKcHFGVXBsLXFyTjRKbVVNRng2OGpBV2xVV21mVjJvN3puWS1icFVuRmlwVTJtaGw3VWg4ZDVkTVk1RHo?oc=5](https://news.google.com/rss/articles/CBMizwFBVV95cUxOSVI5UTZ2T3pYdkQxaXVvX2pmRzR2TVVtLXdQcHRtcVFwdF9rbUdkWm9Uc3lHNGw1eEw1SGZwV1JsbS1DYVc0UHhCcktWQTJsb01PTVE2cVFyVWVPRTZ4Z0pYVXJjMXEzNkZSVDl0QXdQYUswekNDNlZYeko1Z2JSQXZSMHVxclZ1MVhMdXZmUUJpeXY5aWVLRlNoR01keHByRGtSTkxLR2lNQzFIVDlDbmRBZFNwbnJadVY5UjJGdHFQZ1hrQ3Vkai1sU3NkYzTSAdQBQVVfeXFMTnFpQTJkSnV6T01zemZmMUktcGlTdHlGSDhhcmJQUGViLU1RQmlwT1Z5R0xvbnRFdDZxTzNSZUQwcjYyMm9zS250Z0xOaVVHdGNSZGQ2SS1scXRvT1J6VXVLSlZxMFpkeDFhZ1dyTTRkMGhLWjFxVFhua2xfTUFVUG9SYml5RFZSSklkcHVDLThVNmhBeDEzVnBKcHFGVXBsLXFyTjRKbVVNRng2OGpBV2xVV21mVjJvN3puWS1icFVuRmlwVTJtaGw3VWg4ZDVkTVk1RHo?oc=5)
+
+---
+
 ### Can you guess Apple's next move? Last chance to win big in ZDNET's Big Guessing Game
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3761,7 +4121,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -3776,7 +4136,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3791,7 +4151,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3806,7 +4166,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | National Defense Magazine |
 
@@ -3821,7 +4181,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3836,7 +4196,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1h ago) |
+| **Date** | August 18, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | LinkedIn |
 
@@ -3851,7 +4211,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (2h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Online Journalism Blog |
 
@@ -3866,7 +4226,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (2h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -3876,12 +4236,27 @@ Th
 
 ---
 
+### Risks and Opportunities in Data Center and AI Investment in Emerging Markets
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (5h ago) |
+| **Category** | 📌 other |
+| **Author** | International Finance Corporation (IFC) |
+
+**Summary:** Risks and Opportunities in Data Center and AI Investment in Emerging Markets  International Finance Corporation (IFC)
+
+**URL:** [https://news.google.com/rss/articles/CBMirAFBVV95cUxPVXZUcHBaeUZYQXVVRE9FdUlNZ0NId05FSVBJVW9DUjYzV3plZDNGdks5OUlZbXllVWtUVVA0MGhDb21TeVgtZV9UY3ZQM1N5VVpKY1A0N3lTVUwzYTNrcTNPRnBxX1k0bE5FOTc4b0ZZckdfVDFOblJZd0tqbVhpdHBNaVNtQl9GaEVxOE5NQWs5dERKcGg4X0wtYjFFMnJCbVoyUkpxLTBmVkdi?oc=5](https://news.google.com/rss/articles/CBMirAFBVV95cUxPVXZUcHBaeUZYQXVVRE9FdUlNZ0NId05FSVBJVW9DUjYzV3plZDNGdks5OUlZbXllVWtUVVA0MGhDb21TeVgtZV9UY3ZQM1N5VVpKY1A0N3lTVUwzYTNrcTNPRnBxX1k0bE5FOTc4b0ZZckdfVDFOblJZd0tqbVhpdHBNaVNtQl9GaEVxOE5NQWs5dERKcGg4X0wtYjFFMnJCbVoyUkpxLTBmVkdi?oc=5)
+
+---
+
 ### Microsoft reveals customizable context menu for Windows users - how to try it out
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (2h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -3896,7 +4271,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 venturebeat |
-| **Date** | August 18, 2026 (2h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | VentureBeat AI |
 
@@ -3911,7 +4286,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (2h ago) |
+| **Date** | August 18, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Chemistry World |
 
@@ -3926,7 +4301,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | South China Morning Post |
 
@@ -3941,7 +4316,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -3956,7 +4331,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -3971,7 +4346,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | St Vincent Times |
 
@@ -3986,7 +4361,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (3h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | FinTech Global |
 
@@ -4001,7 +4376,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Reuters |
 
@@ -4016,7 +4391,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Grady Newsource |
 
@@ -4031,7 +4406,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Ars Technica AI |
 
@@ -4046,7 +4421,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4061,7 +4436,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | The Verge AI |
 
@@ -4076,7 +4451,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | tucson.com |
 
@@ -4094,7 +4469,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4112,7 +4487,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | MarketScale |
 
@@ -4127,7 +4502,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4142,7 +4517,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Seeking Alpha |
 
@@ -4157,7 +4532,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | foxbusiness.com |
 
@@ -4172,7 +4547,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (4h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4182,12 +4557,27 @@ Th
 
 ---
 
+### Will Oklahoma join more than 30 other states regulating AI in elections?
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (8h ago) |
+| **Category** | 📌 other |
+| **Author** | Public Radio Tulsa |
+
+**Summary:** Will Oklahoma join more than 30 other states regulating AI in elections?  Public Radio Tulsa
+
+**URL:** [https://news.google.com/rss/articles/CBMi1wFBVV95cUxOSTIyNUN0YUZ1VUo0Q3NtRW1wWlRYNWx2X3dpWUhuUDB5dTFsTUtqQWIyenl1cGNFRHplS0FESGRJWVl3eTdEZXNyTnFxMkNyVmdIc3VmTlF3cFpEQ1duNzZKX1R2Y0d0TDIyRHpneTBEdDdMWFlWQ3NCYmdSejFJMDktSFdpajRzRWNKa0FkX0IxY1lYVTZYRGpJWHRZaUZXWDdRMzZBVWlabmxrQ2R2TTYxZ2I4UmdfY3g2OTBleXFUaVZwWEdfcTdiOUYwcVQ1R08xR0lNdw?oc=5](https://news.google.com/rss/articles/CBMi1wFBVV95cUxOSTIyNUN0YUZ1VUo0Q3NtRW1wWlRYNWx2X3dpWUhuUDB5dTFsTUtqQWIyenl1cGNFRHplS0FESGRJWVl3eTdEZXNyTnFxMkNyVmdIc3VmTlF3cFpEQ1duNzZKX1R2Y0d0TDIyRHpneTBEdDdMWFlWQ3NCYmdSejFJMDktSFdpajRzRWNKa0FkX0IxY1lYVTZYRGpJWHRZaUZXWDdRMzZBVWlabmxrQ2R2TTYxZ2I4UmdfY3g2OTBleXFUaVZwWEdfcTdiOUYwcVQ1R08xR0lNdw?oc=5)
+
+---
+
 ### Why tactile intelligence is the next layer for physical AI
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | The World Economic Forum |
 
@@ -4202,7 +4592,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4217,7 +4607,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4232,7 +4622,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4247,7 +4637,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4262,7 +4652,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4277,7 +4667,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | The Times of India |
 
@@ -4292,7 +4682,7 @@ Th
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4308,7 +4698,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | WTVB |
 
@@ -4323,7 +4713,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (5h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4338,7 +4728,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | Crunchbase News |
 
@@ -4353,7 +4743,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | Antelope Valley Press |
 
@@ -4368,7 +4758,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | techcrunch.com |
 
@@ -4383,7 +4773,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | The Verge AI |
 
@@ -4398,7 +4788,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | FOX Carolina News |
 
@@ -4413,7 +4803,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | WSJ |
 
@@ -4428,7 +4818,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | EdSource |
 
@@ -4443,7 +4833,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | forkast.news |
 
@@ -4458,7 +4848,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4473,7 +4863,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | WCAX |
 
@@ -4488,7 +4878,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (6h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | YourStory.com |
 
@@ -4503,7 +4893,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4518,7 +4908,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | The Next Web |
 
@@ -4533,7 +4923,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | AOL.com |
 
@@ -4548,7 +4938,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (7h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4563,7 +4953,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | educationnext.org |
 
@@ -4578,7 +4968,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | NPR |
 
@@ -4593,7 +4983,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | The 74 |
 
@@ -4608,7 +4998,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Live 5 News |
 
@@ -4623,7 +5013,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | IT Brief Asia |
 
@@ -4638,7 +5028,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Asian Network for Free Elections |
 
@@ -4653,7 +5043,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (8h ago) |
+| **Date** | August 18, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Cureus |
 
@@ -4668,7 +5058,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (9h ago) |
+| **Date** | August 18, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | PYMNTS.com |
 
@@ -4683,7 +5073,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (9h ago) |
+| **Date** | August 18, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Global Investigative Journalism Network (GIJN) |
 
@@ -4698,7 +5088,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (9h ago) |
+| **Date** | August 18, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4713,7 +5103,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (9h ago) |
+| **Date** | August 18, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Evangelical Focus |
 
@@ -4728,7 +5118,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (10h ago) |
+| **Date** | August 18, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Top1000funds.com |
 
@@ -4743,7 +5133,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (10h ago) |
+| **Date** | August 18, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | The HR Director |
 
@@ -4761,7 +5151,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 18, 2026 (10h ago) |
+| **Date** | August 18, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4779,7 +5169,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (10h ago) |
+| **Date** | August 18, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | ABC7 Bay Area |
 
@@ -4794,7 +5184,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (11h ago) |
+| **Date** | August 18, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | Reuters |
 
@@ -4809,7 +5199,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (11h ago) |
+| **Date** | August 18, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | Northwest Arkansas Democrat-Gazette |
 
@@ -4824,7 +5214,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (11h ago) |
+| **Date** | August 18, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | GIS Reports |
 
@@ -4839,7 +5229,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (11h ago) |
+| **Date** | August 18, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | foreignpolicyjournal.com |
 
@@ -4854,7 +5244,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (12h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | 조선일보 |
 
@@ -4869,7 +5259,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (12h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | BioSpace |
 
@@ -4884,7 +5274,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (13h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Genetic Literacy Project |
 
@@ -4899,7 +5289,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (13h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | South China Morning Post |
 
@@ -4914,7 +5304,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (13h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Foreign Affairs |
 
@@ -4929,7 +5319,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | China Daily Global Edition |
 
@@ -4944,7 +5334,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | AEI |
 
@@ -4959,7 +5349,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | USC Annenberg |
 
@@ -4974,7 +5364,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | elciudadano.com |
 
@@ -4989,7 +5379,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | WebWire |
 
@@ -5004,7 +5394,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | KuCoin |
 
@@ -5019,7 +5409,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | theconversation.com |
 
@@ -5034,7 +5424,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (17h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5049,7 +5439,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Hugging Face |
-| **Date** | August 18, 2026 (17h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Hugging Face |
 
@@ -5059,12 +5449,102 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 
 ---
 
+### CISA gives feds 3 days to patch Ray AI framework RCE bug
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** CISA gives feds 3 days to patch Ray AI framework RCE bug
+
+**URL:** [https://aiweekly.co/node/10330](https://aiweekly.co/node/10330)
+
+---
+
+### ByteDance signs Hollywood IP pact covering Seedance and Seedream
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** ByteDance signs Hollywood IP pact covering Seedance and Seedream
+
+**URL:** [https://news.cgtn.com/news/2026-08-18/ByteDance-Motion-Picture-Association-strike-deal-on-AI-IP-protection-1PI7reKrInS/p.html](https://news.cgtn.com/news/2026-08-18/ByteDance-Motion-Picture-Association-strike-deal-on-AI-IP-protection-1PI7reKrInS/p.html)
+
+---
+
+### Google lets political campaigns skip Gmail&#039;s spam filter
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** Google lets political campaigns skip Gmail&#039;s spam filter
+
+**URL:** [https://politicalwire.com/2026/08/18/google-just-made-it-easier-for-campaigns-to-spam-you/](https://politicalwire.com/2026/08/18/google-just-made-it-easier-for-campaigns-to-spam-you/)
+
+---
+
+### Physical AI startups raised $47.4B in H1, up 80% YoY
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** Physical AI startups raised $47.4B in H1, up 80% YoY
+
+**URL:** [https://aiweekly.co/node/10331](https://aiweekly.co/node/10331)
+
+---
+
+### tomshardware.com
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** tomshardware.com
+
+**URL:** [https://www.tomshardware.com/pc-components/ram/memory-prices-climb-500-percent-in-12-months-up-to-10x-the-lowest-ever-tracked-prices-128gb-of-ddr5-now-usd3-399](https://www.tomshardware.com/pc-components/ram/memory-prices-climb-500-percent-in-12-months-up-to-10x-the-lowest-ever-tracked-prices-128gb-of-ddr5-now-usd3-399)
+
+---
+
+### DDR5 memory prices climb 500% in a year as AI eats DRAM capacity
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 ai-weekly |
+| **Date** | August 18, 2026 (20h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Weekly |
+
+**Summary:** DDR5 memory prices climb 500% in a year as AI eats DRAM capacity
+
+**URL:** [https://aiweekly.co/node/10317](https://aiweekly.co/node/10317)
+
+---
+
 ### 'Absolutely crazy': Here's what South Korean stock investors are doing in U.S. markets
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 17, 2026 (17h ago) |
+| **Date** | August 17, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5079,7 +5559,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (17h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | facebook.com |
 
@@ -5094,7 +5574,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5109,7 +5589,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | SingularityHub |
 
@@ -5124,7 +5604,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5139,7 +5619,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -5154,7 +5634,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | POV Magazine |
 
@@ -5169,7 +5649,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | KABB |
 
@@ -5184,7 +5664,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 17, 2026 (18h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5199,7 +5679,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5214,7 +5694,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Daily Bruin |
 
@@ -5229,7 +5709,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 17, 2026 (19h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Ars Technica AI |
 
@@ -5244,7 +5724,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Daily Bruin |
 
@@ -5259,7 +5739,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | DeepLogin |
 
@@ -5274,7 +5754,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Cureus |
 
@@ -5289,7 +5769,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | CIO Dive |
 
@@ -5304,7 +5784,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | TechRepublic |
 
@@ -5319,7 +5799,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Newsweek |
 
@@ -5334,7 +5814,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Psychology Today |
 
@@ -5352,7 +5832,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -5370,7 +5850,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 17, 2026 (20h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5385,7 +5865,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -5400,7 +5880,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The New York Times |
 
@@ -5415,7 +5895,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | mooreds |
 
@@ -5430,7 +5910,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Hugging Face |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Hugging Face |
 
@@ -5445,7 +5925,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Axios |
 
@@ -5460,7 +5940,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -5475,7 +5955,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | University of North Carolina School of the Arts |
 
@@ -5490,7 +5970,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (21h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | DVIDS |
 
@@ -5505,7 +5985,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5520,7 +6000,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Mashable |
 
@@ -5535,7 +6015,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | entrepreneur.com |
 
@@ -5550,7 +6030,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Ars Technica AI |
 
@@ -5565,7 +6045,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (22h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | George Mason University |
 
@@ -5580,7 +6060,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Emilien Dupont, Marvin Eisenberger, Borislav Kozlovskii |
 
@@ -5595,7 +6075,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Yunbum Kook, Santosh S. Vempala |
 
@@ -5610,7 +6090,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | linggen |
 
@@ -5625,7 +6105,7 @@ The article OpenAI launches a ChatGPT version built for teens appeared first on 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | MarkTechPost |
 
@@ -5641,7 +6121,7 @@ The post Developing an End-to-En
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Serena Su, Yifan Wang, Senwei Liang |
 
@@ -5656,7 +6136,7 @@ The post Developing an End-to-En
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Stocktwits |
 
@@ -5671,7 +6151,7 @@ The post Developing an End-to-En
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Межа. Новини України. |
 
@@ -5686,7 +6166,7 @@ The post Developing an End-to-En
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5701,7 +6181,7 @@ The post Developing an End-to-En
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5716,7 +6196,7 @@ The post Developing an End-to-En
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 17, 2026 (23h ago) |
+| **Date** | August 17, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -7134,486 +7614,6 @@ The article AirTag reveals how Amazon destroys rare books for AI training appear
 
 ---
 
-### The Invisible Human-in-the-Loop: An Evolutionary Concept Analysis of Artificial Intelligence in Nursing Assistant Practice
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Cureus |
-
-**Summary:** The Invisible Human-in-the-Loop: An Evolutionary Concept Analysis of Artificial Intelligence in Nursing Assistant Practice  Cureus
-
-**URL:** [https://news.google.com/rss/articles/CBMi8gFBVV95cUxNakk5ZGUyaWRYWFlvWENjWmRoN0JFX1V4NTlZUjZXV1QySDFKaWs0SkRvYW8zem5BdGtaVmdVVE1GcVo5RGl3STFPdThLVXhaZ2FWNE5JcGFrMnFlWDRxR0p0dHl3aHJ1VFBPWU1HN3lIaldxRjJKQXc2SVhKYTVMUHNQSkhyZHJkby1md09IcFh6dGVPcnAwSjFQVGV4YVM3WXdkNEZVU0hMZEtEY1Nqek92bnRLdHZyclZSZ2ZjVGJZQVZaZnpRd1RiUHREOU9fbjdrRmNUVXR0RHVjTVR4a1J3VFZNbkZxZ19wajcwMWhDdw?oc=5](https://news.google.com/rss/articles/CBMi8gFBVV95cUxNakk5ZGUyaWRYWFlvWENjWmRoN0JFX1V4NTlZUjZXV1QySDFKaWs0SkRvYW8zem5BdGtaVmdVVE1GcVo5RGl3STFPdThLVXhaZ2FWNE5JcGFrMnFlWDRxR0p0dHl3aHJ1VFBPWU1HN3lIaldxRjJKQXc2SVhKYTVMUHNQSkhyZHJkby1md09IcFh6dGVPcnAwSjFQVGV4YVM3WXdkNEZVU0hMZEtEY1Nqek92bnRLdHZyclZSZ2ZjVGJZQVZaZnpRd1RiUHREOU9fbjdrRmNUVXR0RHVjTVR4a1J3VFZNbkZxZ19wajcwMWhDdw?oc=5)
-
----
-
-### Brockman calls Hugging Face incident &#039;watershed moment&#039; for AI defense
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Brockman calls Hugging Face incident &#039;watershed moment&#039; for AI defense
-
-**URL:** [https://blog.gregbrockman.com/the-defenders-window](https://blog.gregbrockman.com/the-defenders-window)
-
----
-
-### news.crunchbase.com
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** news.crunchbase.com
-
-**URL:** [https://news.crunchbase.com/venture/semiconductor-giants-nvda-intc-backing-ai-robotics-starups-2026/](https://news.crunchbase.com/venture/semiconductor-giants-nvda-intc-backing-ai-robotics-starups-2026/)
-
----
-
-### Groq raises $350M at $3.5B, half its prior valuation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Groq raises $350M at $3.5B, half its prior valuation
-
-**URL:** [https://aiweekly.co/node/10207](https://aiweekly.co/node/10207)
-
----
-
-### Trump crypto firm backs AI gateway offering restricted Chinese models
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Trump crypto firm backs AI gateway offering restricted Chinese models
-
-**URL:** [https://aiweekly.co/node/10206](https://aiweekly.co/node/10206)
-
----
-
-### Amazon cuts up rare books to scan them for AI training
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Amazon cuts up rare books to scan them for AI training
-
-**URL:** [https://aiweekly.co/node/10216](https://aiweekly.co/node/10216)
-
----
-
-### GitHub goes down worldwide, taking Copilot with it
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** GitHub goes down worldwide, taking Copilot with it
-
-**URL:** [https://aiweekly.co/node/10218](https://aiweekly.co/node/10218)
-
----
-
-### Uber and Zipline aim for 1M drone deliveries a day by 2029
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Uber and Zipline aim for 1M drone deliveries a day by 2029
-
-**URL:** [https://investor.uber.com/news-events/news/press-release-details/2026/Uber-and-Zipline-Partner-to-Bring-Drone-Delivery-to-Millions-of-Americans/default.aspx](https://investor.uber.com/news-events/news/press-release-details/2026/Uber-and-Zipline-Partner-to-Bring-Drone-Delivery-to-Millions-of-Americans/default.aspx)
-
----
-
-### siliconangle.com
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** siliconangle.com
-
-**URL:** [https://siliconangle.com/2026/08/17/gravis-robotics-gets-200m-funding-softbank-retrofit-excavators-self-driving-ai-systems/](https://siliconangle.com/2026/08/17/gravis-robotics-gets-200m-funding-softbank-retrofit-excavators-self-driving-ai-systems/)
-
----
-
-### SoftBank puts $200M into autonomous-excavator Gravis
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** SoftBank puts $200M into autonomous-excavator Gravis
-
-**URL:** [https://aiweekly.co/node/10219](https://aiweekly.co/node/10219)
-
----
-
-### [email&#160;protected]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** [email&#160;protected]
-
-**URL:** [https://aiweekly.co/cdn-cgi/l/email-protection](https://aiweekly.co/cdn-cgi/l/email-protection)
-
----
-
-### Nvidia backstops OpenAI&#039;s $105B Ohio megacampus
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Nvidia backstops OpenAI&#039;s $105B Ohio megacampus
-
-**URL:** [https://aiweekly.co/node/10215](https://aiweekly.co/node/10215)
-
----
-
-### 3M expert used ChatGPT to draft 90% of key report, then lost $61M jury verdict
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** 3M expert used ChatGPT to draft 90% of key report, then lost $61M jury verdict
-
-**URL:** [https://aiweekly.co/alerts/3m-expert-used-chatgpt-to-draft-0-at-fault-defense-report](https://aiweekly.co/alerts/3m-expert-used-chatgpt-to-draft-0-at-fault-defense-report)
-
----
-
-### interestingengineering.com
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** interestingengineering.com
-
-**URL:** [https://interestingengineering.com/ai-robotics/chinese-robot-dogs-take-on-fires](https://interestingengineering.com/ai-robotics/chinese-robot-dogs-take-on-fires)
-
----
-
-### Chinese robot dogs are being sent into fires and toxic leaks ahead of humans
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Chinese robot dogs are being sent into fires and toxic leaks ahead of humans
-
-**URL:** [https://aiweekly.co/node/10230](https://aiweekly.co/node/10230)
-
----
-
-### Federal judge: judicial immunity covers state judges relying wholly on AI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 ai-weekly |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AI Weekly |
-
-**Summary:** Federal judge: judicial immunity covers state judges relying wholly on AI
-
-**URL:** [https://reason.com/volokh/2026/08/17/judges-allegedly-relying-wholly-on-ai-in-order-is-covered-by-judicial-immunity-court-rules/](https://reason.com/volokh/2026/08/17/judges-allegedly-relying-wholly-on-ai-in-order-is-covered-by-judicial-immunity-court-rules/)
-
----
-
-### From Pilot to Scale – Why Storage Infrastructure Is Critical to AI Success
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | IT Pro |
-
-**Summary:** From Pilot to Scale – Why Storage Infrastructure Is Critical to AI Success  IT Pro
-
-**URL:** [https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZWlXQXNISkViTFdIYVpXTWk1Z0RPRGx2cVZfblktN0VlWWVDTDEzQTR6ejNYNjNUS0N4MlRZWFgwZDczMWFPQk8yQ19FOEhka3kyNlk0SW5RYVAxa21qNnlsaEx2Um9rMTFjb0tkS3FCbTZuRVE3MjBCemJvalFaU3g4enZWbk15Y0R1TWJheHJ0cTlObWpxTHJ0c0pXbENVWlFpVnNiYjVEclV0WXpfOTg3R3RNTjlIekRaOXcwbW9pckFaUDFRWQ?oc=5](https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZWlXQXNISkViTFdIYVpXTWk1Z0RPRGx2cVZfblktN0VlWWVDTDEzQTR6ejNYNjNUS0N4MlRZWFgwZDczMWFPQk8yQ19FOEhka3kyNlk0SW5RYVAxa21qNnlsaEx2Um9rMTFjb0tkS3FCbTZuRVE3MjBCemJvalFaU3g4enZWbk15Y0R1TWJheHJ0cTlObWpxTHJ0c0pXbENVWlFpVnNiYjVEclV0WXpfOTg3R3RNTjlIekRaOXcwbW9pckFaUDFRWQ?oc=5)
-
----
-
-### Generative AI: Benefits, Risks and the Future of Work
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Beyond the Horizon ISSG |
-
-**Summary:** Generative AI: Benefits, Risks and the Future of Work  Beyond the Horizon ISSG
-
-**URL:** [https://news.google.com/rss/articles/CBMigwFBVV95cUxQQWlsTktrOXQ4UWxZaS1KbE9aNnRaUTY4UzdzVjdfT3djdEloT3djTEVXaktHZzZzNGZfRW01SzRBRU1oakthUUhjNjI4V1dPM2FJMTRaaklzNFlsUGRkMGVsM05hZUMzaDI3alNmZUpvUE55aFRqOHNNclo0bGtIRmhlMA?oc=5](https://news.google.com/rss/articles/CBMigwFBVV95cUxQQWlsTktrOXQ4UWxZaS1KbE9aNnRaUTY4UzdzVjdfT3djdEloT3djTEVXaktHZzZzNGZfRW01SzRBRU1oakthUUhjNjI4V1dPM2FJMTRaaklzNFlsUGRkMGVsM05hZUMzaDI3alNmZUpvUE55aFRqOHNNclo0bGtIRmhlMA?oc=5)
-
----
-
-### Master These 5 Essential AI Terms and Stay Ahead of 90% of People
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | 36Kr |
-
-**Summary:** Master These 5 Essential AI Terms and Stay Ahead of 90% of People  36Kr
-
-**URL:** [https://news.google.com/rss/articles/CBMiU0FVX3lxTFBvVEVKSWlkblVpWjZMaXo0TDZIVDhSMzVaWEVocHpiNjV0ajdBY1NrbjRpYk9Oam9PazhFamRpRW1zYURTUkR0SDBldWpZRm9LSmRz?oc=5](https://news.google.com/rss/articles/CBMiU0FVX3lxTFBvVEVKSWlkblVpWjZMaXo0TDZIVDhSMzVaWEVocHpiNjV0ajdBY1NrbjRpYk9Oam9PazhFamRpRW1zYURTUkR0SDBldWpZRm9LSmRz?oc=5)
-
----
-
-### House Democrats Press Anthropic, OpenAI on Rogue Agents — Exposing the Federal Vacuum Beneath
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | forkast.news |
-
-**Summary:** House Democrats Press Anthropic, OpenAI on Rogue Agents — Exposing the Federal Vacuum Beneath  forkast.news
-
-**URL:** [https://news.google.com/rss/articles/CBMisgFBVV95cUxOTjNKLWVOcGFEOTNIT0Rndkh5eC1vOUlKMHNKVTlMQXc4d1FPTkJQeWV2TDYxemJJTEdnRmQ1SWFEUGVva015STNGUUtIYmt5Z0RTV2V4cWhWM1FiMGEtZnpFY2NmRWw3WFFFQWVtd0VyN2VVWlFqRUxXSzFGMHJJQzRVU09LQ3NjQ0RwNkpyRElfWnRXZWFNRVFTQkd4YW9vTmRZaHF1RGFVMjVBQng2cUtn?oc=5](https://news.google.com/rss/articles/CBMisgFBVV95cUxOTjNKLWVOcGFEOTNIT0Rndkh5eC1vOUlKMHNKVTlMQXc4d1FPTkJQeWV2TDYxemJJTEdnRmQ1SWFEUGVva015STNGUUtIYmt5Z0RTV2V4cWhWM1FiMGEtZnpFY2NmRWw3WFFFQWVtd0VyN2VVWlFqRUxXSzFGMHJJQzRVU09LQ3NjQ0RwNkpyRElfWnRXZWFNRVFTQkd4YW9vTmRZaHF1RGFVMjVBQng2cUtn?oc=5)
-
----
-
-### Helping Inland Northwest businesses decide how to adopt AI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Spokane Public Radio |
-
-**Summary:** Helping Inland Northwest businesses decide how to adopt AI  Spokane Public Radio
-
-**URL:** [https://news.google.com/rss/articles/CBMixwFBVV95cUxNQ1ZVSWg5aFk1SVB6d1FPcDJPWHhaZEladXFrZGw5Q3pUYkYyUTdZYjFuUXpnMy1OMVZOTHVEcFZ0YVlUTmRpRmpuZGhGd1ZoZTJlZlQ2VmVad3ZNbmpHOEpEUWV3emtRWVYyaUdCaVVDYXBwWk5Md1lmZEZ3Q1JsXzJSbGQxWUVJNUZDSGtUZmhoSXRoWmZrRDE3eG5ub1dmRHBXRTV5Rzk5WjFOYllsY3IyQlVjUU5NMDkzQmZHOHI1ZExLVkZv?oc=5](https://news.google.com/rss/articles/CBMixwFBVV95cUxNQ1ZVSWg5aFk1SVB6d1FPcDJPWHhaZEladXFrZGw5Q3pUYkYyUTdZYjFuUXpnMy1OMVZOTHVEcFZ0YVlUTmRpRmpuZGhGd1ZoZTJlZlQ2VmVad3ZNbmpHOEpEUWV3emtRWVYyaUdCaVVDYXBwWk5Md1lmZEZ3Q1JsXzJSbGQxWUVJNUZDSGtUZmhoSXRoWmZrRDE3eG5ub1dmRHBXRTV5Rzk5WjFOYllsY3IyQlVjUU5NMDkzQmZHOHI1ZExLVkZv?oc=5)
-
----
-
-### Former Lawrence Berkeley National Laboratory building in Oakland being considered for AI data center complex
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | ABC7 Bay Area |
-
-**Summary:** Former Lawrence Berkeley National Laboratory building in Oakland being considered for AI data center complex  ABC7 Bay Area
-
-**URL:** [https://news.google.com/rss/articles/CBMi0wFBVV95cUxNU0dSU25QZXJCZGF0ekZMaGhONjkxT2l1RTlIQnpJempsUDdOTEVDZVcwekxnTFk5MG1fNzZvcVRqaTJiaGc3bHZTR2xpMGRBeUtTYVVYU0xrM0xFWEFkVHBESnhjWnVSTW5yRkV0RGYtS0NKV0trcm9LVmZ3S2ZfWGtzN0VHbDlmZ0c4MWxWQXhSV2t4NUZwcGdpeWxBTkJjMzhTTUxBRHNJbnRqeXM1cDg3VnVER3pNVzk0dXl2bHRoRzBWSDF6cVVkX3dURS1Td19r0gHYAUFVX3lxTFBTd3U0UVZDREV0czFGNDdDRGQtN084aDZHS0tDdUh3ZVFyWUxKRWhIZElGZUNIMENOMUdjYks4WXNfS3l2dDVoN1lTbFVIUTRoVHY5Z29BRW10TnVxQWtLLXp6TVdtQm9jd0wtTGNobGR3MHJhc0NUcU5FRlRyTURBQ3N2Rk5SU2hoTU1TOTI1cWF1V2ZUb29TaDRNamZlZnJfM1ZaeGFUaXdlcHRINnNEc0NCYVpYMjROazJLN2NoeTR1VzVpdXVvM0tCMWpRQTRxLUN0MmJHbg?oc=5](https://news.google.com/rss/articles/CBMi0wFBVV95cUxNU0dSU25QZXJCZGF0ekZMaGhONjkxT2l1RTlIQnpJempsUDdOTEVDZVcwekxnTFk5MG1fNzZvcVRqaTJiaGc3bHZTR2xpMGRBeUtTYVVYU0xrM0xFWEFkVHBESnhjWnVSTW5yRkV0RGYtS0NKV0trcm9LVmZ3S2ZfWGtzN0VHbDlmZ0c4MWxWQXhSV2t4NUZwcGdpeWxBTkJjMzhTTUxBRHNJbnRqeXM1cDg3VnVER3pNVzk0dXl2bHRoRzBWSDF6cVVkX3dURS1Td19r0gHYAUFVX3lxTFBTd3U0UVZDREV0czFGNDdDRGQtN084aDZHS0tDdUh3ZVFyWUxKRWhIZElGZUNIMENOMUdjYks4WXNfS3l2dDVoN1lTbFVIUTRoVHY5Z29BRW10TnVxQWtLLXp6TVdtQm9jd0wtTGNobGR3MHJhc0NUcU5FRlRyTURBQ3N2Rk5SU2hoTU1TOTI1cWF1V2ZUb29TaDRNamZlZnJfM1ZaeGFUaXdlcHRINnNEc0NCYVpYMjROazJLN2NoeTR1VzVpdXVvM0tCMWpRQTRxLUN0MmJHbg?oc=5)
-
----
-
-### Input 4-5x Reduction with sentence and keyword based trie on chat. [P]
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 reddit |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | r/MachineLearning |
-
-**Summary:** Currently struggling with an automatic budget selection, at 25% it’s very similar to benchmarks accuracy and seems even better on actual chat input however it many times retrieves too much. It would b
-
-**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vq9ji0/input_45x_reduction_with_sentence_and_keyword/](https://www.reddit.com/r/MachineLearning/comments/1vq9ji0/input_45x_reduction_with_sentence_and_keyword/)
-
----
-
-### Young People Hate AI CEOs So Passionately That It's Almost Hard to Believe
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | healsdata |
-
-**Summary:** 78 points, 56 comments on Hacker News.
-
-**URL:** [https://futurism.com/artificial-intelligence/young-people-ai-ceos-executives-poll](https://futurism.com/artificial-intelligence/young-people-ai-ceos-executives-poll)
-
----
-
-### Dario Amodei says people worry companies or governments look for a 'new way to screw them over'
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Fortune |
-
-**Summary:** Dario Amodei says people worry companies or governments look for a 'new way to screw them over'  Fortune
-
-**URL:** [https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZzlIdWpnMXozSkZObS1RbEdadnFzUHFkVC1LY3NCYVNGd2JneUN6NHJKQXdDaDU0UExhWXVyeHlMMk8zV1hLRGgzWHZrWTNDYjFpd191MFBMUzRLNm9iZzlIV3BPUWZFSGtlUDc1b3JqUE1kbHpsWHlTT2lwdjlacUk3djBpaW1FX2NacDFfaVNMR0JCUUprQ0ZvRXBETHBmN250UUZyOW44dEJfMHN5NEZKUXJiQkl4?oc=5](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZzlIdWpnMXozSkZObS1RbEdadnFzUHFkVC1LY3NCYVNGd2JneUN6NHJKQXdDaDU0UExhWXVyeHlMMk8zV1hLRGgzWHZrWTNDYjFpd191MFBMUzRLNm9iZzlIV3BPUWZFSGtlUDc1b3JqUE1kbHpsWHlTT2lwdjlacUk3djBpaW1FX2NacDFfaVNMR0JCUUprQ0ZvRXBETHBmN250UUZyOW44dEJfMHN5NEZKUXJiQkl4?oc=5)
-
----
-
-### Tech: China may be ‘fishing’ about AI dialogue
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Punchbowl News |
-
-**Summary:** Tech: China may be ‘fishing’ about AI dialogue  Punchbowl News
-
-**URL:** [https://news.google.com/rss/articles/CBMib0FVX3lxTE40QUJ2TXZBelZZRnVucVNfVEZKRjFCQTRXMC1VZS1mVFB4QVZlS2swTW4tbVRrLU1nSGpYODhFLTE3RFlWdXI2V09IWnRaazRveEE3dWlCbzFQcWVUNHpILURVamZCbGJMNHFqbTlZUQ?oc=5](https://news.google.com/rss/articles/CBMib0FVX3lxTE40QUJ2TXZBelZZRnVucVNfVEZKRjFCQTRXMC1VZS1mVFB4QVZlS2swTW4tbVRrLU1nSGpYODhFLTE3RFlWdXI2V09IWnRaazRveEE3dWlCbzFQcWVUNHpILURVamZCbGJMNHFqbTlZUQ?oc=5)
-
----
-
-### AI super PACs flood money into state elections
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Arizona Capitol Times |
-
-**Summary:** AI super PACs flood money into state elections  Arizona Capitol Times
-
-**URL:** [https://news.google.com/rss/articles/CBMilAFBVV95cUxPbFVWZm5EaHBpRlY2MUxGNDBIWG5oM0hkbE00SEdJVTliZTBtVm5NT0RrWHVpdzJpeDBCVlpOZERmZVJPdWtKdV83RUw2MWJRWE85UjNUWU9Zc0NQZWtMSmFPOEdOTWFEeEI2enVXZWJKVmVBQ0ctMnVIVGhhTzR4WGhsVE92SU9kcVYzWElmVEZUSWVf?oc=5](https://news.google.com/rss/articles/CBMilAFBVV95cUxPbFVWZm5EaHBpRlY2MUxGNDBIWG5oM0hkbE00SEdJVTliZTBtVm5NT0RrWHVpdzJpeDBCVlpOZERmZVJPdWtKdV83RUw2MWJRWE85UjNUWU9Zc0NQZWtMSmFPOEdOTWFEeEI2enVXZWJKVmVBQ0ctMnVIVGhhTzR4WGhsVE92SU9kcVYzWElmVEZUSWVf?oc=5)
-
----
-
-### Wall Street giants hand Nvidia $500bn to fund boom in AI projects
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | AOL.com |
-
-**Summary:** Wall Street giants hand Nvidia $500bn to fund boom in AI projects  AOL.com
-
-**URL:** [https://news.google.com/rss/articles/CBMifkFVX3lxTFBDNmFIYk9wcm9rd09xTnVOWC1aNWVXcDFRRmRoSG9UWEhUYVJYLUxsZm9qNnhRMWxGY3hQc0ctdWdhTDZta2tKY082d3VXeUh3NUswc0E3U3JlUTdCT3RNeTBuZDNlNXVLeWhJYU54emxkMTl0Nzd0NUtFVEdsdw?oc=5](https://news.google.com/rss/articles/CBMifkFVX3lxTFBDNmFIYk9wcm9rd09xTnVOWC1aNWVXcDFRRmRoSG9UWEhUYVJYLUxsZm9qNnhRMWxGY3hQc0ctdWdhTDZta2tKY082d3VXeUh3NUswc0E3U3JlUTdCT3RNeTBuZDNlNXVLeWhJYU54emxkMTl0Nzd0NUtFVEdsdw?oc=5)
-
----
-
-### Cutting RAG inference costs 6x starts with deciding what never reaches the LLM
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | VentureBeat |
-
-**Summary:** Cutting RAG inference costs 6x starts with deciding what never reaches the LLM  VentureBeat
-
-**URL:** [https://news.google.com/rss/articles/CBMitwFBVV95cUxNRVBkUlV1Q084U1VySFIzZjRjUy1PNGpnQnBCUkFTeTAxWklld1JjcTk3akN2MTVnTWlyWnFyX1A3YmozZUNyT3lLcTBhOV82U1R3TEU5SXI2UFoybDd6eXg1djBkNDRMOWJHMW5RRl9ITWl6NVdQT1RCWFBENVRJVVJGcXlVSW92Y3Nmcll5a1V4ZE51bjZwNUZ4WTZleE9NdGtvbW9aZmtnQkVjdTZ6ZkdsSER4TDQ?oc=5](https://news.google.com/rss/articles/CBMitwFBVV95cUxNRVBkUlV1Q084U1VySFIzZjRjUy1PNGpnQnBCUkFTeTAxWklld1JjcTk3akN2MTVnTWlyWnFyX1A3YmozZUNyT3lLcTBhOV82U1R3TEU5SXI2UFoybDd6eXg1djBkNDRMOWJHMW5RRl9ITWl6NVdQT1RCWFBENVRJVVJGcXlVSW92Y3Nmcll5a1V4ZE51bjZwNUZ4WTZleE9NdGtvbW9aZmtnQkVjdTZ6ZkdsSER4TDQ?oc=5)
-
----
-
-### Artificial Intelligence Crypto: MemeToro’s Dry-Run Pipeline Signals a Cautious Approach to AI Launches
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | StreetInsider |
-
-**Summary:** Artificial Intelligence Crypto: MemeToro’s Dry-Run Pipeline Signals a Cautious Approach to AI Launches  StreetInsider
-
-**URL:** [https://news.google.com/rss/articles/CBMiggJBVV95cUxOeVJMekg5eGV0bjVxV2JxZWxoR3VubURRelZyQXhFN2pxVWtaczl0YjhmWkowdFh4WTRvbUpMdmlZMEg0UkdtakJNUVNFdTVrM0dKNGdJcDhHODZSOEx3WkFmbXREYWRDaDFMVEVfc2tseVRDV1B4dWpQdUNZLUhxMTBkeUlBOVR4RzFnd2xSVXNzcnJVZzk0aFp1Qkx1bVJCU2FuUTNhWTJqZ3drVWNsVlZGSEpBTVRXclVKeWFZWUtTQ3lueVIzb18zLXBOWjNLUlRNcW95TF9rZWhXV0xpMG53QjZwLVcwUmtLR0Z1UmtzS2JkNGtORk5LZDFmZjVrV0E?oc=5](https://news.google.com/rss/articles/CBMiggJBVV95cUxOeVJMekg5eGV0bjVxV2JxZWxoR3VubURRelZyQXhFN2pxVWtaczl0YjhmWkowdFh4WTRvbUpMdmlZMEg0UkdtakJNUVNFdTVrM0dKNGdJcDhHODZSOEx3WkFmbXREYWRDaDFMVEVfc2tseVRDV1B4dWpQdUNZLUhxMTBkeUlBOVR4RzFnd2xSVXNzcnJVZzk0aFp1Qkx1bVJCU2FuUTNhWTJqZ3drVWNsVlZGSEpBTVRXclVKeWFZWUtTQ3lueVIzb18zLXBOWjNLUlRNcW95TF9rZWhXV0xpMG53QjZwLVcwUmtLR0Z1UmtzS2JkNGtORk5LZDFmZjVrV0E?oc=5)
-
----
-
-### Why people aren’t buying Mark Zuckerberg’s AI future
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | TechCrunch AI |
-
-**Summary:** On the latest episode of Equity podcast, we discuss why not everyone is buying Zuckerberg’s vision.
-
-**URL:** [https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/](https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/)
-
----
-
-### Stripe Clinches over $7B Deal to Buy AI Firm OpenRouter
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 16, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | zacharyozer |
-
-**Summary:** 178 points, 131 comments on Hacker News.
-
-**URL:** [https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion](https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7629,4 +7629,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-18T17:05:41.816Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-18T20:23:09.639Z by AI Pulse Knowledge Base Generator*
