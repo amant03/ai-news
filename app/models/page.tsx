@@ -6,6 +6,7 @@ import NewsletterSignup from '@/components/NewsletterSignup';
 import AADropdown from '@/components/AADropdown';
 import IntelligenceScatter from '@/components/IntelligenceScatter';
 import IntelligenceTimeline from '@/components/IntelligenceTimeline';
+import AAModelCharts from '@/components/AAModelCharts';
 import modelsData from '@/data/models.json';
 
 type Model = (typeof modelsData.models)[number];
@@ -26,6 +27,17 @@ const OPENNESS: { key: Openness; label: string }[] = [
 
 const isOpen = (m: Model) => m.family === 'open-weights' || m.family === 'open';
 const slugOf = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+function blendedCost(m: Model): number | null {
+  if (m.promptPrice == null && m.completionPrice == null) return null;
+  const cache = (m.promptPrice ?? 0) * 0.1;
+  return (cache * 7 + (m.promptPrice ?? 0) * 2 + (m.completionPrice ?? 0) * 1) / 10;
+}
+
+function fmtTokens(n: number | null | undefined): string {
+  if (n == null) return '—';
+  return n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1)}M` : `${(n / 1_000).toFixed(0)}K`;
+}
 
 function fmtTime(iso: string | undefined): string {
   if (!iso) return '—';
@@ -88,8 +100,10 @@ function BarChart({
 }
 
 export default function ModelsPage() {
-  const [sortBy, setSortBy] = useState<'intelligenceIndex' | 'elo' | 'cost'>('intelligenceIndex');
+  const [sortBy, setSortBy] = useState<'intelligenceIndex' | 'cost' | 'speed' | 'verbosity'>('intelligenceIndex');
   const [openness, setOpenness] = useState<Openness>('all');
+  const [company, setCompany] = useState<string>('all');
+  const [companySort, setCompanySort] = useState<'latest' | 'cost' | 'intelligence' | 'latency'>('latest');
   const [total, setTotal] = useState(0);
   const [onlineSources, setOnlineSources] = useState(0);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -175,9 +189,10 @@ export default function ModelsPage() {
     const withIntel = models.filter(m => m.intelligenceIndex != null);
 
     if (sortBy === 'intelligenceIndex') return [...withIntel].sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
-    if (sortBy === 'elo') return [...withIntel].sort((a, b) => (b.elo ?? 0) - (a.elo ?? 0));
+    if (sortBy === 'speed') return withIntel.sort((a, b) => (b.aaSpeed ?? -1) - (a.aaSpeed ?? -1));
+    if (sortBy === 'verbosity') return withIntel.sort((a, b) => (b.aaVerbosity ?? -1) - (a.aaVerbosity ?? -1));
     return withIntel
-      .map(m => ({ ...m, avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2 }))
+      .map(m => ({ ...m, avgCost: blendedCost(m) ?? Infinity }))
       .sort((a, b) => a.avgCost - b.avgCost);
   }, [sortBy, opennessFiltered]);
 
@@ -213,6 +228,31 @@ export default function ModelsPage() {
       .sort((a, b) => new Date(b.released!).getTime() - new Date(a.released!).getTime())
       .slice(0, 12);
   }, []);
+
+  const companyList = useMemo(() => {
+    const providers = [...new Set((modelsData.models as Model[]).map(m => m.provider))].sort();
+    return [{ value: 'all', label: 'All Companies' }, ...providers.map(p => ({ value: p, label: p }))];
+  }, []);
+
+  const companyModels = useMemo(() => {
+    const all = (modelsData.models as Model[]).filter(m => company === 'all' || m.provider === company);
+    const sorted = [...all].sort((a, b) => {
+      switch (companySort) {
+        case 'cost': {
+          const ca = blendedCost(a) ?? Infinity;
+          const cb = blendedCost(b) ?? Infinity;
+          return ca - cb;
+        }
+        case 'intelligence':
+          return (b.intelligenceIndex ?? -1) - (a.intelligenceIndex ?? -1);
+        case 'latency':
+          return (b.aaSpeed ?? -1) - (a.aaSpeed ?? -1);
+        default:
+          return new Date(b.released ?? 0).getTime() - new Date(a.released ?? 0).getTime();
+      }
+    });
+    return sorted.slice(0, 50);
+  }, [company, companySort]);
 
   return (
     <div className="min-h-screen">
@@ -277,7 +317,7 @@ export default function ModelsPage() {
             <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
             <h2 className="text-lg font-semibold tracking-tight">Company-wise Leaderboard</h2>
           </div>
-          <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
+          <div className="border border-[var(--color-line)] rounded-lg overflow-hidden mb-4">
             <div className="overflow-x-auto no-scrollbar">
               <table className="w-full min-w-[640px] text-left text-[13px]">
                 <thead>
@@ -312,6 +352,92 @@ export default function ModelsPage() {
                         <span className="text-green-600">{entry.openCount} open</span>
                         <span className="text-neutral-300 mx-1">/</span>
                         <span className="text-red-500">{entry.closedCount} closed</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
+              <div className="flex items-baseline gap-2">
+                <span className="text-[14px] font-semibold tracking-tight">Models by Company</span>
+                <span className="text-[11px] text-neutral-400">{companyModels.length} of {company === 'all' ? (modelsData.models as Model[]).length : (modelsData.models as Model[]).filter(m => m.provider === company).length} models</span>
+              </div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <div className="flex gap-1">
+                  {([['latest', 'Latest'], ['cost', 'Cost'], ['intelligence', 'Intelligence'], ['latency', 'Latency']] as const).map(([key, label]) => (
+                    <button
+                      key={key}
+                      onClick={() => setCompanySort(key)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        companySort === key
+                          ? 'bg-black text-white'
+                          : 'text-neutral-500 hover:text-black hover:bg-neutral-100 border border-[var(--color-line)]'
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                <span className="w-px h-5 bg-neutral-200 mx-1 self-center hidden sm:block" aria-hidden />
+                <AADropdown
+                  label="Company"
+                  value={company}
+                  options={companyList}
+                  onChange={v => setCompany(v)}
+                />
+              </div>
+            </div>
+            <p className="text-[11px] text-neutral-400 mb-4">
+              Latest = newest release date first · Cost = blended price per 1M tokens (7:2:1 cache-input-output) · Latency estimated from output speed (t/s).
+            </p>
+            <div className="overflow-x-auto no-scrollbar">
+              <table className="w-full min-w-[820px] text-left text-[13px]">
+                <thead>
+                  <tr className="border-b border-[var(--color-line)]">
+                    {[
+                      { label: 'Model' },
+                      { label: 'Released', w: 130 },
+                      { label: 'Intelligence', w: 100 },
+                      { label: 'Speed t/s', w: 90 },
+                      { label: 'Cost', w: 100 },
+                      { label: 'Verbosity', w: 100 },
+                      { label: 'Context', w: 90 },
+                      { label: 'Type', w: 90 },
+                    ].map(col => (
+                      <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
+                        {col.label}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {companyModels.map(m => (
+                    <tr key={m.id} className="border-b border-[var(--color-line)] hover:bg-neutral-50 transition-colors">
+                      <td className="py-2.5 px-4 font-medium">
+                        <a href={`/models/${slugOf(m.name)}`} className="hover:underline">
+                          {m.name}
+                        </a>
+                      </td>
+                      <td className="py-2.5 px-4 tabular-nums text-neutral-500">
+                        {m.released ? new Date(m.released).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}
+                      </td>
+                      <td className="py-2.5 px-4 tabular-nums">{m.intelligenceIndex ?? '—'}</td>
+                      <td className="py-2.5 px-4 tabular-nums">{m.aaSpeed != null ? m.aaSpeed : '—'}</td>
+                      <td className="py-2.5 px-4 tabular-nums">
+                        {m.aaCostPerTask != null ? `$${m.aaCostPerTask.toFixed(2)}` : blendedCost(m) != null ? `$${blendedCost(m)!.toFixed(2)}/M` : '—'}
+                      </td>
+                      <td className="py-2.5 px-4 tabular-nums text-neutral-500">{fmtTokens(m.aaVerbosity)}</td>
+                      <td className="py-2.5 px-4 text-neutral-500">{m.context ?? '—'}</td>
+                      <td className="py-2.5 px-4">
+                        <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${
+                          isOpen(m) ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
+                        }`}>
+                          {isOpen(m) ? 'Open' : 'Closed'}
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -376,6 +502,16 @@ export default function ModelsPage() {
           </div>
         </section>
 
+        {/* AA-style charts */}
+        <section className="mb-12">
+          <div className="flex items-baseline gap-3 mb-5 flex-wrap">
+            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
+            <h2 className="text-lg font-semibold tracking-tight">Token Use, Cost, Context &amp; Speed</h2>
+            <span className="text-[11px] text-neutral-400">synced from Artificial Analysis</span>
+          </div>
+          <AAModelCharts models={modelsData.models as Model[]} />
+        </section>
+
         {/* Table */}
         <section>
           <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
@@ -385,7 +521,7 @@ export default function ModelsPage() {
               <span className="text-[11px] text-neutral-400">{opennessFiltered.length} models</span>
             </div>
             <div className="flex gap-1 flex-wrap">
-              {([['intelligenceIndex', 'Intelligence'], ['elo', 'ELO'], ['cost', 'Cost']] as const).map(([key, label]) => (
+              {([['intelligenceIndex', 'Intelligence'], ['cost', 'Cost'], ['speed', 'Speed'], ['verbosity', 'Verbosity']] as const).map(([key, label]) => (
                 <button
                   key={key}
                   onClick={() => setSortBy(key)}
@@ -410,7 +546,7 @@ export default function ModelsPage() {
 
           <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
             <div className="overflow-x-auto no-scrollbar">
-              <table className="w-full min-w-[860px] text-left text-[13px]">
+              <table className="w-full min-w-[940px] text-left text-[13px]">
                 <thead>
                   <tr className="border-b border-[var(--color-line)]">
                     {[
@@ -418,9 +554,9 @@ export default function ModelsPage() {
                       { label: 'Model' },
                       { label: 'Provider', w: 120 },
                       { label: 'Intelligence', w: 100 },
-                      { label: 'Coding', w: 80 },
-                      { label: 'ELO', w: 72 },
-                      { label: 'Prompt $/M', w: 90 },
+                      { label: 'Speed t/s', w: 90 },
+                      { label: 'Cost', w: 110 },
+                      { label: 'Verbosity', w: 100 },
                       { label: 'Context', w: 80 },
                       { label: 'Type', w: 100 },
                     ].map(col => (
@@ -441,9 +577,11 @@ export default function ModelsPage() {
                       </td>
                       <td className="py-2.5 px-4 text-neutral-500">{m.provider}</td>
                       <td className="py-2.5 px-4 tabular-nums">{m.intelligenceIndex ?? '—'}</td>
-                      <td className="py-2.5 px-4 tabular-nums">{m.codingIndex ?? '—'}</td>
-                      <td className="py-2.5 px-4 tabular-nums">{m.elo ?? '—'}</td>
-                      <td className="py-2.5 px-4 tabular-nums">{m.promptPrice != null ? `$${m.promptPrice.toFixed(2)}` : '—'}</td>
+                      <td className="py-2.5 px-4 tabular-nums">{m.aaSpeed != null ? m.aaSpeed : '—'}</td>
+                      <td className="py-2.5 px-4 tabular-nums">
+                        {m.aaCostPerTask != null ? `$${m.aaCostPerTask.toFixed(2)}` : blendedCost(m) != null ? `$${blendedCost(m)!.toFixed(2)}/M` : '—'}
+                      </td>
+                      <td className="py-2.5 px-4 tabular-nums text-neutral-500">{fmtTokens(m.aaVerbosity)}</td>
                       <td className="py-2.5 px-4 text-neutral-500">{m.context ?? '—'}</td>
                       <td className="py-2.5 px-4">
                         <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${
