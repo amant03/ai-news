@@ -7,24 +7,24 @@ const CATEGORIES = [
     title: 'Image Generation',
     items: [
       { name: 'Text to Image Leaderboard', href: '/image/leaderboard/text-to-image', desc: 'Rankings for AI image generation models by Elo from blind user comparisons', status: 'live' },
-      { name: 'Image Editing Leaderboard', href: '#', desc: 'Rankings for AI image editing models', status: 'coming' },
+      { name: 'Image Editing Leaderboard', href: '/image/leaderboard/editing', desc: 'Rankings for AI image editing models', status: 'live' },
       { name: 'Image Arena', href: '#', desc: 'Vote on AI-generated images in blind comparisons', status: 'coming' },
     ],
   },
   {
     title: 'Speech',
     items: [
-      { name: 'Speech to Text', href: '#', desc: 'Rankings for AI speech recognition models', status: 'coming' },
-      { name: 'Text to Speech', href: '#', desc: 'Rankings for AI text-to-speech models', status: 'coming' },
+      { name: 'Speech to Text', href: '/speech-to-text', desc: 'Rankings for AI speech recognition models', status: 'live' },
+      { name: 'Text to Speech', href: '/text-to-speech', desc: 'Rankings for AI text-to-speech models', status: 'live' },
       { name: 'Speech to Speech', href: '#', desc: 'Rankings for AI voice conversion models', status: 'coming' },
     ],
   },
   {
     title: 'Video',
     items: [
-      { name: 'Text to Video', href: '#', desc: 'Rankings for AI video generation models', status: 'coming' },
-      { name: 'Image to Video', href: '#', desc: 'Rankings for AI image-to-video models', status: 'coming' },
-      { name: 'Video Editing', href: '#', desc: 'Rankings for AI video editing models', status: 'coming' },
+      { name: 'Text to Video', href: '/video/leaderboard/text-to-video', desc: 'Rankings for AI video generation models', status: 'live' },
+      { name: 'Image to Video', href: '/video/leaderboard/image-to-video', desc: 'Rankings for AI image-to-video models', status: 'live' },
+      { name: 'Video Editing', href: '/video/leaderboard/video-editing', desc: 'Rankings for AI video editing models', status: 'live' },
     ],
   },
   {
