@@ -13,7 +13,8 @@
       "ci": "-5/5",
       "samples": 12545,
       "released": "Jul 2026",
-      "price": "$7.80 /min"
+      "price": "$7.80 /min",
+      "openWeights": false
     },
     {
       "rank": 2,

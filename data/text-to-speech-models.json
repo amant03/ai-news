@@ -10,7 +10,8 @@
       "provider": "Cartesia",
       "qualityElo": 1283,
       "price": null,
-      "speedFactor": null
+      "speedFactor": null,
+      "openWeights": false
     },
     {
       "rank": 2,
