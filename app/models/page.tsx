@@ -289,7 +289,7 @@ export default function ModelsPage() {
                 href={`/models/${slugOf(m.name)}`}
                 className="border border-[var(--color-line)] rounded-lg p-4 hover:border-neutral-300 transition-colors block"
               >
-                <div className="flex items-start justify-between gap-2">
+                <div className="flex items-start justify-between gap-2 mb-3">
                   <div className="min-w-0">
                     <div className="font-medium text-[14px] truncate">{m.name}</div>
                     <div className="text-[11px] text-neutral-500 mt-0.5">{m.provider}</div>
@@ -300,11 +300,29 @@ export default function ModelsPage() {
                     {isOpen(m) ? 'Open' : 'Closed'}
                   </span>
                 </div>
-                <div className="mt-3 flex items-center justify-between text-[11px] text-neutral-400">
-                  <span>{m.released ? new Date(m.released).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}</span>
-                  <span className="tabular-nums font-medium text-neutral-600">
-                    {m.intelligenceIndex != null ? `Intelligence ${m.intelligenceIndex}` : m.context ? `Context ${m.context}` : ''}
-                  </span>
+                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                  <div className="flex flex-col">
+                    <span className="text-neutral-400">Intelligence</span>
+                    <span className="tabular-nums font-semibold text-[13px]">{m.intelligenceIndex ?? '—'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-neutral-400">Speed</span>
+                    <span className="tabular-nums font-semibold text-[13px]">{m.aaSpeed != null ? `${m.aaSpeed} t/s` : '—'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-neutral-400">Cost</span>
+                    <span className="tabular-nums font-semibold text-[13px]">
+                      {m.aaCostPerTask != null ? `$${m.aaCostPerTask.toFixed(2)}` : blendedCost(m) != null ? `$${blendedCost(m)!.toFixed(2)}/M` : '—'}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-neutral-400">Verbosity</span>
+                    <span className="tabular-nums font-semibold text-[13px]">{fmtTokens(m.aaVerbosity)}</span>
+                  </div>
+                </div>
+                <div className="mt-2.5 text-[10px] text-neutral-400">
+                  {m.released ? new Date(m.released).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}
+                  {m.context ? ` · ${m.context}` : ''}
                 </div>
               </a>
             ))}

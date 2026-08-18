@@ -5,18 +5,19 @@ import { countdown } from '@/lib/format';
 import { useTheme } from '@/lib/theme';
 
 interface HeaderProps {
-  total: number;
-  onlineSources: number;
-  lastUpdated: Date | null;
-  nextRefreshAt: Date | null;
-  isRefreshing: boolean;
-  onRefresh: () => void;
+  total?: number;
+  onlineSources?: number;
+  lastUpdated?: Date | null;
+  nextRefreshAt?: Date | null;
+  isRefreshing?: boolean;
+  onRefresh?: () => void;
 }
 
 const NAV = [
   { href: '/', label: 'News' },
   { href: '/models', label: 'Models' },
   { href: '/coding-agents', label: 'Coding Agents' },
+  { href: '/speech-image-video', label: 'Speech, Image, Video' },
   { href: '/trends', label: 'AI Trends' },
   { href: '/leaderboards', label: 'Leaderboards' },
 ];
@@ -49,13 +50,13 @@ function relTime(iso: string | null): string {
  * Clean AA-style header: logo left, pill nav center, minimal actions right.
  */
 export default function Header({
-  total,
-  onlineSources,
+  total: _total,
+  onlineSources: _onlineSources,
   lastUpdated: _lastUpdated,
   nextRefreshAt,
-  isRefreshing,
-  onRefresh,
-}: HeaderProps) {
+  isRefreshing: _isRefreshing,
+  onRefresh: _onRefresh,
+}: HeaderProps = {}) {
   const { theme, toggle } = useTheme();
   const [active, setActive] = useState('/');
   const [lastSync, setLastSync] = useState<string | null>(null);
@@ -160,12 +161,12 @@ export default function Header({
               )}
             </button>
             <button
-              onClick={onRefresh}
-              disabled={isRefreshing}
+              onClick={_onRefresh}
+              disabled={_isRefreshing}
               aria-label="Refresh"
               className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 transition-colors disabled:opacity-40"
             >
-              <svg className={`w-4 h-4 ${isRefreshing ? 'animate-spin-slow' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <svg className={`w-4 h-4 ${_isRefreshing ? 'animate-spin-slow' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
             </button>
