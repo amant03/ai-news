@@ -1,0 +1,27 @@
+{
+  "updatedAt": "2026-08-18T00:00:00Z",
+  "note": "Curated provider benchmark data mirrored from https://artificialanalysis.ai/models/{slug}/providers. Median = P50 over 72h, workload = 10k input tokens. Expand per model by scraping the AA providers page.",
+  "models": {
+    "kimi-k3": {
+      "name": "Kimi K3 (max)",
+      "provider": "Kimi",
+      "released": "2026-07",
+      "family": "open-weights",
+      "blendRatio": "7:2:1 cache-input-output",
+      "providers": [
+        { "name": "Kimi", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 0.84, "speed": 38, "firstChunk": 2.67, "totalResponse": 69.18, "reasoningTime": 53.21, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Fireworks", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 0.89, "speed": 120, "firstChunk": 0.95, "totalResponse": 21.74, "reasoningTime": 16.63, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Fireworks (FAST)", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 1.34, "speed": 119, "firstChunk": 1.0, "totalResponse": 21.96, "reasoningTime": 16.77, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Modal", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 1.24, "speed": 109, "firstChunk": 2.56, "totalResponse": 25.47, "reasoningTime": 18.33, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Together AI", "context": "1M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 1.43, "speed": 66, "firstChunk": 1.14, "totalResponse": 38.87, "reasoningTime": 30.18, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "DigitalOcean", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 0.96, "speed": 45, "firstChunk": 1.26, "totalResponse": 56.57, "reasoningTime": 44.25, "blendedPrice": 2.19, "inputPrice": 2.85, "outputPrice": 14.25 },
+        { "name": "Baseten", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 1.26, "speed": 106, "firstChunk": 0.8, "totalResponse": 24.35, "reasoningTime": 18.84, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Parasail", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 0.78, "speed": 163, "firstChunk": 1.92, "totalResponse": 17.31, "reasoningTime": 12.31, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Makora", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 0.56, "speed": 98, "firstChunk": 1.89, "totalResponse": 27.27, "reasoningTime": 20.31, "blendedPrice": 1.96, "inputPrice": 2.55, "outputPrice": 12.75 },
+        { "name": "Nebius", "context": "1.05M", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 3.11, "speed": null, "firstChunk": null, "totalResponse": null, "reasoningTime": null, "blendedPrice": 4.2, "inputPrice": 5.0, "outputPrice": 20.0 },
+        { "name": "Databricks", "context": "205k", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 0.79, "speed": 95, "firstChunk": 0.86, "totalResponse": 27.14, "reasoningTime": 21.02, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 },
+        { "name": "Bitdeer AI", "context": "262k", "license": "Open", "functionCalling": true, "jsonMode": true, "costPerTask": 1.33, "speed": 34, "firstChunk": 3.1, "totalResponse": 77.57, "reasoningTime": 59.57, "blendedPrice": 2.31, "inputPrice": 3.0, "outputPrice": 15.0 }
+      ]
+    }
+  }
+}

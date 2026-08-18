@@ -35,6 +35,9 @@ export interface ModelRecord {
   intelligenceIndex?: number;
   codingIndex?: number;
   agenticIndex?: number;
+  aaSpeed?: number;
+  aaCostPerTask?: number;
+  aaVerbosity?: number;
   hfDownloads?: number;
   hfLikes?: number;
   elo?: number;

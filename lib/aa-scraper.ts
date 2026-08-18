@@ -15,6 +15,7 @@ export interface AAModelEntry {
   intelligenceIndex: number | null;
   speed: number | null;
   costPerTask: number | null;
+  verbosity: number | null;
 }
 
 const AA_MODELS_URL = 'https://artificialanalysis.ai/models';
@@ -61,6 +62,7 @@ async function scrapeAAHtml(): Promise<AAModelEntry[]> {
             intelligenceIndex: toNum(m.intelligence_index ?? m.intelligenceIndex ?? m.ii ?? null),
             speed: toNum(m.speed ?? m.tokens_per_second ?? m.tps ?? null),
             costPerTask: toNum(m.cost_per_task ?? m.costPerTask ?? m.cost ?? null),
+            verbosity: toNum(m.verbosity ?? m.output_tokens ?? m.aa_verbosity ?? null),
           });
         }
         if (models.length > 0) return models;
@@ -118,6 +120,7 @@ async function scrapeAAHtml(): Promise<AAModelEntry[]> {
       intelligenceIndex: parseFloat(cells[iiIdx]) || null,
       speed,
       costPerTask: cost,
+      verbosity: null,
     });
   }
 
@@ -144,6 +147,7 @@ function loadSeedData(): AAModelEntry[] {
       intelligenceIndex: toNum(m.intelligenceIndex),
       speed: toNum(m.speed),
       costPerTask: toNum(m.costPerTask),
+      verbosity: toNum(m.verbosity),
     }));
   } catch {
     return [];
@@ -222,7 +226,8 @@ export function mergeAAIntoModels(
     });
 
     if (existing) {
-      if (aa.intelligenceIndex !== null && (existing.intelligenceIndex === undefined || existing.intelligenceIndex === null)) {
+      // AA is the authoritative benchmark source: always overwrite, never leave stale.
+      if (aa.intelligenceIndex !== null) {
         existing.intelligenceIndex = aa.intelligenceIndex;
         updated++;
       }
@@ -232,6 +237,10 @@ export function mergeAAIntoModels(
       }
       if (aa.costPerTask !== null) {
         existing.aaCostPerTask = aa.costPerTask;
+        updated++;
+      }
+      if (aa.verbosity !== null) {
+        existing.aaVerbosity = aa.verbosity;
         updated++;
       }
     } else {
@@ -245,6 +254,7 @@ export function mergeAAIntoModels(
         intelligenceIndex: aa.intelligenceIndex,
         aaSpeed: aa.speed,
         aaCostPerTask: aa.costPerTask,
+        aaVerbosity: aa.verbosity,
       });
       added++;
     }

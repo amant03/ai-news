@@ -35,6 +35,13 @@ function fmtPrice(v: number | undefined): string {
   return `$${v.toFixed(2)}`;
 }
 
+function fmtVerbosity(v: number | undefined): string {
+  if (v === undefined) return '—';
+  if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(v % 1_000_000 === 0 ? 0 : 1)}M`;
+  if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
+  return String(v);
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const db = readModelDatabase();
@@ -57,6 +64,10 @@ export default async function ModelDetailPage({ params }: Props) {
     .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
   const intelRank = model.intelligenceIndex != null ? withIntel.findIndex(m => m.id === model.id) + 1 : null;
   const classTotal = withIntel.length;
+
+  const intelScore = model.intelligenceIndex;
+  const speed = model.aaSpeed;
+  const verbosity = model.aaVerbosity;
 
   const isOpen = model.family === 'open-weights' || model.family === 'open';
   const avgCost =
@@ -103,6 +114,13 @@ export default async function ModelDetailPage({ params }: Props) {
               <span className="text-neutral-500">Released {fmtDate(model.released)}</span>
             </>
           )}
+          <span className="text-neutral-300">•</span>
+          <Link
+            href={`/models/${slug}/providers`}
+            className="text-neutral-500 hover:text-black transition-colors underline underline-offset-2"
+          >
+            Compare API providers
+          </Link>
         </div>
       </div>
 
@@ -111,18 +129,18 @@ export default async function ModelDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Intelligence</div>
-            {model.intelligenceIndex != null ? (
+            {intelScore != null ? (
               <>
-                <div className="text-3xl font-semibold tabular-nums">{model.intelligenceIndex}</div>
+                <div className="text-3xl font-semibold tabular-nums">{intelScore}</div>
                 <div className="text-[11px] text-neutral-500 mt-1">
                   {intelRank ? `#${intelRank} / ${classTotal}` : ''}
                 </div>
                 <div className="mt-2 flex gap-0.5">
                   {[1, 2, 3, 4].map(i => (
-                    <span key={i} className={`w-4 h-1 rounded-full ${i <= unitsFor(model.intelligenceIndex) ? 'bg-violet-500' : 'bg-neutral-200'}`} />
+                    <span key={i} className={`w-4 h-1 rounded-full ${i <= unitsFor(intelScore) ? 'bg-violet-500' : 'bg-neutral-200'}`} />
                   ))}
                 </div>
-                <div className="text-[10px] text-neutral-400 mt-1">{unitsFor(model.intelligenceIndex)} of 4 units for Intelligence</div>
+                <div className="text-[10px] text-neutral-400 mt-1">{unitsFor(intelScore)} of 4 units for Intelligence</div>
               </>
             ) : (
               <div className="text-neutral-400">—</div>
@@ -130,20 +148,22 @@ export default async function ModelDetailPage({ params }: Props) {
           </div>
 
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Coding</div>
-            {model.codingIndex != null ? (
+            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Speed</div>
+            {speed != null ? (
               <>
-                <div className="text-3xl font-semibold tabular-nums">{model.codingIndex}</div>
-                <div className="text-[11px] text-neutral-500 mt-1">Coding index</div>
+                <div className="text-3xl font-semibold tabular-nums">{speed}</div>
+                <div className="text-[11px] text-neutral-500 mt-1">output tokens / second</div>
                 <div className="mt-2 flex gap-0.5">
                   {[1, 2, 3, 4].map(i => (
-                    <span key={i} className={`w-4 h-1 rounded-full ${i <= unitsFor(model.codingIndex) ? 'bg-amber-500' : 'bg-neutral-200'}`} />
+                    <span key={i} className={`w-4 h-1 rounded-full ${i <= unitsFor(speed / 60) ? 'bg-emerald-500' : 'bg-neutral-200'}`} />
                   ))}
                 </div>
-                <div className="text-[10px] text-neutral-400 mt-1">{unitsFor(model.codingIndex)} of 4 units for Coding</div>
               </>
             ) : (
-              <div className="text-neutral-400">—</div>
+              <>
+                <div className="text-3xl font-semibold text-neutral-300">N/A</div>
+                <div className="text-[11px] text-neutral-500 mt-1">no API provider benchmarked yet</div>
+              </>
             )}
           </div>
 
@@ -163,11 +183,20 @@ export default async function ModelDetailPage({ params }: Props) {
           </div>
 
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Context / ELO</div>
-            <div className="text-3xl font-semibold tabular-nums">{model.context || '—'}</div>
-            <div className="text-[11px] text-neutral-500 mt-1">context window</div>
-            {model.elo != null && (
-              <div className="mt-2 text-[11px] text-neutral-500 tabular-nums">LMArena Elo {model.elo}</div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Verbosity</div>
+            {verbosity != null ? (
+              <>
+                <div className="text-3xl font-semibold tabular-nums">{fmtVerbosity(verbosity)}</div>
+                <div className="text-[11px] text-neutral-500 mt-1">output tokens from Intelligence Index</div>
+                <div className="mt-2 flex gap-0.5">
+                  {[1, 2, 3, 4].map(i => (
+                    <span key={i} className={`w-4 h-1 rounded-full ${i <= unitsFor(verbosity / 40_000_000) ? 'bg-orange-500' : 'bg-neutral-200'}`} />
+                  ))}
+                </div>
+                <div className="text-[10px] text-neutral-400 mt-1">{unitsFor(verbosity / 40_000_000)} of 4 units for Verbosity</div>
+              </>
+            ) : (
+              <div className="text-neutral-400">—</div>
             )}
           </div>
         </div>
