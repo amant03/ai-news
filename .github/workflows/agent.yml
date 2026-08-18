@@ -56,6 +56,10 @@ jobs:
         timeout-minutes: 5
         run: npx tsx lib/t2i-scraper.ts
 
+      - name: Enrich model data from AA
+        timeout-minutes: 20
+        run: npx tsx lib/aa-model-scraper.ts
+
       - name: Commit and push fresh data
         if: success()
         run: |
