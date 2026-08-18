@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T16:31:31.682Z",
+  "updatedAt": "2026-08-18T17:05:47.146Z",
   "source": "Artificial Analysis Image to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
   "total": 29,
@@ -22,7 +22,7 @@
       "name": "MiniMax H3Open Weights",
       "elo": 1189,
       "ci": "-9/9",
-      "samples": 6174,
+      "samples": 6175,
       "released": "Jul 2026",
       "price": "$7.8 /1k imgs"
     },
@@ -44,7 +44,7 @@
       "name": "grok-imagine-video-1.5",
       "elo": 1111,
       "ci": "-8/8",
-      "samples": 5434,
+      "samples": 5435,
       "released": "May 2026",
       "price": "$8.4 /1k imgs"
     },
@@ -55,7 +55,7 @@
       "name": "HappyHorse-1.1",
       "elo": 1109,
       "ci": "-7/7",
-      "samples": 9337,
+      "samples": 9338,
       "released": "Jun 2026",
       "price": "$9.9 /1k imgs"
     },
@@ -66,7 +66,7 @@
       "name": "MAGI-2 PreviewOpen Weights",
       "elo": 1104,
       "ci": "-8/8",
-      "samples": 11036,
+      "samples": 11038,
       "released": "Aug 2026",
       "price": "Coming soon"
     },
@@ -165,7 +165,7 @@
       "name": "Kling 3.0 720p (Standard)",
       "elo": 1068,
       "ci": "-7/7",
-      "samples": 13113,
+      "samples": 13114,
       "released": "Feb 2026",
       "price": "$15.6 /1k imgs"
     },
@@ -209,7 +209,7 @@
       "name": "Kling 3.0 Omni 720p (Standard)",
       "elo": 1054,
       "ci": "-7/7",
-      "samples": 7058,
+      "samples": 7059,
       "released": "Feb 2026",
       "price": "$13.4 /1k imgs"
     },
@@ -242,7 +242,7 @@
       "name": "Seedance 1.5 pro",
       "elo": 1000,
       "ci": "0/0",
-      "samples": 9402,
+      "samples": 9403,
       "released": "Dec 2025",
       "price": "$11.9 /1k imgs"
     },
@@ -262,7 +262,7 @@
       "range": "23-25",
       "creator": "Lightricks",
       "name": "LTX-2.3 FastOpen Weights",
-      "elo": 959,
+      "elo": 958,
       "ci": "-7/7",
       "samples": 9167,
       "released": "Mar 2026",
@@ -297,7 +297,7 @@
       "name": "Agnes-Video-V2.0",
       "elo": 926,
       "ci": "-9/9",
-      "samples": 5413,
+      "samples": 5414,
       "released": "May 2026",
       "price": "$0.3 /1k imgs"
     },

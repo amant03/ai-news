@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T16:31:31.954Z",
+  "updatedAt": "2026-08-18T17:05:47.526Z",
   "source": "Artificial Analysis Video Editing Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/video-editing",
   "total": 8,
@@ -53,7 +53,7 @@
       "range": "5",
       "creator": "ByteDance Seed",
       "name": "Dreamina Seedance 2.0 720p",
-      "elo": 1039,
+      "elo": 1040,
       "ci": "-5/5",
       "samples": 22484,
       "released": "Mar 2026",
@@ -77,7 +77,7 @@
       "name": "Kling 3.0 Omni 1080p (Pro)",
       "elo": 1000,
       "ci": "0/0",
-      "samples": 18651,
+      "samples": 18653,
       "released": "Feb 2026",
       "price": "$10.91 /min"
     },
@@ -88,7 +88,7 @@
       "name": "SkyReels V4",
       "elo": 952,
       "ci": "-6/6",
-      "samples": 15203,
+      "samples": 15204,
       "released": "Mar 2026",
       "price": "$37.50 /min"
     }

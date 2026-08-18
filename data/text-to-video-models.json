@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T16:31:31.635Z",
+  "updatedAt": "2026-08-18T17:05:46.675Z",
   "source": "Artificial Analysis Text to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
   "total": 28,
@@ -11,7 +11,7 @@
       "name": "Gemini Omni Flash",
       "elo": 1239,
       "ci": "-7/7",
-      "samples": 14035,
+      "samples": 14036,
       "released": "May 2026",
       "price": "$6.00 /min"
     },
@@ -42,9 +42,9 @@
       "range": "4",
       "creator": "Alibaba",
       "name": "Wan2.7-260612",
-      "elo": 1157,
+      "elo": 1158,
       "ci": "-6/6",
-      "samples": 14676,
+      "samples": 14677,
       "released": "Jun 2026",
       "price": "$9.00 /min"
     },
@@ -55,7 +55,7 @@
       "name": "HappyHorse-1.1",
       "elo": 1146,
       "ci": "-6/6",
-      "samples": 14868,
+      "samples": 14869,
       "released": "Jun 2026",
       "price": "$9.90 /min"
     },
@@ -66,7 +66,7 @@
       "name": "HappyHorse-1.0",
       "elo": 1121,
       "ci": "-7/7",
-      "samples": 8843,
+      "samples": 8844,
       "released": "Apr 2026",
       "price": "$13.20 /min"
     },
@@ -110,7 +110,7 @@
       "name": "Kling 3.0 720p (Standard)",
       "elo": 1099,
       "ci": "-6/6",
-      "samples": 17633,
+      "samples": 17635,
       "released": "Feb 2026",
       "price": "$15.12 /min"
     },
@@ -196,7 +196,7 @@
       "range": "18",
       "creator": "SpaceXAI",
       "name": "grok-imagine-video",
-      "elo": 1063,
+      "elo": 1062,
       "ci": "-6/6",
       "samples": 15762,
       "released": "Jan 2026",
@@ -242,7 +242,7 @@
       "name": "Kling 2.6 Pro (January)",
       "elo": 985,
       "ci": "-7/7",
-      "samples": 7962,
+      "samples": 7963,
       "released": "Jan 2026",
       "price": "$8.40 /min"
     },
@@ -264,7 +264,7 @@
       "name": "LTX-2.3 ProOpen Weights",
       "elo": 958,
       "ci": "-7/7",
-      "samples": 10488,
+      "samples": 10490,
       "released": "Mar 2026",
       "price": "$4.80 /min"
     },
@@ -308,7 +308,7 @@
       "name": "Agnes-Video-V2.0",
       "elo": 914,
       "ci": "-8/8",
-      "samples": 5000,
+      "samples": 5002,
       "released": "May 2026",
       "price": "$0.30 /min"
     }
