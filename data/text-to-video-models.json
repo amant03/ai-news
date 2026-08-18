@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T14:42:57.874Z",
+  "updatedAt": "2026-08-18T14:50:48.709Z",
   "source": "Artificial Analysis Text to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
   "total": 28,
@@ -19,13 +19,12 @@
       "rank": 2,
       "range": "1-2",
       "creator": "MiniMax",
-      "name": "MiniMax H3",
+      "name": "MiniMax H3Open Weights",
       "elo": 1237,
       "ci": "-8/8",
       "samples": 7667,
       "released": "Jul 2026",
-      "price": "$7.80 /min",
-      "openWeights": true
+      "price": "$7.80 /min"
     },
     {
       "rank": 3,
@@ -251,25 +250,23 @@
       "rank": 23,
       "range": "23",
       "creator": "Lightricks",
-      "name": "LTX-2.3 Fast",
+      "name": "LTX-2.3 FastOpen Weights",
       "elo": 976,
       "ci": "-7/7",
       "samples": 10859,
       "released": "Mar 2026",
-      "price": "$2.40 /min",
-      "openWeights": true
+      "price": "$2.40 /min"
     },
     {
       "rank": 24,
       "range": "24",
       "creator": "Lightricks",
-      "name": "LTX-2.3 Pro",
+      "name": "LTX-2.3 ProOpen Weights",
       "elo": 958,
       "ci": "-7/7",
       "samples": 10486,
       "released": "Mar 2026",
-      "price": "$4.80 /min",
-      "openWeights": true
+      "price": "$4.80 /min"
     },
     {
       "rank": 25,
@@ -286,25 +283,23 @@
       "rank": 26,
       "range": "26",
       "creator": "Lightricks",
-      "name": "LTX-2 Fast",
+      "name": "LTX-2 FastOpen Weights",
       "elo": 942,
       "ci": "-8/8",
       "samples": 6256,
       "released": "Oct 2025",
-      "price": "$2.40 /min",
-      "openWeights": true
+      "price": "$2.40 /min"
     },
     {
       "rank": 27,
       "range": "27-28",
       "creator": "Lightricks",
-      "name": "LTX-2 Pro",
+      "name": "LTX-2 ProOpen Weights",
       "elo": 918,
       "ci": "-8/8",
       "samples": 6262,
       "released": "Oct 2025",
-      "price": "$3.60 /min",
-      "openWeights": true
+      "price": "$3.60 /min"
     },
     {
       "rank": 28,

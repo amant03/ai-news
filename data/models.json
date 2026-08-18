@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T14:35:01.688Z",
+  "updatedAt": "2026-08-18T14:50:47.547Z",
   "sources": [
     "openrouter",
     "huggingface",
@@ -2027,7 +2027,7 @@
       "codingIndex": 58.6,
       "agenticIndex": 36.1,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "deepseek/deepseek-v4-pro",
@@ -2203,7 +2203,7 @@
       "codingIndex": 56.1,
       "agenticIndex": 31.5,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "x-ai/grok-build-0.1",
@@ -2293,7 +2293,7 @@
       "codingIndex": 52.6,
       "agenticIndex": 25.9,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -2646,7 +2646,7 @@
       "codingIndex": 15.6,
       "agenticIndex": 19.6,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "nvidia/nemotron-3-super-120b-a12b",
@@ -2808,7 +2808,7 @@
       "codingIndex": 36.5,
       "agenticIndex": 3.1,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "mistralai/mistral-small-2603",
@@ -2878,7 +2878,7 @@
       "codingIndex": 16.3,
       "agenticIndex": 1.7,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "openai/gpt-oss-20b",
@@ -2930,7 +2930,7 @@
       "codingIndex": 20.2,
       "agenticIndex": 1.8,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "mistralai/mistral-medium-3.1",
@@ -3256,7 +3256,7 @@
       "promptPrice": 0.5,
       "completionPrice": 2.5,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "bytedance-seed/seed-2.0-code",
@@ -3764,7 +3764,7 @@
       "promptPrice": 0.75,
       "completionPrice": 4.5,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "~google/gemini-pro-latest",
@@ -3948,7 +3948,7 @@
       "promptPrice": 1.2,
       "completionPrice": 4,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "arcee-ai/trinity-large-thinking",
@@ -4062,7 +4062,7 @@
       "promptPrice": 1.2,
       "completionPrice": 4,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "bytedance-seed/seed-2.0-lite",
@@ -4190,7 +4190,7 @@
       "promptPrice": 0.22,
       "completionPrice": 0.9,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "qwen/qwen3-max-thinking",
@@ -4244,7 +4244,7 @@
       "promptPrice": 0.3,
       "completionPrice": 1.2,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "writer/palmyra-x5",
@@ -4282,7 +4282,7 @@
       "promptPrice": 0.6,
       "completionPrice": 2.4,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "openai/gpt-5.2-codex",
@@ -4334,7 +4334,7 @@
       "promptPrice": 0.3,
       "completionPrice": 1.2,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "google/gemini-3-flash-preview",
@@ -4616,7 +4616,7 @@
       "promptPrice": 0.26,
       "completionPrice": 1.02,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "qwen/qwen3-vl-32b-instruct",
@@ -4658,7 +4658,7 @@
       "promptPrice": 2.5,
       "completionPrice": 2,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "qwen/qwen3-vl-8b-thinking",
@@ -5142,7 +5142,7 @@
       "promptPrice": 0.2,
       "completionPrice": 0.9,
       "hfDownloads": 45465,
-      "hfLikes": 494
+      "hfLikes": 495
     },
     {
       "id": "tencent/hunyuan-a13b-instruct",
@@ -5222,7 +5222,7 @@
       "promptPrice": 0.55,
       "completionPrice": 2.2,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "google/gemini-2.5-flash",
@@ -5402,7 +5402,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "openai/o3",
@@ -5428,7 +5428,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "openai/gpt-4.1",
@@ -5618,7 +5618,7 @@
       "promptPrice": 1.1,
       "completionPrice": 4.4,
       "hfDownloads": 11745,
-      "hfLikes": 932
+      "hfLikes": 933
     },
     {
       "id": "perplexity/sonar",
@@ -6142,7 +6142,7 @@
       "codingIndex": 21.5,
       "agenticIndex": null,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "anthropic/claude-3-haiku",
@@ -6184,7 +6184,7 @@
       "promptPrice": 1,
       "completionPrice": 2,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "openai/gpt-4-turbo-preview",
@@ -6198,7 +6198,7 @@
       "promptPrice": 10,
       "completionPrice": 30,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "openrouter/auto",
@@ -6222,7 +6222,7 @@
       "promptPrice": 1.5,
       "completionPrice": 2,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "openai/gpt-3.5-turbo-16k",
@@ -6236,7 +6236,7 @@
       "promptPrice": 3,
       "completionPrice": 4,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "mancer/weaver",
@@ -6290,7 +6290,7 @@
       "codingIndex": 10.7,
       "agenticIndex": null,
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "openai/gpt-4",
@@ -6324,7 +6324,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 503632,
-      "hfLikes": 1180,
+      "hfLikes": 1182,
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 1,
@@ -6337,7 +6337,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 11745,
-      "hfLikes": 932,
+      "hfLikes": 933,
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 0,
@@ -6350,7 +6350,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 741011,
-      "hfLikes": 550
+      "hfLikes": 551
     },
     {
       "id": "MiniMaxAI/MiniMax-H3",
@@ -6359,7 +6359,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 2855539,
-      "hfLikes": 4124,
+      "hfLikes": 4125,
       "mentions": 1,
       "xMentions": 0,
       "redditMentions": 1,
@@ -6372,7 +6372,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 45465,
-      "hfLikes": 494
+      "hfLikes": 495
     },
     {
       "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
@@ -6381,7 +6381,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 558767,
-      "hfLikes": 374,
+      "hfLikes": 375,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6391,7 +6391,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 300279,
-      "hfLikes": 602
+      "hfLikes": 603
     },
     {
       "id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4",
@@ -6410,7 +6410,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 523919,
-      "hfLikes": 253
+      "hfLikes": 254
     },
     {
       "id": "Gazingstars123/Anima-2.9B",
@@ -6451,6 +6451,15 @@
       "hfLikes": 2130
     },
     {
+      "id": "froggeric/Qwen-Fixed-Chat-Templates",
+      "name": "Qwen-Fixed-Chat-Templates",
+      "provider": "Froggeric",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 1236
+    },
+    {
       "id": "unsloth/Muse-Glimmer-30B-GGUF",
       "name": "Muse-Glimmer-30B-GGUF",
       "provider": "Unsloth",
@@ -6458,15 +6467,6 @@
       "family": "open-weights",
       "hfDownloads": 787276,
       "hfLikes": 475
-    },
-    {
-      "id": "froggeric/Qwen-Fixed-Chat-Templates",
-      "name": "Qwen-Fixed-Chat-Templates",
-      "provider": "Froggeric",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 1234
     },
     {
       "id": "inclusionAI/Ling-3.0-tiny",
@@ -6525,7 +6525,16 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 27745,
-      "hfLikes": 156
+      "hfLikes": 157
+    },
+    {
+      "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "name": "Qwen3.8-27B-Uncensored-MLX",
+      "provider": "Orcarouter",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 0,
+      "hfLikes": 161
     },
     {
       "id": "larryvrh/MiniMax-H3-Turbo-Lora",
@@ -6537,15 +6546,6 @@
       "hfLikes": 794
     },
     {
-      "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
-      "name": "Qwen3.8-27B-Uncensored-MLX",
-      "provider": "Orcarouter",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 0,
-      "hfLikes": 158
-    },
-    {
       "id": "fal/MiniMax-H3-Realism-People-LoRA",
       "name": "MiniMax-H3-Realism-People-LoRA",
       "provider": "Fal",
@@ -6553,6 +6553,15 @@
       "family": "open-weights",
       "hfDownloads": 20600,
       "hfLikes": 254
+    },
+    {
+      "id": "Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF",
+      "name": "Qwen3.8-27B-ABLITERATED-GGUF",
+      "provider": "Blackfrost-ai",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 134149,
+      "hfLikes": 141
     },
     {
       "id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
@@ -6563,15 +6572,6 @@
       "hfDownloads": 78254,
       "hfLikes": 173,
       "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF",
-      "name": "Qwen3.8-27B-ABLITERATED-GGUF",
-      "provider": "Blackfrost-ai",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 134149,
-      "hfLikes": 141
     },
     {
       "id": "AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16",
@@ -6599,7 +6599,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 150262,
-      "hfLikes": 128,
+      "hfLikes": 129,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6609,7 +6609,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 1831,
-      "hfLikes": 120,
+      "hfLikes": 121,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6652,7 +6652,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 3989,
-      "hfLikes": 126
+      "hfLikes": 127
     },
     {
       "id": "unsloth/Qwen3.8-2.4T-A95B-GGUF",
@@ -6817,7 +6817,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 20201,
-      "hfLikes": 64,
+      "hfLikes": 65,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -6900,7 +6900,7 @@
       "source": "huggingface",
       "family": "open-weights",
       "hfDownloads": 585877,
-      "hfLikes": 14174
+      "hfLikes": 14175
     },
     {
       "id": "unsloth/DeepSeek-V4-Pro-0813-GGUF",
@@ -7002,16 +7002,6 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "LiquidAI/LFM2.5-2.6B-GGUF",
-      "name": "LFM2.5-2.6B-GGUF",
-      "provider": "Liquid AI",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 362949,
-      "hfLikes": 231,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
       "id": "empero-ai/Qwen3.8-2B-GGUF",
       "name": "Qwen3.8-2B-GGUF",
       "provider": "Empero-ai",
@@ -7019,6 +7009,16 @@
       "family": "open-weights",
       "hfDownloads": 7277,
       "hfLikes": 35,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "LiquidAI/LFM2.5-2.6B-GGUF",
+      "name": "LFM2.5-2.6B-GGUF",
+      "provider": "Liquid AI",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 362949,
+      "hfLikes": 231,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7172,16 +7172,6 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
-      "id": "ornith-ai/Ornith-1.0-35B-GGUF",
-      "name": "Ornith-1.0-35B-GGUF",
-      "provider": "Ornith-ai",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 3891810,
-      "hfLikes": 1045,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
       "id": "huihui-ai/Huihui-GLM-5.2-abliterated-GGUF",
       "name": "Huihui-GLM-5.2 Abliterated-GGUF",
       "provider": "Huihui-ai",
@@ -7252,6 +7242,16 @@
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
+      "id": "ornith-ai/Ornith-1.0-35B-GGUF",
+      "name": "Ornith-1.0-35B-GGUF",
+      "provider": "Ornith-ai",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 3891810,
+      "hfLikes": 1045,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
       "id": "YTan2000/Qwen3.8-27B-TQ3_4S",
       "name": "Qwen3.8-27B-TQ3_4S",
       "provider": "Ytan2000",
@@ -7309,16 +7309,6 @@
       "family": "open-weights",
       "hfDownloads": 363,
       "hfLikes": 18,
-      "description": "Open-weight text-generation model on Hugging Face."
-    },
-    {
-      "id": "ornith-ai/Ornith-1.0-35B",
-      "name": "Ornith-1.0-35B",
-      "provider": "Ornith-ai",
-      "source": "huggingface",
-      "family": "open-weights",
-      "hfDownloads": 3310731,
-      "hfLikes": 499,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {
@@ -7553,6 +7543,16 @@
       "family": "open-weights",
       "hfDownloads": 3350014,
       "hfLikes": 921,
+      "description": "Open-weight text-generation model on Hugging Face."
+    },
+    {
+      "id": "ornith-ai/Ornith-1.0-35B",
+      "name": "Ornith-1.0-35B",
+      "provider": "Ornith-ai",
+      "source": "huggingface",
+      "family": "open-weights",
+      "hfDownloads": 3310731,
+      "hfLikes": 499,
       "description": "Open-weight text-generation model on Hugging Face."
     },
     {

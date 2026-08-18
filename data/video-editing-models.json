@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T14:42:57.877Z",
+  "updatedAt": "2026-08-18T14:50:49.275Z",
   "source": "Artificial Analysis Video Editing Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/video-editing",
   "total": 8,
@@ -8,13 +8,12 @@
       "rank": 1,
       "range": "1-2",
       "creator": "MiniMax",
-      "name": "MiniMax H3",
+      "name": "MiniMax H3Open Weights",
       "elo": 1131,
       "ci": "-5/5",
       "samples": 12543,
       "released": "Jul 2026",
-      "price": "$7.80 /min",
-      "openWeights": true
+      "price": "$7.80 /min"
     },
     {
       "rank": 2,
