@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T14:59:43.041Z",
+  "updatedAt": "2026-08-18T16:31:31.954Z",
   "source": "Artificial Analysis Video Editing Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/video-editing",
   "total": 8,
@@ -11,10 +11,9 @@
       "name": "MiniMax H3Open Weights",
       "elo": 1131,
       "ci": "-5/5",
-      "samples": 12543,
+      "samples": 12545,
       "released": "Jul 2026",
-      "price": "$7.80 /min",
-      "openWeights": false
+      "price": "$7.80 /min"
     },
     {
       "rank": 2,
@@ -23,7 +22,7 @@
       "name": "Gemini Omni Flash",
       "elo": 1128,
       "ci": "-5/5",
-      "samples": 15139,
+      "samples": 15144,
       "released": "May 2026",
       "price": "$6.00 /min"
     },
@@ -32,9 +31,9 @@
       "range": "3",
       "creator": "Alibaba-ATH",
       "name": "HappyHorse-1.0",
-      "elo": 1092,
+      "elo": 1093,
       "ci": "-5/5",
-      "samples": 22778,
+      "samples": 22781,
       "released": "Apr 2026",
       "price": "$27.04 /min"
     },
@@ -45,7 +44,7 @@
       "name": "Wan 2.7",
       "elo": 1077,
       "ci": "-5/5",
-      "samples": 18599,
+      "samples": 18600,
       "released": "Apr 2026",
       "price": "$16.90 /min"
     },
@@ -54,9 +53,9 @@
       "range": "5",
       "creator": "ByteDance Seed",
       "name": "Dreamina Seedance 2.0 720p",
-      "elo": 1040,
+      "elo": 1039,
       "ci": "-5/5",
-      "samples": 22480,
+      "samples": 22484,
       "released": "Mar 2026",
       "price": "$5.57 /min"
     },
@@ -67,7 +66,7 @@
       "name": "Aleph 2.0",
       "elo": 1019,
       "ci": "-5/5",
-      "samples": 20604,
+      "samples": 20609,
       "released": "May 2026",
       "price": "$16.80 /min"
     },
@@ -78,7 +77,7 @@
       "name": "Kling 3.0 Omni 1080p (Pro)",
       "elo": 1000,
       "ci": "0/0",
-      "samples": 18648,
+      "samples": 18651,
       "released": "Feb 2026",
       "price": "$10.91 /min"
     },
@@ -89,7 +88,7 @@
       "name": "SkyReels V4",
       "elo": 952,
       "ci": "-6/6",
-      "samples": 15202,
+      "samples": 15203,
       "released": "Mar 2026",
       "price": "$37.50 /min"
     }
