@@ -210,7 +210,7 @@ function parseImageVideoTable(html: string, config: { url: string }): (ImageEdit
 
     if (name && elo > 0) {
       rank++;
-      const entry: Record<string, unknown> = {
+      const entry: any = {
         rank,
         range: range || `${rank}`,
         creator,

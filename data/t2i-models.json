@@ -134,7 +134,8 @@
       "ci": "-10/10",
       "samples": 5504,
       "released": "Apr 2026",
-      "price": "$75.0 /1k imgs"
+      "price": "$75.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 13,
@@ -167,7 +168,8 @@
       "ci": "-8/8",
       "samples": 12679,
       "released": "Jun 2026",
-      "price": "$80.0 /1k imgs"
+      "price": "$80.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 16,
@@ -200,7 +202,8 @@
       "ci": "-10/10",
       "samples": 5277,
       "released": "Nov 2025",
-      "price": "$60.0 /1k imgs"
+      "price": "$60.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 19,
@@ -250,12 +253,13 @@
       "rank": 23,
       "range": "16-28",
       "creator": "Ideogram",
-      "name": "Ideogram 4.0Open Weights",
+      "name": "Ideogram 4.0",
       "elo": 1216,
       "ci": "-9/9",
       "samples": 7424,
       "released": "Jun 2026",
-      "price": "$60.0 /1k imgs"
+      "price": "$60.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 24,
@@ -272,12 +276,13 @@
       "rank": 25,
       "range": "18-30",
       "creator": "Ideogram",
-      "name": "Ideogram 4.0 (Quality)Open Weights",
+      "name": "Ideogram 4.0 (Quality)",
       "elo": 1213,
       "ci": "-8/8",
       "samples": 11450,
       "released": "Jun 2026",
-      "price": "$100.0 /1k imgs"
+      "price": "$100.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 26,
@@ -288,7 +293,8 @@
       "ci": "-10/10",
       "samples": 4480,
       "released": "Jan 2026",
-      "price": "$30.0 /1k imgs"
+      "price": "$30.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 27,
@@ -332,7 +338,8 @@
       "ci": "-10/10",
       "samples": 4463,
       "released": "Dec 2025",
-      "price": "$30.0 /1k imgs"
+      "price": "$30.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 31,
@@ -371,12 +378,13 @@
       "rank": 34,
       "range": "29-39",
       "creator": "Fal",
-      "name": "Ideogram 4.0 Fast (Quality)Open Weights",
+      "name": "Ideogram 4.0 Fast (Quality)",
       "elo": 1199,
       "ci": "-9/9",
       "samples": 5640,
       "released": "Jul 2026",
-      "price": "$17.5 /1k imgs"
+      "price": "$17.5 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 35,
@@ -393,23 +401,25 @@
       "rank": 36,
       "range": "29-41",
       "creator": "Fal",
-      "name": "FLUX.2 [dev] TurboOpen Weights",
+      "name": "FLUX.2 [dev] Turbo",
       "elo": 1198,
       "ci": "-10/10",
       "samples": 5708,
       "released": "Dec 2025",
-      "price": "$8.0 /1k imgs"
+      "price": "$8.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 37,
       "range": "31-39",
       "creator": "Black Forest Labs",
-      "name": "FLUX.2 [dev]Open Weights",
+      "name": "FLUX.2 [dev]",
       "elo": 1198,
       "ci": "-7/7",
       "samples": 19184,
       "released": "Nov 2025",
-      "price": "$12.0 /1k imgs"
+      "price": "$12.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 38,
@@ -481,12 +491,13 @@
       "rank": 44,
       "range": "39-49",
       "creator": "Fal",
-      "name": "Ideogram 4.0 InstantOpen Weights",
+      "name": "Ideogram 4.0 Instant",
       "elo": 1186,
       "ci": "-9/9",
       "samples": 4748,
       "released": "Jul 2026",
-      "price": "$7.5 /1k imgs"
+      "price": "$7.5 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 45,
@@ -497,7 +508,8 @@
       "ci": "-9/9",
       "samples": 4675,
       "released": "Apr 2026",
-      "price": "$64.0 /1k imgs"
+      "price": "$64.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 46,
@@ -536,45 +548,49 @@
       "rank": 49,
       "range": "44-54",
       "creator": "Fal",
-      "name": "FLUX.2 [dev] FlashOpen Weights",
+      "name": "FLUX.2 [dev] Flash",
       "elo": 1177,
       "ci": "-10/10",
       "samples": 4617,
       "released": "Dec 2025",
-      "price": "$5.0 /1k imgs"
+      "price": "$5.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 50,
       "range": "45-54",
       "creator": "Fal",
-      "name": "Ideogram 4.0 FastOpen Weights",
+      "name": "Ideogram 4.0 Fast",
       "elo": 1176,
       "ci": "-9/9",
       "samples": 4780,
       "released": "Jul 2026",
-      "price": "$10.5 /1k imgs"
+      "price": "$10.5 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 51,
       "range": "45-54",
       "creator": "HiDream",
-      "name": "HiDream-O1-ImageOpen Weights",
+      "name": "HiDream-O1-Image",
       "elo": 1175,
       "ci": "-8/8",
       "samples": 11017,
       "released": "May 2026",
-      "price": "Coming soon"
+      "price": "Coming soon",
+      "openWeights": true
     },
     {
       "rank": 52,
       "range": "49-55",
       "creator": "Alibaba",
-      "name": "Qwen Image Max 2512Open Weights",
+      "name": "Qwen Image Max 2512",
       "elo": 1172,
       "ci": "-8/8",
       "samples": 3911,
       "released": "Dec 2025",
-      "price": "$20.0 /1k imgs"
+      "price": "$20.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 53,
@@ -596,7 +612,8 @@
       "ci": "-9/9",
       "samples": 4663,
       "released": "Apr 2026",
-      "price": "$26.0 /1k imgs"
+      "price": "$26.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 55,
@@ -635,12 +652,13 @@
       "rank": 58,
       "range": "57-64",
       "creator": "Tencent",
-      "name": "HunyuanImage 3.0 Instruct (Fal)Open Weights",
+      "name": "HunyuanImage 3.0 Instruct (Fal)",
       "elo": 1150,
       "ci": "-10/10",
       "samples": 4608,
       "released": "Jan 2026",
-      "price": "$90.0 /1k imgs"
+      "price": "$90.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 59,
@@ -662,18 +680,20 @@
       "ci": "-8/8",
       "samples": 3952,
       "released": "Sept 2025",
-      "price": "$21.0 /1k imgs"
+      "price": "$21.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 61,
       "range": "58-65",
       "creator": "Black Forest Labs",
-      "name": "FLUX.2 [klein] 9BOpen Weights",
+      "name": "FLUX.2 [klein] 9B",
       "elo": 1143,
       "ci": "-8/8",
       "samples": 10698,
       "released": "Jan 2026",
-      "price": "$15.0 /1k imgs"
+      "price": "$15.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 62,
@@ -712,12 +732,13 @@
       "rank": 65,
       "range": "61-67",
       "creator": "Tencent",
-      "name": "HunyuanImage 3.0 (Fal)Open Weights",
+      "name": "HunyuanImage 3.0 (Fal)",
       "elo": 1139,
       "ci": "-10/10",
       "samples": 4698,
       "released": "Sept 2025",
-      "price": "$100.0 /1k imgs"
+      "price": "$100.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 66,
@@ -728,18 +749,20 @@
       "ci": "-8/8",
       "samples": 4524,
       "released": "Mar 2026",
-      "price": "$35.0 /1k imgs"
+      "price": "$35.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 67,
       "range": "66-72",
       "creator": "Alibaba",
-      "name": "Z-Image TurboOpen Weights",
+      "name": "Z-Image Turbo",
       "elo": 1129,
       "ci": "-9/9",
       "samples": 7970,
       "released": "Dec 2025",
-      "price": "$5.0 /1k imgs"
+      "price": "$5.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 68,
@@ -860,7 +883,8 @@
       "ci": "-7/7",
       "samples": 6389,
       "released": "Jan 2026",
-      "price": "$30.0 /1k imgs"
+      "price": "$30.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 79,
@@ -921,12 +945,13 @@
       "rank": 84,
       "range": "82-88",
       "creator": "Black Forest Labs",
-      "name": "FLUX.2 [klein] Base 9BOpen Weights",
+      "name": "FLUX.2 [klein] Base 9B",
       "elo": 1099,
       "ci": "-8/8",
       "samples": 4267,
       "released": "Jan 2026",
-      "price": "$11.0 /1k imgs"
+      "price": "$11.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 85,
@@ -998,34 +1023,37 @@
       "rank": 91,
       "range": "89-98",
       "creator": "Alibaba",
-      "name": "Qwen ImageOpen Weights",
+      "name": "Qwen Image",
       "elo": 1082,
       "ci": "-8/8",
       "samples": 4794,
       "released": "Aug 2025",
-      "price": "$20.0 /1k imgs"
+      "price": "$20.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 92,
       "range": "89-98",
       "creator": "Tencent",
-      "name": "SRPOOpen Weights",
+      "name": "SRPO",
       "elo": 1080,
       "ci": "-8/8",
       "samples": 4962,
       "released": "Sept 2025",
-      "price": "$26.0 /1k imgs"
+      "price": "$26.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 93,
       "range": "89-100",
       "creator": "Tencent",
-      "name": "HunyuanImage 2.1Open Weights",
+      "name": "HunyuanImage 2.1",
       "elo": 1077,
       "ci": "-8/8",
       "samples": 4437,
       "released": "Sept 2025",
-      "price": "$100.0 /1k imgs"
+      "price": "$100.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 94,
@@ -1064,12 +1092,13 @@
       "rank": 97,
       "range": "91-102",
       "creator": "Bria",
-      "name": "FIBOOpen Weights",
+      "name": "FIBO",
       "elo": 1075,
       "ci": "-8/8",
       "samples": 4638,
       "released": "Oct 2025",
-      "price": "$40.0 /1k imgs"
+      "price": "$40.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 98,
@@ -1086,12 +1115,13 @@
       "rank": 99,
       "range": "93-105",
       "creator": "HiDream",
-      "name": "HiDream-O1-Image-DevOpen Weights",
+      "name": "HiDream-O1-Image-Dev",
       "elo": 1070,
       "ci": "-8/8",
       "samples": 4819,
       "released": "May 2026",
-      "price": "$5.0 /1k imgs"
+      "price": "$5.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 100,
@@ -1108,23 +1138,25 @@
       "rank": 101,
       "range": "93-105",
       "creator": "HiDream",
-      "name": "HiDream-I1-DevOpen Weights",
+      "name": "HiDream-I1-Dev",
       "elo": 1069,
       "ci": "-9/9",
       "samples": 3031,
       "released": "Apr 2025",
-      "price": "$24.0 /1k imgs"
+      "price": "$24.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 102,
       "range": "99-105",
       "creator": "Z AI",
-      "name": "GLM-ImageOpen Weights",
+      "name": "GLM-Image",
       "elo": 1067,
       "ci": "-7/7",
       "samples": 5449,
       "released": "Jan 2026",
-      "price": "$50.0 /1k imgs"
+      "price": "$50.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 103,
@@ -1146,18 +1178,20 @@
       "ci": "-8/8",
       "samples": 5908,
       "released": "Jan 2026",
-      "price": "$10.0 /1k imgs"
+      "price": "$10.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 105,
       "range": "99-108",
       "creator": "HiDream",
-      "name": "HiDream-I1-FastOpen Weights",
+      "name": "HiDream-I1-Fast",
       "elo": 1062,
       "ci": "-8/8",
       "samples": 3572,
       "released": "Apr 2025",
-      "price": "$12.0 /1k imgs"
+      "price": "$12.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 106,
@@ -1174,34 +1208,37 @@
       "rank": 107,
       "range": "103-109",
       "creator": "Bytedance",
-      "name": "Infinity 8BOpen Weights",
+      "name": "Infinity 8B",
       "elo": 1056,
       "ci": "-8/8",
       "samples": 3315,
       "released": "Feb 2025",
-      "price": "$1.7 /1k imgs"
+      "price": "$1.7 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 108,
       "range": "103-109",
       "creator": "Black Forest Labs",
-      "name": "FLUX.2 [klein] 4BOpen Weights",
+      "name": "FLUX.2 [klein] 4B",
       "elo": 1056,
       "ci": "-9/9",
       "samples": 6672,
       "released": "Jan 2026",
-      "price": "$14.0 /1k imgs"
+      "price": "$14.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 109,
       "range": "106-109",
       "creator": "Meituan",
-      "name": "LongCat ImageOpen Weights",
+      "name": "LongCat Image",
       "elo": 1052,
       "ci": "-8/8",
       "samples": 3847,
       "released": "Dec 2025",
-      "price": "$130.0 /1k imgs"
+      "price": "$130.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 110,
@@ -1212,18 +1249,20 @@
       "ci": "-8/8",
       "samples": 12177,
       "released": "Feb 2024",
-      "price": "No API available"
+      "price": "No API available",
+      "openWeights": true
     },
     {
       "rank": 111,
       "range": "110-113",
       "creator": "Black Forest Labs",
-      "name": "FLUX.1 [dev]Open Weights",
+      "name": "FLUX.1 [dev]",
       "elo": 1041,
       "ci": "-7/7",
       "samples": 9300,
       "released": "Aug 2024",
-      "price": "$25.0 /1k imgs"
+      "price": "$25.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 112,
@@ -1240,34 +1279,37 @@
       "rank": 113,
       "range": "110-118",
       "creator": "Black Forest Labs",
-      "name": "FLUX.1 Krea [dev]Open Weights",
+      "name": "FLUX.1 Krea [dev]",
       "elo": 1035,
       "ci": "-9/9",
       "samples": 2363,
       "released": "Jul 2025",
-      "price": "$25.0 /1k imgs"
+      "price": "$25.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 114,
       "range": "111-118",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion 3.5 Large TurboOpen Weights",
+      "name": "Stable Diffusion 3.5 Large Turbo",
       "elo": 1034,
       "ci": "-8/8",
       "samples": 5939,
       "released": "Oct 2024",
-      "price": "$40.0 /1k imgs"
+      "price": "$40.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 115,
       "range": "111-118",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion 3.5 LargeOpen Weights",
+      "name": "Stable Diffusion 3.5 Large",
       "elo": 1033,
       "ci": "-8/8",
       "samples": 6073,
       "released": "Oct 2024",
-      "price": "$65.0 /1k imgs"
+      "price": "$65.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 116,
@@ -1350,12 +1392,13 @@
       "rank": 123,
       "range": "123",
       "creator": "Black Forest Labs",
-      "name": "FLUX.1 [schnell]Open Weights",
+      "name": "FLUX.1 [schnell]",
       "elo": 1000,
       "ci": "0/0",
       "samples": 12878,
       "released": "Aug 2024",
-      "price": "$3.0 /1k imgs"
+      "price": "$3.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 124,
@@ -1388,40 +1431,44 @@
       "ci": "-8/8",
       "samples": 7297,
       "released": "Mar 2024",
-      "price": "$22.0 /1k imgs"
+      "price": "$22.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 127,
       "range": "126-129",
       "creator": "OpenGVLab",
-      "name": "Lumina Image v2Open Weights",
+      "name": "Lumina Image v2",
       "elo": 978,
       "ci": "-8/8",
       "samples": 5333,
       "released": "Jan 2025",
-      "price": "$75.0 /1k imgs"
+      "price": "$75.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 128,
       "range": "127-131",
       "creator": "Playground AI",
-      "name": "Playground v2.5Open Weights",
+      "name": "Playground v2.5",
       "elo": 973,
       "ci": "-8/8",
       "samples": 12745,
       "released": "Feb 2024",
-      "price": "$80.0 /1k imgs"
+      "price": "$80.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 129,
       "range": "127-132",
       "creator": "Black Forest Labs",
-      "name": "FLUX.2 [klein] Base 4BOpen Weights",
+      "name": "FLUX.2 [klein] Base 4B",
       "elo": 971,
       "ci": "-9/9",
       "samples": 4622,
       "released": "Jan 2026",
-      "price": "$9.0 /1k imgs"
+      "price": "$9.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 130,
@@ -1449,23 +1496,25 @@
       "rank": 132,
       "range": "129-132",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion 3.5 MediumOpen Weights",
+      "name": "Stable Diffusion 3.5 Medium",
       "elo": 963,
       "ci": "-9/9",
       "samples": 3207,
       "released": "Oct 2024",
-      "price": "$20.0 /1k imgs"
+      "price": "$20.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 133,
       "range": "133",
       "creator": "NVIDIA",
-      "name": "Sana Sprint 1.6BOpen Weights",
+      "name": "Sana Sprint 1.6B",
       "elo": 939,
       "ci": "-9/9",
       "samples": 3070,
       "released": "Mar 2025",
-      "price": "$1.5 /1k imgs"
+      "price": "$1.5 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 134,
@@ -1482,12 +1531,13 @@
       "rank": 135,
       "range": "134-136",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion 3 MediumOpen Weights",
+      "name": "Stable Diffusion 3 Medium",
       "elo": 922,
       "ci": "-8/8",
       "samples": 10947,
       "released": "Jun 2024",
-      "price": "$35.0 /1k imgs"
+      "price": "$35.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 136,
@@ -1498,7 +1548,8 @@
       "ci": "-8/8",
       "samples": 12106,
       "released": "Feb 2024",
-      "price": "No API available"
+      "price": "No API available",
+      "openWeights": true
     },
     {
       "rank": 137,
@@ -1520,73 +1571,80 @@
       "ci": "-8/8",
       "samples": 11863,
       "released": "Nov 2023",
-      "price": "$9.0 /1k imgs"
+      "price": "$9.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 139,
       "range": "136-142",
       "creator": "VectorSpaceLab",
-      "name": "OmniGen V2Open Weights",
+      "name": "OmniGen V2",
       "elo": 912,
       "ci": "-9/9",
       "samples": 3884,
       "released": "Jun 2025",
-      "price": "$150.0 /1k imgs"
+      "price": "$150.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 140,
       "range": "136-142",
       "creator": "Bytedance",
-      "name": "SDXL LightningOpen Weights",
+      "name": "SDXL Lightning",
       "elo": 909,
       "ci": "-8/8",
       "samples": 12547,
       "released": "Feb 2024",
-      "price": "$1.9 /1k imgs"
+      "price": "$1.9 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 141,
       "range": "136-142",
       "creator": "Bytedance",
-      "name": "BagelOpen Weights",
+      "name": "Bagel",
       "elo": 908,
       "ci": "-9/9",
       "samples": 3602,
       "released": "May 2025",
-      "price": "$100.0 /1k imgs"
+      "price": "$100.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 142,
       "range": "137-142",
       "creator": "Bria",
-      "name": "Bria 3.2Open Weights",
+      "name": "Bria 3.2",
       "elo": 906,
       "ci": "-10/10",
       "samples": 3751,
       "released": "Jul 2025",
-      "price": "$40.0 /1k imgs"
+      "price": "$40.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 143,
       "range": "143",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion XL 1.0Open Weights",
+      "name": "Stable Diffusion XL 1.0",
       "elo": 883,
       "ci": "-8/8",
       "samples": 12691,
       "released": "Jul 2023",
-      "price": "$9.0 /1k imgs"
+      "price": "$9.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 144,
       "range": "144-145",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion 2.1Open Weights",
+      "name": "Stable Diffusion 2.1",
       "elo": 753,
       "ci": "-10/10",
       "samples": 14627,
       "released": "Dec 2022",
-      "price": "$3.9 /1k imgs"
+      "price": "$3.9 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 145,
@@ -1603,23 +1661,25 @@
       "rank": 146,
       "range": "146",
       "creator": "DeepSeek",
-      "name": "Janus ProOpen Weights",
+      "name": "Janus Pro",
       "elo": 720,
       "ci": "-12/12",
       "samples": 5567,
       "released": "Jan 2025",
-      "price": "$0.0 /1k imgs"
+      "price": "$0.0 /1k imgs",
+      "openWeights": true
     },
     {
       "rank": 147,
       "range": "147",
       "creator": "Stability.ai",
-      "name": "Stable Diffusion 1.5Open Weights",
+      "name": "Stable Diffusion 1.5",
       "elo": 665,
       "ci": "-12/12",
       "samples": 11344,
       "released": "Oct 2022",
-      "price": "$44.0 /1k imgs"
+      "price": "$44.0 /1k imgs",
+      "openWeights": true
     }
   ]
 }

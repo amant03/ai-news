@@ -534,7 +534,7 @@ export default function ModelsPage() {
             <h2 className="text-lg font-semibold tracking-tight">Token Use, Cost, Context &amp; Speed</h2>
             <span className="text-[11px] text-neutral-400">synced from Artificial Analysis</span>
           </div>
-          <AAModelCharts models={modelsData.models as Model[]} />
+          <AAModelCharts models={modelsData.models as any[]} />
         </section>
 
         {/* Table */}
