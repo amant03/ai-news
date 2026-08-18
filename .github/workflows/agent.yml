@@ -61,7 +61,7 @@ jobs:
         run: |
           git config user.name "ai-news-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/news.json data/models.json data/status.json data/aa-models.json data/t2i-models.json AI_NEWS_KNOWLEDGE_BASE.md
+          git add data/news.json data/models.json data/status.json data/aa-models.json data/t2i-models.json data/image-editing-models.json data/text-to-video-models.json data/image-to-video-models.json data/video-editing-models.json data/speech-to-text-models.json data/text-to-speech-models.json AI_NEWS_KNOWLEDGE_BASE.md
           if git diff --cached --quiet; then
             echo "No data changes to commit"
           else

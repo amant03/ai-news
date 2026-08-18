@@ -1,0 +1,360 @@
+{
+  "updatedAt": "2026-08-18T14:42:57.878Z",
+  "source": "Artificial Analysis Speech to Text",
+  "url": "https://artificialanalysis.ai/speech-to-text",
+  "total": 44,
+  "models": [
+    {
+      "rank": 1,
+      "name": "Qwen3.5 Omni Flash",
+      "provider": "Alibaba Cloud",
+      "wer": 13.5,
+      "speedFactor": 78.2,
+      "price": 0
+    },
+    {
+      "rank": 2,
+      "name": "Qwen3.5 Omni Plus",
+      "provider": "Alibaba Cloud",
+      "wer": 3.5,
+      "speedFactor": 95.1,
+      "price": 0
+    },
+    {
+      "rank": 3,
+      "name": "Nova 2 Pro",
+      "provider": "Amazon Bedrock",
+      "wer": 4.9,
+      "speedFactor": 22.9,
+      "price": 3.1
+    },
+    {
+      "rank": 4,
+      "name": "Amazon Transcribe",
+      "provider": "Amazon Bedrock",
+      "wer": 4.1,
+      "speedFactor": 17.1,
+      "price": 6
+    },
+    {
+      "rank": 5,
+      "name": "Universal-3 Pro",
+      "provider": "AssemblyAI",
+      "wer": 3.1,
+      "speedFactor": 112.1,
+      "price": 3.5
+    },
+    {
+      "rank": 6,
+      "name": "Universal",
+      "provider": "AssemblyAI",
+      "wer": 3.8,
+      "speedFactor": 123.9,
+      "price": 2.5
+    },
+    {
+      "rank": 7,
+      "name": "MAI-Transcribe-1.5",
+      "provider": "Microsoft Azure",
+      "wer": 2.4,
+      "speedFactor": 183.3,
+      "price": 6
+    },
+    {
+      "rank": 8,
+      "name": "MAI-Transcribe-1",
+      "provider": "Microsoft Azure",
+      "wer": 2.6,
+      "speedFactor": 67.1,
+      "price": 6
+    },
+    {
+      "rank": 9,
+      "name": "transcribe-03-2026",
+      "provider": "Cohere",
+      "wer": 4.6,
+      "speedFactor": 119.1,
+      "price": 0
+    },
+    {
+      "rank": 10,
+      "name": "Nova-3",
+      "provider": "Deepgram",
+      "wer": 5.2,
+      "speedFactor": 541.1,
+      "price": 4.3
+    },
+    {
+      "rank": 11,
+      "name": "Scribe v2",
+      "provider": "ElevenLabs",
+      "wer": 2.2,
+      "speedFactor": 57.5,
+      "price": 3.67
+    },
+    {
+      "rank": 12,
+      "name": "Solaria-1 Gladia",
+      "provider": "Gladia",
+      "wer": 4.1,
+      "speedFactor": 80.2,
+      "price": 10.17
+    },
+    {
+      "rank": 13,
+      "name": "Solaria-3 Gladia",
+      "provider": "Gladia",
+      "wer": 3.2,
+      "speedFactor": 62.3,
+      "price": 10.16
+    },
+    {
+      "rank": 14,
+      "name": "Gemini 3.1 Pro Preview (High)",
+      "provider": "Google",
+      "wer": 2.8,
+      "speedFactor": 6.8,
+      "price": 18.15
+    },
+    {
+      "rank": 15,
+      "name": "Gemini 3.1 Pro Preview (Low)",
+      "provider": "Google",
+      "wer": 3.6,
+      "speedFactor": 7.4,
+      "price": 7.72
+    },
+    {
+      "rank": 16,
+      "name": "Gemini 3 Flash (High)",
+      "provider": "Google",
+      "wer": 2.9,
+      "speedFactor": 15.4,
+      "price": 13.7
+    },
+    {
+      "rank": 17,
+      "name": "Gemini 2.5 Flash Lite",
+      "provider": "Google",
+      "wer": 5.2,
+      "speedFactor": 72.7,
+      "price": 6.56
+    },
+    {
+      "rank": 18,
+      "name": "Gemini 2.5 Flash",
+      "provider": "Google",
+      "wer": 5.1,
+      "speedFactor": 75.2,
+      "price": 6.66
+    },
+    {
+      "rank": 19,
+      "name": "Gemini 2.5 Pro",
+      "provider": "Google",
+      "wer": 2.9,
+      "speedFactor": 13.5,
+      "price": 11.39
+    },
+    {
+      "rank": 20,
+      "name": "Grok Speech to Text",
+      "provider": "SpaceXAI",
+      "wer": 4,
+      "speedFactor": 227.2,
+      "price": 1.67
+    },
+    {
+      "rank": 21,
+      "name": "Voxtral Mini Transcribe 2",
+      "provider": "Mistral",
+      "wer": 3.6,
+      "speedFactor": 86.1,
+      "price": 3
+    },
+    {
+      "rank": 22,
+      "name": "Voxtral Small",
+      "provider": "Mistral",
+      "wer": 2.8,
+      "speedFactor": 65.9,
+      "price": 4
+    },
+    {
+      "rank": 23,
+      "name": "Parakeet TDT 0.6B V3",
+      "provider": "Together AI",
+      "wer": 4.5,
+      "speedFactor": 294.5,
+      "price": 1.5
+    },
+    {
+      "rank": 24,
+      "name": "Canary Qwen 2.5B",
+      "provider": "NVIDIA",
+      "wer": 4.3,
+      "speedFactor": 5.7,
+      "price": 0.74
+    },
+    {
+      "rank": 25,
+      "name": "Parakeet TDT 0.6B V2",
+      "provider": "NVIDIA",
+      "wer": 6.4,
+      "speedFactor": 98.8,
+      "price": 0
+    },
+    {
+      "rank": 26,
+      "name": "GPT Transcribe",
+      "provider": "OpenAI",
+      "wer": 3.3,
+      "speedFactor": 40.6,
+      "price": 4.5
+    },
+    {
+      "rank": 27,
+      "name": "GPT-4o Transcribe",
+      "provider": "OpenAI",
+      "wer": 4,
+      "speedFactor": 38.1,
+      "price": 6
+    },
+    {
+      "rank": 28,
+      "name": "GPT-4o Mini Transcribe",
+      "provider": "OpenAI",
+      "wer": 4.5,
+      "speedFactor": 43.9,
+      "price": 3
+    },
+    {
+      "rank": 29,
+      "name": "Smallest AI Pulse Pro",
+      "provider": "Smallest.ai",
+      "wer": 2.4,
+      "speedFactor": 273.5,
+      "price": 4
+    },
+    {
+      "rank": 30,
+      "name": "Resonant-1",
+      "provider": "Reson8",
+      "wer": 3.4,
+      "speedFactor": 270.8,
+      "price": 3.6
+    },
+    {
+      "rank": 31,
+      "name": "Rev AI",
+      "provider": "Rev AI",
+      "wer": 5.9,
+      "speedFactor": 13.4,
+      "price": 3.33
+    },
+    {
+      "rank": 32,
+      "name": "Smallest AI Pulse",
+      "provider": "Smallest.ai",
+      "wer": 4.4,
+      "speedFactor": 283,
+      "price": 5
+    },
+    {
+      "rank": 33,
+      "name": "Soniox v5 Async",
+      "provider": "Soniox",
+      "wer": 3.8,
+      "speedFactor": 18,
+      "price": 1.66
+    },
+    {
+      "rank": 34,
+      "name": "Soniox V4",
+      "provider": "Soniox",
+      "wer": 3.9,
+      "speedFactor": 17.9,
+      "price": 1.66
+    },
+    {
+      "rank": 35,
+      "name": "Speechmatics Melia",
+      "provider": "Speechmatics",
+      "wer": 4.9,
+      "speedFactor": 208.4,
+      "price": 4
+    },
+    {
+      "rank": 36,
+      "name": "Speechmatics Standard",
+      "provider": "Speechmatics",
+      "wer": 5.1,
+      "speedFactor": 102.3,
+      "price": 7.5
+    },
+    {
+      "rank": 37,
+      "name": "Speechmatics Enhanced",
+      "provider": "Speechmatics",
+      "wer": 4,
+      "speedFactor": 71.9,
+      "price": 12.5
+    },
+    {
+      "rank": 38,
+      "name": "Whisper Large v3 Turbo",
+      "provider": "Groq",
+      "wer": 4.6,
+      "speedFactor": 116.1,
+      "price": 0.67
+    },
+    {
+      "rank": 39,
+      "name": "Wizper Large v3",
+      "provider": "fal.ai",
+      "wer": 4.7,
+      "speedFactor": 165.9,
+      "price": 0.5
+    },
+    {
+      "rank": 40,
+      "name": "Incredibly Fast Whisper",
+      "provider": "Replicate",
+      "wer": 5.7,
+      "speedFactor": 55,
+      "price": 1.49
+    },
+    {
+      "rank": 41,
+      "name": "Whisper Large v3",
+      "provider": "Replicate",
+      "wer": 10.1,
+      "speedFactor": 2.7,
+      "price": 4.23
+    },
+    {
+      "rank": 42,
+      "name": "Whisper Large v3",
+      "provider": "fal.ai",
+      "wer": 4.1,
+      "speedFactor": 94.3,
+      "price": 1.15
+    },
+    {
+      "rank": 43,
+      "name": "Whisper Large v3",
+      "provider": "Together AI",
+      "wer": 4.5,
+      "speedFactor": 322.6,
+      "price": 1.5
+    },
+    {
+      "rank": 44,
+      "name": "Whisper Large v2",
+      "provider": "OpenAI",
+      "wer": 4.1,
+      "speedFactor": 29.4,
+      "price": 6
+    }
+  ]
+}

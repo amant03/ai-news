@@ -230,8 +230,15 @@ export default function ModelsPage() {
   }, []);
 
   const companyList = useMemo(() => {
-    const providers = [...new Set((modelsData.models as Model[]).map(m => m.provider))].sort();
-    return [{ value: 'all', label: 'All Companies' }, ...providers.map(p => ({ value: p, label: p }))];
+    const counts = new Map<string, number>();
+    for (const m of modelsData.models as Model[]) {
+      counts.set(m.provider, (counts.get(m.provider) || 0) + 1);
+    }
+    const providers = [...counts.entries()]
+      .filter(([, c]) => c >= 2)
+      .sort((a, b) => b[1] - a[1])
+      .map(([p]) => ({ value: p, label: `${p} (${counts.get(p)})` }));
+    return [{ value: 'all', label: `All Companies (${(modelsData.models as Model[]).length})` }, ...providers];
   }, []);
 
   const companyModels = useMemo(() => {
