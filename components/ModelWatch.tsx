@@ -17,6 +17,17 @@ interface ModelWatchData {
 
 type SortKey = 'intelligence' | 'value' | 'popularity' | 'newest';
 type Audience = Domain | 'all';
+type Openness = 'all' | 'open' | 'closed';
+
+const OPENNESS: { key: Openness; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'open', label: 'Open Source' },
+  { key: 'closed', label: 'Closed Source' },
+];
+
+function isOpenModel(m: ModelRecord): boolean {
+  return m.family === 'open-weights' || m.family === 'open';
+}
 
 const AUDIENCE: Record<Audience, { tab: SortKey; title: string; blurb: string; pick: string }> = {
   all: {
@@ -81,6 +92,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   const [data, setData] = useState<ModelWatchData | null>(null);
   const [tab, setTab] = useState<SortKey>(profile.tab);
   const [q, setQ] = useState('');
+  const [openness, setOpenness] = useState<Openness>('all');
   const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -109,7 +121,10 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   }, [tab]);
 
   const filtered = useMemo(() => {
-    const list = data?.models || [];
+    let list = data?.models || [];
+    if (openness !== 'all') {
+      list = list.filter(m => (openness === 'open' ? isOpenModel(m) : !isOpenModel(m)));
+    }
     if (!q.trim()) return list;
     const s = q.toLowerCase();
     return list.filter(
@@ -118,7 +133,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
         m.provider.toLowerCase().includes(s) ||
         (m.description || '').toLowerCase().includes(s)
     );
-  }, [data, q]);
+  }, [data, q, openness]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / LIST_PAGE));
   const safePage = Math.min(page, pageCount - 1);
@@ -185,8 +200,8 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
           />
         </div>
 
-        {/* Sort tabs */}
-        <div className="flex gap-1.5 mb-5 flex-wrap" role="tablist">
+        {/* Sort tabs + openness filter */}
+        <div className="flex gap-1.5 mb-5 flex-wrap items-center" role="tablist">
           {[
             { key: 'intelligence' as SortKey, label: 'Intelligence' },
             { key: 'value' as SortKey, label: 'Value' },
@@ -205,6 +220,21 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               }`}
             >
               {t.label}
+            </button>
+          ))}
+          <span className="w-px h-5 bg-[var(--color-line)] mx-1 hidden sm:block" aria-hidden />
+          {OPENNESS.map(o => (
+            <button
+              key={o.key}
+              onClick={() => { setOpenness(o.key); setPage(0); }}
+              aria-pressed={openness === o.key}
+              className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
+                openness === o.key
+                  ? 'bg-[var(--fore)] text-[var(--background)]'
+                  : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
+              }`}
+            >
+              {o.label}
             </button>
           ))}
         </div>
@@ -279,12 +309,20 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                           <td className="px-4 py-3 font-mono text-[11px] text-[var(--dim)] tabular-nums">{rank}</td>
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2 min-w-0">
-                              <span className={`text-[14px] font-semibold truncate ${isActive ? 'text-[var(--accent)]' : 'text-[var(--fore)] group-hover:text-[var(--cyan)]'} transition-colors`}>
+                              <a
+                                href={`/models/${m.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                                onClick={e => e.stopPropagation()}
+                                className={`text-[14px] font-semibold truncate ${isActive ? 'text-[var(--accent)]' : 'text-[var(--fore)] group-hover:text-[var(--cyan)]'} transition-colors hover:underline`}
+                              >
                                 {m.name}
-                              </span>
-                              {m.family === 'open-weights' && (
+                              </a>
+                              {isOpenModel(m) ? (
                                 <span className="flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--ok)]/30 text-[var(--ok)]">
                                   open
+                                </span>
+                              ) : (
+                                <span className="flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--bad)]/30 text-[var(--bad)]">
+                                  closed
                                 </span>
                               )}
                             </div>

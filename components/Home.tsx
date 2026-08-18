@@ -8,6 +8,7 @@ import HeroLead from '@/components/HeroLead';
 import LatestList from '@/components/LatestList';
 import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
+import LatestModels from '@/components/LatestModels';
 import AITrends from '@/components/AITrends';
 import SkeletonGrid from '@/components/Skeleton';
 import { NewsItem, Category, Domain } from '@/lib/types';
@@ -331,6 +332,11 @@ export default function Home() {
             <h2 className="text-lg font-semibold tracking-tight">Models</h2>
           </div>
           <ModelWatch audience={selectedDomain} />
+        </section>
+
+        {/* Latest Models section */}
+        <section className="mt-12" id="latest-models">
+          <LatestModels />
         </section>
 
         {/* AI Trends section */}

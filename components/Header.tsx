@@ -21,6 +21,30 @@ const NAV = [
   { href: '/leaderboards', label: 'Leaderboards' },
 ];
 
+function fmtExact(iso: string | null): string {
+  if (!iso) return '…';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return '…';
+  return d.toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZoneName: 'short',
+  });
+}
+
+function relTime(iso: string | null): string {
+  if (!iso) return '…';
+  const diff = Date.now() - new Date(iso).getTime();
+  if (diff < 60_000) return 'just now';
+  if (diff < 3_600_000) return `${Math.floor(diff / 60_000)}m ago`;
+  if (diff < 86_400_000) return `${Math.floor(diff / 3_600_000)}h ago`;
+  return `${Math.floor(diff / 86_400_000)}d ago`;
+}
+
 /**
  * Clean AA-style header: logo left, pill nav center, minimal actions right.
  */
@@ -34,9 +58,30 @@ export default function Header({
 }: HeaderProps) {
   const { theme, toggle } = useTheme();
   const [active, setActive] = useState('/');
+  const [lastSync, setLastSync] = useState<string | null>(null);
 
   useEffect(() => {
     setActive(window.location.pathname);
+  }, []);
+
+  useEffect(() => {
+    let mounted = true;
+    const load = async () => {
+      try {
+        const res = await fetch('/api/status');
+        const status = await res.json();
+        if (!mounted) return;
+        setLastSync(status.lastRun || status.lastSuccess || null);
+      } catch {
+        /* keep existing */
+      }
+    };
+    load();
+    const id = setInterval(load, 60_000);
+    return () => {
+      mounted = false;
+      clearInterval(id);
+    };
   }, []);
 
   const refreshIn = nextRefreshAt ? countdown(nextRefreshAt) : '...';
@@ -61,7 +106,7 @@ export default function Header({
                 href={item.href}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
                   active === item.href
-                    ? 'bg-black text-white'
+                    ? 'bg-[var(--fore)] text-[var(--background)]'
                     : 'text-neutral-600 hover:text-black'
                 }`}
               >
@@ -71,14 +116,14 @@ export default function Header({
           </nav>
 
           {/* Mobile nav */}
-          <nav className="flex md:hidden items-center gap-1" aria-label="Primary">
+          <nav className="flex md:hidden items-center gap-1 overflow-x-auto no-scrollbar max-w-[52vw]" aria-label="Primary">
             {NAV.map(item => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors ${
+                className={`px-2.5 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
                   active === item.href
-                    ? 'bg-black text-white'
+                    ? 'bg-[var(--fore)] text-[var(--background)]'
                     : 'text-neutral-500 hover:text-black'
                 }`}
               >
@@ -89,9 +134,14 @@ export default function Header({
 
           {/* Right actions */}
           <div className="flex items-center gap-2 shrink-0">
-            <span className="hidden lg:flex items-center gap-1.5 text-[11px] text-neutral-400 tabular-nums">
+            <span
+              className="hidden md:flex items-center gap-1.5 text-[11px] text-neutral-400 tabular-nums"
+              title={`Last news fetch: ${fmtExact(lastSync)}`}
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              {refreshIn}
+              Synced {relTime(lastSync)}
+              <span className="text-neutral-300 mx-0.5 hidden lg:inline">·</span>
+              <span className="hidden lg:inline">next {refreshIn}</span>
             </span>
             <button
               onClick={toggle}

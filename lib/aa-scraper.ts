@@ -172,6 +172,34 @@ export async function fetchAAData(): Promise<AAModelEntry[]> {
 }
 
 /**
+ * Detect whether a model is open weights by name/provider heuristics.
+ * AA labels models "Open weights" or "Proprietary"; the scrape does not
+ * capture that flag, so we infer it from known open-weight series.
+ */
+const OPEN_SERIES = [
+  'qwen', 'deepseek', 'llama', 'mistral', 'phi', 'gemma', 'kimi',
+  'yi-', 'glm', 'olmo', 'dbrx', 'granite', 'nemotron', 'ernie',
+  'aya', 'bloom', 'falcon', 'mpt', 'command-r', 'zephyr', 'solar',
+  'internlm', 'starling', 'tulu', 'aya', 'smol', 'codeqwen', 'qwq',
+  'mathstral', 'devstral', 'codestral', 'minicpm', 'marco', 'bakllava',
+  'llava', 'vila', 'openbmb', 'kimi-k2',
+];
+const OPEN_PROVIDERS = [
+  'alibaba', 'deepseek', 'meta', 'hugging face', 'mistral ai',
+  'zhipu', 'moonshot', 'snowflake', 'allen ai', 'ibm', 'intel',
+  'tencent', 'baidu', 'bytedance', 'x-ai', 'xai', 'nvidia',
+  'stability', 'eleuthera', 'together', '01.ai', '01 ai',
+];
+
+function detectFamily(name: string, provider: string): 'open-weights' | 'closed' {
+  const n = name.toLowerCase();
+  const p = provider.toLowerCase();
+  if (OPEN_SERIES.some(s => n.includes(s))) return 'open-weights';
+  if (OPEN_PROVIDERS.some(s => p.includes(s))) return 'open-weights';
+  return 'closed';
+}
+
+/**
  * Merge AA data into existing ModelDatabase models array.
  * Updates intelligenceIndex, speed, and costPerTask on matching models.
  * Adds new models if they aren't already present.
@@ -213,7 +241,7 @@ export function mergeAAIntoModels(
         name: aa.name,
         provider: aa.provider,
         source: 'aa',
-        family: 'closed',
+        family: detectFamily(aa.name, aa.provider),
         intelligenceIndex: aa.intelligenceIndex,
         aaSpeed: aa.speed,
         aaCostPerTask: aa.costPerTask,
