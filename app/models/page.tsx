@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import AADropdown from '@/components/AADropdown';
+import IntelligenceScatter from '@/components/IntelligenceScatter';
+import IntelligenceTimeline from '@/components/IntelligenceTimeline';
 import modelsData from '@/data/models.json';
 
 type Model = (typeof modelsData.models)[number];
@@ -343,10 +346,33 @@ export default function ModelsPage() {
             <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
             <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>
           </div>
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap mb-4">
             <BarChart title="Intelligence" color={CHART_COLORS.intelligence} items={intelligenceTop} valueLabel="Intelligence Index" />
             <BarChart title="Coding Performance" color={CHART_COLORS.speed} items={speedTop} valueLabel="Coding Index" />
             <BarChart title="Cost per Task" color={CHART_COLORS.cost} items={costTop} valueLabel="Avg $/M tokens" />
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            <div className="border border-[var(--color-line)] rounded-lg p-5">
+              <div className="flex items-center gap-2.5 mb-1">
+                <span className="w-3 h-3 rounded-sm bg-[#7c3aed] flex-shrink-0" />
+                <span className="text-[15px] font-semibold tracking-tight">Intelligence Index vs. Cost per Task</span>
+              </div>
+              <p className="text-[11px] text-neutral-400 mb-4">
+                Artificial Analysis Intelligence Index · weighted average cost (USD) per task · higher intelligence &amp; lower cost = upper-left
+              </p>
+              <IntelligenceScatter limit={60} />
+            </div>
+            <div className="border border-[var(--color-line)] rounded-lg p-5">
+              <div className="flex items-center gap-2.5 mb-1">
+                <span className="w-3 h-3 rounded-sm bg-[#eab308] flex-shrink-0" />
+                <span className="text-[15px] font-semibold tracking-tight">Frontier Intelligence, Over Time</span>
+              </div>
+              <p className="text-[11px] text-neutral-400 mb-4">
+                Intelligence Index of frontier models at release, per provider
+              </p>
+              <IntelligenceTimeline />
+            </div>
           </div>
         </section>
 
@@ -373,19 +399,12 @@ export default function ModelsPage() {
                 </button>
               ))}
               <span className="w-px h-5 bg-neutral-200 mx-1 self-center hidden sm:block" aria-hidden />
-              {OPENNESS.map(o => (
-                <button
-                  key={o.key}
-                  onClick={() => setOpenness(o.key)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                    openness === o.key
-                      ? 'bg-black text-white'
-                      : 'text-neutral-500 hover:text-black hover:bg-neutral-100'
-                  }`}
-                >
-                  {o.label}
-                </button>
-              ))}
+              <AADropdown
+                label="Category"
+                value={openness}
+                options={OPENNESS.map(o => ({ value: o.key, label: o.label }))}
+                onChange={v => setOpenness(v as Openness)}
+              />
             </div>
           </div>
 

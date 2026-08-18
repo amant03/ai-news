@@ -75,6 +75,30 @@ export default async function ModelDetailPage({ params }: Props) {
       ? ((model.promptPrice ?? 0) + (model.completionPrice ?? 0)) / 2
       : undefined;
 
+  const intelUnits = intelScore != null ? unitsFor(intelScore) : 0;
+  const speedUnits = speed != null ? unitsFor(speed / 60) : 0;
+  const verbUnits = verbosity != null ? unitsFor(verbosity / 40_000_000) : 0;
+  const costUnits = avgCost !== undefined ? unitsFor(avgCost / 0.4) : 0;
+
+  const opennessScore = !isOpen ? 0 : model.license ? (model.license.toLowerCase().includes('apache') ? 100 : model.license.toLowerCase().includes('mit') ? 95 : 80) : 70;
+
+  const topSpeed = Math.max(300, speed ?? 0);
+  const topIntel = Math.max(70, intelScore ?? 0);
+  const topCoding = Math.max(80, model.codingIndex ?? 0);
+  const topElo = Math.max(1450, model.elo ?? 0);
+
+  const INTEL_EVALS: { name: string; what: string }[] = [
+    { name: 'GDPval-AA v2', what: 'Agentic real-world work tasks' },
+    { name: 'τ³-Banking', what: 'Agentic tool use' },
+    { name: 'Terminal-Bench v2.1', what: 'Agentic coding & terminal use' },
+    { name: 'SciCode', what: 'Coding' },
+    { name: "Humanity's Last Exam", what: 'Reasoning & knowledge' },
+    { name: 'GPQA Diamond', what: 'Scientific reasoning' },
+    { name: 'CritPt', what: 'Physics reasoning' },
+    { name: 'AA-Omniscience', what: 'Knowledge accuracy & non-hallucination' },
+    { name: 'AA-LCR', what: 'Long context reasoning' },
+  ];
+
   const summary =
     model.intelligenceIndex != null
       ? `${model.name} scores ${model.intelligenceIndex} on the Artificial Analysis Intelligence Index, ` +
@@ -84,7 +108,9 @@ export default async function ModelDetailPage({ params }: Props) {
           : `It is a proprietary model.`) +
         (model.promptPrice !== undefined
           ? ` Pricing is $${model.promptPrice.toFixed(2)} per 1M input tokens and $${(model.completionPrice ?? 0).toFixed(2)} per 1M output tokens.`
-          : '')
+          : '') +
+        (speed != null ? ` At ${speed} tokens per second, it is ${speed >= 150 ? 'notably fast' : speed >= 60 ? 'moderately fast' : 'slower than average'}.` : '') +
+        (verbosity != null ? ` When evaluated on the Intelligence Index, it generated ${fmtVerbosity(verbosity)} output tokens, which is ${verbosity >= 100_000_000 ? 'very verbose' : verbosity >= 50_000_000 ? 'about average' : 'fairly concise'} compared to peers.` : '')
       : `${model.name} is a ${isOpen ? 'open weights' : 'proprietary'} model by ${model.provider}${model.released ? `, released ${fmtDate(model.released)}` : ''}.`;
 
   return (
@@ -202,6 +228,118 @@ export default async function ModelDetailPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Benchmarks — AA puts these right below the summary cards */}
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold tracking-tight mb-4">Benchmarks</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="flex items-baseline justify-between mb-2">
+              <div className="text-[10px] uppercase tracking-widest text-neutral-400">Artificial Analysis Intelligence Index</div>
+              {intelRank != null && <div className="text-[11px] text-neutral-500">#{intelRank} / {classTotal}</div>}
+            </div>
+            {intelScore != null ? (
+              <>
+                <div className="text-3xl font-semibold tabular-nums">{intelScore} <span className="text-[13px] font-normal text-neutral-500">/ 100</span></div>
+                <div className="mt-3 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-violet-500 rounded-full" style={{ width: `${(intelScore / topIntel) * 100}%` }} />
+                </div>
+                <div className="text-[10px] text-neutral-400 mt-1.5">{intelUnits} of 4 units for Intelligence</div>
+              </>
+            ) : (
+              <div className="text-neutral-400">—</div>
+            )}
+          </div>
+
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="flex items-baseline justify-between mb-2">
+              <div className="text-[10px] uppercase tracking-widest text-neutral-400">Coding Index</div>
+              {model.codingIndex != null && <div className="text-[11px] text-neutral-500">agentic coding</div>}
+            </div>
+            {model.codingIndex != null ? (
+              <>
+                <div className="text-3xl font-semibold tabular-nums">{model.codingIndex} <span className="text-[13px] font-normal text-neutral-500">/ 100</span></div>
+                <div className="mt-3 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-amber-500 rounded-full" style={{ width: `${(model.codingIndex / topCoding) * 100}%` }} />
+                </div>
+                <div className="text-[10px] text-neutral-400 mt-1.5">{unitsFor(model.codingIndex)} of 4 units for Coding</div>
+              </>
+            ) : (
+              <div className="text-neutral-400">—</div>
+            )}
+          </div>
+
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="flex items-baseline justify-between mb-2">
+              <div className="text-[10px] uppercase tracking-widest text-neutral-400">Agentic Index</div>
+              {model.agenticIndex != null && <div className="text-[11px] text-neutral-500">agentic tasks</div>}
+            </div>
+            {model.agenticIndex != null ? (
+              <>
+                <div className="text-3xl font-semibold tabular-nums">{model.agenticIndex} <span className="text-[13px] font-normal text-neutral-500">/ 100</span></div>
+                <div className="mt-3 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-blue-500 rounded-full" style={{ width: `${(model.agenticIndex / topCoding) * 100}%` }} />
+                </div>
+                <div className="text-[10px] text-neutral-400 mt-1.5">{unitsFor(model.agenticIndex)} of 4 units for Agentic</div>
+              </>
+            ) : (
+              <div className="text-neutral-400">—</div>
+            )}
+          </div>
+
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="flex items-baseline justify-between mb-2">
+              <div className="text-[10px] uppercase tracking-widest text-neutral-400">LMArena Elo</div>
+              {model.elo != null && <div className="text-[11px] text-neutral-500">human preference</div>}
+            </div>
+            {model.elo != null ? (
+              <>
+                <div className="text-3xl font-semibold tabular-nums">{model.elo} <span className="text-[13px] font-normal text-neutral-500">Elo</span></div>
+                <div className="mt-3 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-neutral-700 rounded-full" style={{ width: `${(model.elo / topElo) * 100}%` }} />
+                </div>
+                <div className="text-[10px] text-neutral-400 mt-1.5">{model.numVotes ? `${model.numVotes.toLocaleString()} votes` : 'voted by humans'}</div>
+              </>
+            ) : (
+              <div className="text-neutral-400">—</div>
+            )}
+          </div>
+        </div>
+
+        {/* Openness + index composition */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Artificial Analysis Openness Index</div>
+            <div className="flex items-baseline gap-3">
+              <div className="text-3xl font-semibold tabular-nums">{opennessScore}</div>
+              <div className="flex-1 h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                <div className={`h-full rounded-full ${isOpen ? 'bg-green-500' : 'bg-red-400'}`} style={{ width: `${opennessScore}%` }} />
+              </div>
+            </div>
+            <div className="text-[11px] text-neutral-500 mt-2">
+              {isOpen
+                ? `Open weights — ${model.license || 'weights publicly available'}. The model can be self-hosted; the weights can be downloaded and redistributed.`
+                : 'Proprietary — weights are not publicly available. The model is only accessible via its provider API.'}
+            </div>
+          </div>
+
+          <div className="border border-[var(--color-line)] rounded-lg p-5">
+            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Intelligence Index Composition</div>
+            <p className="text-[11px] text-neutral-500 mb-3 leading-relaxed">
+              The Artificial Analysis Intelligence Index v4.1.1 is a composite of 9 evaluations, each weighted into a 0–100 score.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+              {INTEL_EVALS.map(e => (
+                <div key={e.name} className="flex items-center gap-2 text-[12px]">
+                  <span className="w-1 h-1 rounded-full bg-violet-500 shrink-0" />
+                  <span className="font-medium truncate">{e.name}</span>
+                  <span className="text-neutral-400 truncate hidden sm:inline">— {e.what}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Comparison summary */}
       <section className="mb-10">
         <div className="border border-[var(--color-line)] rounded-lg p-5">
@@ -238,21 +376,23 @@ export default async function ModelDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Benchmarks */}
+      {/* FAQ — AA style, generated from data */}
       <section className="mb-10">
-        <h2 className="text-lg font-semibold tracking-tight mb-4">Benchmarks</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <h2 className="text-lg font-semibold tracking-tight mb-4">Frequently Asked Questions</h2>
+        <div className="border border-[var(--color-line)] rounded-lg overflow-hidden divide-y divide-[var(--color-line)]">
           {[
-            { label: 'Intelligence Index', value: model.intelligenceIndex, color: 'text-violet-600' },
-            { label: 'Coding Index', value: model.codingIndex, color: 'text-amber-600' },
-            { label: 'Agentic Index', value: model.agenticIndex, color: 'text-blue-600' },
-            { label: 'LMArena Elo', value: model.elo, color: 'text-neutral-700' },
-          ].map(b => (
-            <div key={b.label} className="border border-[var(--color-line)] rounded-lg p-4">
-              <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-1.5">{b.label}</div>
-              <div className={`text-xl font-semibold tabular-nums ${b.value == null ? 'text-neutral-300' : b.color}`}>
-                {b.value ?? '—'}
-              </div>
+            { q: `When was ${model.name} released?`, a: model.released ? `${model.name} was released on ${fmtDate(model.released)}.` : `The release date of ${model.name} is not publicly tracked.` },
+            { q: `Who created ${model.name}?`, a: `${model.name} was created by ${model.provider}.` },
+            { q: `How intelligent is ${model.name}?`, a: model.intelligenceIndex != null ? `${model.name} scores ${model.intelligenceIndex} on the Artificial Analysis Intelligence Index.` : `The Artificial Analysis Intelligence Index for ${model.name} has not been published yet.` },
+            { q: `How much does ${model.name} cost?`, a: model.promptPrice != null ? `${model.name} costs $${model.promptPrice.toFixed(2)} per 1M input tokens and $${(model.completionPrice ?? 0).toFixed(2)} per 1M output tokens.` : `${model.name} has no public API pricing listed.` },
+            { q: `What is the context window of ${model.name}?`, a: `${model.name} has a context window of ${model.context || 'not disclosed'} tokens.` },
+            { q: `Is ${model.name} open source?`, a: isOpen ? `Yes, ${model.name} is open weights. The model weights are publicly available${model.license ? ` under the ${model.license} license` : ''} and can be downloaded for self-hosting.` : `No, ${model.name} is proprietary. The model weights are not publicly available.` },
+            { q: `How does ${model.name} perform on benchmarks?`, a: model.intelligenceIndex != null ? `${model.name} achieves a score of ${model.intelligenceIndex} on the Artificial Analysis Intelligence Index, which evaluates models across reasoning, knowledge, mathematics, and coding.` : `${model.name} does not yet have published Artificial Analysis benchmarks.` },
+            { q: `Is ${model.name} available via API?`, a: model.source === 'openrouter' ? `Yes, ${model.name} is available via API. Compare provider pricing and performance.` : isOpen ? `${model.name} is an open weights model that can be self-hosted.` : `${model.name} is accessible via its provider API.` },
+          ].map(faq => (
+            <div key={faq.q} className="px-5 py-4">
+              <div className="text-[13px] font-medium mb-1">{faq.q}</div>
+              <p className="text-[12px] text-neutral-500 leading-relaxed">{faq.a}</p>
             </div>
           ))}
         </div>
