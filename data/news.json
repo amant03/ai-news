@@ -1,9 +1,43 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-18T13:40:51.532Z",
-    "count": 2045
+    "lastUpdated": "2026-08-18T13:53:31.612Z",
+    "count": 2052
   },
   "items": [
+    {
+      "source": "techcrunch",
+      "source_label": "TechCrunch",
+      "source_type": "rss",
+      "title": "OpenAI launches a safer ChatGPT for teens — years after teens started using it",
+      "summary": "ChatGPT for Teens adds age-appropriate safety measures, parental controls, and learning tools designed to steer teens away from harmful content — and from using AI to cheat on their homework.",
+      "content": "ChatGPT for Teens adds age-appropriate safety measures, parental controls, and learning tools designed to steer teens away from harmful content — and from using AI to cheat on their homework.",
+      "url": "https://techcrunch.com/2026/08/18/openai-launches-a-safer-chatgpt-for-teens-years-after-teens-started-using-it/",
+      "author": "TechCrunch AI",
+      "category": "safety",
+      "published_at": "Tue, 18 Aug 2026 13:50:30 +0000",
+      "image_url": "https://techcrunch.com/wp-content/uploads/2026/08/Still-04-HomeworkReminder__1_.webp?resize=1200,675",
+      "source_detail": "TechCrunch AI",
+      "domain": "general",
+      "id": 1787061250610,
+      "created_at": "2026-08-18T13:53:28.015Z"
+    },
+    {
+      "source": "techcrunch",
+      "source_label": "TechCrunch",
+      "source_type": "rss",
+      "title": "Perplexity’s free AI offer left it with millions more users in India",
+      "summary": "Perplexity's India revenue rose about 60% after the Airtel offer ended for new users, even as downloads declined.",
+      "content": "Perplexity's India revenue rose about 60% after the Airtel offer ended for new users, even as downloads declined.",
+      "url": "https://techcrunch.com/2026/08/18/perplexitys-free-ai-offer-left-it-with-millions-more-users-in-india/",
+      "author": "TechCrunch AI",
+      "category": "other",
+      "published_at": "Tue, 18 Aug 2026 13:45:40 +0000",
+      "image_url": "https://techcrunch.com/wp-content/uploads/2026/08/perplexity-app.jpg?resize=1200,800",
+      "source_detail": "TechCrunch AI",
+      "domain": "business",
+      "id": 1787061223712,
+      "created_at": "2026-08-18T13:53:28.043Z"
+    },
     {
       "source": "zdnet",
       "source_label": "ZDNet",
@@ -53,6 +87,22 @@
       "domain": "general",
       "id": 1787060455532,
       "created_at": "2026-08-18T13:40:48.105Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "FinTech Global",
+      "source_type": "google",
+      "title": "Quartr raises $18m to accelerate AI financial data growth",
+      "summary": "Quartr raises $18m to accelerate AI financial data growth  FinTech Global",
+      "content": "Quartr raises $18m to accelerate AI financial data growth  FinTech Global",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPZ3JoMkVmZ3FHLWFNUXRpS0QtSUI1LW9kY19SZG1BQUo5ck1UbDJGTE1nUVZsYW1uYjYxc0s4TVpoeEVZTDJsTWRPZVBiS3M0dER3UDdyaDlwYjhhMUhnb1NNTGVxMWxjUWJhM3JRa1pab1c0Uk1mMF90ZWFXbGx5MjZTQ2tiRG9vWkVGdlZkSUp5cWFDZVE?oc=5",
+      "author": "FinTech Global",
+      "category": "other",
+      "published_at": "Tue, 18 Aug 2026 13:09:14 GMT",
+      "source_detail": "AI funding",
+      "domain": "general",
+      "id": 1787062095486,
+      "created_at": "2026-08-18T13:53:29.366Z"
     },
     {
       "source": "the-decoder",
@@ -219,6 +269,22 @@
       "domain": "business",
       "id": 1787057089739,
       "created_at": "2026-08-18T12:43:56.726Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "SecurityWeek",
+      "source_type": "google",
+      "title": "Xpander Raises $7.5 Million for AI Management and Governance",
+      "summary": "Xpander Raises $7.5 Million for AI Management and Governance  SecurityWeek",
+      "content": "Xpander Raises $7.5 Million for AI Management and Governance  SecurityWeek",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQODhxOTRBNmwxc2hlbHFBcGhsQkxUVjF2NUxxdUVNdXQ3U1RlYV83NWUzd3NXc0prX25nbHh3OEh1cWZWV0Jmc0hzX1lUdDBYMG55NnR5VlgyR3JmVEF0aWdLM25DOEZJWndJSlFSTEM4eU5VaW1FdXJxZmRpVGQ5STFCbGxsc25JS3pPZnBYWUhNd21BYUdzMNIBmAFBVV95cUxQODhxOTRBNmwxc2hlbHFBcGhsQkxUVjF2NUxxdUVNdXQ3U1RlYV83NWUzd3NXc0prX25nbHh3OEh1cWZWV0Jmc0hzX1lUdDBYMG55NnR5VlgyR3JmVEF0aWdLM25DOEZJWndJSlFSTEM4eU5VaW1FdXJxZmRpVGQ5STFCbGxsc25JS3pPZnBYWUhNd21BYUdzMA?oc=5",
+      "author": "SecurityWeek",
+      "category": "policy",
+      "published_at": "Tue, 18 Aug 2026 12:33:28 GMT",
+      "source_detail": "AI funding",
+      "domain": "business",
+      "id": 1787062024046,
+      "created_at": "2026-08-18T13:53:29.400Z"
     },
     {
       "source": "google-news",
@@ -830,6 +896,22 @@
       "domain": "tech",
       "id": 1787057360145,
       "created_at": "2026-08-18T12:43:57.492Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "YourStory.com",
+      "source_type": "google",
+      "title": "Alibaba and Meta bring open AI models to laptops",
+      "summary": "Alibaba and Meta bring open AI models to laptops  YourStory.com",
+      "content": "Alibaba and Meta bring open AI models to laptops  YourStory.com",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBzekFZTUdWNTc3ZWNyUGtta3VET2pDaDdIOEJuSHBJV2NrUGlhM051aWlPYmc2b1k3NXRwRlBLWHpjTW1PajJMMG5zYi04M3IyNUtBLVMtWnVQY1Q3UW1waWhOYk1mYWZzRWo2ckluUE0zMUxs?oc=5",
+      "author": "YourStory.com",
+      "category": "other",
+      "published_at": "Tue, 18 Aug 2026 10:06:03 GMT",
+      "source_detail": "OpenAI OR Anthropic OR Google DeepMind OR Meta AI",
+      "domain": "general",
+      "id": 1787061394440,
+      "created_at": "2026-08-18T13:53:29.581Z"
     },
     {
       "source": "zdnet",
@@ -1739,6 +1821,23 @@
       "created_at": "2026-08-18T08:36:49.568Z"
     },
     {
+      "source": "huggingface",
+      "source_label": "Hugging Face",
+      "source_type": "rss",
+      "title": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
+      "summary": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
+      "content": "",
+      "url": "https://huggingface.co/blog/multi-vector-encoder",
+      "author": "Hugging Face",
+      "category": "other",
+      "published_at": "Tue, 18 Aug 2026 00:00:00 GMT",
+      "image_url": "https://huggingface.co/blog/assets/multi-vector-encoder/st-hf-lighton-thumbnail.png",
+      "source_detail": "Hugging Face",
+      "domain": "general",
+      "id": 1787062018971,
+      "created_at": "2026-08-18T13:53:26.595Z"
+    },
+    {
       "source": "techcrunch",
       "source_label": "TechCrunch",
       "source_type": "rss",
@@ -2134,6 +2233,22 @@
       "domain": "general",
       "id": 1787015724210,
       "created_at": "2026-08-18T01:10:39.550Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "CryptoRank",
+      "source_type": "google",
+      "title": "Washington Tightens AI Alignment Strategy, Rabobank Says",
+      "summary": "Washington Tightens AI Alignment Strategy, Rabobank Says  CryptoRank",
+      "content": "Washington Tightens AI Alignment Strategy, Rabobank Says  CryptoRank",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNM2xEX1JiR2M4cS1Zc0xabE5wdVctblpSQUdxOFJqV3dEVUJkNXZiWENLNkZUYzd1UHVQYy02R0VSeWIwZWE3VWtyNDB3RzdpZzJ1TGF6c0hhS0NKQlBpQVN6cXFOVlNiMHJRVXZGdEFfZzV6RHBUSmg3blFDYnFZb2FHTEJqdw?oc=5",
+      "author": "CryptoRank",
+      "category": "safety",
+      "published_at": "Mon, 17 Aug 2026 21:17:39 GMT",
+      "source_detail": "AI regulation policy",
+      "domain": "general",
+      "id": 1787061830851,
+      "created_at": "2026-08-18T13:53:29.523Z"
     },
     {
       "source": "hacker-news",
