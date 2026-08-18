@@ -68,10 +68,63 @@ export default async function ProvidersPage({ params }: Props) {
   const { slug } = await params;
   const pf = loadProviders();
   const entry = pf?.models[slug];
-  if (!entry || !entry.providers.length) notFound();
 
   const db = readModelDatabase();
   const model = db?.models.find(m => slugOf(m.name) === slug);
+
+  if (!entry && !model) notFound();
+
+  if (!entry || !entry.providers.length) {
+    return (
+      <main className="max-w-[1200px] mx-auto px-5 pt-8 pb-16">
+        <div className="mb-6">
+          <Link href="/models" className="text-[12px] text-neutral-400 hover:text-neutral-600 transition-colors">
+            ← Models
+          </Link>
+        </div>
+        <div className="mb-8">
+          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+            {model?.name} <span className="text-neutral-400">API Provider Benchmarking</span>
+          </h1>
+          <div className="flex items-center gap-2 mt-3 flex-wrap text-[12px]">
+            <span className="text-neutral-500">{model?.provider}</span>
+            <span className="text-neutral-300">•</span>
+            <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
+              model && (model.family === 'open-weights' || model.family === 'open') ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
+            }`}>
+              {model && (model.family === 'open-weights' || model.family === 'open') ? 'Open weights model' : 'Proprietary model'}
+            </span>
+          </div>
+        </div>
+        <div className="border border-[var(--color-line)] rounded-lg p-8 text-center">
+          <div className="text-[13px] font-medium mb-1">No API providers benchmarked yet</div>
+          <p className="text-[12px] text-neutral-500 max-w-md mx-auto leading-relaxed">
+            {model && (model.family === 'open-weights' || model.family === 'open')
+              ? `${model.name} is an open weights model — it can be downloaded and self-hosted.`
+              : `Provider benchmarks for ${model?.name ?? 'this model'} are not available yet.`}
+          </p>
+          <div className="mt-5 flex gap-2 justify-center flex-wrap">
+            <Link
+              href={`/models/${slug}`}
+              className="px-4 py-2 rounded-full border border-[var(--color-line)] text-[13px] text-neutral-600 hover:border-neutral-300 hover:text-black transition-colors"
+            >
+              View model comparison ↗
+            </Link>
+            {model?.license && (
+              <a
+                href={`https://huggingface.co/search/full-text?q=${encodeURIComponent(model.name)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full border border-[var(--color-line)] text-[13px] text-neutral-600 hover:border-neutral-300 hover:text-black transition-colors"
+              >
+                Find weights on Hugging Face ↗
+              </a>
+            )}
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   const rows = entry.providers;
   const fastest = best(rows, r => r.speed, (a, b) => (b as number) - (a as number));
