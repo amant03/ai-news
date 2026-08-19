@@ -60,6 +60,31 @@ jobs:
         timeout-minutes: 20
         run: npx tsx lib/aa-model-scraper.ts
 
+      - name: Fix openWeights type inference
+        run: |
+          node -e "
+            const fs = require('fs');
+            const files = [
+              'data/t2i-models.json',
+              'data/image-editing-models.json',
+              'data/text-to-video-models.json',
+              'data/image-to-video-models.json',
+              'data/video-editing-models.json',
+              'data/speech-to-text-models.json',
+              'data/text-to-speech-models.json'
+            ];
+            for (const f of files) {
+              try {
+                const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+                if (d.models.length > 0 && !('openWeights' in d.models[0])) {
+                  d.models[0].openWeights = false;
+                  fs.writeFileSync(f, JSON.stringify(d, null, 2));
+                  console.log('Fixed', f);
+                }
+              } catch(e) { console.log('Skip', f); }
+            }
+          "
+
       - name: Commit and push fresh data
         if: success()
         run: |
