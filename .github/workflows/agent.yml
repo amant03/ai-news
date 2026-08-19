@@ -26,7 +26,7 @@ env:
 jobs:
   agent:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     permissions:
       contents: write
     steps:
@@ -65,6 +65,20 @@ jobs:
         run: |
           git config user.name "ai-news-bot"
           git config user.email "actions@users.noreply.github.com"
+          # Update status.json with next cron run time
+          node -e "
+            const fs = require('fs');
+            const d = JSON.parse(fs.readFileSync('data/status.json','utf8'));
+            d.lastRun = new Date().toISOString();
+            d.lastSuccess = new Date().toISOString();
+            const now = new Date();
+            const hours = [0,4,8,12,16,20];
+            const nextHour = hours.find(h => h > now.getUTCHours()) || 24;
+            const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 0, 0));
+            d.nextRun = next.toISOString();
+            fs.writeFileSync('data/status.json', JSON.stringify(d, null, 2));
+            console.log('Updated status.json: nextRun=' + d.nextRun);
+          "
           git add data/news.json data/models.json data/status.json data/aa-models.json data/t2i-models.json data/image-editing-models.json data/text-to-video-models.json data/image-to-video-models.json data/video-editing-models.json data/speech-to-text-models.json data/text-to-speech-models.json AI_NEWS_KNOWLEDGE_BASE.md
           if git diff --cached --quiet; then
             echo "No data changes to commit"
