@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T20:23:14.387Z",
+  "updatedAt": "2026-08-19T01:12:54.221Z",
   "source": "Artificial Analysis Video Editing Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/video-editing",
   "total": 8,
@@ -11,7 +11,7 @@
       "name": "MiniMax H3Open Weights",
       "elo": 1131,
       "ci": "-5/5",
-      "samples": 12546,
+      "samples": 12549,
       "released": "Jul 2026",
       "price": "$7.80 /min"
     },
@@ -33,7 +33,7 @@
       "name": "HappyHorse-1.0",
       "elo": 1093,
       "ci": "-5/5",
-      "samples": 22786,
+      "samples": 22791,
       "released": "Apr 2026",
       "price": "$27.04 /min"
     },
@@ -44,7 +44,7 @@
       "name": "Wan 2.7",
       "elo": 1077,
       "ci": "-5/5",
-      "samples": 18601,
+      "samples": 18604,
       "released": "Apr 2026",
       "price": "$16.90 /min"
     },
@@ -55,7 +55,7 @@
       "name": "Dreamina Seedance 2.0 720p",
       "elo": 1040,
       "ci": "-5/5",
-      "samples": 22485,
+      "samples": 22491,
       "released": "Mar 2026",
       "price": "$5.57 /min"
     },
@@ -66,7 +66,7 @@
       "name": "Aleph 2.0",
       "elo": 1019,
       "ci": "-5/5",
-      "samples": 20612,
+      "samples": 20615,
       "released": "May 2026",
       "price": "$16.80 /min"
     },
@@ -77,7 +77,7 @@
       "name": "Kling 3.0 Omni 1080p (Pro)",
       "elo": 1000,
       "ci": "0/0",
-      "samples": 18653,
+      "samples": 18657,
       "released": "Feb 2026",
       "price": "$10.91 /min"
     },
@@ -88,7 +88,7 @@
       "name": "SkyReels V4",
       "elo": 952,
       "ci": "-6/6",
-      "samples": 15206,
+      "samples": 15209,
       "released": "Mar 2026",
       "price": "$37.50 /min"
     }
