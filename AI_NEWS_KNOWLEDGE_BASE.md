@@ -1,8 +1,8 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-19T13:30:45.671Z
-> Total Articles Tracked: 2327
+> Last Updated: 2026-08-19T14:27:42.067Z
+> Total Articles Tracked: 2345
 > Generated from AI Pulse database
 
 ---
@@ -16,55 +16,100 @@
 | **Total Articles** | 500 |
 | 🧠 **Model Releases** | 104 |
 | 🔬 **Research** | 42 |
-| 💼 **Product/Business** | 63 |
-| 🛡️ **Safety/Security** | 16 |
-| ⚖️ **Policy/Regulation** | 25 |
+| 💼 **Product/Business** | 65 |
+| 🛡️ **Safety/Security** | 13 |
+| ⚖️ **Policy/Regulation** | 21 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 228 |
-| **arxiv** | 96 |
-| **zdnet** | 31 |
+| **google-news** | 229 |
+| **arxiv** | 89 |
+| **zdnet** | 35 |
 | **ai-weekly** | 28 |
 | **cnbc** | 17 |
-| **the-decoder** | 13 |
-| **techcrunch** | 13 |
+| **the-decoder** | 15 |
 | **hacker-news** | 13 |
-| **decrypt** | 10 |
+| **techcrunch** | 12 |
+| **reddit** | 9 |
+| **decrypt** | 9 |
 | **the-verge** | 8 |
-| **reddit** | 8 |
-| **amazon** | 8 |
 | **marktechpost** | 7 |
+| **amazon** | 7 |
 | **the-register** | 5 |
+| **Hugging Face** | 4 |
 | **wired** | 3 |
-| **Hugging Face** | 3 |
 | **arstechnica** | 3 |
 | **mit-tr** | 3 |
+| **venturebeat** | 2 |
 | **sciencedaily** | 1 |
-| **venturebeat** | 1 |
 | **together** | 1 |
 
 ### Categories
 
 - [🧠 Frontier Model Releases](#frontier-model-releases) — 104 articles
 - [🔬 Research Breakthroughs](#research-breakthroughs) — 42 articles
-- [💼 Product & Business Updates](#product--business-updates) — 63 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 16 articles
-- [⚖️ Regulation & Policy](#regulation--policy) — 25 articles
-- [📌 Other Notable News](#other-notable-news) — 250 articles
+- [💼 Product & Business Updates](#product--business-updates) — 65 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 13 articles
+- [⚖️ Regulation & Policy](#regulation--policy) — 21 articles
+- [📌 Other Notable News](#other-notable-news) — 255 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### Same effective batch does not mean same training time with gradient accumulation, tested on LoRA on T4 and L4 [D]
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 reddit |
+| **Date** | August 19, 2026 (4m ago) |
+| **Category** | 🧠 model |
+| **Author** | r/MachineLearning |
+
+**Summary:** I had assumed 1 × 4, 2 × 2 and 4 × 1 will take somewhat similar time because effective batch is 4 in all cases. They did not. I ran Qwen3-1.7B with TRL and LoRA for 100 optimizer updates. GPU 1 × 4 2 
+
+**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vsnwcv/same_effective_batch_does_not_mean_same_training/](https://www.reddit.com/r/MachineLearning/comments/1vsnwcv/same_effective_batch_does_not_mean_same_training/)
+
+---
+
+### VentureBeat names Rob Strechay as its first Lead Analyst, expanding its enterprise AI research push
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 venturebeat |
+| **Date** | August 19, 2026 (9m ago) |
+| **Category** | 🧠 model |
+| **Author** | VentureBeat AI |
+
+**Summary:** Rob Strechay, until recently managing director and principal analyst at theCUBE Research, has joined VentureBeat as our first Lead Analyst and a founding analyst of VentureBeat Research. His arrival i
+
+**URL:** [https://venturebeat.com/ai/venturebeat-names-rob-strechay-as-its-first-lead-analyst-expanding-its-enterprise-ai-research-push](https://venturebeat.com/ai/venturebeat-names-rob-strechay-as-its-first-lead-analyst-expanding-its-enterprise-ai-research-push)
+
+---
+
+### GLM-5.3 tops the open-model rankings and undercuts rivals on price, but its release is delayed
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 19, 2026 (33m ago) |
+| **Category** | 🧠 model |
+| **Author** | TheDecoder |
+
+**Summary:** GLM-5.3, the AI model from Chinese startup Z.ai, scores 60 points on the Artificial Analysis Intelligence Index. That ties it with Kimi K3 for the top spot among open models, and it's seven points ahe
+
+**URL:** [https://the-decoder.com/glm-5-3-tops-the-open-model-rankings-and-undercuts-rivals-on-price-but-its-release-is-delayed/](https://the-decoder.com/glm-5-3-tops-the-open-model-rankings-and-undercuts-rivals-on-price-but-its-release-is-delayed/)
+
+---
 
 ### Anthropic says any lab can now let a language model agent run the whole protein design stack
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (22m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -79,7 +124,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 🧠 model |
 | **Author** | Pluang |
 
@@ -94,7 +139,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | exchangewire.com |
 
@@ -109,7 +154,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | 디지털투데이 |
 
@@ -124,7 +169,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | 디지털투데이 |
 
@@ -139,7 +184,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Korea Times |
 
@@ -154,7 +199,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -184,7 +229,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | AI Weekly |
 
@@ -199,7 +244,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | Moomoo |
 
@@ -214,7 +259,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -229,7 +274,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | amrrs |
 
@@ -259,7 +304,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | Yahoo Finance |
 
@@ -274,7 +319,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -289,7 +334,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | Wired AI |
 
@@ -304,7 +349,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -319,7 +364,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Clara Meister |
 
@@ -334,7 +379,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Akshay Balsubramani |
 
@@ -349,7 +394,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Daria Leshchikova, Valentina V. Kuskova, Dmitry Zaytsev |
 
@@ -364,7 +409,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Hollis Robbins |
 
@@ -379,7 +424,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Travis Zhang, Christian Belardi, Justin Lovelace |
 
@@ -409,7 +454,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Haoqin Tu, Yunhao Fang, Yizhong Wang |
 
@@ -424,7 +469,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Yi Wang |
 
@@ -439,7 +484,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Amazon ML |
 
@@ -454,7 +499,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | tyre |
 
@@ -469,7 +514,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Eduardo Sánchez, Rita Berrada, Dan-Mircea Mirea |
 
@@ -484,7 +529,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Sher Badshah, Ali Emami, Hassan Sajjad |
 
@@ -499,7 +544,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Alisher Myrgyyassov, Zhen Song, Bruce Xiao Wang |
 
@@ -559,7 +604,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | bwm |
 
@@ -574,7 +619,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Bin Li, Dongdong Wang, Siyang Lu |
 
@@ -589,7 +634,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Isidoro Tamassia, Lennert De Smet, Giuseppe Marra |
 
@@ -604,7 +649,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Nour Shaheen, Junwei Ma, Alex Labach |
 
@@ -619,7 +664,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Javier Aguilar Martín |
 
@@ -634,7 +679,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Md. Faiyaz Abdullah Sayeedi |
 
@@ -649,7 +694,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Matthew Siper, Ahmed Khalifa, Julian Togelius |
 
@@ -664,7 +709,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Jhen-Ke Lin |
 
@@ -679,7 +724,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Lei Jiang, Ye Wei, Xinyu Xi |
 
@@ -694,7 +739,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Chainarong Amornbunchornvej |
 
@@ -709,7 +754,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Fahad Ahammed, Omar Faruq Shikdar, Navid Zaman |
 
@@ -724,7 +769,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Marvin Castro Castro, Erick Carvajal Barboza |
 
@@ -754,7 +799,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | ZDNet AI |
 
@@ -769,7 +814,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 🧠 model |
 | **Author** | Man Liang, Xinzhao Cheng, Faizan Wajid |
 
@@ -799,7 +844,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Rubén Balbastre, Juan Manuel Orduña, Mariano Pérez |
 
@@ -814,7 +859,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Shi Zhou |
 
@@ -829,7 +874,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Snowflake |
 
@@ -1578,51 +1623,6 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 
 ---
 
-### OpenAI Paused Its Scary-Good Next-Gen Model Over Safety Fears—Has Sam Altman Finally Regained the Lead?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | 24/7 Wall St. |
-
-**Summary:** OpenAI Paused Its Scary-Good Next-Gen Model Over Safety Fears—Has Sam Altman Finally Regained the Lead?  24/7 Wall St.
-
-**URL:** [https://news.google.com/rss/articles/CBMi3wFBVV95cUxQTmFlb2FkdzFHTFRFaDFocnF2VVBQZ0NkZWw5QU1WTEtjdFlic0tCYWhBc014QU5xNzA5WGJtYU9xMmEydjdWYnd3eEJCRm5kQXJRd21SMlRicGRlOUZ1WGx2RjVQaUE4bXdZT0ExWFIwaENUbXhMdjhoLXJGTG8zd0FUb2Y2TlJmV2pudVIyQUFRdGItNWVua3ZnQU9yaHJab0RUN0xQTExtb09KOUptRmJQT0pmYm41MEc0b0hPeGgyVTBQakVpQ1B1WGVhSFVmcy1jTmJ6d2d2bGRFSHE0?oc=5](https://news.google.com/rss/articles/CBMi3wFBVV95cUxQTmFlb2FkdzFHTFRFaDFocnF2VVBQZ0NkZWw5QU1WTEtjdFlic0tCYWhBc014QU5xNzA5WGJtYU9xMmEydjdWYnd3eEJCRm5kQXJRd21SMlRicGRlOUZ1WGx2RjVQaUE4bXdZT0ExWFIwaENUbXhMdjhoLXJGTG8zd0FUb2Y2TlJmV2pudVIyQUFRdGItNWVua3ZnQU9yaHJab0RUN0xQTExtb09KOUptRmJQT0pmYm41MEc0b0hPeGgyVTBQakVpQ1B1WGVhSFVmcy1jTmJ6d2d2bGRFSHE0?oc=5)
-
----
-
-### Topological Attribution Distance (TAD): Revealing Segment-Level RAG Influence on LLM Output Geometry for Incident Log Analysis
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Reza Fayyazi, Michael Zuzak, Shanchieh Jay Yang |
-
-**Summary:** Large Language Models (LLMs) are increasingly being deployed in cybersecurity operations to assist cybersecurity analysts with rapid decision-making against emerging threats. However, there is a main 
-
-**URL:** [https://arxiv.org/abs/2608.16775v1](https://arxiv.org/abs/2608.16775v1)
-
----
-
-### Would this change your answer? Evaluating Explanations of LLM Behavior In The Wild with Counterfactual Experiments
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Adam Karvonen, Euan Ong, Subhash Kantamneni |
-
-**Summary:** Many areas of AI research, such as language model interpretability and chain of thought faithfulness, seek to explain model behaviors. But what constitutes a "good" explanation? In this work, we evalu
-
-**URL:** [https://arxiv.org/abs/2608.16747v1](https://arxiv.org/abs/2608.16747v1)
-
----
-
 ## 🔬 Research Breakthroughs
 
 ### DEPW: GOOGLE DEEPMIND AI LAB ECOSYSTEM ETF - Fund Chart
@@ -1630,7 +1630,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 🔬 research |
 | **Author** | Zacks Investment Research |
 
@@ -1645,7 +1645,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1660,7 +1660,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 sciencedaily |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | ScienceDaily AI |
 
@@ -1675,7 +1675,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | Global South Opportunities |
 
@@ -1690,7 +1690,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🔬 research |
 | **Author** | Iryna Hartsock, Cesar Lam, Christopher Otteni |
 
@@ -1705,7 +1705,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🔬 research |
 | **Author** | Qinyuan Ye, Yu Li, Yada Pruksachatkun |
 
@@ -1720,7 +1720,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🔬 research |
 | **Author** | ASU News |
 
@@ -1735,7 +1735,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | Cian Higgins, Gerard Carrigan, Pinar Sungu Isiacik |
 
@@ -1750,7 +1750,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | Huayu Xin, Yizhi Cai, Mukilan Deivarajan Suresh |
 
@@ -1765,7 +1765,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | MIT News |
 
@@ -1780,7 +1780,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Xuan Zheng, Kento Uchida, Shinichi Shirakawa |
 
@@ -1795,7 +1795,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | theregister.com |
 
@@ -1810,7 +1810,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Pew Research Center |
 
@@ -1825,7 +1825,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Shicheng Ma, Wenqian Cui, Irwin King |
 
@@ -1840,7 +1840,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Kasper Engelen, Sebastian Junges, Guillermo A. Pérez |
 
@@ -1855,7 +1855,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Alex DeWeese, Jiaoyang Li, Guannan Qu |
 
@@ -1870,7 +1870,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Matin Amoozadeh, Amin Alipour |
 
@@ -1885,7 +1885,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Alma M. Liezenga, Lotte Nijskens, Henrik R. Baumann |
 
@@ -1900,7 +1900,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 🔬 research |
 | **Author** | Zheling Tan, Jin Gao, Dequan Wang |
 
@@ -1930,7 +1930,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 🔬 research |
 | **Author** | Franky Kevin Nando Tezoh, Ali Hussaini Umar, Alessandro Laio |
 
@@ -1945,7 +1945,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Alona Strugatski, Licol Zeinfeld, Jason Cooper |
 
@@ -1960,7 +1960,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Quang Minh Nguyen, Luis Frentzen Salim |
 
@@ -2257,12 +2257,57 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 
 ## 💼 Product & Business Updates
 
+### Nebius Slides 8% After $4.5 Billion AI Funding Plan
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (5m ago) |
+| **Category** | 💼 product |
+| **Author** | GuruFocus |
+
+**Summary:** Nebius Slides 8% After $4.5 Billion AI Funding Plan  GuruFocus
+
+**URL:** [https://news.google.com/rss/articles/CBMikAFBVV95cUxNbHRtYXkyZ2dSWk9GeTMwc0tSVjk4SGhhZnlJcldxMXdoQnZJNlZzNC00ajJZTVc2bE9tRVJJVUphUkktTzFkVW9Nd3BMbzMwTGVVUEpCamNZOWhVdE5POWhiY0pQZUZJZW5tM3Rnc3RXWHJDd09Jc0FCWTY4aTh2ZlZRMUFFV19RdXcwWDE1NTc?oc=5](https://news.google.com/rss/articles/CBMikAFBVV95cUxNbHRtYXkyZ2dSWk9GeTMwc0tSVjk4SGhhZnlJcldxMXdoQnZJNlZzNC00ajJZTVc2bE9tRVJJVUphUkktTzFkVW9Nd3BMbzMwTGVVUEpCamNZOWhVdE5POWhiY0pQZUZJZW5tM3Rnc3RXWHJDd09Jc0FCWTY4aTh2ZlZRMUFFV19RdXcwWDE1NTc?oc=5)
+
+---
+
+### 10 ways Marquette Business is leading AI integration
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (14m ago) |
+| **Category** | 💼 product |
+| **Author** | Marquette Today |
+
+**Summary:** 10 ways Marquette Business is leading AI integration  Marquette Today
+
+**URL:** [https://news.google.com/rss/articles/CBMikwFBVV95cUxNR2VaRzA3dHlHLUVtM2VIdVFyNGNIdndWSC1QX29xSkpvU0RJVm91S1E3c2lZaDRTVS1OcHhuQ1FsVDQ5ZWN2X2h5NlpEbkI3bnIwWjcwMEdsSkZvS3JZZHlYVmFZRDFGdWkxSk9sdDhpT2VzVUszZzNSa3F2eFFWZ2FKOFhBSTBjbFBiLWdwLThYNW8?oc=5](https://news.google.com/rss/articles/CBMikwFBVV95cUxNR2VaRzA3dHlHLUVtM2VIdVFyNGNIdndWSC1QX29xSkpvU0RJVm91S1E3c2lZaDRTVS1OcHhuQ1FsVDQ5ZWN2X2h5NlpEbkI3bnIwWjcwMEdsSkZvS3JZZHlYVmFZRDFGdWkxSk9sdDhpT2VzVUszZzNSa3F2eFFWZ2FKOFhBSTBjbFBiLWdwLThYNW8?oc=5)
+
+---
+
+### Discovered Materials Announces $9M Funding Round To Deploy AI Agents In Search Of Cooler Chip Materials
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (19m ago) |
+| **Category** | 💼 product |
+| **Author** | AI Insider |
+
+**Summary:** Discovered Materials Announces $9M Funding Round To Deploy AI Agents In Search Of Cooler Chip Materials  AI Insider
+
+**URL:** [https://news.google.com/rss/articles/CBMi1wFBVV95cUxPSDBQWkpWYk1mVTlob2Q0eXRiMnQ2dnBXeVNpOHVSd2U0dDktSzRqQld5STlRQ0R0QkRrOG9xYmc2OHRYcWk4LUF3dHYyc1hnRF95bVgtUUM5bHF4U3VMc2hjZmxuaEhnT2ItNUZmRFlCNmZuUDI0SGxobzRLeG5yOW9ZLW9GUm1ETGFMU054eWlrb3FVaV9yUl9JV2hBSndFeC1KQlRiTjJpVi13bE11ZGhfby1uSElrQnJENlZxb25CaE1tVnBGT3pUaUVKdjFIb1dGNmtRTQ?oc=5](https://news.google.com/rss/articles/CBMi1wFBVV95cUxPSDBQWkpWYk1mVTlob2Q0eXRiMnQ2dnBXeVNpOHVSd2U0dDktSzRqQld5STlRQ0R0QkRrOG9xYmc2OHRYcWk4LUF3dHYyc1hnRF95bVgtUUM5bHF4U3VMc2hjZmxuaEhnT2ItNUZmRFlCNmZuUDI0SGxobzRLeG5yOW9ZLW9GUm1ETGFMU054eWlrb3FVaV9yUl9JV2hBSndFeC1KQlRiTjJpVi13bE11ZGhfby1uSElrQnJENlZxb25CaE1tVnBGT3pUaUVKdjFIb1dGNmtRTQ?oc=5)
+
+---
+
 ### SiteVue AI Raises $7.5M in Seed Funding to Bring AI-Powered Vision to the Frontlines of Manufacturing, Food Processing, and Construction
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2277,7 +2322,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (31m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 💼 product |
 | **Author** | forbes.com |
 
@@ -2292,7 +2337,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | Seeking Alpha |
 
@@ -2307,7 +2352,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | Telecompaper |
 
@@ -2322,7 +2367,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | Tech Funding News |
 
@@ -2337,7 +2382,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | AiThority |
 
@@ -2352,7 +2397,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2382,7 +2427,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2397,7 +2442,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | Tech Funding News |
 
@@ -2415,7 +2460,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -2433,7 +2478,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -2448,7 +2493,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | Sahm |
 
@@ -2463,7 +2508,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | FinSMEs |
 
@@ -2478,7 +2523,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | techafricanews.com |
 
@@ -2493,7 +2538,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | The Korea Times |
 
@@ -2508,7 +2553,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | Bloomberg.com |
 
@@ -2523,7 +2568,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | Federal News Network |
 
@@ -2538,7 +2583,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | wkfauna |
 
@@ -2553,7 +2598,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2568,7 +2613,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Yahoo Finance |
 
@@ -2583,7 +2628,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | Startup Fortune |
 
@@ -2598,7 +2643,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon ML |
 
@@ -2613,7 +2658,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Reuters |
 
@@ -2628,7 +2673,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | theaiinsider.tech |
 
@@ -2643,7 +2688,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Yining Hua, Hongbin Na, Yifan Zhou |
 
@@ -2658,7 +2703,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Ali Eslamian, Qiang Cheng |
 
@@ -2673,7 +2718,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2688,7 +2733,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2703,7 +2748,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Lu Xu, Xu Li, Linjiang Zheng |
 
@@ -2718,7 +2763,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon ML |
 
@@ -2733,7 +2778,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | hometownsource.com |
 
@@ -2748,7 +2793,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | theaiinsider.tech |
 
@@ -2763,7 +2808,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | theaiinsider.tech |
 
@@ -2778,7 +2823,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | Shrey Gupta, Yi Ming, George Mohler |
 
@@ -2793,7 +2838,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | 1470 & 100.3 WMBD |
 
@@ -2808,7 +2853,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | Business Wire |
 
@@ -2823,7 +2868,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Startup Fortune |
 
@@ -2838,7 +2883,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -3193,21 +3238,6 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 
 ---
 
-### Amazon, which started off selling books, is destroying rare texts to train AI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | TechCrunch AI |
-
-**Summary:** Rare books are incredibly valuable for training LLMs, since these models have already trained on whatever's available online.
-
-**URL:** [https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/](https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/)
-
----
-
 ## 🛡️ AI Safety & Security
 
 ### OpenAI slows down training of advanced AI after cyber-attack
@@ -3215,7 +3245,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | BBC |
 
@@ -3230,7 +3260,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Axios |
 
@@ -3245,7 +3275,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CNBC AI |
 
@@ -3260,7 +3290,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (17h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Seoul Economic Daily |
 
@@ -3275,7 +3305,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (17h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | The Verge AI |
 
@@ -3290,7 +3320,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Decrypt AI |
 
@@ -3305,7 +3335,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TechCrunch AI |
 
@@ -3320,7 +3350,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TechCrunch AI |
 
@@ -3405,51 +3435,6 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 
 ---
 
-### GRIP: Grounded Reasoning via Information-Restricted Premises
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | Lirui Teng |
-
-**Summary:** High-capacity encoders in retrieval-augmented generation (RAG) can let the query dominate the latent state, leaving retrieved evidence functionally irrelevant. We call this failure mode query dominanc
-
-**URL:** [https://arxiv.org/abs/2608.16776v1](https://arxiv.org/abs/2608.16776v1)
-
----
-
-### Beyond $L_2$: Generalizing Abductive Latent Explanations to Diverse Prototype-Based Architectures
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | Jules Soria, Alban Grastien, Romain Xu-Darme |
-
-**Summary:** Prototype-based neural networks are hailed as interpretable-by-design architectures. Recently, Abductive Latent Explanations (ALE) were introduced to provide formal, mathematically guaranteed explanat
-
-**URL:** [https://arxiv.org/abs/2608.16773v1](https://arxiv.org/abs/2608.16773v1)
-
----
-
-### Top AI Governance Platforms 2026: Comparison Guide | Kovrr
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | Security Boulevard |
-
-**Summary:** Top AI Governance Platforms 2026: Comparison Guide | Kovrr  Security Boulevard
-
-**URL:** [https://news.google.com/rss/articles/CBMimgFBVV95cUxPRmNSN3NWbTBoNTdqUGpxQ0xPX2Z2Z2xSRzNWN01WZTFFYm9wRFpwNzhieE91aGVDTG1STUtxOERWa01Ib0lNUnVVTGRRZUlBVFFpNlItWldqczljWGJXYjlhRVh2Wk9qaHlmM0JDV0xpRnAyM096a25zMTlHZUNlUVg3Z1loLWZnWDE5eGRVMm13VDdHdS16WW13?oc=5](https://news.google.com/rss/articles/CBMimgFBVV95cUxPRmNSN3NWbTBoNTdqUGpxQ0xPX2Z2Z2xSRzNWN01WZTFFYm9wRFpwNzhieE91aGVDTG1STUtxOERWa01Ib0lNUnVVTGRRZUlBVFFpNlItWldqczljWGJXYjlhRVh2Wk9qaHlmM0JDV0xpRnAyM096a25zMTlHZUNlUVg3Z1loLWZnWDE5eGRVMm13VDdHdS16WW13?oc=5)
-
----
-
 ## ⚖️ Regulation & Policy
 
 ### Opinion | America has 3 billion words of legal code riddled with ‘policy sludge’
@@ -3457,7 +3442,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (57m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Washington Post |
 
@@ -3472,7 +3457,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TechRadar |
 
@@ -3487,7 +3472,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | StartupHub.ai |
 
@@ -3502,7 +3487,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Inside Global Tech |
 
@@ -3517,7 +3502,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Christophe D. Hounwanou, John Emeka Eze, Yaé U. Gaba |
 
@@ -3532,7 +3517,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Frontline Magazine |
 
@@ -3547,7 +3532,7 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Legis1 |
 
@@ -3767,74 +3752,165 @@ We may have our first glimpse of Apple's rumored camera-equipped AirPods, thanks
 
 ---
 
-### Will China Crack Down on Open-Weight Models?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Tech Policy Press |
-
-**Summary:** Will China Crack Down on Open-Weight Models?  Tech Policy Press
-
-**URL:** [https://news.google.com/rss/articles/CBMifkFVX3lxTE1kUGpaOEJrenBfQURSMU9GUGV0MmxPQzlWWk15VURxVUJfa01wUFZicE11SUhoQVk4R0pZSEF1ZVFGRVk4YjFIbTd5UXU3RTN3Q2txMGNwazE0TnI0UzVLbVpaNmFyUzI3Zl9ZZmdSTFM0RS0yRzBRelA3anY4UQ?oc=5](https://news.google.com/rss/articles/CBMifkFVX3lxTE1kUGpaOEJrenBfQURSMU9GUGV0MmxPQzlWWk15VURxVUJfa01wUFZicE11SUhoQVk4R0pZSEF1ZVFGRVk4YjFIbTd5UXU3RTN3Q2txMGNwazE0TnI0UzVLbVpaNmFyUzI3Zl9ZZmdSTFM0RS0yRzBRelA3anY4UQ?oc=5)
-
----
-
-### When AI Regulation Becomes a Systems Bottleneck
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Communications of the ACM |
-
-**Summary:** When AI Regulation Becomes a Systems Bottleneck  Communications of the ACM
-
-**URL:** [https://news.google.com/rss/articles/CBMihAFBVV95cUxPNFpLWmo1bWlqMVlPSnVhYTlxanVHS25Mb280dkxtT0NuYTRyYURuZE5oQlMyR1VBMU5LMDUyaExDbFZ4QWk0ZTNrWU1abEM5ak5SWnlDd0lBVjRUZjBGcTlCaFBrN1RBdzF6eTQ0Z0NtZXVkQ1lsNnFRNE5YeUpzdUNMaVc?oc=5](https://news.google.com/rss/articles/CBMihAFBVV95cUxPNFpLWmo1bWlqMVlPSnVhYTlxanVHS25Mb280dkxtT0NuYTRyYURuZE5oQlMyR1VBMU5LMDUyaExDbFZ4QWk0ZTNrWU1abEM5ak5SWnlDd0lBVjRUZjBGcTlCaFBrN1RBdzF6eTQ0Z0NtZXVkQ1lsNnFRNE5YeUpzdUNMaVc?oc=5)
-
----
-
-### LAVA: Logic-Aware Validation and Augmentation Framework for Large-Scale Financial Document Auditing
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Ruoqi Shu, Xuhui Wang, Isaac Wang |
-
-**Summary:** Financial document validation in production, such as payroll auditing, tax compliance, and loan underwriting, demands exceptional accuracy, consistency, and reproducibility under strict enterprise con
-
-**URL:** [https://arxiv.org/abs/2608.16763v1](https://arxiv.org/abs/2608.16763v1)
-
----
-
-### On the Principles Behind Neural Network Optimizers
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | Yushun Zhang |
-
-**Summary:** Reliable optimization is central to neural network (NN) training, yet Adam, the default optimizer for modern LLMs, rests on a fragile foundation. This thesis develops a principled grounding for Adam a
-
-**URL:** [https://arxiv.org/abs/2608.16760v1](https://arxiv.org/abs/2608.16760v1)
-
----
-
 ## 📌 Other Notable News
+
+### The best Android phones of 2026: Expert tested and reviewed
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 19, 2026 (8m ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** We tested the latest Android phones on the market, from the Samsung Galaxy Z Fold 8 to the Google Pixel 11 series. Here's how they stack up.
+
+**URL:** [https://www.zdnet.com/article/best-android-phone/](https://www.zdnet.com/article/best-android-phone/)
+
+---
+
+### Auburn's TIGER Tech Leaders earns national HR Innovation Award for AI workforce development Auburn program earns national HR Innovation Award
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (10m ago) |
+| **Category** | 📌 other |
+| **Author** | Auburn University |
+
+**Summary:** Auburn's TIGER Tech Leaders earns national HR Innovation Award for AI workforce development Auburn program earns national HR Innovation Award  Auburn University
+
+**URL:** [https://news.google.com/rss/articles/CBMizgFBVV95cUxPT0ctckJ3ZjNfZGVYc1lOVFJTRlg1eTJQcnBFNXZpM2lTM0ZDZ0Z4YUptU0J2S24wX2JaRnFTd2w0UDVSNWYxU0F0amFYcHlMbGw3VUtYQU1wWnJseGd5VGNRU0dNNzBoVURLYXAwYnpwekptWFplZzBiQUMtN0FtS0J5aDJqRWlfV2IxWjBDVFppSkM4QVhYWTBHam1FS3FLeXNPUVZFbjBHNzBOdkZTckI5cmM3U0FSUTdHaUJWcG1URDhHSTJzSmJBRjVyUQ?oc=5](https://news.google.com/rss/articles/CBMizgFBVV95cUxPT0ctckJ3ZjNfZGVYc1lOVFJTRlg1eTJQcnBFNXZpM2lTM0ZDZ0Z4YUptU0J2S24wX2JaRnFTd2w0UDVSNWYxU0F0amFYcHlMbGw3VUtYQU1wWnJseGd5VGNRU0dNNzBoVURLYXAwYnpwekptWFplZzBiQUMtN0FtS0J5aDJqRWlfV2IxWjBDVFppSkM4QVhYWTBHam1FS3FLeXNPUVZFbjBHNzBOdkZTckI5cmM3U0FSUTdHaUJWcG1URDhHSTJzSmJBRjVyUQ?oc=5)
+
+---
+
+### Best robot vacuum mops of 2026: Expert tested
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 19, 2026 (15m ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** We've tested over 50 top robot vacuum-and-mop combos from brands like Roborock, Eufy, Ecovacs, and Dreame to choose the best to keep a home clean.
+
+**URL:** [https://www.zdnet.com/article/best-robot-vacuum-mop/](https://www.zdnet.com/article/best-robot-vacuum-mop/)
+
+---
+
+### Calendly throws its hat into meeting note-taker circus
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 19, 2026 (18m ago) |
+| **Category** | 📌 other |
+| **Author** | TechCrunch AI |
+
+**Summary:** Calendly is also releasing a meeting scheduling assistant called Callie
+
+**URL:** [https://techcrunch.com/2026/08/19/calendly-throws-its-hat-into-meeting-note-taker-circus/](https://techcrunch.com/2026/08/19/calendly-throws-its-hat-into-meeting-note-taker-circus/)
+
+---
+
+### China lets Nvidia's H200 chips trickle onto the mainland to help its AI firms keep pace with the US
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 19, 2026 (30m ago) |
+| **Category** | 📌 other |
+| **Author** | TheDecoder |
+
+**Summary:** China is letting small batches of Nvidia's H200 chips onto the mainland to help domestic AI firms in the race with the US.
+The article China lets Nvidia's H200 chips trickle onto the mainland to help 
+
+**URL:** [https://the-decoder.com/china-lets-nvidias-h200-chips-trickle-onto-the-mainland-to-help-its-ai-firms-keep-pace-with-the-us/](https://the-decoder.com/china-lets-nvidias-h200-chips-trickle-onto-the-mainland-to-help-its-ai-firms-keep-pace-with-the-us/)
+
+---
+
+### Next-generation synthetic trials in hematology with generative artificial intelligence
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (33m ago) |
+| **Category** | 📌 other |
+| **Author** | nature.com |
+
+**Summary:** Next-generation synthetic trials in hematology with generative artificial intelligence  nature.com
+
+**URL:** [https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LTnpRYlpUZy1mMnR1ZkhLRmxxRGRPTFhSM1hmOTVabnQwUTZuMkdSaDFGTjZ3VW16Ui1aMENIYmlmOFRpQkhkZzN2Vld2ZTdnajhncVE0VnNIUU9oLTh3?oc=5](https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LTnpRYlpUZy1mMnR1ZkhLRmxxRGRPTFhSM1hmOTVabnQwUTZuMkdSaDFGTjZ3VW16Ui1aMENIYmlmOFRpQkhkZzN2Vld2ZTdnajhncVE0VnNIUU9oLTh3?oc=5)
+
+---
+
+### LFM2.5 Q4\_0 Checkpoints from Quantization-Aware Distillation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 Hugging Face |
+| **Date** | August 19, 2026 (38m ago) |
+| **Category** | 📌 other |
+| **Author** | Hugging Face |
+
+**Summary:** LFM2.5 Q4\_0 Checkpoints from Quantization-Aware Distillation
+
+**URL:** [https://huggingface.co/blog/LiquidAI/qad](https://huggingface.co/blog/LiquidAI/qad)
+
+---
+
+### AI In Pharmacovigilance: The Commercial and Market-Access Imperative
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (48m ago) |
+| **Category** | 📌 other |
+| **Author** | Pharmaceutical Commerce |
+
+**Summary:** AI In Pharmacovigilance: The Commercial and Market-Access Imperative  Pharmaceutical Commerce
+
+**URL:** [https://news.google.com/rss/articles/CBMiogFBVV95cUxNRjd4ZTVraVZvT2pLdWpFbGpLRDNmbGZGRXhCN1ZLU2ltbXowd25kVWNsOTFFU09EUDFjLXJSQlE0SUJnZ3BYTlBpZXc2MGdZM1BWRkUydGE2T0FtRWVFRzJiVnI3UVRzNjIyRUs3UkNHak9GT1BsN2QyY0dlV24zVkFtNUcyY3JkZnFLVlBnekMtNXJUN1ljOVlmYUg0Tm9Md2c?oc=5](https://news.google.com/rss/articles/CBMiogFBVV95cUxNRjd4ZTVraVZvT2pLdWpFbGpLRDNmbGZGRXhCN1ZLU2ltbXowd25kVWNsOTFFU09EUDFjLXJSQlE0SUJnZ3BYTlBpZXc2MGdZM1BWRkUydGE2T0FtRWVFRzJiVnI3UVRzNjIyRUs3UkNHak9GT1BsN2QyY0dlV24zVkFtNUcyY3JkZnFLVlBnekMtNXJUN1ljOVlmYUg0Tm9Md2c?oc=5)
+
+---
+
+### The best TVs of 2026: Expert tested and recommended
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 19, 2026 (51m ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** I have been writing about TVs and home theater tech for the better part of a decade. These are the best TVs ZDNET has tested from brands like LG, Samsung, and Hisense.
+
+**URL:** [https://www.zdnet.com/article/best-tv/](https://www.zdnet.com/article/best-tv/)
+
+---
+
+### I tested Bose's new midrange headphones - now the pricey Ultras feel redundant
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 19, 2026 (56m ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** Bose's second-gen QuietComfort headphones retain their $359 price tag, but flaunt meaningful upgrades from their predecessor.
+
+**URL:** [https://www.zdnet.com/article/bose-quietcomfort-headphones-2-review/](https://www.zdnet.com/article/bose-quietcomfort-headphones-2-review/)
+
+---
 
 ### AI labs are failing to keep their own systems in check
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (14m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -3850,7 +3926,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 📌 other |
 | **Author** | New Lines Institute |
 
@@ -3865,7 +3941,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (45m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -3881,7 +3957,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (56m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -3896,7 +3972,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (57m ago) |
+| **Date** | August 19, 2026 (1h ago) |
 | **Category** | 📌 other |
 | **Author** | PsyPost |
 
@@ -3926,7 +4002,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 📌 other |
 | **Author** | Gallup News |
 
@@ -3941,7 +4017,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 📌 other |
 | **Author** | GlobeNewswire |
 
@@ -3956,7 +4032,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 📌 other |
 | **Author** | The Verge AI |
 
@@ -3974,7 +4050,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (1h ago) |
+| **Date** | August 19, 2026 (2h ago) |
 | **Category** | 📌 other |
 | **Author** | Farm Progress |
 
@@ -3989,7 +4065,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -4004,7 +4080,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC |
 
@@ -4019,7 +4095,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4034,7 +4110,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4049,7 +4125,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4064,7 +4140,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4074,12 +4150,27 @@ Napoleon is
 
 ---
 
+### OpenAI Astra ChatGPT 6 Reportedly Uses Multi-Agent Task Delegation
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Geeky Gadgets |
+
+**Summary:** OpenAI Astra ChatGPT 6 Reportedly Uses Multi-Agent Task Delegation  Geeky Gadgets
+
+**URL:** [https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5MRlhtZ0dzenhwRFNPeHBCWGQtbHJLY2VzaFh0ZmFpb3U4UmxmeWxVOTF6Q3N6OGZtWDA0bVN1bGFZUUwtSnhPcC10b1MyTUZFUDJzaENPMF9XYUpfTERGUXN1QnNyM1k?oc=5](https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5MRlhtZ0dzenhwRFNPeHBCWGQtbHJLY2VzaFh0ZmFpb3U4UmxmeWxVOTF6Q3N6OGZtWDA0bVN1bGFZUUwtSnhPcC10b1MyTUZFUDJzaENPMF9XYUpfTERGUXN1QnNyM1k?oc=5)
+
+---
+
 ### Chamath Palihapitiya Says Mark Zuckerberg Knows ‘Great Engineers’ Want to Join ‘Space/Search/AI’ Companie
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | Benzinga |
 
@@ -4094,7 +4185,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (2h ago) |
+| **Date** | August 19, 2026 (3h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4109,7 +4200,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | MediaNama |
 
@@ -4124,7 +4215,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -4139,7 +4230,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4154,7 +4245,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4169,7 +4260,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | The Cap Times |
 
@@ -4184,7 +4275,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (3h ago) |
+| **Date** | August 19, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4199,7 +4290,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | San Antonio Express-News |
 
@@ -4214,7 +4305,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Axios |
 
@@ -4229,7 +4320,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | New York Magazine |
 
@@ -4244,7 +4335,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4259,7 +4350,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | AllSci |
 
@@ -4274,7 +4365,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | geeky-gadgets.com |
 
@@ -4289,7 +4380,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | PYMNTS.com |
 
@@ -4304,7 +4395,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4319,7 +4410,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | Reuters |
 
@@ -4334,7 +4425,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -4349,7 +4440,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | HousingWire |
 
@@ -4364,7 +4455,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Intelligent Living |
 
@@ -4379,7 +4470,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Small Wars Journal |
 
@@ -4394,7 +4485,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | EIN Presswire |
 
@@ -4424,7 +4515,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | The Korea Times |
 
@@ -4439,7 +4530,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | healthimaging.com |
 
@@ -4454,7 +4545,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | The Washington Post |
 
@@ -4469,7 +4560,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | wfmynews2.com |
 
@@ -4484,7 +4575,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4499,7 +4590,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | James Madison University |
 
@@ -4532,7 +4623,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4550,7 +4641,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4565,7 +4656,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4580,7 +4671,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4595,7 +4686,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4610,7 +4701,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4625,7 +4716,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4640,7 +4731,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4655,7 +4746,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4670,7 +4761,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4685,7 +4776,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4700,7 +4791,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 ai-weekly |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Weekly |
 
@@ -4730,7 +4821,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -4745,7 +4836,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Knowable Magazine |
 
@@ -4760,7 +4851,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -4775,7 +4866,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -4790,7 +4881,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -4805,7 +4896,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -4820,7 +4911,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (14h ago) |
+| **Date** | August 18, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | finance.biggo.com |
 
@@ -4835,7 +4926,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4850,7 +4941,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | giuliomagnifico |
 
@@ -4865,7 +4956,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | apitman |
 
@@ -4880,7 +4971,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (15h ago) |
+| **Date** | August 18, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Breaking News, Latest News and Videos |
 
@@ -4895,7 +4986,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (16h ago) |
+| **Date** | August 18, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4910,7 +5001,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (17h ago) |
+| **Date** | August 18, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | aha.org |
 
@@ -4925,7 +5016,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | DC News Now |
 
@@ -4940,7 +5031,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (18h ago) |
+| **Date** | August 18, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Decrypt AI |
 
@@ -4955,7 +5046,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Hugging Face |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Hugging Face |
 
@@ -4970,7 +5061,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Xingjian Wang, Zhao Wang, Taihang Hu |
 
@@ -4985,7 +5076,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Xiao Wang, Shun Ren Yang, Hui Nien Hung |
 
@@ -5000,7 +5091,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Veronika Spieker, Wenqi Huang, Cemre Ariyurek |
 
@@ -5015,7 +5106,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (19h ago) |
+| **Date** | August 18, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Mahdi Saberi, Yaşar Utku Alçalar, Merve Gülle |
 
@@ -5045,7 +5136,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -5060,7 +5151,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | theweek.com |
 
@@ -5075,7 +5166,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -5090,7 +5181,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | nature.com |
 
@@ -5105,7 +5196,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Yixuan Sun, Anirban Samaddar, Sandeep Madireddy |
 
@@ -5120,7 +5211,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | 13newsnow.com |
 
@@ -5135,7 +5226,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Yijie Xu, Chao Wang, Hui Xiong |
 
@@ -5150,7 +5241,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (20h ago) |
+| **Date** | August 18, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5165,7 +5256,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -5180,7 +5271,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5195,7 +5286,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5210,7 +5301,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Healthcare IT News |
 
@@ -5225,7 +5316,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | army.mil |
 
@@ -5240,7 +5331,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5255,7 +5346,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Zhizhao Liu, Zhiliang Tian, Xi Wang |
 
@@ -5270,7 +5361,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5285,7 +5376,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5300,7 +5391,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5315,7 +5406,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | National Defense Magazine |
 
@@ -5330,7 +5421,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (21h ago) |
+| **Date** | August 18, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5360,7 +5451,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Online Journalism Blog |
 
@@ -5375,7 +5466,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -5390,7 +5481,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (22h ago) |
+| **Date** | August 18, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | International Finance Corporation (IFC) |
 
@@ -5435,7 +5526,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Chemistry World |
 
@@ -5450,7 +5541,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | South China Morning Post |
 
@@ -5465,7 +5556,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5480,7 +5571,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Neelesh Kumar Shukla, Debasmita Panda, Srutanik Bhaduri |
 
@@ -5495,7 +5586,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (23h ago) |
+| **Date** | August 18, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -7520,96 +7611,6 @@ The post Developing an End-to-En
 
 ---
 
-### Microsoft, Meta And Google Just Silenced AI Spending Critics In One Earnings Night As Big Tech Capex Swells To $725B
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Stocktwits |
-
-**Summary:** Microsoft, Meta And Google Just Silenced AI Spending Critics In One Earnings Night As Big Tech Capex Swells To $725B  Stocktwits
-
-**URL:** [https://news.google.com/rss/articles/CBMiiwJBVV95cUxNQ2ZDQkRWWGZaNVdBV1UwS0FEY0RvVVJqUFUxNXd2eHpWM1haeXltLUNpaXB2TW5kcHlJRFo0WFNOQWZFaGNDZ2p3WlcwZjhPVndrYkQwWVAxR0tVVnotaFdDNnZHT1IxZ1BJVHJXZXFpVG5ROUlMcGZoR29iczhkOGM4VG9UMEVWWHJoUEY5TlBCN0RiTEotLTFWNVdFZHZpUmVBOHBuYWVaN0xYMEJzSkgtSno4WHhuc2x4TmpMUkV5bHJDaTNqVHFKalBIMl9pZ01MSjF2a0hpczUtYjMxUHk1OGt0VUxxbHRuaHZ3Nkt4ekRLTl9YZzVQX04wYjFUS25wLUZwWUJwTFU?oc=5](https://news.google.com/rss/articles/CBMiiwJBVV95cUxNQ2ZDQkRWWGZaNVdBV1UwS0FEY0RvVVJqUFUxNXd2eHpWM1haeXltLUNpaXB2TW5kcHlJRFo0WFNOQWZFaGNDZ2p3WlcwZjhPVndrYkQwWVAxR0tVVnotaFdDNnZHT1IxZ1BJVHJXZXFpVG5ROUlMcGZoR29iczhkOGM4VG9UMEVWWHJoUEY5TlBCN0RiTEotLTFWNVdFZHZpUmVBOHBuYWVaN0xYMEJzSkgtSno4WHhuc2x4TmpMUkV5bHJDaTNqVHFKalBIMl9pZ01MSjF2a0hpczUtYjMxUHk1OGt0VUxxbHRuaHZ3Nkt4ekRLTl9YZzVQX04wYjFUS25wLUZwWUJwTFU?oc=5)
-
----
-
-### Build OpenClaw agents that transact with Amazon Bedrock AgentCore payments
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 amazon |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Amazon ML |
-
-**Summary:** Give an autonomous agent a wallet and spending guardrails so it can pay for paywalled APIs, MCP servers, and web content. This post connects OpenClaw to Amazon Bedrock AgentCore payments and the x402 
-
-**URL:** [https://aws.amazon.com/blogs/machine-learning/build-openclaw-agents-that-transact-with-amazon-bedrock-agentcore-payments/](https://aws.amazon.com/blogs/machine-learning/build-openclaw-agents-that-transact-with-amazon-bedrock-agentcore-payments/)
-
----
-
-### TRACE-Bench: Decomposing and Diagnosing Multi-Reference Image Generation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Haoran Wang, Chaofan Ma, Ran Yi |
-
-**Summary:** Despite recent advances in unified multimodal models for multi-reference image generation, existing benchmarks remain organized around predefined task types (e.g., "subject composition"), which are il
-
-**URL:** [https://arxiv.org/abs/2608.16765v1](https://arxiv.org/abs/2608.16765v1)
-
----
-
-### Groq raises $350M to fuel its pivot from AI chips to neocloud
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | TechCrunch AI |
-
-**Summary:** Groq raised $350 million at a $3.5 billion valuation as the former AI chipmaker pivots to a neocloud business and expands its Nvidia-powered data center footprint.
-
-**URL:** [https://techcrunch.com/2026/08/17/groq-raises-350m-to-fuel-its-pivot-from-ai-chips-to-neocloud/](https://techcrunch.com/2026/08/17/groq-raises-350m-to-fuel-its-pivot-from-ai-chips-to-neocloud/)
-
----
-
-### What Stripe&#x27;s $7 Billion OpenRouter Deal Actually Means for AI
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Decrypt AI |
-
-**Summary:** What Stripe&#x27;s $7 Billion OpenRouter Deal Actually Means for AI
-
-**URL:** [https://decrypt.co/375769/what-stripe-openrouter-deal-means-ai](https://decrypt.co/375769/what-stripe-openrouter-deal-means-ai)
-
----
-
-### Apple Is Building A Custom Siri Just for the Chinese Market With Alibaba’s Aid
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 17, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | MacTrast |
-
-**Summary:** Apple Is Building A Custom Siri Just for the Chinese Market With Alibaba’s Aid  MacTrast
-
-**URL:** [https://news.google.com/rss/articles/CBMisAFBVV95cUxNQUZKbFhIb205em1vOU1IOHJndFJxbDlmU0NCUXFva3JlZkpmNU9iRVY5emljNWJ4SWlPV0hGaUxuMWpJN0ZuZ2pDaDd1VWpRV3I2Uk9mQ1RnbHBsQWo1TU9FaVdUc1phN3lZOHItcWkycjkwUGFYN1lIc2pSMVJIektBUHlQTWVDUXN2M2xSdll3ckNWampiSWo5anJoOHdzUjI3X2R1blNyeV9JNVBxTdIBtgFBVV95cUxNRXBrT0RsNXRQbGNvRUhpV1NKaHQyQVpxa3VOMzdibzQ2NXVnc1UtYkVtY3JSM2NiVFhrd1VHaW5ZdXpOUDlDeGppWUtZMzRoMUJQTDNQNjYzd1pFU252S2ExUmJrM2s3QjlCd21yVHBhZ3BNdHZsZElQUzY1TWNRYVVmVzNXR1NOb0RRMG9DbEpxRzVKSlp2MmxlZHlmMVdEWXd2SjBRb0tyZ3Bmc19GajZ2VmtLQQ?oc=5](https://news.google.com/rss/articles/CBMisAFBVV95cUxNQUZKbFhIb205em1vOU1IOHJndFJxbDlmU0NCUXFva3JlZkpmNU9iRVY5emljNWJ4SWlPV0hGaUxuMWpJN0ZuZ2pDaDd1VWpRV3I2Uk9mQ1RnbHBsQWo1TU9FaVdUc1phN3lZOHItcWkycjkwUGFYN1lIc2pSMVJIektBUHlQTWVDUXN2M2xSdll3ckNWampiSWo5anJoOHdzUjI3X2R1blNyeV9JNVBxTdIBtgFBVV95cUxNRXBrT0RsNXRQbGNvRUhpV1NKaHQyQVpxa3VOMzdibzQ2NXVnc1UtYkVtY3JSM2NiVFhrd1VHaW5ZdXpOUDlDeGppWUtZMzRoMUJQTDNQNjYzd1pFU252S2ExUmJrM2s3QjlCd21yVHBhZ3BNdHZsZElQUzY1TWNRYVVmVzNXR1NOb0RRMG9DbEpxRzVKSlp2MmxlZHlmMVdEWXd2SjBRb0tyZ3Bmc19GajZ2VmtLQQ?oc=5)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7625,4 +7626,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-19T13:30:45.705Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-19T14:27:42.115Z by AI Pulse Knowledge Base Generator*
