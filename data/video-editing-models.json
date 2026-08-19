@@ -13,7 +13,8 @@
       "ci": "-6/6",
       "samples": 9183,
       "released": "Aug 2026",
-      "price": "Coming soon"
+      "price": "Coming soon",
+      "openWeights": false
     },
     {
       "rank": 2,

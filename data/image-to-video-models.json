@@ -13,7 +13,8 @@
       "ci": "-7/7",
       "samples": 14006,
       "released": "Mar 2026",
-      "price": "$9.1 /1k imgs"
+      "price": "$9.1 /1k imgs",
+      "openWeights": false
     },
     {
       "rank": 2,

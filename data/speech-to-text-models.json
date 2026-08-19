@@ -10,7 +10,8 @@
       "provider": "Alibaba Cloud",
       "wer": 13.5,
       "speedFactor": 78.5,
-      "price": 0
+      "price": 0,
+      "openWeights": false
     },
     {
       "rank": 2,
