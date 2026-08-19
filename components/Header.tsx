@@ -16,6 +16,7 @@ interface HeaderProps {
 const NAV = [
   { href: '/', label: 'News' },
   { href: '/models', label: 'Models' },
+  { href: '/chat', label: 'Chat' },
   { href: '/coding-agents', label: 'Coding Agents' },
   { href: '/speech-image-video', label: 'Speech, Image, Video' },
   { href: '/trends', label: 'AI Trends' },
