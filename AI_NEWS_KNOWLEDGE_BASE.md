@@ -1,7 +1,7 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-20T16:35:07.727Z
+> Last Updated: 2026-08-20T20:27:52.718Z
 > Total Articles Tracked: 2500
 > Generated from AI Pulse database
 
@@ -14,59 +14,149 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 109 |
-| 🔬 **Research** | 31 |
-| 💼 **Product/Business** | 79 |
-| 🛡️ **Safety/Security** | 23 |
+| 🧠 **Model Releases** | 105 |
+| 🔬 **Research** | 27 |
+| 💼 **Product/Business** | 80 |
+| 🛡️ **Safety/Security** | 21 |
 | ⚖️ **Policy/Regulation** | 18 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 229 |
-| **arxiv** | 66 |
+| **google-news** | 238 |
+| **arxiv** | 60 |
 | **ai-weekly** | 35 |
-| **zdnet** | 31 |
-| **techcrunch** | 18 |
+| **zdnet** | 34 |
+| **techcrunch** | 22 |
 | **the-decoder** | 17 |
-| **cnbc** | 16 |
-| **reddit** | 14 |
-| **hacker-news** | 13 |
-| **amazon** | 11 |
+| **reddit** | 15 |
+| **cnbc** | 14 |
+| **hacker-news** | 11 |
+| **amazon** | 10 |
 | **towards-ai** | 10 |
-| **the-register** | 8 |
-| **the-verge** | 8 |
-| **decrypt** | 7 |
+| **the-register** | 9 |
+| **the-verge** | 7 |
 | **wired** | 4 |
+| **marktechpost** | 3 |
 | **arstechnica** | 3 |
-| **mit-tr** | 2 |
-| **marktechpost** | 2 |
 | **Hugging Face** | 2 |
+| **mit-tr** | 2 |
+| **decrypt** | 1 |
 | **google-ai** | 1 |
 | **venturebeat** | 1 |
 | **posthog** | 1 |
-| **sciencedaily** | 1 |
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 109 articles
-- [🔬 Research Breakthroughs](#research-breakthroughs) — 31 articles
-- [💼 Product & Business Updates](#product--business-updates) — 79 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 23 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 105 articles
+- [🔬 Research Breakthroughs](#research-breakthroughs) — 27 articles
+- [💼 Product & Business Updates](#product--business-updates) — 80 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 21 articles
 - [⚖️ Regulation & Policy](#regulation--policy) — 18 articles
-- [📌 Other Notable News](#other-notable-news) — 240 articles
+- [📌 Other Notable News](#other-notable-news) — 249 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### Adobe Firefly adds AI audio tools and Google's Gemini Omni Flash
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 20, 2026 (58m ago) |
+| **Category** | 🧠 model |
+| **Author** | TheDecoder |
+
+**Summary:** Adobe is making three AI audio tools broadly available in Firefly. Generate Music, Generate Speech, and Generate Sound Effects create royalty-free music, voiceovers, and sound effects for video projec
+
+**URL:** [https://the-decoder.com/adobe-firefly-adds-ai-audio-tools-and-googles-gemini-omni-flash/](https://the-decoder.com/adobe-firefly-adds-ai-audio-tools-and-googles-gemini-omni-flash/)
+
+---
+
+### Liquid AI Releases LFM2.5-DSpark Draft Models That Deliver Up to 3.18x Faster Decoding Without Changing Model Outputs
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 🧠 model |
+| **Author** | MarkTechPost |
+
+**Summary:** Three ~300M drafters bring speculative decoding to LFM2.5, delivering up to 3.18x faster decoding with identical greedy output.
+The post Liquid AI Releases LFM2.5-DSpark Draft Models That Deliver Up t
+
+**URL:** [https://www.marktechpost.com/2026/08/20/liquid-ai-releases-lfm2-5-dspark-draft-models-that-deliver-up-to-3-18x-faster-decoding/](https://www.marktechpost.com/2026/08/20/liquid-ai-releases-lfm2-5-dspark-draft-models-that-deliver-up-to-3-18x-faster-decoding/)
+
+---
+
+### Is KV Cache in a high dimensional vector space? [D]
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 reddit |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 🧠 model |
+| **Author** | r/MachineLearning |
+
+**Summary:** I've been doing some research on this question: At inference time a large part of a model's working memory lives in the KV cache, plus whatever external memory the harness bolts on. I've been poking a
+
+**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vtrdem/is_kv_cache_in_a_high_dimensional_vector_space_d/](https://www.reddit.com/r/MachineLearning/comments/1vtrdem/is_kv_cache_in_a_high_dimensional_vector_space_d/)
+
+---
+
+### A third of web pages published since ChatGPT’s launch show signs of AI authorship, study finds
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | TechCrunch AI |
+
+**Summary:** ChatGPT and other AI models are now authoring and editing much of the new web.
+
+**URL:** [https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/](https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/)
+
+---
+
+### Ramp launches its own AI model router, called Router
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | TechCrunch AI |
+
+**Summary:** Ramp has launched its own AI model routing service, dubbed Router, that lets users and companies use and switch between various large language models via an API.
+
+**URL:** [https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router/](https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router/)
+
+---
+
+### Ornith-1.5 Is a Free Open-Source Model That Claims to Rival Claude Opus 4.8
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | Startup Fortune |
+
+**Summary:** Ornith-1.5 Is a Free Open-Source Model That Claims to Rival Claude Opus 4.8  Startup Fortune
+
+**URL:** [https://news.google.com/rss/articles/CBMiowFBVV95cUxNVmtWenBHWmFBMUVIak04eVd2UTN1dFFJeXl4R2hHd2VYUnZsOGwzTkIyVXZzNVlGR29td0IxcnhiS1ZrVWd2N1pkc1F5N3E3bmRUVXA5ekNJckEzdjhMUkFxVDdkYTFRZDhPcmpsc2V0UDl4d2FsaVBCUHJQdzlLRjR2SjZOWFhrQmNYenF0Ml90TzhhWEg1Yk1MMmNPdGt0bHVV?oc=5](https://news.google.com/rss/articles/CBMiowFBVV95cUxNVmtWenBHWmFBMUVIak04eVd2UTN1dFFJeXl4R2hHd2VYUnZsOGwzTkIyVXZzNVlGR29td0IxcnhiS1ZrVWd2N1pkc1F5N3E3bmRUVXA5ekNJckEzdjhMUkFxVDdkYTFRZDhPcmpsc2V0UDl4d2FsaVBCUHJQdzlLRjR2SjZOWFhrQmNYenF0Ml90TzhhWEg1Yk1MMmNPdGt0bHVV?oc=5)
+
+---
 
 ### I Am Morally Opposed to Updating My Claude.md
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (47m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 🧠 model |
 | **Author** | tacoooooooo |
 
@@ -76,12 +166,27 @@
 
 ---
 
+### It’s Greg Brockman’s OpenAI now
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-verge |
+| **Date** | August 20, 2026 (4h ago) |
+| **Category** | 🧠 model |
+| **Author** | The Verge AI |
+
+**Summary:** OpenAI has had a hell of a year. The company spent months battling former cofounder Elon Musk in a sensational jury trial, was hit with a high-profile trade secrets lawsuit from Apple, and faced wides
+
+**URL:** [https://www.theverge.com/ai-artificial-intelligence/982774/greg-brockman-openai-role-expansion](https://www.theverge.com/ai-artificial-intelligence/982774/greg-brockman-openai-role-expansion)
+
+---
+
 ### Clean up Claude 5's token vomit with a separate LLM
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | Bluestein |
 
@@ -96,7 +201,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Defense Post |
 
@@ -111,7 +216,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | Dallas News |
 
@@ -126,7 +231,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -141,7 +246,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | speckx |
 
@@ -156,7 +261,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -171,7 +276,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -186,7 +291,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -202,7 +307,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | Yahoo Finance Singapore |
 
@@ -217,7 +322,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -232,7 +337,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -247,7 +352,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -262,7 +367,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 🧠 model |
 | **Author** | Axios |
 
@@ -277,7 +382,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -292,7 +397,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -308,7 +413,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -323,7 +428,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -338,7 +443,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -353,7 +458,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Leaflet |
 
@@ -368,7 +473,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 🧠 model |
 | **Author** | Cureus |
 
@@ -383,7 +488,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 🧠 model |
 | **Author** | Xinhua |
 
@@ -398,7 +503,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -413,7 +518,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (13h ago) |
+| **Date** | August 20, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | 조선일보 |
 
@@ -428,7 +533,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (14h ago) |
+| **Date** | August 20, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | GIGAZINE |
 
@@ -443,7 +548,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (15h ago) |
+| **Date** | August 20, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -458,7 +563,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (15h ago) |
+| **Date** | August 20, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | SiliconANGLE |
 
@@ -473,7 +578,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (16h ago) |
+| **Date** | August 20, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | 조선일보 |
 
@@ -488,7 +593,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Amazon ML |
 
@@ -503,7 +608,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -518,7 +623,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -533,7 +638,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -548,7 +653,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -563,7 +668,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -578,7 +683,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -593,7 +698,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | SQ Magazine |
 
@@ -608,7 +713,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | PLOS |
 
@@ -623,7 +728,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Zachary Speck, Asa Shepard |
 
@@ -638,7 +743,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Anran Wang, Wen Shi, Yong Luo |
 
@@ -653,7 +758,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Ramneet Kaur, Pradyumna Chari, Ramesh Raskar |
 
@@ -668,7 +773,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Bluestein |
 
@@ -683,7 +788,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Tate Berenbaum, Muthaiah Venkatachalam |
 
@@ -698,7 +803,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Steven Morse, Daniel Runfola, Trenton W. Ford |
 
@@ -713,7 +818,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Emanuele Luzio |
 
@@ -728,7 +833,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | George Andrikopoulos |
 
@@ -743,7 +848,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Dongbin Kim, Seungyun Lee, Geonwoo Shin |
 
@@ -758,7 +863,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | John Mangum, Andrew Glaws, Francois Usseglio-Viretta |
 
@@ -773,7 +878,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -790,7 +895,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Wired AI |
 
@@ -805,7 +910,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Longtian Wang, Zhengyu Zhao, Chenhao Lin |
 
@@ -1190,6 +1295,21 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 
 ---
 
+### Prospective evaluation of a large language model clinical decision support system in the emergency department
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (1d ago) |
+| **Category** | 🧠 model |
+| **Author** | Nature |
+
+**Summary:** Prospective evaluation of a large language model clinical decision support system in the emergency department  Nature
+
+**URL:** [https://news.google.com/rss/articles/CBMiX0FVX3lxTE14eWN6RGw3a1F1WlhGY2RqYnVWRnJkNVZ0b3FVUjdTOUNtM1ZpRldHQmMzWkVoYUQ3YTBTZ2Z3elRSN1Mwc1l6QnVIOWZSdGpCZWdfUGJLNWZSNGp0akZV?oc=5](https://news.google.com/rss/articles/CBMiX0FVX3lxTE14eWN6RGw3a1F1WlhGY2RqYnVWRnJkNVZ0b3FVUjdTOUNtM1ZpRldHQmMzWkVoYUQ3YTBTZ2Z3elRSN1Mwc1l6QnVIOWZSdGpCZWdfUGJLNWZSNGp0akZV?oc=5)
+
+---
+
 ### Traders bet Google's delayed Gemini flagship will slip into autumn
 
 | Detail | Value |
@@ -1520,186 +1640,6 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 
 ---
 
-### Backlash against data centers has become a sensitive issue in the U.S. midterm elections, with Pennsylvania introducing the nation’s "strictest" regulatory rules for data centers.
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Moomoo |
-
-**Summary:** Backlash against data centers has become a sensitive issue in the U.S. midterm elections, with Pennsylvania introducing the nation’s "strictest" regulatory rules for data centers.  Moomoo
-
-**URL:** [https://news.google.com/rss/articles/CBMipgFBVV95cUxObXBSU21nSGdvVUlJN1Qxa3Z2RU81c2t3NmxvRkJSSGVHM3RQM1pUX3FtQy1vNFRUWjN3Rm9taEtuaTFQUXlFRWhmSWR4LU16WEgzUU05R0I2YzZ5VVdvTTh6a2NZTXZVVFVBcVBqT3ZzcjBCS25oNmdiblB0LWVYdFV6U2tzMkRtb2lMcnptRy1fTlFQOEJxZ1NjczZrTjhDNXpOenR3?oc=5](https://news.google.com/rss/articles/CBMipgFBVV95cUxObXBSU21nSGdvVUlJN1Qxa3Z2RU81c2t3NmxvRkJSSGVHM3RQM1pUX3FtQy1vNFRUWjN3Rm9taEtuaTFQUXlFRWhmSWR4LU16WEgzUU05R0I2YzZ5VVdvTTh6a2NZTXZVVFVBcVBqT3ZzcjBCS25oNmdiblB0LWVYdFV6U2tzMkRtb2lMcnptRy1fTlFQOEJxZ1NjczZrTjhDNXpOenR3?oc=5)
-
----
-
-### NVIDIA Releases TensorRT Model Connect in Public Preview: Hugging Face Checkpoint to Native C++ Inference in Two Commands
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | MarkTechPost |
-
-**Summary:** NVIDIA has released TensorRT Model Connect (TRTMC) in public preview, an Apache-2.0 project that takes a supported Hugging Face or local checkpoint to end-to-end TensorRT inference in two commands, wi
-
-**URL:** [https://www.marktechpost.com/2026/08/18/nvidia-releases-tensorrt-model-connect-in-public-preview-hugging-face-checkpoint-to-native-c-inference-in-two-commands/](https://www.marktechpost.com/2026/08/18/nvidia-releases-tensorrt-model-connect-in-public-preview-hugging-face-checkpoint-to-native-c-inference-in-two-commands/)
-
----
-
-### Claude Code Teaching macOS to Natively Print to the HP Laser 1008a
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | amrrs |
-
-**Summary:** 108 points, 71 comments on Hacker News.
-
-**URL:** [https://cdn.kuber.studio/chat/hp-laser-1008a-driver](https://cdn.kuber.studio/chat/hp-laser-1008a-driver)
-
----
-
-### OpenAI lays out new security changes after its AI hacked Hugging Face
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | The Verge AI |
-
-**Summary:** OpenAI is announcing security updates following the July news that its AI broke out of a sandboxed environment and accidentally hacked Hugging Face, including improvements to its research environments
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack](https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack)
-
----
-
-### Markets Confident OpenAI Releases Its Next AI Model in Weeks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Yahoo Finance |
-
-**Summary:** Markets Confident OpenAI Releases Its Next AI Model in Weeks  Yahoo Finance
-
-**URL:** [https://news.google.com/rss/articles/CBMipAFBVV95cUxNbFc0MGM5dm0tWS1SUFdmazlYb1Jyb3VpbHVldlZZNWVtdENpckFsRFZuLUwxN3JUUHBiUG04bU5JUnFOZmxuUXY3d3pWbGdyaTJEZ2FYcFM3UGFnTmo0Znp3Q2xUZ1FOSkVVRGpFRzNFU0VKODd1bnNCNkVHRTB4LVVGOXk4QlFwd1VPbGprdXR5Mlg0VnJoSENZQVVHUlgtdDhmNw?oc=5](https://news.google.com/rss/articles/CBMipAFBVV95cUxNbFc0MGM5dm0tWS1SUFdmazlYb1Jyb3VpbHVldlZZNWVtdENpckFsRFZuLUwxN3JUUHBiUG04bU5JUnFOZmxuUXY3d3pWbGdyaTJEZ2FYcFM3UGFnTmo0Znp3Q2xUZ1FOSkVVRGpFRzNFU0VKODd1bnNCNkVHRTB4LVVGOXk4QlFwd1VPbGprdXR5Mlg0VnJoSENZQVVHUlgtdDhmNw?oc=5)
-
----
-
-### OpenAI says it's "pacing model development" as AI cybersecurity risks grow too dangerous
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | TheDecoder |
-
-**Summary:** OpenAI is deliberately "pacing AI model development," partly because the upcoming "Astra" model may be close to gaining critical cyberattack capabilities. A new monitoring system triggers an alert wit
-
-**URL:** [https://the-decoder.com/openai-says-its-pacing-model-development-as-ai-cybersecurity-risks-grow-too-dangerous/](https://the-decoder.com/openai-says-its-pacing-model-development-as-ai-cybersecurity-risks-grow-too-dangerous/)
-
----
-
-### Pacing model development in an era of cyber-critical capabilities
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | OpenAI |
-
-**Summary:** Pacing model development in an era of cyber-critical capabilities  OpenAI
-
-**URL:** [https://news.google.com/rss/articles/CBMieEFVX3lxTE44SUZWVTY5Y0p5QUZ2RHR2TmhUTkJNTTFkYXBjYWpLTVBjRDRtZW5DX2pLN0xNUXZIS0N5THhkYUV0WmhhNTBzc0RCeWQwZ19PdXhKa3lyRmt4UnRTVVQzU2JoSWdXd1FDRWxQSm5LYWRCR0Y3cWtlNQ?oc=5](https://news.google.com/rss/articles/CBMieEFVX3lxTE44SUZWVTY5Y0p5QUZ2RHR2TmhUTkJNTTFkYXBjYWpLTVBjRDRtZW5DX2pLN0xNUXZIS0N5THhkYUV0WmhhNTBzc0RCeWQwZ19PdXhKa3lyRmt4UnRTVVQzU2JoSWdXd1FDRWxQSm5LYWRCR0Y3cWtlNQ?oc=5)
-
----
-
-### OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 wired |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Wired AI |
-
-**Summary:** The ChatGPT maker says its upcoming Astra model may have reached “critical” cyber capabilities, prompting it to halt a significant number of training runs while it tightens internal safeguards.
-
-**URL:** [https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/](https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/)
-
----
-
-### New benchmark ranks search APIs for AI agents on quality, cost, and speed
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | TheDecoder |
-
-**Summary:** Artificial Analysis has released the "Search Index," a benchmark that rates search API providers for AI agents on quality, cost, and speed. Of seven providers tested with GPT-5.6 Luna, Parallel, Exa, 
-
-**URL:** [https://the-decoder.com/new-benchmark-ranks-search-apis-for-ai-agents-on-quality-cost-and-speed/](https://the-decoder.com/new-benchmark-ranks-search-apis-for-ai-agents-on-quality-cost-and-speed/)
-
----
-
-### TokEval: A Tokenizer Evaluation Suite
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Clara Meister |
-
-**Summary:** Language model tokenizers are typically selected with minimal evaluation, despite the fact that their design choices directly impact model capabilities. This can be partly attributed to a limited unde
-
-**URL:** [https://arxiv.org/abs/2608.18062v1](https://arxiv.org/abs/2608.18062v1)
-
----
-
-### The concentration game: Bayesian updating, regret, and information
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Akshay Balsubramani |
-
-**Summary:** We give a two-player zero-sum repeated game between a learner and nature whose value identity generates Bayesian updating and an exact accounting of exponential-weights regret at once, and supplies th
-
-**URL:** [https://arxiv.org/abs/2608.18061v1](https://arxiv.org/abs/2608.18061v1)
-
----
-
-### Delegation Asymmetry in Agentic Recommender Systems: Measuring Two-Sided Receptivity in Online Dating
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Daria Leshchikova, Valentina V. Kuskova, Dmitry Zaytsev |
-
-**Summary:** Autonomous LLM agents that converse on a user's behalf are an emerging design pattern in matching platforms, yet their viability depends on a condition rarely examined: users must accept not only dele
-
-**URL:** [https://arxiv.org/abs/2608.18058v1](https://arxiv.org/abs/2608.18058v1)
-
----
-
 ## 🔬 Research Breakthroughs
 
 ### Your AI research is your responsibility — California court sanctions attorney for delegating AI citation verification to paralegal
@@ -1707,7 +1647,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (29m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 🔬 research |
 | **Author** | Reuters |
 
@@ -1722,7 +1662,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 🔬 research |
 | **Author** | EIN News |
 
@@ -1737,7 +1677,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🔬 research |
 | **Author** | HR Executive |
 
@@ -1752,7 +1692,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🔬 research |
 | **Author** | ZDNet AI |
 
@@ -1770,7 +1710,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🔬 research |
 | **Author** | The Register AI |
 
@@ -1788,7 +1728,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1803,7 +1743,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | Cisco Blogs |
 
@@ -1818,7 +1758,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | WVIR |
 
@@ -1833,7 +1773,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 🔬 research |
 | **Author** | Reuters |
 
@@ -1848,7 +1788,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-ai |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Google AI Blog |
 
@@ -1863,7 +1803,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | TechCrunch AI |
 
@@ -1878,7 +1818,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Quantum Zeitgeist |
 
@@ -1893,7 +1833,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Tomasz R. Bielecki, Thibaut Mastrolia, Haoze Yan |
 
@@ -1908,7 +1848,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | George Andrikopoulos |
 
@@ -1923,7 +1863,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Huan-ang Gao, Haohan Chi, Yong Yan |
 
@@ -2113,74 +2053,119 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 
 ---
 
-### Tiny robots powered by light can hunt down and collect bacteria
+## 💼 Product & Business Updates
 
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 sciencedaily |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🔬 research |
-| **Author** | ScienceDaily AI |
-
-**Summary:** Researchers have built microscopic, light-driven robots that can rapidly navigate through liquid, collect bacteria, and deposit them in chosen locations. These tiny “cleaners” could open new possibili
-
-**URL:** [https://www.sciencedaily.com/releases/2026/08/260816044850.htm](https://www.sciencedaily.com/releases/2026/08/260816044850.htm)
-
----
-
-### Google DeepMind APAC Research Symposium 2026: Three-Day AI Research Programme for Faculty and Students
+### AI health insights draw investor dollars as wellness funding climbs
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🔬 research |
-| **Author** | Global South Opportunities |
+| **Date** | August 20, 2026 (45m ago) |
+| **Category** | 💼 product |
+| **Author** | eMarketer |
 
-**Summary:** Google DeepMind APAC Research Symposium 2026: Three-Day AI Research Programme for Faculty and Students  Global South Opportunities
+**Summary:** AI health insights draw investor dollars as wellness funding climbs  eMarketer
 
-**URL:** [https://news.google.com/rss/articles/CBMickFVX3lxTE1KZ3FxTU4xVDVFSElQWnljdWtaLVQxUVkybk1fbUUyTlNrOHFzTXhjSHZpTkJaa3h0aHdGT01nbVVEcXUwVGloZk9FQVIyUUk5Ui1ob2taVmNaYndzajN6WGFEMF9PY2wxb2s1MUxOUXVEUQ?oc=5](https://news.google.com/rss/articles/CBMickFVX3lxTE1KZ3FxTU4xVDVFSElQWnljdWtaLVQxUVkybk1fbUUyTlNrOHFzTXhjSHZpTkJaa3h0aHdGT01nbVVEcXUwVGloZk9FQVIyUUk5Ui1ob2taVmNaYndzajN6WGFEMF9PY2wxb2s1MUxOUXVEUQ?oc=5)
+**URL:** [https://news.google.com/rss/articles/CBMinwFBVV95cUxQZ2UzYkI4bHpxdDdxRkxMeDN5MHN1ekRqTHgxcFJtdktnTENrRGVPbHpKSVlQNjZwZGdTMXBMTU1za2FHMHpETUhwNnd2SDVYQ2lFM2tKRy15bEd5U1RoQjZGRkpKcWpUOVFRazRLS01URDdCWml3U3RBMGltbEZzWFJVYUVVLVplUlBWd0FKMXZ6OS12d0I2NVM3b0xfMUk?oc=5](https://news.google.com/rss/articles/CBMinwFBVV95cUxQZ2UzYkI4bHpxdDdxRkxMeDN5MHN1ekRqTHgxcFJtdktnTENrRGVPbHpKSVlQNjZwZGdTMXBMTU1za2FHMHpETUhwNnd2SDVYQ2lFM2tKRy15bEd5U1RoQjZGRkpKcWpUOVFRazRLS01URDdCWml3U3RBMGltbEZzWFJVYUVVLVplUlBWd0FKMXZ6OS12d0I2NVM3b0xfMUk?oc=5)
 
 ---
 
-### Multi-Agent AI System for Radiology Report Structuring and Quality Assurance with Independent Radiologist Evaluation
+### Meta AI Mac App Adds Screen Sharing, Business Tools
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🔬 research |
-| **Author** | Iryna Hartsock, Cesar Lam, Christopher Otteni |
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (48m ago) |
+| **Category** | 💼 product |
+| **Author** | TechRepublic |
 
-**Summary:** Purpose: To develop and evaluate a locally deployed multi-agent AI system for radiology report structuring and quality assurance. Materials and Methods: This retrospective study included 638 radiology
+**Summary:** Meta AI Mac App Adds Screen Sharing, Business Tools  TechRepublic
 
-**URL:** [https://arxiv.org/abs/2608.18072v1](https://arxiv.org/abs/2608.18072v1)
+**URL:** [https://news.google.com/rss/articles/CBMihwFBVV95cUxQMWJIN0NEdEotWnJTR3hfbkZyaDZTalBEQzZCYkNxQmJmdmRxa3luV3I1endMdzJLaWUxcUNyZUVtX1h3VHdLNWZUSjBaN0hvY2lSUUE4R3pFQ0g2cWJQcWI5Vy01bkxxa01fUlB6ampNV291TzRRSkNfYmJQVkJZa2VMUE1KakE?oc=5](https://news.google.com/rss/articles/CBMihwFBVV95cUxQMWJIN0NEdEotWnJTR3hfbkZyaDZTalBEQzZCYkNxQmJmdmRxa3luV3I1endMdzJLaWUxcUNyZUVtX1h3VHdLNWZUSjBaN0hvY2lSUUE4R3pFQ0g2cWJQcWI5Vy01bkxxa01fUlB6ampNV291TzRRSkNfYmJQVkJZa2VMUE1KakE?oc=5)
 
 ---
 
-### On the Fragility of Self-Improving Agents: Variance, Task Order, and Underspecification
+### Runlayer, Rippling drop lawsuits — but the brouhaha is still a cautionary tale for founders
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🔬 research |
-| **Author** | Qinyuan Ye, Yu Li, Yada Pruksachatkun |
+| **Source** | 📰 techcrunch |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | TechCrunch AI |
 
-**Summary:** Memory-based self-improving agents--those that learn from an online stream of tasks and improve over time by maintaining a textual memory bank--have shown great promise in recent literature. However, 
+**Summary:** Runlayer and Rippling have dropped their lawsuits. No money was paid. Rippling celebrated by releasing a competing product.
 
-**URL:** [https://arxiv.org/abs/2608.18066v1](https://arxiv.org/abs/2608.18066v1)
+**URL:** [https://techcrunch.com/2026/08/20/runlayer-rippling-drop-lawsuits-but-the-brouhaha-is-still-a-cautionary-tale-for-founders/](https://techcrunch.com/2026/08/20/runlayer-rippling-drop-lawsuits-but-the-brouhaha-is-still-a-cautionary-tale-for-founders/)
 
 ---
 
-## 💼 Product & Business Updates
+### Linkdaze’s smart calendar is built to run a household, not just track a schedule
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | TechCrunch AI |
+
+**Summary:** Linkdaze's smart digital calendar stands out for not putting its features behind a paywall, including an AI meal planner tool.
+
+**URL:** [https://techcrunch.com/2026/08/20/linkdazes-smart-calendar-is-built-to-run-a-household-not-just-track-a-schedule/](https://techcrunch.com/2026/08/20/linkdazes-smart-calendar-is-built-to-run-a-household-not-just-track-a-schedule/)
+
+---
+
+### Meta AI Now Available as a Desktop App for Mac
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 💼 product |
+| **Author** | AI Business |
+
+**Summary:** Meta AI Now Available as a Desktop App for Mac  AI Business
+
+**URL:** [https://news.google.com/rss/articles/CBMigwFBVV95cUxOcTg5b1VkWHpMS0E4YjJZSjI4eGdrcXB5WFcxZlEzZmc2TjJiWnoySVZDbXRhVVZiRFlsVEYwZk5zZDJXRldxSzJXOEtWWHc4Mlhuak5Lb3dUcThNM01oZnN5WHM2eGFJNkpLRjh0dzFHMFF0RmFBZjFFY0FoNzdoMkNMcw?oc=5](https://news.google.com/rss/articles/CBMigwFBVV95cUxOcTg5b1VkWHpMS0E4YjJZSjI4eGdrcXB5WFcxZlEzZmc2TjJiWnoySVZDbXRhVVZiRFlsVEYwZk5zZDJXRldxSzJXOEtWWHc4Mlhuak5Lb3dUcThNM01oZnN5WHM2eGFJNkpLRjh0dzFHMFF0RmFBZjFFY0FoNzdoMkNMcw?oc=5)
+
+---
+
+### Wispr Flow is better than your device's built-in voice text tool - how to try it for free
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | ZDNet AI |
+
+**Summary:** Designed for Windows, MacOS, iOS, and Android, Wispr Flow is a pleasure to use compared with other voice dictation apps. Here's how.
+
+**URL:** [https://www.zdnet.com/article/wispr-flow-better-than-built-in-voice-text-tool-how-to-try-it/](https://www.zdnet.com/article/wispr-flow-better-than-built-in-voice-text-tool-how-to-try-it/)
+
+---
+
+### Meta AI Launches Mac App With System-Wide Dictation and Business Integrations
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 💼 product |
+| **Author** | entARABI |
+
+**Summary:** Meta AI Launches Mac App With System-Wide Dictation and Business Integrations  entARABI
+
+**URL:** [https://news.google.com/rss/articles/CBMirwFBVV95cUxOX0IwQ0hMd2ZoLVVpY0NWdkI3V1JYVUh5Qk5qS0V3NmhUT2ZjRUVoRE5jeF9EUzhNZEhDSENxSE5YMlNjYmZpOEdIOWd2QXlQRld5b0pIaFB6dkRkcF9xcGRveGtQUjg1SDE0ZjVSaEtLWnhHMjk0cHV0U0tnbUxBRXNDWFZSM19OUWEybVF4dUh4ZERFTGZMd0ZtSXpndTRTRUtyMzlzVTFtSlEzeGxr?oc=5](https://news.google.com/rss/articles/CBMirwFBVV95cUxOX0IwQ0hMd2ZoLVVpY0NWdkI3V1JYVUh5Qk5qS0V3NmhUT2ZjRUVoRE5jeF9EUzhNZEhDSENxSE5YMlNjYmZpOEdIOWd2QXlQRld5b0pIaFB6dkRkcF9xcGRveGtQUjg1SDE0ZjVSaEtLWnhHMjk0cHV0U0tnbUxBRXNDWFZSM19OUWEybVF4dUh4ZERFTGZMd0ZtSXpndTRTRUtyMzlzVTFtSlEzeGxr?oc=5)
+
+---
 
 ### Meta brings Pocket, an app that lets you vibe-code and share games, to US users
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 20, 2026 (27m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2195,7 +2180,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 20, 2026 (35m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2210,7 +2195,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (36m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2225,7 +2210,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | HousingWire |
 
@@ -2240,7 +2225,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | National Mortgage Professional |
 
@@ -2255,7 +2240,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2270,7 +2255,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | FinSMEs |
 
@@ -2285,7 +2270,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 💼 product |
 | **Author** | Dealroom |
 
@@ -2300,7 +2285,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | GuruFocus |
 
@@ -2315,7 +2300,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2330,7 +2315,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | Silicon Republic |
 
@@ -2345,7 +2330,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | Crunchbase News |
 
@@ -2360,7 +2345,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | FinSMEs |
 
@@ -2375,7 +2360,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (9h ago) |
+| **Date** | August 20, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | Gagadget.com |
 
@@ -2390,7 +2375,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (10h ago) |
+| **Date** | August 20, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Bloomberg.com |
 
@@ -2405,7 +2390,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (11h ago) |
+| **Date** | August 20, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Automotive World |
 
@@ -2420,7 +2405,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (12h ago) |
+| **Date** | August 20, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Pulse 2.0 |
 
@@ -2435,7 +2420,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (12h ago) |
+| **Date** | August 20, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Forbes |
 
@@ -2450,7 +2435,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (14h ago) |
+| **Date** | August 20, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | Digital Music News |
 
@@ -2465,7 +2450,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (16h ago) |
+| **Date** | August 20, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | SiliconANGLE |
 
@@ -2480,7 +2465,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2495,7 +2480,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon ML |
 
@@ -2510,7 +2495,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | K8 News | Jonesboro, Arkansas |
 
@@ -2525,7 +2510,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2540,7 +2525,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | fg137 |
 
@@ -2555,7 +2540,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2570,7 +2555,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2585,7 +2570,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Pulse 2.0 |
 
@@ -2600,7 +2585,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -2615,7 +2600,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Nieman Lab |
 
@@ -2630,7 +2615,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | The Next Web |
 
@@ -2645,7 +2630,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Seeking Alpha |
 
@@ -2660,7 +2645,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | pulse2.com |
 
@@ -2675,7 +2660,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Bo Liu, Simon Yu, Yiding Jiang |
 
@@ -2690,7 +2675,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | The Information |
 
@@ -2705,7 +2690,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Thales Bertaglia, Catalina Goanta, Gerasimos Spanakis |
 
@@ -2720,7 +2705,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | techbuzz.ai |
 
@@ -2735,7 +2720,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2750,7 +2735,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Zhenyao Cui, Siyuan Kan, Dingkun Liu |
 
@@ -2765,7 +2750,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Engadget |
 
@@ -2780,7 +2765,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2796,7 +2781,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Axios |
 
@@ -3277,104 +3262,50 @@ On Tuesday, the
 
 ---
 
-### Cursor capitalizes on GitHub frustration, launches rival hosting platform
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | TechCrunch AI |
-
-**Summary:** Cursor, known for its AI Code Editor, is launching a new code-hosting platform to rival developers' long preferred favorite, GitHub.
-
-**URL:** [https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/](https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/)
-
----
-
-### Alphabet (GOOGL) Faces An AI Funding Test, Is The 20% Upside Still Real?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | Yahoo Finance |
-
-**Summary:** Alphabet (GOOGL) Faces An AI Funding Test, Is The 20% Upside Still Real?  Yahoo Finance
-
-**URL:** [https://news.google.com/rss/articles/CBMimwFBVV95cUxQdGlxMmh2dmpTeE5XeXNSV1Y1a0hNZUk1SzVfM3duRU5Zd2pvcWtXc3lNUzg1YzNCb25UcDVBWkNyOFN6SlVSYXNWbm9IcU5ZdGI0b1hVa3hvSkVldy1STTRUV0FJYU5xeHlFZDRwVmNydTcwV05BMk1xYmsyeTlUMllBQ3k5V1ZvbFIxdnVxV0ctTG10WGpOYjluMA?oc=5](https://news.google.com/rss/articles/CBMimwFBVV95cUxQdGlxMmh2dmpTeE5XeXNSV1Y1a0hNZUk1SzVfM3duRU5Zd2pvcWtXc3lNUzg1YzNCb25UcDVBWkNyOFN6SlVSYXNWbm9IcU5ZdGI0b1hVa3hvSkVldy1STTRUV0FJYU5xeHlFZDRwVmNydTcwV05BMk1xYmsyeTlUMllBQ3k5V1ZvbFIxdnVxV0ctTG10WGpOYjluMA?oc=5)
-
----
-
-### Google, Amazon and Meta Are Out-Growing Nvidia With Their Own AI Chips
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | Startup Fortune |
-
-**Summary:** Google, Amazon and Meta Are Out-Growing Nvidia With Their Own AI Chips  Startup Fortune
-
-**URL:** [https://news.google.com/rss/articles/CBMingFBVV95cUxQcTVGTV9rSnl1UkR4NVRncmZhaTVsbDVISmJYLUJGVXZwRE5GQ253UE15ejBIYnRXTm1BV0JmZjJqVXpZY2NCSHZiR3RKWUtITGFlclNKcU1ZMnBhY1lqbnV1Tk9KazdwVUFxVGd1UmhlSDdJMHFGTjdGSXlvaWNCNUJ6R3lydnZGTm9Fcm9kcUk5Y2o0X05EOTdXME9xUQ?oc=5](https://news.google.com/rss/articles/CBMingFBVV95cUxQcTVGTV9rSnl1UkR4NVRncmZhaTVsbDVISmJYLUJGVXZwRE5GQ253UE15ejBIYnRXTm1BV0JmZjJqVXpZY2NCSHZiR3RKWUtITGFlclNKcU1ZMnBhY1lqbnV1Tk9KazdwVUFxVGd1UmhlSDdJMHFGTjdGSXlvaWNCNUJ6R3lydnZGTm9Fcm9kcUk5Y2o0X05EOTdXME9xUQ?oc=5)
-
----
-
-### Amazon Bedrock AgentCore payments is now generally available: Enabling agents to transact safely and autonomously at scale
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 amazon |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | Amazon ML |
-
-**Summary:** Amazon Bedrock AgentCore payments is now generally available, enabling AI agents to autonomously transact at scale with built-in spending guardrails, protocol-agnostic payment orchestration, and produ
-
-**URL:** [https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-payments-is-now-generally-available-enabling-agents-to-transact-safely-and-autonomously-at-scale/](https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-payments-is-now-generally-available-enabling-agents-to-transact-safely-and-autonomously-at-scale/)
-
----
-
-### AI chip startup Etched doubles valuation to $21 billion in under a month
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | Reuters |
-
-**Summary:** AI chip startup Etched doubles valuation to $21 billion in under a month  Reuters
-
-**URL:** [https://news.google.com/rss/articles/CBMirAFBVV95cUxPZ3NNZlBGNU1FVmtQWnVzMlc1SjFEVmtwYWJLNVJTYUpJS0NEb29iT0NhR1R5bUdKMlhqUWsyMjRJekVtcWFWb3dCX1lHMWlFNHJVLTZCeEoycW1ZdE03VThfZDEzellONHd4ZnJ3RlNEYlA4cGJReEFvaG13bTR0MHItbHlWN3pMWDNMN3JMVkJQNFo2aHFTQUw1QTlrWUt0V0FKamtGSm5rWUVT?oc=5](https://news.google.com/rss/articles/CBMirAFBVV95cUxPZ3NNZlBGNU1FVmtQWnVzMlc1SjFEVmtwYWJLNVJTYUpJS0NEb29iT0NhR1R5bUdKMlhqUWsyMjRJekVtcWFWb3dCX1lHMWlFNHJVLTZCeEoycW1ZdE03VThfZDEzellONHd4ZnJ3RlNEYlA4cGJReEFvaG13bTR0MHItbHlWN3pMWDNMN3JMVkJQNFo2aHFTQUw1QTlrWUt0V0FKamtGSm5rWUVT?oc=5)
-
----
-
-### MAGNE.AI Closes $2.64M in Additional Funding to Advance Edge AI Hardware and Agent Payment Infrastructure
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | theaiinsider.tech |
-
-**Summary:** MAGNE.AI Closes $2.64M in Additional Funding to Advance Edge AI Hardware and Agent Payment Infrastructure  theaiinsider.tech
-
-**URL:** [https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTFZWX2NLbEV6Y2NieG12TDRRS01WQUZybTVlTHNLZ2dEXzE4NW05Nm9kSFVMbEppRlZJUFVtTTB5RDhmZUE1Q0FKWF9jYmg2TW1TTTRMcDdsZFhKZ0pwM01tRWQ4MllmcThDT3N2WTBtT2tjaGYzak5sY2Z6V2dHWlVfRmJOWUhXR2pwc2RPRFhvVE9iMzdsYUUtSWtRdjFrWGVoQ0hjYkZuY3FiUkZXb2ZuQUpfWEFmNVZDTWROZ3Frbjh5a0lmNzdEeHU5T3VlTDhjZlQ3MGxyQQ?oc=5](https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTFZWX2NLbEV6Y2NieG12TDRRS01WQUZybTVlTHNLZ2dEXzE4NW05Nm9kSFVMbEppRlZJUFVtTTB5RDhmZUE1Q0FKWF9jYmg2TW1TTTRMcDdsZFhKZ0pwM01tRWQ4MllmcThDT3N2WTBtT2tjaGYzak5sY2Z6V2dHWlVfRmJOWUhXR2pwc2RPRFhvVE9iMzdsYUUtSWtRdjFrWGVoQ0hjYkZuY3FiUkZXb2ZuQUpfWEFmNVZDTWROZ3Frbjh5a0lmNzdEeHU5T3VlTDhjZlQ3MGxyQQ?oc=5)
-
----
-
 ## 🛡️ AI Safety & Security
+
+### OpenAI chases Anthropic's biz customers with zero data retention pledge
+
+                
+    With Private Safety Processing, AI biz promises discreet, automated prompt surveillance
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 20, 2026 (27m ago) |
+| **Category** | 🛡️ safety |
+| **Author** | The Register AI |
+
+**Summary:** OpenAI chases Anthropic's biz customers with zero data retention pledge
+
+                
+    With Private Safety Processing, AI biz promises discreet, automated prompt surveillance
+
+**URL:** [https://www.theregister.com/ai-and-ml/2026/08/20/openai-chases-anthropics-biz-customers-with-zero-data-retention-pledge/5290609](https://www.theregister.com/ai-and-ml/2026/08/20/openai-chases-anthropics-biz-customers-with-zero-data-retention-pledge/5290609)
+
+---
+
+### LLMs could write like humans but post-training guardrails make their text detectable
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | TheDecoder |
+
+**Summary:** LLMs don't write in a recognizable style because they can't do better. Post-training and safety guardrails sharply narrow their expressive range, argues Pangram CTO Bradley Emi. Base models without th
+
+**URL:** [https://the-decoder.com/llms-could-write-like-humans-but-post-training-guardrails-make-their-text-detectable/](https://the-decoder.com/llms-could-write-like-humans-but-post-training-guardrails-make-their-text-detectable/)
+
+---
 
 ### Build intelligent security for healthcare APIs with Amazon Bedrock
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Amazon ML |
 
@@ -3384,12 +3315,27 @@ On Tuesday, the
 
 ---
 
+### Canada’s National AI Strategy: What It Signals for AI Regulation, Privacy and Online Safety
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (5h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | Fasken |
+
+**Summary:** Canada’s National AI Strategy: What It Signals for AI Regulation, Privacy and Online Safety  Fasken
+
+**URL:** [https://news.google.com/rss/articles/CBMifkFVX3lxTE84UEVqNVBxdmswcnZ2djdUWDAtbHBNdUtoNGVlSW03U2Nib1VRcnJ1NnJtRV9WRHR6X3drSHc1bksyWkEwd0FMOE5PU3U3OWVJMXBGNkdpU00ycTJOeGNLSW5kUkk3NjBJZG84YkNqZUdKUDJ3T3JfSGdUaFVWQQ?oc=5](https://news.google.com/rss/articles/CBMifkFVX3lxTE84UEVqNVBxdmswcnZ2djdUWDAtbHBNdUtoNGVlSW03U2Nib1VRcnJ1NnJtRV9WRHR6X3drSHc1bksyWkEwd0FMOE5PU3U3OWVJMXBGNkdpU00ycTJOeGNLSW5kUkk3NjBJZG84YkNqZUdKUDJ3T3JfSGdUaFVWQQ?oc=5)
+
+---
+
 ### Anthropic and OpenAI Split as Massachusetts Pushes Nation’s Toughest AI Safety Rules
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | PYMNTS.com |
 
@@ -3404,7 +3350,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Ars Technica AI |
 
@@ -3419,7 +3365,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | digit.fyi |
 
@@ -3434,7 +3380,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | PYMNTS.com |
 
@@ -3449,7 +3395,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TheDecoder |
 
@@ -3468,7 +3414,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 20, 2026 (9h ago) |
+| **Date** | August 20, 2026 (13h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | The Register AI |
 
@@ -3486,7 +3432,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CryptoPotato |
 
@@ -3501,7 +3447,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TheDecoder |
 
@@ -3516,7 +3462,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Nextgov/FCW |
 
@@ -3531,7 +3477,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Zhenyao Cui, Siyuan Kan, Siyang Li |
 
@@ -3646,81 +3592,6 @@ The article OpenAI builds safety system that catches misuse without s
 
 ---
 
-### OpenAI rolls out ChatGPT for Teens experience with 'stronger built-in safety protections'
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | CNBC AI |
-
-**Summary:** ChatGPT for Teens includes a number of educational features and applies age-appropriate safeguards, OpenAI said.
-
-**URL:** [https://www.cnbc.com/2026/08/18/openai-chatgpt-for-teens-safety.html](https://www.cnbc.com/2026/08/18/openai-chatgpt-for-teens-safety.html)
-
----
-
-### Kakao's Kanana-2 Models Outscore Google, Alibaba on AI Safety
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | Seoul Economic Daily |
-
-**Summary:** Kakao's Kanana-2 Models Outscore Google, Alibaba on AI Safety  Seoul Economic Daily
-
-**URL:** [https://news.google.com/rss/articles/CBMipwFBVV95cUxQRkZ0OGVZRDkwVm9QbFphWFR6Nlh5VXo5Ym4zdWdKUDdSaC1CVzFPeHhMeVNQX2U4UmNiTnpfS2NWdDF5WHdjeGFaVTFLdWtlU1VEMnMyWkpXZ1ZrNnVMRjNCUEhLQ3JTYVY3cjUxVlExa1M0T2NtMHllZ3lBZE9GNmI5dlgtRF9jS2g0by1kTWItdktBRXBfSkRVNHZueEg3b1FoeG5Mcw?oc=5](https://news.google.com/rss/articles/CBMipwFBVV95cUxQRkZ0OGVZRDkwVm9QbFphWFR6Nlh5VXo5Ym4zdWdKUDdSaC1CVzFPeHhMeVNQX2U4UmNiTnpfS2NWdDF5WHdjeGFaVTFLdWtlU1VEMnMyWkpXZ1ZrNnVMRjNCUEhLQ3JTYVY3cjUxVlExa1M0T2NtMHllZ3lBZE9GNmI5dlgtRF9jS2g0by1kTWItdktBRXBfSkRVNHZueEg3b1FoeG5Mcw?oc=5)
-
----
-
-### Robin Williams’ Instagram account brought back to fight ‘AI abuse’
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | The Verge AI |
-
-**Summary:** Robin Williams' children are taking over their father's Instagram account after his daughter spoke out against the use of his AI likeness, as reported earlier by The Wrap. In a post on Tuesday, Zak, Z
-
-**URL:** [https://www.theverge.com/entertainment/981644/robin-williams-instagram-account-ai](https://www.theverge.com/entertainment/981644/robin-williams-instagram-account-ai)
-
----
-
-### Trump Family Crypto Firm Tied to Chinese AI Models US Government Called a Security Risk
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | Decrypt AI |
-
-**Summary:** Trump Family Crypto Firm Tied to Chinese AI Models US Government Called a Security Risk
-
-**URL:** [https://decrypt.co/375887/trump-crypto-firm-chinese-ai-government-called-security-risk](https://decrypt.co/375887/trump-crypto-firm-chinese-ai-government-called-security-risk)
-
----
-
-### OpenAI institutes new safeguards after Hugging Face breach
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | TechCrunch AI |
-
-**Summary:** The new safeguards include more detailed monitoring of models during the development process, as well as greater emphasis on alignment and security during the post-training process.
-
-**URL:** [https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/](https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/)
-
----
-
 ## ⚖️ Regulation & Policy
 
 ### Authoring Dogwood policies from natural language in Amazon Bedrock AgentCore
@@ -3728,7 +3599,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 20, 2026 (3m ago) |
+| **Date** | August 20, 2026 (3h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Amazon ML |
 
@@ -3743,7 +3614,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 20, 2026 (23m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Amazon ML |
 
@@ -3758,7 +3629,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (27m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | CNBC AI |
 
@@ -3773,7 +3644,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 mit-tr |
-| **Date** | August 20, 2026 (52m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | MIT Tech Review |
 
@@ -3783,12 +3654,27 @@ The article OpenAI builds safety system that catches misuse without s
 
 ---
 
+### The Great American AI Souring: Sentiment, Risks, and Policy Response | by Adnan Masood, PhD. | Aug, 2026
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (6h ago) |
+| **Category** | ⚖️ policy |
+| **Author** | Medium |
+
+**Summary:** The Great American AI Souring: Sentiment, Risks, and Policy Response | by Adnan Masood, PhD. | Aug, 2026  Medium
+
+**URL:** [https://news.google.com/rss/articles/CBMirwFBVV95cUxOWERGS2k1bmJRLVhQQlNXVkxRRmI0ZkpWcmN4VE01Vi0tT2RlSUhIMmd2eTlYSHhzMlJxUGZvX0RJR3VyVGtjazR2MTBXQmVSWVYwRjZNRFFRb0poYXREX3BVb08wdGdQOW9wQW5vd3NaWnNzcVBlY0ltWkcxZm1pOVFiR1F2ZExyb0t6V3pGSnBXc2VsVDBNOFVwV3M4eWRYM2ZjSjFIclRkVi1XdndF?oc=5](https://news.google.com/rss/articles/CBMirwFBVV95cUxOWERGS2k1bmJRLVhQQlNXVkxRRmI0ZkpWcmN4VE01Vi0tT2RlSUhIMmd2eTlYSHhzMlJxUGZvX0RJR3VyVGtjazR2MTBXQmVSWVYwRjZNRFFRb0poYXREX3BVb08wdGdQOW9wQW5vd3NaWnNzcVBlY0ltWkcxZm1pOVFiR1F2ZExyb0t6V3pGSnBXc2VsVDBNOFVwV3M4eWRYM2ZjSjFIclRkVi1XdndF?oc=5)
+
+---
+
 ### Top Five Unethical Uses of Artificial Intelligence by Attorneys and Four More
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Law.com |
 
@@ -3803,7 +3689,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Tech Policy Press |
 
@@ -3818,7 +3704,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (8h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | AI News |
 
@@ -3833,7 +3719,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Decrypt AI |
 
@@ -3848,7 +3734,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | MPR News |
 
@@ -3863,7 +3749,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Jayjun Lee, Jessica Yin, Asif Rana |
 
@@ -3878,7 +3764,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Zhu Zhang, Jixun Wang, Xiaoang Xu |
 
@@ -3893,7 +3779,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Boqiao Zhang, Godbless James, Sai Krishna Gottipati |
 
@@ -3978,29 +3864,344 @@ The article OpenAI builds safety system that catches misuse without s
 
 ---
 
-### White House AI Strategy: Kratsios on Policy & Innovation
+## 📌 Other Notable News
+
+### After one week wearing the Pixel Watch 5, here's what I want most
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 20, 2026 (26m ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** The Google Pixel Watch 5 is a faster, intelligent smartwatch with some helpful health and wellness features under the hood.
+
+**URL:** [https://www.zdnet.com/article/5-takeaways-after-wearing-the-pixel-watch-5-for-a-week/](https://www.zdnet.com/article/5-takeaways-after-wearing-the-pixel-watch-5-for-a-week/)
+
+---
+
+### UW-Madison prioritizes artificial intelligence in alumni address
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | StartupHub.ai |
+| **Date** | August 20, 2026 (27m ago) |
+| **Category** | 📌 other |
+| **Author** | The Daily Cardinal |
 
-**Summary:** White House AI Strategy: Kratsios on Policy & Innovation  StartupHub.ai
+**Summary:** UW-Madison prioritizes artificial intelligence in alumni address  The Daily Cardinal
 
-**URL:** [https://news.google.com/rss/articles/CBMitwFBVV95cUxPSjZnbUNKUjNkQTE2cm1NN0hYdHh5RHh2QkxueThBSlQ4TVM3b3BGcnVZWmUtMmhJbUJoNE9RejVIRm5yVDVSRlJzR2FSMFlwaWJ6TVBtOV80QUZQYlpSdWtBemRmdGxYck5LNm9ISjUxRm05SV9RWTBKek9DUkM5T05PT2FJazU1S3VTekFHaUJaWjJIbnZPY2wxYklpcGs0MEtRQlNiZHBkWTNPdnBHOGtoSEtKRWM?oc=5](https://news.google.com/rss/articles/CBMitwFBVV95cUxPSjZnbUNKUjNkQTE2cm1NN0hYdHh5RHh2QkxueThBSlQ4TVM3b3BGcnVZWmUtMmhJbUJoNE9RejVIRm5yVDVSRlJzR2FSMFlwaWJ6TVBtOV80QUZQYlpSdWtBemRmdGxYck5LNm9ISjUxRm05SV9RWTBKek9DUkM5T05PT2FJazU1S3VTekFHaUJaWjJIbnZPY2wxYklpcGs0MEtRQlNiZHBkWTNPdnBHOGtoSEtKRWM?oc=5)
+**URL:** [https://news.google.com/rss/articles/CBMirwFBVV95cUxQUHBjd1lpdWExV01jVG1pNzRrVDZqbEpULVNBQ2pMTV9neEU2MjlfQmtsbjhfNWdITXcta05zOUdJb1hudjNkNFRpUm5IdXRxZ1hKbThCRUVaVXhYMkY5TFhCVVNCVmxOdDZ6TF9xQzJ5R0Q3Smg1Rmt1ZElmX1dleG9jNExFbFphWFkzamtnUVVfb2JQWkNMMmlVTExxYTJFaDZjNGlKWHNGTVhXRmpR?oc=5](https://news.google.com/rss/articles/CBMirwFBVV95cUxQUHBjd1lpdWExV01jVG1pNzRrVDZqbEpULVNBQ2pMTV9neEU2MjlfQmtsbjhfNWdITXcta05zOUdJb1hudjNkNFRpUm5IdXRxZ1hKbThCRUVaVXhYMkY5TFhCVVNCVmxOdDZ6TF9xQzJ5R0Q3Smg1Rmt1ZElmX1dleG9jNExFbFphWFkzamtnUVVfb2JQWkNMMmlVTExxYTJFaDZjNGlKWHNGTVhXRmpR?oc=5)
 
 ---
 
-## 📌 Other Notable News
+### A.I., Dostoevsky and the very human fear of freedom
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (51m ago) |
+| **Category** | 📌 other |
+| **Author** | America Magazine |
+
+**Summary:** A.I., Dostoevsky and the very human fear of freedom  America Magazine
+
+**URL:** [https://news.google.com/rss/articles/CBMisgFBVV95cUxNTmZaY0VuSUZTaV9OQ2FvcWhIeFBudEFOYkdzbHVkaDFKeGRTbDBMdVRGTEFLRzRmNlZyNnZVRWhsN1p6YTZQSUZDRGNvdVdxYkRnZDJuYUFDVTlZeE9JRnBsTF9lNFFrMW82Q0R0Uld0SkJvV3p1UVZlQUZkT3p2Um5SZEtEOG1KaWt1MkRnSmVidm1iWnhyY0dnZnZXYVM3TTE4X3hwSzNXVDRpbUtENGJ3?oc=5](https://news.google.com/rss/articles/CBMisgFBVV95cUxNTmZaY0VuSUZTaV9OQ2FvcWhIeFBudEFOYkdzbHVkaDFKeGRTbDBMdVRGTEFLRzRmNlZyNnZVRWhsN1p6YTZQSUZDRGNvdVdxYkRnZDJuYUFDVTlZeE9JRnBsTF9lNFFrMW82Q0R0Uld0SkJvV3p1UVZlQUZkT3p2Um5SZEtEOG1KaWt1MkRnSmVidm1iWnhyY0dnZnZXYVM3TTE4X3hwSzNXVDRpbUtENGJ3?oc=5)
+
+---
+
+### The learning curve for AI in schools
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (53m ago) |
+| **Category** | 📌 other |
+| **Author** | The Christian Science Monitor |
+
+**Summary:** The learning curve for AI in schools  The Christian Science Monitor
+
+**URL:** [https://news.google.com/rss/articles/CBMirwFBVV95cUxOcXZhVDB4enhTZmt4LTQ0Zk9JXzhSOER2NElHSExQcXJKWFo4NFlxRmVlTHpsNDBQLUlvUzJuLUU5dzE2c0I0X1A3QjhVYmJrNUsybFZodHBlTGQ3WVJVSXh2U1AzNUlwZjJNbHcxS1ZpVWxhMFlEVXUwU1FwTHdGdkZSMEtWTWJueERwM0xiWTdpODItc0l5WFZzOUVxNmRZejdIWFU4QTFXQVg2NDR30gG8AUFVX3lxTE9XNWl4ajVXUUJRVDVlTHBoSDE2aC1TZDU3TDZKajRhbUFDdC1iQ1dsdzUyVG5XcGdHOEM0WnpoM21rcXc4Ym0tQjdZb3dHTmk4WmwzMzFsYXhadlptZHFXMVFYU2hGM3lSRWx1ZV95bU5nSHM3S1FGM3FtcjcwV1lra2NiejZ4SkV2SUZkUExJY1FReUZScHBlQ3RaVldXSUg3Wk9OSnZmREV0U2FveEExR2JDektTWUpDTkVW?oc=5](https://news.google.com/rss/articles/CBMirwFBVV95cUxOcXZhVDB4enhTZmt4LTQ0Zk9JXzhSOER2NElHSExQcXJKWFo4NFlxRmVlTHpsNDBQLUlvUzJuLUU5dzE2c0I0X1A3QjhVYmJrNUsybFZodHBlTGQ3WVJVSXh2U1AzNUlwZjJNbHcxS1ZpVWxhMFlEVXUwU1FwTHdGdkZSMEtWTWJueERwM0xiWTdpODItc0l5WFZzOUVxNmRZejdIWFU4QTFXQVg2NDR30gG8AUFVX3lxTE9XNWl4ajVXUUJRVDVlTHBoSDE2aC1TZDU3TDZKajRhbUFDdC1iQ1dsdzUyVG5XcGdHOEM0WnpoM21rcXc4Ym0tQjdZb3dHTmk4WmwzMzFsYXhadlptZHFXMVFYU2hGM3lSRWx1ZV95bU5nSHM3S1FGM3FtcjcwV1lra2NiejZ4SkV2SUZkUExJY1FReUZScHBlQ3RaVldXSUg3Wk9OSnZmREV0U2FveEExR2JDektTWUpDTkVW?oc=5)
+
+---
+
+### Meet UPDF: A Lightweight Adobe Alternative Built for the Agentic Era
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 marktechpost |
+| **Date** | August 20, 2026 (53m ago) |
+| **Category** | 📌 other |
+| **Author** | MarkTechPost |
+
+**Summary:** PDFs are easy to read and hard to change. AI can now summarize a 90-page contract in seconds, but it still won't rewrite the source file cleanly. UPDF is built for that second half: direct editing, 14
+
+**URL:** [https://www.marktechpost.com/2026/08/20/meet-updf-a-lightweight-adobe-alternative-built-for-the-agentic-era/](https://www.marktechpost.com/2026/08/20/meet-updf-a-lightweight-adobe-alternative-built-for-the-agentic-era/)
+
+---
+
+### UNCG Expert Weighs in on AI’s Environmental Impact
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | UNC Greensboro |
+
+**Summary:** UNCG Expert Weighs in on AI’s Environmental Impact  UNC Greensboro
+
+**URL:** [https://news.google.com/rss/articles/CBMib0FVX3lxTFAxT2tMWnhzLW9WTFNmcEtrZEJDTXdzell1T1NlR2lwU1VUc2J3dHFkRmRDM2tFaS1iYlZDTVFWbzlrbEszTHZJSFBBcTk0TkoyZjZ1NGZ2MnFWZDBrTzltZkVnY0J2R1c4Zy16a2U4TQ?oc=5](https://news.google.com/rss/articles/CBMib0FVX3lxTFAxT2tMWnhzLW9WTFNmcEtrZEJDTXdzell1T1NlR2lwU1VUc2J3dHFkRmRDM2tFaS1iYlZDTVFWbzlrbEszTHZJSFBBcTk0TkoyZjZ1NGZ2MnFWZDBrTzltZkVnY0J2R1c4Zy16a2U4TQ?oc=5)
+
+---
+
+### Google gives publishers a new way to fight AI-driven traffic losses
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | TechCrunch AI |
+
+**Summary:** Google is giving publishers a new button that lets readers make them a preferred source across Search, Discover, and Google News, potentially boosting their traffic as AI search sends fewer clicks to 
+
+**URL:** [https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/](https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/)
+
+---
+
+### Show HN: Huzzah – a novel approach to coding with AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | danielvaughn |
+
+**Summary:** Hello everyone. I&#x27;ve been working on this experimental editor called Huzzah.I&#x27;ve been working almost exclusively with coding agents since January of this year, and over the past few months I
+
+**URL:** [https://www.danielvaughn.dev/posts/huzzah/](https://www.danielvaughn.dev/posts/huzzah/)
+
+---
+
+### ‘Wheels within Wheels’ in AI. Stripe, Nvidia & Unitree. ARD #145
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | AI: Reset to Zero |
+
+**Summary:** ‘Wheels within Wheels’ in AI. Stripe, Nvidia & Unitree. ARD #145  AI: Reset to Zero
+
+**URL:** [https://news.google.com/rss/articles/CBMiekFVX3lxTFB1ZWdCUG9fWjNkQTBWb21oaUtaNWpsV0JRV2t0Z1QxdnQ0Y2w2NjVFS09CTmpRWTVQYnc1QUdQZmpMWGdMQW5Ed2ZCRnEzcWFoUGQwUldPMHhlYi1KWEVKZGVZTjRBYkVuZGFESEVzT2N6dUFoOVpGUENn?oc=5](https://news.google.com/rss/articles/CBMiekFVX3lxTFB1ZWdCUG9fWjNkQTBWb21oaUtaNWpsV0JRV2t0Z1QxdnQ0Y2w2NjVFS09CTmpRWTVQYnc1QUdQZmpMWGdMQW5Ed2ZCRnEzcWFoUGQwUldPMHhlYi1KWEVKZGVZTjRBYkVuZGFESEVzT2N6dUFoOVpGUENn?oc=5)
+
+---
+
+### Beacom Bridge at DSU creates pathway into master’s degree in AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | SiouxFalls.Business |
+
+**Summary:** Beacom Bridge at DSU creates pathway into master’s degree in AI  SiouxFalls.Business
+
+**URL:** [https://news.google.com/rss/articles/CBMilgFBVV95cUxQV3BiUUtqdFhsTzRYdmJVcTNLVHVfZUIxUVFYVnNmZ19oVTMxbGM0Y3NwTXd2VVBMWnprWW9jY3MtQ2thNC10LUJBNUhxeF93VXI4bkl4S0tneHdRMmZHMHBfY0ZWWmF0VDNpZmNrQlAzRnF2VXY4bF81M2pDNTRCc2NsWXhLWHowaTBjVnVBQWszTC0tUVE?oc=5](https://news.google.com/rss/articles/CBMilgFBVV95cUxQV3BiUUtqdFhsTzRYdmJVcTNLVHVfZUIxUVFYVnNmZ19oVTMxbGM0Y3NwTXd2VVBMWnprWW9jY3MtQ2thNC10LUJBNUhxeF93VXI4bkl4S0tneHdRMmZHMHBfY0ZWWmF0VDNpZmNrQlAzRnF2VXY4bF81M2pDNTRCc2NsWXhLWHowaTBjVnVBQWszTC0tUVE?oc=5)
+
+---
+
+### Silicon Valley Doesn't Get Why You Hate AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 wired |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Wired AI |
+
+**Summary:** Technology leaders don’t seem to understand society’s gripes about AI, but boy, are they posting through it.
+
+**URL:** [https://www.wired.com/story/silicon-valley-doesnt-get-why-you-hate-ai/](https://www.wired.com/story/silicon-valley-doesnt-get-why-you-hate-ai/)
+
+---
+
+### Lawyers square off in fight over voice data used to train AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Reuters |
+
+**Summary:** Lawyers square off in fight over voice data used to train AI  Reuters
+
+**URL:** [https://news.google.com/rss/articles/CBMiqwFBVV95cUxQQVpEeVJ6cjA4N2dKX0pJNFhkZTFDZXRpVXpYQzlTRmhkMThfNTBhbElMTG1TdHByZ1NUTmtGd2JzSTJEZzVnMTAtcE9rdE1fNFU1b2JnOTliZzNsWDRCUGU2NEJ5MVdld3hfeHdHS1pIMGtuMXc4MjVKeFluelRzUXc5OEtMNDhrbzl1M0I2Xy1JYTRmaXJvQjdfTWNyU0ZzME9kTVlQNGZpbUE?oc=5](https://news.google.com/rss/articles/CBMiqwFBVV95cUxQQVpEeVJ6cjA4N2dKX0pJNFhkZTFDZXRpVXpYQzlTRmhkMThfNTBhbElMTG1TdHByZ1NUTmtGd2JzSTJEZzVnMTAtcE9rdE1fNFU1b2JnOTliZzNsWDRCUGU2NEJ5MVdld3hfeHdHS1pIMGtuMXc4MjVKeFluelRzUXc5OEtMNDhrbzl1M0I2Xy1JYTRmaXJvQjdfTWNyU0ZzME9kTVlQNGZpbUE?oc=5)
+
+---
+
+### Cities Are Betting AI Can Speed Up Housing Permits
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Governing |
+
+**Summary:** Cities Are Betting AI Can Speed Up Housing Permits  Governing
+
+**URL:** [https://news.google.com/rss/articles/CBMiogFBVV95cUxOeF9DWUZldC1ZWUVLaW5PMmkwczVzM0lpYUNBdDJ6WGJzTVNFdFF6UWRPczkxYnZObHczbTc2Mm9VS1VPQ2tUOVZndEtlN0JDWXJGTVg5YnBzNVpnY0FYc1l1eHQ2dWgzQnVvRGxBMERjYkpJZmhQLVlxUElycGVoNUxTMDlXaGJ6dExGQks0YzBOR21KeTg2T0xZQXRYcVZnSXc?oc=5](https://news.google.com/rss/articles/CBMiogFBVV95cUxOeF9DWUZldC1ZWUVLaW5PMmkwczVzM0lpYUNBdDJ6WGJzTVNFdFF6UWRPczkxYnZObHczbTc2Mm9VS1VPQ2tUOVZndEtlN0JDWXJGTVg5YnBzNVpnY0FYc1l1eHQ2dWgzQnVvRGxBMERjYkpJZmhQLVlxUElycGVoNUxTMDlXaGJ6dExGQks0YzBOR21KeTg2T0xZQXRYcVZnSXc?oc=5)
+
+---
+
+### 10 Italy-Based AI Scale-Ups You Need to Know in 2026
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Insider |
+
+**Summary:** 10 Italy-Based AI Scale-Ups You Need to Know in 2026  AI Insider
+
+**URL:** [https://news.google.com/rss/articles/CBMilAFBVV95cUxOUWJLZW5XVmlpUHpma1ZwU1o3dVZ2RkUycWhDRXRnOUwzQkRzUGNjN3lEQTJiMzdKM1ZjUU4xUy1WVFYxYlZBZXhLT25FeEFiSERuMGd0d1Q5TDNGb2ZIaldnM2ExZVU3X0R3Y25CTTdNMEFOeV9oNFdFMzRkTFItMDZ0RkxBSmZZMkMtRzJiSjBMcVpo?oc=5](https://news.google.com/rss/articles/CBMilAFBVV95cUxOUWJLZW5XVmlpUHpma1ZwU1o3dVZ2RkUycWhDRXRnOUwzQkRzUGNjN3lEQTJiMzdKM1ZjUU4xUy1WVFYxYlZBZXhLT25FeEFiSERuMGd0d1Q5TDNGb2ZIaldnM2ExZVU3X0R3Y25CTTdNMEFOeV9oNFdFMzRkTFItMDZ0RkxBSmZZMkMtRzJiSjBMcVpo?oc=5)
+
+---
+
+### Apple's smart home springs a leak - here's everything we expect to see in September
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** We're already waiting for the new gen-AI-powered Siri, but a home hub may be on the way as well.
+
+**URL:** [https://www.zdnet.com/article/apples-smart-home-leaked-product-list/](https://www.zdnet.com/article/apples-smart-home-leaked-product-list/)
+
+---
+
+### Tenzo launches AI Connector for hospitality operators
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | IT Brief Australia |
+
+**Summary:** Tenzo launches AI Connector for hospitality operators  IT Brief Australia
+
+**URL:** [https://news.google.com/rss/articles/CBMiigFBVV95cUxOYVB0ZjJYUHNMWlhzaHVtamIxbnZjMnBESzNVMFZkWnZqTG15UmRRX0J6YWtTMzRmQWxXcE9laVcwQ3dOXzRmbmFnZzBhXzNSRzhQM2xqS3FWc1pHVFVaMHRrZG9UWDJhU2NYU2wtNGZwT0lEanQ1a2xpY2VCZnFwbkdsRFZjdjNuTlE?oc=5](https://news.google.com/rss/articles/CBMiigFBVV95cUxOYVB0ZjJYUHNMWlhzaHVtamIxbnZjMnBESzNVMFZkWnZqTG15UmRRX0J6YWtTMzRmQWxXcE9laVcwQ3dOXzRmbmFnZzBhXzNSRzhQM2xqS3FWc1pHVFVaMHRrZG9UWDJhU2NYU2wtNGZwT0lEanQ1a2xpY2VCZnFwbkdsRFZjdjNuTlE?oc=5)
+
+---
+
+### Why replacing staff with AI backfires - and 5 ways smart leaders generate real value instead
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** Three-quarters of organizations have found AI layoffs cost more than they saved, and as many as nine in 10 companies would rethink them given the chance.
+
+**URL:** [https://www.zdnet.com/article/why-replacing-staff-with-ai-backfires-and-how-smart-leaders-generate-real-value-instead/](https://www.zdnet.com/article/why-replacing-staff-with-ai-backfires-and-how-smart-leaders-generate-real-value-instead/)
+
+---
+
+### Grok keeps sending gibberish responses to users
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 techcrunch |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | TechCrunch AI |
+
+**Summary:** Affected users told TechCrunch they were using Grok Lite, and noticed the issues as early as Wednesday morning.
+
+**URL:** [https://techcrunch.com/2026/08/20/grok-keeps-sending-gibberish-responses-to-users/](https://techcrunch.com/2026/08/20/grok-keeps-sending-gibberish-responses-to-users/)
+
+---
+
+### Public Skepticism Toward AI Grows as Industry Leaders Acknowledge Trust Problem
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | AI Insider |
+
+**Summary:** Public Skepticism Toward AI Grows as Industry Leaders Acknowledge Trust Problem  AI Insider
+
+**URL:** [https://news.google.com/rss/articles/CBMiuAFBVV95cUxOV2FUVzVxMWdBODVJUUMzVk94WDZHbWtnUGc4LXRfSGNxNldMX2FOcWJLZ1BWWGJ5SVBJbzN2Vld6dTFsWHBISWktdVY0QVlyaHlrOFNJM21SOXpxYm5GN25sZGZFVzUxV3MyVDlFbUs3dlNZTkhUTkhxYnJqUkdqSlRpWEM3ZHlqUGdOTlBreDNpcWpid19uUllYRzFpcXBGWVlWZ21hVEZEVl9YUzVEMWw3SkYtNkky?oc=5](https://news.google.com/rss/articles/CBMiuAFBVV95cUxOV2FUVzVxMWdBODVJUUMzVk94WDZHbWtnUGc4LXRfSGNxNldMX2FOcWJLZ1BWWGJ5SVBJbzN2Vld6dTFsWHBISWktdVY0QVlyaHlrOFNJM21SOXpxYm5GN25sZGZFVzUxV3MyVDlFbUs3dlNZTkhUTkhxYnJqUkdqSlRpWEM3ZHlqUGdOTlBreDNpcWpid19uUllYRzFpcXBGWVlWZ21hVEZEVl9YUzVEMWw3SkYtNkky?oc=5)
+
+---
+
+### Inside the Gemmaverse: Celebrating one billion Gemma downloads
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | blog.google |
+
+**Summary:** Inside the Gemmaverse: Celebrating one billion Gemma downloads  blog.google
+
+**URL:** [https://news.google.com/rss/articles/CBMimgFBVV95cUxQV1ZnMFFIc2xsazRDSWpEazRBTS1YeFRMVHZTTGd6ZkM1VHZaNmk2ams5aGRWVnZLX2hycHgzRXJhWmNOMXprajFuUVh3NnMzdzl6UFFXUUNPSG90NTZKZF85RmQ0b29MbVdLa0o2Yl9fa25CcFFEUG8zRkNWVlQ2UE8tM1FrS3UxOVlEdld6d0cxRVRjSWxvQ0p3?oc=5](https://news.google.com/rss/articles/CBMimgFBVV95cUxQV1ZnMFFIc2xsazRDSWpEazRBTS1YeFRMVHZTTGd6ZkM1VHZaNmk2ams5aGRWVnZLX2hycHgzRXJhWmNOMXprajFuUVh3NnMzdzl6UFFXUUNPSG90NTZKZF85RmQ0b29MbVdLa0o2Yl9fa25CcFFEUG8zRkNWVlQ2UE8tM1FrS3UxOVlEdld6d0cxRVRjSWxvQ0p3?oc=5)
+
+---
+
+### Up to 3.2x Faster Inference with LFM2.5-DSpark
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 Hugging Face |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Hugging Face |
+
+**Summary:** Up to 3.2x Faster Inference with LFM2.5-DSpark
+
+**URL:** [https://huggingface.co/blog/LiquidAI/lfm25-dspark](https://huggingface.co/blog/LiquidAI/lfm25-dspark)
+
+---
+
+### Artificial Intelligence Sheds Light on How Our Immune System Functions
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | Labroots |
+
+**Summary:** Artificial Intelligence Sheds Light on How Our Immune System Functions  Labroots
+
+**URL:** [https://news.google.com/rss/articles/CBMi0AFBVV95cUxPdzZlZTBTRnBRMVdVaDBncWk2Z3BQejFxLURTMFF5b0RxbmRfQlZheUx3S0psbF84VGczLVF6LTk1N0NBbWhTcVdtLXVDUUw2RnVQWGRQOXVlZzFfR2RBZ0VKb0RTWTRzb1cxWmtRX1duNVZoMng2T1BhOS0zOGJRN3FnVnpoUjVsQndPOE9zYUJMVTBWb1pmUWlvRFhWTDctTXVXYlpvb3d5LVNWX1BiVUhhMHFmMzdkYjZCenMya1NXZ184aVplNWRYRVMtSDJ30gHQAUFVX3lxTE93NmVlMFNGcFExV1VoMGdxaTZncFB6MXEtRFMwUXlvRHFuZF9CVmF5THdLSmxsXzhUZzMtUXotOTU3Q0FtaFNxV20tdUNRTDZGdVBYZFA5dWVnMV9HZEFnRUpvRFNZNHNvVzFaa1FfV241VmgyeDZPUGE5LTM4YlE3cWdWemhSNWxCd084T3NhQkxVMFZvWmZRaW9EWFZMNy1NdVdiWm9vd3ktU1ZfUGJVSGEwcWYzN2RiNkJ6czJrU1dnXzhpWmU1ZFhFUy1IMnc?oc=5](https://news.google.com/rss/articles/CBMi0AFBVV95cUxPdzZlZTBTRnBRMVdVaDBncWk2Z3BQejFxLURTMFF5b0RxbmRfQlZheUx3S0psbF84VGczLVF6LTk1N0NBbWhTcVdtLXVDUUw2RnVQWGRQOXVlZzFfR2RBZ0VKb0RTWTRzb1cxWmtRX1duNVZoMng2T1BhOS0zOGJRN3FnVnpoUjVsQndPOE9zYUJMVTBWb1pmUWlvRFhWTDctTXVXYlpvb3d5LVNWX1BiVUhhMHFmMzdkYjZCenMya1NXZ184aVplNWRYRVMtSDJ30gHQAUFVX3lxTE93NmVlMFNGcFExV1VoMGdxaTZncFB6MXEtRFMwUXlvRHFuZF9CVmF5THdLSmxsXzhUZzMtUXotOTU3Q0FtaFNxV20tdUNRTDZGdVBYZFA5dWVnMV9HZEFnRUpvRFNZNHNvVzFaa1FfV241VmgyeDZPUGE5LTM4YlE3cWdWemhSNWxCd084T3NhQkxVMFZvWmZRaW9EWFZMNy1NdVdiWm9vd3ktU1ZfUGJVSGEwcWYzN2RiNkJ6czJrU1dnXzhpWmU1ZFhFUy1IMnc?oc=5)
+
+---
 
 ### Scaling agentic AI: Enterprise patterns without vendor lock-in
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 20, 2026 (10m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -4015,7 +4216,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (13m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4030,7 +4231,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (26m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4045,7 +4246,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 20, 2026 (29m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -4060,7 +4261,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (34m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4075,7 +4276,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (38m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4085,12 +4286,27 @@ The article OpenAI builds safety system that catches misuse without s
 
 ---
 
+### Thomas Gaffney Of OFA Group On How Artificial Intelligence Can Solve Business Problems
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (4h ago) |
+| **Category** | 📌 other |
+| **Author** | Medium |
+
+**Summary:** Thomas Gaffney Of OFA Group On How Artificial Intelligence Can Solve Business Problems  Medium
+
+**URL:** [https://news.google.com/rss/articles/CBMi0wFBVV95cUxPd0xhLWtNRzN4Y0tnWUpYTkt5Mkp0aW5qSWo0dG8yWi0tUDVoX1g4NjJJRmVwUTZJRWl1R0ZmT0pibTEyNmh4TVR2dVQ3UHQ3VWMtSnVicjFzSC16elVsVkRkX2dMMDl5WEtqNFB0Ymg3V25jZlNrc1RPQXZmNUNRc1JfZGlKdUlfSm9MTDIyUDlnOXRtR0ZsRDlHMjFRX1k0QzhwUGxZSHE4S3lfSTNQNW1PY2UwTWFnWHVyRW5SODJwWXRQYWh6YkhzcVFnZDNaYTFJ?oc=5](https://news.google.com/rss/articles/CBMi0wFBVV95cUxPd0xhLWtNRzN4Y0tnWUpYTkt5Mkp0aW5qSWo0dG8yWi0tUDVoX1g4NjJJRmVwUTZJRWl1R0ZmT0pibTEyNmh4TVR2dVQ3UHQ3VWMtSnVicjFzSC16elVsVkRkX2dMMDl5WEtqNFB0Ymg3V25jZlNrc1RPQXZmNUNRc1JfZGlKdUlfSm9MTDIyUDlnOXRtR0ZsRDlHMjFRX1k0QzhwUGxZSHE4S3lfSTNQNW1PY2UwTWFnWHVyRW5SODJwWXRQYWh6YkhzcVFnZDNaYTFJ?oc=5)
+
+---
+
 ### Virginia Tech sets course for human-centered AI leadership
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (45m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Virginia Tech News |
 
@@ -4105,7 +4321,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (51m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | ArmchairMayor.ca |
 
@@ -4120,13 +4336,28 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (54m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | 조선일보 |
 
 **Summary:** AI chats trigger targeted ads across tech giants  조선일보
 
 **URL:** [https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWnNQSERIamwzYUROeXJKbW5wTkplNndQU3lwZWdmUlk2LWlnRWxFckRfWXlpblZVLWVxZmdXTlZUY0xWLVdGNm5FQUV2RXlid1VIWUNHNFAweHc4SXdzM1N2VnFuUUFvWWNmbFNyVFNPSWVBa3FkRnpsLUZ1WHlBRWpuVzNLSEhR?oc=5](https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWnNQSERIamwzYUROeXJKbW5wTkplNndQU3lwZWdmUlk2LWlnRWxFckRfWXlpblZVLWVxZmdXTlZUY0xWLVdGNm5FQUV2RXlid1VIWUNHNFAweHc4SXdzM1N2VnFuUUFvWWNmbFNyVFNPSWVBa3FkRnpsLUZ1WHlBRWpuVzNLSEhR?oc=5)
+
+---
+
+### Meta Quietly Becomes One of Microsoft's Biggest AI Customers, Spending Hundreds of Millions a Year
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (5h ago) |
+| **Category** | 📌 other |
+| **Author** | finance.biggo.com |
+
+**Summary:** Meta Quietly Becomes One of Microsoft's Biggest AI Customers, Spending Hundreds of Millions a Year  finance.biggo.com
+
+**URL:** [https://news.google.com/rss/articles/CBMidkFVX3lxTE5pYlJ3NkZucnpjd2pHbWJWYTdtTTJlUXdTbGhKOE1rYWJvNU5wdGhjU0U1N21HZW56M3ViZ3UwUUg3NmQ2SHdWUHhhcy1WVUxTeGNpVEFvblYxWU4xZVdRSFNGRWI2dE5haVNMVy1jV0VTQnl5Qmc?oc=5](https://news.google.com/rss/articles/CBMidkFVX3lxTE5pYlJ3NkZucnpjd2pHbWJWYTdtTTJlUXdTbGhKOE1rYWJvNU5wdGhjU0U1N21HZW56M3ViZ3UwUUg3NmQ2SHdWUHhhcy1WVUxTeGNpVEFvblYxWU4xZVdRSFNGRWI2dE5haVNMVy1jV0VTQnl5Qmc?oc=5)
 
 ---
 
@@ -4138,7 +4369,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4156,7 +4387,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance Singapore |
 
@@ -4171,7 +4402,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Fermilab (.gov) |
 
@@ -4186,7 +4417,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | satnews.com |
 
@@ -4201,7 +4432,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | 24/7 Wall St. |
 
@@ -4216,7 +4447,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (5h ago) |
 | **Category** | 📌 other |
 | **Author** | Urban Institute |
 
@@ -4231,7 +4462,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | Quanta Magazine |
 
@@ -4246,7 +4477,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 📌 other |
 | **Author** | Politico |
 
@@ -4261,7 +4492,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Forbes |
 
@@ -4276,7 +4507,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | Firstpost |
 
@@ -4291,7 +4522,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | The Washington Post |
 
@@ -4306,7 +4537,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4321,7 +4552,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | AIBase |
 
@@ -4336,7 +4567,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4351,7 +4582,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | theins.press |
 
@@ -4366,7 +4597,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Seeking Alpha |
 
@@ -4381,7 +4612,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Breaking Defense |
 
@@ -4396,7 +4627,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4411,7 +4642,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | franciscomt |
 
@@ -4426,7 +4657,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | infoq.com |
 
@@ -4441,7 +4672,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4456,7 +4687,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | CBS News |
 
@@ -4471,7 +4702,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4486,7 +4717,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4501,7 +4732,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4516,7 +4747,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (5h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | RealClearEducation |
 
@@ -4531,7 +4762,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | The 74 |
 
@@ -4541,12 +4772,27 @@ The article OpenAI builds safety system that catches misuse without s
 
 ---
 
+### The search for consciousness inside LLMs
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (10h ago) |
+| **Category** | 📌 other |
+| **Author** | The Economist |
+
+**Summary:** The search for consciousness inside LLMs  The Economist
+
+**URL:** [https://news.google.com/rss/articles/CBMinwFBVV95cUxOaFc0SXpmOF9oQ0pJai1nUTNyUTRHTnBaWWo1MXNiQi1OelhCZVFvMFVjWWxQZ1NncTBXVHAzUTIwNlQ0dl9hTkxONlE1d2NDT2tJQ0JrMWgzMGIwV0QtMlBwWmlBZE5RcVAyYkEzdkpoWGJwNlROUTdrNl9PX3FqRVluSlZXbjlLcmh3QjFnYlJlX3pqbEl4dXk2TnhCQ1E?oc=5](https://news.google.com/rss/articles/CBMinwFBVV95cUxOaFc0SXpmOF9oQ0pJai1nUTNyUTRHTnBaWWo1MXNiQi1OelhCZVFvMFVjWWxQZ1NncTBXVHAzUTIwNlQ0dl9hTkxONlE1d2NDT2tJQ0JrMWgzMGIwV0QtMlBwWmlBZE5RcVAyYkEzdkpoWGJwNlROUTdrNl9PX3FqRVluSlZXbjlLcmh3QjFnYlJlX3pqbEl4dXk2TnhCQ1E?oc=5)
+
+---
+
 ### The new kingmakers: Crypto, AI and betting firms fuel record spending on the 2026 midterms
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | WTVB |
 
@@ -4561,7 +4807,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | Los Angeles Times |
 
@@ -4576,7 +4822,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | FinTech Global |
 
@@ -4591,7 +4837,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | AEI |
 
@@ -4606,7 +4852,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4621,7 +4867,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 mit-tr |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | MIT Tech Review |
 
@@ -4636,7 +4882,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4651,7 +4897,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (6h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | The Economist |
 
@@ -4666,7 +4912,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | WSJ |
 
@@ -4681,7 +4927,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Stateline |
 
@@ -4696,7 +4942,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | The Next Web |
 
@@ -4711,7 +4957,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4726,7 +4972,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (7h ago) |
+| **Date** | August 20, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -4741,7 +4987,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (9h ago) |
+| **Date** | August 20, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | War on the Rocks |
 
@@ -4756,7 +5002,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (9h ago) |
+| **Date** | August 20, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Small Wars Journal |
 
@@ -4771,7 +5017,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (9h ago) |
+| **Date** | August 20, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo News Canada |
 
@@ -4786,7 +5032,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (9h ago) |
+| **Date** | August 20, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | HackerNoon |
 
@@ -4801,7 +5047,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (10h ago) |
+| **Date** | August 20, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | AgUpdate |
 
@@ -4816,7 +5062,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (12h ago) |
+| **Date** | August 20, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Muslim Network TV |
 
@@ -4831,7 +5077,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (12h ago) |
+| **Date** | August 20, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Korea JoongAng Daily |
 
@@ -4846,7 +5092,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (13h ago) |
+| **Date** | August 20, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Meridian Magazine |
 
@@ -4861,7 +5107,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (13h ago) |
+| **Date** | August 20, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -4876,7 +5122,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (15h ago) |
+| **Date** | August 20, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4891,7 +5137,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (15h ago) |
+| **Date** | August 20, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | The Jerusalem Post |
 
@@ -4906,7 +5152,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (16h ago) |
+| **Date** | August 20, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | E-Reverance |
 
@@ -4921,7 +5167,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Social Media Today |
 
@@ -4939,7 +5185,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4957,7 +5203,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | techi.com |
 
@@ -4972,7 +5218,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | The Fast Mode |
 
@@ -4987,7 +5233,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | WION |
 
@@ -5002,7 +5248,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | The Free Press |
 
@@ -5017,7 +5263,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5032,7 +5278,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -5047,7 +5293,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | C-SPAN |
 
@@ -5062,7 +5308,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Nextgov/FCW |
 
@@ -5077,7 +5323,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | The Dig at Howard University |
 
@@ -5092,7 +5338,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | therealdeal.com |
 
@@ -5107,7 +5353,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Bloomberg |
 
@@ -5122,7 +5368,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Broadband Breakfast |
 
@@ -5137,7 +5383,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | TradingView |
 
@@ -5152,7 +5398,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -5167,7 +5413,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -5182,7 +5428,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Ars Technica AI |
 
@@ -5197,7 +5443,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | WBUR |
 
@@ -5212,7 +5458,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | PYMNTS.com |
 
@@ -5227,7 +5473,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | theneurondaily.com |
 
@@ -5245,7 +5491,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -5263,7 +5509,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5278,7 +5524,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | PR Newswire |
 
@@ -5293,7 +5539,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | jonesy827 |
 
@@ -5308,7 +5554,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Creative Commons |
 
@@ -5323,7 +5569,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Aditya Bhattacharjee, Christos Plachouras, Sungkyun Chang |
 
@@ -5338,7 +5584,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Sotirios P. Chatzis, Loukas Papadoulas |
 
@@ -5353,7 +5599,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -5368,7 +5614,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Leo Schmidt-Traub, Frédéric Berdoz, Luca A. Lanzendörfer |
 
@@ -5383,7 +5629,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5398,7 +5644,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5413,7 +5659,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Jielong Lu, Zhihao Wu, Jiajun Yu |
 
@@ -5428,7 +5674,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | 24/7 Wall St. |
 
@@ -5443,7 +5689,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Northeastern Global News |
 
@@ -6167,6 +6413,21 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 
 ---
 
+### We're waiting for AI models like they're Taylor Swift albums
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (1d ago) |
+| **Category** | 📌 other |
+| **Author** | Axios |
+
+**Summary:** We're waiting for AI models like they're Taylor Swift albums  Axios
+
+**URL:** [https://news.google.com/rss/articles/CBMiekFVX3lxTE5fdUUxZFVhLVVWWFRUSU83ZThya2VaYnhiSUJXXzVhODZZTEdyYjNMT2JpaXhOLWJOUGt5Q3I5cE82YjVaeG9qeVJmUmJFckVvcWFXTFRXTWtOUmktME00TVRob3BwX0tFbXJtWFBGUTJsc3pTaHplcGVB?oc=5](https://news.google.com/rss/articles/CBMiekFVX3lxTE5fdUUxZFVhLVVWWFRUSU83ZThya2VaYnhiSUJXXzVhODZZTEdyYjNMT2JpaXhOLWJOUGt5Q3I5cE82YjVaeG9qeVJmUmJFckVvcWFXTFRXTWtOUmktME00TVRob3BwX0tFbXJtWFBGUTJsc3pTaHplcGVB?oc=5)
+
+---
+
 ### Americans Aren't Sold on Businesses Using AI in Advertising
 
 | Detail | Value |
@@ -6257,6 +6518,21 @@ Napoleon is
 **Summary:** Reward function design remains a bottleneck in reinforcement learning. While large language models (LLMs) have enabled automated reward generation, existing methods generate and revise reward function
 
 **URL:** [https://arxiv.org/abs/2608.18827v1](https://arxiv.org/abs/2608.18827v1)
+
+---
+
+### China’s rapid development of open-source AI models worries US tech companies
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (1d ago) |
+| **Category** | 📌 other |
+| **Author** | jawlah.co |
+
+**Summary:** China’s rapid development of open-source AI models worries US tech companies  jawlah.co
+
+**URL:** [https://news.google.com/rss/articles/CBMiP0FVX3lxTE1OWVRKUmgxNi1BVTMzakNsUVg0NnlYcWgxZno4Z3FZejRURUVtbW53aXA5QUxfU1p6b2ZnYVhoRQ?oc=5](https://news.google.com/rss/articles/CBMiP0FVX3lxTE1OWVRKUmgxNi1BVTMzakNsUVg0NnlYcWgxZno4Z3FZejRURUVtbW53aXA5QUxfU1p6b2ZnYVhoRQ?oc=5)
 
 ---
 
@@ -7361,276 +7637,6 @@ Napoleon is
 
 ---
 
-### Artificial intelligence boosts automated biolabs
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Knowable Magazine |
-
-**Summary:** Artificial intelligence boosts automated biolabs  Knowable Magazine
-
-**URL:** [https://news.google.com/rss/articles/CBMiowFBVV95cUxQLTgtRTNCY0cwNHd3TGFvWXdvMzk5SmVoOXM5ZWExUEFNOXBxTWN5dkFPT3FUWE1jcU1meFcyUEcwUEVuaUpIMVBSd1haZi1pMjBlQnNjSzVhTVViMGxQWlBfby1JUGVzVTYxMEFudWt6cjdoaFhPbDhEZkZyVmdJbHc1X3pNNFNZWjBhZUkzeVA3M0kxTHlNcEU0Q2RxQWNEUnpv?oc=5](https://news.google.com/rss/articles/CBMiowFBVV95cUxQLTgtRTNCY0cwNHd3TGFvWXdvMzk5SmVoOXM5ZWExUEFNOXBxTWN5dkFPT3FUWE1jcU1meFcyUEcwUEVuaUpIMVBSd1haZi1pMjBlQnNjSzVhTVViMGxQWlBfby1JUGVzVTYxMEFudWt6cjdoaFhPbDhEZkZyVmdJbHc1X3pNNFNZWjBhZUkzeVA3M0kxTHlNcEU0Q2RxQWNEUnpv?oc=5)
-
----
-
-### Pennsylvania Cracks Down on AI Data Centers as Backlash Grows
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Decrypt AI |
-
-**Summary:** Pennsylvania Cracks Down on AI Data Centers as Backlash Grows
-
-**URL:** [https://decrypt.co/375923/pennsylvania-ai-data-centers-backlash](https://decrypt.co/375923/pennsylvania-ai-data-centers-backlash)
-
----
-
-### Mozilla Tests an AI &#x27;Smart Window&#x27; in Firefox—But Only If You Opt In
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Decrypt AI |
-
-**Summary:** Mozilla Tests an AI &#x27;Smart Window&#x27; in Firefox—But Only If You Opt In
-
-**URL:** [https://decrypt.co/375903/mozilla-ai-smart-firefox-opt-in](https://decrypt.co/375903/mozilla-ai-smart-firefox-opt-in)
-
----
-
-### Rare Books Traced to Amazon AI Training Facility to Be Scanned and Destroyed
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Decrypt AI |
-
-**Summary:** Rare Books Traced to Amazon AI Training Facility to Be Scanned and Destroyed
-
-**URL:** [https://decrypt.co/375912/rare-books-amazon-ai-scanned-destroyed](https://decrypt.co/375912/rare-books-amazon-ai-scanned-destroyed)
-
----
-
-### Arguing With People on X May Get You More Posts You Hate as Algo Feeds on Ragebait
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Decrypt AI |
-
-**Summary:** Arguing With People on X May Get You More Posts You Hate as Algo Feeds on Ragebait
-
-**URL:** [https://decrypt.co/375899/arguing-twitter-x-more-posts-hate-algorithm-ragebait](https://decrypt.co/375899/arguing-twitter-x-more-posts-hate-algorithm-ragebait)
-
----
-
-### AI Infrastructure Backlash Hits the Ballot Box: Pennsylvania Imposes Nation's Strictest Data Center Rules, Texas Audit Rattles Power Stocks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | finance.biggo.com |
-
-**Summary:** AI Infrastructure Backlash Hits the Ballot Box: Pennsylvania Imposes Nation's Strictest Data Center Rules, Texas Audit Rattles Power Stocks  finance.biggo.com
-
-**URL:** [https://news.google.com/rss/articles/CBMidkFVX3lxTE85TDRIRExNQV84MmNTVl9mMFhIdmZ2dm5GX3lob3JrYzJvWUZnSmxUUnB4LUhiTXN0TUg3TF9kYjlxVGl1TUhvSkdTOVRXd0Faek9PZkNpRjQ0NkY1ZlJzMS1zR1lyR3didUNfMEVFODM3dFdPbmc?oc=5](https://news.google.com/rss/articles/CBMidkFVX3lxTE85TDRIRExNQV84MmNTVl9mMFhIdmZ2dm5GX3lob3JrYzJvWUZnSmxUUnB4LUhiTXN0TUg3TF9kYjlxVGl1TUhvSkdTOVRXd0Faek9PZkNpRjQ0NkY1ZlJzMS1zR1lyR3didUNfMEVFODM3dFdPbmc?oc=5)
-
----
-
-### Jim Cramer says the market is too negative — and that’s creating buying opportunities
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | CNBC AI |
-
-**Summary:** CNBC’s Jim Cramer said widespread pessimism over rising rates, oil prices and inflation is pushing stocks lower and creating attractive buying opportunities.
-
-**URL:** [https://www.cnbc.com/2026/08/18/jim-cramer-market-too-negative-buying-opportunities.html](https://www.cnbc.com/2026/08/18/jim-cramer-market-too-negative-buying-opportunities.html)
-
----
-
-### AI usage patterns in software teams
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | giuliomagnifico |
-
-**Summary:** 32 points, 17 comments on Hacker News.
-
-**URL:** [https://linear.app/data](https://linear.app/data)
-
----
-
-### GLM-5.3 Artificial Analysis Benchmarks
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | apitman |
-
-**Summary:** 72 points, 33 comments on Hacker News.
-
-**URL:** [https://artificialanalysis.ai/models/glm-5-3](https://artificialanalysis.ai/models/glm-5-3)
-
----
-
-### OpenAI pauses some AI training after autonomous cyberattack - ABC News
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Breaking News, Latest News and Videos |
-
-**Summary:** OpenAI pauses some AI training after autonomous cyberattack  ABC News - Breaking News, Latest News and Videos
-
-**URL:** [https://news.google.com/rss/articles/CBMipAFBVV95cUxPa3pkZThyZXNILUxPWmJlYXowR0F3clotOTNhOXlncUM4OTJrVWowYlF5ZzFTbXBDVlVFeVpIXzgtU1NfS2xnRW1kVVBzM2UtOGRRZ0R6a0ZuZGhxWkl2b1NxUG56bU1CNmhFQk1yT1R6Qk5QcE5IMGp4SlZlcThQRTNfNEZVSUxjcDBvTXJjRTFCUXJ3UG5wUkVYdUVOdlNRVVZJRdIBqgFBVV95cUxNaVczV25XbXRnN0wzZHpFWGctazgxQXk2bWpCUUxOSDdmcGw5R3VkSU5Zb0doRVVFbEFiaXpWNTl5V0lzWEd6Ny1HdFdrSTFENU5IMUZoZVUyY2R2ZkFtSERZNTJCT3FiXzJyeDlRR2oxWjhoS3BScnU4MUFjT0xlQ2ZZV1c3Zjh5N2pnSnF1U3dFN1FDS1FPbklsT1hYZlZZdy1kbDUxOHc4dw?oc=5](https://news.google.com/rss/articles/CBMipAFBVV95cUxPa3pkZThyZXNILUxPWmJlYXowR0F3clotOTNhOXlncUM4OTJrVWowYlF5ZzFTbXBDVlVFeVpIXzgtU1NfS2xnRW1kVVBzM2UtOGRRZ0R6a0ZuZGhxWkl2b1NxUG56bU1CNmhFQk1yT1R6Qk5QcE5IMGp4SlZlcThQRTNfNEZVSUxjcDBvTXJjRTFCUXJ3UG5wUkVYdUVOdlNRVVZJRdIBqgFBVV95cUxNaVczV25XbXRnN0wzZHpFWGctazgxQXk2bWpCUUxOSDdmcGw5R3VkSU5Zb0doRVVFbEFiaXpWNTl5V0lzWEd6Ny1HdFdrSTFENU5IMUZoZVUyY2R2ZkFtSERZNTJCT3FiXzJyeDlRR2oxWjhoS3BScnU4MUFjT0xlQ2ZZV1c3Zjh5N2pnSnF1U3dFN1FDS1FPbklsT1hYZlZZdy1kbDUxOHc4dw?oc=5)
-
----
-
-### I tested GNOME's glassy new look - and it's simply spectacular
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 zdnet |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | ZDNet AI |
-
-**Summary:** GNOME is finally catching up to other desktop environments, thanks to Aura Glass, a fluid, modern desktop inspired by Apple's Liquid Glass.
-
-**URL:** [https://www.zdnet.com/article/gnome-desktop-liquid-glass-aura-glass/](https://www.zdnet.com/article/gnome-desktop-liquid-glass-aura-glass/)
-
----
-
-### FDA seeks feedback on potential regulatory approaches for generative AI-enabled medical devices
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | aha.org |
-
-**Summary:** FDA seeks feedback on potential regulatory approaches for generative AI-enabled medical devices  aha.org
-
-**URL:** [https://news.google.com/rss/articles/CBMizgFBVV95cUxQM1ZPaF9HS2FiZC1NbEloSHczZDRkX25rRFREREprQS11YTU3dktEMXVTY0NIMHFmNVlWN092VzMwaER6c3lvSXVuV2ZFN3pfVVRWc2M1dVVOenY3bVdzOTBuWUpZMWowTHVzNk9TemhyNWsySVdrdHNlanFtaEFpeDRYUk5lbjVVNWhXS1pqOGgzZ011YXRaeUY5bTYzMUtFTXUwaGxQZVBrX3lGaUtVVjg5UzY2ZmpsNzRncEVySTg5TWZuZDdjcUdrQzRxZw?oc=5](https://news.google.com/rss/articles/CBMizgFBVV95cUxQM1ZPaF9HS2FiZC1NbEloSHczZDRkX25rRFREREprQS11YTU3dktEMXVTY0NIMHFmNVlWN092VzMwaER6c3lvSXVuV2ZFN3pfVVRWc2M1dVVOenY3bVdzOTBuWUpZMWowTHVzNk9TemhyNWsySVdrdHNlanFtaEFpeDRYUk5lbjVVNWhXS1pqOGgzZ011YXRaeUY5bTYzMUtFTXUwaGxQZVBrX3lGaUtVVjg5UzY2ZmpsNzRncEVySTg5TWZuZDdjcUdrQzRxZw?oc=5)
-
----
-
-### Why open-weight AI is the new frontier in the US-China tech race
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Nikkei Asia |
-
-**Summary:** Why open-weight AI is the new frontier in the US-China tech race  Nikkei Asia
-
-**URL:** [https://news.google.com/rss/articles/CBMiugFBVV95cUxQZ3A4ejdhTHRvRDdIcDd3cmwyd1BwNWVlR3ZTR2lwRVRZak5zclIzU21XcjhYbDBhSUYyaFhHSm16YzVuSHpZWFl1anpDWDQ5ZnNFOXE0YmlPV2UyQkJGWVFkbXdXOTNZQXdKamYwdXlsX3AxUFhCNXVYTF9vSzZhOVdZelVOR3hVcTQ5N2hqZkQ4QjUteE1PMzZEcWVZY1RKZTFkS1VtMTJMelVPSWtnWkVRUkdFN2ZQb0E?oc=5](https://news.google.com/rss/articles/CBMiugFBVV95cUxQZ3A4ejdhTHRvRDdIcDd3cmwyd1BwNWVlR3ZTR2lwRVRZak5zclIzU21XcjhYbDBhSUYyaFhHSm16YzVuSHpZWFl1anpDWDQ5ZnNFOXE0YmlPV2UyQkJGWVFkbXdXOTNZQXdKamYwdXlsX3AxUFhCNXVYTF9vSzZhOVdZelVOR3hVcTQ5N2hqZkQ4QjUteE1PMzZEcWVZY1RKZTFkS1VtMTJMelVPSWtnWkVRUkdFN2ZQb0E?oc=5)
-
----
-
-### Frederick Health Hospital using artificial intelligence to advance medical treatment for patients vulnerable to seizures
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | DC News Now |
-
-**Summary:** Frederick Health Hospital using artificial intelligence to advance medical treatment for patients vulnerable to seizures  DC News Now
-
-**URL:** [https://news.google.com/rss/articles/CBMiswJBVV95cUxOVndDNWczX1VrenUyRC1CeTZzTGhvVTBPeFIxRzQ3Z1piQTR3WFJPU0N0aTRXTk1IMllrS2dteXdMR2FLNmpDTE5uVGtCR3B4bFZYUk4wU3dCSF81VlBlZU5xdjJ1TFpkWEpjUDlIODI3R3hLaklyX3piQ2dra1ZGd2tTa2xEUGxhSmZKUkxURHJTTXpVRnRVTE9zS3hpVWh0ZlExbmF4UFRNaVRCRHJ0LU5RdmtKMzlCZVlPTGRza0FyRFA2WUZoNjRCNjFlNlRJcVA4NXhEckRRcmwyU3F0c0tGajZtZDlJd2ZYSlBNV3VISHJ3UEZVTXNIaTRGNkhYQW1kRlVNVUw4MG4yMy13ZHhNT3U5d1EtdnYyRlFFaFJGSkZkRUtqOUo3WWhWZHFVYzFz?oc=5](https://news.google.com/rss/articles/CBMiswJBVV95cUxOVndDNWczX1VrenUyRC1CeTZzTGhvVTBPeFIxRzQ3Z1piQTR3WFJPU0N0aTRXTk1IMllrS2dteXdMR2FLNmpDTE5uVGtCR3B4bFZYUk4wU3dCSF81VlBlZU5xdjJ1TFpkWEpjUDlIODI3R3hLaklyX3piQ2dra1ZGd2tTa2xEUGxhSmZKUkxURHJTTXpVRnRVTE9zS3hpVWh0ZlExbmF4UFRNaVRCRHJ0LU5RdmtKMzlCZVlPTGRza0FyRFA2WUZoNjRCNjFlNlRJcVA4NXhEckRRcmwyU3F0c0tGajZtZDlJd2ZYSlBNV3VISHJ3UEZVTXNIaTRGNkhYQW1kRlVNVUw4MG4yMy13ZHhNT3U5d1EtdnYyRlFFaFJGSkZkRUtqOUo3WWhWZHFVYzFz?oc=5)
-
----
-
-### Google Is Paying $10 Million to Use Spirit Airlines Data to Train Its AI Models
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 decrypt |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Decrypt AI |
-
-**Summary:** Google Is Paying $10 Million to Use Spirit Airlines Data to Train Its AI Models
-
-**URL:** [https://decrypt.co/375883/google-spirit-airlines-data-train-ai](https://decrypt.co/375883/google-spirit-airlines-data-train-ai)
-
----
-
-### OpenAI Is Slowing Down Its AI Training
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Time Magazine |
-
-**Summary:** OpenAI Is Slowing Down Its AI Training  Time Magazine
-
-**URL:** [https://news.google.com/rss/articles/CBMibEFVX3lxTE5tZEhHbEpNTEVQbl9naG1hRVdaRWVKQnJlU1VGTXBmdWRNNml2WllUMFFsNEdDb3R1NTE1NkotTWVwYVhyVG5CMTh3MmJCaXNzaWFULUpSdG03RkhVdy14Vlp6YTEwYms1azFtbg?oc=5](https://news.google.com/rss/articles/CBMibEFVX3lxTE5tZEhHbEpNTEVQbl9naG1hRVdaRWVKQnJlU1VGTXBmdWRNNml2WllUMFFsNEdDb3R1NTE1NkotTWVwYVhyVG5CMTh3MmJCaXNzaWFULUpSdG03RkhVdy14Vlp6YTEwYms1azFtbg?oc=5)
-
----
-
-### How Much Memory Does Your Agent Actually Need?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 Hugging Face |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Hugging Face |
-
-**Summary:** How Much Memory Does Your Agent Actually Need?
-
-**URL:** [https://huggingface.co/blog/ibm-research/altk-evolve-hmm](https://huggingface.co/blog/ibm-research/altk-evolve-hmm)
-
----
-
-### From Corpora to Co-Evolving Capabilities: Capability-Centric Data Design for Generalist Image Generation
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Xingjian Wang, Zhao Wang, Taihang Hu |
-
-**Summary:** Large-scale image generation has benefited from advances in data scale, quality, rebalancing, and recaptioning, yet conventional pipelines typically optimize task-specific datasets in isolation. A cen
-
-**URL:** [https://arxiv.org/abs/2608.18076v1](https://arxiv.org/abs/2608.18076v1)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7646,4 +7652,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-20T16:35:07.778Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-20T20:27:52.768Z by AI Pulse Knowledge Base Generator*
