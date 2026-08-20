@@ -1,7 +1,7 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-20T04:36:47.539Z
+> Last Updated: 2026-08-20T08:38:00.925Z
 > Total Articles Tracked: 2500
 > Generated from AI Pulse database
 
@@ -14,57 +14,117 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 118 |
+| 🧠 **Model Releases** | 119 |
 | 🔬 **Research** | 42 |
-| 💼 **Product/Business** | 77 |
-| 🛡️ **Safety/Security** | 17 |
-| ⚖️ **Policy/Regulation** | 17 |
+| 💼 **Product/Business** | 78 |
+| 🛡️ **Safety/Security** | 20 |
+| ⚖️ **Policy/Regulation** | 16 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 196 |
-| **arxiv** | 119 |
+| **google-news** | 200 |
+| **arxiv** | 117 |
 | **ai-weekly** | 35 |
 | **zdnet** | 30 |
 | **techcrunch** | 19 |
-| **cnbc** | 15 |
-| **amazon** | 11 |
-| **hacker-news** | 11 |
+| **cnbc** | 13 |
+| **hacker-news** | 12 |
 | **the-decoder** | 11 |
+| **amazon** | 11 |
+| **reddit** | 10 |
 | **towards-ai** | 10 |
-| **reddit** | 8 |
 | **decrypt** | 7 |
-| **the-verge** | 7 |
 | **the-register** | 6 |
+| **the-verge** | 6 |
 | **wired** | 4 |
-| **arstechnica** | 3 |
+| **arstechnica** | 2 |
 | **venturebeat** | 2 |
 | **Hugging Face** | 2 |
-| **marktechpost** | 2 |
 | **google-ai** | 1 |
 | **sciencedaily** | 1 |
+| **marktechpost** | 1 |
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 118 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 119 articles
 - [🔬 Research Breakthroughs](#research-breakthroughs) — 42 articles
-- [💼 Product & Business Updates](#product--business-updates) — 77 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 17 articles
-- [⚖️ Regulation & Policy](#regulation--policy) — 17 articles
-- [📌 Other Notable News](#other-notable-news) — 229 articles
+- [💼 Product & Business Updates](#product--business-updates) — 78 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 20 articles
+- [⚖️ Regulation & Policy](#regulation--policy) — 16 articles
+- [📌 Other Notable News](#other-notable-news) — 225 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### A Psychometric Comparison of Faculty-Authored and Large Language Model-Generated Multiple-Choice Questions in Endodontics
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (23m ago) |
+| **Category** | 🧠 model |
+| **Author** | Cureus |
+
+**Summary:** A Psychometric Comparison of Faculty-Authored and Large Language Model-Generated Multiple-Choice Questions in Endodontics  Cureus
+
+**URL:** [https://news.google.com/rss/articles/CBMiiwJBVV95cUxOeUZVdmV3WjRfRG5SeHJNYnJMczlsa3RGcWNqLTBzQjFGQ3JmQTJXX0xVbHc4bjJ3MGNVYVFuMUJnTGwyMlR6eU5rZFFDMHJaaTVKa3pXejMwRW11T2xGMHBGUG0zVlBTLXRzcmg0YzhXWldfRXZhT2phZW5ocjFTSWtobGFYWXBkcHlXcngya21tNWJ4X0hGSFplRV93MlpSZnlMS3FlWXpRd1dHaGZlYjlTVDhrS3NTeTlEa2Zkc3VMbGNyeF96VFpoV2FBSzJNYnpNbEp4R0FvR2RRVndpQ1pKS3hEQmtPc0tZQ2RocE84c0NYRkVZUnFmNWZyWmhPcTZyUktJRFdyOFE?oc=5](https://news.google.com/rss/articles/CBMiiwJBVV95cUxOeUZVdmV3WjRfRG5SeHJNYnJMczlsa3RGcWNqLTBzQjFGQ3JmQTJXX0xVbHc4bjJ3MGNVYVFuMUJnTGwyMlR6eU5rZFFDMHJaaTVKa3pXejMwRW11T2xGMHBGUG0zVlBTLXRzcmg0YzhXWldfRXZhT2phZW5ocjFTSWtobGFYWXBkcHlXcngya21tNWJ4X0hGSFplRV93MlpSZnlMS3FlWXpRd1dHaGZlYjlTVDhrS3NTeTlEa2Zkc3VMbGNyeF96VFpoV2FBSzJNYnpNbEp4R0FvR2RRVndpQ1pKS3hEQmtPc0tZQ2RocE84c0NYRkVZUnFmNWZyWmhPcTZyUktJRFdyOFE?oc=5)
+
+---
+
+### Tesla integrates Chinese Doubao AI model for in-vehicle systems
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (23m ago) |
+| **Category** | 🧠 model |
+| **Author** | Xinhua |
+
+**Summary:** Tesla integrates Chinese Doubao AI model for in-vehicle systems  Xinhua
+
+**URL:** [https://news.google.com/rss/articles/CBMifEFVX3lxTE1DTlhnbTgxSTkxa2lHZDdoVnpnd3BNT3Z2dmoyeUVCMVNXdGZ0NXBhMHY1c2ZieF8zWnpzVll0VGw2em9ZMjlOS0JreVQ0NmROQzRGVS1ibk5uMk1DM3YzTlAtWmZPNzNOeFpUdU5kMXU5VEt3VWxXYUgtZmw?oc=5](https://news.google.com/rss/articles/CBMifEFVX3lxTE1DTlhnbTgxSTkxa2lHZDdoVnpnd3BNT3Z2dmoyeUVCMVNXdGZ0NXBhMHY1c2ZieF8zWnpzVll0VGw2em9ZMjlOS0JreVQ0NmROQzRGVS1ibk5uMk1DM3YzTlAtWmZPNzNOeFpUdU5kMXU5VEt3VWxXYUgtZmw?oc=5)
+
+---
+
+### About the impact of grouping classes in multiclass classification [D]
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 reddit |
+| **Date** | August 20, 2026 (55m ago) |
+| **Category** | 🧠 model |
+| **Author** | r/MachineLearning |
+
+**Summary:** A premise: I hope this question is "worth" of this subreddit, I did a decent amount of research before posting, I thought it was potentially interesting enough for it, but possibly not basic enough fo
+
+**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vtctaz/about_the_impact_of_grouping_classes_in/](https://www.reddit.com/r/MachineLearning/comments/1vtctaz/about_the_impact_of_grouping_classes_in/)
+
+---
+
+### AI Ad Economy Revives Internet's Revenue Model
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (5h ago) |
+| **Category** | 🧠 model |
+| **Author** | 조선일보 |
+
+**Summary:** AI Ad Economy Revives Internet's Revenue Model  조선일보
+
+**URL:** [https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUzZIeW95Vi1lSmhUSFRZemwxWDlCaXVoVy1oS1hkRnJFYzhGU0VIRG1WQ0VhaElkcVpIbTZ4WWFZNWlNM2pFYmZnTWJ1RDJIamgxcms2WmNEeGJzQ3hVMWlsUXNBUmFpd0RiSFBWYmZVb3d1ZERFQkZpaHlZRUJGcGpOWlVxZTJj?oc=5](https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUzZIeW95Vi1lSmhUSFRZemwxWDlCaXVoVy1oS1hkRnJFYzhGU0VIRG1WQ0VhaElkcVpIbTZ4WWFZNWlNM2pFYmZnTWJ1RDJIamgxcms2WmNEeGJzQ3hVMWlsUXNBUmFpd0RiSFBWYmZVb3d1ZERFQkZpaHlZRUJGcGpOWlVxZTJj?oc=5)
+
+---
 
 ### Is it possible to fine-tune gemma4 A4B to generate complex legal principles of court decision? [D]
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -79,7 +139,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | SiliconANGLE |
 
@@ -94,7 +154,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 🧠 model |
 | **Author** | 조선일보 |
 
@@ -109,7 +169,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 🧠 model |
 | **Author** | Amazon ML |
 
@@ -124,7 +184,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -139,7 +199,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 🧠 model |
 | **Author** | CNBC AI |
 
@@ -154,7 +214,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -169,7 +229,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -184,7 +244,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -199,7 +259,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -214,7 +274,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | SQ Magazine |
 
@@ -229,7 +289,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | PLOS |
 
@@ -244,7 +304,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | Zachary Speck, Asa Shepard |
 
@@ -259,7 +319,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | Anran Wang, Wen Shi, Yong Luo |
 
@@ -274,7 +334,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | Ramneet Kaur, Pradyumna Chari, Ramesh Raskar |
 
@@ -289,7 +349,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🧠 model |
 | **Author** | Bluestein |
 
@@ -304,7 +364,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | Tate Berenbaum, Muthaiah Venkatachalam |
 
@@ -319,7 +379,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | Steven Morse, Daniel Runfola, Trenton W. Ford |
 
@@ -334,7 +394,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | Emanuele Luzio |
 
@@ -349,7 +409,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | George Andrikopoulos |
 
@@ -364,7 +424,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | Dongbin Kim, Seungyun Lee, Geonwoo Shin |
 
@@ -379,7 +439,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | John Mangum, Andrew Glaws, Francois Usseglio-Viretta |
 
@@ -394,7 +454,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -411,7 +471,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | Wired AI |
 
@@ -426,7 +486,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | Longtian Wang, Zhengyu Zhao, Chenhao Lin |
 
@@ -441,7 +501,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | ZDNet AI |
 
@@ -456,7 +516,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | Wenxuan He, Yunpeng Li, Shan Liang |
 
@@ -471,7 +531,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | guyb3 |
 
@@ -486,7 +546,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | Jihae Jeong, Junha Choi, Hwanjo Yu |
 
@@ -501,7 +561,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | Joy Jia Yin Lim, Xin Huang, Hao Peng |
 
@@ -516,7 +576,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | Techzine Global |
 
@@ -531,7 +591,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | ZDNet AI |
 
@@ -546,7 +606,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -561,7 +621,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Valentin Romanov, Monique Bax, Steven Niederer |
 
@@ -576,7 +636,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Borui Kang, Jinrui Gu, Junhan Lv |
 
@@ -591,7 +651,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Yajie Yin |
 
@@ -606,7 +666,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Stephen Meisenbacher, Vlad Garbuz, Chirill Donos |
 
@@ -621,7 +681,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | Blazej Banaszewski, Andrew W. Fitzgibbon |
 
@@ -636,7 +696,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -651,7 +711,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 venturebeat |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | VentureBeat AI |
 
@@ -666,7 +726,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | Minh Hoang Nguyen, Tung Le, Huy Tien Nguyen |
 
@@ -681,7 +741,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | Bogdan Zagribelnyy, Ivan Ilin, Nikita Bondarev |
 
@@ -696,7 +756,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | Zijie Meng, Yuncheng Zhang, Hualiang Wang |
 
@@ -711,7 +771,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | Davide Romano, Kanak Raj, Jerrod Parker |
 
@@ -726,7 +786,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -741,7 +801,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 🧠 model |
 | **Author** | Jian Yang, Zhenqi Feng, Zhaoyang Yu |
 
@@ -756,7 +816,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -771,7 +831,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Souranil Kahali, Rituparna Bose, Abner Hernandez |
 
@@ -786,7 +846,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Kristina Šekrst |
 
@@ -801,7 +861,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🧠 model |
 | **Author** | Pluang |
 
@@ -816,7 +876,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | Proactive Investors |
 
@@ -831,7 +891,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -846,7 +906,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | exchangewire.com |
 
@@ -861,7 +921,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -876,7 +936,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -891,7 +951,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -906,7 +966,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -921,7 +981,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -936,7 +996,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -951,7 +1011,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -966,7 +1026,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 towards-ai |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Towards AI |
 
@@ -981,7 +1041,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | 디지털투데이 |
 
@@ -996,7 +1056,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | finance.biggo.com |
 
@@ -1011,7 +1071,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | 디지털투데이 |
 
@@ -1026,7 +1086,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | The Korea Times |
 
@@ -1786,51 +1846,6 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 
 ---
 
-### Meet SAM (Sovereign Agent Mesh): A Zero-Config, Zero-Trust P2P Network for AI Agents
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 marktechpost |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | MarkTechPost |
-
-**Summary:** Google has open-sourced SAM (Sovereign Agent Mesh) under Apache-2.0 — and it has nothing to do with Segment Anything. SAM is a zero-config, zero-trust P2P overlay that lets autonomous agents discover 
-
-**URL:** [https://www.marktechpost.com/2026/08/18/meet-sam-sovereign-agent-mesh-a-zero-config-zero-trust-p2p-network-for-ai-agents/](https://www.marktechpost.com/2026/08/18/meet-sam-sovereign-agent-mesh-a-zero-config-zero-trust-p2p-network-for-ai-agents/)
-
----
-
-### Thinking in a Low-Resource Language: What SFT Builds, What RL Fixes, What Accuracy Cannot See
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Ayoub Kirouane, Christos Petrocheilos |
-
-**Summary:** Take three frontier mixture-of-experts models (Alibaba, OpenAI, NVIDIA; 3.6-4.0B active parameters each) and fine-tune them to reason in a low-resource language. On accuracy benchmarks almost nothing 
-
-**URL:** [https://arxiv.org/abs/2608.17744v1](https://arxiv.org/abs/2608.17744v1)
-
----
-
-### What Aggregate Scores Miss: Measuring Item-Level Regressions in Commercial LLM API Migrations
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arxiv |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 🧠 model |
-| **Author** | Xiaonan Xu, Wenjing Wu |
-
-**Summary:** Context: Software systems that depend on commercial large language model APIs must migrate to successor versions when vendors deprecate older models. Migration decisions typically rely on aggregate be
-
-**URL:** [https://arxiv.org/abs/2608.17719v1](https://arxiv.org/abs/2608.17719v1)
-
----
-
 ## 🔬 Research Breakthroughs
 
 ### Foundation AI in July: New Models, Benchmarks, and Security Research
@@ -1838,7 +1853,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 🔬 research |
 | **Author** | Cisco Blogs |
 
@@ -1853,7 +1868,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 🔬 research |
 | **Author** | WVIR |
 
@@ -1868,7 +1883,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 🔬 research |
 | **Author** | Reuters |
 
@@ -1883,7 +1898,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-ai |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 🔬 research |
 | **Author** | Google AI Blog |
 
@@ -1898,7 +1913,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 🔬 research |
 | **Author** | TechCrunch AI |
 
@@ -1913,7 +1928,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🔬 research |
 | **Author** | Quantum Zeitgeist |
 
@@ -1928,7 +1943,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🔬 research |
 | **Author** | Tomasz R. Bielecki, Thibaut Mastrolia, Haoze Yan |
 
@@ -1943,7 +1958,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🔬 research |
 | **Author** | George Andrikopoulos |
 
@@ -1958,7 +1973,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🔬 research |
 | **Author** | Huan-ang Gao, Haohan Chi, Yong Yan |
 
@@ -1973,7 +1988,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | Deep Kumar Ganguly, Jan Křetínský |
 
@@ -1988,7 +2003,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | Yechan Park, HyunJin Kim |
 
@@ -2003,7 +2018,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | Omar Rady, Mohamed Ayman, Ali Arafa |
 
@@ -2018,7 +2033,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | Yunlong He, Pietro Gori |
 
@@ -2033,7 +2048,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | Pradeep Murugesan, Luoxiao Yang, Xueli Chen |
 
@@ -2048,7 +2063,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | David Lowry-Duda, Matteo Cargnelutti, Catherine Brobston |
 
@@ -2063,7 +2078,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | Jonel Roman, Ryan Sirjue, Peter Nguyen |
 
@@ -2078,7 +2093,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | Toheeb Ogunade |
 
@@ -2093,7 +2108,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | Xujia Wang, Yizhe Zhang, Bin Xu |
 
@@ -2108,7 +2123,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | Dinh Nam Pham, Shushen Manakhimova, Vivien Macketanz |
 
@@ -2123,7 +2138,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Zacks Investment Research |
 
@@ -2465,12 +2480,42 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 
 ## 💼 Product & Business Updates
 
+### Meta AI gets a dedicated Mac app with screen sharing and business tools
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 💼 product |
+| **Author** | Gagadget.com |
+
+**Summary:** Meta AI gets a dedicated Mac app with screen sharing and business tools  Gagadget.com
+
+**URL:** [https://news.google.com/rss/articles/CBMipgFBVV95cUxPekR6bEdTSURoc3pnQm44S1lYcGt1aXlNOTFGQlBiQXZqTjEzUnlUbktmX0psMTNRSzdEd2Y3bi1Zcm0xNnpUbG90Rnhhek0yenhCTi1faG9oOVdPQXNzN21haTB3bVBwMXNCd2RIMUxocmcxX3RfampNTl8wZ0JBSjBhRXFhU1M1UUk4TUVSeDEzREJuaHNzTGpqaUNYRnZiT0dmczl30gGrAUFVX3lxTE1UVXQxZXhUbnc3WlZUd3pjcjAtMFJnNlFRdWY5eHExQUR6S1pZYTNIOUlJbjJjSkx4T202VGJGS0hCRlNlYmNGb0VJMTVtLUVXa0J0UDIxS1dvRVQwdWI1cEZ3R2ZOMGpSZ0wzYU9yWE12TWtaNHA5T0ZVZm56VF8tSzBZZEFYTXpRa0dIS1NGeG5nVkVhNUlVNlMtMlpoaDJXeWhjWVFmVEFqYw?oc=5](https://news.google.com/rss/articles/CBMipgFBVV95cUxPekR6bEdTSURoc3pnQm44S1lYcGt1aXlNOTFGQlBiQXZqTjEzUnlUbktmX0psMTNRSzdEd2Y3bi1Zcm0xNnpUbG90Rnhhek0yenhCTi1faG9oOVdPQXNzN21haTB3bVBwMXNCd2RIMUxocmcxX3RfampNTl8wZ0JBSjBhRXFhU1M1UUk4TUVSeDEzREJuaHNzTGpqaUNYRnZiT0dmczl30gGrAUFVX3lxTE1UVXQxZXhUbnc3WlZUd3pjcjAtMFJnNlFRdWY5eHExQUR6S1pZYTNIOUlJbjJjSkx4T202VGJGS0hCRlNlYmNGb0VJMTVtLUVXa0J0UDIxS1dvRVQwdWI1cEZ3R2ZOMGpSZ0wzYU9yWE12TWtaNHA5T0ZVZm56VF8tSzBZZEFYTXpRa0dIS1NGeG5nVkVhNUlVNlMtMlpoaDJXeWhjWVFmVEFqYw?oc=5)
+
+---
+
+### Smack Raises $61 Million Series B, Bringing Total Funding Above $90 Million To Scale Tactical AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (4h ago) |
+| **Category** | 💼 product |
+| **Author** | Pulse 2.0 |
+
+**Summary:** Smack Raises $61 Million Series B, Bringing Total Funding Above $90 Million To Scale Tactical AI  Pulse 2.0
+
+**URL:** [https://news.google.com/rss/articles/CBMiswFBVV95cUxOa2trcmdjYTdVRGgxZ2Q1c1RuODdIeXlFZGNwSkRWTXZHNUMyVkZOUUlvTlg5MzMwd1BXbkphUG1LUDc5SU5vQmgzRWdBN2ZwZlozeTQyczk1Zk5VbGVsUUZQckRnVjduR3Q0bHdJNWJsQlJCVEh2NkFfTU54bGJSZGdvMl9MU3V1ZVFSQ3N4SXNfbzZ3RmNxeDBKZW1wQ0FES0IzVndCZ2hwVE1BRE1wMTRtb9IBuAFBVV95cUxPZl9DRVVvejRDeWRuUkkzY3JuNzZRUHNHUHBuNG1JMUFJSGF2ZWNTMk9sZnZ0dEFJa0JKOTBfaXdZTUFILTROQzA2d0kzZTB1a01KNUwzZEVTNHVhdkRRZ081ekFaQzFFMWljZWVNQmItOFVEVlZxWG5uR2dtMDhGTGtWZDR4bzFqNXk2TkdOV2gyTm5sYTRPZVB2SlJMSzliNGdzMjVmanZRUnJPUUxiUnk4ZEtaYWxn?oc=5](https://news.google.com/rss/articles/CBMiswFBVV95cUxOa2trcmdjYTdVRGgxZ2Q1c1RuODdIeXlFZGNwSkRWTXZHNUMyVkZOUUlvTlg5MzMwd1BXbkphUG1LUDc5SU5vQmgzRWdBN2ZwZlozeTQyczk1Zk5VbGVsUUZQckRnVjduR3Q0bHdJNWJsQlJCVEh2NkFfTU54bGJSZGdvMl9MU3V1ZVFSQ3N4SXNfbzZ3RmNxeDBKZW1wQ0FES0IzVndCZ2hwVE1BRE1wMTRtb9IBuAFBVV95cUxPZl9DRVVvejRDeWRuUkkzY3JuNzZRUHNHUHBuNG1JMUFJSGF2ZWNTMk9sZnZ0dEFJa0JKOTBfaXdZTUFILTROQzA2d0kzZTB1a01KNUwzZEVTNHVhdkRRZ081ekFaQzFFMWljZWVNQmItOFVEVlZxWG5uR2dtMDhGTGtWZDR4bzFqNXk2TkdOV2gyTm5sYTRPZVB2SlJMSzliNGdzMjVmanZRUnJPUUxiUnk4ZEtaYWxn?oc=5)
+
+---
+
 ### AI Funding Looks Increasingly Like Check Kiting
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (45m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 💼 product |
 | **Author** | Forbes |
 
@@ -2485,7 +2530,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2h ago) |
+| **Date** | August 20, 2026 (6h ago) |
 | **Category** | 💼 product |
 | **Author** | Digital Music News |
 
@@ -2500,7 +2545,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (4h ago) |
+| **Date** | August 20, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | SiliconANGLE |
 
@@ -2515,7 +2560,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2530,7 +2575,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon ML |
 
@@ -2545,7 +2590,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | K8 News | Jonesboro, Arkansas |
 
@@ -2560,7 +2605,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2575,7 +2620,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 💼 product |
 | **Author** | fg137 |
 
@@ -2590,7 +2635,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2605,7 +2650,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | TheDecoder |
 
@@ -2620,7 +2665,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 💼 product |
 | **Author** | Pulse 2.0 |
 
@@ -2635,7 +2680,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -2650,7 +2695,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | Nieman Lab |
 
@@ -2665,7 +2710,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 💼 product |
 | **Author** | The Next Web |
 
@@ -2680,7 +2725,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Seeking Alpha |
 
@@ -2695,7 +2740,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | pulse2.com |
 
@@ -2710,7 +2755,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Bo Liu, Simon Yu, Yiding Jiang |
 
@@ -2725,7 +2770,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | The Information |
 
@@ -2740,7 +2785,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | Thales Bertaglia, Catalina Goanta, Gerasimos Spanakis |
 
@@ -2755,7 +2800,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | techbuzz.ai |
 
@@ -2770,7 +2815,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -2785,7 +2830,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Zhenyao Cui, Siyuan Kan, Dingkun Liu |
 
@@ -2800,7 +2845,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Engadget |
 
@@ -2815,7 +2860,7 @@ Meta is launching a new Mac app dedicated to its AI chatbot. In an announcement 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2831,7 +2876,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | Axios |
 
@@ -2846,7 +2891,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Ars Technica AI |
 
@@ -2861,7 +2906,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | Yellow.com |
 
@@ -2876,7 +2921,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | Hardware Retailing |
 
@@ -2891,7 +2936,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2906,7 +2951,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2921,7 +2966,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | GuruFocus |
 
@@ -2936,7 +2981,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | Marquette Today |
 
@@ -2951,7 +2996,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2966,7 +3011,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2981,7 +3026,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | forbes.com |
 
@@ -2996,7 +3041,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Investing.com |
 
@@ -3011,7 +3056,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Seeking Alpha |
 
@@ -3026,7 +3071,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Telecompaper |
 
@@ -3041,7 +3086,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Yahoo Finance |
 
@@ -3056,7 +3101,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Tech Funding News |
 
@@ -3071,7 +3116,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | AiThority |
 
@@ -3086,7 +3131,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | TechCrunch AI |
 
@@ -3101,7 +3146,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Fierce Healthcare |
 
@@ -3116,7 +3161,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -3131,7 +3176,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Tech Funding News |
 
@@ -3149,7 +3194,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -3167,7 +3212,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | Wired AI |
 
@@ -3182,7 +3227,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Sahm |
 
@@ -3197,7 +3242,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | FinSMEs |
 
@@ -3212,7 +3257,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | techafricanews.com |
 
@@ -3227,7 +3272,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | The Korea Times |
 
@@ -3612,29 +3657,66 @@ On Tuesday, the
 
 ---
 
-### Nvidia to Provide $105 Billion in Funding to OpenAI for New AI Data Center
+## 🛡️ AI Safety & Security
+
+### Enterprise AI Finds Its Firmest Footing in Security and Treasury
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 💼 product |
-| **Author** | صحيفة مال |
+| **Date** | August 20, 2026 (35m ago) |
+| **Category** | 🛡️ safety |
+| **Author** | PYMNTS.com |
 
-**Summary:** Nvidia to Provide $105 Billion in Funding to OpenAI for New AI Data Center  صحيفة مال
+**Summary:** Enterprise AI Finds Its Firmest Footing in Security and Treasury  PYMNTS.com
 
-**URL:** [https://news.google.com/rss/articles/CBMiakFVX3lxTE9RNVJrUGZlVThUNlBjS3JLcFpSbm5yd1NVZ1gtWHA3MG9SWkZ4WlBhN2JxOUI4dUE2NzJSUnJuNnR6MWdPQ2lQVG1MNWM2RmdQNnppUmZmNndrbnd0aU94aFhRYUxhbkYxbmc?oc=5](https://news.google.com/rss/articles/CBMiakFVX3lxTE9RNVJrUGZlVThUNlBjS3JLcFpSbm5yd1NVZ1gtWHA3MG9SWkZ4WlBhN2JxOUI4dUE2NzJSUnJuNnR6MWdPQ2lQVG1MNWM2RmdQNnppUmZmNndrbnd0aU94aFhRYUxhbkYxbmc?oc=5)
+**URL:** [https://news.google.com/rss/articles/CBMivwFBVV95cUxOV1ItUFZJWjZ6R2RLM19zU0JfbUtRdHpTaUZTZTR5RnQzQUVEQTVxQk1sQmJxcDR4MmdYbEFma1JXSWF5a181NXI3X09HMkY2Z3BOT2k4blRUcjVQaUo0SVh2RjN2cUw1WlpWbGdoV3RsQjZuNnNFYTBONnV4bjNmbF9tMDZDNkFyRjYyaE5xQ0ZCcm84M1F1ZVlOVXRfWUw4MEdER3N4Y2ZpMnpLUTZTT3JmUFBRajZYNlp0RUVxcw?oc=5](https://news.google.com/rss/articles/CBMivwFBVV95cUxOV1ItUFZJWjZ6R2RLM19zU0JfbUtRdHpTaUZTZTR5RnQzQUVEQTVxQk1sQmJxcDR4MmdYbEFma1JXSWF5a181NXI3X09HMkY2Z3BOT2k4blRUcjVQaUo0SVh2RjN2cUw1WlpWbGdoV3RsQjZuNnNFYTBONnV4bjNmbF9tMDZDNkFyRjYyaE5xQ0ZCcm84M1F1ZVlOVXRfWUw4MEdER3N4Y2ZpMnpLUTZTT3JmUFBRajZYNlp0RUVxcw?oc=5)
 
 ---
 
-## 🛡️ AI Safety & Security
+### OpenAI builds safety system that catches misuse without storing customer data
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 20, 2026 (36m ago) |
+| **Category** | 🛡️ safety |
+| **Author** | TheDecoder |
+
+**Summary:** OpenAI plans to offer its most advanced AI models to corporate customers without storing their data, while still detecting misuse.
+The article OpenAI builds safety system that catches misuse without s
+
+**URL:** [https://the-decoder.com/openai-builds-safety-system-that-catches-misuse-without-storing-customer-data/](https://the-decoder.com/openai-builds-safety-system-that-catches-misuse-without-storing-customer-data/)
+
+---
+
+### AI agent suggested installing a malware package. Engineer almost took its advice
+
+                
+    Fortunately, the company had a policy of checking source code on GitHub first
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 🌐 the-register |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 🛡️ safety |
+| **Author** | The Register AI |
+
+**Summary:** AI agent suggested installing a malware package. Engineer almost took its advice
+
+                
+    Fortunately, the company had a policy of checking source code on GitHub first
+
+**URL:** [https://www.theregister.com/security/2026/08/20/ai-agent-suggested-installing-a-malware-package-engineer-almost-took-its-advice/5289849](https://www.theregister.com/security/2026/08/20/ai-agent-suggested-installing-a-malware-package-engineer-almost-took-its-advice/5289849)
+
+---
 
 ### Ripple CTO Emeritus: AI Safety Rules and Copyright Laws Pose Threat to Free Speech
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CryptoPotato |
 
@@ -3649,7 +3731,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | TheDecoder |
 
@@ -3664,7 +3746,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Nextgov/FCW |
 
@@ -3679,7 +3761,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Zhenyao Cui, Siyuan Kan, Siyang Li |
 
@@ -3694,7 +3776,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Nature |
 
@@ -3709,7 +3791,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | American Banker |
 
@@ -3724,7 +3806,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | BBC |
 
@@ -3739,7 +3821,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Axios |
 
@@ -3886,12 +3968,27 @@ On Tuesday, the
 
 ## ⚖️ Regulation & Policy
 
+### AI data centre regulation just got a template that needs no new law
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (33m ago) |
+| **Category** | ⚖️ policy |
+| **Author** | AI News |
+
+**Summary:** AI data centre regulation just got a template that needs no new law  AI News
+
+**URL:** [https://news.google.com/rss/articles/CBMingFBVV95cUxPYzd4ZmpMSmZaY052N2JxakwxSUVxNWZmckFqQnhIWUR2dm4tRVVBY0paSl9DVkpaYXRYM21aLUFUQzJyR3NUTVZWRTVBN1BMMXl6ZlhsVElTTnFKdkJsY2hjWVd6cnZhdjN5X295bnlDVjZHQW1aNlE3WE9mOXFTLXp4TkJ0Ui16RnVnQzVBTnRua2Z0d05sbEs3QWlJQQ?oc=5](https://news.google.com/rss/articles/CBMingFBVV95cUxPYzd4ZmpMSmZaY052N2JxakwxSUVxNWZmckFqQnhIWUR2dm4tRVVBY0paSl9DVkpaYXRYM21aLUFUQzJyR3NUTVZWRTVBN1BMMXl6ZlhsVElTTnFKdkJsY2hjWVd6cnZhdjN5X295bnlDVjZHQW1aNlE3WE9mOXFTLXp4TkJ0Ui16RnVnQzVBTnRua2Z0d05sbEs3QWlJQQ?oc=5)
+
+---
+
 ### Trump Says AI Could Be &#x27;Bigger Than the Internet&#x27; as He Pushes Light-Touch Regulation
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 decrypt |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Decrypt AI |
 
@@ -3906,7 +4003,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | MPR News |
 
@@ -3921,7 +4018,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Jayjun Lee, Jessica Yin, Asif Rana |
 
@@ -3936,7 +4033,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Zhu Zhang, Jixun Wang, Xiaoang Xu |
 
@@ -3951,7 +4048,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Boqiao Zhang, Godbless James, Sai Krishna Gottipati |
 
@@ -3966,7 +4063,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The National Law Review |
 
@@ -3981,7 +4078,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Washington Post |
 
@@ -3996,7 +4093,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | HR Executive |
 
@@ -4011,7 +4108,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TechRadar |
 
@@ -4026,7 +4123,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | The Korea Post |
 
@@ -4111,44 +4208,89 @@ On Tuesday, the
 
 ---
 
-### Anthropic CEO says AI centralizes by nature and open models just shift power to whoever owns the chips
+## 📌 Other Notable News
+
+### Discussion thread for EMNLP 2026 Notifications/Results [D]
 
 | Detail | Value |
 |--------|-------|
-| **Source** | 📰 the-decoder |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | TheDecoder |
+| **Source** | 📰 reddit |
+| **Date** | August 20, 2026 (just now) |
+| **Category** | 📌 other |
+| **Author** | r/MachineLearning |
 
-**Summary:** An open fight over AI regulation has broken out on X. Investor Gavin Baker, former White House adviser David Sacks, and Meta researcher Yann LeCun accuse Anthropic CEO Dario Amodei of using fear rheto
+**Summary:** Discussion thread for EMNLP 2026 notifications/results which should be released today. Wishing everybody to be in Budapest. submitted by /u/sweetsalt10 [link] [comments]
 
-**URL:** [https://the-decoder.com/anthropic-ceo-says-ai-centralizes-by-nature-and-open-models-just-shift-power-to-whoever-owns-the-chips/](https://the-decoder.com/anthropic-ceo-says-ai-centralizes-by-nature-and-open-models-just-shift-power-to-whoever-owns-the-chips/)
+**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vtdpve/discussion_thread_for_emnlp_2026/](https://www.reddit.com/r/MachineLearning/comments/1vtdpve/discussion_thread_for_emnlp_2026/)
 
 ---
 
-### Xpander Raises $7.5 Million for AI Management and Governance
+### China’s Military Says AI Can’t Replace Commanders. Xi Is Testing That
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | ⚖️ policy |
-| **Author** | SecurityWeek |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | War on the Rocks |
 
-**Summary:** Xpander Raises $7.5 Million for AI Management and Governance  SecurityWeek
+**Summary:** China’s Military Says AI Can’t Replace Commanders. Xi Is Testing That  War on the Rocks
 
-**URL:** [https://news.google.com/rss/articles/CBMimAFBVV95cUxQODhxOTRBNmwxc2hlbHFBcGhsQkxUVjF2NUxxdUVNdXQ3U1RlYV83NWUzd3NXc0prX25nbHh3OEh1cWZWV0Jmc0hzX1lUdDBYMG55NnR5VlgyR3JmVEF0aWdLM25DOEZJWndJSlFSTEM4eU5VaW1FdXJxZmRpVGQ5STFCbGxsc25JS3pPZnBYWUhNd21BYUdzMNIBmAFBVV95cUxQODhxOTRBNmwxc2hlbHFBcGhsQkxUVjF2NUxxdUVNdXQ3U1RlYV83NWUzd3NXc0prX25nbHh3OEh1cWZWV0Jmc0hzX1lUdDBYMG55NnR5VlgyR3JmVEF0aWdLM25DOEZJWndJSlFSTEM4eU5VaW1FdXJxZmRpVGQ5STFCbGxsc25JS3pPZnBYWUhNd21BYUdzMA?oc=5](https://news.google.com/rss/articles/CBMimAFBVV95cUxQODhxOTRBNmwxc2hlbHFBcGhsQkxUVjF2NUxxdUVNdXQ3U1RlYV83NWUzd3NXc0prX25nbHh3OEh1cWZWV0Jmc0hzX1lUdDBYMG55NnR5VlgyR3JmVEF0aWdLM25DOEZJWndJSlFSTEM4eU5VaW1FdXJxZmRpVGQ5STFCbGxsc25JS3pPZnBYWUhNd21BYUdzMNIBmAFBVV95cUxQODhxOTRBNmwxc2hlbHFBcGhsQkxUVjF2NUxxdUVNdXQ3U1RlYV83NWUzd3NXc0prX25nbHh3OEh1cWZWV0Jmc0hzX1lUdDBYMG55NnR5VlgyR3JmVEF0aWdLM25DOEZJWndJSlFSTEM4eU5VaW1FdXJxZmRpVGQ5STFCbGxsc25JS3pPZnBYWUhNd21BYUdzMA?oc=5)
+**URL:** [https://news.google.com/rss/articles/CBMimAFBVV95cUxQd3Y3YW9hZGhMdzh1Mzg5U0lDR2dfLWVaWWcwSlAxUUZJbGh2R1JXSXQ0V2RkTTl6ZndxZ2djVHFTZW96WWpmemJwVXhTMFZuTmtuRnBUTG1DLUM2a1NJQjJkdTJtM01BSDBuSXlxSXAyLThRXzNsMlJmZUJoUVQxZWpCZEZEQU1NWW9QeEFuM1V2aVpWTnNTSA?oc=5](https://news.google.com/rss/articles/CBMimAFBVV95cUxQd3Y3YW9hZGhMdzh1Mzg5U0lDR2dfLWVaWWcwSlAxUUZJbGh2R1JXSXQ0V2RkTTl6ZndxZ2djVHFTZW96WWpmemJwVXhTMFZuTmtuRnBUTG1DLUM2a1NJQjJkdTJtM01BSDBuSXlxSXAyLThRXzNsMlJmZUJoUVQxZWpCZEZEQU1NWW9QeEFuM1V2aVpWTnNTSA?oc=5)
 
 ---
 
-## 📌 Other Notable News
+### Observations From Behind the Desk of An Instructor: Navigating the AI Paradigm Shift at the Sergeants Major Academy
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Small Wars Journal |
+
+**Summary:** Observations From Behind the Desk of An Instructor: Navigating the AI Paradigm Shift at the Sergeants Major Academy  Small Wars Journal
+
+**URL:** [https://news.google.com/rss/articles/CBMipwFBVV95cUxPMGRDNXFZS3FWWUhDMkMxMExNWU14ZEJHcmZHeWpMU3hKUnJnQ3poTHc4cUdRWTdEMGJuU1gxTkZMVmg5OTRGYkJkb1RSTnBTVUxYbFYxTExkcnp3V0pHcmJ1c3MyWExiaXNWb3A4bmdhanJEcWVjckVMb250NEpmbkRHek0tOFRWcEp0WEs4R09Ba3VEcXNQZmxOMExGN1NGSmFoWjZrVQ?oc=5](https://news.google.com/rss/articles/CBMipwFBVV95cUxPMGRDNXFZS3FWWUhDMkMxMExNWU14ZEJHcmZHeWpMU3hKUnJnQ3poTHc4cUdRWTdEMGJuU1gxTkZMVmg5OTRGYkJkb1RSTnBTVUxYbFYxTExkcnp3V0pHcmJ1c3MyWExiaXNWb3A4bmdhanJEcWVjckVMb250NEpmbkRHek0tOFRWcEp0WEs4R09Ba3VEcXNQZmxOMExGN1NGSmFoWjZrVQ?oc=5)
+
+---
+
+### AI will not solve council cash crisis, say experts
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | Yahoo News Canada |
+
+**Summary:** AI will not solve council cash crisis, say experts  Yahoo News Canada
+
+**URL:** [https://news.google.com/rss/articles/CBMidEFVX3lxTE5oNmM2VkhvT0NQaWZ4WnczOGFsVHBCWGNtZEdZZU5sNld1dFhyelVVdWlBNk5xaXV0QndDVUh3Y2x1Tzc2b0xTRXhHd0ZTUV83SUhQY1hmRHZBcndmTGNnRktLS2F3aHhVenB5YUo0OFhzZ3Vv?oc=5](https://news.google.com/rss/articles/CBMidEFVX3lxTE5oNmM2VkhvT0NQaWZ4WnczOGFsVHBCWGNtZEdZZU5sNld1dFhyelVVdWlBNk5xaXV0QndDVUh3Y2x1Tzc2b0xTRXhHd0ZTUV83SUhQY1hmRHZBcndmTGNnRktLS2F3aHhVenB5YUo0OFhzZ3Vv?oc=5)
+
+---
+
+### Nvidia’s $500B AI Financing Bet and the Compute Bubble
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | HackerNoon |
+
+**Summary:** Nvidia’s $500B AI Financing Bet and the Compute Bubble  HackerNoon
+
+**URL:** [https://news.google.com/rss/articles/CBMiggFBVV95cUxOdl92Zlo4NUN0bjhlUlIxQkk4aE5NMUhMN1ZxNGtqd2JEQnR1TC1uV010bXIyU09NTXgzU0Z3dXRrM2VrS0NGREZFd3ZlNFA3YWh0UlBGcTNFS0M5OEVCQVREMVc3T1NNcmhZbEtxeG90RXFmY3pLZ0xwTUt4eTBfMWhR?oc=5](https://news.google.com/rss/articles/CBMiggFBVV95cUxOdl92Zlo4NUN0bjhlUlIxQkk4aE5NMUhMN1ZxNGtqd2JEQnR1TC1uV010bXIyU09NTXgzU0Z3dXRrM2VrS0NGREZFd3ZlNFA3YWh0UlBGcTNFS0M5OEVCQVREMVc3T1NNcmhZbEtxeG90RXFmY3pLZ0xwTUt4eTBfMWhR?oc=5)
+
+---
 
 ### Algeria adopts roadmap for sovereign artificial intelligence
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (21m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Muslim Network TV |
 
@@ -4163,7 +4305,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (43m ago) |
+| **Date** | August 20, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | Korea JoongAng Daily |
 
@@ -4173,12 +4315,27 @@ On Tuesday, the
 
 ---
 
+### Conversations with AI: The Space Between Where Human Intelligence and AI Interact
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 20, 2026 (5h ago) |
+| **Category** | 📌 other |
+| **Author** | Meridian Magazine |
+
+**Summary:** Conversations with AI: The Space Between Where Human Intelligence and AI Interact  Meridian Magazine
+
+**URL:** [https://news.google.com/rss/articles/CBMisAFBVV95cUxPUFIzMy1FcTc5MEswQXdSZVhZV1hmeG5HME5NVHQ4S3d0Vk9ST0NaOWt1Y2JqaUx6UGxyMS0zUjlsY25kdzFOSUNRdmlJelpXQXBYbGNiT2dFTTFJTWN5RVNrejRDUkRMRFp0dUpzVmRTN0U2QU9xdmktQ1NUZVlEMHN0elU4TjdnMHN2TlZKS19NcEU1SWkzcGg2ZTM2aDRENWYxRjVIeFVDd0twZHdJQQ?oc=5](https://news.google.com/rss/articles/CBMisAFBVV95cUxPUFIzMy1FcTc5MEswQXdSZVhZV1hmeG5HME5NVHQ4S3d0Vk9ST0NaOWt1Y2JqaUx6UGxyMS0zUjlsY25kdzFOSUNRdmlJelpXQXBYbGNiT2dFTTFJTWN5RVNrejRDUkRMRFp0dUpzVmRTN0U2QU9xdmktQ1NUZVlEMHN0elU4TjdnMHN2TlZKS19NcEU1SWkzcGg2ZTM2aDRENWYxRjVIeFVDd0twZHdJQQ?oc=5)
+
+---
+
 ### Is leasing an iPhone right for you? How Apple's Upgrade Program works and who it's for
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4193,7 +4350,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (3h ago) |
+| **Date** | August 20, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | The Jerusalem Post |
 
@@ -4203,12 +4360,27 @@ On Tuesday, the
 
 ---
 
+### Universality of Gradient Descent Neural Network Training
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 hacker-news |
+| **Date** | August 20, 2026 (8h ago) |
+| **Category** | 📌 other |
+| **Author** | E-Reverance |
+
+**Summary:** 28 points, 2 comments on Hacker News.
+
+**URL:** [https://arxiv.org/abs/2007.13664](https://arxiv.org/abs/2007.13664)
+
+---
+
 ### Meta adds AI-powered assistant for SMB owners
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | Social Media Today |
 
@@ -4226,7 +4398,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (4h ago) |
+| **Date** | August 19, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4244,7 +4416,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | techi.com |
 
@@ -4259,7 +4431,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | The Fast Mode |
 
@@ -4274,7 +4446,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (5h ago) |
+| **Date** | August 19, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | WION |
 
@@ -4289,7 +4461,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | The Free Press |
 
@@ -4304,7 +4476,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4319,7 +4491,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (6h ago) |
+| **Date** | August 19, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -4329,12 +4501,27 @@ On Tuesday, the
 
 ---
 
+### Rep. Bryan Steil (R-WI) on Artificial Intelligence & Digital Currency
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 19, 2026 (11h ago) |
+| **Category** | 📌 other |
+| **Author** | C-SPAN |
+
+**Summary:** Rep. Bryan Steil (R-WI) on Artificial Intelligence & Digital Currency  C-SPAN
+
+**URL:** [https://news.google.com/rss/articles/CBMiwAFBVV95cUxPU3hfWXZWZ2VrU0NkQjJGMDVBcUJRU2V6WEdFQmdTTGFrV0RjUkNSOENnb0RSbERnT0NvbU5mWFV0aDhFVzBCd3FpRE5ieUk1dGdrR0xVTFhFNWs1bld3NzNfQ3lZYl96SGtzeTZJUGFWOWpfc2xJY1dockJlY3p0dVVvYjN5M3FOSHZ5WktLbU9JTnNCY201VXBKczJ3NXpxYzdmYUoxU09ZQkFNY0Vjd29aaW8xUUhBNXhXMmpvNWo?oc=5](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPU3hfWXZWZ2VrU0NkQjJGMDVBcUJRU2V6WEdFQmdTTGFrV0RjUkNSOENnb0RSbERnT0NvbU5mWFV0aDhFVzBCd3FpRE5ieUk1dGdrR0xVTFhFNWs1bld3NzNfQ3lZYl96SGtzeTZJUGFWOWpfc2xJY1dockJlY3p0dVVvYjN5M3FOSHZ5WktLbU9JTnNCY201VXBKczJ3NXpxYzdmYUoxU09ZQkFNY0Vjd29aaW8xUUhBNXhXMmpvNWo?oc=5)
+
+---
+
 ### AI is already on the job, and Census is keeping count
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Nextgov/FCW |
 
@@ -4349,7 +4536,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | The Dig at Howard University |
 
@@ -4364,7 +4551,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | therealdeal.com |
 
@@ -4379,7 +4566,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Bloomberg |
 
@@ -4394,7 +4581,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Broadband Breakfast |
 
@@ -4409,7 +4596,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | TradingView |
 
@@ -4424,7 +4611,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -4439,7 +4626,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (7h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -4454,7 +4641,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Ars Technica AI |
 
@@ -4469,7 +4656,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | WBUR |
 
@@ -4484,7 +4671,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | PYMNTS.com |
 
@@ -4499,7 +4686,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (8h ago) |
+| **Date** | August 19, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | theneurondaily.com |
 
@@ -4517,7 +4704,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4535,7 +4722,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (9h ago) |
+| **Date** | August 19, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4550,7 +4737,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | jonesy827 |
 
@@ -4565,7 +4752,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | Creative Commons |
 
@@ -4580,7 +4767,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | Aditya Bhattacharjee, Christos Plachouras, Sungkyun Chang |
 
@@ -4595,7 +4782,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | Sotirios P. Chatzis, Loukas Papadoulas |
 
@@ -4610,7 +4797,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (10h ago) |
+| **Date** | August 19, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -4625,7 +4812,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Leo Schmidt-Traub, Frédéric Berdoz, Luca A. Lanzendörfer |
 
@@ -4640,7 +4827,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4655,7 +4842,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4670,7 +4857,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Jielong Lu, Zhihao Wu, Jiajun Yu |
 
@@ -4685,7 +4872,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | 24/7 Wall St. |
 
@@ -4700,7 +4887,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (11h ago) |
+| **Date** | August 19, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Northeastern Global News |
 
@@ -4715,7 +4902,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Ruiguo Zhong, Benshan Ma, Xiaolong Chen |
 
@@ -4730,7 +4917,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Chenchen Mao, Hanjing Shi, Haiyan Jia |
 
@@ -4745,7 +4932,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Dalia Chakrabarty, Kangrui Wang, Chuqiao Zhang |
 
@@ -4760,7 +4947,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Changshun Wu, Weicheng He, Xiaowei Huang |
 
@@ -4775,7 +4962,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | International Business Times |
 
@@ -4790,7 +4977,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Yuga Iguchi, Paul Fearnhead |
 
@@ -4805,7 +4992,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | UC San Diego Today |
 
@@ -4820,7 +5007,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4835,7 +5022,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4850,7 +5037,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4865,7 +5052,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Seeking Alpha |
 
@@ -4880,7 +5067,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4895,7 +5082,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | The University of Maine |
 
@@ -4910,7 +5097,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Communications of the ACM |
 
@@ -4925,7 +5112,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (12h ago) |
+| **Date** | August 19, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Alizer Wong, Heng Cui, Yi Tan |
 
@@ -4940,7 +5127,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Natacha Kuete Meli, Tolga Birdal, Prayag Tiwari |
 
@@ -4958,7 +5145,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4976,7 +5163,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | The Washington Stand |
 
@@ -4991,7 +5178,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5006,7 +5193,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5021,7 +5208,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | governor.ny.gov |
 
@@ -5036,7 +5223,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | HR Dive |
 
@@ -5051,7 +5238,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Matteo Cargnelutti, Catherine Brobston, Eben English |
 
@@ -5066,7 +5253,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (13h ago) |
+| **Date** | August 19, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Padmini Krishnadas, Urs Hackstein, Alen Bosnjakovic |
 
@@ -5081,7 +5268,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5096,7 +5283,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Auburn University |
 
@@ -5111,7 +5298,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5126,7 +5313,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5141,7 +5328,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Cornell Chronicle |
 
@@ -5156,7 +5343,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -5171,7 +5358,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | WSJ |
 
@@ -5186,7 +5373,7 @@ On Tuesday, the
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5202,7 +5389,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | nature.com |
 
@@ -5217,7 +5404,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | George Mason University |
 
@@ -5232,7 +5419,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Hugging Face |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Hugging Face |
 
@@ -5247,7 +5434,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (14h ago) |
+| **Date** | August 19, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Pharmaceutical Commerce |
 
@@ -5262,7 +5449,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5277,7 +5464,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5292,7 +5479,7 @@ The article China lets Nvidia's H200 chips trickle onto the mainland to help
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5308,7 +5495,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | New Lines Institute |
 
@@ -5323,7 +5510,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Arizona Capitol Times |
 
@@ -5338,7 +5525,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | PharmTech.com |
 
@@ -5353,7 +5540,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Yellow.com |
 
@@ -5368,7 +5555,7 @@ The article AI labs are failing to keep their own systems in check appeared firs
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 19, 2026 (15h ago) |
+| **Date** | August 19, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5384,7 +5571,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5399,7 +5586,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | PsyPost |
 
@@ -5414,7 +5601,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | The 74 |
 
@@ -5429,7 +5616,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Gallup News |
 
@@ -5444,7 +5631,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | GlobeNewswire |
 
@@ -5459,7 +5646,7 @@ The article Anthropic passes OpenAI on revenue for the first time appeared first
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | The Verge AI |
 
@@ -5477,7 +5664,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | National Institute of Standards and Technology (.gov) |
 
@@ -5492,7 +5679,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | Farm Progress |
 
@@ -5507,7 +5694,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (16h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Chenglin Liu, Xun Wang, Ruishuo Chen |
 
@@ -5522,7 +5709,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Xuyao Feng, Anthony Hunter |
 
@@ -5537,7 +5724,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5552,7 +5739,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC |
 
@@ -5567,7 +5754,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5582,7 +5769,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5597,7 +5784,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5612,7 +5799,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5627,7 +5814,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Geeky Gadgets |
 
@@ -5642,7 +5829,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (17h ago) |
+| **Date** | August 19, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Benzinga |
 
@@ -5657,7 +5844,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5672,7 +5859,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | PPC Land |
 
@@ -5687,7 +5874,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | MediaNama |
 
@@ -5702,7 +5889,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Nature |
 
@@ -5717,7 +5904,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -5732,7 +5919,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5747,7 +5934,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -5762,7 +5949,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (18h ago) |
+| **Date** | August 19, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | The Cap Times |
 
@@ -5777,7 +5964,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5792,7 +5979,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | San Antonio Express-News |
 
@@ -5807,7 +5994,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Axios |
 
@@ -5822,7 +6009,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | New York Magazine |
 
@@ -5837,7 +6024,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5852,7 +6039,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (19h ago) |
+| **Date** | August 19, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | NPR |
 
@@ -5867,7 +6054,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | AllSci |
 
@@ -5882,7 +6069,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | geeky-gadgets.com |
 
@@ -5897,7 +6084,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | PYMNTS.com |
 
@@ -5912,7 +6099,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5927,7 +6114,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (20h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Reuters |
 
@@ -5942,7 +6129,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -5957,7 +6144,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (21h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | HousingWire |
 
@@ -5972,7 +6159,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Intelligent Living |
 
@@ -5987,7 +6174,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Small Wars Journal |
 
@@ -6002,7 +6189,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (22h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | EIN Presswire |
 
@@ -6017,7 +6204,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -6032,7 +6219,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | 36Kr |
 
@@ -6047,7 +6234,7 @@ Napoleon is
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (23h ago) |
+| **Date** | August 19, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Korea Times |
 
@@ -6798,6 +6985,21 @@ Napoleon is
 
 ---
 
+### Why open-weight AI is the new frontier in the US-China tech race
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 18, 2026 (1d ago) |
+| **Category** | 📌 other |
+| **Author** | Nikkei Asia |
+
+**Summary:** Why open-weight AI is the new frontier in the US-China tech race  Nikkei Asia
+
+**URL:** [https://news.google.com/rss/articles/CBMiugFBVV95cUxQZ3A4ejdhTHRvRDdIcDd3cmwyd1BwNWVlR3ZTR2lwRVRZak5zclIzU21XcjhYbDBhSUYyaFhHSm16YzVuSHpZWFl1anpDWDQ5ZnNFOXE0YmlPV2UyQkJGWVFkbXdXOTNZQXdKamYwdXlsX3AxUFhCNXVYTF9vSzZhOVdZelVOR3hVcTQ5N2hqZkQ4QjUteE1PMzZEcWVZY1RKZTFkS1VtMTJMelVPSWtnWkVRUkdFN2ZQb0E?oc=5](https://news.google.com/rss/articles/CBMiugFBVV95cUxQZ3A4ejdhTHRvRDdIcDd3cmwyd1BwNWVlR3ZTR2lwRVRZak5zclIzU21XcjhYbDBhSUYyaFhHSm16YzVuSHpZWFl1anpDWDQ5ZnNFOXE0YmlPV2UyQkJGWVFkbXdXOTNZQXdKamYwdXlsX3AxUFhCNXVYTF9vSzZhOVdZelVOR3hVcTQ5N2hqZkQ4QjUteE1PMzZEcWVZY1RKZTFkS1VtMTJMelVPSWtnWkVRUkdFN2ZQb0E?oc=5)
+
+---
+
 ### Frederick Health Hospital using artificial intelligence to advance medical treatment for patients vulnerable to seizures
 
 | Detail | Value |
@@ -7413,207 +7615,6 @@ Napoleon is
 
 ---
 
-### OAS-UC Riverside Strategic Artificial Intelligence Leadership Program
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | St Vincent Times |
-
-**Summary:** OAS-UC Riverside Strategic Artificial Intelligence Leadership Program  St Vincent Times
-
-**URL:** [https://news.google.com/rss/articles/CBMiowFBVV95cUxQc3czWlh3TEtodHNKckllSzZRb21hUlA3TGJmay02QUFLMGRJSFEtU3NiUEctNi1OSWg1U21TT0hzN25jdE1jNjRaUEw3UFgtNW8yTVFBR2NtTlB2bGEwSHVOZ0N5dWNjMDlZeFp0Y3pfdjFXZ1p0RGR5dFNiNDlDMklUQmhIRHA2dWEtYkprdE54QzRJcW5UME5iOURkRFVFXzdB?oc=5](https://news.google.com/rss/articles/CBMiowFBVV95cUxQc3czWlh3TEtodHNKckllSzZRb21hUlA3TGJmay02QUFLMGRJSFEtU3NiUEctNi1OSWg1U21TT0hzN25jdE1jNjRaUEw3UFgtNW8yTVFBR2NtTlB2bGEwSHVOZ0N5dWNjMDlZeFp0Y3pfdjFXZ1p0RGR5dFNiNDlDMklUQmhIRHA2dWEtYkprdE54QzRJcW5UME5iOURkRFVFXzdB?oc=5)
-
----
-
-### Quartr raises $18m to accelerate AI financial data growth
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | FinTech Global |
-
-**Summary:** Quartr raises $18m to accelerate AI financial data growth  FinTech Global
-
-**URL:** [https://news.google.com/rss/articles/CBMilgFBVV95cUxPZ3JoMkVmZ3FHLWFNUXRpS0QtSUI1LW9kY19SZG1BQUo5ck1UbDJGTE1nUVZsYW1uYjYxc0s4TVpoeEVZTDJsTWRPZVBiS3M0dER3UDdyaDlwYjhhMUhnb1NNTGVxMWxjUWJhM3JRa1pab1c0Uk1mMF90ZWFXbGx5MjZTQ2tiRG9vWkVGdlZkSUp5cWFDZVE?oc=5](https://news.google.com/rss/articles/CBMilgFBVV95cUxPZ3JoMkVmZ3FHLWFNUXRpS0QtSUI1LW9kY19SZG1BQUo5ck1UbDJGTE1nUVZsYW1uYjYxc0s4TVpoeEVZTDJsTWRPZVBiS3M0dER3UDdyaDlwYjhhMUhnb1NNTGVxMWxjUWJhM3JRa1pab1c0Uk1mMF90ZWFXbGx5MjZTQ2tiRG9vWkVGdlZkSUp5cWFDZVE?oc=5)
-
----
-
-### How encrypting AI reasoning traces turned into a privacy nightmare
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | bdtechtalks.substack.com |
-
-**Summary:** How encrypting AI reasoning traces turned into a privacy nightmare  bdtechtalks.substack.com
-
-**URL:** [https://news.google.com/rss/articles/CBMieEFVX3lxTFB0X0ZSNDRZTzR4aGhFVW5vbDFUbGprR05qUHM3bWJUSU5sWlMyODg0Q19IRl9Hb3FPamg2OWVHQUl2dnFSeTEwUlR5Zzdvb1JkME1ZUVEzcGhkMEVraFNqMC1WSnM4ZU1Xd2NhZmlYcjZETHdYR3BNWQ?oc=5](https://news.google.com/rss/articles/CBMieEFVX3lxTFB0X0ZSNDRZTzR4aGhFVW5vbDFUbGprR05qUHM3bWJUSU5sWlMyODg0Q19IRl9Hb3FPamg2OWVHQUl2dnFSeTEwUlR5Zzdvb1JkME1ZUVEzcGhkMEVraFNqMC1WSnM4ZU1Xd2NhZmlYcjZETHdYR3BNWQ?oc=5)
-
----
-
-### Why investing in AI alone won’t make companies more resilient
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Reuters |
-
-**Summary:** Why investing in AI alone won’t make companies more resilient  Reuters
-
-**URL:** [https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcHJlU3RVd29NTHFMaWZLTmpPSVhpVzBBUXlzVjZSd3NjWlJGYWttSThSMmFhT0hhQUVvQUtHczQya0N5amhROXpOVTdLaUEzOHZWc2VSOVAzZzMzbnM5OGpzc1hhM245dzlLcXZTQ1RlREdZNHlTUHBBNlczTVdEczZWMVdfOXJGeWhXbDRtLXRidEMzVDc4UEdWU0lneGNPRTNFbVE2Rno4WEhOMkpQeGFUaHZsRDVOQU10Zy1mdWlTQ3JGWUxEX2Ewam9KT0o2Mnc4ZlhvZw?oc=5](https://news.google.com/rss/articles/CBMi1wFBVV95cUxOcHJlU3RVd29NTHFMaWZLTmpPSVhpVzBBUXlzVjZSd3NjWlJGYWttSThSMmFhT0hhQUVvQUtHczQya0N5amhROXpOVTdLaUEzOHZWc2VSOVAzZzMzbnM5OGpzc1hhM245dzlLcXZTQ1RlREdZNHlTUHBBNlczTVdEczZWMVdfOXJGeWhXbDRtLXRidEMzVDc4UEdWU0lneGNPRTNFbVE2Rno4WEhOMkpQeGFUaHZsRDVOQU10Zy1mdWlTQ3JGWUxEX2Ewam9KT0o2Mnc4ZlhvZw?oc=5)
-
----
-
-### UGA Experts Say Artificial Intelligence Growing at Rapid Pace
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Grady Newsource |
-
-**Summary:** UGA Experts Say Artificial Intelligence Growing at Rapid Pace  Grady Newsource
-
-**URL:** [https://news.google.com/rss/articles/CBMimAFBVV95cUxPdFQxUU5lNm1wVWpqRFp3Wl9wRlpTZG5ROXNUMWs1OTVCeWpSMTlBRXgwSHByOHZNRjBTZGtqVkYtdmRiVWxGTXBaVXJXeWFlcUwzNVpKeTJkZkNvU0VaY0VkUExYRzFpN2tQYlZWMmNxYTBUM3drckkwV3d0X0tnODJyMzU4OUZnMnlka2thcXd4TGZENHNDaQ?oc=5](https://news.google.com/rss/articles/CBMimAFBVV95cUxPdFQxUU5lNm1wVWpqRFp3Wl9wRlpTZG5ROXNUMWs1OTVCeWpSMTlBRXgwSHByOHZNRjBTZGtqVkYtdmRiVWxGTXBaVXJXeWFlcUwzNVpKeTJkZkNvU0VaY0VkUExYRzFpN2tQYlZWMmNxYTBUM3drckkwV3d0X0tnODJyMzU4OUZnMnlka2thcXd4TGZENHNDaQ?oc=5)
-
----
-
-### Microsoft Copilot reveals secret input that allowed it to be hacked
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 arstechnica |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | Ars Technica AI |
-
-**Summary:** Secret parameter allowed hackers to steal passwords when a target clicked on a link.
-
-**URL:** [https://arstechnica.com/security/2026/08/microsoft-copilot-reveals-secret-input-that-allowed-it-to-be-hacked/](https://arstechnica.com/security/2026/08/microsoft-copilot-reveals-secret-input-that-allowed-it-to-be-hacked/)
-
----
-
-### Crypto exchange Kraken launches cash back debit card in bid for consumer wallets
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | CNBC AI |
-
-**Summary:** Kraken is vying for a place in consumer wallets as crypto evolves from an asset class into infrastructure for mainstream financial products.
-
-**URL:** [https://www.cnbc.com/2026/08/18/kraken-launches-debit-card-in-bid-for-consumer-wallets.html](https://www.cnbc.com/2026/08/18/kraken-launches-debit-card-in-bid-for-consumer-wallets.html)
-
----
-
-### Firefox&#8217;s Smart Window promises a better AI browser
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 the-verge |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | The Verge AI |
-
-**Summary:** Starting today, AI chats in Firefox's Smart Window AI browsing mode can pull from current web info and show source links in chat responses through a partnership with Exa. Smart Window can also now aut
-
-**URL:** [https://www.theverge.com/ai-artificial-intelligence/981283/mozilla-firefox-smart-window-ai-features](https://www.theverge.com/ai-artificial-intelligence/981283/mozilla-firefox-smart-window-ai-features)
-
----
-
-### Local opinion: The right to become someone new
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | tucson.com |
-
-**Summary:** Local opinion: The right to become someone new  tucson.com
-
-**URL:** [https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQmc4YVZpai1hQVVGUmdwVWlPU3FXVzJuRXdkUG9odkNOZlU4cEdGVnVGUTU4c2JyZ0lSOEV1ckxmZXVJQzBTVVAwbnVObm9DemlNSWI4cmViNlMyTFY5MnI1RmpfTmZsczVSSU14NXJzT2lRS3FtV2ZxZEg1V3VOUm0yNVduT0IyZ2VV?oc=5](https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQmc4YVZpai1hQVVGUmdwVWlPU3FXVzJuRXdkUG9odkNOZlU4cEdGVnVGUTU4c2JyZ0lSOEV1ckxmZXVJQzBTVVAwbnVObm9DemlNSWI4cmViNlMyTFY5MnI1RmpfTmZsczVSSU14NXJzT2lRS3FtV2ZxZEg1V3VOUm0yNVduT0IyZ2VV?oc=5)
-
----
-
-### Copilot tricked into telling reseachers how to hack itself
-
-                
-    How to social engineer an AI's reasoning engine
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 the-register |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | The Register AI |
-
-**Summary:** Copilot tricked into telling reseachers how to hack itself
-
-                
-    How to social engineer an AI's reasoning engine
-
-**URL:** [https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857](https://www.theregister.com/research/2026/08/18/copilot-tricked-into-telling-reseachers-how-to-hack-itself/5288857)
-
----
-
-### Health tech AI investment is accelerating into chronic care, home health, and workforce training in 2026
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | MarketScale |
-
-**Summary:** Health tech AI investment is accelerating into chronic care, home health, and workforce training in 2026  MarketScale
-
-**URL:** [https://news.google.com/rss/articles/CBMi5wFBVV95cUxNTDV6SlVLNkF1YXZ2NzJsVFEta2pkODE2WHp1UFdHNnhlOFZSVW03MEgxdXp2RDZZTGV0dFBfYi1YRXJWMHZSOWZNajlXcGR0b2NrZ0lCUHRNU2lHZl85ckJEdEJsVTZsbFpkTE9MNVJpeXZ4blFxT2xNaEhhN3lhTXVDT3g3a2hLUmFJaTI4TlFaNW8wdVp2bmlyenQwb1F6cXBXVzlRTUdIcmpjbEgtWE04ME9FX1U0QUtzOWFBZ0Z0SUdnQjJFcnU5Y2VDbDNPZXJLWjBLcEUwb0FTRFJJejYtSTNYVWc?oc=5](https://news.google.com/rss/articles/CBMi5wFBVV95cUxNTDV6SlVLNkF1YXZ2NzJsVFEta2pkODE2WHp1UFdHNnhlOFZSVW03MEgxdXp2RDZZTGV0dFBfYi1YRXJWMHZSOWZNajlXcGR0b2NrZ0lCUHRNU2lHZl85ckJEdEJsVTZsbFpkTE9MNVJpeXZ4blFxT2xNaEhhN3lhTXVDT3g3a2hLUmFJaTI4TlFaNW8wdVp2bmlyenQwb1F6cXBXVzlRTUdIcmpjbEgtWE04ME9FX1U0QUtzOWFBZ0Z0SUdnQjJFcnU5Y2VDbDNPZXJLWjBLcEUwb0FTRFJJejYtSTNYVWc?oc=5)
-
----
-
-### Google DeepMind CEO Calls For U.S.-Led AI Oversight 07/14/2026
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | MediaPost |
-
-**Summary:** Google DeepMind CEO Calls For U.S.-Led AI Oversight 07/14/2026  MediaPost
-
-**URL:** [https://news.google.com/rss/articles/CBMitwFBVV95cUxOdjB2M2s3MlkzaUpzWld0ZmxRNlh1c2NDT2RuVG5ZOVJvWV9xTEkzdHZVRE11T245T2tJNU1KZ2dYLWtWQ2dHNlJ0S2Zpd3p0eFNjS1FCeFUwQzBfVEtLc2NkWnFWazdFZVV6TzNXOWZlNGU2N25vOEVTSmdHRU5lLUwyN3B6TXdjRzJEQ19Ub0xBNFVXQ1lEaElHaE5kSlhUVzd2RjhlQ3AwQVV6bWNjOTJDempXU0U?oc=5](https://news.google.com/rss/articles/CBMitwFBVV95cUxOdjB2M2s3MlkzaUpzWld0ZmxRNlh1c2NDT2RuVG5ZOVJvWV9xTEkzdHZVRE11T245T2tJNU1KZ2dYLWtWQ2dHNlJ0S2Zpd3p0eFNjS1FCeFUwQzBfVEtLc2NkWnFWazdFZVV6TzNXOWZlNGU2N25vOEVTSmdHRU5lLUwyN3B6TXdjRzJEQ19Ub0xBNFVXQ1lEaElHaE5kSlhUVzd2RjhlQ3AwQVV6bWNjOTJDempXU0U?oc=5)
-
----
-
-### Treasury yields rise, Home Depot earnings, Paramount's bond request and more in Morning Squawk
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 cnbc |
-| **Date** | August 18, 2026 (1d ago) |
-| **Category** | 📌 other |
-| **Author** | CNBC AI |
-
-**Summary:** Here are five key things investors need to know to start the trading day.
-
-**URL:** [https://www.cnbc.com/2026/08/18/5-things-to-know-before-the-stock-market-opens.html](https://www.cnbc.com/2026/08/18/5-things-to-know-before-the-stock-market-opens.html)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7629,4 +7630,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-20T04:36:47.589Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-20T08:38:00.968Z by AI Pulse Knowledge Base Generator*
