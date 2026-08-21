@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-21T16:34:01.602Z",
+  "updatedAt": "2026-08-21T20:25:21.793Z",
   "source": "Artificial Analysis Text to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
   "total": 31,
@@ -23,7 +23,7 @@
       "name": "Gemini Omni Flash",
       "elo": 1238,
       "ci": "-6/6",
-      "samples": 16077,
+      "samples": 16079,
       "released": "May 2026",
       "price": "$6.00 /min"
     },
@@ -56,7 +56,7 @@
       "name": "Wan2.7-260612",
       "elo": 1156,
       "ci": "-6/6",
-      "samples": 17038,
+      "samples": 17042,
       "released": "Jun 2026",
       "price": "$9.00 /min"
     },
@@ -67,7 +67,7 @@
       "name": "HappyHorse-1.1",
       "elo": 1145,
       "ci": "-6/6",
-      "samples": 17102,
+      "samples": 17105,
       "released": "Jun 2026",
       "price": "$9.90 /min"
     },
@@ -78,7 +78,7 @@
       "name": "HappyHorse-1.0",
       "elo": 1120,
       "ci": "-6/6",
-      "samples": 9240,
+      "samples": 9241,
       "released": "Apr 2026",
       "price": "$13.20 /min"
     },
@@ -89,7 +89,7 @@
       "name": "Wan 2.7",
       "elo": 1107,
       "ci": "-7/7",
-      "samples": 5648,
+      "samples": 5650,
       "released": "Apr 2026",
       "price": "$9.00 /min"
     },
@@ -100,7 +100,7 @@
       "name": "Kling 3.0 1080p (Pro)",
       "elo": 1105,
       "ci": "-5/5",
-      "samples": 20447,
+      "samples": 20448,
       "released": "Feb 2026",
       "price": "$20.16 /min"
     },
@@ -111,7 +111,7 @@
       "name": "SkyReels V4",
       "elo": 1100,
       "ci": "-7/7",
-      "samples": 6148,
+      "samples": 6149,
       "released": "Mar 2026",
       "price": "$21.00 /min"
     },
@@ -122,7 +122,7 @@
       "name": "Kling 3.0 720p (Standard)",
       "elo": 1099,
       "ci": "-5/5",
-      "samples": 19575,
+      "samples": 19577,
       "released": "Feb 2026",
       "price": "$15.12 /min"
     },
@@ -133,7 +133,7 @@
       "name": "Veo 3.1",
       "elo": 1089,
       "ci": "-6/6",
-      "samples": 9111,
+      "samples": 9112,
       "released": "Jan 2026",
       "price": "$24.00 /min"
     },
@@ -162,17 +162,6 @@
     {
       "rank": 15,
       "range": "12-16",
-      "creator": "KlingAI",
-      "name": "Kling 3.0 Omni 1080p (Pro)",
-      "elo": 1087,
-      "ci": "-6/6",
-      "samples": 8928,
-      "released": "Feb 2026",
-      "price": "$16.80 /min"
-    },
-    {
-      "rank": 16,
-      "range": "12-16",
       "creator": "Google",
       "name": "Veo 3.1 Fast",
       "elo": 1087,
@@ -182,13 +171,24 @@
       "price": "$9.00 /min"
     },
     {
+      "rank": 16,
+      "range": "12-16",
+      "creator": "KlingAI",
+      "name": "Kling 3.0 Omni 1080p (Pro)",
+      "elo": 1087,
+      "ci": "-6/6",
+      "samples": 8929,
+      "released": "Feb 2026",
+      "price": "$16.80 /min"
+    },
+    {
       "rank": 17,
       "range": "17-18",
       "creator": "Vidu",
       "name": "Vidu Q3 Pro",
       "elo": 1076,
       "ci": "-6/6",
-      "samples": 18300,
+      "samples": 18302,
       "released": "Jan 2026",
       "price": "$9.60 /min"
     },
@@ -199,7 +199,7 @@
       "name": "PixVerse V6",
       "elo": 1072,
       "ci": "-6/6",
-      "samples": 10305,
+      "samples": 10306,
       "released": "Mar 2026",
       "price": "$6.90 /min"
     },
@@ -210,7 +210,7 @@
       "name": "LTX-2.5 FastOpen Weights",
       "elo": 1062,
       "ci": "-10/10",
-      "samples": 2294,
+      "samples": 2295,
       "released": "Aug 2026",
       "price": "$7.80 /min"
     },
@@ -221,7 +221,7 @@
       "name": "grok-imagine-video",
       "elo": 1062,
       "ci": "-6/6",
-      "samples": 17408,
+      "samples": 17412,
       "released": "Jan 2026",
       "price": "$4.20 /min"
     },
@@ -243,7 +243,7 @@
       "name": "Vidu Q3 Turbo",
       "elo": 1033,
       "ci": "-10/10",
-      "samples": 2574,
+      "samples": 2575,
       "released": "Feb 2026",
       "price": "$3.90 /min"
     },
@@ -265,7 +265,7 @@
       "name": "Seedance 1.5 pro",
       "elo": 1000,
       "ci": "0/0",
-      "samples": 11885,
+      "samples": 11887,
       "released": "Dec 2025",
       "price": "$11.86 /min"
     },
@@ -276,7 +276,7 @@
       "name": "Kling 2.6 Pro (January)",
       "elo": 983,
       "ci": "-7/7",
-      "samples": 8178,
+      "samples": 8180,
       "released": "Jan 2026",
       "price": "$8.40 /min"
     },
@@ -287,7 +287,7 @@
       "name": "LTX-2.3 FastOpen Weights",
       "elo": 974,
       "ci": "-6/6",
-      "samples": 11792,
+      "samples": 11795,
       "released": "Mar 2026",
       "price": "$2.40 /min"
     },
@@ -298,7 +298,7 @@
       "name": "LTX-2.3 ProOpen Weights",
       "elo": 957,
       "ci": "-7/7",
-      "samples": 11263,
+      "samples": 11265,
       "released": "Mar 2026",
       "price": "$4.80 /min"
     },
@@ -320,7 +320,7 @@
       "name": "LTX-2 FastOpen Weights",
       "elo": 941,
       "ci": "-8/8",
-      "samples": 6304,
+      "samples": 6305,
       "released": "Oct 2025",
       "price": "$2.40 /min"
     },
@@ -329,9 +329,9 @@
       "range": "30-31",
       "creator": "Sapiens AI",
       "name": "Agnes-Video-V2.0",
-      "elo": 915,
+      "elo": 916,
       "ci": "-8/8",
-      "samples": 5144,
+      "samples": 5145,
       "released": "May 2026",
       "price": "$0.30 /min"
     },
