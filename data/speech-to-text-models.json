@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-21T04:38:19.919Z",
+  "updatedAt": "2026-08-21T08:40:02.108Z",
   "source": "Artificial Analysis Speech to Text",
   "url": "https://artificialanalysis.ai/speech-to-text",
   "total": 49,
@@ -34,7 +34,7 @@
       "name": "Amazon Bedrock",
       "provider": "Amazon Bedrock",
       "wer": 4.1,
-      "speedFactor": 14.5,
+      "speedFactor": 13.7,
       "price": 6
     },
     {
@@ -74,7 +74,7 @@
       "name": "Cohere",
       "provider": "Cohere",
       "wer": 4.6,
-      "speedFactor": 117.6,
+      "speedFactor": 118.7,
       "price": 0
     },
     {
@@ -114,7 +114,7 @@
       "name": "Google",
       "provider": "Google",
       "wer": 2.8,
-      "speedFactor": 7,
+      "speedFactor": 7.1,
       "price": 18.15
     },
     {
@@ -130,7 +130,7 @@
       "name": "Google",
       "provider": "Google",
       "wer": 2.9,
-      "speedFactor": 16.6,
+      "speedFactor": 16.9,
       "price": 13.7
     },
     {
@@ -138,7 +138,7 @@
       "name": "Google",
       "provider": "Google",
       "wer": 5.2,
-      "speedFactor": 69,
+      "speedFactor": 72.5,
       "price": 6.56
     },
     {
@@ -154,7 +154,7 @@
       "name": "Google",
       "provider": "Google",
       "wer": 2.9,
-      "speedFactor": 13.4,
+      "speedFactor": 12.9,
       "price": 11.39
     },
     {
@@ -186,7 +186,7 @@
       "name": "Mistral",
       "provider": "Mistral",
       "wer": 3.6,
-      "speedFactor": 85.1,
+      "speedFactor": 84.9,
       "price": 3
     },
     {
@@ -194,7 +194,7 @@
       "name": "Mistral",
       "provider": "Mistral",
       "wer": 2.8,
-      "speedFactor": 65.4,
+      "speedFactor": 65,
       "price": 4
     },
     {
@@ -202,7 +202,7 @@
       "name": "DeepInfra",
       "provider": "DeepInfra",
       "wer": 3.8,
-      "speedFactor": 78.4,
+      "speedFactor": 78.3,
       "price": 1
     },
     {
@@ -210,7 +210,7 @@
       "name": "Modulate",
       "provider": "Modulate",
       "wer": 4.2,
-      "speedFactor": 64.3,
+      "speedFactor": 63.6,
       "price": 0.42
     },
     {
@@ -218,7 +218,7 @@
       "name": "Together AI",
       "provider": "Together AI",
       "wer": 4.5,
-      "speedFactor": 292.8,
+      "speedFactor": 286.8,
       "price": 1.5
     },
     {
@@ -234,7 +234,7 @@
       "name": "NVIDIA",
       "provider": "NVIDIA",
       "wer": 6.4,
-      "speedFactor": 99.2,
+      "speedFactor": 98.9,
       "price": 0
     },
     {
@@ -274,7 +274,7 @@
       "name": "Smallest.ai",
       "provider": "Smallest.ai",
       "wer": 2.4,
-      "speedFactor": 280.7,
+      "speedFactor": 278.2,
       "price": 4
     },
     {
@@ -282,7 +282,7 @@
       "name": "Reson8",
       "provider": "Reson8",
       "wer": 3.4,
-      "speedFactor": 313,
+      "speedFactor": 317.4,
       "price": 3.6
     },
     {
@@ -290,7 +290,7 @@
       "name": "Rev AI",
       "provider": "Rev AI",
       "wer": 5.9,
-      "speedFactor": 13.1,
+      "speedFactor": 13.2,
       "price": 3.33
     },
     {
@@ -306,7 +306,7 @@
       "name": "Soniox",
       "provider": "Soniox",
       "wer": 3.8,
-      "speedFactor": 21.1,
+      "speedFactor": 21.6,
       "price": 1.66
     },
     {
@@ -314,7 +314,7 @@
       "name": "Soniox",
       "provider": "Soniox",
       "wer": 3.9,
-      "speedFactor": 22.7,
+      "speedFactor": 24,
       "price": 1.66
     },
     {
@@ -346,7 +346,7 @@
       "name": "Groq",
       "provider": "v3 Turbo",
       "wer": 4.6,
-      "speedFactor": 112.7,
+      "speedFactor": 117.1,
       "price": 0.67
     },
     {
@@ -354,7 +354,7 @@
       "name": "fal.ai",
       "provider": "large-v3",
       "wer": 4.7,
-      "speedFactor": 174.9,
+      "speedFactor": 160.7,
       "price": 0.5
     },
     {
@@ -378,7 +378,7 @@
       "name": "fal.ai",
       "provider": "large-v3",
       "wer": 4.1,
-      "speedFactor": 89.2,
+      "speedFactor": 83,
       "price": 1.15
     },
     {
@@ -386,7 +386,7 @@
       "name": "Together AI",
       "provider": "large-v3",
       "wer": 4.5,
-      "speedFactor": 288.8,
+      "speedFactor": 283.9,
       "price": 1.5
     },
     {
