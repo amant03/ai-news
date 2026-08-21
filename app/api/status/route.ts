@@ -1,24 +1,16 @@
 import { NextResponse } from 'next/server';
 import { readStatus } from '@/lib/status';
 import { hasPg, getAgentRunsPg } from '@/lib/pg';
-
-const DATA_REPO = process.env.DATA_REPO;
-const DATA_BRANCH = process.env.DATA_BRANCH || 'main';
+import { fetchCommittedFile } from '@/lib/github-data';
 
 export async function GET() {
   let status: Record<string, unknown>;
 
   // On Vercel, prefer the committed status.json from GitHub raw for live health data.
-  if (process.env.VERCEL === '1' && DATA_REPO) {
+  if (process.env.VERCEL === '1' && process.env.DATA_REPO) {
+    const raw = await fetchCommittedFile('data/status.json', 10000);
     try {
-      const res = await fetch(`https://raw.githubusercontent.com/${DATA_REPO}/${DATA_BRANCH}/data/status.json`, {
-        signal: AbortSignal.timeout(10000),
-      });
-      if (res.ok) {
-        status = await res.json();
-      } else {
-        status = readStatus() as unknown as Record<string, unknown>;
-      }
+      status = raw ? JSON.parse(raw) : (readStatus() as unknown as Record<string, unknown>);
     } catch {
       status = readStatus() as unknown as Record<string, unknown>;
     }

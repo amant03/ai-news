@@ -1,11 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { NewsItem } from '@/lib/types';
-import { readModelDatabase, ModelRecord } from '@/lib/model-registry';
+import { readModelDatabase, ModelRecord, ModelDatabase } from '@/lib/model-registry';
 import { getNewsItems, readStore } from '@/lib/db';
 import { rankKey } from '@/lib/rank';
 import { hasPg, getPool } from '@/lib/pg';
+import { fetchCommittedFile } from '@/lib/github-data';
 
 export const dynamic = 'force-dynamic';
+
+// Committed catalog from GitHub raw so the serverless app serves fresh model
+// data between deploys (60s in-memory cache).
+const MODEL_CACHE_TTL_MS = 60_000;
+let modelCache: { data: string; at: number } | null = null;
+
+async function loadCommittedModels(): Promise<ModelDatabase | null> {
+  if (process.env.VERCEL !== '1' || !process.env.DATA_REPO) return null;
+  const now = Date.now();
+  if (modelCache && now - modelCache.at < MODEL_CACHE_TTL_MS) {
+    try { return JSON.parse(modelCache.data) as ModelDatabase; } catch { return null; }
+  }
+  const text = await fetchCommittedFile('data/models.json');
+  if (!text) return null;
+  modelCache = { data: text, at: now };
+  try { return JSON.parse(text) as ModelDatabase; } catch { return null; }
+}
 
 const VALID_SORTS = ['elo', 'intelligence', 'value', 'popularity', 'newest', 'name'];
 
@@ -38,6 +56,12 @@ export async function GET(request: NextRequest) {
     readStore();
     const items = getNewsItems(5000, 0) as NewsItem[];
     let db = readModelDatabase();
+
+    // Prefer the freshest committed catalog (GitHub raw) over the deploy-time snapshot.
+    const committed = await loadCommittedModels();
+    if (committed?.models?.length) {
+      db = committed;
+    }
 
     // If Postgres is available, read the model catalog from there — it stays
     // in sync with the agent and never gets overwritten by a stale JSON file.

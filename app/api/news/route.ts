@@ -7,25 +7,15 @@ import { sortByRank } from '@/lib/rank';
 import { frontPageOrder, lastNHours } from '@/lib/engagement';
 import { classifyDomain } from '@/lib/categorize';
 import { hasPg, getNewsPg, countNewsPg, getFacetsPg } from '@/lib/pg';
+import { fetchCommittedFile } from '@/lib/github-data';
 
 // GitHub raw fallback so the deployed (serverless) app always shows the
 // freshest committed data even between Vercel deploys.
-const DATA_REPO = process.env.DATA_REPO; // e.g. "amant03/ai-news"
-const DATA_BRANCH = process.env.DATA_BRANCH || 'main';
-
 const CACHE_TTL_MS = 60_000;
 let memoryCache: { data: string; at: number } | null = null;
 
 async function getRawFromGithub(): Promise<string | null> {
-  if (!DATA_REPO) return null;
-  try {
-    const url = `https://raw.githubusercontent.com/${DATA_REPO}/${DATA_BRANCH}/data/news.json`;
-    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
-    if (!res.ok) return null;
-    return await res.text();
-  } catch {
-    return null;
-  }
+  return fetchCommittedFile('data/news.json');
 }
 
 function readLocalStore(): string | null {

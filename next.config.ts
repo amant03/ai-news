@@ -4,6 +4,13 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["puppeteer"],
   poweredByHeader: false,
   compress: true,
+  // Ensure the JSON data store is bundled into serverless functions that read
+  // it at request time (fs reads aren't auto-traced on Vercel).
+  outputFileTracingIncludes: {
+    "/": ["./data/**"],
+    "/api/news": ["./data/**"],
+    "/api/status": ["./data/**"],
+  },
 };
 
 export default nextConfig;
