@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T01:11:43.653Z",
+  "updatedAt": "2026-08-22T04:32:27.425Z",
   "source": "Artificial Analysis Text to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
   "total": 31,
@@ -23,7 +23,7 @@
       "name": "Gemini Omni Flash",
       "elo": 1238,
       "ci": "-6/6",
-      "samples": 16141,
+      "samples": 16143,
       "released": "May 2026",
       "price": "$6.00 /min"
     },
@@ -34,7 +34,7 @@
       "name": "MiniMax H3Open Weights",
       "elo": 1228,
       "ci": "-8/8",
-      "samples": 8284,
+      "samples": 8286,
       "released": "Jul 2026",
       "price": "$7.80 /min"
     },
@@ -45,7 +45,7 @@
       "name": "Dreamina Seedance 2.0 720p",
       "elo": 1221,
       "ci": "-6/6",
-      "samples": 22823,
+      "samples": 22824,
       "released": "Mar 2026",
       "price": "$9.07 /min"
     },
@@ -56,7 +56,7 @@
       "name": "Wan2.7-260612",
       "elo": 1156,
       "ci": "-6/6",
-      "samples": 17175,
+      "samples": 17178,
       "released": "Jun 2026",
       "price": "$9.00 /min"
     },
@@ -67,7 +67,7 @@
       "name": "HappyHorse-1.1",
       "elo": 1146,
       "ci": "-6/6",
-      "samples": 17274,
+      "samples": 17279,
       "released": "Jun 2026",
       "price": "$9.90 /min"
     },
@@ -78,7 +78,7 @@
       "name": "HappyHorse-1.0",
       "elo": 1121,
       "ci": "-6/6",
-      "samples": 9277,
+      "samples": 9278,
       "released": "Apr 2026",
       "price": "$13.20 /min"
     },
@@ -89,7 +89,7 @@
       "name": "Wan 2.7",
       "elo": 1107,
       "ci": "-7/7",
-      "samples": 5713,
+      "samples": 5715,
       "released": "Apr 2026",
       "price": "$9.00 /min"
     },
@@ -100,7 +100,7 @@
       "name": "Kling 3.0 1080p (Pro)",
       "elo": 1105,
       "ci": "-5/5",
-      "samples": 20625,
+      "samples": 20627,
       "released": "Feb 2026",
       "price": "$20.16 /min"
     },
@@ -111,7 +111,7 @@
       "name": "SkyReels V4",
       "elo": 1100,
       "ci": "-7/7",
-      "samples": 6201,
+      "samples": 6204,
       "released": "Mar 2026",
       "price": "$21.00 /min"
     },
@@ -122,7 +122,7 @@
       "name": "Kling 3.0 720p (Standard)",
       "elo": 1098,
       "ci": "-5/5",
-      "samples": 19782,
+      "samples": 19787,
       "released": "Feb 2026",
       "price": "$15.12 /min"
     },
@@ -144,7 +144,7 @@
       "name": "Veo 3.1",
       "elo": 1089,
       "ci": "-6/6",
-      "samples": 9154,
+      "samples": 9155,
       "released": "Jan 2026",
       "price": "$24.00 /min"
     },
@@ -166,7 +166,7 @@
       "name": "Kling 3.0 Omni 1080p (Pro)",
       "elo": 1087,
       "ci": "-6/6",
-      "samples": 8980,
+      "samples": 8981,
       "released": "Feb 2026",
       "price": "$16.80 /min"
     },
@@ -177,7 +177,7 @@
       "name": "Veo 3.1 Fast",
       "elo": 1087,
       "ci": "-5/5",
-      "samples": 18512,
+      "samples": 18514,
       "released": "Jan 2026",
       "price": "$9.00 /min"
     },
@@ -188,7 +188,7 @@
       "name": "Vidu Q3 Pro",
       "elo": 1075,
       "ci": "-5/5",
-      "samples": 18471,
+      "samples": 18472,
       "released": "Jan 2026",
       "price": "$9.60 /min"
     },
@@ -210,7 +210,7 @@
       "name": "LTX-2.5 FastOpen Weights",
       "elo": 1063,
       "ci": "-10/10",
-      "samples": 2336,
+      "samples": 2339,
       "released": "Aug 2026",
       "price": "$7.80 /min"
     },
@@ -232,7 +232,7 @@
       "name": "LTX-2.5 ProOpen Weights",
       "elo": 1062,
       "ci": "-10/10",
-      "samples": 2418,
+      "samples": 2420,
       "released": "Aug 2026",
       "price": "$10.20 /min"
     },
@@ -241,9 +241,9 @@
       "range": "22-23",
       "creator": "Vidu",
       "name": "Vidu Q3 Turbo",
-      "elo": 1033,
+      "elo": 1032,
       "ci": "-10/10",
-      "samples": 2609,
+      "samples": 2612,
       "released": "Feb 2026",
       "price": "$3.90 /min"
     },
@@ -265,7 +265,7 @@
       "name": "Seedance 1.5 pro",
       "elo": 1000,
       "ci": "0/0",
-      "samples": 12002,
+      "samples": 12004,
       "released": "Dec 2025",
       "price": "$11.86 /min"
     },
@@ -287,7 +287,7 @@
       "name": "LTX-2.3 FastOpen Weights",
       "elo": 974,
       "ci": "-6/6",
-      "samples": 11910,
+      "samples": 11911,
       "released": "Mar 2026",
       "price": "$2.40 /min"
     },
@@ -296,9 +296,9 @@
       "range": "27",
       "creator": "Lightricks",
       "name": "LTX-2.3 ProOpen Weights",
-      "elo": 958,
+      "elo": 957,
       "ci": "-7/7",
-      "samples": 11339,
+      "samples": 11340,
       "released": "Mar 2026",
       "price": "$4.80 /min"
     },
