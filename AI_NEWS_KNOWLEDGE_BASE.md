@@ -1,7 +1,7 @@
 # AI News Knowledge Base
 
 > **Auto-generated knowledge base of major AI news, model releases, and industry impacts.**
-> Last Updated: 2026-08-22T08:29:23.150Z
+> Last Updated: 2026-08-22T12:37:55.638Z
 > Total Articles Tracked: 2500
 > Generated from AI Pulse database
 
@@ -14,27 +14,27 @@
 | Metric | Count |
 |--------|-------|
 | **Total Articles** | 500 |
-| 🧠 **Model Releases** | 107 |
+| 🧠 **Model Releases** | 111 |
 | 🔬 **Research** | 52 |
-| 💼 **Product/Business** | 65 |
-| 🛡️ **Safety/Security** | 15 |
+| 💼 **Product/Business** | 61 |
+| 🛡️ **Safety/Security** | 14 |
 | ⚖️ **Policy/Regulation** | 16 |
 
 ## 📡 Source Breakdown
 
 | Source | Articles |
 |--------|----------|
-| **google-news** | 255 |
+| **google-news** | 256 |
 | **arxiv** | 57 |
-| **zdnet** | 28 |
-| **reddit** | 25 |
-| **the-decoder** | 22 |
-| **hacker-news** | 22 |
-| **techcrunch** | 22 |
-| **amazon** | 16 |
-| **cnbc** | 15 |
-| **the-register** | 8 |
+| **zdnet** | 31 |
+| **reddit** | 26 |
+| **the-decoder** | 24 |
+| **hacker-news** | 21 |
+| **techcrunch** | 19 |
+| **cnbc** | 16 |
+| **amazon** | 13 |
 | **marktechpost** | 7 |
+| **the-register** | 7 |
 | **the-verge** | 6 |
 | **wired** | 3 |
 | **other** | 3 |
@@ -47,23 +47,83 @@
 
 ### Categories
 
-- [🧠 Frontier Model Releases](#frontier-model-releases) — 107 articles
+- [🧠 Frontier Model Releases](#frontier-model-releases) — 111 articles
 - [🔬 Research Breakthroughs](#research-breakthroughs) — 52 articles
-- [💼 Product & Business Updates](#product--business-updates) — 65 articles
-- [🛡️ AI Safety & Security](#ai-safety--security) — 15 articles
+- [💼 Product & Business Updates](#product--business-updates) — 61 articles
+- [🛡️ AI Safety & Security](#ai-safety--security) — 14 articles
 - [⚖️ Regulation & Policy](#regulation--policy) — 16 articles
-- [📌 Other Notable News](#other-notable-news) — 245 articles
+- [📌 Other Notable News](#other-notable-news) — 246 articles
 
 ---
 
 ## 🧠 Frontier Model Releases
+
+### Generalist AI Releases GEN-1.5 Robot Foundation Model That Learns From a Single Demonstration
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (10m ago) |
+| **Category** | 🧠 model |
+| **Author** | AI Insider |
+
+**Summary:** Generalist AI Releases GEN-1.5 Robot Foundation Model That Learns From a Single Demonstration  AI Insider
+
+**URL:** [https://news.google.com/rss/articles/CBMiywFBVV95cUxNSGp2b2Y5Rm9BT2tCTGVvUEgzOFNiaG5Xd2JqU3dndDI0NGMyVklnbWx6TEM0cVpSQ1Qyamd4aGZod0NvdDFhVngzOW5kRGd4UjI2T2ZTUk9zNV9US201R2hNWDJXVW1oYmZ0WUJQa09qWUNlZEpSX1JoU0V1M0VqdXZxZ1VCdXAxZFJ0QlFIYndrNl9rdy03aERkeG9CSHVDeEprSHhaQ3NaM0JRUUhfX3ZSaUl6VDFxdUhheFBSS2NGbEFXYmpmOGFlWQ?oc=5](https://news.google.com/rss/articles/CBMiywFBVV95cUxNSGp2b2Y5Rm9BT2tCTGVvUEgzOFNiaG5Xd2JqU3dndDI0NGMyVklnbWx6TEM0cVpSQ1Qyamd4aGZod0NvdDFhVngzOW5kRGd4UjI2T2ZTUk9zNV9US201R2hNWDJXVW1oYmZ0WUJQa09qWUNlZEpSX1JoU0V1M0VqdXZxZ1VCdXAxZFJ0QlFIYndrNl9rdy03aERkeG9CSHVDeEprSHhaQ3NaM0JRUUhfX3ZSaUl6VDFxdUhheFBSS2NGbEFXYmpmOGFlWQ?oc=5)
+
+---
+
+### Z.ai delays GLM 5.3 release over cybersecurity risks
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (16m ago) |
+| **Category** | 🧠 model |
+| **Author** | BetaNews |
+
+**Summary:** Z.ai delays GLM 5.3 release over cybersecurity risks  BetaNews
+
+**URL:** [https://news.google.com/rss/articles/CBMibkFVX3lxTE1MaWVwNkNrRXI3SW9pdzBwd2lSN0hSODFKNmZIdnlGUlRRNDVudnhkRWF5NmJFTzRqWGFjanJyaVRJODVFOEFOYmc5dVdVS3k1ZVdjVk10QVVmeGpPYWxabmpJbmdVREZKQUE5T01B?oc=5](https://news.google.com/rss/articles/CBMibkFVX3lxTE1MaWVwNkNrRXI3SW9pdzBwd2lSN0hSODFKNmZIdnlGUlRRNDVudnhkRWF5NmJFTzRqWGFjanJyaVRJODVFOEFOYmc5dVdVS3k1ZVdjVk10QVVmeGpPYWxabmpJbmdVREZKQUE5T01B?oc=5)
+
+---
+
+### Pixel Watch 4 vs. Pixel Watch 5: Is Google's new model worth it? It comes down to this
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 22, 2026 (52m ago) |
+| **Category** | 🧠 model |
+| **Author** | ZDNet AI |
+
+**Summary:** Google's latest smartwatch costs the same as the previous generation for now, but the upgrade could be worth it for a certain user.
+
+**URL:** [https://www.zdnet.com/article/pixel-watch-4-vs-pixel-watch-5/](https://www.zdnet.com/article/pixel-watch-4-vs-pixel-watch-5/)
+
+---
+
+### Why does lightgbm not fit my toy example but catboost does? (2 order interactions) [D]
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 reddit |
+| **Date** | August 22, 2026 (3h ago) |
+| **Category** | 🧠 model |
+| **Author** | r/MachineLearning |
+
+**Summary:** I am trying understand how tree-based regression model handle the dependencies of the target variables on the interaction of explanatory variables. However my experiment revealed that my understanding
+
+**URL:** [https://www.reddit.com/r/MachineLearning/comments/1vv7wx3/why_does_lightgbm_not_fit_my_toy_example_but/](https://www.reddit.com/r/MachineLearning/comments/1vv7wx3/why_does_lightgbm_not_fit_my_toy_example_but/)
+
+---
 
 ### Netflix tests language model as alternative to hand-built recommendation logic
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 22, 2026 (59m ago) |
+| **Date** | August 22, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -78,7 +138,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 22, 2026 (1h ago) |
+| **Date** | August 22, 2026 (5h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -93,7 +153,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 22, 2026 (3h ago) |
+| **Date** | August 22, 2026 (7h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -108,7 +168,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 22, 2026 (7h ago) |
+| **Date** | August 22, 2026 (11h ago) |
 | **Category** | 🧠 model |
 | **Author** | joshuawright11 |
 
@@ -123,7 +183,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -138,7 +198,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (10h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -153,7 +213,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -163,12 +223,27 @@
 
 ---
 
+### Best AI Model in August Odds & Predictions
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 21, 2026 (15h ago) |
+| **Category** | 🧠 model |
+| **Author** | DeFi Rate |
+
+**Summary:** Best AI Model in August Odds & Predictions  DeFi Rate
+
+**URL:** [https://news.google.com/rss/articles/CBMia0FVX3lxTFB0QUZZOXFuQkF1Qi1peEd2cUgwN21xUC10WGZsczlCaUtBb3hJakhtbE54bVFiT2x4bzgtMVptR2pCNnpaOXZCeENEa2dwZFBqemR2UXAzbUR1TlBhcktsTHU1ZU9zeGUzYW5n?oc=5](https://news.google.com/rss/articles/CBMia0FVX3lxTFB0QUZZOXFuQkF1Qi1peEd2cUgwN21xUC10WGZsczlCaUtBb3hJakhtbE54bVFiT2x4bzgtMVptR2pCNnpaOXZCeENEa2dwZFBqemR2UXAzbUR1TlBhcktsTHU1ZU9zeGUzYW5n?oc=5)
+
+---
+
 ### Hybrid collaborative filtering recommendation system for judging and suggesting books based on their covers [P]
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -183,7 +258,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -198,7 +273,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | speckx |
 
@@ -213,7 +288,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -228,7 +303,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -243,7 +318,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -258,7 +333,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 🧠 model |
 | **Author** | garo-pro |
 
@@ -273,7 +348,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -288,7 +363,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | Amazon ML |
 
@@ -303,7 +378,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | Amazon ML |
 
@@ -318,7 +393,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | pablo24602 |
 
@@ -333,7 +408,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -348,7 +423,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | Caixin Global |
 
@@ -363,7 +438,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -378,7 +453,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | aakil |
 
@@ -393,7 +468,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (22h ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -408,7 +483,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | StartupHub.ai |
 
@@ -423,7 +498,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | AI Insider |
 
@@ -438,7 +513,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | South China Morning Post |
 
@@ -453,7 +528,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | finance.biggo.com |
 
@@ -463,12 +538,27 @@
 
 ---
 
+### Kalshi Best AI Odds: Claude Dominates Prediction Market for 2026
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 21, 2026 (1d ago) |
+| **Category** | 🧠 model |
+| **Author** | Covers.com |
+
+**Summary:** Kalshi Best AI Odds: Claude Dominates Prediction Market for 2026  Covers.com
+
+**URL:** [https://news.google.com/rss/articles/CBMicEFVX3lxTE56WmxGX3F0QlpSbk16QmVJU2o1VzYyQUU3UWpyXzlZR1hRdmxNMjF2NGUtUzRuYy1aSDE1bHZ1UXNCa2pYeUFITmpwY1FRa0FocU90cjJYbWRUU25VQkk2SkE5alhNMTFVOE5JQnl2dG0?oc=5](https://news.google.com/rss/articles/CBMicEFVX3lxTE56WmxGX3F0QlpSbk16QmVJU2o1VzYyQUU3UWpyXzlZR1hRdmxNMjF2NGUtUzRuYy1aSDE1bHZ1UXNCa2pYeUFITmpwY1FRa0FocU90cjJYbWRUU25VQkk2SkE5alhNMTFVOE5JQnl2dG0?oc=5)
+
+---
+
 ### A version of the compact model 'LFM2.5' with DSpark, a speculative decoding technology that makes it more than twice as fast, has been released.
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | GIGAZINE |
 
@@ -483,7 +573,7 @@
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🧠 model |
 | **Author** | Proactive Investors |
 
@@ -1326,7 +1416,7 @@ The post Liquid AI Releases LFM2.5-DSpark Draft Models That Deliver Up t
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -1342,7 +1432,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Yahoo Finance Singapore |
 
@@ -1357,7 +1447,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -1372,7 +1462,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | The Verge AI |
 
@@ -1387,7 +1477,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -1402,7 +1492,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Matthias Seeger, Zeyu Zhang, Vihang Patil |
 
@@ -1417,7 +1507,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | Axios |
 
@@ -1432,7 +1522,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | r/MachineLearning |
 
@@ -1447,7 +1537,7 @@ The article GEN-1.5: Generalist AI teaches robots new tasks from a single de
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -1463,7 +1553,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | TechCrunch AI |
 
@@ -1478,7 +1568,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | TheDecoder |
 
@@ -1493,7 +1583,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🧠 model |
 | **Author** | MarkTechPost |
 
@@ -1638,44 +1728,44 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 
 ---
 
-### OpenAI Pauses Training, Google Delays Release
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | 조선일보 |
-
-**Summary:** OpenAI Pauses Training, Google Delays Release  조선일보
-
-**URL:** [https://news.google.com/rss/articles/CBMiiAFBVV95cUxQd0p1UG80S1JYcUhON0piQkczRDdfNnNaQTJ4ek42V1F5ZHpUako0NmQyN3hJQk8xVm5Fa1lUYzdrS1A1dG8wNHUxak96WmMyTnBkTS1CVU9peUdGY3Z6V2VTQ3Nvb3BWZXN2bjJXYzQ3MUZxOUNXZWRVVWhfbUVDbVRjUDhHRmdy?oc=5](https://news.google.com/rss/articles/CBMiiAFBVV95cUxQd0p1UG80S1JYcUhON0piQkczRDdfNnNaQTJ4ek42V1F5ZHpUako0NmQyN3hJQk8xVm5Fa1lUYzdrS1A1dG8wNHUxak96WmMyTnBkTS1CVU9peUdGY3Z6V2VTQ3Nvb3BWZXN2bjJXYzQ3MUZxOUNXZWRVVWhfbUVDbVRjUDhHRmdy?oc=5)
-
----
-
-### Domain and publish date filters for Web Search on AgentCore
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 🧠 model |
-| **Author** | Amazon ML |
-
-**Summary:** Web Search on Amazon Bedrock AgentCore now supports runtime domain and published-date filtering. New per-request filters give developers per-call control over which web sources their agents consult an
-
-**URL:** [https://aws.amazon.com/blogs/machine-learning/domain-and-publish-date-filters-for-web-search-on-agentcore/](https://aws.amazon.com/blogs/machine-learning/domain-and-publish-date-filters-for-web-search-on-agentcore/)
-
----
-
 ## 🔬 Research Breakthroughs
+
+### Study explains why AI agents benefit from "skills" and when they fail
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 22, 2026 (22m ago) |
+| **Category** | 🔬 research |
+| **Author** | TheDecoder |
+
+**Summary:** A study from researchers at Princeton University and UC San Diego finds that so-called skills make AI agents better mainly through structured workflows, not through added knowledge. But as the skill l
+
+**URL:** [https://the-decoder.com/study-explains-why-ai-agents-benefit-from-skills-and-when-they-fail/](https://the-decoder.com/study-explains-why-ai-agents-benefit-from-skills-and-when-they-fail/)
+
+---
+
+### World models that ignore human beliefs predict the wrong actions, new research shows
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 the-decoder |
+| **Date** | August 22, 2026 (3h ago) |
+| **Category** | 🔬 research |
+| **Author** | TheDecoder |
+
+**Summary:** Current world models like Sora or Genie only simulate physics and ignore what people think, want, or feel. The new "Mental World Modeling" framework adds mental variables like beliefs and intentions. 
+
+**URL:** [https://the-decoder.com/world-models-that-ignore-human-beliefs-predict-the-wrong-actions-new-research-shows/](https://the-decoder.com/world-models-that-ignore-human-beliefs-predict-the-wrong-actions-new-research-shows/)
+
+---
 
 ### Israeli scientists: AI can make personality tests, predict responses
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (3h ago) |
+| **Date** | August 22, 2026 (7h ago) |
 | **Category** | 🔬 research |
 | **Author** | The Jerusalem Post |
 
@@ -1690,7 +1780,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (8h ago) |
+| **Date** | August 21, 2026 (12h ago) |
 | **Category** | 🔬 research |
 | **Author** | The Pennsylvania State University |
 
@@ -1705,7 +1795,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 🔬 research |
 | **Author** | dariusmonsef |
 
@@ -1720,7 +1810,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 21, 2026 (10h ago) |
+| **Date** | August 21, 2026 (14h ago) |
 | **Category** | 🔬 research |
 | **Author** | MarkTechPost |
 
@@ -1735,7 +1825,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 🔬 research |
 | **Author** | EurekAlert! |
 
@@ -1750,7 +1840,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 🔬 research |
 | **Author** | UC San Diego Today |
 
@@ -1765,7 +1855,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 🔬 research |
 | **Author** | AI Insider |
 
@@ -1780,7 +1870,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1795,7 +1885,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1810,7 +1900,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1825,7 +1915,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1840,7 +1930,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 🔬 research |
 | **Author** | Florida State University News |
 
@@ -1855,7 +1945,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -1870,7 +1960,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | Edymilson |
 
@@ -1885,7 +1975,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 other |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 🔬 research |
 | **Author** | ScienceDaily AI |
 
@@ -1900,7 +1990,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 🔬 research |
 | **Author** | dsrtslnd23 |
 
@@ -1915,7 +2005,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 🔬 research |
 | **Author** | The Cryptonomist |
 
@@ -1930,7 +2020,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | The University of North Carolina at Chapel Hill |
 
@@ -1945,7 +2035,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Unite.AI |
 
@@ -1960,7 +2050,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Google DeepMind |
 
@@ -1975,7 +2065,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 Google |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | Google DeepMind |
 
@@ -1990,7 +2080,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -2335,7 +2425,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🔬 research |
 | **Author** | Konstantin Chesnokov, Chingiz Mingazov |
 
@@ -2350,7 +2440,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🔬 research |
 | **Author** | HR Executive |
 
@@ -2365,7 +2455,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arxiv |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🔬 research |
 | **Author** | Hao Guo, Subin Huang, Junjie Chen |
 
@@ -2380,7 +2470,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🔬 research |
 | **Author** | ZDNet AI |
 
@@ -2398,7 +2488,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🔬 research |
 | **Author** | The Register AI |
 
@@ -2416,7 +2506,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🔬 research |
 | **Author** | r/MachineLearning |
 
@@ -2426,44 +2516,29 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 
 ---
 
-### Foundation AI in July: New Models, Benchmarks, and Security Research
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | Cisco Blogs |
-
-**Summary:** Foundation AI in July: New Models, Benchmarks, and Security Research  Cisco Blogs
-
-**URL:** [https://news.google.com/rss/articles/CBMilwFBVV95cUxPbkRGQlhTMF9SeE9yanJsSEw3eGRLUU1hR1N2ZVF3V2h2cFVmdG1UZjNxQ3J2eDBJdFo5VVEtXzMwaWJENzVVQWZ0RUtlRmNRdUpfZXVYSWxfczJxX3lvN2lTTHFQREpoRXVNSmVqVFFtWjNMb0xieUJNQ1phTUQtQkYyU0R6RmZYUXo2cm9LNTFDeFNmeE1V?oc=5](https://news.google.com/rss/articles/CBMilwFBVV95cUxPbkRGQlhTMF9SeE9yanJsSEw3eGRLUU1hR1N2ZVF3V2h2cFVmdG1UZjNxQ3J2eDBJdFo5VVEtXzMwaWJENzVVQWZ0RUtlRmNRdUpfZXVYSWxfczJxX3lvN2lTTHFQREpoRXVNSmVqVFFtWjNMb0xieUJNQ1phTUQtQkYyU0R6RmZYUXo2cm9LNTFDeFNmeE1V?oc=5)
-
----
-
-### UVA study explores the role of Artificial Intelligence in special education
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 🔬 research |
-| **Author** | WVIR |
-
-**Summary:** UVA study explores the role of Artificial Intelligence in special education  WVIR
-
-**URL:** [https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRUt5alY1U0Vtc3Jza3VGNHVIUjBpZHp3QUliY0JFLVhFTVBXbmlCYzdRVmE3TXFZRUNGaDB3ZXZZOHJmek5jY3ZNbGtPSHo1cUxtMUhzcENNRDhWSFdaWDlzMTlmMGtFeko1ZFNjOTg0eHc2QmVlc3AyWEwzXzI5ZVFjZlVsa0ZKVjFaNnRtalRNU0JDRkpsU0JJcW1PNTJibXd5NVVaSGRxUQ?oc=5](https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRUt5alY1U0Vtc3Jza3VGNHVIUjBpZHp3QUliY0JFLVhFTVBXbmlCYzdRVmE3TXFZRUNGaDB3ZXZZOHJmek5jY3ZNbGtPSHo1cUxtMUhzcENNRDhWSFdaWDlzMTlmMGtFeko1ZFNjOTg0eHc2QmVlc3AyWEwzXzI5ZVFjZlVsa0ZKVjFaNnRtalRNU0JDRkpsU0JJcW1PNTJibXd5NVVaSGRxUQ?oc=5)
-
----
-
 ## 💼 Product & Business Updates
+
+### OpenAI IPO: Sam Altman Reportedly Reveals Timeline, Hints At Major AI Upgrade
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (5h ago) |
+| **Category** | 💼 product |
+| **Author** | Stocktwits |
+
+**Summary:** OpenAI IPO: Sam Altman Reportedly Reveals Timeline, Hints At Major AI Upgrade  Stocktwits
+
+**URL:** [https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWUdTX1ZYX0k0eTRldC04NTdKTFVyaDRNblF4eDRSaDdEbXNXTkRBME1QWjQwRFZqX3RaM21SX1dENHp0eDY2ZjkxTVlFRkNOZXFzZ2NHc0NWZndQSXJaSlBkNDZlQkpOVi05dGVlVHhZWUU2TnJnU2J2Y0JwdUxydFZFS1JUbzJIZkNkd1F3dGxrdGhvNnJDVkhWa3hHLXVYYk12aUFGa3dYUHdvYW54NU9HTWozTmNfY0Q0MmQzRDgtY2doWHZpMUpPSk9YSXA4?oc=5](https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWUdTX1ZYX0k0eTRldC04NTdKTFVyaDRNblF4eDRSaDdEbXNXTkRBME1QWjQwRFZqX3RaM21SX1dENHp0eDY2ZjkxTVlFRkNOZXFzZ2NHc0NWZndQSXJaSlBkNDZlQkpOVi05dGVlVHhZWUU2TnJnU2J2Y0JwdUxydFZFS1JUbzJIZkNkd1F3dGxrdGhvNnJDVkhWa3hHLXVYYk12aUFGa3dYUHdvYW54NU9HTWozTmNfY0Q0MmQzRDgtY2doWHZpMUpPSk9YSXA4?oc=5)
+
+---
 
 ### Carta launches AI-powered fund modelling micro app
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (1h ago) |
+| **Date** | August 22, 2026 (5h ago) |
 | **Category** | 💼 product |
 | **Author** | Dealroom |
 
@@ -2478,7 +2553,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (4h ago) |
+| **Date** | August 22, 2026 (8h ago) |
 | **Category** | 💼 product |
 | **Author** | simplywall.st |
 
@@ -2493,7 +2568,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (10h ago) |
+| **Date** | August 21, 2026 (14h ago) |
 | **Category** | 💼 product |
 | **Author** | CNBC AI |
 
@@ -2508,7 +2583,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2526,7 +2601,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 💼 product |
 | **Author** | The Register AI |
 
@@ -2544,7 +2619,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 💼 product |
 | **Author** | Business Insider |
 
@@ -2559,7 +2634,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 💼 product |
 | **Author** | AI Insider |
 
@@ -2574,7 +2649,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Amazon ML |
 
@@ -2589,7 +2664,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-ai |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | Google Research |
 
@@ -2604,7 +2679,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 💼 product |
 | **Author** | FinTech Global |
 
@@ -2619,7 +2694,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 💼 product |
 | **Author** | Crunchbase News |
 
@@ -2634,7 +2709,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | The Global Legal Post |
 
@@ -2649,7 +2724,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | Breaking Defense |
 
@@ -2664,7 +2739,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 💼 product |
 | **Author** | PYMNTS.com |
 
@@ -2679,7 +2754,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (22h ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -2694,7 +2769,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-verge |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | The Verge AI |
 
@@ -2709,7 +2784,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | Security Sales & Integration |
 
@@ -2724,7 +2799,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | FinTech Futures |
 
@@ -2739,7 +2814,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 💼 product |
 | **Author** | finance.biggo.com |
 
@@ -2754,7 +2829,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 arstechnica |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Ars Technica AI |
 
@@ -2769,7 +2844,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Crunchbase News |
 
@@ -2784,7 +2859,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 💼 product |
 | **Author** | Just Auto |
 
@@ -3204,7 +3279,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | GuruFocus |
 
@@ -3219,7 +3294,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | ZDNet AI |
 
@@ -3234,7 +3309,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | Silicon Republic |
 
@@ -3249,7 +3324,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | Crunchbase News |
 
@@ -3264,7 +3339,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 💼 product |
 | **Author** | FinSMEs |
 
@@ -3364,81 +3439,6 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 
 ---
 
-### Application reliability startup Temporal reportedly in talks for $500M funding round
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | SiliconANGLE |
-
-**Summary:** Application reliability startup Temporal reportedly in talks for $500M funding round  SiliconANGLE
-
-**URL:** [https://news.google.com/rss/articles/CBMivAFBVV95cUxNVXJ6Nk9UU2YySmhQLS11LVdrUFpSd0ROSUluTU1ma2cxYmoyNklTUE5NMW85Ym1DdGdmYXhmY1BPQ0g1NWsyT0h1VXgwQ1ZGSEU3YmNLTXZiOXJUS0M3SWtZeDRJTHp3S25LUC1pTlEzcDBpbVU1RjA1YzN4NXg5U1hZSUNiZmNPS3VMR196Q21jNXRQdm85M2RmZzN3SUM3NjM2RzZjRXVDTkNDb2EyV3NaZmNMdjdjMkhHVg?oc=5](https://news.google.com/rss/articles/CBMivAFBVV95cUxNVXJ6Nk9UU2YySmhQLS11LVdrUFpSd0ROSUluTU1ma2cxYmoyNklTUE5NMW85Ym1DdGdmYXhmY1BPQ0g1NWsyT0h1VXgwQ1ZGSEU3YmNLTXZiOXJUS0M3SWtZeDRJTHp3S25LUC1pTlEzcDBpbVU1RjA1YzN4NXg5U1hZSUNiZmNPS3VMR196Q21jNXRQdm85M2RmZzN3SUM3NjM2RzZjRXVDTkNDb2EyV3NaZmNMdjdjMkhHVg?oc=5)
-
----
-
-### Stripe didn’t really buy OpenRouter because of the ‘singularity’
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | TechCrunch AI |
-
-**Summary:** What does a payments giant want with a startup that routes prompts between different AI models? Stripe says it's because of "the singularity" but it's really for a far more real and powerful reason.
-
-**URL:** [https://techcrunch.com/2026/08/19/stripe-didnt-really-buy-openrouter-because-of-the-singularity/](https://techcrunch.com/2026/08/19/stripe-didnt-really-buy-openrouter-because-of-the-singularity/)
-
----
-
-### Asynchronous patterns for calling Amazon Bedrock AgentCore agents in serverless pipelines
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | Amazon ML |
-
-**Summary:** In this post, you learn three serverless patterns (task-token callback, direct service integration, and durable functions) for invoking Amazon Bedrock AgentCore agents asynchronously from AWS Step Fun
-
-**URL:** [https://aws.amazon.com/blogs/machine-learning/asynchronous-patterns-for-calling-amazon-bedrock-agentcore-agents-in-serverless-pipelines/](https://aws.amazon.com/blogs/machine-learning/asynchronous-patterns-for-calling-amazon-bedrock-agentcore-agents-in-serverless-pipelines/)
-
----
-
-### AI note-taking tool frees up doctors at St. Bernards Healthcare
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | K8 News | Jonesboro, Arkansas |
-
-**Summary:** AI note-taking tool frees up doctors at St. Bernards Healthcare  K8 News | Jonesboro, Arkansas
-
-**URL:** [https://news.google.com/rss/articles/CBMimAFBVV95cUxOSlplU3EyMDBvelpVLVNuVkUyYS1ZbHVoYkVPVWRPRERDSHVsYTVFVWtveng3Mmt1SUJFS01rU29PM09aXzFZXzNtUmVtMktfWmlQY0ZXa2k0Rjc2V3lLTTJpWUdtN1c1bFd5X0hKRDh6TVhBTk90UTFYckhvQm56UkdCMURSMGZNQmNQSkVoY1VZRmpJMEt2RtIBrAFBVV95cUxOMTR4X0pac0xza0FKOWZEcGlfUlVIeEh6RGV0bEJUeEtTSmxZRkVRUHk2NXozd2tjcWpSbFBDSHJsVF9VaGRSd0pKVlRJcWozQW9uWk93T3luLURSbWhSODExb3B1SnkzUGRDS1J4R3pqVlVRd0pyMW04RjlVZEN1RUR5alJHMkRCcE51VWJ3YmhvblItZWMtSUdwaUtIV3l0cjMxWWFYQ2lHTDZn?oc=5](https://news.google.com/rss/articles/CBMimAFBVV95cUxOSlplU3EyMDBvelpVLVNuVkUyYS1ZbHVoYkVPVWRPRERDSHVsYTVFVWtveng3Mmt1SUJFS01rU29PM09aXzFZXzNtUmVtMktfWmlQY0ZXa2k0Rjc2V3lLTTJpWUdtN1c1bFd5X0hKRDh6TVhBTk90UTFYckhvQm56UkdCMURSMGZNQmNQSkVoY1VZRmpJMEt2RtIBrAFBVV95cUxOMTR4X0pac0xza0FKOWZEcGlfUlVIeEh6RGV0bEJUeEtTSmxZRkVRUHk2NXozd2tjcWpSbFBDSHJsVF9VaGRSd0pKVlRJcWozQW9uWk93T3luLURSbWhSODExb3B1SnkzUGRDS1J4R3pqVlVRd0pyMW04RjlVZEN1RUR5alJHMkRCcE51VWJ3YmhvblItZWMtSUdwaUtIV3l0cjMxWWFYQ2lHTDZn?oc=5)
-
----
-
-### Cognition CEO denies report that SpaceX tried to acquire the startup
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 💼 product |
-| **Author** | TechCrunch AI |
-
-**Summary:** SpaceX was reportedly in talks to buy AI coding startup Cognition. SpaceX has already acquired Cursor as it races to catch up to rivals like OpenAI and Anthropic in enterprise AI.
-
-**URL:** [https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/](https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/)
-
----
-
 ## 🛡️ AI Safety & Security
 
 ### Tesla recalls 3 million vehicles in China over doorhandle safety, driver monitoring
@@ -3446,7 +3446,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | CNBC AI |
 
@@ -3461,7 +3461,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 🛡️ safety |
 | **Author** | Beyond the Horizon ISSG |
 
@@ -3602,7 +3602,7 @@ The article Anthropic's most capable model, codenamed "Model 2," is for internal
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 🛡️ safety |
 | **Author** | digit.fyi |
 
@@ -3664,21 +3664,6 @@ The article OpenAI builds safety system that catches misuse without s
 
 ---
 
-### Ripple CTO Emeritus: AI Safety Rules and Copyright Laws Pose Threat to Free Speech
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 🛡️ safety |
-| **Author** | CryptoPotato |
-
-**Summary:** Ripple CTO Emeritus: AI Safety Rules and Copyright Laws Pose Threat to Free Speech  CryptoPotato
-
-**URL:** [https://news.google.com/rss/articles/CBMiqwFBVV95cUxOV3h6aGZDNmlheFhpOTNrbE5GbnZOSDdGNW9rOXZWd2gtYmd5QTBvbzBXZXZlcEltbVR1NmFVTTNqUEVBTi1lbndQS2VCcm0ybEJlTHNDTlgydHdaTm9ObmNzdDVETTlWdHQybXRTVF9Sem0tZ1NEUV9iZ0txWTZYWTVaTEJnVmg5Rmx6QkExM3lYVDV2dmxVVmZiZkZ1Y3RhZHZQR3I1d2tsMUk?oc=5](https://news.google.com/rss/articles/CBMiqwFBVV95cUxOV3h6aGZDNmlheFhpOTNrbE5GbnZOSDdGNW9rOXZWd2gtYmd5QTBvbzBXZXZlcEltbVR1NmFVTTNqUEVBTi1lbndQS2VCcm0ybEJlTHNDTlgydHdaTm9ObmNzdDVETTlWdHQybXRTVF9Sem0tZ1NEUV9iZ0txWTZYWTVaTEJnVmg5Rmx6QkExM3lYVDV2dmxVVmZiZkZ1Y3RhZHZQR3I1d2tsMUk?oc=5)
-
----
-
 ## ⚖️ Regulation & Policy
 
 ### Meta AI Smart Glasses Raise Privacy Questions After Woman Says She Was Secretly Recorded
@@ -3686,7 +3671,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (6h ago) |
+| **Date** | August 22, 2026 (10h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Law Commentary |
 
@@ -3701,7 +3686,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (6h ago) |
+| **Date** | August 22, 2026 (10h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | forkast.news |
 
@@ -3716,7 +3701,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (10h ago) |
+| **Date** | August 21, 2026 (14h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | forkast.news |
 
@@ -3731,7 +3716,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Sidley Austin |
 
@@ -3746,7 +3731,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | ThinkAdvisor |
 
@@ -3761,7 +3746,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (22h ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TechCrunch AI |
 
@@ -3776,7 +3761,7 @@ The article OpenAI builds safety system that catches misuse without s
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | TheDecoder |
 
@@ -3897,7 +3882,7 @@ The article Anthropic changes data retention policy after enterprise pushback
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | ⚖️ policy |
 | **Author** | Tech Policy Press |
 
@@ -3924,12 +3909,147 @@ The article Anthropic changes data retention policy after enterprise pushback
 
 ## 📌 Other Notable News
 
+### Prediction: This Artificial Intelligence (AI) Semiconductor Stock Will Outperform Nvidia Over the Next 3 Years
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (3m ago) |
+| **Category** | 📌 other |
+| **Author** | The Motley Fool |
+
+**Summary:** Prediction: This Artificial Intelligence (AI) Semiconductor Stock Will Outperform Nvidia Over the Next 3 Years  The Motley Fool
+
+**URL:** [https://news.google.com/rss/articles/CBMimAFBVV95cUxOVFVpVTNnRFpDdXBoaHRiNHhqbHdaNUE5azROaFpDRGRFUlBPazFyX3hrd2s3VDZNR2FxbnU3RExfUFEtTWJCTjRQS1N5N0hxcE5KMnVWNEpzVTFZME53WjFqbFpneEFyY0p0c0dUaldmSGhfRkpkTVBTUU1RZGNzQy1TcnNzTFk4eVpHbFRmM2hYbkEtZDdXLQ?oc=5](https://news.google.com/rss/articles/CBMimAFBVV95cUxOVFVpVTNnRFpDdXBoaHRiNHhqbHdaNUE5azROaFpDRGRFUlBPazFyX3hrd2s3VDZNR2FxbnU3RExfUFEtTWJCTjRQS1N5N0hxcE5KMnVWNEpzVTFZME53WjFqbFpneEFyY0p0c0dUaldmSGhfRkpkTVBTUU1RZGNzQy1TcnNzTFk4eVpHbFRmM2hYbkEtZDdXLQ?oc=5)
+
+---
+
+### Meta is the latest tech giant to land in her courtroom. Meet Judge Yvonne Gonzalez Rogers
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 cnbc |
+| **Date** | August 22, 2026 (25m ago) |
+| **Category** | 📌 other |
+| **Author** | CNBC AI |
+
+**Summary:** Judge Yvonne Gonzalez Rogers has presided over a series of landmark tech trials and is now overseeing a case that could have a huge impact on Meta's future.
+
+**URL:** [https://www.cnbc.com/2026/08/22/meet-yvonne-gonzalez-rogers-judge-taking-on-meta.html](https://www.cnbc.com/2026/08/22/meet-yvonne-gonzalez-rogers-judge-taking-on-meta.html)
+
+---
+
+### Why speed isn't a virtue in democracy: The case for human oversight in AI-driven election administration.
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | The Fulcrum |
+
+**Summary:** Why speed isn't a virtue in democracy: The case for human oversight in AI-driven election administration.  The Fulcrum
+
+**URL:** [https://news.google.com/rss/articles/CBMiigFBVV95cUxQUXhISGs0VndIMmpJSkJxZzAtR0FpQlg3TU1jb2g5Y0EtcUxoSXFmZ1BUeTdvajMzM0lFWnBhd19CM01nVTZ1TFd2RUJ2VXRVUElpVTdxR01XblpPXzJDX0g4SE9pUjBQQW5xdE9PRW5jSXdzYmpab1ltLVhTSVVMbEd3RjBXcVNKS3c?oc=5](https://news.google.com/rss/articles/CBMiigFBVV95cUxQUXhISGs0VndIMmpJSkJxZzAtR0FpQlg3TU1jb2g5Y0EtcUxoSXFmZ1BUeTdvajMzM0lFWnBhd19CM01nVTZ1TFd2RUJ2VXRVUElpVTdxR01XblpPXzJDX0g4SE9pUjBQQW5xdE9PRW5jSXdzYmpab1ltLVhTSVVMbEd3RjBXcVNKS3c?oc=5)
+
+---
+
+### Alphabet and Amazon Are Investing $420 Billion in Artificial Intelligence (AI) Infrastructure: 4 Hardware Stocks Set to Profit
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (1h ago) |
+| **Category** | 📌 other |
+| **Author** | The Globe and Mail |
+
+**Summary:** Alphabet and Amazon Are Investing $420 Billion in Artificial Intelligence (AI) Infrastructure: 4 Hardware Stocks Set to Profit  The Globe and Mail
+
+**URL:** [https://news.google.com/rss/articles/CBMisgJBVV95cUxPbUNBcks1UEs4VndfNl8wei0xNnY0aEJmMG5iM2Nhc2dGbmVfZVNSNWFXOEdKQWthc2tfdUswNW4tMzVkQjFORWxBOFNQUWpkR3dSOW1MSnBJQjV4dDVUalpTYmllRHhWcVlYYkJLbEFDbWFpdmhjb0J5bFFSMlpTaVp5Qi0xX1NVRWg4RnlwYWdQNTkwUTBkb1hkSDFScWt5QWZ6M1FGdFQtV3BwaXItMnhMZUdydGlVNVJrYjM5Zk8xaGE1UDBQUzU2WWxER0xUdVVJdzRSa2pjQ2d3bWhWZ25uMFNmamJ6a1hROUdWY2piNlB1MnJwZzk3U2wtNUE3d3RZb3dFd0JBRnRVUFIxYS1mNUNUUVJ3Q1dhWmN6S0twNHA5eWh2Y05vU0tGQjFHT2c?oc=5](https://news.google.com/rss/articles/CBMisgJBVV95cUxPbUNBcks1UEs4VndfNl8wei0xNnY0aEJmMG5iM2Nhc2dGbmVfZVNSNWFXOEdKQWthc2tfdUswNW4tMzVkQjFORWxBOFNQUWpkR3dSOW1MSnBJQjV4dDVUalpTYmllRHhWcVlYYkJLbEFDbWFpdmhjb0J5bFFSMlpTaVp5Qi0xX1NVRWg4RnlwYWdQNTkwUTBkb1hkSDFScWt5QWZ6M1FGdFQtV3BwaXItMnhMZUdydGlVNVJrYjM5Zk8xaGE1UDBQUzU2WWxER0xUdVVJdzRSa2pjQ2d3bWhWZ25uMFNmamJ6a1hROUdWY2piNlB1MnJwZzk3U2wtNUE3d3RZb3dFd0JBRnRVUFIxYS1mNUNUUVJ3Q1dhWmN6S0twNHA5eWh2Y05vU0tGQjFHT2c?oc=5)
+
+---
+
+### I ditched T-Mobile for Mint after 10 years of service - now I'm saving $120/month
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 22, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** Mint uses the same 5G and LTE networks as T-Mobile, so I had no service interruptions after switching.
+
+**URL:** [https://www.zdnet.com/article/switching-from-t-mobile-to-mint-saving-money-on-mobile/](https://www.zdnet.com/article/switching-from-t-mobile-to-mint-saving-money-on-mobile/)
+
+---
+
+### Venezuela Just Joined China’s AI Alliance. Washington Should Respond
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | National Review |
+
+**Summary:** Venezuela Just Joined China’s AI Alliance. Washington Should Respond  National Review
+
+**URL:** [https://news.google.com/rss/articles/CBMi8gJBVV95cUxNa2U0ai1hRE5hQUIyN3Bqb0ZzOTFUMnA0Tk5YVnRUYk9wRkF2SkN2VU5RRjY5emRGOFhIUWFZa2ZoaXhVQU93bktpRUktX0lTWkx4bmYtbFBPS0p2RnVJUzdNVXBqYlBfTDFyT0xxYzJIbk1ldy1aM1dKYVN1dWZneElrUnRsR2V0NzhadUZYR1E4SFJsenN1MDZidGlLLTlpZXFSRkk1VGd2Z1duZk9iMWFmMzJMVC1JeDNFRDdtUGZaZlBLZDlWTTJ6RkJEZTZLRHR6RUJ5RmZ0ekc4TWZROG56bmZ6WWxHM2I3RlB2VDVLa21TU3lMLWJCdG9ISk5qbWd4eVVEb3ZUUXlZUTJzSUhkakJGLTJYbDJuRGo1S0NjV0k0Q1B4alJSNWxCOVEtb24wek1STEw1RXVwWUxzUFJPdGNCdnp3bHBON21fSkEyc0FkaUp3OFNZUUhLdHdtRnhnVHpSRER5RDdMUEsxOTlR?oc=5](https://news.google.com/rss/articles/CBMi8gJBVV95cUxNa2U0ai1hRE5hQUIyN3Bqb0ZzOTFUMnA0Tk5YVnRUYk9wRkF2SkN2VU5RRjY5emRGOFhIUWFZa2ZoaXhVQU93bktpRUktX0lTWkx4bmYtbFBPS0p2RnVJUzdNVXBqYlBfTDFyT0xxYzJIbk1ldy1aM1dKYVN1dWZneElrUnRsR2V0NzhadUZYR1E4SFJsenN1MDZidGlLLTlpZXFSRkk1VGd2Z1duZk9iMWFmMzJMVC1JeDNFRDdtUGZaZlBLZDlWTTJ6RkJEZTZLRHR6RUJ5RmZ0ekc4TWZROG56bmZ6WWxHM2I3RlB2VDVLa21TU3lMLWJCdG9ISk5qbWd4eVVEb3ZUUXlZUTJzSUhkakJGLTJYbDJuRGo1S0NjV0k0Q1B4alJSNWxCOVEtb24wek1STEw1RXVwWUxzUFJPdGNCdnp3bHBON21fSkEyc0FkaUp3OFNZUUhLdHdtRnhnVHpSRER5RDdMUEsxOTlR?oc=5)
+
+---
+
+### Most young people are more concerned than excited about AI
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | voz.us |
+
+**Summary:** Most young people are more concerned than excited about AI  voz.us
+
+**URL:** [https://news.google.com/rss/articles/CBMipAFBVV95cUxOcEpKbEoxUUhkOGNnMXBMMWQzX084OEJ1Mk9zRE1fcGxvNTVyT3lzWk1MVjNnaVJtTHVFUDAxSlcxSzRQRkpsOFg4T1BQRkRLMEk1bXFuRHp1R0lIaENwLURfd1RNaVBjNGpkMl9uVEl2OXFKTUVLQmdCNng1QUFkVmg0THVNdnJYZ29rNHE2cFB0Z0JhNVBCOW9vTGtLYlA0YWdiUA?oc=5](https://news.google.com/rss/articles/CBMipAFBVV95cUxOcEpKbEoxUUhkOGNnMXBMMWQzX084OEJ1Mk9zRE1fcGxvNTVyT3lzWk1MVjNnaVJtTHVFUDAxSlcxSzRQRkpsOFg4T1BQRkRLMEk1bXFuRHp1R0lIaENwLURfd1RNaVBjNGpkMl9uVEl2OXFKTUVLQmdCNng1QUFkVmg0THVNdnJYZ29rNHE2cFB0Z0JhNVBCOW9vTGtLYlA0YWdiUA?oc=5)
+
+---
+
+### The Artificial Intelligence Arms Race: America Is Spending Billions, But China May Have Found a Cheaper Way to Win
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (2h ago) |
+| **Category** | 📌 other |
+| **Author** | Substack |
+
+**Summary:** The Artificial Intelligence Arms Race: America Is Spending Billions, But China May Have Found a Cheaper Way to Win  Substack
+
+**URL:** [https://news.google.com/rss/articles/CBMigAFBVV95cUxQcWNKRXp4R0RlaWY4RWJIRnlLWVRuN0R2dnp1OV9xZ29NbVVDOEtKSmgxMHJLbkkxUDc0WnZIYkhjZHVFd2RGcFB3dFVGcUd4RERSV1RVM3dIWFluVERzN1VxQ1hpUXNnbjhrdHpQYnFWQ3JaNWlJMm0xUktsTXFJTA?oc=5](https://news.google.com/rss/articles/CBMigAFBVV95cUxQcWNKRXp4R0RlaWY4RWJIRnlLWVRuN0R2dnp1OV9xZ29NbVVDOEtKSmgxMHJLbkkxUDc0WnZIYkhjZHVFd2RGcFB3dFVGcUd4RERSV1RVM3dIWFluVERzN1VxQ1hpUXNnbjhrdHpQYnFWQ3JaNWlJMm0xUktsTXFJTA?oc=5)
+
+---
+
+### Google's new Pixel Tag tracker has a big advantage over AirTags (and they cost the same)
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 zdnet |
+| **Date** | August 22, 2026 (3h ago) |
+| **Category** | 📌 other |
+| **Author** | ZDNet AI |
+
+**Summary:** Google's new finder tags use an emerging Bluetooth technology to offer more precise tracking - and stand apart from Apple and Samsung in the process.
+
+**URL:** [https://www.zdnet.com/article/google-pixel-tag-ultra-wideband-bluetooth-channel-sounding/](https://www.zdnet.com/article/google-pixel-tag-ultra-wideband-bluetooth-channel-sounding/)
+
+---
+
 ### RayNeo's new AI glasses skip the camera, focus on text overlays
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 22, 2026 (29m ago) |
+| **Date** | August 22, 2026 (4h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -3945,7 +4065,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (3h ago) |
+| **Date** | August 22, 2026 (7h ago) |
 | **Category** | 📌 other |
 | **Author** | The Irish Times |
 
@@ -3960,7 +4080,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 22, 2026 (3h ago) |
+| **Date** | August 22, 2026 (8h ago) |
 | **Category** | 📌 other |
 | **Author** | izakfr |
 
@@ -3970,12 +4090,27 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 
 ---
 
+### Google DeepMind Clarifies Full-Stack AI Meaning
+
+| Detail | Value |
+|--------|-------|
+| **Source** | 📰 google-news |
+| **Date** | August 22, 2026 (8h ago) |
+| **Category** | 📌 other |
+| **Author** | StartupHub.ai |
+
+**Summary:** Google DeepMind Clarifies Full-Stack AI Meaning  StartupHub.ai
+
+**URL:** [https://news.google.com/rss/articles/CBMiigFBVV95cUxNWlF6TUFabFo5WkdELTlPcndHWHJ4ZWpJTnhUSFZsNEloQW5xd0h3U2dLNjNSOVMtV2dNUWp5SFhJd0xGcFJva3RXMjdkWE1jcFJUVTJUYVU3bEUtdHZJM19wV1Z2QmRVc1RuYzkxOWtVV285NmdnbWJqU00zSGZSWjMwRzZkdFhOUXc?oc=5](https://news.google.com/rss/articles/CBMiigFBVV95cUxNWlF6TUFabFo5WkdELTlPcndHWHJ4ZWpJTnhUSFZsNEloQW5xd0h3U2dLNjNSOVMtV2dNUWp5SFhJd0xGcFJva3RXMjdkWE1jcFJUVTJUYVU3bEUtdHZJM19wV1Z2QmRVc1RuYzkxOWtVV285NmdnbWJqU00zSGZSWjMwRzZkdFhOUXc?oc=5)
+
+---
+
 ### AI Week in Review 26.08.21
 
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (5h ago) |
+| **Date** | August 22, 2026 (9h ago) |
 | **Category** | 📌 other |
 | **Author** | Substack |
 
@@ -3990,7 +4125,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (6h ago) |
+| **Date** | August 22, 2026 (10h ago) |
 | **Category** | 📌 other |
 | **Author** | UN News |
 
@@ -4005,7 +4140,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (7h ago) |
+| **Date** | August 22, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | Stocktwits |
 
@@ -4020,7 +4155,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (7h ago) |
+| **Date** | August 22, 2026 (11h ago) |
 | **Category** | 📌 other |
 | **Author** | WFTV |
 
@@ -4035,7 +4170,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 22, 2026 (7h ago) |
+| **Date** | August 22, 2026 (12h ago) |
 | **Category** | 📌 other |
 | **Author** | Межа. Новини України. |
 
@@ -4050,7 +4185,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 wired |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Wired AI |
 
@@ -4065,7 +4200,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 marktechpost |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | MarkTechPost |
 
@@ -4080,7 +4215,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | National Defense Magazine |
 
@@ -4095,7 +4230,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | WGRZ |
 
@@ -4110,7 +4245,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Beyond the Horizon ISSG |
 
@@ -4125,7 +4260,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (13h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -4140,7 +4275,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 techcrunch |
-| **Date** | August 21, 2026 (9h ago) |
+| **Date** | August 21, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | TechCrunch AI |
 
@@ -4155,7 +4290,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (10h ago) |
+| **Date** | August 21, 2026 (14h ago) |
 | **Category** | 📌 other |
 | **Author** | ABC7 Chicago |
 
@@ -4170,7 +4305,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | IBM |
 
@@ -4185,7 +4320,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Duke Today |
 
@@ -4200,7 +4335,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | finance.biggo.com |
 
@@ -4215,7 +4350,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (15h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -4230,7 +4365,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (11h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4248,7 +4383,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 the-register |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | The Register AI |
 
@@ -4266,7 +4401,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -4281,7 +4416,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -4296,7 +4431,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (16h ago) |
 | **Category** | 📌 other |
 | **Author** | EurekAlert! |
 
@@ -4311,7 +4446,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (12h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4326,7 +4461,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4341,7 +4476,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Intelligent Living |
 
@@ -4356,7 +4491,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -4371,7 +4506,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (13h ago) |
+| **Date** | August 21, 2026 (17h ago) |
 | **Category** | 📌 other |
 | **Author** | Trend Hunter |
 
@@ -4386,7 +4521,7 @@ The article RayNeo's new AI glasses skip the camera, focus on text overlays appe
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4402,7 +4537,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | StateScoop |
 
@@ -4417,7 +4552,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4432,7 +4567,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | spyglass.org |
 
@@ -4447,7 +4582,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4462,7 +4597,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4477,7 +4612,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (18h ago) |
 | **Category** | 📌 other |
 | **Author** | Fast Company |
 
@@ -4492,7 +4627,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | SMH.com.au |
 
@@ -4507,7 +4642,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (14h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | arguiot |
 
@@ -4522,7 +4657,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Insider |
 
@@ -4537,7 +4672,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | The Journal of Blacks in Higher Education |
 
@@ -4552,7 +4687,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 amazon |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | Amazon ML |
 
@@ -4567,7 +4702,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (19h ago) |
 | **Category** | 📌 other |
 | **Author** | California Council on Science and Technology (CCST) |
 
@@ -4582,7 +4717,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (15h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | University of South Florida |
 
@@ -4597,7 +4732,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | AI Insider |
 
@@ -4612,7 +4747,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | ibobev |
 
@@ -4627,7 +4762,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (20h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4642,7 +4777,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | PCMag |
 
@@ -4657,7 +4792,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (16h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -4672,7 +4807,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -4687,7 +4822,7 @@ The article D
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -4703,7 +4838,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | FF News |
 
@@ -4718,7 +4853,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | The ASCO Post |
 
@@ -4733,7 +4868,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | Communications of the ACM |
 
@@ -4748,7 +4883,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (17h ago) |
+| **Date** | August 21, 2026 (21h ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4763,7 +4898,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (22h ago) |
 | **Category** | 📌 other |
 | **Author** | Fierce Healthcare |
 
@@ -4778,7 +4913,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (18h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | National Catholic Reporter |
 
@@ -4793,7 +4928,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Hotel Dive |
 
@@ -4808,7 +4943,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | FleetOwner |
 
@@ -4823,7 +4958,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Drexel Triangle |
 
@@ -4838,7 +4973,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | WBOC TV |
 
@@ -4853,7 +4988,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 other |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | ScienceDaily AI |
 
@@ -4868,7 +5003,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 🌐 other |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | ScienceDaily AI |
 
@@ -4883,7 +5018,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (19h ago) |
+| **Date** | August 21, 2026 (23h ago) |
 | **Category** | 📌 other |
 | **Author** | Unite.AI |
 
@@ -4898,7 +5033,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4913,7 +5048,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | RAND |
 
@@ -4928,7 +5063,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Next Web |
 
@@ -4943,7 +5078,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -4958,7 +5093,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | CancerNetwork |
 
@@ -4973,7 +5108,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | rcymerys |
 
@@ -4988,7 +5123,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | 24/7 Wall St. |
 
@@ -5003,7 +5138,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5018,7 +5153,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (20h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5033,7 +5168,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Motley Fool |
 
@@ -5048,7 +5183,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -5063,7 +5198,7 @@ The article US wants to force partner countries to
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5079,7 +5214,7 @@ The article Waymo builds its own chip for its robotaxis, cutting its reliance on
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -5095,7 +5230,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-ai |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Google Research |
 
@@ -5110,7 +5245,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5125,7 +5260,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (21h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Bloomberg.com |
 
@@ -5140,7 +5275,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Reuters |
 
@@ -5155,7 +5290,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | BBC |
 
@@ -5170,7 +5305,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Naples Daily News |
 
@@ -5185,7 +5320,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Bloomberg.com |
 
@@ -5200,7 +5335,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Vatican News |
 
@@ -5215,7 +5350,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (22h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Korea JoongAng Daily |
 
@@ -5230,7 +5365,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | The Berkshire Eagle |
 
@@ -5245,7 +5380,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -5260,7 +5395,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 21, 2026 (23h ago) |
+| **Date** | August 21, 2026 (1d ago) |
 | **Category** | 📌 other |
 | **Author** | Gastroenterology & Endoscopy News |
 
@@ -6802,7 +6937,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The Washington Post |
 
@@ -6817,7 +6952,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -6832,7 +6967,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | AIBase |
 
@@ -6847,7 +6982,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -6862,7 +6997,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | theins.press |
 
@@ -6877,7 +7012,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Seeking Alpha |
 
@@ -6892,7 +7027,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Breaking Defense |
 
@@ -6907,7 +7042,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -6922,7 +7057,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | franciscomt |
 
@@ -6937,7 +7072,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Netguru |
 
@@ -6952,7 +7087,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | infoq.com |
 
@@ -6967,7 +7102,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -6982,7 +7117,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | TradingView |
 
@@ -6997,7 +7132,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | CBS News |
 
@@ -7012,7 +7147,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -7027,7 +7162,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -7042,7 +7177,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 cnbc |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | CNBC AI |
 
@@ -7057,7 +7192,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance |
 
@@ -7072,7 +7207,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | RealClearEducation |
 
@@ -7087,7 +7222,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The 74 |
 
@@ -7102,7 +7237,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The Economist |
 
@@ -7117,7 +7252,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | WTVB |
 
@@ -7132,7 +7267,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Los Angeles Times |
 
@@ -7147,7 +7282,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | FinTech Global |
 
@@ -7162,7 +7297,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Yahoo Finance UK |
 
@@ -7177,7 +7312,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | AEI |
 
@@ -7192,7 +7327,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -7207,7 +7342,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 mit-tr |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | MIT Tech Review |
 
@@ -7222,7 +7357,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 zdnet |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | ZDNet AI |
 
@@ -7237,7 +7372,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The Economist |
 
@@ -7252,7 +7387,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | WSJ |
 
@@ -7267,7 +7402,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | Stateline |
 
@@ -7282,7 +7417,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 google-news |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | The Next Web |
 
@@ -7297,7 +7432,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 the-decoder |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | TheDecoder |
 
@@ -7312,7 +7447,7 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 | Detail | Value |
 |--------|-------|
 | **Source** | 📰 reddit |
-| **Date** | August 20, 2026 (1d ago) |
+| **Date** | August 20, 2026 (2d ago) |
 | **Category** | 📌 other |
 | **Author** | r/MachineLearning |
 
@@ -7487,147 +7622,6 @@ The article Meta spends hundreds of millions on Microsoft's AI services appeared
 
 ---
 
-### Universality of Gradient Descent Neural Network Training
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 hacker-news |
-| **Date** | August 20, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | E-Reverance |
-
-**Summary:** 28 points, 2 comments on Hacker News.
-
-**URL:** [https://arxiv.org/abs/2007.13664](https://arxiv.org/abs/2007.13664)
-
----
-
-### Meta adds AI-powered assistant for SMB owners
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Social Media Today |
-
-**Summary:** Meta adds AI-powered assistant for SMB owners  Social Media Today
-
-**URL:** [https://news.google.com/rss/articles/CBMilgFBVV95cUxOcUtab002ZzZxd3ZnZmphblQyMUlBM0tHYkJOMXlJY2g2NVlIdWdOaDZQYUQ0WXFiUkNuQ2lQYlU3a01GdGNlX3ZJX1hLeEFvQThyYkhzaF9vUks0OGVaTzk4Vmh1RXZyaUdxRWlHdWJ4X2tJb0V6LXZ6eWJ5RUVqZEhKM2pwMS14YXdUc2QySTM2VHd6MXc?oc=5](https://news.google.com/rss/articles/CBMilgFBVV95cUxOcUtab002ZzZxd3ZnZmphblQyMUlBM0tHYkJOMXlJY2g2NVlIdWdOaDZQYUQ0WXFiUkNuQ2lQYlU3a01GdGNlX3ZJX1hLeEFvQThyYkhzaF9vUks0OGVaTzk4Vmh1RXZyaUdxRWlHdWJ4X2tJb0V6LXZ6eWJ5RUVqZEhKM2pwMS14YXdUc2QySTM2VHd6MXc?oc=5)
-
----
-
-### AMD inches closer to its goal of making AI suck less ... energy
-
-                
-    House of Zen claims latest systems already 4x more efficient than two years ago
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 🌐 the-register |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | The Register AI |
-
-**Summary:** AMD inches closer to its goal of making AI suck less ... energy
-
-                
-    House of Zen claims latest systems already 4x more efficient than two years ago
-
-**URL:** [https://www.theregister.com/systems/2026/08/20/amd-inches-closer-to-its-goal-of-making-ai-suck-less-energy/5289990](https://www.theregister.com/systems/2026/08/20/amd-inches-closer-to-its-goal-of-making-ai-suck-less-energy/5289990)
-
----
-
-### Google DeepMind's shift to California tests the case for London's AI cluster
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | techi.com |
-
-**Summary:** Google DeepMind's shift to California tests the case for London's AI cluster  techi.com
-
-**URL:** [https://news.google.com/rss/articles/CBMifkFVX3lxTFA1dDFQcTRvNDFHczVwbE1YdFpiVF9HeGZYLTlRdXNGbXRVaGZaRW1WdVBZakZmdzEydlE1OGpyVUpDWEROeE1TZnlnZ3NuaVhVVEY4LWtGLXFfSWxOSXp3bjZSdF93U2hRX0JDSHlLSkVzSjY0aTE3QzcxbDB1UQ?oc=5](https://news.google.com/rss/articles/CBMifkFVX3lxTFA1dDFQcTRvNDFHczVwbE1YdFpiVF9HeGZYLTlRdXNGbXRVaGZaRW1WdVBZakZmdzEydlE1OGpyVUpDWEROeE1TZnlnZ3NuaVhVVEY4LWtGLXFfSWxOSXp3bjZSdF93U2hRX0JDSHlLSkVzSjY0aTE3QzcxbDB1UQ?oc=5)
-
----
-
-### Turkcell Advances 6G Technologies and Artificial Intelligence R&D
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | The Fast Mode |
-
-**Summary:** Turkcell Advances 6G Technologies and Artificial Intelligence R&D  The Fast Mode
-
-**URL:** [https://news.google.com/rss/articles/CBMivAFBVV95cUxNQnNYWmdxdUlFREF0Q1VWRWl5cVIyVVBydzZDQUJNaUhkZldYaFFHZmg4SFZUZFc4V3dZVkx4bndZczVyZ01mbzJ4U2ZNcEU3M2xjeVFBOU1qUm5IQlhDaEdFM05RdXd5M0lZVnh2eTRXeC1qa0NjUktobDltcXV1SC13Wl94SnM0RDFEY0hDRXJMVkJVRXU3ZjZoVU9SUkxlVFZoWElyRFJta1FNVFJkZzhzSVRkZHFPYjlYeA?oc=5](https://news.google.com/rss/articles/CBMivAFBVV95cUxNQnNYWmdxdUlFREF0Q1VWRWl5cVIyVVBydzZDQUJNaUhkZldYaFFHZmg4SFZUZFc4V3dZVkx4bndZczVyZ01mbzJ4U2ZNcEU3M2xjeVFBOU1qUm5IQlhDaEdFM05RdXd5M0lZVnh2eTRXeC1qa0NjUktobDltcXV1SC13Wl94SnM0RDFEY0hDRXJMVkJVRXU3ZjZoVU9SUkxlVFZoWElyRFJta1FNVFJkZzhzSVRkZHFPYjlYeA?oc=5)
-
----
-
-### Eleven AI models in twenty days! Releases have outrun anyone's ability to test them
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | WION |
-
-**Summary:** Eleven AI models in twenty days! Releases have outrun anyone's ability to test them  WION
-
-**URL:** [https://news.google.com/rss/articles/CBMixAFBVV95cUxOUVlJN0JrQkl4cEFoQ2lVNkoweDNDbmxZOWFzUjJtMHZWMUdYSUdjOUQ2TUdWRTRPTzZrOFJHQ2R4bXJzNDNIYW54eDV1Vy1MUk9sejNBTWRKY2pMMmtYVk0yM1JaLUJEclBiMzJfNXBYOEFFbThJN0ZWek1HODFjb3VCOVUyN2w2M2t1RGRJcTk1Y01ULWV3Mld6Z1dzUTl5WGhvSzdvNDJ6bWVjSVppVGhkc3EtbXJ2VW01TjdBeEUtVHIx0gHKAUFVX3lxTE1ad2lpUm5WMkJaVTdHUVQwTmhKNjZaNlhvUm80aTJUSTRkQnJfQm9fNERvUnlUb3hoM24wSlJnbkZtZV9NQmpYaVVZVk5WRG5ZT0hqQm9sTEdoRGJzOTF3ZDZ1R0s3ZUtBdkFRMjF1ZEtJcXJHdjNpa2ZOcDlKYVloYXJhZU9mNjBOVlVnWl9GSW4xblF3QVhKTG5SeC00TXpWMVdEQ3BHcmRvdmhfMEVIWW5ndGRUcVNNOEs1eEFzVEpkWEVCSXpKRWc?oc=5](https://news.google.com/rss/articles/CBMixAFBVV95cUxOUVlJN0JrQkl4cEFoQ2lVNkoweDNDbmxZOWFzUjJtMHZWMUdYSUdjOUQ2TUdWRTRPTzZrOFJHQ2R4bXJzNDNIYW54eDV1Vy1MUk9sejNBTWRKY2pMMmtYVk0yM1JaLUJEclBiMzJfNXBYOEFFbThJN0ZWek1HODFjb3VCOVUyN2w2M2t1RGRJcTk1Y01ULWV3Mld6Z1dzUTl5WGhvSzdvNDJ6bWVjSVppVGhkc3EtbXJ2VW01TjdBeEUtVHIx0gHKAUFVX3lxTE1ad2lpUm5WMkJaVTdHUVQwTmhKNjZaNlhvUm80aTJUSTRkQnJfQm9fNERvUnlUb3hoM24wSlJnbkZtZV9NQmpYaVVZVk5WRG5ZT0hqQm9sTEdoRGJzOTF3ZDZ1R0s3ZUtBdkFRMjF1ZEtJcXJHdjNpa2ZOcDlKYVloYXJhZU9mNjBOVlVnWl9GSW4xblF3QVhKTG5SeC00TXpWMVdEQ3BHcmRvdmhfMEVIWW5ndGRUcVNNOEs1eEFzVEpkWEVCSXpKRWc?oc=5)
-
----
-
-### Where Is the AI Jobs Apocalypse?
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 google-news |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | The Free Press |
-
-**Summary:** Where Is the AI Jobs Apocalypse?  The Free Press
-
-**URL:** [https://news.google.com/rss/articles/CBMiYkFVX3lxTFBoQlhEWUhuT0tIOW14Um5leTlUVEZaN1hPTm1oX2RMU3hRaDVHM095enNYbmlMeFduNDNwWF83TTFocE9taHN6SUVSX005NHp1bVFBcHhYZ2pqbzRxWTkzemVn?oc=5](https://news.google.com/rss/articles/CBMiYkFVX3lxTFBoQlhEWUhuT0tIOW14Um5leTlUVEZaN1hPTm1oX2RMU3hRaDVHM095enNYbmlMeFduNDNwWF83TTFocE9taHN6SUVSX005NHp1bVFBcHhYZ2pqbzRxWTkzemVn?oc=5)
-
----
-
-### OpenAI seeks to one-up Anthropic with new customer privacy protections
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 techcrunch |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | TechCrunch AI |
-
-**Summary:** A competition is developing between OpenAI and Anthropic over who can provide the best privacy protections for enterprise customer data.
-
-**URL:** [https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/](https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/)
-
----
-
-### Automate Document Processing with Quick Automate and the IDP Accelerator
-
-| Detail | Value |
-|--------|-------|
-| **Source** | 📰 amazon |
-| **Date** | August 19, 2026 (2d ago) |
-| **Category** | 📌 other |
-| **Author** | Amazon ML |
-
-**Summary:** Classifying, extracting, and validating high volumes of documents is a challenge across banking, insurance, healthcare, and the public sector. See how a mid-size mortgage lender automates its entire d
-
-**URL:** [https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-quick-automate-and-the-idp-accelerator/](https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-quick-automate-and-the-idp-accelerator/)
-
----
-
 ---
 
 ## 🔄 Maintenance
@@ -7643,4 +7637,4 @@ curl -X POST http://localhost:3000/api/knowledge-base/generate
 
 ---
 
-*Generated on 2026-08-22T08:29:23.209Z by AI Pulse Knowledge Base Generator*
+*Generated on 2026-08-22T12:37:55.679Z by AI Pulse Knowledge Base Generator*
