@@ -1,18 +1,25 @@
 name: AI News Agent
 
-# Free-tier news refresh. Intentionally does NOT scrape models/AA/T2I:
-# those used to run after the agent and fail, which skipped the news commit
-# (`if: success()`), leaving the site stale. models.json is also ~96MB and
-# must never be part of this job.
+# Free-tier news refresh on GitHub Actions (private repo: 2,000 min/month).
+# A slim run is ~2–4 min × 6/day ≈ 500 min/month — well under the free cap.
+# Vercel Hobby cron cannot run every 4h (daily only); this workflow is the 4h clock.
+#
+# Intentionally does NOT scrape models/AA/T2I: those used to fail after the
+# agent and skip the news commit, which is what emailed you on every run.
 on:
   schedule:
-    - cron: "30 */6 * * *"
+    - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
       sources:
         description: "Comma-separated source keys (rss,google-news,hackernews,reddit,arxiv,youtube,github,web,twitter). Leave empty for all."
         required: false
         type: string
+  # One extra run when this file changes, so a push can prove the job is green.
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/agent.yml"
 
 concurrency:
   group: ai-news-agent
@@ -63,9 +70,9 @@ jobs:
             d.lastRun = new Date().toISOString();
             d.lastSuccess = new Date().toISOString();
             const now = new Date();
-            const hours = [0, 6, 12, 18];
+            const hours = [0, 4, 8, 12, 16, 20];
             const nextHour = hours.find(h => h > now.getUTCHours()) ?? 24;
-            const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 30, 0));
+            const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 0, 0));
             d.nextRun = next.toISOString();
             fs.writeFileSync('data/status.json', JSON.stringify(d, null, 2));
             console.log('Updated status.json: nextRun=' + d.nextRun);
