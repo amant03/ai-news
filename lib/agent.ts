@@ -50,10 +50,17 @@ export async function runAgent(options?: {
   regenerateKB?: boolean;
   skipOllama?: boolean;
   sourceFilter?: string[];
+  excludeSources?: string[];
+  /** Skip the model-DB refresh + AA enrichment (heavy; used by the serverless cron). */
+  skipModelRefresh?: boolean;
+  /** Skip HTTP og:image fetches; still applies entity/logo fallbacks. */
+  skipImageEnrichment?: boolean;
 }): Promise<RunResult> {
+  const isServerless = process.env.VERCEL === '1';
+  const envLabel = isServerless ? 'vercel' : process.env.AGENT_MODE === 'ci' ? 'CI (GitHub Actions)' : 'local';
   console.log('🔄 Starting AI news agent...');
   console.log(`   Time: ${new Date().toISOString()}`);
-  console.log(`   Environment: ${process.env.AGENT_MODE === 'ci' ? 'CI (GitHub Actions)' : 'local'}`);
+  console.log(`   Environment: ${envLabel}`);
 
   await initDB();
   const start = Date.now();
@@ -61,7 +68,7 @@ export async function runAgent(options?: {
   const cache = loadSummaryCache();
   const status: AgentStatus = {
     lastRun: new Date().toISOString(),
-    environment: process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
+    environment: isServerless ? 'vercel' : process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
     sources: readStatus().sources || {},
   };
 
@@ -71,12 +78,14 @@ export async function runAgent(options?: {
   const enabledSources = SOURCES.filter(
     s =>
       (!isCi || !s.skipInCi || process.env.X_SCRAPING === 'true') &&
-      (!sourceFilter || sourceFilter.includes(s.key))
+      (!sourceFilter || sourceFilter.includes(s.key)) &&
+      (!options?.excludeSources || !options.excludeSources.includes(s.key))
   );
 
   // Run all sources in parallel; each is individually fault-tolerant and has a
   // hard timeout so a hung feed (RSS, web scraper) can't block the entire run.
-  const SOURCE_TIMEOUT_MS = 60_000; // 60 seconds max per source
+  // Vercel Hobby fluid compute is capped at 60s, so sources must finish faster.
+  const SOURCE_TIMEOUT_MS = isServerless ? 18_000 : 60_000;
 
   function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
     return Promise.race([
@@ -123,8 +132,13 @@ export async function runAgent(options?: {
   console.log(`\n📊 Total fetched: ${allItems.length} items`);
 
   // Enrich images: fetch og:image from article URLs, fall back to company/founder photos.
+  // Cap HTTP fetches so CI stays well under the free-minutes budget and serverless
+  // fits the Hobby 60s limit (entity/logo fallback is instant).
   try {
-    const imgResult = await enrichImages(allItems);
+    const imgResult = await enrichImages(allItems, {
+      entityOnly: options?.skipImageEnrichment === true || isServerless,
+      maxHttp: isServerless ? 0 : 40,
+    });
     console.log(`   Images: ${imgResult.fetched} og:image + ${imgResult.entity} entity fallback, ${imgResult.failed} still missing`);
   } catch (err) {
     console.log(`   Image enrichment skipped: ${err instanceof Error ? err.message : err}`);
@@ -183,7 +197,7 @@ export async function runAgent(options?: {
   // Keep a permanent record of every agent run (source counts, timings, log).
   try {
     await recordAgentRunPg({
-      environment: process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
+      environment: isServerless ? 'vercel' : process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
       durationMs: Date.now() - start,
       inserted,
       known,
@@ -208,43 +222,49 @@ export async function runAgent(options?: {
   }
 
   // Refresh the model database (OpenRouter + HF + X buzz).
-  try {
-    const { refreshModelDatabase } = await import('./model-registry');
-    const db = await refreshModelDatabase(store.items);
-    console.log(`   Model DB refreshed: ${db.counts.total} models`);
-    if (hasPg()) {
-      try {
-        await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
-      } catch (error) {
-        console.log(`   [pg] model mirror skipped: ${error instanceof Error ? error.message : error}`);
+  // Never do this on serverless or when explicitly skipped — models.json is ~96MB
+  // and is what used to blow the GitHub Actions budget / fail the news commit.
+  const skipModels =
+    options?.skipModelRefresh === true || isServerless || process.env.AGENT_SKIP_MODELS === 'true';
+  if (!skipModels) {
+    try {
+      const { refreshModelDatabase } = await import('./model-registry');
+      const db = await refreshModelDatabase(store.items);
+      console.log(`   Model DB refreshed: ${db.counts.total} models`);
+      if (hasPg()) {
+        try {
+          await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
+        } catch (error) {
+          console.log(`   [pg] model mirror skipped: ${error instanceof Error ? error.message : error}`);
+        }
       }
+    } catch (error) {
+      console.log(`   Model DB refresh skipped: ${error instanceof Error ? error.message : error}`);
     }
-  } catch (error) {
-    console.log(`   Model DB refresh skipped: ${error instanceof Error ? error.message : error}`);
-  }
 
-  // Artificial Analysis: enrich model data with intelligence scores, speed, cost.
-  try {
-    const aaData = await fetchAAData();
-    if (aaData.length > 0) {
-      const db = readModelDatabase();
-      if (db) {
-        const { updated, added } = mergeAAIntoModels(db.models as unknown as Array<Record<string, unknown>>, aaData);
-        db.updatedAt = new Date().toISOString();
-        if (!db.sources.includes('aa')) db.sources.push('aa');
-        writeModelDatabase(db);
-        console.log(`   [aa] Merged AA data: ${updated} updated, ${added} new models`);
-        if (hasPg()) {
-          try {
-            await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
-          } catch (error) {
-            console.log(`   [pg] AA model mirror skipped: ${error instanceof Error ? error.message : error}`);
+    // Artificial Analysis: enrich model data with intelligence scores, speed, cost.
+    try {
+      const aaData = await fetchAAData();
+      if (aaData.length > 0) {
+        const db = readModelDatabase();
+        if (db) {
+          const { updated, added } = mergeAAIntoModels(db.models as unknown as Array<Record<string, unknown>>, aaData);
+          db.updatedAt = new Date().toISOString();
+          if (!db.sources.includes('aa')) db.sources.push('aa');
+          writeModelDatabase(db);
+          console.log(`   [aa] Merged AA data: ${updated} updated, ${added} new models`);
+          if (hasPg()) {
+            try {
+              await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
+            } catch (error) {
+              console.log(`   [pg] AA model mirror skipped: ${error instanceof Error ? error.message : error}`);
+            }
           }
         }
       }
+    } catch (error) {
+      console.log(`   AA enrichment skipped: ${error instanceof Error ? error.message : error}`);
     }
-  } catch (error) {
-    console.log(`   AA enrichment skipped: ${error instanceof Error ? error.message : error}`);
   }
 
   const durationMs = Date.now() - start;
@@ -257,7 +277,7 @@ export async function runAgent(options?: {
     totalAfter: store.items.length,
     pruned,
     durationMs,
-    environment: process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
+    environment: isServerless ? 'vercel' : process.env.AGENT_MODE === 'ci' ? 'ci' : 'local',
   };
 }
 

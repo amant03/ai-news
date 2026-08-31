@@ -1,0 +1,74 @@
+name: Model Leaderboards
+
+# Weekly, isolated from the news job so a scraper timeout can never block
+# news.json from being committed. Does not touch models.json (~96MB).
+on:
+  schedule:
+    - cron: "0 7 * * 0"
+  workflow_dispatch:
+
+concurrency:
+  group: ai-news-models
+  cancel-in-progress: false
+
+env:
+  PUPPETEER_SKIP_DOWNLOAD: "true"
+
+jobs:
+  leaderboards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh T2I / media leaderboards
+        timeout-minutes: 8
+        continue-on-error: true
+        run: npx tsx lib/t2i-scraper.ts
+
+      - name: Commit leaderboard snapshots
+        run: |
+          git config user.name "ai-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          node -e "
+            const fs = require('fs');
+            const files = [
+              'data/t2i-models.json',
+              'data/image-editing-models.json',
+              'data/text-to-video-models.json',
+              'data/image-to-video-models.json',
+              'data/video-editing-models.json',
+              'data/speech-to-text-models.json',
+              'data/text-to-speech-models.json'
+            ];
+            for (const f of files) {
+              try {
+                const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+                if (d.models && d.models.length > 0 && !('openWeights' in d.models[0])) {
+                  d.models[0].openWeights = false;
+                  fs.writeFileSync(f, JSON.stringify(d, null, 2));
+                }
+              } catch (e) { console.log('Skip', f); }
+            }
+          "
+          git add data/t2i-models.json data/image-editing-models.json data/text-to-video-models.json data/image-to-video-models.json data/video-editing-models.json data/speech-to-text-models.json data/text-to-speech-models.json data/aa-models.json
+          if git diff --cached --quiet; then
+            echo "No leaderboard changes to commit"
+          else
+            git commit -m "chore: refresh model leaderboards $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push origin HEAD:main
+          fi

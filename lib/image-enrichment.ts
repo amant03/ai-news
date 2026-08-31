@@ -183,18 +183,26 @@ const FETCH_TIMEOUT = 4000;
  * - Falls back to entity-based photo (company logo / founder headshot).
  * - Mutates items in-place (sets `image_url`).
  */
-export async function enrichImages(items: NewsItem[]): Promise<{ fetched: number; entity: number; failed: number }> {
+export async function enrichImages(
+  items: NewsItem[],
+  options?: { maxHttp?: number; entityOnly?: boolean }
+): Promise<{ fetched: number; entity: number; failed: number }> {
   const needEnrichment = items.filter(i => {
     if (i.image_url && isValidImageUrl(i.image_url)) return false;
     // Skip Google News redirect URLs — they won't resolve to article pages
     if (i.url && /news\.google\.com/i.test(i.url)) return false;
     return true;
   });
-  console.log(`🖼️  Enriching images for ${needEnrichment.length}/${items.length} items (concurrency=${CONCURRENCY})…`);
+  const entityOnly = options?.entityOnly === true;
+  const maxHttp = entityOnly ? 0 : options?.maxHttp ?? Number.POSITIVE_INFINITY;
+  console.log(
+    `🖼️  Enriching images for ${needEnrichment.length}/${items.length} items (concurrency=${CONCURRENCY}, maxHttp=${maxHttp === Number.POSITIVE_INFINITY ? 'all' : maxHttp})…`
+  );
 
   let fetched = 0;
   let entity = 0;
   let failed = 0;
+  let httpUsed = 0;
 
   // Process in batches
   for (let i = 0; i < needEnrichment.length; i += CONCURRENCY) {
@@ -203,8 +211,10 @@ export async function enrichImages(items: NewsItem[]): Promise<{ fetched: number
       batch.map(async item => {
         const entityKey = `${item.title} ${item.content || ''} ${item.summary || ''}`;
 
-        // Step 1: Try fetching og:image from the article URL
-        if (item.url) {
+        // Step 1: Try fetching og:image from the article URL (capped so serverless/CI stay fast)
+        const canHttp = !!item.url && httpUsed < maxHttp;
+        if (canHttp) {
+          httpUsed++;
           try {
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT);

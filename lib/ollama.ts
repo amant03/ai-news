@@ -1,12 +1,10 @@
 import fs from 'fs';
-import path from 'path';
 import { Category } from './types';
 import { categorizeContent } from './categorize';
+import { dataFile } from './storage';
 
 const OLLAMA_URL = process.env.OLLAMA_URL || 'http://localhost:11434';
 const MODEL = process.env.OLLAMA_MODEL || 'llama3.2:3b';
-
-const CACHE_FILE = path.join(process.cwd(), 'data', 'summary-cache.json');
 
 interface OllamaResponse {
   summary: string;
@@ -93,9 +91,10 @@ export type SummaryCache = Map<string, OllamaResponse>;
 
 export function loadSummaryCache(): SummaryCache {
   const map: SummaryCache = new Map();
+  const cacheFile = dataFile('summary-cache.json');
   try {
-    if (fs.existsSync(CACHE_FILE)) {
-      const raw = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf-8')) as Record<string, OllamaResponse>;
+    if (fs.existsSync(cacheFile)) {
+      const raw = JSON.parse(fs.readFileSync(cacheFile, 'utf-8')) as Record<string, OllamaResponse>;
       for (const [k, v] of Object.entries(raw)) {
         map.set(k.toLowerCase(), v);
       }
@@ -108,13 +107,8 @@ export function loadSummaryCache(): SummaryCache {
 
 export function saveSummaryCache(cache: SummaryCache) {
   try {
-    const dir = path.dirname(CACHE_FILE);
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    const obj: Record<string, OllamaResponse> = {};
-    for (const [k, v] of cache.entries()) {
-      obj[k] = v;
-    }
-    fs.writeFileSync(CACHE_FILE, JSON.stringify(obj, null, 2), 'utf-8');
+    const cacheFile = dataFile('summary-cache.json');
+    fs.writeFileSync(cacheFile, JSON.stringify(Object.fromEntries(cache), null, 2), 'utf-8');
   } catch {
     /* ignore */
   }

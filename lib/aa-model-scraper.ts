@@ -84,15 +84,19 @@ export async function scrapeAllModels(): Promise<number> {
     m.intelligenceIndex != null && (m.aaSpeed == null || m.aaCostPerTask == null || m.aaVerbosity == null)
   );
 
-  console.log(`[aa-model-scraper] Found ${needsData.length} models needing data`);
+  // Cap each run so CI never spends 20+ minutes (and burns the free Actions budget)
+  // walking hundreds of model pages at ~800ms each.
+  const MAX_PER_RUN = Math.max(1, parseInt(process.env.AA_SCRAPE_LIMIT || '25', 10) || 25);
+  const queue = needsData.slice(0, MAX_PER_RUN);
+  console.log(`[aa-model-scraper] Found ${needsData.length} models needing data; scraping ${queue.length} this run`);
 
-  for (let i = 0; i < needsData.length; i++) {
+  for (let i = 0; i < queue.length; i++) {
     const model = needsData[i];
     const slug = slugify(model.name);
     const url = `${MODELS_URL}${slug}`;
 
     try {
-      console.log(`[${i + 1}/${needsData.length}] Fetching ${model.name} → ${url}`);
+      console.log(`[${i + 1}/${queue.length}] Fetching ${model.name} → ${url}`);
       const res = await fetch(url, { signal: AbortSignal.timeout(15_000), headers: HEADERS });
 
       if (!res.ok) {
@@ -152,7 +156,7 @@ export async function scrapeAllModels(): Promise<number> {
 
   // Save updated data
   fs.writeFileSync(DATA_PATH, JSON.stringify(data));
-  console.log(`[aa-model-scraper] Done. ${updated} fields updated across ${needsData.length} models.`);
+  console.log(`[aa-model-scraper] Done. ${updated} fields updated across ${queue.length}/${needsData.length} models.`);
 
   return updated;
 }

@@ -198,11 +198,8 @@ function determinePublishedDate(html: string): string {
 }
 
 export async function scrapeWebSources(): Promise<NewsItem[]> {
-  const allItems: NewsItem[] = [];
-  const processed = new Set<string>();
-
-  for (const source of WEB_SOURCES) {
-    try {
+  const results = await Promise.allSettled(
+    WEB_SOURCES.map(async source => {
       console.log(`  Fetching web: ${source.name}...`);
       const response = await fetch(source.url, {
         signal: AbortSignal.timeout(10000),
@@ -214,20 +211,16 @@ export async function scrapeWebSources(): Promise<NewsItem[]> {
 
       if (!response.ok) {
         console.log(`    ✗ ${source.name}: HTTP ${response.status}`);
-        continue;
+        return [] as NewsItem[];
       }
 
       const html = await response.text();
       const links = extractLinksFromHtml(html, source.url);
+      const items: NewsItem[] = [];
 
-      let sourceItems = 0;
       for (const link of links.slice(0, 15)) {
-        if (processed.has(link.url)) continue;
-        processed.add(link.url);
-
         const category = categorizeContent(link.title, link.snippet);
-
-        allItems.push({
+        items.push({
           source: source.source,
           source_label: source.name,
           source_type: 'web',
@@ -240,12 +233,24 @@ export async function scrapeWebSources(): Promise<NewsItem[]> {
           published_at: determinePublishedDate(html),
           source_detail: source.name,
         });
-        sourceItems++;
       }
 
-      console.log(`    ✓ ${source.name}: ${sourceItems} items`);
-    } catch (error) {
-      console.log(`    ✗ ${source.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      console.log(`    ✓ ${source.name}: ${items.length} items`);
+      return items;
+    })
+  );
+
+  const allItems: NewsItem[] = [];
+  const processed = new Set<string>();
+  for (const result of results) {
+    const items = result.status === 'fulfilled' ? result.value : [];
+    if (result.status === 'rejected') {
+      console.log(`    ✗ web source: ${result.reason instanceof Error ? result.reason.message : 'Unknown error'}`);
+    }
+    for (const item of items) {
+      if (processed.has(item.url)) continue;
+      processed.add(item.url);
+      allItems.push(item);
     }
   }
 

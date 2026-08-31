@@ -1,20 +1,18 @@
 name: AI News Agent
 
+# Free-tier news refresh. Intentionally does NOT scrape models/AA/T2I:
+# those used to run after the agent and fail, which skipped the news commit
+# (`if: success()`), leaving the site stale. models.json is also ~96MB and
+# must never be part of this job.
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "30 */6 * * *"
   workflow_dispatch:
     inputs:
       sources:
         description: "Comma-separated source keys (rss,google-news,hackernews,reddit,arxiv,youtube,github,web,twitter). Leave empty for all."
         required: false
         type: string
-  push:
-    branches: [main]
-    paths:
-      - "lib/**"
-      - "package.json"
-      - "package-lock.json"
 
 concurrency:
   group: ai-news-agent
@@ -26,7 +24,7 @@ env:
 jobs:
   agent:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 12
     permissions:
       contents: write
     steps:
@@ -44,67 +42,35 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run agent
-        timeout-minutes: 15
-        run: npx tsx lib/run-agent.ts --kb ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
+      - name: Run news agent
+        id: agent
+        timeout-minutes: 8
+        run: npx tsx lib/run-agent.ts --kb --skip-models --skip-ollama ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
         env:
           AGENT_MODE: ci
+          AGENT_SKIP_MODELS: "true"
           DISABLE_X_SCRAPING: "true"
           OLLAMA_URL: ""
 
-      - name: Refresh T2I leaderboard
-        timeout-minutes: 5
-        run: npx tsx lib/t2i-scraper.ts
-
-      - name: Enrich model data from AA
-        timeout-minutes: 20
-        run: npx tsx lib/aa-model-scraper.ts
-
-      - name: Fix openWeights type inference
-        run: |
-          node -e "
-            const fs = require('fs');
-            const files = [
-              'data/t2i-models.json',
-              'data/image-editing-models.json',
-              'data/text-to-video-models.json',
-              'data/image-to-video-models.json',
-              'data/video-editing-models.json',
-              'data/speech-to-text-models.json',
-              'data/text-to-speech-models.json'
-            ];
-            for (const f of files) {
-              try {
-                const d = JSON.parse(fs.readFileSync(f, 'utf8'));
-                if (d.models.length > 0 && !('openWeights' in d.models[0])) {
-                  d.models[0].openWeights = false;
-                  fs.writeFileSync(f, JSON.stringify(d, null, 2));
-                  console.log('Fixed', f);
-                }
-              } catch(e) { console.log('Skip', f); }
-            }
-          "
-
-      - name: Commit and push fresh data
-        if: success()
+      - name: Commit news snapshot
+        if: steps.agent.outcome == 'success'
         run: |
           git config user.name "ai-news-bot"
           git config user.email "actions@users.noreply.github.com"
-          # Update status.json with next cron run time
           node -e "
             const fs = require('fs');
             const d = JSON.parse(fs.readFileSync('data/status.json','utf8'));
             d.lastRun = new Date().toISOString();
             d.lastSuccess = new Date().toISOString();
             const now = new Date();
-            const hours = [0,4,8,12,16,20];
-            const nextHour = hours.find(h => h > now.getUTCHours()) || 24;
-            const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 0, 0));
+            const hours = [0, 6, 12, 18];
+            const nextHour = hours.find(h => h > now.getUTCHours()) ?? 24;
+            const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 30, 0));
             d.nextRun = next.toISOString();
             fs.writeFileSync('data/status.json', JSON.stringify(d, null, 2));
             console.log('Updated status.json: nextRun=' + d.nextRun);
           "
-          git add data/news.json data/models.json data/status.json data/aa-models.json data/t2i-models.json data/image-editing-models.json data/text-to-video-models.json data/image-to-video-models.json data/video-editing-models.json data/speech-to-text-models.json data/text-to-speech-models.json AI_NEWS_KNOWLEDGE_BASE.md
+          git add data/news.json data/status.json AI_NEWS_KNOWLEDGE_BASE.md
           if git diff --cached --quiet; then
             echo "No data changes to commit"
           else

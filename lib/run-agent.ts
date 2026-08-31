@@ -27,6 +27,9 @@ interface CliOptions {
   regenerateKB: boolean;
   intervalMs: number;
   sourceFilter?: string[];
+  skipModels: boolean;
+  skipImages: boolean;
+  skipOllama: boolean;
 }
 
 function parseArgs(argv: string[]): CliOptions {
@@ -34,6 +37,9 @@ function parseArgs(argv: string[]): CliOptions {
     loop: argv.includes('--loop'),
     regenerateKB: argv.includes('--kb') || argv.includes('--regenerate-kb'),
     intervalMs: parseInt(process.env.AGENT_INTERVAL_MS || '14400000', 10), // default 4h
+    skipModels: argv.includes('--skip-models') || process.env.AGENT_SKIP_MODELS === 'true',
+    skipImages: argv.includes('--skip-images'),
+    skipOllama: argv.includes('--skip-ollama') || !process.env.OLLAMA_URL,
   };
   const srcIdx = argv.indexOf('--sources');
   if (srcIdx >= 0 && argv[srcIdx + 1]) {
@@ -56,6 +62,10 @@ async function runOnce(opts: CliOptions): Promise<void> {
   const result = await runAgent({
     regenerateKB: opts.regenerateKB,
     sourceFilter: opts.sourceFilter,
+    skipOllama: opts.skipOllama,
+    skipModelRefresh: opts.skipModels,
+    skipImageEnrichment: opts.skipImages,
+    excludeSources: process.env.DISABLE_X_SCRAPING === 'true' ? ['twitter'] : undefined,
   });
 
   console.log('\n📋 Run summary:');

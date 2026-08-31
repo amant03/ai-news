@@ -3,8 +3,9 @@ import path from 'path';
 import { NewsItem } from './types';
 import { isDuplicate } from './dedupe';
 import { classifyDomain } from './categorize';
+import { dataDir } from './storage';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+const DATA_DIR = dataDir();
 const DB_FILE = path.join(DATA_DIR, 'news.json');
 
 interface Store {

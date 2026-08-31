@@ -1,0 +1,135 @@
+
+> ai-news@0.2.0 dev
+> next dev
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.4:3000
+- Environments: .env.local
+✓ Ready in 9.2s
+
+ GET /api/status 200 in 2.7s (next.js: 2.6s, application-code: 164ms)
+🔄 Starting AI news agent...
+   Time: 2026-08-23T06:59:48.813Z
+   Environment: local
+  Fetching web: AI News...
+  ✗ RSS OpenAI failed: Status code 403
+  ✗ RSS Microsoft AI failed: Status code 403
+  ✗ RSS Perplexity failed: Status code 403
+  ✗ RSS OpenRouter failed: Status code 404
+  ✗ RSS Databricks failed: Status code 404
+  ✗ RSS Meta AI failed: Status code 400
+  ✗ RSS NVIDIA AI failed: Status code 404
+  ✗ GitHub search: HTTP 403 (rate limit may be hit)
+  ✗ RSS Anthropic failed: Status code 404
+  ✗ RSS The Next Web AI failed: Status code 404
+  ✗ RSS EleutherAI failed: Status code 404
+  ✗ RSS Mistral failed: Status code 404
+  ✗ RSS AI2 failed: Status code 404
+  ✓ arXiv cs.AI: 25 entries
+  ✗ RSS Bloomberg AI failed: Status code 404
+  ✗ RSS Stanford HAI failed: Attribute without value
+Line: 0
+Column: 4467
+Char: i
+  ✓ Google News "artificial intelligence": 100 items
+  ✗ RSS LangChain failed: Feed not recognized as RSS 1 or 2.
+  ✓ YouTube OpenAI: 15 items
+  ✗ RSS Stability AI failed: Status code 404
+  ✓ YouTube Lex Fridman: 15 items
+  ✓ arXiv cs.LG: 20 entries
+  ✓ Google News ""large language model"": 33 items
+  ✓ YouTube Two Minute Papers: 15 items
+  ✗ RSS Unite.AI failed: Status code 403
+  ✓ YouTube AssemblyAI: 15 items
+  ✓ GitHub org events: 0 items
+   [github] 0 items in 2053ms
+  ✗ RSS AIM failed: Attribute without value
+Line: 4
+Column: 19
+Char: s
+  ✗ RSS GitHub Blog AI failed: Status code 404
+  ✓ YouTube Google DeepMind: 15 items
+  ✓ arXiv cs.CL: 12 entries
+   [arxiv] 57 items in 2370ms
+    ✗ AI News: HTTP 403
+  Fetching web: AI Weekly...
+  ✓ Google News "AI funding": 99 items
+  ✓ YouTube Yannic Kilcher: 15 items
+   [youtube] 15 items in 2748ms
+  ✗ RSS Cohere failed: Feed not recognized as RSS 1 or 2.
+  ✓ Google News "AI model release": 56 items
+  ✓ Reddit r/MachineLearning: 25 items
+  ✗ Reddit r/LocalLLaMA failed: Status code 429
+  ✓ HN "AI": 30 raw hits
+    ✓ AI Weekly: 15 items
+  Fetching web: TechPP AI...
+  ✓ Google News "AI regulation policy": 47 items
+    ✗ TechPP AI: HTTP 403
+  Fetching web: ScienceDaily AI...
+  ✗ Reddit r/OpenAI failed: Status code 429
+  ✗ Reddit r/artificial failed: Status code 429
+  ✗ Reddit r/StableDiffusion failed: Status code 429
+   [reddit] 10 items in 4216ms
+  ✓ Google News "OpenAI OR Anthropic OR Google DeepMind OR Meta AI": 100 items
+   [google-news] 85 items in 4364ms
+    ✓ ScienceDaily AI: 15 items
+  Fetching web: VentureBeat AI...
+    ✓ VentureBeat AI: 15 items
+  Fetching web: The Next Web AI...
+  ✓ HN "LLM": 30 raw hits
+    ✓ The Next Web AI: 9 items
+  Fetching web: The Register AI...
+    ✓ The Register AI: 15 items
+  Fetching web: Decrypt AI...
+    ✗ Decrypt AI: HTTP 403
+  Fetching web: IT Pro AI...
+  ✓ HN "GPT": 30 raw hits
+  ✓ HN "AGI": 30 raw hits
+  ✓ RSS Google DeepMind: 12 items
+  ✓ RSS Hugging Face: 12 items
+  ✓ RSS Google AI Blog: 12 items
+  ✓ RSS Google Research: 12 items
+  ✓ RSS PostHog: 12 items
+  ✓ RSS Together AI: 12 items
+  ✓ RSS Amazon ML: 12 items
+  ✓ RSS TechCrunch AI: 12 items
+  ✓ RSS The Verge AI: 10 items
+  ✓ RSS VentureBeat AI: 7 items
+  ✓ RSS Wired AI: 10 items
+  ✓ RSS MIT Tech Review: 10 items
+  ✓ RSS Ars Technica AI: 12 items
+  ✓ RSS CNBC AI: 12 items
+  ✓ RSS ZDNet AI: 12 items
+  ✓ RSS MarkTechPost: 10 items
+  ✓ RSS ScienceDaily AI: 12 items
+  ✓ RSS TheDecoder: 10 items
+  ✓ RSS Towards AI: 10 items
+   [rss] 211 items in 8630ms
+    ✗ IT Pro AI: HTTP 404
+  Fetching web: TechRepublic AI...
+    ✗ TechRepublic AI: HTTP 403
+  Fetching web: AI News 247...
+  ✓ HN "Claude": 30 raw hits
+    ✓ AI News 247: 15 items
+   [web] 84 items in 9767ms
+  ✓ HN "Gemini": 30 raw hits
+  ✓ HN "machine learning": 30 raw hits
+  ✓ HN "open source AI": 30 raw hits
+  ✓ HN "neural network": 30 raw hits
+  ✓ HN "GPU": 30 raw hits
+   [hackernews] 15 items in 21337ms
+
+📊 Total fetched: 477 items
+🖼️  Enriching images for 299/477 items (concurrency=20)…
+   … 100/299 processed (87 og:image, 11 entity, 2 failed)
+   … 200/299 processed (113 og:image, 35 entity, 52 failed)
+   … 299/299 processed (155 og:image, 70 entity, 74 failed)
+🖼️  Image enrichment done: 155 from og:image, 70 from entity mapping, 74 still missing
+   Images: 155 og:image + 70 entity fallback, 74 still missing
+   Enriched 0 items
+   [pg] mirrored 324 new, 153 known
+
+✅ Done. Inserted 226 new, 251 known, pruned 226. Total 2500 items in 74.7s
+[cron] commit-back failed: DATA_REPO or GITHUB_DATA_TOKEN not configured — data is in Postgres but the site reads committed files
+ GET /api/cron 200 in 75s (next.js: 580ms, application-code: 75s)
