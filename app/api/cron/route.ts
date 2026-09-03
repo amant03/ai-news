@@ -5,7 +5,7 @@ import { fetchCommittedFile, dispatchWorkflow } from '@/lib/github-data';
 // Vercel Hobby cron: once a day. It only *pokes* GitHub Actions (free minutes).
 // Never run the agent inline here — that exceeds Hobby's 60s cap and emails
 // a timeout. The 4-hour fetch lives in .github/workflows/agent.yml.
-export const maxDuration = 15;
+export const maxDuration = 30;
 export const dynamic = 'force-dynamic';
 
 const MIN_RUN_INTERVAL_MS = 3 * 60 * 60 * 1000;

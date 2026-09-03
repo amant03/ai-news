@@ -26,7 +26,38 @@ export async function fetchCommittedFile(filePath: string, timeoutMs = 25000): P
   const token = process.env.GITHUB_DATA_TOKEN;
   const signal = AbortSignal.timeout(timeoutMs);
 
-  // 1. GitHub API blob via tree SHA — reliable for private repos and files >1MB.
+  // 1. Contents API with raw accept — one request, works for files <1MB (status.json).
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${DATA_REPO}/contents/${filePath}?ref=${encodeURIComponent(DATA_BRANCH)}`,
+      { signal, cache: 'no-store', headers: authHeaders({ Accept: 'application/vnd.github.raw' }) }
+    );
+    if (res.ok) {
+      const text = await res.text();
+      if (text && !text.startsWith('{"message":')) return text;
+    }
+  } catch {
+    /* fall through */
+  }
+
+  // 2. raw.githubusercontent.com (public repos, or PAT that raw accepts).
+  try {
+    const headers: Record<string, string> = { 'User-Agent': 'ai-news-app' };
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+      headers.Accept = 'application/vnd.githubusercontent.raw';
+    }
+    const res = await fetch(`https://raw.githubusercontent.com/${DATA_REPO}/${DATA_BRANCH}/${filePath}`, {
+      signal,
+      cache: 'no-store',
+      headers,
+    });
+    if (res.ok) return await res.text();
+  } catch {
+    /* fall through */
+  }
+
+  // 3. Git blob via tree SHA — needed for private files >1MB (news.json).
   if (token) {
     try {
       const treeRes = await fetch(
@@ -49,39 +80,8 @@ export async function fetchCommittedFile(filePath: string, timeoutMs = 25000): P
         }
       }
     } catch {
-      /* fall through */
+      /* ignore */
     }
-  }
-
-  // 2. Contents API with raw accept (small files).
-  try {
-    const res = await fetch(
-      `https://api.github.com/repos/${DATA_REPO}/contents/${filePath}?ref=${encodeURIComponent(DATA_BRANCH)}`,
-      { signal, cache: 'no-store', headers: authHeaders({ Accept: 'application/vnd.github.raw' }) }
-    );
-    if (res.ok) {
-      const text = await res.text();
-      if (text && !text.startsWith('{"message":')) return text;
-    }
-  } catch {
-    /* fall through */
-  }
-
-  // 3. raw.githubusercontent.com (public repos, or PAT that raw accepts).
-  try {
-    const headers: Record<string, string> = { 'User-Agent': 'ai-news-app' };
-    if (token) {
-      headers.Authorization = `Bearer ${token}`;
-      headers.Accept = 'application/vnd.githubusercontent.raw';
-    }
-    const res = await fetch(`https://raw.githubusercontent.com/${DATA_REPO}/${DATA_BRANCH}/${filePath}`, {
-      signal,
-      cache: 'no-store',
-      headers,
-    });
-    if (res.ok) return await res.text();
-  } catch {
-    /* ignore */
   }
 
   return null;
