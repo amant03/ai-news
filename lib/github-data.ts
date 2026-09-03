@@ -1,31 +1,90 @@
-// Fetches files committed by the GitHub Actions agent (data/news.json etc.)
-// directly from raw.githubusercontent.com so the deployed serverless app
-// always serves the freshest committed data between deploys.
+// Reads files committed by the GitHub Actions agent (data/news.json etc.)
+// so the deployed app serves fresh data without waiting for a Vercel rebuild.
 //
-// For PRIVATE repos the raw URL requires authentication; set GITHUB_DATA_TOKEN
-// (fine-grained PAT with "Contents: Read" on this repo) in Vercel env vars.
-// Public repos work without a token.
+// Private repos cannot use anonymous raw.githubusercontent.com (404). Prefer
+// the Git Data API (works for files >1MB such as news.json). Set
+// GITHUB_DATA_TOKEN in Vercel with "Contents: Read".
 //
-// commitFilesToRepo() additionally needs "Contents: Read and write" and is
-// used by the Vercel cron route to push freshly fetched data back to the repo.
+// commitFilesToRepo() needs "Contents: Read and write".
+// dispatchWorkflow() needs "Actions: Read and write".
 const DATA_REPO = process.env.DATA_REPO;
 const DATA_BRANCH = process.env.DATA_BRANCH || 'main';
 
-export async function fetchCommittedFile(filePath: string, timeoutMs = 15000): Promise<string | null> {
+function authHeaders(extra?: Record<string, string>): Record<string, string> {
+  const token = process.env.GITHUB_DATA_TOKEN;
+  return {
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+    'User-Agent': 'ai-news-app',
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...extra,
+  };
+}
+
+export async function fetchCommittedFile(filePath: string, timeoutMs = 25000): Promise<string | null> {
   if (!DATA_REPO) return null;
-  try {
-    const headers: Record<string, string> = {};
-    const token = process.env.GITHUB_DATA_TOKEN;
-    if (token) headers.Authorization = `Bearer ${token}`;
-    const res = await fetch(
-      `https://raw.githubusercontent.com/${DATA_REPO}/${DATA_BRANCH}/${filePath}`,
-      { signal: AbortSignal.timeout(timeoutMs), cache: 'no-store', headers }
-    );
-    if (!res.ok) return null;
-    return await res.text();
-  } catch {
-    return null;
+  const token = process.env.GITHUB_DATA_TOKEN;
+  const signal = AbortSignal.timeout(timeoutMs);
+
+  // 1. GitHub API blob via tree SHA — reliable for private repos and files >1MB.
+  if (token) {
+    try {
+      const treeRes = await fetch(
+        `https://api.github.com/repos/${DATA_REPO}/git/trees/${encodeURIComponent(DATA_BRANCH)}?recursive=1`,
+        { signal, cache: 'no-store', headers: authHeaders() }
+      );
+      if (treeRes.ok) {
+        const tree = (await treeRes.json()) as { tree?: Array<{ path: string; sha: string; type: string }> };
+        const entry = tree.tree?.find(t => t.path === filePath && t.type === 'blob');
+        if (entry?.sha) {
+          const blobRes = await fetch(`https://api.github.com/repos/${DATA_REPO}/git/blobs/${entry.sha}`, {
+            signal,
+            cache: 'no-store',
+            headers: authHeaders({ Accept: 'application/vnd.github.raw' }),
+          });
+          if (blobRes.ok) {
+            const text = await blobRes.text();
+            if (text) return text;
+          }
+        }
+      }
+    } catch {
+      /* fall through */
+    }
   }
+
+  // 2. Contents API with raw accept (small files).
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${DATA_REPO}/contents/${filePath}?ref=${encodeURIComponent(DATA_BRANCH)}`,
+      { signal, cache: 'no-store', headers: authHeaders({ Accept: 'application/vnd.github.raw' }) }
+    );
+    if (res.ok) {
+      const text = await res.text();
+      if (text && !text.startsWith('{"message":')) return text;
+    }
+  } catch {
+    /* fall through */
+  }
+
+  // 3. raw.githubusercontent.com (public repos, or PAT that raw accepts).
+  try {
+    const headers: Record<string, string> = { 'User-Agent': 'ai-news-app' };
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+      headers.Accept = 'application/vnd.githubusercontent.raw';
+    }
+    const res = await fetch(`https://raw.githubusercontent.com/${DATA_REPO}/${DATA_BRANCH}/${filePath}`, {
+      signal,
+      cache: 'no-store',
+      headers,
+    });
+    if (res.ok) return await res.text();
+  } catch {
+    /* ignore */
+  }
+
+  return null;
 }
 
 export interface RepoFile {
@@ -55,20 +114,13 @@ export async function commitFilesToRepo(
     if (aborted) throw new Error('aborted');
     const res = await fetch(`${apiBase}${urlPath}`, {
       method,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/vnd.github+json',
-        'X-GitHub-Api-Version': '2022-11-28',
-        ...(body ? { 'Content-Type': 'application/json' } : {}),
-      },
+      headers: authHeaders(body ? { 'Content-Type': 'application/json' } : undefined),
       body: body ? JSON.stringify(body) : undefined,
       signal: AbortSignal.timeout(timeoutMs),
       cache: 'no-store',
     });
     if (!res.ok) {
       const text = await res.text().catch(() => '');
-      // 409 from PATCH ref = race with another push (e.g. Actions agent);
-      // anything else is a real failure worth surfacing.
       const err = new Error(`GitHub ${method} ${urlPath} -> ${res.status}: ${text.slice(0, 300)}`);
       if (res.status === 409 || res.status === 422) aborted = true;
       throw err;
@@ -77,14 +129,10 @@ export async function commitFilesToRepo(
   }
 
   try {
-    // 1. Current head of the data branch.
     const ref = await gh<{ object: { sha: string } }>('GET', `/git/ref/heads/${DATA_BRANCH}`);
     const headSha = ref.object.sha;
-
-    // 2. Base tree of the head commit.
     const headCommit = await gh<{ tree: { sha: string } }>('GET', `/git/commits/${headSha}`);
 
-    // 3. Blobs for each file.
     const blobShas: string[] = [];
     for (const file of files) {
       const blob = await gh<{ sha: string }>('POST', '/git/blobs', {
@@ -94,7 +142,6 @@ export async function commitFilesToRepo(
       blobShas.push(blob.sha);
     }
 
-    // 4. New tree replacing only the given paths.
     const tree = await gh<{ sha: string }>('POST', '/git/trees', {
       base_tree: headCommit.tree.sha,
       tree: files.map((file, i) => ({
@@ -105,7 +152,6 @@ export async function commitFilesToRepo(
       })),
     });
 
-    // 5. Commit + move the branch ref.
     const commit = await gh<{ sha: string }>('POST', '/git/commits', {
       message,
       tree: tree.sha,
@@ -120,9 +166,8 @@ export async function commitFilesToRepo(
 }
 
 /**
- * Kick the GitHub Actions news workflow (free minutes, 10 min timeout, git write).
- * Used by the Vercel daily cron as the preferred refresh path. Returns ok:false
- * when the token lacks `actions: write` so the caller can fall back to an inline run.
+ * Kick the GitHub Actions news workflow. Returns ok:false when the token
+ * lacks `actions: write` so the caller can no-op instead of hanging.
  */
 export async function dispatchWorkflow(
   workflowFile: string,
@@ -135,12 +180,7 @@ export async function dispatchWorkflow(
       `https://api.github.com/repos/${DATA_REPO}/actions/workflows/${workflowFile}/dispatches`,
       {
         method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: 'application/vnd.github+json',
-          'X-GitHub-Api-Version': '2022-11-28',
-          'Content-Type': 'application/json',
-        },
+        headers: authHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ ref: DATA_BRANCH }),
         signal: AbortSignal.timeout(timeoutMs),
         cache: 'no-store',

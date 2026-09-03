@@ -4,25 +4,12 @@ import { readModelDatabase, ModelRecord, ModelDatabase } from '@/lib/model-regis
 import { getNewsItems, readStore } from '@/lib/db';
 import { rankKey } from '@/lib/rank';
 import { hasPg, getPool } from '@/lib/pg';
-import { fetchCommittedFile } from '@/lib/github-data';
 
 export const dynamic = 'force-dynamic';
 
-// Committed catalog from GitHub raw so the serverless app serves fresh model
-// data between deploys (60s in-memory cache).
-const MODEL_CACHE_TTL_MS = 60_000;
-let modelCache: { data: string; at: number } | null = null;
-
+// models.json is ~96MB — never pull it from GitHub at request time.
 async function loadCommittedModels(): Promise<ModelDatabase | null> {
-  if (process.env.VERCEL !== '1' || !process.env.DATA_REPO) return null;
-  const now = Date.now();
-  if (modelCache && now - modelCache.at < MODEL_CACHE_TTL_MS) {
-    try { return JSON.parse(modelCache.data) as ModelDatabase; } catch { return null; }
-  }
-  const text = await fetchCommittedFile('data/models.json');
-  if (!text) return null;
-  modelCache = { data: text, at: now };
-  try { return JSON.parse(text) as ModelDatabase; } catch { return null; }
+  return null;
 }
 
 const VALID_SORTS = ['elo', 'intelligence', 'value', 'popularity', 'newest', 'name'];

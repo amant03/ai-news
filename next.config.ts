@@ -7,9 +7,8 @@ const nextConfig: NextConfig = {
   // Ensure the JSON data store is bundled into serverless functions that read
   // it at request time (fs reads aren't auto-traced on Vercel).
   outputFileTracingIncludes: {
-    "/": ["./data/**"],
-    "/api/news": ["./data/**"],
-    "/api/status": ["./data/**"],
+    "/api/news": ["./data/news.json"],
+    "/api/status": ["./data/status.json"],
   },
 };
 

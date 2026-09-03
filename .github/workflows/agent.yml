@@ -52,7 +52,7 @@ jobs:
       - name: Run news agent
         id: agent
         timeout-minutes: 8
-        run: npx tsx lib/run-agent.ts --kb --skip-models --skip-ollama ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
+        run: npx tsx lib/run-agent.ts --skip-models --skip-ollama ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
         env:
           AGENT_MODE: ci
           AGENT_SKIP_MODELS: "true"
@@ -77,10 +77,11 @@ jobs:
             fs.writeFileSync('data/status.json', JSON.stringify(d, null, 2));
             console.log('Updated status.json: nextRun=' + d.nextRun);
           "
-          git add data/news.json data/status.json AI_NEWS_KNOWLEDGE_BASE.md
+          git add data/news.json data/status.json
           if git diff --cached --quiet; then
             echo "No data changes to commit"
           else
             git commit -m "chore: refresh AI news $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git pull --rebase origin main || true
             git push origin HEAD:main
           fi

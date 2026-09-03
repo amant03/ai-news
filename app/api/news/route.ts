@@ -15,7 +15,7 @@ const CACHE_TTL_MS = 60_000;
 let memoryCache: { data: string; at: number } | null = null;
 
 async function getRawFromGithub(): Promise<string | null> {
-  return fetchCommittedFile('data/news.json');
+  return fetchCommittedFile('data/news.json', 25000);
 }
 
 function readLocalStore(): string | null {
@@ -34,10 +34,10 @@ async function loadStoreText(): Promise<{ text: string; from: 'local' | 'github'
     return { text: memoryCache.data, from: 'cache' as 'local' };
   }
 
-  // Prefer the freshest source: local file (matches last commit/deploy) then GitHub raw.
-  const local = readLocalStore();
+  // On Vercel the deploy snapshot is days behind the Actions commits.
+  // Always prefer GitHub (private repo via GITHUB_DATA_TOKEN + git blobs).
   const remote = await getRawFromGithub();
-
+  const local = remote ? null : readLocalStore();
   const text = remote || local;
   if (text) {
     memoryCache = { data: text, at: now };

@@ -1,4 +1,5 @@
 {
+  "ignoreCommand": "git log -1 --pretty=%s | grep -qE '^chore: refresh' && echo skip-news-commit || exit 1",
   "crons": [
     {
       "path": "/api/cron",
