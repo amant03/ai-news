@@ -542,6 +542,124 @@ export function writeModelDatabase(db: ModelDatabase): void {
   fs.writeFileSync(DATA_FILE, JSON.stringify(db, null, 2), 'utf-8');
 }
 
+// ---------------------------------------------------------------------------
+// Slim manifest
+//
+// models.json can exceed 100MB (every OpenRouter/LMArena/Ollama entry with
+// pricing, benchmarks, descriptions). That's far too big to commit to the repo
+// or load into a serverless function on every request. Instead we persist a
+// compact manifest (id, name, provider, release date, key signals) that the
+// news cron rebuilds each run and commits, so the deployed /api/models can
+// fetch a small file from GitHub raw and always show the newest releases.
+// ---------------------------------------------------------------------------
+
+export interface SlimModel {
+  id: string;
+  name: string;
+  provider: string;
+  source: string;
+  released?: string;
+  family?: ModelRecord['family'];
+  elo?: number;
+  hfDownloads?: number;
+  intelligenceIndex?: number;
+}
+
+export interface SlimModelDb {
+  updatedAt: string;
+  total: number;
+  models: SlimModel[];
+}
+
+const SLIM_FILE = path.join(process.cwd(), 'data', 'models-slim.json');
+
+export function toSlim(m: ModelRecord): SlimModel {
+  const slim: SlimModel = {
+    id: m.id,
+    name: m.name,
+    provider: m.provider,
+    source: m.source,
+  };
+  if (m.released) slim.released = m.released;
+  if (m.family) slim.family = m.family;
+  if (m.elo !== undefined) slim.elo = m.elo;
+  if (m.hfDownloads !== undefined) slim.hfDownloads = m.hfDownloads;
+  if (m.intelligenceIndex !== undefined) slim.intelligenceIndex = m.intelligenceIndex;
+  return slim;
+}
+
+export function writeSlimModelDatabase(db: ModelDatabase): SlimModelDb {
+  const slim: SlimModelDb = {
+    updatedAt: new Date().toISOString(),
+    total: db.models.length,
+    models: db.models.map(toSlim),
+  };
+  fs.mkdirSync(path.dirname(SLIM_FILE), { recursive: true });
+  fs.writeFileSync(SLIM_FILE, JSON.stringify(slim), 'utf-8');
+  return slim;
+}
+
+/**
+ * Lightweight refresh that is SAFE to run on every news cron, even when the
+ * heavy full-model crawl (HF/Ollama/LMArena/freellm — what used to blow up)
+ * is skipped. Hits just OpenRouter (one call ~5-25s) and merges in any fresh
+ * full-slim already written this run. Writes only the small models-slim.json.
+ */
+export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
+  const base = readSlimModelDatabase();
+  const byKey = new Map<string, SlimModel>();
+  for (const m of base?.models || []) byKey.set(normalizeKey(m.id), m);
+
+  try {
+    const res = await fetch('https://openrouter.ai/api/v1/models', {
+      signal: AbortSignal.timeout(25000),
+      headers: { Accept: 'application/json' },
+    });
+    if (res.ok) {
+      const data = (await res.json()) as { data: ORModel[] };
+      for (const m of data.data) {
+        const slug = m.id.split(':')[0];
+        const k = normalizeKey(slug);
+        const prev: Partial<SlimModel> = byKey.get(k) || {};
+        byKey.set(k, {
+          id: slug,
+          name: m.name.replace(/^[^:]+:\s*/, ''),
+          provider: providerFromId(slug),
+          source: 'openrouter',
+          released: m.created ? new Date(m.created * 1000).toISOString() : prev.released,
+          family: detectFamily(slug) || prev.family,
+          intelligenceIndex: m.benchmarks?.artificial_analysis?.intelligence_index,
+          elo: m.benchmarks?.lmarena?.elo ?? prev.elo,
+          hfDownloads: prev.hfDownloads,
+        });
+      }
+    }
+  } catch {
+    /* keep base on OpenRouter failure */
+  }
+
+  const models = [...byKey.values()].sort((a, b) =>
+    (b.released || '').localeCompare(a.released || '')
+  );
+  const slim: SlimModelDb = {
+    updatedAt: new Date().toISOString(),
+    total: models.length,
+    models,
+  };
+  fs.mkdirSync(path.dirname(SLIM_FILE), { recursive: true });
+  fs.writeFileSync(SLIM_FILE, JSON.stringify(slim), 'utf-8');
+  return slim;
+}
+
+export function readSlimModelDatabase(): SlimModelDb | null {
+  try {
+    if (!fs.existsSync(SLIM_FILE)) return null;
+    return JSON.parse(fs.readFileSync(SLIM_FILE, 'utf-8')) as SlimModelDb;
+  } catch {
+    return null;
+  }
+}
+
 export function readModelDatabase(): ModelDatabase | null {
   try {
     if (!fs.existsSync(DATA_FILE)) return null;
@@ -583,6 +701,25 @@ export async function refreshModelDatabase(items: NewsItem[]): Promise<ModelData
     },
     models: merged,
   };
-  writeModelDatabase(db);
+
+  // Persist the slim manifest for repo-commit / serverless serving.
+  writeSlimModelDatabase(db);
+
+  // The full DB (with pricing/benchmarks) still goes to models.json for local
+  // use; writeModelDatabase is optional to avoid a 100MB+ write on every cron.
+  if (process.env.WRITE_FULL_MODEL_DB === 'true') {
+    writeModelDatabase(db);
+  }
+
+  // Mirror to Postgres when available (full history, serves the deployed site).
+  try {
+    const { hasPg, upsertModelsPg } = await import('./pg');
+    if (hasPg()) {
+      await upsertModelsPg(db.models as unknown as Array<Record<string, unknown>>);
+    }
+  } catch {
+    /* pg optional */
+  }
+
   return db;
 }

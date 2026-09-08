@@ -194,6 +194,17 @@ export async function runAgent(options?: {
   saveSummaryCache(cache);
   writeStatus(status);
 
+  // Always refresh the slim model catalog (single OpenRouter call) so newly
+  // released models (GPT-6, etc.) flow into the committed models-slim.json on
+  // every run — independent of the heavy full-model crawl below.
+  try {
+    const { refreshSlimOpenRouter } = await import('./model-registry');
+    const slim = await refreshSlimOpenRouter();
+    console.log(`   Slim model DB refreshed: ${slim.total} models`);
+  } catch (error) {
+    console.log(`   Slim model DB refresh skipped: ${error instanceof Error ? error.message : error}`);
+  }
+
   // Keep a permanent record of every agent run (source counts, timings, log).
   try {
     await recordAgentRunPg({

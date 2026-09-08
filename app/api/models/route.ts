@@ -1,15 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { NewsItem } from '@/lib/types';
-import { readModelDatabase, ModelRecord, ModelDatabase } from '@/lib/model-registry';
+import { readModelDatabase, ModelRecord, SlimModelDb } from '@/lib/model-registry';
 import { getNewsItems, readStore } from '@/lib/db';
 import { rankKey } from '@/lib/rank';
 import { hasPg, getPool } from '@/lib/pg';
+import { fetchCommittedFile } from '@/lib/github-data';
 
 export const dynamic = 'force-dynamic';
 
-// models.json is ~96MB — never pull it from GitHub at request time.
-async function loadCommittedModels(): Promise<ModelDatabase | null> {
-  return null;
+// Caveat: models.json is ~96MB → never pull it from GitHub at request time.
+// Instead serve the compact models-slim.json (rebuilt + committed every run
+// by the news agent) which carries id/name/provider/release date — enough to
+// list the newest models fast without a 100MB download or a serverless OOM.
+async function loadCommittedSlim(): Promise<SlimModelDb | null> {
+  const raw = await fetchCommittedFile('data/models-slim.json', 15000);
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as SlimModelDb;
+    return Array.isArray(parsed?.models) ? parsed : null;
+  } catch {
+    return null;
+  }
 }
 
 const VALID_SORTS = ['elo', 'intelligence', 'value', 'popularity', 'newest', 'name'];
@@ -43,12 +54,6 @@ export async function GET(request: NextRequest) {
     readStore();
     const items = getNewsItems(5000, 0) as NewsItem[];
     let db = readModelDatabase();
-
-    // Prefer the freshest committed catalog (GitHub raw) over the deploy-time snapshot.
-    const committed = await loadCommittedModels();
-    if (committed?.models?.length) {
-      db = committed;
-    }
 
     // If Postgres is available, read the model catalog from there — it stays
     // in sync with the agent and never gets overwritten by a stale JSON file.
@@ -94,7 +99,7 @@ export async function GET(request: NextRequest) {
         })) as ModelRecord[];
         db = {
           updatedAt: new Date().toISOString(),
-          sources: ['openrouter', 'huggingface', 'ollama', 'lmarena', 'freellm'],
+          sources: ['openrouter', 'huggingface', 'ollama', 'lmarena', 'freellm', 'pg'],
           counts: {
             total: models.length,
             withPricing: models.filter(m => m.promptPrice !== undefined).length,
@@ -106,6 +111,45 @@ export async function GET(request: NextRequest) {
         };
       } catch (error) {
         console.error('[models] pg read failed, using JSON:', error);
+      }
+    }
+
+    // No Postgres + otherwise-stale deploy snapshot: fall back to the compact
+    // committed catalog (models-slim.json, rebuilt & committed every run) so we
+    // avoid loading the ~96MB models.json. Release dates stay current this way.
+    if (!hasPg()) {
+      const slim = await loadCommittedSlim();
+      if (slim?.models?.length) {
+        const all = db?.models || [];
+        const seen = new Set([...all.map(m => m.id)]);
+        const modelsArr: ModelRecord[] = [...all];
+        for (const s of slim.models) {
+          if (seen.has(s.id)) continue;
+          modelsArr.push({
+            id: s.id,
+            name: s.name,
+            provider: s.provider,
+            source: s.source,
+            released: s.released,
+            family: s.family || 'closed',
+            elo: s.elo,
+            hfDownloads: s.hfDownloads,
+            intelligenceIndex: s.intelligenceIndex,
+          });
+          seen.add(s.id);
+        }
+        db = {
+          updatedAt: slim.updatedAt,
+          sources: ['openrouter', 'github-slim'],
+          counts: {
+            total: modelsArr.length,
+            withPricing: 0,
+            withBenchmarks: 0,
+            withElo: modelsArr.filter(m => m.elo !== undefined).length,
+            openWeights: modelsArr.filter(m => m.family === 'open-weights').length,
+          },
+          models: modelsArr,
+        };
       }
     }
 

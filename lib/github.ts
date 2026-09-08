@@ -32,9 +32,13 @@ export async function fetchGitHub(): Promise<NewsItem[]> {
   const seen = new Set<string>();
 
   try {
-    // Trending AI repos (topic-based, recently updated, most stars)
+    // Trending AI repos (topic-based, recently created, most stars).
+    // GitHub's search API only accepts ABSOLUTE dates for `created:` — the
+    // relative form (created:>72h) returns HTTP 422, which silently zeroed
+    // this source on every run.
+    const since = new Date(Date.now() - 72 * 3600 * 1000).toISOString().split('T')[0];
     const res = await fetch(
-      'https://api.github.com/search/repositories?q=topic:ai+created:>72h&sort=stars&order=desc&per_page=20',
+      `https://api.github.com/search/repositories?q=topic:ai+created:>${since}&sort=stars&order=desc&per_page=20`,
       {
         signal: AbortSignal.timeout(10000),
         headers: {
