@@ -7,9 +7,9 @@ import AADropdown from '@/components/AADropdown';
 import IntelligenceScatter from '@/components/IntelligenceScatter';
 import IntelligenceTimeline from '@/components/IntelligenceTimeline';
 import AAModelCharts from '@/components/AAModelCharts';
-import modelsData from '@/data/models.json';
+import type { ModelRecord } from '@/lib/model-registry';
 
-type Model = (typeof modelsData.models)[number];
+type Model = ModelRecord;
 
 const CHART_COLORS = {
   intelligence: '#7c3aed',
@@ -109,6 +109,22 @@ export default function ModelsPage() {
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [catalog, setCatalog] = useState<{ updatedAt: string; sources: string[]; total: number; models: Model[] } | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/models/catalog')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        if (mounted && d?.models) setCatalog(d);
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const models = useMemo(() => catalog?.models ?? ([] as Model[]), [catalog]);
 
   useEffect(() => {
     let mounted = true;
@@ -139,10 +155,9 @@ export default function ModelsPage() {
   };
 
   const opennessFiltered = useMemo(() => {
-    const models = modelsData.models as Model[];
     if (openness === 'all') return models;
     return models.filter(m => (openness === 'open' ? isOpen(m) : !isOpen(m)));
-  }, [openness]);
+  }, [openness, models]);
 
   const { intelligenceTop, speedTop, costTop } = useMemo(() => {
     const models = opennessFiltered;
@@ -199,7 +214,7 @@ export default function ModelsPage() {
   // Company-wise leaderboard: best intelligence model per provider
   const companyBoard = useMemo(() => {
     const byProvider = new Map<string, Model[]>();
-    for (const m of modelsData.models as Model[]) {
+    for (const m of models) {
       if (m.intelligenceIndex == null) continue;
       const list = byProvider.get(m.provider) || [];
       list.push(m);
@@ -219,30 +234,30 @@ export default function ModelsPage() {
       })
       .filter(e => e.best)
       .sort((a, b) => (b.best.intelligenceIndex ?? 0) - (a.best.intelligenceIndex ?? 0));
-  }, []);
+  }, [models]);
 
   // Latest models by release date
   const latestModels = useMemo(() => {
-    return (modelsData.models as Model[])
+    return models
       .filter(m => m.released)
       .sort((a, b) => new Date(b.released!).getTime() - new Date(a.released!).getTime())
       .slice(0, 12);
-  }, []);
+  }, [models]);
 
   const companyList = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const m of modelsData.models as Model[]) {
+    for (const m of models) {
       counts.set(m.provider, (counts.get(m.provider) || 0) + 1);
     }
     const providers = [...counts.entries()]
       .filter(([, c]) => c >= 2)
       .sort((a, b) => b[1] - a[1])
       .map(([p]) => ({ value: p, label: `${p} (${counts.get(p)})` }));
-    return [{ value: 'all', label: `All Companies (${(modelsData.models as Model[]).length})` }, ...providers];
-  }, []);
+    return [{ value: 'all', label: `All Companies (${models.length})` }, ...providers];
+  }, [models]);
 
   const companyModels = useMemo(() => {
-    const all = (modelsData.models as Model[]).filter(m => company === 'all' || m.provider === company);
+    const all = models.filter(m => company === 'all' || m.provider === company);
     const sorted = [...all].sort((a, b) => {
       switch (companySort) {
         case 'cost': {
@@ -259,7 +274,7 @@ export default function ModelsPage() {
       }
     });
     return sorted.slice(0, 50);
-  }, [company, companySort]);
+  }, [company, companySort, models]);
 
   return (
     <div className="min-h-screen">
@@ -275,10 +290,14 @@ export default function ModelsPage() {
         <div className="mb-10">
           <h1 className="text-2xl font-semibold tracking-tight">Models</h1>
           <p className="text-sm text-neutral-500 mt-2">
-            Benchmark rankings, pricing, and provider info for {modelsData.models.length} AI models.
+            Benchmark rankings, pricing, and provider info for {models.length} AI models.
           </p>
           <p className="text-[11px] text-neutral-400 mt-1.5">
-            Last synced: {fmtTime(modelsData.updatedAt)} · Sources: {modelsData.sources.join(', ')}
+            {catalog ? (
+              <>Last synced: {fmtTime(catalog.updatedAt)} · Sources: {(catalog.sources || []).join(', ')}</>
+            ) : (
+              <>Loading model catalog…</>
+            )}
           </p>
         </div>
 
@@ -389,7 +408,7 @@ export default function ModelsPage() {
             <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
               <div className="flex items-baseline gap-2">
                 <span className="text-[14px] font-semibold tracking-tight">Models by Company</span>
-                <span className="text-[11px] text-neutral-400">{companyModels.length} of {company === 'all' ? (modelsData.models as Model[]).length : (modelsData.models as Model[]).filter(m => m.provider === company).length} models</span>
+                <span className="text-[11px] text-neutral-400">{companyModels.length} of {company === 'all' ? models.length : models.filter(m => m.provider === company).length} models</span>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 <div className="flex gap-1">
@@ -482,7 +501,7 @@ export default function ModelsPage() {
             <p>
               The <strong>Intelligence Index</strong> is a composite benchmark aggregating nine challenging evaluations to provide
               a holistic measure of AI capabilities across mathematics, science, coding, and reasoning: GDPval-AA v2, τ³-Banking,
-              Terminal-Bench v2.1, SciCode, Humanity's Last Exam, GPQA Diamond, CritPt, AA-Omniscience, and AA-LCR.
+              Terminal-Bench v2.1, SciCode, Humanity&apos;s Last Exam, GPQA Diamond, CritPt, AA-Omniscience, and AA-LCR.
             </p>
             <p className="mt-2">
               Scores range from 0–100. Higher is better. Use the <strong>Open Source / Closed Source</strong> filter below to compare
@@ -534,7 +553,7 @@ export default function ModelsPage() {
             <h2 className="text-lg font-semibold tracking-tight">Token Use, Cost, Context &amp; Speed</h2>
             <span className="text-[11px] text-neutral-400">synced from Artificial Analysis</span>
           </div>
-          <AAModelCharts models={modelsData.models as any[]} />
+          <AAModelCharts models={models} />
         </section>
 
         {/* Table */}

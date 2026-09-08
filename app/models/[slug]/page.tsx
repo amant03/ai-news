@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { readModelDatabase } from '@/lib/model-registry';
+import { loadModelCatalog } from '@/lib/models-catalog';
 import { SITE_NAME } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
@@ -44,7 +44,7 @@ function fmtVerbosity(v: number | undefined): string {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const db = readModelDatabase();
+  const db = await loadModelCatalog();
   const model = db?.models.find(m => slugOf(m.name) === slug);
   if (!model) return { title: `Model not found · ${SITE_NAME}` };
   return {
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ModelDetailPage({ params }: Props) {
   const { slug } = await params;
-  const db = readModelDatabase();
+  const db = await loadModelCatalog();
   const model = db?.models.find(m => slugOf(m.name) === slug);
   if (!model || !db) notFound();
 

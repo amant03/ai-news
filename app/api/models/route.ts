@@ -1,27 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { NewsItem } from '@/lib/types';
-import { readModelDatabase, ModelRecord, SlimModelDb } from '@/lib/model-registry';
+import { ModelRecord } from '@/lib/model-registry';
 import { getNewsItems, readStore } from '@/lib/db';
 import { rankKey } from '@/lib/rank';
 import { hasPg, getPool } from '@/lib/pg';
-import { fetchCommittedFile } from '@/lib/github-data';
+import { loadModelCatalog } from '@/lib/models-catalog';
 
 export const dynamic = 'force-dynamic';
-
-// Caveat: models.json is ~96MB → never pull it from GitHub at request time.
-// Instead serve the compact models-slim.json (rebuilt + committed every run
-// by the news agent) which carries id/name/provider/release date — enough to
-// list the newest models fast without a 100MB download or a serverless OOM.
-async function loadCommittedSlim(): Promise<SlimModelDb | null> {
-  const raw = await fetchCommittedFile('data/models-slim.json', 15000);
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw) as SlimModelDb;
-    return Array.isArray(parsed?.models) ? parsed : null;
-  } catch {
-    return null;
-  }
-}
 
 const VALID_SORTS = ['elo', 'intelligence', 'value', 'popularity', 'newest', 'name'];
 
@@ -45,6 +30,39 @@ function sortModels(models: ModelRecord[], sort: string): ModelRecord[] {
   }
 }
 
+function toLean(m: ModelRecord): ModelRecord {
+  return {
+    id: m.id,
+    name: m.name,
+    provider: m.provider,
+    source: m.source,
+    released: m.released,
+    family: m.family,
+    params: m.params,
+    context: m.context,
+    description: m.description,
+    intelligenceIndex: m.intelligenceIndex,
+    codingIndex: m.codingIndex,
+    agenticIndex: m.agenticIndex,
+    elo: m.elo,
+    numVotes: m.numVotes,
+    hfDownloads: m.hfDownloads,
+    hfLikes: m.hfLikes,
+    promptPrice: m.promptPrice,
+    completionPrice: m.completionPrice,
+    valueScore: m.valueScore,
+    aaSpeed: m.aaSpeed,
+    aaCostPerTask: m.aaCostPerTask,
+    aaVerbosity: m.aaVerbosity,
+    mentions: m.mentions,
+    xMentions: m.xMentions,
+    redditMentions: m.redditMentions,
+    buzz: m.buzz,
+    freeTier: m.freeTier,
+    localOnly: m.localOnly,
+  };
+}
+
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const sort = VALID_SORTS.includes(searchParams.get('sort') || '') ? searchParams.get('sort')! : 'intelligence';
@@ -53,22 +71,22 @@ export async function GET(request: NextRequest) {
   try {
     readStore();
     const items = getNewsItems(5000, 0) as NewsItem[];
-    let db = readModelDatabase();
 
-    // If Postgres is available, read the model catalog from there — it stays
-    // in sync with the agent and never gets overwritten by a stale JSON file.
+    let all: ModelRecord[] = [];
+    let catalog = { total: 0, withPricing: 0, withBenchmarks: 0, updatedAt: '' };
+
+    // Postgres is the richest path when configured (full history + benchmarks).
     if (hasPg()) {
       try {
         const p = getPool();
         const res = await p!.query(
           `SELECT id, name, provider, source, released, family, params, context, description,
                   prompt_price, completion_price, value_score, intelligence_index, coding_index, agentic_index,
-                  hf_downloads, hf_likes, elo, arena_rank, num_votes, license, mentions, reddit_mentions,
+                  hf_downloads, hf_likes, elo, arena_rank, num_votes, mentions, reddit_mentions,
                   x_mentions, buzz, free_tier, local_only
            FROM models ORDER BY intelligence_index DESC NULLS LAST`
         );
-        const rows = res.rows as Array<Record<string, unknown>>;
-        const models = rows.map(r => ({
+        all = (res.rows as Array<Record<string, unknown>>).map(r => ({
           id: r.id as string,
           name: (r.name as string) || String(r.id),
           provider: (r.provider as string) || 'Unknown',
@@ -87,9 +105,7 @@ export async function GET(request: NextRequest) {
           hfDownloads: (r.hf_downloads as number) ?? undefined,
           hfLikes: (r.hf_likes as number) ?? undefined,
           elo: (r.elo as number) ?? undefined,
-          arenaRank: (r.arena_rank as number) ?? undefined,
           numVotes: (r.num_votes as number) ?? undefined,
-          license: (r.license as string) || undefined,
           mentions: (r.mentions as number) ?? undefined,
           redditMentions: (r.reddit_mentions as number) ?? undefined,
           xMentions: (r.x_mentions as number) ?? undefined,
@@ -97,58 +113,28 @@ export async function GET(request: NextRequest) {
           freeTier: (r.free_tier as boolean) || undefined,
           localOnly: (r.local_only as boolean) || undefined,
         })) as ModelRecord[];
-        db = {
+        catalog = {
+          total: all.length,
+          withPricing: all.filter(m => m.promptPrice !== undefined).length,
+          withBenchmarks: all.filter(m => m.intelligenceIndex !== undefined).length,
           updatedAt: new Date().toISOString(),
-          sources: ['openrouter', 'huggingface', 'ollama', 'lmarena', 'freellm', 'pg'],
-          counts: {
-            total: models.length,
-            withPricing: models.filter(m => m.promptPrice !== undefined).length,
-            withBenchmarks: models.filter(m => m.intelligenceIndex !== undefined).length,
-            withElo: models.filter(m => m.elo !== undefined).length,
-            openWeights: models.filter(m => m.family === 'open-weights').length,
-          },
-          models,
         };
       } catch (error) {
-        console.error('[models] pg read failed, using JSON:', error);
+        console.error('[models] pg read failed, using catalog:', error);
       }
     }
 
-    // No Postgres + otherwise-stale deploy snapshot: fall back to the compact
-    // committed catalog (models-slim.json, rebuilt & committed every run) so we
-    // avoid loading the ~96MB models.json. Release dates stay current this way.
-    if (!hasPg()) {
-      const slim = await loadCommittedSlim();
-      if (slim?.models?.length) {
-        const all = db?.models || [];
-        const seen = new Set([...all.map(m => m.id)]);
-        const modelsArr: ModelRecord[] = [...all];
-        for (const s of slim.models) {
-          if (seen.has(s.id)) continue;
-          modelsArr.push({
-            id: s.id,
-            name: s.name,
-            provider: s.provider,
-            source: s.source,
-            released: s.released,
-            family: s.family || 'closed',
-            elo: s.elo,
-            hfDownloads: s.hfDownloads,
-            intelligenceIndex: s.intelligenceIndex,
-          });
-          seen.add(s.id);
-        }
-        db = {
-          updatedAt: slim.updatedAt,
-          sources: ['openrouter', 'github-slim'],
-          counts: {
-            total: modelsArr.length,
-            withPricing: 0,
-            withBenchmarks: 0,
-            withElo: modelsArr.filter(m => m.elo !== undefined).length,
-            openWeights: modelsArr.filter(m => m.family === 'open-weights').length,
-          },
-          models: modelsArr,
+    // No Postgres: serve the committed slim catalog (fresh every 4h). This is
+    // what keeps the leaderboard fast and current without a 100MB download.
+    if (all.length === 0) {
+      const cat = await loadModelCatalog();
+      if (cat) {
+        all = cat.models;
+        catalog = {
+          total: cat.total,
+          withPricing: all.filter(m => m.promptPrice !== undefined).length,
+          withBenchmarks: all.filter(m => m.intelligenceIndex !== undefined).length,
+          updatedAt: cat.updatedAt,
         };
       }
     }
@@ -161,18 +147,15 @@ export async function GET(request: NextRequest) {
       .sort((a, b) => rankKey(b) - rankKey(a))
       .slice(0, 20) as NewsItem[];
 
-    const all = db?.models || [];
     const sorted = sortModels(all, sort);
-    const models = sorted.slice(0, limit);
-    const leaderboard = sortModels(all, 'intelligence').slice(0, 30);
+    const models = sorted.slice(0, limit).map(toLean);
+    const leaderboard = sortModels(all, 'intelligence').slice(0, 15).map(toLean);
 
     return NextResponse.json({
       models,
       leaderboard,
       modelNews,
-      catalog: db
-        ? { total: db.counts.total, withPricing: db.counts.withPricing, withBenchmarks: db.counts.withBenchmarks, updatedAt: db.updatedAt }
-        : null,
+      catalog,
       sort,
       updatedAt: new Date().toISOString(),
     });

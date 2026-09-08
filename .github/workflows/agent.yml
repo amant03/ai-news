@@ -52,12 +52,12 @@ jobs:
 
       - name: Run news agent
         id: agent
-        timeout-minutes: 8
+        timeout-minutes: 12
         run: npx tsx lib/run-agent.ts --skip-models --skip-ollama ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
         env:
           AGENT_MODE: ci
           AGENT_SKIP_MODELS: "true"
-          DISABLE_X_SCRAPING: "true"
+          X_SCRAPING: "true"
           OLLAMA_URL: ""
 
       - name: Commit news snapshot

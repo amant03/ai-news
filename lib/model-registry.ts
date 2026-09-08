@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { NewsItem } from './types';
+import { fetchAAData, mergeAAIntoModels } from './aa-scraper';
 
 /**
  * Comprehensive multi-source model database scraper.
@@ -560,9 +561,26 @@ export interface SlimModel {
   source: string;
   released?: string;
   family?: ModelRecord['family'];
-  elo?: number;
-  hfDownloads?: number;
+  params?: string;
+  context?: string;
   intelligenceIndex?: number;
+  codingIndex?: number;
+  agenticIndex?: number;
+  elo?: number;
+  numVotes?: number;
+  hfDownloads?: number;
+  hfLikes?: number;
+  promptPrice?: number;
+  completionPrice?: number;
+  valueScore?: number;
+  aaSpeed?: number;
+  aaCostPerTask?: number;
+  aaVerbosity?: number;
+  mentions?: number;
+  xMentions?: number;
+  redditMentions?: number;
+  buzz?: number;
+  license?: string;
 }
 
 export interface SlimModelDb {
@@ -582,9 +600,26 @@ export function toSlim(m: ModelRecord): SlimModel {
   };
   if (m.released) slim.released = m.released;
   if (m.family) slim.family = m.family;
+  if (m.params) slim.params = m.params;
+  if (m.context) slim.context = m.context;
   if (m.elo !== undefined) slim.elo = m.elo;
+  if (m.numVotes !== undefined) slim.numVotes = m.numVotes;
   if (m.hfDownloads !== undefined) slim.hfDownloads = m.hfDownloads;
+  if (m.hfLikes !== undefined) slim.hfLikes = m.hfLikes;
   if (m.intelligenceIndex !== undefined) slim.intelligenceIndex = m.intelligenceIndex;
+  if (m.codingIndex !== undefined) slim.codingIndex = m.codingIndex;
+  if (m.agenticIndex !== undefined) slim.agenticIndex = m.agenticIndex;
+  if (m.promptPrice !== undefined) slim.promptPrice = m.promptPrice;
+  if (m.completionPrice !== undefined) slim.completionPrice = m.completionPrice;
+  if (m.valueScore !== undefined) slim.valueScore = m.valueScore;
+  if (m.aaSpeed !== undefined) slim.aaSpeed = m.aaSpeed;
+  if (m.aaCostPerTask !== undefined) slim.aaCostPerTask = m.aaCostPerTask;
+  if (m.aaVerbosity !== undefined) slim.aaVerbosity = m.aaVerbosity;
+  if (m.mentions !== undefined) slim.mentions = m.mentions;
+  if (m.xMentions !== undefined) slim.xMentions = m.xMentions;
+  if (m.redditMentions !== undefined) slim.redditMentions = m.redditMentions;
+  if (m.buzz !== undefined) slim.buzz = m.buzz;
+  if (typeof m.license === 'string' && m.license.length <= 160) slim.license = m.license;
   return slim;
 }
 
@@ -612,7 +647,7 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
 
   try {
     const res = await fetch('https://openrouter.ai/api/v1/models', {
-      signal: AbortSignal.timeout(25000),
+      signal: AbortSignal.timeout(30000),
       headers: { Accept: 'application/json' },
     });
     if (res.ok) {
@@ -621,6 +656,7 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
         const slug = m.id.split(':')[0];
         const k = normalizeKey(slug);
         const prev: Partial<SlimModel> = byKey.get(k) || {};
+        const aa = m.benchmarks?.artificial_analysis;
         byKey.set(k, {
           id: slug,
           name: m.name.replace(/^[^:]+:\s*/, ''),
@@ -628,9 +664,31 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
           source: 'openrouter',
           released: m.created ? new Date(m.created * 1000).toISOString() : prev.released,
           family: detectFamily(slug) || prev.family,
-          intelligenceIndex: m.benchmarks?.artificial_analysis?.intelligence_index,
+          params: paramCountFromArch(m.architecture) || prev.params,
+          context: m.context_length ? formatContext(m.context_length) : prev.context,
+          intelligenceIndex: aa?.intelligence_index ?? prev.intelligenceIndex,
+          codingIndex: aa?.coding_index ?? prev.codingIndex,
+          agenticIndex: aa?.agentic_index ?? prev.agenticIndex,
           elo: m.benchmarks?.lmarena?.elo ?? prev.elo,
+          promptPrice:
+            m.pricing?.prompt != null && Number(m.pricing.prompt) >= 0
+              ? Math.round(Number(m.pricing.prompt) * 1_000_000 * 100) / 100
+              : prev.promptPrice,
+          completionPrice:
+            m.pricing?.completion != null && Number(m.pricing.completion) >= 0
+              ? Math.round(Number(m.pricing.completion) * 1_000_000 * 100) / 100
+              : prev.completionPrice,
           hfDownloads: prev.hfDownloads,
+          hfLikes: prev.hfLikes,
+          aaSpeed: prev.aaSpeed,
+          aaCostPerTask: prev.aaCostPerTask,
+          aaVerbosity: prev.aaVerbosity,
+          valueScore: prev.valueScore,
+          license: prev.license,
+          mentions: prev.mentions,
+          xMentions: prev.xMentions,
+          redditMentions: prev.redditMentions,
+          buzz: prev.buzz,
         });
       }
     }
@@ -638,7 +696,50 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
     /* keep base on OpenRouter failure */
   }
 
-  const models = [...byKey.values()].sort((a, b) =>
+  // Enrich with Artificial Analysis benchmark data (intelligence, speed, cost
+  // per task, verbosity). This is the "scrape artificialanalysis.ai regularly"
+  // promise — it runs on every news/4h cron, not just on local manual runs.
+  const records: ModelRecord[] = [...byKey.values()].map(s => ({
+    id: s.id,
+    name: s.name,
+    provider: s.provider,
+    source: s.source,
+    released: s.released,
+    family: s.family || 'closed',
+    params: s.params,
+    context: s.context,
+    intelligenceIndex: s.intelligenceIndex,
+    codingIndex: s.codingIndex,
+    agenticIndex: s.agenticIndex,
+    elo: s.elo,
+    numVotes: s.numVotes,
+    hfDownloads: s.hfDownloads,
+    hfLikes: s.hfLikes,
+    promptPrice: s.promptPrice,
+    completionPrice: s.completionPrice,
+    valueScore: s.valueScore,
+    aaSpeed: s.aaSpeed,
+    aaCostPerTask: s.aaCostPerTask,
+    aaVerbosity: s.aaVerbosity,
+    mentions: s.mentions,
+    xMentions: s.xMentions,
+    redditMentions: s.redditMentions,
+    buzz: s.buzz,
+    license: s.license,
+  }));
+  try {
+    const aaData = await fetchAAData();
+    if (aaData.length > 0) {
+      const merged = mergeAAIntoModels(records as unknown as Array<Record<string, unknown>>, aaData);
+      console.log(`   [slim] Merged Artificial Analysis: ${merged.updated} updated, ${merged.added} new (from ${aaData.length} scraped)`);
+    } else {
+      console.log('   [slim] Artificial Analysis returned no data this run');
+    }
+  } catch (error) {
+    console.log(`   [slim] Artificial Analysis merge skipped: ${error instanceof Error ? error.message : error}`);
+  }
+
+  const models = records.map(toSlim).sort((a, b) =>
     (b.released || '').localeCompare(a.released || '')
   );
   const slim: SlimModelDb = {
