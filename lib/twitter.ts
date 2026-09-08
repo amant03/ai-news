@@ -86,37 +86,37 @@ const ACCOUNTS: TwitterAccount[] = [
  */
 const FEATURED_TWEETS: Array<{ url: string; username: string; source: string; displayName: string }> = [
   {
-    url: 'https://x.com/ArtificialAnlys/status/2087564648325530099',
+    url: 'https://x.com/ArtificialAnlys/status/2097025638695940590',
     username: 'ArtificialAnlys',
     source: 'artificial-analysis',
     displayName: 'Artificial Analysis',
   },
   {
-    url: 'https://x.com/elonmusk/status/2087565020158992709',
+    url: 'https://x.com/elonmusk/status/2097245786694099341',
     username: 'elonmusk',
     source: 'xai',
     displayName: 'Elon Musk',
   },
   {
-    url: 'https://x.com/sama/status/2086866306167656901',
+    url: 'https://x.com/sama/status/2096647371983880383',
     username: 'sama',
     source: 'openai',
     displayName: 'Sam Altman',
   },
   {
-    url: 'https://x.com/gdb/status/2086866967479341305',
+    url: 'https://x.com/gdb/status/2097082100268802188',
     username: 'gdb',
-    source: 'anthropic',
+    source: 'openai',
     displayName: 'Greg Brockman',
   },
   {
-    url: 'https://x.com/sundarpichai/status/2087948583890985263',
+    url: 'https://x.com/sundarpichai/status/2097326390765109627',
     username: 'sundarpichai',
     source: 'google',
     displayName: 'Sundar Pichai',
   },
   {
-    url: 'https://x.com/simonw/status/2086811799480086773',
+    url: 'https://x.com/simonw/status/2096647325049626918',
     username: 'simonw',
     source: 'meta',
     displayName: 'Simon Willison',
