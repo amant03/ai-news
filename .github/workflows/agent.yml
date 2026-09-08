@@ -16,11 +16,12 @@ on:
         description: "Comma-separated source keys (rss,google-news,hackernews,reddit,arxiv,youtube,github,web,twitter). Leave empty for all."
         required: false
         type: string
-  # One extra run when this file changes, so a push can prove the job is green.
+  # An extra run when scraper/agent code changes, so a push can prove the job is green.
   push:
     branches: [main]
     paths:
       - ".github/workflows/agent.yml"
+      - "lib/twitter.ts"
 
 concurrency:
   group: ai-news-agent
