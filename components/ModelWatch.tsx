@@ -87,6 +87,66 @@ function fmtCost(v: number) {
   return `$${v.toFixed(1)}`;
 }
 
+function fmtDate(iso?: string): string {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return '—';
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function parseContext(c?: string): number | undefined {
+  if (!c) return undefined;
+  const s = String(c).trim();
+  const n = parseFloat(s);
+  if (isNaN(n)) return undefined;
+  const mult = /[gGbB]/.test(s) ? 1e9 : /[mM]/.test(s) ? 1e6 : /[kK]/.test(s) ? 1e3 : 1;
+  return n * mult;
+}
+
+type ColKey = 'name' | 'context' | 'provider' | 'released' | 'intelligence' | 'coding' | 'cost';
+type ColSort = { key: ColKey; dir: 'asc' | 'desc' } | null;
+
+const COLUMNS: { key: ColKey; label: string; right?: boolean }[] = [
+  { key: 'name', label: 'Model' },
+  { key: 'context', label: 'Context Window' },
+  { key: 'provider', label: 'Creator' },
+  { key: 'released', label: 'Release Date' },
+  { key: 'intelligence', label: 'Intelligence Index', right: true },
+  { key: 'coding', label: 'Coding Index', right: true },
+  { key: 'cost', label: 'Cost per Task', right: true },
+];
+
+function defaultSortDir(key: ColKey): 'asc' | 'desc' {
+  if (key === 'name' || key === 'provider') return 'asc';
+  return 'desc';
+}
+
+function valueOf(m: ModelRecord, key: ColKey): number | undefined | string {
+  switch (key) {
+    case 'name': return m.name;
+    case 'provider': return m.provider;
+    case 'context': return parseContext(m.context);
+    case 'released': return m.released ? new Date(m.released).getTime() : undefined;
+    case 'intelligence': return m.intelligenceIndex;
+    case 'coding': return m.codingIndex;
+    case 'cost': return avgCost(m);
+  }
+}
+
+function sortClient(list: ModelRecord[], { key, dir }: { key: ColKey; dir: 'asc' | 'desc' }): ModelRecord[] {
+  const arr = [...list];
+  const sign = dir === 'asc' ? 1 : -1;
+  arr.sort((a, b) => {
+    const av = valueOf(a, key);
+    const bv = valueOf(b, key);
+    if (typeof av === 'string' && typeof bv === 'string') return (av.localeCompare(bv) || a.name.localeCompare(b.name)) * sign;
+    const an = typeof av === 'number' ? av : dir === 'asc' ? Infinity : -Infinity;
+    const bn = typeof bv === 'number' ? bv : dir === 'asc' ? Infinity : -Infinity;
+    return (an - bn || a.name.localeCompare(b.name)) * sign;
+  });
+  return arr;
+}
+
 export default function ModelWatch({ audience = 'all' }: { audience?: Audience }) {
   const profile = AUDIENCE[audience] || AUDIENCE.all;
   const [data, setData] = useState<ModelWatchData | null>(null);
@@ -95,11 +155,13 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   const [openness, setOpenness] = useState<Openness>('all');
   const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [colSort, setColSort] = useState<ColSort>(null);
 
   useEffect(() => {
     setTab(profile.tab);
     setPage(0);
     setSelectedId(null);
+    setColSort(null);
   }, [audience, profile.tab]);
 
   useEffect(() => {
@@ -137,7 +199,11 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / LIST_PAGE));
   const safePage = Math.min(page, pageCount - 1);
-  const listModels = filtered.slice(safePage * LIST_PAGE, safePage * LIST_PAGE + LIST_PAGE);
+  const sortedModels = useMemo(
+    () => (colSort ? sortClient(filtered, colSort) : filtered),
+    [filtered, colSort]
+  );
+  const listModels = sortedModels.slice(safePage * LIST_PAGE, safePage * LIST_PAGE + LIST_PAGE);
 
   const selected = useMemo(() => {
     return filtered.find(m => m.id === selectedId) || filtered[0] || null;
@@ -168,6 +234,8 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
 
   useEffect(() => {
     setPage(0);
+    setColSort(null); // server-sorted list changes with the tab; reset column sort
+    setSelectedId(null);
   }, [tab, q]);
 
   if (!data) {
@@ -278,16 +346,40 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
           <>
             <div className="overflow-hidden rounded-xl border border-[var(--color-line)]">
               <div className="overflow-x-auto no-scrollbar">
-                <table className="w-full min-w-[720px] text-left">
+                <table className="w-full min-w-[820px] text-left">
                   <thead>
                     <tr className="border-b border-[var(--color-line)] bg-[var(--input)]/50">
                       <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium w-10">#</th>
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Model</th>
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Context Window</th>
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Creator</th>
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Intelligence Index</th>
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Coding Index</th>
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Cost per Task</th>
+                      {COLUMNS.map(col => {
+                        const active = colSort?.key === col.key;
+                        return (
+                          <th
+                            key={col.key}
+                            aria-sort={active ? (colSort!.dir === 'asc' ? 'ascending' : 'descending') : 'none'}
+                            className={`px-4 py-3 text-[10px] uppercase tracking-widest font-medium ${
+                              col.right ? 'text-right' : ''
+                            }`}
+                          >
+                            <button
+                              onClick={() =>
+                                setColSort(prev => {
+                                  if (!prev || prev.key !== col.key) return { key: col.key, dir: defaultSortDir(col.key) };
+                                  return prev.dir === 'desc' ? { key: col.key, dir: 'asc' } : null;
+                                })
+                              }
+                              title={`Sort by ${col.label}${active ? ' (toggle direction)' : ''}`}
+                              className={`ring-focus inline-flex items-center gap-1 rounded transition-colors hover:text-[var(--fore)] group/col ${
+                                active ? 'text-[var(--cyan)]' : 'text-[var(--dim)]'
+                              } ${col.right ? 'justify-end' : ''}`}
+                            >
+                              {col.label}
+                              <span className={`text-[8px] leading-none ${active ? 'opacity-100' : 'opacity-30'}`}>
+                                {active ? (colSort!.dir === 'asc' ? '▲' : '▼') : '▲▼'}
+                              </span>
+                            </button>
+                          </th>
+                        );
+                      })}
                     </tr>
                   </thead>
                   <tbody>
@@ -328,6 +420,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                             </div>
                           </td>
                           <td className="px-4 py-3 text-[12px] text-[var(--mut)] tabular-nums">{m.context || '—'}</td>
+                          <td className="px-4 py-3 text-[12px] text-[var(--mut)] tabular-nums whitespace-nowrap">{fmtDate(m.released)}</td>
                           <td className="px-4 py-3 text-[12px] text-[var(--mut)]">
                             <span className="flex items-center gap-1.5">
                               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
