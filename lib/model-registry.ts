@@ -739,6 +739,18 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
     console.log(`   [slim] Artificial Analysis merge skipped: ${error instanceof Error ? error.message : error}`);
   }
 
+  // Compute valueScore for models that have intelligence + pricing.
+  for (const m of records) {
+    if (m.valueScore === undefined && m.intelligenceIndex !== undefined) {
+      const pp = m.promptPrice;
+      const cp = m.completionPrice;
+      if (pp !== undefined || cp !== undefined) {
+        const perM = ((pp ?? 0) + (cp ?? 0)) / 2 || 1;
+        m.valueScore = Math.max(0, Math.round((m.intelligenceIndex / perM) * 5));
+      }
+    }
+  }
+
   const models = records.map(toSlim).sort((a, b) =>
     (b.released || '').localeCompare(a.released || '')
   );

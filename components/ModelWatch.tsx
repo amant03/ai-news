@@ -111,7 +111,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
           if (!mounted) return;
           setData(d);
         })
-        .catch(() => {});
+        .catch((err) => { console.error('[ModelWatch] fetch failed:', err); });
     load();
     const id = setInterval(load, 180000);
     return () => {

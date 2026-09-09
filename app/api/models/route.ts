@@ -14,14 +14,14 @@ function sortModels(models: ModelRecord[], sort: string): ModelRecord[] {
   const arr = [...models];
   switch (sort) {
     case 'elo':
-      return arr.filter(m => m.elo !== undefined).sort((a, b) => (b.elo ?? 0) - (a.elo ?? 0));
+      return arr.sort((a, b) => (b.elo ?? -1) - (a.elo ?? -1));
     case 'intelligence':
       return arr.filter(m => m.intelligenceIndex !== undefined).sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
     case 'value':
-      return arr.filter(m => m.valueScore !== undefined).sort((a, b) => (b.valueScore ?? 0) - (a.valueScore ?? 0));
+      return arr.sort((a, b) => (b.valueScore ?? -1) - (a.valueScore ?? -1));
     case 'popularity':
-      return arr.filter(m => (m.mentions || 0) + (m.hfDownloads || 0) > 0).sort((a, b) =>
-        ((b.hfDownloads ?? 0) / 1_000_000 + (b.mentions ?? 0) * 10) - ((a.hfDownloads ?? 0) / 1_000_000 + (a.mentions ?? 0) * 10));
+      return arr.sort((a, b) =>
+        (((b.hfDownloads ?? 0) / 1_000_000 + (b.mentions ?? 0) * 10) - ((a.hfDownloads ?? 0) / 1_000_000 + (a.mentions ?? 0) * 10)));
     case 'newest':
       return arr.filter(m => m.released).sort((a, b) => (b.released || '').localeCompare(a.released || ''));
     case 'name':
