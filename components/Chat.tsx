@@ -8,12 +8,19 @@ interface Message {
 }
 
 const SUGGESTIONS = [
+  { icon: '📰', label: 'Latest AI news', q: 'What are the latest AI news and developments?' },
   { icon: '💻', label: 'Best model for coding', q: 'Best model for coding' },
   { icon: '💰', label: 'Cheapest models', q: 'Cheapest models' },
   { icon: '⚡', label: 'Fastest models', q: 'Fastest models' },
   { icon: '🔍', label: 'Compare Claude vs GPT', q: 'Compare Claude Opus 5 and GPT-5.6 Sol' },
   { icon: '🏠', label: 'Open weight models', q: 'Open weight models for self hosting' },
-  { icon: '📊', label: 'Quantization guide', q: 'Quantization guide' },
+];
+
+const FOLLOW_UPS = [
+  'Tell me more about this',
+  'What are the alternatives?',
+  'How does this compare to competitors?',
+  'What are the latest trends in AI?',
 ];
 
 function renderMessage(content: string) {
@@ -58,7 +65,8 @@ function renderMessage(content: string) {
 
     const rendered = line
       .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[var(--fore)] font-semibold">$1</strong>')
-      .replace(/`(.+?)`/g, '<code class="px-1.5 py-0.5 rounded bg-[var(--surface)] text-[var(--accent)] text-[11px] font-mono">$1</code>');
+      .replace(/`(.+?)`/g, '<code class="px-1.5 py-0.5 rounded bg-[var(--surface)] text-[var(--accent)] text-[11px] font-mono">$1</code>')
+      .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-[var(--accent)] underline hover:opacity-80">$1</a>');
 
     if (line.startsWith('### ')) {
       elements.push(<div key={i} className="text-sm font-bold text-[var(--fore)] mt-3 mb-1">{rendered.replace('### ', '')}</div>);
@@ -105,7 +113,7 @@ function Avatar() {
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: "Hi! I'm AI Pulse's model advisor. Ask me anything about AI models — use cases, comparisons, pricing, or recommendations." }
+    { role: 'assistant', content: "Hi! I'm AI Pulse's assistant. I can help with:\n\n- **AI models** — benchmarks, pricing, comparisons\n- **AI news** — latest releases, funding rounds, research\n- **Recommendations** — best model for your use case\n- **Industry trends** — what's happening in AI right now\n\nAsk me anything!" }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -123,21 +131,24 @@ export default function Chat() {
     setMessages(prev => [...prev, { role: 'user', content: q }]);
     setLoading(true);
     try {
+      // Send conversation history for context
+      const history = messages.map(m => ({ role: m.role, content: m.content }));
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q }),
+        body: JSON.stringify({ question: q, history }),
       });
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'assistant', content: data.answer || data.error || 'No response' }]);
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Error connecting to server.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Error connecting to server. Please try again.' }]);
     }
     setLoading(false);
     inputRef.current?.focus();
   };
 
   const start = messages.length <= 1;
+  const showFollowUps = messages.length >= 2 && !loading;
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -199,6 +210,7 @@ export default function Chat() {
         {/* Suggestions (show only at start) */}
         {start && (
           <div className="px-5 pt-4 pb-4 shrink-0 border-t border-[var(--color-line)]">
+            <div className="text-[11px] text-[var(--dim)] mb-2 font-medium uppercase tracking-wider">Try asking</div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {SUGGESTIONS.map((s, i) => (
                 <button
@@ -215,6 +227,23 @@ export default function Chat() {
           </div>
         )}
 
+        {/* Follow-up suggestions */}
+        {showFollowUps && (
+          <div className="px-5 pb-3 shrink-0">
+            <div className="flex flex-wrap gap-1.5">
+              {FOLLOW_UPS.map((f, i) => (
+                <button
+                  key={i}
+                  onClick={() => send(f)}
+                  className="ring-focus text-[11px] px-2.5 py-1 rounded-full border border-[var(--color-line)] text-[var(--dim)] hover:text-[var(--fore)] hover:border-[var(--mut)] transition-colors"
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Input */}
         <div className="px-5 py-4 shrink-0 border-t border-[var(--color-line)]" style={{ background: 'var(--background)' }}>
           <form onSubmit={(e) => { e.preventDefault(); send(); }} className="flex gap-2 items-center">
@@ -223,7 +252,7 @@ export default function Chat() {
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about models, pricing, use cases…"
+                placeholder="Ask about models, news, pricing, trends…"
                 disabled={loading}
                 className="ring-focus w-full px-4 py-2.5 rounded-lg border border-[var(--color-line)] text-sm text-[var(--fore)] placeholder:text-[var(--dim)] outline-none transition-all"
                 style={{ background: 'var(--input)' }}
