@@ -6,6 +6,19 @@ import {
   ScatterChart, Scatter, ReferenceArea, ReferenceLine, ComposedChart, Line,
 } from 'recharts';
 import { providerColor } from '@/lib/models';
+import type { SortDir } from '@/lib/sortable';
+
+function SortDirButton({ dir, onToggle, title }: { dir: SortDir; onToggle: () => void; title: string }) {
+  return (
+    <button
+      onClick={onToggle}
+      title={`Toggle sort direction — ${title} currently ${dir === 'asc' ? 'low to high' : 'high to low'}`}
+      className="ring-focus inline-flex flex-shrink-0 items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--input)] px-2 py-1 text-[10px] font-medium text-neutral-500 hover:text-black transition-colors"
+    >
+      {dir === 'asc' ? '▲ low→high' : '▼ high→low'}
+    </button>
+  );
+}
 
 interface M {
   name: string;
@@ -86,32 +99,49 @@ type Tab = 'tokens' | 'cost' | 'context' | 'speed';
 
 export default function AAModelCharts({ models }: { models: M[] }) {
   const [tab, setTab] = useState<Tab>('tokens');
+  const [barDir, setBarDir] = useState<SortDir>('desc');
+  const toggleBarDir = () => setBarDir(d => (d === 'asc' ? 'desc' : 'asc'));
 
   const withVerbosity = useMemo(
-    () => models.filter(m => m.aaVerbosity != null).sort((a, b) => (b.aaVerbosity ?? 0) - (a.aaVerbosity ?? 0)).slice(0, 15),
-    [models]
+    () => {
+      const list = models.filter(m => m.aaVerbosity != null).sort((a, b) => (b.aaVerbosity ?? 0) - (a.aaVerbosity ?? 0));
+      if (barDir === 'asc') list.reverse();
+      return list.slice(0, 15);
+    },
+    [models, barDir]
   );
   const withSpeed = useMemo(
-    () => models.filter(m => m.aaSpeed != null).sort((a, b) => (b.aaSpeed ?? 0) - (a.aaSpeed ?? 0)).slice(0, 15),
-    [models]
+    () => {
+      const list = models.filter(m => m.aaSpeed != null).sort((a, b) => (b.aaSpeed ?? 0) - (a.aaSpeed ?? 0));
+      if (barDir === 'asc') list.reverse();
+      return list.slice(0, 15);
+    },
+    [models, barDir]
   );
   const withContext = useMemo(
-    () => models.map(m => ({ ...m, ctx: parseContext(m.context) })).filter(m => m.ctx != null).sort((a, b) => (b.ctx ?? 0) - (a.ctx ?? 0)).slice(0, 15),
-    [models]
+    () => {
+      const list = models.map(m => ({ ...m, ctx: parseContext(m.context) })).filter(m => m.ctx != null).sort((a, b) => (b.ctx ?? 0) - (a.ctx ?? 0));
+      if (barDir === 'asc') list.reverse();
+      return list.slice(0, 15);
+    },
+    [models, barDir]
   );
   const withPrice = useMemo(
-    () => models.filter(m => m.promptPrice != null || m.completionPrice != null)
-      .map(m => ({
-        ...m,
-        inP: m.promptPrice ?? 0,
-        cache: cachePrice(m) ?? 0,
-        outP: m.completionPrice ?? 0,
-        blended: blendedPrice(m) ?? 0,
-        discount: cacheDiscount(m) ?? 0,
-      }))
-      .sort((a, b) => b.blended - a.blended)
-      .slice(0, 15),
-    [models]
+    () => {
+      const list = models.filter(m => m.promptPrice != null || m.completionPrice != null)
+        .map(m => ({
+          ...m,
+          inP: m.promptPrice ?? 0,
+          cache: cachePrice(m) ?? 0,
+          outP: m.completionPrice ?? 0,
+          blended: blendedPrice(m) ?? 0,
+          discount: cacheDiscount(m) ?? 0,
+        }))
+        .sort((a, b) => b.blended - a.blended);
+      if (barDir === 'asc') list.reverse();
+      return list.slice(0, 15);
+    },
+    [models, barDir]
   );
 
   const scatterCost = useMemo(
@@ -165,7 +195,10 @@ export default function AAModelCharts({ models }: { models: M[] }) {
       {tab === 'tokens' && (
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[15px] font-semibold tracking-tight mb-1">Output Tokens per Intelligence Index Task</div>
+            <div className="flex items-start justify-between gap-2">
+              <div className="text-[15px] font-semibold tracking-tight mb-1">Output Tokens per Intelligence Index Task</div>
+              <SortDirButton dir={barDir} onToggle={toggleBarDir} title="token use" />
+            </div>
             <p className="text-[11px] text-neutral-400 mb-4">Models with AA verbosity data — weighted output tokens per task · higher = more verbose</p>
             {withVerbosity.length === 0 ? (
               <div className="text-[12px] text-neutral-400 py-8 text-center">No verbosity data yet — synced from Artificial Analysis.</div>
@@ -211,7 +244,10 @@ export default function AAModelCharts({ models }: { models: M[] }) {
       {tab === 'cost' && (
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[15px] font-semibold tracking-tight mb-1">Pricing: Cache Hit, Input, Output</div>
+            <div className="flex items-start justify-between gap-2">
+              <div className="text-[15px] font-semibold tracking-tight mb-1">Pricing: Cache Hit, Input, Output</div>
+              <SortDirButton dir={barDir} onToggle={toggleBarDir} title="pricing" />
+            </div>
             <p className="text-[11px] text-neutral-400 mb-4">USD per 1M tokens · cache assumed at 90% input discount</p>
             <div className="flex flex-wrap gap-3 mb-4">
               {[['Input', '#7c3aed'], ['Cache Hit', '#34d399'], ['Output', '#f472b6']].map(([l, c]) => (
@@ -259,7 +295,10 @@ export default function AAModelCharts({ models }: { models: M[] }) {
       {/* ═══ Context Window ═══ */}
       {tab === 'context' && (
         <div className="border border-[var(--color-line)] rounded-lg p-5">
-          <div className="text-[15px] font-semibold tracking-tight mb-1">Context Window</div>
+          <div className="flex items-start justify-between gap-2">
+            <div className="text-[15px] font-semibold tracking-tight mb-1">Context Window</div>
+            <SortDirButton dir={barDir} onToggle={toggleBarDir} title="context window" />
+          </div>
           <p className="text-[11px] text-neutral-400 mb-4">Maximum combined input &amp; output tokens · higher is better for RAG workflows</p>
           <ResponsiveContainer width="100%" height={Math.max(400, withContext.length * 36)}>
             <BarChart data={withContext} layout="vertical" margin={{ left: 12 }}>
@@ -279,7 +318,10 @@ export default function AAModelCharts({ models }: { models: M[] }) {
       {tab === 'speed' && (
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[15px] font-semibold tracking-tight mb-1">Output Speed</div>
+            <div className="flex items-start justify-between gap-2">
+              <div className="text-[15px] font-semibold tracking-tight mb-1">Output Speed</div>
+              <SortDirButton dir={barDir} onToggle={toggleBarDir} title="speed" />
+            </div>
             <p className="text-[11px] text-neutral-400 mb-4">Output tokens per second (median across providers) · models with AA speed data</p>
             {withSpeed.length === 0 ? (
               <div className="text-[12px] text-neutral-400 py-8 text-center">No speed data yet — synced from Artificial Analysis.</div>

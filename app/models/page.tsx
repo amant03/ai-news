@@ -7,6 +7,8 @@ import AADropdown from '@/components/AADropdown';
 import IntelligenceScatter from '@/components/IntelligenceScatter';
 import IntelligenceTimeline from '@/components/IntelligenceTimeline';
 import AAModelCharts from '@/components/AAModelCharts';
+import SortableTh from '@/components/SortableTh';
+import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 import type { ModelRecord } from '@/lib/model-registry';
 
 type Model = ModelRecord;
@@ -27,6 +29,43 @@ const OPENNESS: { key: Openness; label: string }[] = [
 
 const isOpen = (m: Model) => m.family === 'open-weights' || m.family === 'open';
 const slugOf = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+function contextVal(c: string | undefined): number | undefined {
+  if (!c) return undefined;
+  const n = parseFloat(c);
+  if (isNaN(n)) return undefined;
+  const mult = /[gGbB]/.test(c) ? 1e9 : /[mM]/.test(c) ? 1e6 : /[kK]/.test(c) ? 1e3 : 1;
+  return n * mult;
+}
+
+type AllKey = 'model' | 'provider' | 'intelligence' | 'speed' | 'cost' | 'verbosity' | 'context' | 'type';
+type CoKey = 'model' | 'released' | 'intelligence' | 'speed' | 'cost' | 'verbosity' | 'context' | 'type';
+
+function allValue(m: Model, key: AllKey): number | string | undefined {
+  switch (key) {
+    case 'model': return m.name;
+    case 'provider': return m.provider;
+    case 'intelligence': return m.intelligenceIndex;
+    case 'speed': return m.aaSpeed;
+    case 'cost': return blendedCost(m) ?? undefined;
+    case 'verbosity': return m.aaVerbosity;
+    case 'context': return contextVal(m.context);
+    case 'type': return isOpen(m) ? 'Open' : 'Closed';
+  }
+}
+
+function coValue(m: Model, key: CoKey): number | string | undefined {
+  switch (key) {
+    case 'model': return m.name;
+    case 'released': return m.released ? new Date(m.released).getTime() : undefined;
+    case 'intelligence': return m.intelligenceIndex;
+    case 'speed': return m.aaSpeed;
+    case 'cost': return m.aaCostPerTask ?? blendedCost(m) ?? undefined;
+    case 'verbosity': return m.aaVerbosity;
+    case 'context': return contextVal(m.context);
+    case 'type': return isOpen(m) ? 'Open' : 'Closed';
+  }
+}
 
 function blendedCost(m: Model): number | null {
   if (m.promptPrice == null && m.completionPrice == null) return null;
@@ -51,11 +90,15 @@ function BarChart({
   color,
   items,
   valueLabel,
+  sortDir,
+  onToggleDir,
 }: {
   title: string;
   color: string;
   items: { label: string; provider: string; value: number; display: string }[];
   valueLabel: string;
+  sortDir?: SortDir;
+  onToggleDir?: () => void;
 }) {
   const max = Math.max(...items.map(i => i.value));
 
@@ -63,7 +106,16 @@ function BarChart({
     <div className="border border-[var(--color-line)] rounded-lg p-5 flex-1 w-full min-w-0">
       <div className="flex items-center gap-2.5 mb-5">
         <span className="w-3 h-3 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
-        <span className="text-[15px] font-semibold tracking-tight">{title}</span>
+        <span className="text-[15px] font-semibold tracking-tight flex-1">{title}</span>
+        {sortDir !== undefined && onToggleDir && (
+          <button
+            onClick={onToggleDir}
+            title={`Toggle sort direction — currently ${sortDir === 'asc' ? 'low to high' : 'high to low'}`}
+            className="ring-focus inline-flex items-center gap-1 rounded-full border border-neutral-200 px-2 py-1 text-[10px] font-medium text-neutral-500 hover:text-black transition-colors flex-shrink-0"
+          >
+            {sortDir === 'asc' ? '▲ low→high' : '▼ high→low'}
+          </button>
+        )}
       </div>
       <div className="flex flex-col gap-2.5">
         {items.map((item, idx) => {
@@ -100,10 +152,16 @@ function BarChart({
 }
 
 export default function ModelsPage() {
-  const [sortBy, setSortBy] = useState<'intelligenceIndex' | 'cost' | 'speed' | 'verbosity'>('intelligenceIndex');
+  const [allSort, setAllSort] = useState<ColSort<AllKey>>({ key: 'intelligence', dir: 'desc' });
+  const [coSort, setCoSort] = useState<ColSort<CoKey>>({ key: 'released', dir: 'desc' });
   const [openness, setOpenness] = useState<Openness>('all');
   const [company, setCompany] = useState<string>('all');
-  const [companySort, setCompanySort] = useState<'latest' | 'cost' | 'intelligence' | 'latency'>('latest');
+  const [highlightDir, setHighlightDir] = useState<Record<'intel' | 'coding' | 'cost', SortDir>>({
+    intel: 'desc',
+    coding: 'desc',
+    cost: 'asc',
+  });
+  const [latestDir, setLatestDir] = useState<SortDir>('desc');
   const [total, setTotal] = useState(0);
   const [onlineSources, setOnlineSources] = useState(0);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -162,32 +220,42 @@ export default function ModelsPage() {
   const { intelligenceTop, speedTop, costTop } = useMemo(() => {
     const models = opennessFiltered;
 
-    const intelligenceTop = models
-      .filter(m => m.intelligenceIndex != null)
-      .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0))
-      .slice(0, 12)
-      .map(m => ({
-        label: m.name,
-        provider: m.provider,
-        value: m.intelligenceIndex ?? 0,
-        display: String(m.intelligenceIndex ?? 0),
-      }));
+    const build = (
+      src: Model[],
+      getValue: (m: Model) => number | undefined,
+      fmt: (v: number) => string,
+      dir: SortDir
+    ): { label: string; provider: string; value: number; display: string }[] => {
+      const list = src
+        .map(m => {
+          const v = getValue(m);
+          return v === undefined || v === null ? null : { label: m.name, provider: m.provider, value: v, display: fmt(v) };
+        })
+        .filter((d): d is NonNullable<typeof d> => d !== null)
+        .sort((a, b) => b.value - a.value);
+      if (dir === 'asc') list.reverse();
+      return list.slice(0, 12);
+    };
 
-    const speedTop = models
-      .filter(m => m.codingIndex != null)
-      .sort((a, b) => (b.codingIndex ?? 0) - (a.codingIndex ?? 0))
-      .slice(0, 12)
-      .map(m => ({
-        label: m.name,
-        provider: m.provider,
-        value: m.codingIndex ?? 0,
-        display: `${m.codingIndex ?? 0}`,
-      }));
+    const intelligenceTop = build(
+      models.filter(m => m.intelligenceIndex != null),
+      m => m.intelligenceIndex,
+      v => String(v),
+      highlightDir.intel
+    );
 
+    const speedTop = build(
+      models.filter(m => m.codingIndex != null),
+      m => m.codingIndex,
+      v => `${v}`,
+      highlightDir.coding
+    );
+
+    const inv = highlightDir.cost === 'asc' ? 1 : -1;
     const costTop = models
       .filter(m => m.promptPrice != null && m.completionPrice != null)
       .map(m => ({ ...m, avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2 }))
-      .sort((a, b) => a.avgCost - b.avgCost)
+      .sort((a, b) => (a.avgCost - b.avgCost) * inv)
       .slice(0, 12)
       .map(m => ({
         label: m.name,
@@ -197,19 +265,12 @@ export default function ModelsPage() {
       }));
 
     return { intelligenceTop, speedTop, costTop };
-  }, [opennessFiltered]);
+  }, [opennessFiltered, highlightDir]);
 
   const sortedAll = useMemo(() => {
-    const models = opennessFiltered;
-    const withIntel = models.filter(m => m.intelligenceIndex != null);
-
-    if (sortBy === 'intelligenceIndex') return [...withIntel].sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
-    if (sortBy === 'speed') return withIntel.sort((a, b) => (b.aaSpeed ?? -1) - (a.aaSpeed ?? -1));
-    if (sortBy === 'verbosity') return withIntel.sort((a, b) => (b.aaVerbosity ?? -1) - (a.aaVerbosity ?? -1));
-    return withIntel
-      .map(m => ({ ...m, avgCost: blendedCost(m) ?? Infinity }))
-      .sort((a, b) => a.avgCost - b.avgCost);
-  }, [sortBy, opennessFiltered]);
+    const models = opennessFiltered.filter(m => m.intelligenceIndex != null);
+    return sortByCol(models, allSort, (m, key) => allValue(m, key), (a, b) => a.name.localeCompare(b.name));
+  }, [allSort, opennessFiltered]);
 
   // Company-wise leaderboard: best intelligence model per provider
   const companyBoard = useMemo(() => {
@@ -238,11 +299,12 @@ export default function ModelsPage() {
 
   // Latest models by release date
   const latestModels = useMemo(() => {
-    return models
+    const list = models
       .filter(m => m.released)
-      .sort((a, b) => new Date(b.released!).getTime() - new Date(a.released!).getTime())
-      .slice(0, 12);
-  }, [models]);
+      .sort((a, b) => new Date(b.released!).getTime() - new Date(a.released!).getTime());
+    if (latestDir === 'asc') list.reverse();
+    return list.slice(0, 12);
+  }, [models, latestDir]);
 
   const companyList = useMemo(() => {
     const counts = new Map<string, number>();
@@ -258,23 +320,9 @@ export default function ModelsPage() {
 
   const companyModels = useMemo(() => {
     const all = models.filter(m => company === 'all' || m.provider === company);
-    const sorted = [...all].sort((a, b) => {
-      switch (companySort) {
-        case 'cost': {
-          const ca = blendedCost(a) ?? Infinity;
-          const cb = blendedCost(b) ?? Infinity;
-          return ca - cb;
-        }
-        case 'intelligence':
-          return (b.intelligenceIndex ?? -1) - (a.intelligenceIndex ?? -1);
-        case 'latency':
-          return (b.aaSpeed ?? -1) - (a.aaSpeed ?? -1);
-        default:
-          return new Date(b.released ?? 0).getTime() - new Date(a.released ?? 0).getTime();
-      }
-    });
+    const sorted = sortByCol(all, coSort, (m, key) => coValue(m, key), (a, b) => a.name.localeCompare(b.name));
     return sorted.slice(0, 50);
-  }, [company, companySort, models]);
+  }, [company, coSort, models]);
 
   return (
     <div className="min-h-screen">
@@ -306,7 +354,13 @@ export default function ModelsPage() {
           <div className="flex items-baseline gap-3 mb-5 flex-wrap">
             <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
             <h2 className="text-lg font-semibold tracking-tight">Latest Models</h2>
-            <span className="text-[11px] text-neutral-400">newest releases first</span>
+            <button
+              onClick={() => setLatestDir(d => (d === 'asc' ? 'desc' : 'asc'))}
+              title="Toggle sort direction"
+              className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] px-2.5 py-1 text-[11px] font-medium text-neutral-500 hover:text-black transition-colors"
+            >
+              {latestDir === 'asc' ? '▲ oldest first' : '▼ newest first'}
+            </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {latestModels.map(m => (
@@ -412,19 +466,29 @@ export default function ModelsPage() {
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 <div className="flex gap-1">
-                  {([['latest', 'Latest'], ['cost', 'Cost'], ['intelligence', 'Intelligence'], ['latency', 'Latency']] as const).map(([key, label]) => (
-                    <button
-                      key={key}
-                      onClick={() => setCompanySort(key)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                        companySort === key
-                          ? 'bg-black text-white'
-                          : 'text-neutral-500 hover:text-black hover:bg-neutral-100 border border-[var(--color-line)]'
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
+                  {([
+                    ['released', 'Latest', 'desc' as SortDir],
+                    ['cost', 'Cost', 'asc' as SortDir],
+                    ['intelligence', 'Intelligence', 'desc' as SortDir],
+                    ['speed', 'Latency', 'desc' as SortDir],
+                  ] as const).map(([key, label, dir]) => {
+                    const active = coSort?.key === key;
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => setCoSort(prev => toggleSort(prev, key, dir))}
+                        aria-pressed={active}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                          active
+                            ? 'bg-black text-white'
+                            : 'text-neutral-500 hover:text-black hover:bg-neutral-100 border border-[var(--color-line)]'
+                        }`}
+                      >
+                        {label}
+                        {active ? (coSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}
+                      </button>
+                    );
+                  })}
                 </div>
                 <span className="w-px h-5 bg-neutral-200 mx-1 self-center hidden sm:block" aria-hidden />
                 <AADropdown
@@ -442,20 +506,14 @@ export default function ModelsPage() {
               <table className="w-full min-w-[820px] text-left text-[13px]">
                 <thead>
                   <tr className="border-b border-[var(--color-line)]">
-                    {[
-                      { label: 'Model' },
-                      { label: 'Released', w: 130 },
-                      { label: 'Intelligence', w: 100 },
-                      { label: 'Speed t/s', w: 90 },
-                      { label: 'Cost', w: 100 },
-                      { label: 'Verbosity', w: 100 },
-                      { label: 'Context', w: 90 },
-                      { label: 'Type', w: 90 },
-                    ].map(col => (
-                      <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
-                        {col.label}
-                      </th>
-                    ))}
+                    <SortableTh label="Model" active={coSort?.key === 'model'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'model', 'asc'))} />
+                    <SortableTh label="Released" width={130} active={coSort?.key === 'released'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'released', 'desc'))} />
+                    <SortableTh label="Intelligence" width={100} active={coSort?.key === 'intelligence'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'intelligence', 'desc'))} />
+                    <SortableTh label="Speed t/s" width={90} active={coSort?.key === 'speed'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'speed', 'desc'))} />
+                    <SortableTh label="Cost" width={100} active={coSort?.key === 'cost'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'cost', 'asc'))} />
+                    <SortableTh label="Verbosity" width={100} active={coSort?.key === 'verbosity'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'verbosity', 'desc'))} />
+                    <SortableTh label="Context" width={90} active={coSort?.key === 'context'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'context', 'desc'))} />
+                    <SortableTh label="Type" width={90} active={coSort?.key === 'type'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'type', 'asc'))} />
                   </tr>
                 </thead>
                 <tbody>
@@ -517,9 +575,30 @@ export default function ModelsPage() {
             <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>
           </div>
           <div className="flex gap-4 flex-wrap mb-4">
-            <BarChart title="Intelligence" color={CHART_COLORS.intelligence} items={intelligenceTop} valueLabel="Intelligence Index" />
-            <BarChart title="Coding Performance" color={CHART_COLORS.speed} items={speedTop} valueLabel="Coding Index" />
-            <BarChart title="Cost per Task" color={CHART_COLORS.cost} items={costTop} valueLabel="Avg $/M tokens" />
+            <BarChart
+              title="Intelligence"
+              color={CHART_COLORS.intelligence}
+              items={intelligenceTop}
+              valueLabel="Intelligence Index"
+              sortDir={highlightDir.intel}
+              onToggleDir={() => setHighlightDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
+            />
+            <BarChart
+              title="Coding Performance"
+              color={CHART_COLORS.speed}
+              items={speedTop}
+              valueLabel="Coding Index"
+              sortDir={highlightDir.coding}
+              onToggleDir={() => setHighlightDir(prev => ({ ...prev, coding: prev.coding === 'asc' ? 'desc' : 'asc' }))}
+            />
+            <BarChart
+              title="Cost per Task"
+              color={CHART_COLORS.cost}
+              items={costTop}
+              valueLabel="Avg $/M tokens"
+              sortDir={highlightDir.cost}
+              onToggleDir={() => setHighlightDir(prev => ({ ...prev, cost: prev.cost === 'asc' ? 'desc' : 'asc' }))}
+            />
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
@@ -565,19 +644,27 @@ export default function ModelsPage() {
               <span className="text-[11px] text-neutral-400">{opennessFiltered.length} models</span>
             </div>
             <div className="flex gap-1 flex-wrap">
-              {([['intelligenceIndex', 'Intelligence'], ['cost', 'Cost'], ['speed', 'Speed'], ['verbosity', 'Verbosity']] as const).map(([key, label]) => (
-                <button
-                  key={key}
-                  onClick={() => setSortBy(key)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                    sortBy === key
-                      ? 'bg-black text-white'
-                      : 'text-neutral-500 hover:text-black hover:bg-neutral-100'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
+              {([
+                ['intelligence', 'Intelligence', 'desc' as SortDir],
+                ['cost', 'Cost', 'asc' as SortDir],
+                ['speed', 'Speed', 'desc' as SortDir],
+                ['verbosity', 'Verbosity', 'desc' as SortDir],
+              ] as const).map(([key, label, dir]) => {
+                const active = allSort?.key === key;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setAllSort(prev => toggleSort(prev, key, dir))}
+                    aria-pressed={active}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                      active ? 'bg-black text-white' : 'text-neutral-500 hover:text-black hover:bg-neutral-100'
+                    }`}
+                  >
+                    {label}
+                    {active ? (allSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}
+                  </button>
+                );
+              })}
               <span className="w-px h-5 bg-neutral-200 mx-1 self-center hidden sm:block" aria-hidden />
               <AADropdown
                 label="Category"
@@ -593,21 +680,15 @@ export default function ModelsPage() {
               <table className="w-full min-w-[940px] text-left text-[13px]">
                 <thead>
                   <tr className="border-b border-[var(--color-line)]">
-                    {[
-                      { label: 'Rank', w: 56 },
-                      { label: 'Model' },
-                      { label: 'Provider', w: 120 },
-                      { label: 'Intelligence', w: 100 },
-                      { label: 'Speed t/s', w: 90 },
-                      { label: 'Cost', w: 110 },
-                      { label: 'Verbosity', w: 100 },
-                      { label: 'Context', w: 80 },
-                      { label: 'Type', w: 100 },
-                    ].map(col => (
-                      <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
-                        {col.label}
-                      </th>
-                    ))}
+                    <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 56 }}>Rank</th>
+                    <SortableTh label="Model" active={allSort?.key === 'model'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'model', 'asc'))} />
+                    <SortableTh label="Provider" width={120} active={allSort?.key === 'provider'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'provider', 'asc'))} />
+                    <SortableTh label="Intelligence" width={100} active={allSort?.key === 'intelligence'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'intelligence', 'desc'))} />
+                    <SortableTh label="Speed t/s" width={90} active={allSort?.key === 'speed'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'speed', 'desc'))} />
+                    <SortableTh label="Cost" width={110} active={allSort?.key === 'cost'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'cost', 'asc'))} />
+                    <SortableTh label="Verbosity" width={100} active={allSort?.key === 'verbosity'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'verbosity', 'desc'))} />
+                    <SortableTh label="Context" width={80} active={allSort?.key === 'context'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'context', 'desc'))} />
+                    <SortableTh label="Type" width={100} active={allSort?.key === 'type'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'type', 'asc'))} />
                   </tr>
                 </thead>
                 <tbody>

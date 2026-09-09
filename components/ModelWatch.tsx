@@ -6,7 +6,8 @@ import { Domain, NewsItem } from '@/lib/types';
 import { providerColor } from '@/lib/models';
 import ScatterChart, { ScatterPoint } from './ScatterChart';
 import ModelDetail from './ModelDetail';
-import VerticalBarChart, { modelsToBarData } from './VerticalBarChart';
+import VerticalBarChart, { modelsToBarData, BarDatum } from './VerticalBarChart';
+import { sortByCol, toggleSort, ColSort, SortDir } from '@/lib/sortable';
 
 interface ModelWatchData {
   models: ModelRecord[];
@@ -104,7 +105,7 @@ function parseContext(c?: string): number | undefined {
 }
 
 type ColKey = 'name' | 'context' | 'provider' | 'released' | 'intelligence' | 'coding' | 'cost';
-type ColSort = { key: ColKey; dir: 'asc' | 'desc' } | null;
+type ColSortState = ColSort<ColKey>;
 
 const COLUMNS: { key: ColKey; label: string; right?: boolean }[] = [
   { key: 'name', label: 'Model' },
@@ -116,7 +117,7 @@ const COLUMNS: { key: ColKey; label: string; right?: boolean }[] = [
   { key: 'cost', label: 'Cost per Task', right: true },
 ];
 
-function defaultSortDir(key: ColKey): 'asc' | 'desc' {
+function defaultSortDir(key: ColKey): SortDir {
   if (key === 'name' || key === 'provider') return 'asc';
   return 'desc';
 }
@@ -133,18 +134,21 @@ function valueOf(m: ModelRecord, key: ColKey): number | undefined | string {
   }
 }
 
-function sortClient(list: ModelRecord[], { key, dir }: { key: ColKey; dir: 'asc' | 'desc' }): ModelRecord[] {
-  const arr = [...list];
-  const sign = dir === 'asc' ? 1 : -1;
-  arr.sort((a, b) => {
-    const av = valueOf(a, key);
-    const bv = valueOf(b, key);
-    if (typeof av === 'string' && typeof bv === 'string') return (av.localeCompare(bv) || a.name.localeCompare(b.name)) * sign;
-    const an = typeof av === 'number' ? av : dir === 'asc' ? Infinity : -Infinity;
-    const bn = typeof bv === 'number' ? bv : dir === 'asc' ? Infinity : -Infinity;
-    return (an - bn || a.name.localeCompare(b.name)) * sign;
-  });
-  return arr;
+/**
+ * Direction-aware highlight bar data. Always keeps the top values when
+ * descending and the bottom values when ascending (so "cost low→high" shows
+ * the genuinely cheapest models, not the reverse of the priciest 12).
+ */
+function barDataFor(
+  models: ModelRecord[],
+  getValue: (m: ModelRecord) => number | undefined,
+  dir: SortDir,
+  opts: { highlightId?: string } = {}
+): BarDatum[] {
+  const all = modelsToBarData(models, getValue, { maxBars: models.length || 1, highlightId: opts.highlightId });
+  all.sort((a, b) => b.value - a.value);
+  if (dir === 'asc') all.reverse();
+  return all.slice(0, 12);
 }
 
 export default function ModelWatch({ audience = 'all' }: { audience?: Audience }) {
@@ -155,7 +159,12 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   const [openness, setOpenness] = useState<Openness>('all');
   const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [colSort, setColSort] = useState<ColSort>(null);
+  const [colSort, setColSort] = useState<ColSortState>(null);
+  const [chartDir, setChartDir] = useState<Record<'intel' | 'coding' | 'cost', SortDir>>({
+    intel: 'desc',
+    coding: 'desc',
+    cost: 'asc',
+  });
 
   useEffect(() => {
     setTab(profile.tab);
@@ -200,7 +209,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   const pageCount = Math.max(1, Math.ceil(filtered.length / LIST_PAGE));
   const safePage = Math.min(page, pageCount - 1);
   const sortedModels = useMemo(
-    () => (colSort ? sortClient(filtered, colSort) : filtered),
+    () => (colSort ? sortByCol(filtered, colSort, (m, key) => valueOf(m, key), (a, b) => a.name.localeCompare(b.name)) : filtered),
     [filtered, colSort]
   );
   const listModels = sortedModels.slice(safePage * LIST_PAGE, safePage * LIST_PAGE + LIST_PAGE);
@@ -210,9 +219,9 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   }, [selectedId, filtered]);
 
   // Vertical bar chart data for highlights
-  const intelData = useMemo(() => modelsToBarData(filtered, m => m.intelligenceIndex, { maxBars: 12, highlightId: selected?.id }), [filtered, selected]);
-  const codingData = useMemo(() => modelsToBarData(filtered, m => m.codingIndex, { maxBars: 12, highlightId: selected?.id }), [filtered, selected]);
-  const costData = useMemo(() => modelsToBarData(filtered, m => avgCost(m), { maxBars: 12, highlightId: selected?.id }), [filtered, selected]);
+  const intelData = useMemo(() => barDataFor(filtered, m => m.intelligenceIndex, chartDir.intel, { highlightId: selected?.id }), [filtered, selected, chartDir.intel]);
+  const codingData = useMemo(() => barDataFor(filtered, m => m.codingIndex, chartDir.coding, { highlightId: selected?.id }), [filtered, selected, chartDir.coding]);
+  const costData = useMemo(() => barDataFor(filtered, m => avgCost(m), chartDir.cost, { highlightId: selected?.id }), [filtered, selected, chartDir.cost]);
 
   // Scatter data
   const scatterPoints = useMemo((): ScatterPoint[] => {
@@ -318,6 +327,8 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               valueFormat={v => v.toFixed(0)}
               selectedId={selected?.id}
               onSelect={id => setSelectedId(id)}
+              sortDir={chartDir.intel}
+              onToggleDir={() => setChartDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
             />
             <VerticalBarChart
               data={codingData}
@@ -326,6 +337,8 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               valueFormat={v => v.toFixed(0)}
               selectedId={selected?.id}
               onSelect={id => setSelectedId(id)}
+              sortDir={chartDir.coding}
+              onToggleDir={() => setChartDir(prev => ({ ...prev, coding: prev.coding === 'asc' ? 'desc' : 'asc' }))}
             />
             <VerticalBarChart
               data={costData}
@@ -334,6 +347,8 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               valueFormat={v => fmtCost(v)}
               selectedId={selected?.id}
               onSelect={id => setSelectedId(id)}
+              sortDir={chartDir.cost}
+              onToggleDir={() => setChartDir(prev => ({ ...prev, cost: prev.cost === 'asc' ? 'desc' : 'asc' }))}
             />
           </div>
         </div>
@@ -361,12 +376,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                             }`}
                           >
                             <button
-                              onClick={() =>
-                                setColSort(prev => {
-                                  if (!prev || prev.key !== col.key) return { key: col.key, dir: defaultSortDir(col.key) };
-                                  return prev.dir === 'desc' ? { key: col.key, dir: 'asc' } : null;
-                                })
-                              }
+                              onClick={() => setColSort(prev => toggleSort(prev, col.key, defaultSortDir(col.key)))}
                               title={`Sort by ${col.label}${active ? ' (toggle direction)' : ''}`}
                               className={`ring-focus inline-flex items-center gap-1 rounded transition-colors hover:text-[var(--fore)] group/col ${
                                 active ? 'text-[var(--cyan)]' : 'text-[var(--dim)]'

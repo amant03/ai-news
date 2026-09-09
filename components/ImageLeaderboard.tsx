@@ -2,8 +2,32 @@
 
 import { useMemo, useState } from 'react';
 import { IMAGE_MODELS, IMAGE_CREATORS, creatorColor } from '@/lib/image-leaderboard';
+import SortableTh from '@/components/SortableTh';
+import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 
-type SortKey = 'elo' | 'price' | 'samples' | 'released' | 'rank';
+type SortKey = 'elo' | 'price' | 'samples' | 'released' | 'rank' | 'model' | 'creator';
+
+const DEFAULT_DIR: Record<SortKey, SortDir> = {
+  elo: 'desc',
+  price: 'asc',
+  samples: 'desc',
+  released: 'desc',
+  rank: 'asc',
+  model: 'asc',
+  creator: 'asc',
+};
+
+function valueOf(m: (typeof IMAGE_MODELS)[number], key: SortKey): number | string | undefined {
+  switch (key) {
+    case 'elo': return m.elo;
+    case 'price': return parsePrice(m.pricePer1k);
+    case 'samples': return m.samples;
+    case 'released': { const d = dateVal(m.released); return d === 0 ? undefined : d; }
+    case 'rank': return m.rank;
+    case 'model': return m.name;
+    case 'creator': return m.creator;
+  }
+}
 
 /**
  * Full-page AA-style text-to-image leaderboard. Coloured creator bars,
@@ -11,9 +35,11 @@ type SortKey = 'elo' | 'price' | 'samples' | 'released' | 'rank';
  * Artificial Analysis dataset.
  */
 export default function ImageLeaderboard() {
-  const [sort, setSort] = useState<SortKey>('elo');
+  const [sort, setSort] = useState<ColSort<SortKey>>({ key: 'elo', dir: 'desc' });
   const [creatorFilter, setCreatorFilter] = useState<string>('all');
   const [q, setQ] = useState('');
+  const [eloDir, setEloDir] = useState<SortDir>('desc');
+  const [priceDir, setPriceDir] = useState<SortDir>('asc');
 
   const filtered = useMemo(() => {
     let list = IMAGE_MODELS;
@@ -25,16 +51,7 @@ export default function ImageLeaderboard() {
     return list;
   }, [creatorFilter, q]);
 
-  const sorted = useMemo(() => {
-    const list = [...filtered];
-    switch (sort) {
-      case 'elo': return list.sort((a, b) => b.elo - a.elo);
-      case 'price': return list.sort((a, b) => parsePrice(a.pricePer1k) - parsePrice(b.pricePer1k));
-      case 'samples': return list.sort((a, b) => b.samples - a.samples);
-      case 'released': return list.sort((a, b) => dateVal(b.released) - dateVal(a.released));
-      default: return list.sort((a, b) => a.rank - b.rank);
-    }
-  }, [filtered, sort]);
+  const sorted = useMemo(() => sortByCol(filtered, sort, (m, key) => valueOf(m, key), (a, b) => a.rank - b.rank), [filtered, sort]);
 
   const maxElo = Math.max(...IMAGE_MODELS.map(m => m.elo));
   const minElo = Math.min(...IMAGE_MODELS.map(m => m.elo));
@@ -42,8 +59,23 @@ export default function ImageLeaderboard() {
 
   const maxSamples = Math.max(...IMAGE_MODELS.map(m => m.samples));
 
-  // Top 15 for the bar chart
-  const barData = sorted.slice(0, 15);
+  // Elo bar chart — top 15 by Elo (sort-aware)
+  const barData = useMemo(() => {
+    const list = [...IMAGE_MODELS].sort((a, b) => b.elo - a.elo);
+    if (eloDir === 'asc') list.reverse();
+    return list.slice(0, 15);
+  }, [eloDir]);
+
+  // Price bar chart — top 15 cheapest (sort-aware)
+  const priceBarData = useMemo(() => {
+    const list = IMAGE_MODELS.filter(m => parsePrice(m.pricePer1k) > 0).sort(
+      (a, b) => parsePrice(b.pricePer1k) - parsePrice(a.pricePer1k)
+    );
+    if (priceDir === 'asc') list.reverse();
+    return list.slice(0, 15);
+  }, [priceDir]);
+
+  const maxPrice = Math.max(parsePrice(IMAGE_MODELS[0].pricePer1k) || 250, ...priceBarData.map(m => parsePrice(m.pricePer1k))) || 250;
 
   return (
     <div className="space-y-6">
@@ -94,32 +126,45 @@ export default function ImageLeaderboard() {
 
       {/* Sort tabs */}
       <div className="flex gap-1.5 flex-wrap" role="tablist">
-        {[
-          { key: 'elo' as SortKey, label: 'Elo Rating' },
-          { key: 'price' as SortKey, label: 'Price (low→high)' },
-          { key: 'samples' as SortKey, label: 'Most Samples' },
-          { key: 'released' as SortKey, label: 'Newest' },
-          { key: 'rank' as SortKey, label: 'AA Rank' },
-        ].map(t => (
-          <button
-            key={t.key}
-            role="tab"
-            aria-selected={sort === t.key}
-            onClick={() => setSort(t.key)}
-            className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
-              sort === t.key
-                ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
-                : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
+        {([
+          ['elo', 'Elo Rating'],
+          ['price', 'Price'],
+          ['samples', 'Samples'],
+          ['released', 'Newest'],
+          ['rank', 'AA Rank'],
+        ] as const).map(([key, label]) => {
+          const active = sort?.key === key;
+          return (
+            <button
+              key={key}
+              role="tab"
+              aria-selected={active}
+              onClick={() => setSort(prev => toggleSort(prev, key, DEFAULT_DIR[key]))}
+              className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
+                active
+                  ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
+                  : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
+              }`}
+            >
+              {label}
+              {active ? (sort.dir === 'asc' ? ' ▲' : ' ▼') : ''}
+            </button>
+          );
+        })}
       </div>
 
       {/* Elo bar chart — top 15 */}
       <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5">
-        <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-3 font-medium">Elo Rating — Top 15</div>
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <span className="text-xs uppercase tracking-widest text-[var(--mut)] font-medium">Elo Rating — Top 15</span>
+          <button
+            onClick={() => setEloDir(d => (d === 'asc' ? 'desc' : 'asc'))}
+            title={`Toggle sort direction — currently ${eloDir === 'asc' ? 'low to high' : 'high to low'}`}
+            className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] px-2 py-1 text-[10px] font-medium text-[var(--mut)] hover:text-[var(--fore)] transition-colors"
+          >
+            {eloDir === 'asc' ? '▲ low→high' : '▼ high→low'}
+          </button>
+        </div>
         <div className="space-y-2">
           {barData.map(m => {
             const pct = ((m.elo - minElo) / eloSpan) * 100;
@@ -144,15 +189,19 @@ export default function ImageLeaderboard() {
 
       {/* Price comparison — top 15 cheapest */}
       <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5">
-        <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-3 font-medium">Price per 1k Images — Best Value</div>
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <span className="text-xs uppercase tracking-widest text-[var(--mut)] font-medium">Price per 1k Images — Best Value</span>
+          <button
+            onClick={() => setPriceDir(d => (d === 'asc' ? 'desc' : 'asc'))}
+            title={`Toggle sort direction — currently ${priceDir === 'asc' ? 'low to high' : 'high to low'}`}
+            className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] px-2 py-1 text-[10px] font-medium text-[var(--mut)] hover:text-[var(--fore)] transition-colors"
+          >
+            {priceDir === 'asc' ? '▲ low→high' : '▼ high→low'}
+          </button>
+        </div>
         <div className="space-y-2">
-          {[...IMAGE_MODELS]
-            .filter(m => parsePrice(m.pricePer1k) > 0)
-            .sort((a, b) => parsePrice(a.pricePer1k) - parsePrice(b.pricePer1k))
-            .slice(0, 15)
-            .map((m, i) => {
+          {priceBarData.map((m, i) => {
               const price = parsePrice(m.pricePer1k);
-              const maxPrice = parsePrice(IMAGE_MODELS[0].pricePer1k) || 250;
               const pct = Math.min(100, (price / maxPrice) * 100);
               const color = creatorColor(m.creator);
               return (
@@ -180,13 +229,13 @@ export default function ImageLeaderboard() {
             <thead>
               <tr className="border-b border-[var(--color-line)] bg-[var(--input)]/50">
                 <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium w-10">#</th>
-                <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Creator</th>
-                <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Model</th>
-                <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Elo</th>
+                <SortableTh label="Creator" active={sort?.key === 'creator'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'creator', 'asc'))} activeClass="text-[var(--cyan)]" inactiveClass="text-[var(--dim)] hover:text-[var(--fore)]" />
+                <SortableTh label="Model" active={sort?.key === 'model'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'model', 'asc'))} activeClass="text-[var(--cyan)]" inactiveClass="text-[var(--dim)] hover:text-[var(--fore)]" />
+                <SortableTh label="Elo" right active={sort?.key === 'elo'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'elo', 'desc'))} activeClass="text-[var(--cyan)]" inactiveClass="text-[var(--dim)] hover:text-[var(--fore)]" />
                 <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">95% CI</th>
-                <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Samples</th>
-                <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium">Released</th>
-                <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium text-right">Price / 1k imgs</th>
+                <SortableTh label="Samples" right active={sort?.key === 'samples'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'samples', 'desc'))} activeClass="text-[var(--cyan)]" inactiveClass="text-[var(--dim)] hover:text-[var(--fore)]" />
+                <SortableTh label="Released" active={sort?.key === 'released'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'released', 'desc'))} activeClass="text-[var(--cyan)]" inactiveClass="text-[var(--dim)] hover:text-[var(--fore)]" />
+                <SortableTh label="Price / 1k imgs" right active={sort?.key === 'price'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'price', 'asc'))} activeClass="text-[var(--cyan)]" inactiveClass="text-[var(--dim)] hover:text-[var(--fore)]" />
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--color-line)]">

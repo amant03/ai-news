@@ -2,8 +2,9 @@
 
 import { providerColor } from '@/lib/models';
 import type { ModelRecord } from '@/lib/model-registry';
+import type { SortDir } from '@/lib/sortable';
 
-interface BarDatum {
+export interface BarDatum {
   id: string;
   label: string;
   sublabel?: string;
@@ -22,6 +23,9 @@ interface VerticalBarChartProps {
   height?: number;
   selectedId?: string;
   onSelect?: (id: string) => void;
+  /** Current sort direction of the chart's bar list (high→low / low→high). */
+  sortDir?: SortDir;
+  onToggleDir?: () => void;
 }
 
 const fmt = (v: number) => v.toFixed(0);
@@ -40,6 +44,8 @@ export default function VerticalBarChart({
   height = 280,
   selectedId,
   onSelect,
+  sortDir,
+  onToggleDir,
 }: VerticalBarChartProps) {
   const trimmed = data.slice(0, maxBars);
   if (trimmed.length === 0) return null;
@@ -50,12 +56,25 @@ export default function VerticalBarChart({
   const innerH = height - pad.top - pad.bottom;
   const barW = Math.min(36, (W - pad.left - pad.right) / trimmed.length * 0.55);
   const gap = (W - pad.left - pad.right - barW * trimmed.length) / (trimmed.length + 1);
+  const dirLabel = sortDir === 'asc' ? '▲ low→high' : '▼ high→low';
 
   return (
     <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5 overflow-hidden">
-      <div className="mb-3">
-        <span className="text-xs uppercase tracking-widest text-[var(--mut)] block font-medium">{title}</span>
-        {subtitle && <span className="text-[11px] text-[var(--dim)]">{subtitle}</span>}
+      <div className="mb-3 flex items-start justify-between gap-2">
+        <div>
+          <span className="text-xs uppercase tracking-widest text-[var(--mut)] block font-medium">{title}</span>
+          {subtitle && <span className="text-[11px] text-[var(--dim)]">{subtitle}</span>}
+        </div>
+        {sortDir !== undefined && onToggleDir && (
+          <button
+            onClick={onToggleDir}
+            title={`Toggle sort direction — currently ${sortDir === 'asc' ? 'low to high' : 'high to low'}`}
+            aria-label={`Toggle sort direction — currently ${sortDir === 'asc' ? 'low to high' : 'high to low'}`}
+            className="ring-focus inline-flex flex-shrink-0 items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--input)] px-2 py-1 text-[10px] font-medium text-[var(--mut)] transition-colors hover:text-[var(--fore)]"
+          >
+            {dirLabel}
+          </button>
+        )}
       </div>
       <div className="overflow-x-auto no-scrollbar">
         <svg

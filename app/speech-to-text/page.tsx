@@ -3,9 +3,30 @@
 import { useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import data from '@/data/speech-to-text-models.json';
+import SortableTh from '@/components/SortableTh';
+import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 
 type Model = (typeof data.models)[number];
 type Ranked = 'ranked' | 'all';
+type SortKey = 'model' | 'provider' | 'wer' | 'speed' | 'price';
+
+const DEFAULT_DIR: Record<SortKey, SortDir> = {
+  model: 'asc',
+  provider: 'asc',
+  wer: 'asc',
+  speed: 'desc',
+  price: 'asc',
+};
+
+function valueOf(m: Model, key: SortKey): number | string | undefined {
+  switch (key) {
+    case 'model': return m.name;
+    case 'provider': return m.provider;
+    case 'wer': return m.wer;
+    case 'speed': return m.speedFactor;
+    case 'price': return m.price ?? undefined;
+  }
+}
 
 const RANKED: { key: Ranked; label: string }[] = [
   { key: 'ranked', label: 'Ranked Models' },
@@ -26,7 +47,7 @@ function fmtPrice(n: number): string {
 
 export default function SpeechToTextLeaderboard() {
   const [ranked, setRanked] = useState<Ranked>('ranked');
-  const [sortBy, setSortBy] = useState<'wer' | 'speed' | 'price'>('wer');
+  const [sort, setSort] = useState<ColSort<SortKey>>({ key: 'wer', dir: 'asc' });
 
   const sorted = useMemo(() => {
     let models = [...data.models] as Model[];
@@ -35,16 +56,8 @@ export default function SpeechToTextLeaderboard() {
       models = models.filter(m => m.wer > 0);
     }
 
-    if (sortBy === 'speed') {
-      models.sort((a, b) => b.speedFactor - a.speedFactor);
-    } else if (sortBy === 'price') {
-      models.sort((a, b) => a.price - b.price);
-    } else {
-      models.sort((a, b) => a.wer - b.wer);
-    }
-
-    return models;
-  }, [ranked, sortBy]);
+    return sortByCol(models, sort, (m, key) => valueOf(m, key), (a, b) => a.rank - b.rank);
+  }, [ranked, sort]);
 
   return (
     <div className="min-h-screen">
@@ -85,19 +98,23 @@ export default function SpeechToTextLeaderboard() {
           </div>
           <span className="w-px h-5 bg-neutral-200 mx-1 self-center" aria-hidden />
           <div className="flex gap-1">
-            {([['wer', 'WER'], ['speed', 'Speed'], ['price', 'Price']] as const).map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => setSortBy(key)}
-                className={`px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-colors ${
-                  sortBy === key
-                    ? 'bg-black text-white'
-                    : 'text-neutral-500 hover:text-black border border-[var(--color-line)]'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
+            {([['wer', 'WER'], ['speed', 'Speed'], ['price', 'Price']] as const).map(([key, label]) => {
+              const active = sort?.key === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setSort(prev => toggleSort(prev, key, DEFAULT_DIR[key]))}
+                  className={`px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-colors ${
+                    active
+                      ? 'bg-black text-white'
+                      : 'text-neutral-500 hover:text-black border border-[var(--color-line)]'
+                  }`}
+                >
+                  {label}
+                  {active ? (sort.dir === 'asc' ? ' ▲' : ' ▼') : ''}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -107,18 +124,12 @@ export default function SpeechToTextLeaderboard() {
             <table className="w-full min-w-[800px] text-left text-[13px]">
               <thead>
                 <tr className="border-b border-[var(--color-line)]">
-                  {[
-                    { label: 'Rank', w: 60 },
-                    { label: 'Model' },
-                    { label: 'Provider' },
-                    { label: 'WER (%)', w: 100 },
-                    { label: 'Speed Factor', w: 120 },
-                    { label: 'Price', w: 100 },
-                  ].map(col => (
-                    <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
-                      {col.label}
-                    </th>
-                  ))}
+                  <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 60 }}>Rank</th>
+                  <SortableTh label="Model" active={sort?.key === 'model'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'model', 'asc'))} />
+                  <SortableTh label="Provider" active={sort?.key === 'provider'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'provider', 'asc'))} />
+                  <SortableTh label="WER (%)" width={100} active={sort?.key === 'wer'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'wer', 'asc'))} />
+                  <SortableTh label="Speed Factor" width={120} active={sort?.key === 'speed'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'speed', 'desc'))} />
+                  <SortableTh label="Price" width={100} active={sort?.key === 'price'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'price', 'asc'))} />
                 </tr>
               </thead>
               <tbody>

@@ -3,10 +3,46 @@
 import { useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import data from '@/data/image-editing-models.json';
+import SortableTh from '@/components/SortableTh';
+import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 
 type Model = (typeof data.models)[number];
 type Category = 'all' | 'current' | 'open';
 type Ranked = 'ranked' | 'all';
+type SortKey = 'creator' | 'model' | 'elo' | 'samples' | 'released' | 'price' | 'rank';
+
+const DEFAULT_DIR: Record<SortKey, SortDir> = {
+  creator: 'asc',
+  model: 'asc',
+  elo: 'desc',
+  samples: 'desc',
+  released: 'desc',
+  price: 'asc',
+  rank: 'asc',
+};
+
+function parsePrice(s: string | undefined): number | undefined {
+  if (!s || s.includes('No API') || s.includes('Coming soon')) return undefined;
+  const n = parseFloat(s.replace(/[^0-9.]/g, ''));
+  return isNaN(n) ? undefined : n;
+}
+
+function dateVal(s: string): number | undefined {
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? undefined : d.getTime();
+}
+
+function valueOf(m: Model, key: SortKey): number | string | undefined {
+  switch (key) {
+    case 'creator': return m.creator;
+    case 'model': return m.name;
+    case 'elo': return m.elo;
+    case 'samples': return m.samples;
+    case 'released': return dateVal(m.released);
+    case 'price': return parsePrice(m.price);
+    case 'rank': return m.rank;
+  }
+}
 
 const CATEGORIES: { key: Category; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -35,7 +71,7 @@ function parseReleased(released: string): Date | null {
 export default function ImageEditingLeaderboard() {
   const [category, setCategory] = useState<Category>('all');
   const [ranked, setRanked] = useState<Ranked>('ranked');
-  const [sortBy, setSortBy] = useState<'elo' | 'samples' | 'price'>('elo');
+  const [sort, setSort] = useState<ColSort<SortKey>>({ key: 'elo', dir: 'desc' });
 
   const sorted = useMemo(() => {
     let models = [...data.models] as Model[];
@@ -54,20 +90,8 @@ export default function ImageEditingLeaderboard() {
       models = models.filter(m => !m.price?.includes('No API'));
     }
 
-    if (sortBy === 'samples') {
-      models.sort((a, b) => b.samples - a.samples);
-    } else if (sortBy === 'price') {
-      models.sort((a, b) => {
-        const pa = parseFloat(a.price?.replace(/[^0-9.]/g, '') || '9999');
-        const pb = parseFloat(b.price?.replace(/[^0-9.]/g, '') || '9999');
-        return pa - pb;
-      });
-    } else {
-      models.sort((a, b) => b.elo - a.elo);
-    }
-
-    return models;
-  }, [category, ranked, sortBy]);
+    return sortByCol(models, sort, (m, key) => valueOf(m, key), (a, b) => a.rank - b.rank);
+  }, [category, ranked, sort]);
 
   return (
     <div className="min-h-screen">
@@ -124,19 +148,23 @@ export default function ImageEditingLeaderboard() {
           </div>
           <span className="w-px h-5 bg-neutral-200 mx-1 self-center" aria-hidden />
           <div className="flex gap-1">
-            {([['elo', 'Elo'], ['samples', 'Samples'], ['price', 'Price']] as const).map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => setSortBy(key)}
-                className={`px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-colors ${
-                  sortBy === key
-                    ? 'bg-black text-white'
-                    : 'text-neutral-500 hover:text-black border border-[var(--color-line)]'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
+            {([['elo', 'Elo'], ['samples', 'Samples'], ['price', 'Price']] as const).map(([key, label]) => {
+              const active = sort?.key === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setSort(prev => toggleSort(prev, key, DEFAULT_DIR[key]))}
+                  className={`px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-colors ${
+                    active
+                      ? 'bg-black text-white'
+                      : 'text-neutral-500 hover:text-black border border-[var(--color-line)]'
+                  }`}
+                >
+                  {label}
+                  {active ? (sort.dir === 'asc' ? ' ▲' : ' ▼') : ''}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -146,21 +174,15 @@ export default function ImageEditingLeaderboard() {
             <table className="w-full min-w-[960px] text-left text-[13px]">
               <thead>
                 <tr className="border-b border-[var(--color-line)]">
-                  {[
-                    { label: 'Rank', w: 60 },
-                    { label: 'Range', w: 80 },
-                    { label: 'Creator' },
-                    { label: 'Model' },
-                    { label: 'Elo', w: 80 },
-                    { label: '95% CI', w: 80 },
-                    { label: 'Samples', w: 90 },
-                    { label: 'Released', w: 100 },
-                    { label: 'API Pricing', w: 140 },
-                  ].map(col => (
-                    <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
-                      {col.label}
-                    </th>
-                  ))}
+                  <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 60 }}>Rank</th>
+                  <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 80 }}>Range</th>
+                  <SortableTh label="Creator" active={sort?.key === 'creator'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'creator', 'asc'))} />
+                  <SortableTh label="Model" active={sort?.key === 'model'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'model', 'asc'))} />
+                  <SortableTh label="Elo" width={80} active={sort?.key === 'elo'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'elo', 'desc'))} />
+                  <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 80 }}>95% CI</th>
+                  <SortableTh label="Samples" width={90} active={sort?.key === 'samples'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'samples', 'desc'))} />
+                  <SortableTh label="Released" width={100} active={sort?.key === 'released'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'released', 'desc'))} />
+                  <SortableTh label="API Pricing" width={140} active={sort?.key === 'price'} dir={sort?.dir} onToggle={() => setSort(prev => toggleSort(prev, 'price', 'asc'))} />
                 </tr>
               </thead>
               <tbody>
