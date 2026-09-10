@@ -38,6 +38,11 @@ export function slimToModelRecord(s: SlimModel): ModelRecord {
   if (s.aaSpeed !== undefined) r.aaSpeed = s.aaSpeed;
   if (s.aaCostPerTask !== undefined) r.aaCostPerTask = s.aaCostPerTask;
   if (s.aaVerbosity !== undefined) r.aaVerbosity = s.aaVerbosity;
+  if (s.aaLatency !== undefined) r.aaLatency = s.aaLatency;
+  if (s.aaSlug) r.aaSlug = s.aaSlug;
+  if (s.isReasoning !== undefined) r.isReasoning = s.isReasoning;
+  if (s.inputModalities) r.inputModalities = s.inputModalities;
+  if (s.outputModalities) r.outputModalities = s.outputModalities;
   if (s.mentions !== undefined) r.mentions = s.mentions;
   if (s.xMentions !== undefined) r.xMentions = s.xMentions;
   if (s.redditMentions !== undefined) r.redditMentions = s.redditMentions;

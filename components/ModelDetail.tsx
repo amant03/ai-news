@@ -29,6 +29,22 @@ function fmtCost(v: number) {
   return `$${v.toFixed(1)}`;
 }
 
+function costPerTask(m: ModelRecord): number | undefined {
+  if (m.aaCostPerTask !== undefined) return m.aaCostPerTask;
+  return avgCost(m);
+}
+
+function speedOf(m: ModelRecord): number | undefined {
+  return m.aaSpeed;
+}
+
+function fmtVerb(v: number | undefined): string {
+  if (v === undefined) return '—';
+  if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(v % 1_000_000 === 0 ? 0 : 1)}M`;
+  if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
+  return String(v);
+}
+
 function quality(m: ModelRecord): number | undefined {
   if (m.intelligenceIndex !== undefined) return m.intelligenceIndex;
   if (m.elo !== undefined) return (m.elo - 1000) / 10;
@@ -62,12 +78,26 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
   const maxIntel = useMemo(() => Math.max(1, ...pool.map(m => m.intelligenceIndex ?? 0)), [pool]);
   const maxCoding = useMemo(() => Math.max(1, ...pool.map(m => m.codingIndex ?? 0)), [pool]);
 
-  const cost = avgCost(model);
+  const cost = costPerTask(model);
+  const speed = speedOf(model);
 
-  // Bar chart data for comparisons
+  const speedRank = useMemo(() => {
+    const scored = pool.filter(m => m.aaSpeed !== undefined).sort((a, b) => (b.aaSpeed ?? 0) - (a.aaSpeed ?? 0));
+    const idx = scored.findIndex(m => m.id === model.id);
+    return idx >= 0 ? idx + 1 : undefined;
+  }, [pool, model.id]);
+  const totalWithSpeed = useMemo(() => pool.filter(m => m.aaSpeed !== undefined).length, [pool]);
+  const maxSpeed = useMemo(() => Math.max(1, ...pool.map(m => m.aaSpeed ?? 0)), [pool]);
+
+  // Bar chart data for comparisons — prefer AA-native speed/cost when present
   const intelBars = useMemo(() => modelsToBarData(pool, m => m.intelligenceIndex, { maxBars: 12, highlightId: model.id }), [pool, model.id]);
-  const costBars = useMemo(() => modelsToBarData(pool, m => avgCost(m), { maxBars: 12, highlightId: model.id }), [pool, model.id]);
-  const codingBars = useMemo(() => modelsToBarData(pool, m => m.codingIndex, { maxBars: 12, highlightId: model.id }), [pool, model.id]);
+  const costBars = useMemo(() => modelsToBarData(pool, m => costPerTask(m), { maxBars: 12, highlightId: model.id }), [pool, model.id]);
+  const speedOrCodingBars = useMemo(
+    () => (totalWithSpeed >= 3
+      ? modelsToBarData(pool, m => m.aaSpeed, { maxBars: 12, highlightId: model.id })
+      : modelsToBarData(pool, m => m.codingIndex, { maxBars: 12, highlightId: model.id })),
+    [pool, model.id, totalWithSpeed]
+  );
 
   // Benchmark data — using our indices as proxies
   const benchmarks = useMemo(() => {
@@ -87,12 +117,12 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
   // Scatter data
   const scatterPoints = useMemo((): ScatterPoint[] => {
     const peerPool = pool
-      .filter(m => m.id !== model.id && m.intelligenceIndex !== undefined && avgCost(m) !== undefined)
+      .filter(m => m.id !== model.id && m.intelligenceIndex !== undefined && costPerTask(m) !== undefined)
       .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0))
       .slice(0, 20);
 
     return [model, ...peerPool].map(m => {
-      const x = avgCost(m);
+      const x = costPerTask(m);
       const y = m.intelligenceIndex;
       if (x === undefined || y === undefined) return null;
       return {
@@ -133,7 +163,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         {model.name} Intelligence, Performance & Price Analysis
       </h3>
 
-      {/* 4 Summary metric cards — AA-style */}
+      {/* 4 Summary metric cards — AA-style: Intelligence / Speed / Cost / Verbosity */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <SummaryCard
           label="Intelligence"
@@ -145,28 +175,30 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
           pct={model.intelligenceIndex !== undefined ? (model.intelligenceIndex / maxIntel) * 100 : 0}
         />
         <SummaryCard
-          label="Coding"
-          rank={codingRank ? `#${codingRank}` : '—'}
-          total={totalWithCoding}
-          value={fmtNum(model.codingIndex)}
-          unit="Coding Index"
-          pct={model.codingIndex !== undefined ? (model.codingIndex / maxCoding) * 100 : 0}
+          label={totalWithSpeed >= 3 ? 'Speed' : 'Coding'}
+          rank={totalWithSpeed >= 3 ? (speedRank ? `#${speedRank}` : '—') : (codingRank ? `#${codingRank}` : '—')}
+          total={totalWithSpeed >= 3 ? totalWithSpeed : totalWithCoding}
+          value={totalWithSpeed >= 3 ? (speed !== undefined ? `${speed.toFixed(0)}` : 'N/A') : fmtNum(model.codingIndex)}
+          unit={totalWithSpeed >= 3 ? 'tokens / second' : 'Coding Index'}
+          pct={totalWithSpeed >= 3
+            ? (speed !== undefined ? (speed / maxSpeed) * 100 : 0)
+            : (model.codingIndex !== undefined ? (model.codingIndex / maxCoding) * 100 : 0)}
         />
         <SummaryCard
           label="Cost"
           rank={cost !== undefined ? fmtCost(cost) : '—'}
           total={undefined}
           value={cost !== undefined ? fmtCost(cost) : '—'}
-          unit={cost !== undefined ? 'per task' : 'no pricing'}
+          unit={model.aaCostPerTask !== undefined ? 'per Index task' : cost !== undefined ? 'per task (blended)' : 'no pricing'}
           pct={cost !== undefined ? Math.max(6, Math.min(100, 100 / (1 + cost))) : 0}
         />
         <SummaryCard
-          label="Context"
-          rank={model.context || '—'}
+          label="Verbosity"
+          rank={model.aaVerbosity !== undefined ? fmtVerb(model.aaVerbosity) : (model.context || '—')}
           total={undefined}
-          value={model.context || '—'}
-          unit={model.params ? `${model.params} params` : 'token window'}
-          pct={50}
+          value={model.aaVerbosity !== undefined ? fmtVerb(model.aaVerbosity) : (model.context || '—')}
+          unit={model.aaVerbosity !== undefined ? 'output tokens / task' : model.params ? `${model.params} params` : 'token window'}
+          pct={model.aaVerbosity !== undefined ? 45 : 50}
         />
       </div>
 
@@ -176,13 +208,16 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         <p className="text-[13px] text-[var(--mut)] leading-relaxed">
           {model.name} from {model.provider}
           {model.intelligenceIndex !== undefined && ` scores ${model.intelligenceIndex} on the Intelligence Index`}
-          {cost !== undefined && ` at an average cost of ${fmtCost(cost)} per task`}
+          {cost !== undefined && ` at ${fmtCost(cost)}${model.aaCostPerTask !== undefined ? ' per Intelligence Index task' : ' blended per 1M tokens'}`}
           {model.codingIndex !== undefined && ` with a coding index of ${model.codingIndex}`}
+          {speed !== undefined && `, running at ${speed.toFixed(0)} tokens/second`}
+          {model.aaVerbosity !== undefined && ` and generating ${fmtVerb(model.aaVerbosity)} tokens per task`}
           {model.context ? `. Supports ${model.context} context window` : ''}.
+          {model.promptPrice !== undefined && ` (In $${model.promptPrice.toFixed(2)}/1M · Out $${(model.completionPrice ?? 0).toFixed(2)}/1M)`}
         </p>
       </div>
 
-      {/* Technical specifications */}
+      {/* Technical specifications — AA parity */}
       <div className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/30 p-5">
         <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2 font-medium">Technical specifications</div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[12px]">
@@ -222,6 +257,34 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
               <div className="text-[var(--fore)]">{model.params}</div>
             </div>
           )}
+          {model.aaSpeed !== undefined && (
+            <div>
+              <span className="text-[var(--dim)]">Speed</span>
+              <div className="font-mono text-[var(--fore)]">{model.aaSpeed.toFixed(0)} t/s</div>
+            </div>
+          )}
+          {model.aaCostPerTask !== undefined && (
+            <div>
+              <span className="text-[var(--dim)]">Cost / Index task</span>
+              <div className="font-mono text-[var(--fore)]">${model.aaCostPerTask.toFixed(2)}</div>
+            </div>
+          )}
+          {model.aaVerbosity !== undefined && (
+            <div>
+              <span className="text-[var(--dim)]">Verbosity</span>
+              <div className="font-mono text-[var(--fore)]">{fmtVerb(model.aaVerbosity)} tokens</div>
+            </div>
+          )}
+          {model.license && (
+            <div>
+              <span className="text-[var(--dim)]">License</span>
+              <div className="text-[var(--fore)]">{model.license}</div>
+            </div>
+          )}
+          <div>
+            <span className="text-[var(--dim)]">Input / Output</span>
+            <div className="text-[var(--fore)]">text / text</div>
+          </div>
         </div>
       </div>
 
@@ -231,14 +294,14 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
           data={intelBars}
           title="Intelligence"
           subtitle="Artificial Analysis Intelligence Index · higher is better"
-          valueFormat={v => v.toFixed(0)}
+          valueFormat={v => v.toFixed(1)}
           selectedId={model.id}
           onSelect={id => onSelect?.(id)}
         />
         <VerticalBarChart
           data={costBars}
           title="Cost per Task"
-          subtitle="USD per 1M tokens (blended) · lower is better"
+          subtitle={pool.some(m => m.aaCostPerTask !== undefined) ? 'USD per Intelligence Index task · lower is better' : 'USD per 1M tokens (blended) · lower is better'}
           valueFormat={v => fmtCost(v)}
           selectedId={model.id}
           onSelect={id => onSelect?.(id)}
@@ -246,10 +309,10 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
         <VerticalBarChart
-          data={codingBars}
-          title="Coding Index"
-          subtitle="Coding capability index · higher is better"
-          valueFormat={v => v.toFixed(0)}
+          data={speedOrCodingBars}
+          title={totalWithSpeed >= 3 ? 'Speed' : 'Coding Index'}
+          subtitle={totalWithSpeed >= 3 ? 'Output tokens per second · higher is better' : 'Coding capability index · higher is better'}
+          valueFormat={v => v.toFixed(totalWithSpeed >= 3 ? 0 : 1)}
           selectedId={model.id}
           onSelect={id => onSelect?.(id)}
         />

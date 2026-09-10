@@ -1,8 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Header from '@/components/Header';
-import Ticker from '@/components/Ticker';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
 import HeroLead from '@/components/HeroLead';
 import LatestList from '@/components/LatestList';
@@ -12,7 +10,6 @@ import LatestModels from '@/components/LatestModels';
 import AITrends from '@/components/AITrends';
 import SkeletonGrid from '@/components/Skeleton';
 import SectionHeader from '@/components/SectionHeader';
-import HighlightsStrip from '@/components/HighlightsStrip';
 import Footer from '@/components/Footer';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
@@ -29,7 +26,7 @@ interface FacetsData {
 
 const EMPTY_FACETS: FacetsData = { sources: [], categories: [], types: [], domains: [] };
 
-export default function Home() {
+export default function Home({ children }: { children?: React.ReactNode }) {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [facets, setFacets] = useState<FacetsData>(EMPTY_FACETS);
   const [total, setTotal] = useState(0);
@@ -208,50 +205,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" id="top">
-      <Header
-        total={total}
-        onlineSources={onlineSources}
-        lastUpdated={lastUpdated}
-        nextRefreshAt={nextRefreshAt}
-        isRefreshing={refreshing}
-        onRefresh={handleRefresh}
-      />
-
-      <Ticker items={news.slice(0, 24)} />
-
-      <main className="max-w-[1400px] mx-auto px-5 pt-10 pb-16">
-        {/* AA-style hero: update cards + serif headline */}
-        <section className="mb-10">
-          <div className="grid sm:grid-cols-2 gap-3 mb-9">
-            <a href="#latest" className="border border-[var(--color-line)] rounded-lg p-5 panel-hover block">
-              <div className="kicker mb-2">Live</div>
-              <div className="font-display text-xl font-medium tracking-tight text-[var(--fore)]">
-                AI newswire
-              </div>
-              <p className="text-sm text-[var(--mut)] mt-1 leading-relaxed">
-                {total ? total.toLocaleString('en-US') : '—'} stories across 40+ sources, updating
-                around the clock.
-              </p>
-            </a>
-            <a href="#model-watch" className="border border-[var(--color-line)] rounded-lg p-5 panel-hover block">
-              <div className="kicker mb-2">Update</div>
-              <div className="font-display text-xl font-medium tracking-tight text-[var(--fore)]">
-                Model leaderboard
-              </div>
-              <p className="text-sm text-[var(--mut)] mt-1 leading-relaxed">
-                Frontier models ranked by intelligence, speed and cost.
-              </p>
-            </a>
-          </div>
-          <h1 className="font-display text-5xl md:text-6xl font-medium tracking-tight text-[var(--fore)] max-w-[16ch]">
-            Independent tracking of the AI frontier
-          </h1>
-          <p className="md:text-lg text-[var(--mut)] mt-4 max-w-[38ch] leading-relaxed">
-            Every story and every frontier model — ranked by intelligence, speed and cost.
-          </p>
-        </section>
-
-        <HighlightsStrip />
+      <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
+        {children}
 
         {/* Top Stories - full width */}
         <section className="mb-10">

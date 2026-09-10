@@ -3,6 +3,8 @@ import { Inter, IBM_Plex_Mono, Fraunces } from 'next/font/google';
 import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
 import { ThemeProvider } from '@/lib/theme';
+import SiteTop from '@/components/SiteTop';
+import FloatingChat from '@/components/FloatingChat';
 
 const inter = Inter({
   variable: '--font-instrument',
@@ -80,7 +82,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SiteTop />
+          {children}
+          <FloatingChat />
+        </ThemeProvider>
       </body>
     </html>
   );

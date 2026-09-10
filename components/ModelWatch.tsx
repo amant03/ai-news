@@ -8,6 +8,7 @@ import ScatterChart, { ScatterPoint } from './ScatterChart';
 import ModelDetail from './ModelDetail';
 import VerticalBarChart, { modelsToBarData, BarDatum } from './VerticalBarChart';
 import { sortByCol, toggleSort, ColSort, SortDir } from '@/lib/sortable';
+import { preferredSlug } from '@/lib/model-slug';
 
 interface ModelWatchData {
   models: ModelRecord[];
@@ -220,8 +221,8 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
 
   // Vertical bar chart data for highlights
   const intelData = useMemo(() => barDataFor(filtered, m => m.intelligenceIndex, chartDir.intel, { highlightId: selected?.id }), [filtered, selected, chartDir.intel]);
-  const codingData = useMemo(() => barDataFor(filtered, m => m.codingIndex, chartDir.coding, { highlightId: selected?.id }), [filtered, selected, chartDir.coding]);
-  const costData = useMemo(() => barDataFor(filtered, m => avgCost(m), chartDir.cost, { highlightId: selected?.id }), [filtered, selected, chartDir.cost]);
+  const speedData = useMemo(() => barDataFor(filtered, m => m.aaSpeed, chartDir.coding, { highlightId: selected?.id }), [filtered, selected, chartDir.coding]);
+  const costData = useMemo(() => barDataFor(filtered, m => m.aaCostPerTask ?? avgCost(m), chartDir.cost, { highlightId: selected?.id }), [filtered, selected, chartDir.cost]);
 
   // Scatter data
   const scatterPoints = useMemo((): ScatterPoint[] => {
@@ -329,9 +330,9 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               onToggleDir={() => setChartDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
             />
             <VerticalBarChart
-              data={codingData}
-              title="Coding"
-              subtitle="Coding capability index · higher is better"
+              data={speedData}
+              title="Speed"
+              subtitle="Output tokens per second · higher is better"
               valueFormat={v => v.toFixed(0)}
               selectedId={selected?.id}
               onSelect={id => setSelectedId(id)}
@@ -341,7 +342,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
             <VerticalBarChart
               data={costData}
               title="Cost per Task"
-              subtitle="USD per 1M tokens (blended) · lower is better"
+              subtitle="USD per Intelligence Index task · lower is better"
               valueFormat={v => fmtCost(v)}
               selectedId={selected?.id}
               onSelect={id => setSelectedId(id)}
@@ -410,7 +411,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2 min-w-0">
                               <a
-                                href={`/models/${m.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                                href={`/models/${preferredSlug(m)}`}
                                 onClick={e => e.stopPropagation()}
                                 className={`text-[14px] font-semibold truncate ${isActive ? 'text-[var(--accent)]' : 'text-[var(--fore)] group-hover:text-[var(--cyan)]'} transition-colors hover:underline`}
                               >

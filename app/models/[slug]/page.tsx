@@ -1,17 +1,64 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import IntelligenceScatter from '@/components/IntelligenceScatter';
 import { loadModelCatalog } from '@/lib/models-catalog';
 import type { ModelRecord } from '@/lib/model-registry';
 import { SITE_NAME } from '@/lib/site';
+import { modelMatchesSlug } from '@/lib/model-slug';
+import { findAAModel } from '@/lib/aa-lookup';
 
 export const dynamic = 'force-dynamic';
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+function overlayAA(model: ModelRecord, slug: string): ModelRecord {
+  const aa = findAAModel(slug) || (model.aaSlug ? findAAModel(model.aaSlug) : undefined);
+  if (!aa) return model;
+  return {
+    ...model,
+    intelligenceIndex: aa.intelligenceIndex ?? model.intelligenceIndex,
+    aaSpeed: aa.speed ?? model.aaSpeed,
+    aaCostPerTask: aa.costPerTask ?? model.aaCostPerTask,
+    aaVerbosity: aa.verbosity ?? model.aaVerbosity,
+    aaLatency: aa.latency ?? model.aaLatency,
+    aaSlug: aa.slug || model.aaSlug,
+    promptPrice: aa.promptPrice ?? model.promptPrice,
+    completionPrice: aa.completionPrice ?? model.completionPrice,
+    context: aa.context || model.context,
+    params: aa.params || model.params,
+    license: aa.license || model.license,
+    isReasoning: aa.isReasoning ?? model.isReasoning,
+    inputModalities: aa.inputModalities || model.inputModalities,
+    outputModalities: aa.outputModalities || model.outputModalities,
+  };
+}
+
+function aaToRecord(aa: NonNullable<ReturnType<typeof findAAModel>>): ModelRecord {
+  return overlayAA(
+    {
+      id: `aa/${aa.slug}`,
+      name: aa.name,
+      provider: aa.provider,
+      source: 'aa',
+      family: aa.family || 'closed',
+      released: aa.released,
+      params: aa.params,
+      context: aa.context,
+      aaSlug: aa.slug,
+    },
+    aa.slug
+  );
+}
+
+function findModel(models: ModelRecord[] | undefined, slug: string): ModelRecord | undefined {
+  const fromCatalog = models?.find(m => modelMatchesSlug(m, slug) || slugOf(m.name) === slug);
+  if (fromCatalog) return overlayAA(fromCatalog, slug);
+  const aa = findAAModel(slug);
+  return aa ? aaToRecord(aa) : undefined;
 }
 
 function slugOf(name: string): string {
@@ -133,7 +180,7 @@ function vsMedianLower(v: number, med: number | null): string {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const db = await loadModelCatalog();
-  const model = db?.models.find(m => slugOf(m.name) === slug);
+  const model = findModel(db?.models, slug);
   if (!model) return { title: `Model not found · ${SITE_NAME}` };
   return {
     title: `${model.name} — Intelligence, Performance & Price Analysis`,
@@ -167,8 +214,9 @@ function UnitBars({ filled, color }: { filled: number; color: string }) {
 export default async function ModelDetailPage({ params }: Props) {
   const { slug } = await params;
   const db = await loadModelCatalog();
-  const model = db?.models.find(m => slugOf(m.name) === slug);
-  if (!model || !db) notFound();
+  const model = findModel(db?.models, slug);
+  if (!model) notFound();
+  const catalogModels = db?.models?.length ? db.models : [model];
 
   const isOpen = isOpenM(model);
   const intelScore = model.intelligenceIndex;
@@ -179,7 +227,7 @@ export default async function ModelDetailPage({ params }: Props) {
   /* ── Class peers (AA methodology): open weights compare within open
      weights (sized when params known); proprietary compare within their
      blended-price band. ── */
-  const withIntel = db.models.filter(m => m.intelligenceIndex != null);
+  const withIntel = catalogModels.filter(m => m.intelligenceIndex != null);
   let peers: ModelRecord[];
   let classLabel: string;
   let classBasis: string;
@@ -363,8 +411,7 @@ export default async function ModelDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen">
-      <Header />
-      <main className="max-w-[1200px] mx-auto px-5 pt-10 pb-16">
+      <main className="max-w-[1200px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-6">
           <Link href="/models" className="text-[12px] text-neutral-400 hover:text-neutral-600 transition-colors">
             ← Models

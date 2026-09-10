@@ -26,6 +26,8 @@
   --surface: #f9fafb;
   --selection: rgba(17, 17, 17, 0.08);
   --header-bg: rgba(255, 255, 255, 0.92);
+  --ticker-bg: #fafafa;
+  --ticker-label-bg: #ffffff;
   --scroll-track: #f5f5f5;
   --scroll-thumb: #d4d4d4;
   --scroll-thumb-hover: #a3a3a3;
@@ -67,6 +69,8 @@
   --surface: #17171c;
   --selection: rgba(230, 226, 216, 0.22);
   --header-bg: rgba(11, 11, 13, 0.86);
+  --ticker-bg: #101014;
+  --ticker-label-bg: #121216;
   --scroll-track: #0c0c0f;
   --scroll-thumb: #26262d;
   --scroll-thumb-hover: #373740;

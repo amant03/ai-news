@@ -42,6 +42,13 @@ jobs:
         continue-on-error: true
         run: npx tsx lib/t2i-scraper.ts
 
+      - name: Scrape Artificial Analysis model pages
+        timeout-minutes: 8
+        continue-on-error: true
+        run: npx tsx lib/aa-model-scraper.ts
+        env:
+          AA_SCRAPE_LIMIT: "30"
+
       - name: Commit leaderboard snapshots
         run: |
           git config user.name "ai-news-bot"

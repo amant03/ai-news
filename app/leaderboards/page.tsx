@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Header from '@/components/Header';
 import ModelWatch from '@/components/ModelWatch';
 import Footer from '@/components/Footer';
 
@@ -49,14 +48,6 @@ export default function LeaderboardsPage() {
     <div className="min-h-screen">
       <div className="bg-atmosphere" />
       <div className="bg-grid" />
-      <Header
-        total={total}
-        onlineSources={onlineSources}
-        lastUpdated={lastUpdated}
-        nextRefreshAt={nextRefreshAt}
-        isRefreshing={refreshing}
-        onRefresh={handleRefresh}
-      />
       <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="mb-6">
           <h1 className="font-display font-medium text-4xl md:text-5xl tracking-tight text-[var(--fore)]">LLM Leaderboard</h1>

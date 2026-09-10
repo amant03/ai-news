@@ -1,222 +1,78 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
+import {
+  fetchAAHtml,
+  mergeParsed,
+  parseCurrentModel,
+  parseFlightModels,
+  parseJsonLdCharts,
+  slugsFromHtml,
+  type AAParsedModel,
+} from './aa-parse';
+import { canonicalSlug, modelMatchesSlug } from './model-slug';
 
 /**
  * Artificial Analysis model data scraper.
  *
- * Parses the JSON-LD benchmark datasets embedded in
- * https://artificialanalysis.ai/models (intelligence, speed, cost per task,
- * verbosity, pricing, context, params). Falls back to legacy HTML table
- * parsing, then to data/aa-models.json seed data when the live scrape fails.
+ * Parses JSON-LD + Next.js flight payloads from AA pages (no Puppeteer).
+ * Falls back to data/aa-models.json when the live scrape fails.
  */
 
 export interface AAModelEntry {
+  slug: string;
   name: string;
+  shortName?: string;
   provider: string;
   intelligenceIndex: number | null;
   speed: number | null;
   costPerTask: number | null;
   verbosity: number | null;
-  /** Canonical context label, e.g. "256K", "1M". Set when known. */
+  latency?: number | null;
+  promptPrice?: number | null;
+  completionPrice?: number | null;
   context?: string;
-  /** Parameter count label, e.g. "125B". Set when known. */
   params?: string;
-  /** USD per 1M tokens. Set when known. */
-  promptPrice?: number;
-  completionPrice?: number;
+  license?: string;
+  released?: string;
+  family?: 'closed' | 'open-weights';
+  isReasoning?: boolean;
+  inputModalities?: string;
+  outputModalities?: string;
+  description?: string;
+  evals?: Record<string, number>;
+  hostModelCount?: number;
 }
 
-const AA_MODELS_URL = 'https://artificialanalysis.ai/models';
+const HOME_URL = 'https://artificialanalysis.ai/';
+const MODELS_URL = 'https://artificialanalysis.ai/models';
+const MODEL_URL = (slug: string) => `https://artificialanalysis.ai/models/${slug}`;
 const SEED_FILE = path.join(process.cwd(), 'data', 'aa-models.json');
 
-const AA_HEADERS: Record<string, string> = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language': 'en-US,en;q=0.9',
-};
-
-function trimNum(v: number): string {
-  return String(Math.round(v * 10) / 10);
-}
-
-function ldNum(v: unknown): number | null {
-  if (typeof v === 'number' && isFinite(v)) return v;
-  return null;
-}
-
-function ldPricingProp(row: Record<string, unknown>, name: string): number | null {
-  const list = row.pricing;
-  if (!Array.isArray(list)) return null;
-  const hit = list.find((e: unknown) => typeof e === 'object' && e !== null && (e as Record<string, unknown>).name === name);
-  return hit ? ldNum((hit as Record<string, unknown>).value) : null;
-}
-
-/**
- * Parse the JSON-LD benchmark datasets embedded in the AA /models page.
- * Each dataset looks like {name, data: [{label, detailsUrl, <metric>: value}]}.
- * Returns one entry per label (first value wins per metric).
- */
-function parseAADatasets(html: string): AAModelEntry[] {
-  const byLabel = new Map<string, AAModelEntry>();
-  const get = (label: string): AAModelEntry => {
-    let e = byLabel.get(label);
-    if (!e) {
-      e = { name: label, provider: '', intelligenceIndex: null, speed: null, costPerTask: null, verbosity: null };
-      byLabel.set(label, e);
-    }
-    return e;
+function parsedToEntry(m: AAParsedModel): AAModelEntry {
+  return {
+    slug: m.slug,
+    name: m.name,
+    shortName: m.shortName,
+    provider: m.provider,
+    intelligenceIndex: m.intelligenceIndex ?? null,
+    speed: m.aaSpeed ?? null,
+    costPerTask: m.aaCostPerTask ?? null,
+    verbosity: m.aaVerbosity ?? null,
+    latency: m.aaLatency ?? null,
+    promptPrice: m.promptPrice ?? null,
+    completionPrice: m.completionPrice ?? null,
+    context: m.context,
+    params: m.params,
+    license: m.license,
+    released: m.released,
+    family: m.family,
+    isReasoning: m.isReasoning,
+    inputModalities: m.inputModalities,
+    outputModalities: m.outputModalities,
+    description: m.description,
+    evals: m.evals,
+    hostModelCount: m.hostModelCount,
   };
-
-  const blocks = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)];
-  for (const m of blocks) {
-    let d: { name?: unknown; data?: unknown };
-    try {
-      d = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    if (!d || !Array.isArray(d.data)) continue;
-    const name = String(d.name || '');
-    for (const r of d.data as Array<Record<string, unknown>>) {
-      const label = String(r.label || '').trim();
-      if (!label) continue;
-      const e = get(label);
-      const keep = (cur: number | null, v: number | null) => cur ?? v ?? null;
-      if (name === 'Intelligence' || name.startsWith('Artificial Analysis Intelligence Index')) {
-        e.intelligenceIndex = keep(e.intelligenceIndex, ldNum(r.intelligenceIndex ?? r.artificialAnalysisIntelligenceIndex));
-      } else if (name === 'Speed' || name === 'Output Speed') {
-        e.speed = keep(e.speed, ldNum(r.outputSpeed ?? r.medianOutputSpeed));
-      } else if (name === 'Cost per Task') {
-        e.costPerTask = keep(e.costPerTask, ldNum(r.costPerIntelligenceIndexTask));
-      } else if (name === 'Cost per Intelligence Index Task') {
-        const sum = ['answer', 'reasoning', 'cacheWrite', 'cacheHit'].reduce((a, k) => a + (ldNum(r[k]) ?? 0), 0);
-        if (sum > 0) e.costPerTask = keep(e.costPerTask, sum);
-      } else if (name === 'Output Tokens per Intelligence Index Task') {
-        const total = (ldNum(r.answer) ?? 0) + (ldNum(r.reasoning) ?? 0);
-        if (total > 0) e.verbosity = keep(e.verbosity, Math.round(total));
-      } else if (name.startsWith('Pricing:')) {
-        const inp = ldPricingProp(r, 'inputPrice');
-        const out = ldPricingProp(r, 'outputPrice');
-        if (inp != null && e.promptPrice == null) e.promptPrice = inp;
-        if (out != null && e.completionPrice == null) e.completionPrice = out;
-      } else if (name === 'Context Window') {
-        const t = ldNum(r.contextWindowTokens);
-        if (t != null && e.context == null) {
-          e.context = t >= 1_000_000 ? `${trimNum(t / 1_000_000)}M` : `${trimNum(t / 1_000)}K`;
-        }
-      } else if (name.startsWith('Model Size')) {
-        const a = ldNum(r.activeParams);
-        const p = ldNum(r.passiveParams);
-        if (a != null && p != null && e.params == null) {
-          const total = a + p;
-          e.params = total >= 1000 ? `${trimNum(total / 1000)}T` : `${Math.round(total)}B`;
-        }
-      }
-    }
-  }
-  return [...byLabel.values()].filter(
-    e => e.intelligenceIndex != null || e.speed != null || e.costPerTask != null || e.verbosity != null
-  );
-}
-
-/**
- * Attempt to scrape AA models page HTML and extract structured model data.
- */
-async function scrapeAAHtml(): Promise<AAModelEntry[]> {
-  const res = await fetch(AA_MODELS_URL, {
-    signal: AbortSignal.timeout(30_000),
-    headers: AA_HEADERS,
-  });
-  if (!res.ok) throw new Error(`AA HTTP ${res.status}`);
-
-  const html = await res.text();
-  const models: AAModelEntry[] = [];
-
-  // The AA models page renders a table with rows containing model data.
-  // Each model row typically has: name, provider, intelligence score, speed, cost.
-  // Strategy: find table rows or card-like blocks and extract text content.
-
-  // Pattern 1: Look for structured table rows with intelligence index values.
-  // AA pages often have data in JSON embedded in script tags or in table cells.
-  const jsonMatch = html.match(/__NEXT_DATA__[^>]*>(.*?)<\/script>/s);
-  if (jsonMatch) {
-    try {
-      const nextData = JSON.parse(jsonMatch[1]);
-      const pageProps = nextData?.props?.pageProps;
-      const modelData = pageProps?.models || pageProps?.data || pageProps?.leaderboard;
-      if (Array.isArray(modelData)) {
-        for (const m of modelData) {
-          const name = m.name || m.model || m.model_name || '';
-          if (!name) continue;
-          models.push({
-            name: String(name),
-            provider: String(m.provider || m.company || m.org || ''),
-            intelligenceIndex: toNum(m.intelligence_index ?? m.intelligenceIndex ?? m.ii ?? null),
-            speed: toNum(m.speed ?? m.tokens_per_second ?? m.tps ?? null),
-            costPerTask: toNum(m.cost_per_task ?? m.costPerTask ?? m.cost ?? null),
-            verbosity: toNum(m.verbosity ?? m.output_tokens ?? m.aa_verbosity ?? null),
-          });
-        }
-        if (models.length > 0) return models;
-      }
-    } catch {
-      // JSON parse failed, fall through to HTML parsing.
-    }
-  }
-
-  // Pattern 2: Parse HTML table rows.
-  // Look for rows containing numbers that look like intelligence scores (typically 30-70 range).
-  const rowRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
-  let rowMatch: RegExpExecArray | null;
-  while ((rowMatch = rowRegex.exec(html)) !== null) {
-    const rowHtml = rowMatch[1];
-    const cells = [...rowHtml.matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi)].map(c =>
-      c[1].replace(/<[^>]+>/g, '').trim()
-    );
-    if (cells.length < 3) continue;
-
-    // Try to find a cell with a number in the 30-70 range (intelligence index).
-    let iiIdx = -1;
-    for (let i = 0; i < cells.length; i++) {
-      const v = parseFloat(cells[i]);
-      if (isFinite(v) && v >= 25 && v <= 75) {
-        iiIdx = i;
-        break;
-      }
-    }
-    if (iiIdx < 0) continue;
-
-    // The model name is typically the first cell or the cell before the score.
-    const name = cells[0] || cells[iiIdx - 1] || '';
-    if (!name || name.length < 2) continue;
-
-    // Provider is typically the second cell.
-    const provider = cells[1] || '';
-
-    // Speed: look for a number that looks like tokens/sec (typically > 5).
-    let speed: number | null = null;
-    let cost: number | null = null;
-    for (let i = iiIdx + 1; i < cells.length; i++) {
-      const v = parseFloat(cells[i]);
-      if (!isFinite(v)) continue;
-      if (speed === null && v > 2 && v < 10000) {
-        speed = v;
-      } else if (cost === null && v >= 0 && v < 100) {
-        cost = v;
-      }
-    }
-
-    models.push({
-      name: name.replace(/\s+/g, ' ').trim(),
-      provider,
-      intelligenceIndex: parseFloat(cells[iiIdx]) || null,
-      speed,
-      costPerTask: cost,
-      verbosity: null,
-    });
-  }
-
-  return models;
 }
 
 function toNum(v: unknown): number | null {
@@ -225,139 +81,186 @@ function toNum(v: unknown): number | null {
   return isFinite(n) ? n : null;
 }
 
-/**
- * Load fallback seed data from data/aa-models.json.
- */
 function loadSeedData(): AAModelEntry[] {
   try {
     if (!fs.existsSync(SEED_FILE)) return [];
     const raw = JSON.parse(fs.readFileSync(SEED_FILE, 'utf-8'));
-    if (!Array.isArray(raw.models)) return [];
-    return raw.models.map((m: Record<string, unknown>) => ({
+    const list = Array.isArray(raw.models) ? raw.models : Array.isArray(raw) ? raw : [];
+    return list.map((m: Record<string, unknown>) => ({
+      slug: String(m.slug || canonicalSlug(String(m.name || ''))),
       name: String(m.name || ''),
+      shortName: m.shortName ? String(m.shortName) : undefined,
       provider: String(m.provider || ''),
       intelligenceIndex: toNum(m.intelligenceIndex),
-      speed: toNum(m.speed),
-      costPerTask: toNum(m.costPerTask),
-      verbosity: toNum(m.verbosity),
+      speed: toNum(m.speed ?? m.aaSpeed),
+      costPerTask: toNum(m.costPerTask ?? m.aaCostPerTask),
+      verbosity: toNum(m.verbosity ?? m.aaVerbosity),
+      latency: toNum(m.latency ?? m.aaLatency),
+      promptPrice: toNum(m.promptPrice),
+      completionPrice: toNum(m.completionPrice),
+      context: m.context ? String(m.context) : undefined,
+      params: m.params ? String(m.params) : undefined,
+      license: m.license ? String(m.license) : undefined,
+      released: m.released ? String(m.released) : undefined,
+      family: m.family === 'open-weights' ? 'open-weights' : 'closed',
+      isReasoning: m.isReasoning === true,
+      inputModalities: m.inputModalities ? String(m.inputModalities) : undefined,
+      outputModalities: m.outputModalities ? String(m.outputModalities) : undefined,
+      evals: m.evals && typeof m.evals === 'object' ? (m.evals as Record<string, number>) : undefined,
+      hostModelCount: toNum(m.hostModelCount) ?? undefined,
     }));
   } catch {
     return [];
   }
 }
 
+function saveSeed(models: AAModelEntry[]): void {
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    source: 'artificialanalysis.ai',
+    total: models.length,
+    models,
+  };
+  fs.mkdirSync(path.dirname(SEED_FILE), { recursive: true });
+  fs.writeFileSync(SEED_FILE, JSON.stringify(payload, null, 2), 'utf-8');
+}
+
+async function scrapeIndexPages(): Promise<AAParsedModel[]> {
+  const [home, models] = await Promise.all([
+    fetchAAHtml(HOME_URL),
+    fetchAAHtml(MODELS_URL),
+  ]);
+  return mergeParsed([
+    parseJsonLdCharts(home),
+    parseFlightModels(home),
+    parseJsonLdCharts(models),
+    parseFlightModels(models),
+  ]);
+}
+
 /**
- * Fetch Artificial Analysis model data. Tries the embedded JSON-LD datasets
- * first (fresh intelligence/speed/cost/verbosity/pricing per model), falls
- * back to legacy HTML table parsing, then to seed data on failure.
+ * Fetch Artificial Analysis model data. Tries live scrape first,
+ * falls back to seed file on failure.
  */
 export async function fetchAAData(): Promise<AAModelEntry[]> {
   try {
-    const res = await fetch(AA_MODELS_URL, {
-      signal: AbortSignal.timeout(30_000),
-      headers: AA_HEADERS,
-    });
-    if (res.ok) {
-      const html = await res.text();
-      const fromDatasets = parseAADatasets(html);
-      if (fromDatasets.length >= 5) {
-        console.log(`   [aa-scraper] Parsed ${fromDatasets.length} models from embedded datasets`);
-        return fromDatasets;
-      }
-      console.log('   [aa-scraper] Embedded datasets too thin, trying legacy table parse');
-    }
-  } catch (err) {
-    console.log(`   [aa-scraper] Dataset fetch failed: ${err instanceof Error ? err.message : err}`);
-  }
-
-  try {
-    const scraped = await scrapeAAHtml();
-    if (scraped.length > 0) {
-      console.log(`   [aa-scraper] Scraped ${scraped.length} models from artificialanalysis.ai`);
-      return scraped;
+    const parsed = await scrapeIndexPages();
+    if (parsed.length > 0) {
+      const entries = parsed.map(parsedToEntry);
+      const seed = loadSeedData();
+      const merged = mergeEntries(seed, entries);
+      saveSeed(merged);
+      console.log(`   [aa-scraper] Scraped ${entries.length} models from AA index; catalog now ${merged.length}`);
+      return merged;
     }
     console.log('   [aa-scraper] Live scrape returned no models, using seed data');
   } catch (err) {
     console.log(`   [aa-scraper] Live scrape failed: ${err instanceof Error ? err.message : err}`);
   }
-
   const seed = loadSeedData();
   console.log(`   [aa-scraper] Loaded ${seed.length} models from seed data`);
   return seed;
 }
 
+function mergeEntries(base: AAModelEntry[], incoming: AAModelEntry[]): AAModelEntry[] {
+  const bySlug = new Map<string, AAModelEntry>();
+  for (const m of [...base, ...incoming]) {
+    if (!m.slug) continue;
+    const prev = bySlug.get(m.slug);
+    if (!prev) {
+      bySlug.set(m.slug, m);
+      continue;
+    }
+    bySlug.set(m.slug, {
+      ...prev,
+      ...Object.fromEntries(Object.entries(m).filter(([, v]) => v !== undefined && v !== null && v !== '')),
+      evals: { ...(prev.evals || {}), ...(m.evals || {}) },
+    } as AAModelEntry);
+  }
+  return [...bySlug.values()];
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise(r => setTimeout(r, ms));
+}
+
 /**
- * Detect whether a model is open weights by name/provider heuristics.
- * AA labels models "Open weights" or "Proprietary"; the scrape does not
- * capture that flag, so we infer it from known open-weight series.
+ * Scrape individual AA model pages for the full currentModel payload
+ * (speed, cost, verbosity, evals, modalities). Writes data/aa-models.json.
  */
+export async function scrapeAAModelPages(opts?: { limit?: number; slugs?: string[] }): Promise<number> {
+  const existing = loadSeedData();
+  const bySlug = new Map(existing.map(m => [m.slug, m]));
+
+  let slugs = opts?.slugs ? [...opts.slugs] : [];
+  if (slugs.length === 0) {
+    try {
+      const html = await fetchAAHtml(HOME_URL);
+      slugs = slugsFromHtml(html);
+      const modelsHtml = await fetchAAHtml(MODELS_URL);
+      slugs = [...new Set([...slugs, ...slugsFromHtml(modelsHtml)])];
+    } catch (err) {
+      console.log(`   [aa-pages] index fetch failed: ${err instanceof Error ? err.message : err}`);
+    }
+    // Prefer slugs we already know, plus any missing detail
+    slugs = [...new Set([...existing.map(m => m.slug), ...slugs])];
+  }
+
+  const limit = opts?.limit ?? Math.max(1, parseInt(process.env.AA_SCRAPE_LIMIT || '40', 10) || 40);
+  const need = slugs.filter(s => {
+    const cur = bySlug.get(s);
+    return !cur || cur.speed == null || cur.costPerTask == null || cur.verbosity == null;
+  });
+  const queue = (need.length ? need : slugs).slice(0, limit);
+  console.log(`[aa-pages] Scraping ${queue.length} model pages (${need.length} missing detail)`);
+
+  let updated = 0;
+  for (let i = 0; i < queue.length; i++) {
+    const slug = queue[i];
+    try {
+      const html = await fetchAAHtml(MODEL_URL(slug));
+      const parsed = parseCurrentModel(html);
+      if (parsed) {
+        bySlug.set(slug, mergeEntries(bySlug.get(slug) ? [bySlug.get(slug)!] : [], [parsedToEntry(parsed)])[0]);
+        updated++;
+        console.log(`  [${i + 1}/${queue.length}] ${slug} intel=${parsed.intelligenceIndex} speed=${parsed.aaSpeed} cost=${parsed.aaCostPerTask}`);
+      } else {
+        console.log(`  [${i + 1}/${queue.length}] ${slug} — no currentModel`);
+      }
+    } catch (err) {
+      console.log(`  [${i + 1}/${queue.length}] ${slug} — ${err instanceof Error ? err.message : err}`);
+    }
+    await sleep(700);
+  }
+
+  const all = [...bySlug.values()];
+  saveSeed(all);
+  console.log(`[aa-pages] Wrote ${all.length} models (${updated} pages parsed)`);
+  return updated;
+}
+
 const OPEN_SERIES = [
   'qwen', 'deepseek', 'llama', 'mistral', 'phi', 'gemma', 'kimi',
   'yi-', 'glm', 'olmo', 'dbrx', 'granite', 'nemotron', 'ernie',
   'aya', 'bloom', 'falcon', 'mpt', 'command-r', 'zephyr', 'solar',
-  'internlm', 'starling', 'tulu', 'aya', 'smol', 'codeqwen', 'qwq',
-  'mathstral', 'devstral', 'codestral', 'minicpm', 'marco', 'bakllava',
-  'llava', 'vila', 'openbmb', 'kimi-k2', 'gpt-oss', 'muse ',
-  'muse-', 'llama-', 'hunyuan', 'doubao', 'seed-',
-];
-const OPEN_PROVIDERS = [
-  'alibaba', 'deepseek', 'meta', 'hugging face', 'mistral ai',
-  'zhipu', 'moonshot', 'snowflake', 'allen ai', 'ibm', 'intel',
-  'tencent', 'baidu', 'bytedance', 'x-ai', 'xai', 'nvidia',
-  'stability', 'eleuthera', 'together', '01.ai', '01 ai',
+  'internlm', 'starling', 'tulu', 'smol', 'codeqwen', 'qwq',
+  'mathstral', 'devstral', 'codestral', 'minicpm', 'marco',
+  'llava', 'vila', 'openbmb',
 ];
 
 function detectFamily(name: string, provider: string): 'open-weights' | 'closed' {
   const n = name.toLowerCase();
   const p = provider.toLowerCase();
   if (OPEN_SERIES.some(s => n.includes(s))) return 'open-weights';
-  if (OPEN_PROVIDERS.some(s => p.includes(s))) return 'open-weights';
+  if (['alibaba', 'deepseek', 'meta', 'mistral', 'zhipu', 'moonshot', 'nvidia'].some(s => p.includes(s))) {
+    return 'open-weights';
+  }
   return 'closed';
 }
 
 /**
- * Infer the provider lab from a model name for records scraped without
- * provider attribution (AA chart datasets carry labels only).
- */
-const PROVIDER_SERIES: Array<[string, string]> = [
-  ['gpt', 'OpenAI'], ['openai', 'OpenAI'], ['codex', 'OpenAI'],
-  ['o1', 'OpenAI'], ['o3', 'OpenAI'], ['o4', 'OpenAI'],
-  ['claude', 'Anthropic'], ['fable', 'Anthropic'], ['anthropic', 'Anthropic'],
-  ['gemini', 'Google'], ['gemma', 'Google'], ['google', 'Google'],
-  ['deepseek', 'DeepSeek'],
-  ['qwen', 'Qwen'], ['qwq', 'Qwen'],
-  ['kimi', 'Moonshot'], ['moonshot', 'Moonshot'],
-  ['glm', 'Zhipu'], ['zhipu', 'Zhipu'], ['chatglm', 'Zhipu'],
-  ['llama', 'Meta'], ['muse', 'Meta'], ['meta', 'Meta'],
-  ['mistral', 'Mistral'], ['devstral', 'Mistral'], ['codestral', 'Mistral'], ['mixtral', 'Mistral'],
-  ['grok', 'xAI'], ['xai', 'xAI'],
-  ['minimax', 'MiniMax'],
-  ['hunyuan', 'Tencent'], ['tencent', 'Tencent'],
-  ['doubao', 'ByteDance'], ['seed-', 'ByteDance'], ['bytedance', 'ByteDance'],
-  ['ernie', 'Baidu'], ['baidu', 'Baidu'],
-  ['yi-', '01.AI'], ['command', 'Cohere'], ['aya', 'Cohere'], ['cohere', 'Cohere'],
-  ['phi', 'Microsoft'], ['microsoft', 'Microsoft'], ['mai-', 'Microsoft'],
-  ['granite', 'IBM'], ['nova', 'Amazon'], ['amazon', 'Amazon'],
-  ['nemotron', 'NVIDIA'], ['nvidia', 'NVIDIA'],
-  ['solar', 'Upstage'], ['reka', 'Reka'], ['inflect', 'Inflection'],
-  ['sonar', 'Perplexity'], ['perplexity', 'Perplexity'],
-  ['dbrx', 'Databricks'], ['snowflake', 'Snowflake'],
-  ['stablelm', 'Stability AI'], ['stability', 'Stability AI'],
-  ['falcon', 'TII'], ['smol', 'Hugging Face'], ['olmo', 'Allen AI'],
-];
-
-export function inferProvider(name: string): string {
-  const n = ` ${name.toLowerCase()} `;
-  for (const [series, provider] of PROVIDER_SERIES) {
-    if (n.includes(series)) return provider;
-  }
-  return '';
-}
-
-/**
- * Merge AA data into existing ModelDatabase models array.
- * Updates intelligenceIndex, speed, and costPerTask on matching models.
- * Adds new models if they aren't already present.
+ * Merge AA data into existing models. Match by canonical slug so
+ * "Claude Fable 5.1 (batch)" maps onto AA's claude-fable-5-1.
  */
 export function mergeAAIntoModels(
   models: Array<Record<string, unknown>>,
@@ -367,69 +270,63 @@ export function mergeAAIntoModels(
   let added = 0;
 
   for (const aa of aaData) {
-    const key = aa.name.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
-    if (!key) continue;
+    if (!aa.slug && !aa.name) continue;
 
-    // Find existing model by name match.
-    const existing = models.find(m => {
-      const mName = String(m.name || '').toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
-      return mName === key || mName.includes(key) || key.includes(mName);
-    });
+    const existing = models.find(m =>
+      modelMatchesSlug(
+        { id: String(m.id || ''), name: String(m.name || ''), aaSlug: m.aaSlug ? String(m.aaSlug) : undefined },
+        aa.slug || canonicalSlug(aa.name)
+      )
+    );
+
+    const apply = (target: Record<string, unknown>) => {
+      target.aaSlug = aa.slug;
+      if (aa.intelligenceIndex != null) {
+        target.intelligenceIndex = Math.round(aa.intelligenceIndex * 10) / 10;
+        updated++;
+      }
+      if (aa.speed != null) {
+        target.aaSpeed = Math.round(aa.speed * 10) / 10;
+        updated++;
+      }
+      if (aa.costPerTask != null) {
+        target.aaCostPerTask = Math.round(aa.costPerTask * 100) / 100;
+        updated++;
+      }
+      if (aa.verbosity != null) {
+        target.aaVerbosity = aa.verbosity;
+        updated++;
+      }
+      if (aa.latency != null) {
+        target.aaLatency = Math.round(aa.latency * 100) / 100;
+        updated++;
+      }
+      if (aa.promptPrice != null && target.promptPrice == null) target.promptPrice = aa.promptPrice;
+      if (aa.completionPrice != null && target.completionPrice == null) target.completionPrice = aa.completionPrice;
+      if (aa.context && !target.context) target.context = aa.context;
+      if (aa.params && !target.params) target.params = aa.params;
+      if (aa.license && !target.license) target.license = aa.license;
+      if (aa.released && !target.released) target.released = aa.released;
+      if (aa.isReasoning != null) target.isReasoning = aa.isReasoning;
+      if (aa.inputModalities) target.inputModalities = aa.inputModalities;
+      if (aa.outputModalities) target.outputModalities = aa.outputModalities;
+      if (aa.family) target.family = aa.family;
+      if (aa.shortName) target.name = aa.name;
+    };
 
     if (existing) {
-      // AA is the authoritative benchmark source: always overwrite metrics,
-      // never leave stale. Descriptive fields only fill gaps.
-      if (aa.intelligenceIndex !== null) {
-        existing.intelligenceIndex = aa.intelligenceIndex;
-        updated++;
-      }
-      if (aa.speed !== null) {
-        existing.aaSpeed = aa.speed;
-        updated++;
-      }
-      if (aa.costPerTask !== null) {
-        existing.aaCostPerTask = aa.costPerTask;
-        updated++;
-      }
-      if (aa.verbosity !== null) {
-        existing.aaVerbosity = aa.verbosity;
-        updated++;
-      }
-      if (aa.context != null && existing.context == null) {
-        existing.context = aa.context;
-        updated++;
-      }
-      if (aa.params != null && existing.params == null) {
-        existing.params = aa.params;
-        updated++;
-      }
-      if (aa.promptPrice != null && existing.promptPrice == null) {
-        existing.promptPrice = aa.promptPrice;
-        updated++;
-      }
-      if (aa.completionPrice != null && existing.completionPrice == null) {
-        existing.completionPrice = aa.completionPrice;
-        updated++;
-      }
+      apply(existing);
     } else {
-      // Add as a new lightweight record. Provider is inferred from the
-      // model name when the scrape carries labels only.
-      const provider = aa.provider || inferProvider(aa.name);
-      models.push({
-        id: `aa/${key.replace(/\s+/g, '-')}`,
+      const rec: Record<string, unknown> = {
+        id: `aa/${aa.slug}`,
         name: aa.name,
-        provider,
+        provider: aa.provider,
         source: 'aa',
-        family: detectFamily(aa.name, provider),
-        intelligenceIndex: aa.intelligenceIndex,
-        aaSpeed: aa.speed,
-        aaCostPerTask: aa.costPerTask,
-        aaVerbosity: aa.verbosity,
-        context: aa.context,
-        params: aa.params,
-        promptPrice: aa.promptPrice,
-        completionPrice: aa.completionPrice,
-      });
+        family: aa.family || detectFamily(aa.name, aa.provider),
+        aaSlug: aa.slug,
+      };
+      apply(rec);
+      models.push(rec);
       added++;
     }
   }
@@ -437,31 +334,11 @@ export function mergeAAIntoModels(
   return { updated, added };
 }
 
-// CLI entry point: live-refresh data/models-slim.json AA fields from a
-// fresh scrape (npx tsx lib/aa-scraper.ts). Used for manual refreshes;
-// CI runs the same merge inside refreshSlimOpenRouter every 4h.
-if (require.main === module) {
-  (async () => {
-    const { readSlimModelDatabase } = await import('./model-registry');
-    const slim = readSlimModelDatabase();
-    if (!slim) {
-      console.error('[aa-scraper] No data/models-slim.json found');
-      process.exit(1);
-    }
-    const aaData = await fetchAAData();
-    const merged = mergeAAIntoModels(
-      slim.models as unknown as Array<Record<string, unknown>>,
-      aaData
-    );
-    slim.updatedAt = new Date().toISOString();
-    const { writeFileSync, mkdirSync } = await import('fs');
-    const { join, dirname } = await import('path');
-    const fp = join(process.cwd(), 'data', 'models-slim.json');
-    mkdirSync(dirname(fp), { recursive: true });
-    writeFileSync(fp, JSON.stringify(slim, null, 2));
-    console.log(`[aa-scraper] slim refreshed: ${merged.updated} fields updated, ${merged.added} models added`);
-  })().then(() => process.exit(0)).catch(err => {
-    console.error('[aa-scraper] refresh failed:', err);
-    process.exit(1);
-  });
+export function readAACatalog(): AAModelEntry[] {
+  return loadSeedData();
+}
+
+export function findAAModel(slug: string): AAModelEntry | undefined {
+  const list = loadSeedData();
+  return list.find(m => m.slug === slug || modelMatchesSlug({ name: m.name, aaSlug: m.slug }, slug));
 }

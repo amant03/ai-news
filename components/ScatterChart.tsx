@@ -15,7 +15,7 @@ export interface ScatterPoint {
 
 interface ScatterChartProps {
   points: ScatterPoint[];
-  labeledIds?: Set<string>;
+  labeledIds?: Set<string> | string[];
   selectedId?: string | null;
   onSelect?: (id: string) => void;
   xLabel: string;
@@ -23,6 +23,8 @@ interface ScatterChartProps {
   sizeLabel?: string;
   xFormat?: (v: number) => string;
   yFormat?: (v: number) => string;
+  xTick?: 'n0' | 'n1' | 'usd';
+  yTick?: 'n0' | 'n1' | 'usd';
   xLog?: boolean;
   yLog?: boolean;
   /** Corner that represents "better" on this chart. */
@@ -109,6 +111,12 @@ function paretoFrontier(points: ScatterPoint[], preferLowX: boolean): ScatterPoi
   return front.sort((a, b) => a.x - b.x);
 }
 
+const TICK = {
+  n0: (v: number) => v.toFixed(0),
+  n1: (v: number) => String(Math.round(v * 10) / 10),
+  usd: (v: number) => `$${v.toFixed(2)}`,
+};
+
 export default function ScatterChart({
   points,
   labeledIds,
@@ -117,13 +125,17 @@ export default function ScatterChart({
   xLabel,
   yLabel,
   sizeLabel,
-  xFormat = v => String(Math.round(v * 10) / 10),
-  yFormat = v => String(Math.round(v * 10) / 10),
+  xFormat,
+  yFormat,
+  xTick,
+  yTick,
   xLog = false,
   yLog = false,
   betterCorner = 'tl',
   height = 260,
 }: ScatterChartProps) {
+  const xf = xFormat || (xTick ? TICK[xTick] : TICK.n1);
+  const yf = yFormat || (yTick ? TICK[yTick] : TICK.n1);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [hoverId, setHoverId] = useState<string | null>(null);
 
@@ -201,7 +213,11 @@ export default function ScatterChart({
   const tooltip = hover || selected;
   const tipPos = tooltip ? toPx(tooltip.cx, tooltip.cy) : null;
 
-  const labelSet = labeledIds || new Set(layout.mapped.slice(0, 10).map(p => p.id));
+  const labelSet = labeledIds
+    ? labeledIds instanceof Set
+      ? labeledIds
+      : new Set(labeledIds)
+    : new Set(layout.mapped.slice(0, 10).map(p => p.id));
 
   return (
     <div ref={wrapRef} className="relative w-full select-none" style={{ height }}>
@@ -238,7 +254,7 @@ export default function ScatterChart({
             <g key={`x-${i}`}>
               <line x1={x} y1={PAD.top} x2={x} y2={PAD.top + plotH} stroke="rgba(148,163,184,0.08)" />
               <text x={x} y={PAD.top + plotH + 18} textAnchor="middle" fill="var(--dim)" fontSize="11" fontFamily="var(--font-plex), monospace">
-                {xFormat(t)}
+                {xf(t)}
               </text>
             </g>
           );
@@ -249,7 +265,7 @@ export default function ScatterChart({
             <g key={`y-${i}`}>
               <line x1={PAD.left} y1={y} x2={PAD.left + plotW} y2={y} stroke="rgba(148,163,184,0.08)" />
               <text x={PAD.left - 8} y={y + 3} textAnchor="end" fill="var(--dim)" fontSize="11" fontFamily="var(--font-plex), monospace">
-                {yFormat(t)}
+                {yf(t)}
               </text>
             </g>
           );
@@ -340,10 +356,10 @@ export default function ScatterChart({
           {tooltip.sublabel && <div className="text-[11px] text-[var(--dim)] mb-1.5">{tooltip.sublabel}</div>}
           <div className="grid grid-cols-1 gap-0.5 font-mono text-[11px] text-[var(--mut)]">
             <div>
-              {xLabel}: <span className="text-[var(--cyan)]">{xFormat(tooltip.x)}</span>
+              {xLabel}: <span className="text-[var(--cyan)]">{xf(tooltip.x)}</span>
             </div>
             <div>
-              {yLabel}: <span className="text-[var(--violet)]">{yFormat(tooltip.y)}</span>
+              {yLabel}: <span className="text-[var(--violet)]">{yf(tooltip.y)}</span>
             </div>
             {sizeLabel && tooltip.size !== undefined && (
               <div>

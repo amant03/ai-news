@@ -39,6 +39,11 @@ export interface ModelRecord {
   aaSpeed?: number;
   aaCostPerTask?: number;
   aaVerbosity?: number;
+  aaLatency?: number;
+  aaSlug?: string;
+  isReasoning?: boolean;
+  inputModalities?: string;
+  outputModalities?: string;
   hfDownloads?: number;
   hfLikes?: number;
   elo?: number;
@@ -576,6 +581,11 @@ export interface SlimModel {
   aaSpeed?: number;
   aaCostPerTask?: number;
   aaVerbosity?: number;
+  aaLatency?: number;
+  aaSlug?: string;
+  isReasoning?: boolean;
+  inputModalities?: string;
+  outputModalities?: string;
   mentions?: number;
   xMentions?: number;
   redditMentions?: number;
@@ -615,6 +625,11 @@ export function toSlim(m: ModelRecord): SlimModel {
   if (m.aaSpeed !== undefined) slim.aaSpeed = m.aaSpeed;
   if (m.aaCostPerTask !== undefined) slim.aaCostPerTask = m.aaCostPerTask;
   if (m.aaVerbosity !== undefined) slim.aaVerbosity = m.aaVerbosity;
+  if (m.aaLatency !== undefined) slim.aaLatency = m.aaLatency;
+  if (m.aaSlug) slim.aaSlug = m.aaSlug;
+  if (m.isReasoning !== undefined) slim.isReasoning = m.isReasoning;
+  if (m.inputModalities) slim.inputModalities = m.inputModalities;
+  if (m.outputModalities) slim.outputModalities = m.outputModalities;
   if (m.mentions !== undefined) slim.mentions = m.mentions;
   if (m.xMentions !== undefined) slim.xMentions = m.xMentions;
   if (m.redditMentions !== undefined) slim.redditMentions = m.redditMentions;
@@ -683,6 +698,11 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
           aaSpeed: prev.aaSpeed,
           aaCostPerTask: prev.aaCostPerTask,
           aaVerbosity: prev.aaVerbosity,
+          aaLatency: prev.aaLatency,
+          aaSlug: prev.aaSlug,
+          isReasoning: prev.isReasoning,
+          inputModalities: prev.inputModalities,
+          outputModalities: prev.outputModalities,
           valueScore: prev.valueScore,
           license: prev.license,
           mentions: prev.mentions,
@@ -721,6 +741,11 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
     aaSpeed: s.aaSpeed,
     aaCostPerTask: s.aaCostPerTask,
     aaVerbosity: s.aaVerbosity,
+    aaLatency: s.aaLatency,
+    aaSlug: s.aaSlug,
+    isReasoning: s.isReasoning,
+    inputModalities: s.inputModalities,
+    outputModalities: s.outputModalities,
     mentions: s.mentions,
     xMentions: s.xMentions,
     redditMentions: s.redditMentions,

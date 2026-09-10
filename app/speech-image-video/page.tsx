@@ -1,6 +1,5 @@
 'use client';
 
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const CATEGORIES = [
@@ -39,7 +38,6 @@ const CATEGORIES = [
 export default function SpeechImageVideoPage() {
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-10">
           <div className="kicker mb-2">Multimodal</div>

@@ -12,7 +12,8 @@
     "generate-kb": "npx tsx lib/run-generate-kb.ts",
     "agent": "npx tsx lib/run-agent.ts",
     "agent:loop": "npx tsx lib/run-agent.ts --loop --kb",
-    "agent:kb": "npx tsx lib/run-agent.ts --kb"
+    "agent:kb": "npx tsx lib/run-agent.ts --kb",
+    "scrape:aa": "npx tsx lib/aa-model-scraper.ts"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",

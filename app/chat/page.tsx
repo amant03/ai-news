@@ -1,4 +1,3 @@
-import Header from '@/components/Header';
 import Chat from '@/components/Chat';
 import Footer from '@/components/Footer';
 
@@ -10,7 +9,6 @@ export const metadata = {
 export default function ChatPage() {
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-8">
           <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-[var(--fore)]">Chat</h1>

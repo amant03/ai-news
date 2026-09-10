@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Header from '@/components/Header';
 import ImageLeaderboard from '@/components/ImageLeaderboard';
 import Footer from '@/components/Footer';
 
@@ -49,14 +48,6 @@ export default function ImageLeaderboardPage() {
     <div className="min-h-screen">
       <div className="bg-atmosphere" />
       <div className="bg-grid" />
-      <Header
-        total={total}
-        onlineSources={onlineSources}
-        lastUpdated={lastUpdated}
-        nextRefreshAt={nextRefreshAt}
-        isRefreshing={refreshing}
-        onRefresh={handleRefresh}
-      />
       <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <ImageLeaderboard />
       </main>

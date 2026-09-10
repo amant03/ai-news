@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Home from '@/components/Home';
+import FrontierCharts from '@/components/FrontierCharts';
 import { readStore } from '@/lib/db';
 import { sortByRank } from '@/lib/rank';
 import { SITE_DESCRIPTION, SITE_NAME, siteUrl } from '@/lib/site';
@@ -74,7 +75,9 @@ export default function Page() {
           </ol>
         </section>
       </noscript>
-      <Home />
+      <Home>
+        <FrontierCharts />
+      </Home>
     </>
   );
 }

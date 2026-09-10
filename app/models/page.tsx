@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Header from '@/components/Header';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import AADropdown from '@/components/AADropdown';
 import IntelligenceScatter from '@/components/IntelligenceScatter';
@@ -10,16 +9,12 @@ import AAModelCharts from '@/components/AAModelCharts';
 import SectionHeader from '@/components/SectionHeader';
 import Footer from '@/components/Footer';
 import SortableTh from '@/components/SortableTh';
+import VerticalBarChart, { modelsToBarData } from '@/components/VerticalBarChart';
+import { preferredSlug } from '@/lib/model-slug';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 import type { ModelRecord } from '@/lib/model-registry';
 
 type Model = ModelRecord;
-
-const CHART_COLORS = {
-  intelligence: '#7f4bf3',
-  speed: '#eab308',
-  cost: '#ff7018',
-};
 
 type Openness = 'all' | 'open' | 'closed';
 
@@ -30,7 +25,7 @@ const OPENNESS: { key: Openness; label: string }[] = [
 ];
 
 const isOpen = (m: Model) => m.family === 'open-weights' || m.family === 'open';
-const slugOf = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const slugOf = (m: Model) => preferredSlug(m);
 
 function contextVal(c: string | undefined): number | undefined {
   if (!c) return undefined;
@@ -87,88 +82,17 @@ function fmtTime(iso: string | undefined): string {
   return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZoneName: 'short' });
 }
 
-function BarChart({
-  title,
-  color,
-  items,
-  valueLabel,
-  sortDir,
-  onToggleDir,
-}: {
-  title: string;
-  color: string;
-  items: { label: string; provider: string; value: number; display: string }[];
-  valueLabel: string;
-  sortDir?: SortDir;
-  onToggleDir?: () => void;
-}) {
-  const max = Math.max(...items.map(i => i.value));
-
-  return (
-    <div className="border border-[var(--color-line)] rounded-lg p-5 flex-1 w-full min-w-0">
-      <div className="flex items-center gap-2.5 mb-5">
-        <span className="w-3 h-3 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
-        <span className="text-[15px] font-semibold tracking-tight flex-1">{title}</span>
-        {sortDir !== undefined && onToggleDir && (
-          <button
-            onClick={onToggleDir}
-            title={`Toggle sort direction — currently ${sortDir === 'asc' ? 'low to high' : 'high to low'}`}
-            className="ring-focus inline-flex items-center gap-1 rounded-full border border-neutral-200 px-2 py-1 text-[10px] font-medium text-neutral-500 hover:text-black transition-colors flex-shrink-0"
-          >
-            {sortDir === 'asc' ? '▲ low→high' : '▼ high→low'}
-          </button>
-        )}
-      </div>
-      <div className="flex flex-col gap-2.5">
-        {items.map((item, idx) => {
-          const pct = (Math.pow(item.value, 1.5) / Math.pow(max, 1.5)) * 100;
-          return (
-            <div key={idx} className="flex flex-col gap-1">
-              <div className="flex items-center gap-2.5">
-                <div className="flex-1 h-[22px] bg-neutral-100 rounded overflow-hidden">
-                  <div
-                    className="h-full rounded transition-all duration-500"
-                    style={{
-                      width: `${Math.max(pct, 2)}%`,
-                      backgroundColor: color,
-                      opacity: 0.85,
-                    }}
-                  />
-                </div>
-                <span className="text-xs font-semibold tabular-nums min-w-[48px] text-right">
-                  {item.display}
-                </span>
-              </div>
-              <div className="text-[11px] text-neutral-500 pl-0.5 truncate">
-                {item.provider} / {item.label}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="text-[10px] text-neutral-400 mt-4 uppercase tracking-wider">
-        {valueLabel} (log scale)
-      </div>
-    </div>
-  );
-}
-
 export default function ModelsPage() {
   const [allSort, setAllSort] = useState<ColSort<AllKey>>({ key: 'intelligence', dir: 'desc' });
   const [coSort, setCoSort] = useState<ColSort<CoKey>>({ key: 'released', dir: 'desc' });
   const [openness, setOpenness] = useState<Openness>('all');
   const [company, setCompany] = useState<string>('all');
-  const [highlightDir, setHighlightDir] = useState<Record<'intel' | 'coding' | 'cost', SortDir>>({
+  const [highlightDir, setHighlightDir] = useState<Record<'intel' | 'speed' | 'cost', SortDir>>({
     intel: 'desc',
-    coding: 'desc',
+    speed: 'desc',
     cost: 'asc',
   });
   const [latestDir, setLatestDir] = useState<SortDir>('desc');
-  const [total, setTotal] = useState(0);
-  const [onlineSources, setOnlineSources] = useState(0);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-  const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
-  const [refreshing, setRefreshing] = useState(false);
   const [catalog, setCatalog] = useState<{ updatedAt: string; sources: string[]; total: number; models: Model[] } | null>(null);
 
   useEffect(() => {
@@ -186,88 +110,22 @@ export default function ModelsPage() {
 
   const models = useMemo(() => catalog?.models ?? ([] as Model[]), [catalog]);
 
-  useEffect(() => {
-    let mounted = true;
-    const load = async () => {
-      try {
-        const [statusRes, newsRes] = await Promise.all([fetch('/api/status'), fetch('/api/news?limit=1')]);
-        const status = await statusRes.json();
-        const news = await newsRes.json();
-        if (!mounted) return;
-        if (status?.sources) {
-          const entries = Object.values(status.sources) as Array<{ ok?: boolean }>;
-          setOnlineSources(entries.filter(s => s.ok).length);
-        }
-        if (status?.nextRun) setNextRefreshAt(new Date(status.nextRun));
-        setTotal(news.total ?? 0);
-        setLastUpdated(new Date());
-      } catch { /* ignore */ }
-    };
-    load();
-    const id = setInterval(load, 60000);
-    return () => { mounted = false; clearInterval(id); };
-  }, []);
-
-  const handleRefresh = async () => {
-    setRefreshing(true);
-    try { await fetch('/api/refresh', { method: 'POST' }); }
-    catch { /* ignore */ } finally { setRefreshing(false); }
-  };
-
   const opennessFiltered = useMemo(() => {
     if (openness === 'all') return models;
     return models.filter(m => (openness === 'open' ? isOpen(m) : !isOpen(m)));
   }, [openness, models]);
 
-  const { intelligenceTop, speedTop, costTop } = useMemo(() => {
-    const models = opennessFiltered;
+  const frontier = useMemo(
+    () =>
+      [...opennessFiltered]
+        .filter(m => m.intelligenceIndex != null)
+        .sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0))
+        .slice(0, 12),
+    [opennessFiltered]
+  );
 
-    const build = (
-      src: Model[],
-      getValue: (m: Model) => number | undefined,
-      fmt: (v: number) => string,
-      dir: SortDir
-    ): { label: string; provider: string; value: number; display: string }[] => {
-      const list = src
-        .map(m => {
-          const v = getValue(m);
-          return v === undefined || v === null ? null : { label: m.name, provider: m.provider, value: v, display: fmt(v) };
-        })
-        .filter((d): d is NonNullable<typeof d> => d !== null)
-        .sort((a, b) => b.value - a.value);
-      if (dir === 'asc') list.reverse();
-      return list.slice(0, 12);
-    };
-
-    const intelligenceTop = build(
-      models.filter(m => m.intelligenceIndex != null),
-      m => m.intelligenceIndex,
-      v => String(v),
-      highlightDir.intel
-    );
-
-    const speedTop = build(
-      models.filter(m => m.codingIndex != null),
-      m => m.codingIndex,
-      v => `${v}`,
-      highlightDir.coding
-    );
-
-    const inv = highlightDir.cost === 'asc' ? 1 : -1;
-    const costTop = models
-      .filter(m => m.promptPrice != null && m.completionPrice != null)
-      .map(m => ({ ...m, avgCost: ((m.promptPrice ?? 0) + (m.completionPrice ?? 0)) / 2 }))
-      .sort((a, b) => (a.avgCost - b.avgCost) * inv)
-      .slice(0, 12)
-      .map(m => ({
-        label: m.name,
-        provider: m.provider,
-        value: m.avgCost,
-        display: `$${m.avgCost.toFixed(2)}`,
-      }));
-
-    return { intelligenceTop, speedTop, costTop };
-  }, [opennessFiltered, highlightDir]);
+  const withDir = (data: ReturnType<typeof modelsToBarData>, dir: SortDir) =>
+    dir === 'asc' ? [...data].reverse() : data;
 
   const sortedAll = useMemo(() => {
     const models = opennessFiltered.filter(m => m.intelligenceIndex != null);
@@ -328,15 +186,7 @@ export default function ModelsPage() {
 
   return (
     <div className="min-h-screen">
-      <Header
-        total={total}
-        onlineSources={onlineSources}
-        lastUpdated={lastUpdated}
-        nextRefreshAt={nextRefreshAt}
-        isRefreshing={refreshing}
-        onRefresh={handleRefresh}
-      />
-      <main className="max-w-[1400px] mx-auto px-5 pt-10 pb-16">
+      <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-10">
           <div className="kicker mb-2">Leaderboards</div>
           <div className="flex items-center gap-3 flex-wrap">
@@ -377,7 +227,7 @@ export default function ModelsPage() {
             {latestModels.map(m => (
               <a
                 key={m.id}
-                href={`/models/${slugOf(m.name)}`}
+                href={`/models/${slugOf(m)}`}
                 className="border border-[var(--color-line)] rounded-lg p-4 hover:border-neutral-300 transition-colors block"
               >
                 <div className="flex items-start justify-between gap-2 mb-3">
@@ -448,7 +298,7 @@ export default function ModelsPage() {
                       <td className="py-2.5 px-4 tabular-nums text-neutral-400">{idx + 1}</td>
                       <td className="py-2.5 px-4 font-medium">{entry.provider}</td>
                       <td className="py-2.5 px-4">
-                        <a href={`/models/${slugOf(entry.best.name)}`} className="hover:underline">
+                        <a href={`/models/${slugOf(entry.best)}`} className="hover:underline">
                           {entry.best.name}
                         </a>
                       </td>
@@ -528,7 +378,7 @@ export default function ModelsPage() {
                   {companyModels.map(m => (
                     <tr key={m.id} className="border-b border-[var(--color-line)] hover:bg-neutral-50 transition-colors">
                       <td className="py-2.5 px-4 font-medium">
-                        <a href={`/models/${slugOf(m.name)}`} className="hover:underline">
+                        <a href={`/models/${slugOf(m)}`} className="hover:underline">
                           {m.name}
                         </a>
                       </td>
@@ -576,28 +426,28 @@ export default function ModelsPage() {
         {/* Highlights */}
         <section className="mb-12">
           <SectionHeader kicker="Top of the class" title="Highlights" />
-          <div className="flex gap-4 flex-wrap mb-4">
-            <BarChart
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mb-4">
+            <VerticalBarChart
+              data={withDir(modelsToBarData(frontier, m => m.intelligenceIndex, { maxBars: 12 }), highlightDir.intel)}
               title="Intelligence"
-              color={CHART_COLORS.intelligence}
-              items={intelligenceTop}
-              valueLabel="Intelligence Index"
+              subtitle="Artificial Analysis Intelligence Index · higher is better"
+              format="n1"
               sortDir={highlightDir.intel}
               onToggleDir={() => setHighlightDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
             />
-            <BarChart
-              title="Coding Performance"
-              color={CHART_COLORS.speed}
-              items={speedTop}
-              valueLabel="Coding Index"
-              sortDir={highlightDir.coding}
-              onToggleDir={() => setHighlightDir(prev => ({ ...prev, coding: prev.coding === 'asc' ? 'desc' : 'asc' }))}
+            <VerticalBarChart
+              data={withDir(modelsToBarData(frontier, m => m.aaSpeed, { maxBars: 12 }), highlightDir.speed)}
+              title="Speed"
+              subtitle="Output tokens per second · higher is better"
+              format="n0"
+              sortDir={highlightDir.speed}
+              onToggleDir={() => setHighlightDir(prev => ({ ...prev, speed: prev.speed === 'asc' ? 'desc' : 'asc' }))}
             />
-            <BarChart
+            <VerticalBarChart
+              data={withDir(modelsToBarData(frontier, m => m.aaCostPerTask, { maxBars: 12 }), highlightDir.cost)}
               title="Cost per Task"
-              color={CHART_COLORS.cost}
-              items={costTop}
-              valueLabel="Avg $/M tokens"
+              subtitle="USD per Intelligence Index task · lower is better"
+              format="usd"
               sortDir={highlightDir.cost}
               onToggleDir={() => setHighlightDir(prev => ({ ...prev, cost: prev.cost === 'asc' ? 'desc' : 'asc' }))}
             />
@@ -695,7 +545,7 @@ export default function ModelsPage() {
                     <tr key={m.id} className="border-b border-[var(--color-line)] hover:bg-neutral-50 transition-colors">
                       <td className="py-2.5 px-4 tabular-nums text-neutral-400">{idx + 1}</td>
                       <td className="py-2.5 px-4 font-medium">
-                        <a href={`/models/${slugOf(m.name)}`} className="hover:underline">
+                        <a href={`/models/${slugOf(m)}`} className="hover:underline">
                           {m.name}
                         </a>
                       </td>

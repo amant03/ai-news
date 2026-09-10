@@ -19,6 +19,7 @@ interface VerticalBarChartProps {
   subtitle?: string;
   valueLabel?: string;
   valueFormat?: (v: number) => string;
+  format?: 'n0' | 'n1' | 'usd';
   maxBars?: number;
   height?: number;
   selectedId?: string;
@@ -27,6 +28,12 @@ interface VerticalBarChartProps {
   sortDir?: SortDir;
   onToggleDir?: () => void;
 }
+
+const PRESET = {
+  n0: (v: number) => v.toFixed(0),
+  n1: (v: number) => v.toFixed(1),
+  usd: (v: number) => `$${v.toFixed(2)}`,
+};
 
 const fmt = (v: number) => v.toFixed(0);
 
@@ -39,7 +46,8 @@ export default function VerticalBarChart({
   title,
   subtitle,
   valueLabel,
-  valueFormat = fmt,
+  valueFormat,
+  format,
   maxBars = 12,
   height = 300,
   selectedId,
@@ -47,6 +55,7 @@ export default function VerticalBarChart({
   sortDir,
   onToggleDir,
 }: VerticalBarChartProps) {
+  const formatValue = valueFormat || (format ? PRESET[format] : fmt);
   const trimmed = data.slice(0, maxBars);
   if (trimmed.length === 0) return null;
 
@@ -56,12 +65,9 @@ export default function VerticalBarChart({
   const pad = { top: 32, right: 16, bottom: 118, left: 56 };
   const W = Math.max(400, trimmed.length * 56);
   const innerH = height - pad.top - pad.bottom;
-  const barW = Math.min(36, (W - pad.left - pad.right) / trimmed.length * 0.55);
+  const barW = Math.min(38, ((W - pad.left - pad.right) / trimmed.length) * 0.55);
   const gap = (W - pad.left - pad.right - barW * trimmed.length) / (trimmed.length + 1);
   const dirLabel = sortDir === 'asc' ? '▲ low→high' : '▼ high→low';
-  // X-label geometry: dot just under the axis, label anchored at +16 and
-  // running down-left at 45°. Truncated to 20 chars so the worst case
-  // (~70px run) stays inside the padded viewport on every bar.
   const dotY = pad.top + innerH + 10;
   const labelY = pad.top + innerH + 16;
   const shortLabel = (s: string) => (s.length > 20 ? s.slice(0, 19) + '…' : s);
@@ -84,7 +90,7 @@ export default function VerticalBarChart({
           </button>
         )}
       </div>
-      <div className="overflow-x-auto no-scrollbar">
+      <div className="overflow-x-auto overflow-y-visible no-scrollbar">
         <svg
           viewBox={`0 0 ${W} ${height}`}
           className="w-full"
@@ -92,7 +98,6 @@ export default function VerticalBarChart({
           role="img"
           aria-label={`${title} chart`}
         >
-          {/* Grid lines */}
           {[0, 0.25, 0.5, 0.75, 1].map(frac => {
             const yy = pad.top + innerH * (1 - frac);
             return (
@@ -107,13 +112,12 @@ export default function VerticalBarChart({
                   style={{ stroke: 'var(--color-line)' }}
                 />
                 <text x={pad.left - 6} y={yy + 3} textAnchor="end" fontSize="10" style={{ fill: 'var(--dim)' }}>
-                  {(maxVal * frac).toFixed(0)}
+                  {formatValue(maxVal * frac)}
                 </text>
               </g>
             );
           })}
 
-          {/* Bars */}
           {trimmed.map((d, i) => {
             const x = pad.left + gap + i * (barW + gap);
             const barH = (d.value / maxVal) * innerH;
@@ -122,7 +126,6 @@ export default function VerticalBarChart({
 
             return (
               <g key={d.id} className={onSelect ? 'cursor-pointer' : ''} onClick={() => onSelect?.(d.id)}>
-                {/* Bar */}
                 <rect
                   x={x}
                   y={y}
@@ -133,23 +136,18 @@ export default function VerticalBarChart({
                   opacity={isActive ? 1 : 0.7}
                   className="transition-opacity"
                 />
-
-                {/* Value label */}
                 <text
                   x={x + barW / 2}
-                  y={y - 6}
+                  y={y - 8}
                   textAnchor="middle"
                   fontSize="11"
                   fontWeight="600"
                   style={{ fill: isActive ? 'var(--fore)' : 'var(--mut)' }}
                 >
-                  {valueFormat(d.value)}
+                  {formatValue(d.value)}
                 </text>
-
-                {/* Provider dot */}
                 <circle cx={x + barW / 2} cy={dotY} r="3" fill={d.color} />
-
-                {/* Model name (angled to fit) */}
+                <title>{`${d.label}${d.sublabel ? ` (${d.sublabel})` : ''}: ${formatValue(d.value)}`}</title>
                 <text
                   x={x + barW / 2}
                   y={labelY}

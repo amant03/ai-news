@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Header from '@/components/Header';
 import CodingAgents from '@/components/CodingAgents';
 import Footer from '@/components/Footer';
 
@@ -47,14 +46,6 @@ export default function CodingAgentsPage() {
 
   return (
     <div className="min-h-screen">
-      <Header
-        total={total}
-        onlineSources={onlineSources}
-        lastUpdated={lastUpdated}
-        nextRefreshAt={nextRefreshAt}
-        isRefreshing={refreshing}
-        onRefresh={handleRefresh}
-      />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-6">
           <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-[var(--fore)]">Coding Agents</h1>

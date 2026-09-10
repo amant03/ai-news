@@ -16,7 +16,6 @@ interface HeaderProps {
 const NAV = [
   { href: '/', label: 'News' },
   { href: '/models', label: 'Models' },
-  { href: '/chat', label: 'Chat' },
   { href: '/coding-agents', label: 'Coding Agents' },
   { href: '/speech-image-video', label: 'Speech, Image, Video' },
   { href: '/trends', label: 'AI Trends' },
@@ -75,7 +74,7 @@ export default function Header({
   const refreshIn = nextRefreshAt ? countdown(nextRefreshAt) : '...';
 
   return (
-    <header className="sticky top-4 z-50">
+    <header>
       <div className="max-w-[1400px] mx-auto px-5">
         <div className="flex items-stretch justify-between gap-2 sm:gap-3">
           {/* Logo pill */}
@@ -138,7 +137,17 @@ export default function Header({
               )}
             </button>
             <button
-              onClick={_onRefresh}
+              onClick={async () => {
+                if (_onRefresh) {
+                  _onRefresh();
+                  return;
+                }
+                try {
+                  await fetch('/api/refresh', { method: 'POST' });
+                } catch {
+                  /* ignore */
+                }
+              }}
               disabled={_isRefreshing}
               aria-label="Refresh"
               className="w-8 h-8 flex items-center justify-center rounded-full text-neutral-600 hover:text-black hover:bg-black/5 transition-colors disabled:opacity-40"

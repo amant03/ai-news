@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { ModelRecord } from '@/lib/model-registry';
+import { preferredSlug } from '@/lib/model-slug';
 
 const isOpen = (m: ModelRecord) => m.family === 'open-weights' || m.family === 'open';
-const slugOf = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 type Openness = 'all' | 'open' | 'closed';
 
@@ -72,7 +72,7 @@ export default function LatestModels() {
         {visible.map(m => (
           <a
             key={m.id}
-            href={`/models/${slugOf(m.name)}`}
+            href={`/models/${preferredSlug(m)}`}
             className="border border-[var(--color-line)] rounded-lg p-4 hover:border-[var(--accent)]/40 transition-colors block"
           >
             <div className="flex items-start justify-between gap-2">
