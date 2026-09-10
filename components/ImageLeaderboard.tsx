@@ -82,7 +82,7 @@ export default function ImageLeaderboard() {
       {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="font-display font-semibold text-2xl tracking-tight text-[var(--fore)]">Text to Image Leaderboard</h1>
+          <h1 className="font-display font-medium text-4xl md:text-5xl tracking-tight text-[var(--fore)]">Text to Image Leaderboard</h1>
           <p className="text-[13px] text-[var(--mut)] mt-1">
             Image generation models ranked by human-preference Elo from {IMAGE_MODELS.length} models.
             Data sourced from Artificial Analysis.

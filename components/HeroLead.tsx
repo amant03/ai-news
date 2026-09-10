@@ -22,21 +22,26 @@ export default function HeroLead({ items }: HeroLeadProps) {
 
 function Card({ item }: { item: NewsItem }) {
   const color = CATEGORY_COLOR[item.category] || '#6b7280';
+  const fresh =
+    item.published_at != null &&
+    !Number.isNaN(new Date(item.published_at).getTime()) &&
+    Date.now() - new Date(item.published_at).getTime() < 24 * 3600 * 1000;
   return (
-    <article className="group flex flex-col rounded-xl border border-[var(--color-line)] p-4 panel-hover">
-      <div className="flex items-center gap-2 mb-2">
+    <article className="group flex flex-col rounded-lg border border-[var(--color-line)] p-5 panel-hover">
+      <div className="flex items-center gap-2 mb-2.5">
         <span className="dot" style={{ backgroundColor: color }} />
         <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--mut)]">
           {CATEGORY_LABEL[item.category] || item.category}
         </span>
+        {fresh && <span className="tag-new">New</span>}
         <span className="text-[11px] text-[var(--dim)] ml-auto">{timeAgo(item.published_at)}</span>
       </div>
-      <h3 className="text-[15px] font-medium leading-snug tracking-tight mb-3">
+      <h3 className="font-display text-[19px] font-medium leading-snug tracking-tight mb-3">
         <a
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--fore)] hover:underline decoration-[var(--mut)]/50 underline-offset-2 line-clamp-2"
+          className="text-[var(--fore)] hover:underline decoration-[var(--mut)]/50 underline-offset-4 line-clamp-2"
         >
           {item.title}
         </a>

@@ -12,9 +12,10 @@ import LatestModels from '@/components/LatestModels';
 import AITrends from '@/components/AITrends';
 import SkeletonGrid from '@/components/Skeleton';
 import SectionHeader from '@/components/SectionHeader';
+import HighlightsStrip from '@/components/HighlightsStrip';
+import Footer from '@/components/Footer';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
-import { BUILD_TAG } from '@/lib/build';
 
 const POLL_MS = 60_000;
 const PAGE_SIZE = 300;
@@ -218,7 +219,40 @@ export default function Home() {
 
       <Ticker items={news.slice(0, 24)} />
 
-      <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
+      <main className="max-w-[1400px] mx-auto px-5 pt-10 pb-16">
+        {/* AA-style hero: update cards + serif headline */}
+        <section className="mb-10">
+          <div className="grid sm:grid-cols-2 gap-3 mb-9">
+            <a href="#latest" className="border border-[var(--color-line)] rounded-lg p-5 panel-hover block">
+              <div className="kicker mb-2">Live</div>
+              <div className="font-display text-xl font-medium tracking-tight text-[var(--fore)]">
+                AI newswire
+              </div>
+              <p className="text-sm text-[var(--mut)] mt-1 leading-relaxed">
+                {total ? total.toLocaleString('en-US') : '—'} stories across 40+ sources, updating
+                around the clock.
+              </p>
+            </a>
+            <a href="#model-watch" className="border border-[var(--color-line)] rounded-lg p-5 panel-hover block">
+              <div className="kicker mb-2">Update</div>
+              <div className="font-display text-xl font-medium tracking-tight text-[var(--fore)]">
+                Model leaderboard
+              </div>
+              <p className="text-sm text-[var(--mut)] mt-1 leading-relaxed">
+                Frontier models ranked by intelligence, speed and cost.
+              </p>
+            </a>
+          </div>
+          <h1 className="font-display text-5xl md:text-6xl font-medium tracking-tight text-[var(--fore)] max-w-[16ch]">
+            Independent tracking of the AI frontier
+          </h1>
+          <p className="md:text-lg text-[var(--mut)] mt-4 max-w-[38ch] leading-relaxed">
+            Every story and every frontier model — ranked by intelligence, speed and cost.
+          </p>
+        </section>
+
+        <HighlightsStrip />
+
         {/* Top Stories - full width */}
         <section className="mb-10">
           <SectionHeader
@@ -272,7 +306,7 @@ export default function Home() {
         )}
 
         {/* Latest stories */}
-        <section>
+        <section id="latest" className="scroll-mt-28">
           <SectionHeader
             kicker="Newswire"
             title={search.trim() ? 'Search results' : 'Latest'}
@@ -289,7 +323,7 @@ export default function Home() {
           ) : rest.length === 0 && visible.length === 0 ? (
             <div className="py-20 text-center text-neutral-400">
               <p>No stories match the current filters.</p>
-              <button onClick={() => resetFilters('all', 'all', 'all')} className="mt-3 text-sm text-violet-600 hover:underline">
+              <button onClick={() => resetFilters('all', 'all', 'all')} className="mt-3 text-sm text-[var(--aa-plum-ink)] hover:underline">
                 Clear filters
               </button>
             </div>
@@ -334,8 +368,8 @@ export default function Home() {
         </section>
 
         {/* Models section */}
-        <section className="mt-12" id="model-watch">
-          <SectionHeader kicker="Leaderboard" title="Models" right={null} />
+        <section className="mt-12 scroll-mt-28" id="model-watch">
+          <SectionHeader kicker="Leaderboard" title="Models" updated right={null} />
           <ModelWatch audience={selectedDomain} />
         </section>
 
@@ -351,12 +385,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-[var(--color-line)]">
-        <div className="max-w-[1400px] mx-auto px-5 py-6 flex items-center justify-between text-xs text-neutral-400">
-          <span className="font-medium text-neutral-600">AI Pulse</span>
-          <span>build {BUILD_TAG}</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

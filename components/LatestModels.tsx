@@ -45,7 +45,7 @@ export default function LatestModels() {
   if (models.length === 0) return null;
 
   return (
-    <section className="rounded-2xl border border-[var(--color-line)] bg-[var(--card)] p-5 sm:p-6 lg:p-8">
+    <section className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] p-5 sm:p-6 lg:p-8">
       <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
         <div>
           <h2 className="font-display font-semibold text-lg sm:text-xl tracking-tight text-[var(--fore)]">Latest Models</h2>

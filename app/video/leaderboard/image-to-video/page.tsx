@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import SectionHeader from '@/components/SectionHeader';
+import Footer from '@/components/Footer';
 import data from '@/data/image-to-video-models.json';
 import SortableTh from '@/components/SortableTh';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
@@ -99,12 +100,10 @@ export default function ImageToVideoLeaderboard() {
       <Header />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-8">
-          <div className="flex items-baseline gap-3 flex-wrap">
-            <h1 className="text-2xl font-semibold tracking-tight">Image to Video Leaderboard</h1>
-            <span className="text-[11px] text-neutral-400 uppercase tracking-wider px-2 py-0.5 rounded-full border border-[var(--color-line)]">
-              Artificial Analysis
-            </span>
-            <span className="text-[11px] text-green-600">Updated</span>
+          <div className="kicker mb-2">Leaderboard</div>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-[var(--fore)]">Image to Video Leaderboard</h1>
+            <span className="badge-updated">Updated</span>
           </div>
           <p className="text-sm text-neutral-500 mt-2">
             Ranking of AI image-to-video generation models by Elo score from blind user comparisons in the Artificial Analysis Image to Video Arena.
@@ -245,6 +244,7 @@ export default function ImageToVideoLeaderboard() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

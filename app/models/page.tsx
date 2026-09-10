@@ -8,6 +8,7 @@ import IntelligenceScatter from '@/components/IntelligenceScatter';
 import IntelligenceTimeline from '@/components/IntelligenceTimeline';
 import AAModelCharts from '@/components/AAModelCharts';
 import SectionHeader from '@/components/SectionHeader';
+import Footer from '@/components/Footer';
 import SortableTh from '@/components/SortableTh';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 import type { ModelRecord } from '@/lib/model-registry';
@@ -15,9 +16,9 @@ import type { ModelRecord } from '@/lib/model-registry';
 type Model = ModelRecord;
 
 const CHART_COLORS = {
-  intelligence: '#7c3aed',
+  intelligence: '#7f4bf3',
   speed: '#eab308',
-  cost: '#f97316',
+  cost: '#ff7018',
 };
 
 type Openness = 'all' | 'open' | 'closed';
@@ -335,10 +336,16 @@ export default function ModelsPage() {
         isRefreshing={refreshing}
         onRefresh={handleRefresh}
       />
-      <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
+      <main className="max-w-[1400px] mx-auto px-5 pt-10 pb-16">
         <div className="mb-10">
-          <h1 className="text-2xl font-semibold tracking-tight">Models</h1>
-          <p className="text-sm text-neutral-500 mt-2">
+          <div className="kicker mb-2">Leaderboards</div>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-[var(--fore)]">
+              Model intelligence, performance &amp; price
+            </h1>
+            <span className="badge-updated">Updated</span>
+          </div>
+          <p className="md:text-lg text-[var(--mut)] mt-3 max-w-[60ch] leading-relaxed">
             Benchmark rankings, pricing, and provider info for {models.length} AI models.
           </p>
           <p className="text-[11px] text-neutral-400 mt-1.5">
@@ -355,6 +362,7 @@ export default function ModelsPage() {
           <SectionHeader
             kicker="Releases"
             title="Latest Models"
+            isNew
             right={
               <button
                 onClick={() => setLatestDir(d => (d === 'asc' ? 'desc' : 'asc'))}
@@ -414,12 +422,12 @@ export default function ModelsPage() {
 
         {/* Company-wise leaderboard */}
         <section className="mb-12">
-          <SectionHeader kicker="By provider" title="Company-wise Leaderboard" />
+          <SectionHeader kicker="By provider" title="Company-wise Leaderboard" updated />
           <div className="border border-[var(--color-line)] rounded-lg overflow-hidden mb-4">
             <div className="overflow-x-auto no-scrollbar">
               <table className="w-full min-w-[640px] text-left text-[13px]">
                 <thead>
-                  <tr className="border-b border-[var(--color-line)]">
+                  <tr className="border-b border-[var(--color-line)] bg-neutral-50">
                     {[
                       { label: 'Rank', w: 56 },
                       { label: 'Company' },
@@ -505,7 +513,7 @@ export default function ModelsPage() {
             <div className="overflow-x-auto no-scrollbar">
               <table className="w-full min-w-[820px] text-left text-[13px]">
                 <thead>
-                  <tr className="border-b border-[var(--color-line)]">
+                  <tr className="border-b border-[var(--color-line)] bg-neutral-50">
                     <SortableTh label="Model" active={coSort?.key === 'model'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'model', 'asc'))} />
                     <SortableTh label="Released" width={130} active={coSort?.key === 'released'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'released', 'desc'))} />
                     <SortableTh label="Intelligence" width={100} active={coSort?.key === 'intelligence'} dir={coSort?.dir} onToggle={() => setCoSort(prev => toggleSort(prev, 'intelligence', 'desc'))} />
@@ -670,7 +678,7 @@ export default function ModelsPage() {
             <div className="overflow-x-auto no-scrollbar">
               <table className="w-full min-w-[940px] text-left text-[13px]">
                 <thead>
-                  <tr className="border-b border-[var(--color-line)]">
+                  <tr className="border-b border-[var(--color-line)] bg-neutral-50">
                     <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 56 }}>Rank</th>
                     <SortableTh label="Model" active={allSort?.key === 'model'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'model', 'asc'))} />
                     <SortableTh label="Provider" width={120} active={allSort?.key === 'provider'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'provider', 'asc'))} />
@@ -720,6 +728,7 @@ export default function ModelsPage() {
           <NewsletterSignup />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

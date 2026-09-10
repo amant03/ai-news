@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import CodingAgents from '@/components/CodingAgents';
-import { BUILD_TAG } from '@/lib/build';
+import Footer from '@/components/Footer';
 
 export default function CodingAgentsPage() {
   const [total, setTotal] = useState(0);
@@ -57,19 +57,14 @@ export default function CodingAgentsPage() {
       />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold tracking-tight">Coding Agents</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-[var(--fore)]">Coding Agents</h1>
           <p className="text-sm text-[var(--dim)] mt-1">
             Coding agent benchmarks — index, cost, token usage, and execution time.
           </p>
         </div>
         <CodingAgents />
       </main>
-      <footer className="border-t border-[var(--color-line)] mt-10">
-        <div className="max-w-[1400px] mx-auto px-5 py-6 flex items-center justify-between text-xs text-[var(--dim)]">
-          <span className="font-medium text-[var(--mut)]">AI Pulse — the daily signal on artificial intelligence</span>
-          <span className="font-mono text-[10px]" title="Deployment build tag">build {BUILD_TAG}</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

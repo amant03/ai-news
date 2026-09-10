@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import ImageLeaderboard from '@/components/ImageLeaderboard';
-import { BUILD_TAG } from '@/lib/build';
+import Footer from '@/components/Footer';
 
 export default function ImageLeaderboardPage() {
   const [total, setTotal] = useState(0);
@@ -60,12 +60,7 @@ export default function ImageLeaderboardPage() {
       <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <ImageLeaderboard />
       </main>
-      <footer className="border-t border-[var(--color-line)] mt-10">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between text-xs text-[var(--dim)]">
-          <span className="font-display text-[var(--mut)]">AI Pulse — the daily signal on artificial intelligence</span>
-          <span className="font-mono text-[10px] text-[var(--dim)]" title="Deployment build tag">build {BUILD_TAG}</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -93,7 +93,7 @@ export default function NewsletterSignup() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="ring-focus rounded-xl bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-[var(--ink)] tracking-tight transition-all hover:brightness-110 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="ring-focus bg-[var(--aa-plum)] px-6 py-3 text-sm font-semibold text-white tracking-tight transition-all hover:opacity-90 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {status === 'loading' ? (
               <span className="inline-flex items-center gap-2">

@@ -278,27 +278,25 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
         </div>
 
         {/* Sort tabs + openness filter */}
-        <div className="flex gap-1.5 mb-5 flex-wrap items-center" role="tablist">
-          {[
-            { key: 'intelligence' as SortKey, label: 'Intelligence' },
-            { key: 'value' as SortKey, label: 'Value' },
-            { key: 'popularity' as SortKey, label: 'Most Used' },
-            { key: 'newest' as SortKey, label: 'Newest' },
-          ].map(t => (
-            <button
-              key={t.key}
-              role="tab"
-              aria-selected={tab === t.key}
-              onClick={() => setTab(t.key)}
-              className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
-                tab === t.key
-                  ? 'bg-[var(--fore)] text-[var(--background)] border border-transparent'
-                  : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
+        <div className="flex gap-1.5 mb-5 flex-wrap items-center">
+          <div className="aa-tabbar" role="tablist" aria-label="Rank models by">
+            {[
+              { key: 'intelligence' as SortKey, label: 'Intelligence' },
+              { key: 'value' as SortKey, label: 'Value' },
+              { key: 'popularity' as SortKey, label: 'Most Used' },
+              { key: 'newest' as SortKey, label: 'Newest' },
+            ].map(t => (
+              <button
+                key={t.key}
+                role="tab"
+                aria-selected={tab === t.key}
+                onClick={() => setTab(t.key)}
+                className={`ring-focus aa-tab ${tab === t.key ? 'aa-tab-active' : ''}`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
           <span className="w-px h-5 bg-[var(--color-line)] mx-1 hidden sm:block" aria-hidden />
           {OPENNESS.map(o => (
             <button

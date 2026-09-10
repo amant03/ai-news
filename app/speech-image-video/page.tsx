@@ -1,6 +1,7 @@
 'use client';
 
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const CATEGORIES = [
   {
@@ -41,8 +42,9 @@ export default function SpeechImageVideoPage() {
       <Header />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-10">
-          <h1 className="text-2xl font-semibold tracking-tight">Speech, Image &amp; Video</h1>
-          <p className="text-sm text-neutral-500 mt-2">
+          <div className="kicker mb-2">Multimodal</div>
+          <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-[var(--fore)]">Speech, Image &amp; Video</h1>
+          <p className="md:text-lg text-[var(--mut)] mt-3 max-w-[60ch] leading-relaxed">
             Leaderboards, arenas, and benchmarks for multimodal AI models.
           </p>
         </div>
@@ -90,6 +92,7 @@ export default function SpeechImageVideoPage() {
           ))}
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

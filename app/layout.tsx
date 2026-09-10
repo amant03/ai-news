@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, IBM_Plex_Mono } from 'next/font/google';
+import { Inter, IBM_Plex_Mono, Fraunces } from 'next/font/google';
 import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
 import { ThemeProvider } from '@/lib/theme';
@@ -14,6 +14,13 @@ const mono = IBM_Plex_Mono({
   variable: '--font-plex',
   subsets: ['latin'],
   weight: ['400', '500'],
+});
+
+/* Brand serif for display headings — the Artificial Analysis look. */
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
 });
 
 const url = siteUrl();
@@ -66,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${mono.variable} h-full antialiased`}
+      className={`${inter.variable} ${mono.variable} ${fraunces.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

@@ -8,15 +8,20 @@ interface LatestListProps {
 
 export default function LatestList({ items, dense = false }: LatestListProps) {
   if (items.length === 0) return null;
+  const now = Date.now();
 
   return (
     <div className="divide-y divide-[var(--color-line)]">
       {items.map((item, i) => {
         const color = CATEGORY_COLOR[item.category] || '#6b7280';
+        const fresh =
+          item.published_at != null &&
+          !Number.isNaN(new Date(item.published_at).getTime()) &&
+          now - new Date(item.published_at).getTime() < 24 * 3600 * 1000;
         return (
           <article
             key={item.url}
-            className="group flex items-baseline gap-3 px-4 py-3 hover:bg-[var(--surface)] transition-colors"
+            className="group flex items-center gap-3 px-4 py-3 hover:bg-[var(--surface)] transition-colors"
             style={{ animationDelay: `${Math.min(i, 10) * 30}ms` }}
           >
             <span className="dot" style={{ backgroundColor: color }} />
@@ -30,6 +35,7 @@ export default function LatestList({ items, dense = false }: LatestListProps) {
                 {item.title}
               </a>
             </h3>
+            {fresh && <span className="tag-new hidden sm:inline-flex shrink-0">New</span>}
             <div className="flex-shrink-0 flex items-center gap-2 text-[11px]">
               <span className="font-medium text-[var(--dim)] uppercase tracking-wider text-[10px]">
                 {item.source_label || item.source}
@@ -41,6 +47,11 @@ export default function LatestList({ items, dense = false }: LatestListProps) {
                 </span>
               )}
             </div>
+            <span className="feed-arrow hidden sm:flex" aria-hidden>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </span>
           </article>
         );
       })}

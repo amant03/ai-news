@@ -37,6 +37,15 @@
   --brand-orange: #ff551a;
   --brand-mint: #66f1d4;
   --brand-plum: #420034;
+  /* Artificial Analysis brand system */
+  --aa-plum: #420034;
+  --aa-plum-ink: #420034;
+  --aa-purple: #7f4bf3;
+  --aa-purple-dark: #4c1d95;
+  --aa-mint: #66f1d4;
+  --aa-blue-light: #eaf1fb;
+  --aa-lavender: #e9e4ff;
+  --aa-orange: #ff7018;
 }
 
 [data-theme='dark'] {
@@ -61,6 +70,11 @@
   --scroll-track: #0c0c0f;
   --scroll-thumb: #26262d;
   --scroll-thumb-hover: #373740;
+  /* AA brand tokens adapt to dark surfaces */
+  --aa-plum-ink: #d9aede;
+  --aa-purple: #a583ff;
+  --aa-purple-dark: #6d3df5;
+  --aa-blue-light: #1b1e28;
 }
 
 html {
@@ -123,12 +137,17 @@ body {
 }
 
 /* ---------- Typography ---------- */
+h1 {
+  font-family: var(--font-display), Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+}
+
 .kicker {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--dim);
+  color: var(--aa-plum-ink);
 }
 
 .gradient-text {
@@ -204,8 +223,110 @@ body {
 }
 
 ::selection {
-  background: var(--selection);
+  background: rgba(127, 75, 243, 0.18);
   color: var(--foreground);
+}
+
+/* ---------- AA brand utilities ---------- */
+
+/* Dark-purple "Updated" pill */
+.badge-updated {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background: var(--aa-purple-dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* Mint "New" tag */
+.tag-new {
+  display: inline-flex;
+  align-items: center;
+  background: var(--aa-mint);
+  color: #000;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+/* Plum primary button (square, like AA's Subscribe CTA) */
+.btn-plum {
+  background: var(--aa-plum);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 8px 16px;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.btn-plum:hover { opacity: 0.9; }
+.btn-plum:active { transform: scale(0.98); }
+
+/* Tab bar with pale-blue track (AA chart tabs) */
+.aa-tabbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--aa-blue-light);
+  border-radius: 10px;
+  padding: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.aa-tab {
+  border-radius: 7px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mut);
+  white-space: nowrap;
+  transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+.aa-tab:hover { color: var(--fore); }
+.aa-tab-active {
+  background: var(--card);
+  color: var(--fore);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Changelog arrow box (AA feed rows) */
+.feed-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--input);
+  color: var(--mut);
+  flex-shrink: 0;
+  transition: background 160ms ease, color 160ms ease;
+}
+.group:hover .feed-arrow {
+  background: var(--aa-purple-dark);
+  color: #fff;
+}
+
+/* Lavender footer (AA) */
+.aa-footer {
+  background: var(--aa-lavender);
+  color: var(--aa-plum);
+}
+[data-theme='dark'] .aa-footer {
+  background: #150f1a;
+  color: #e9d5e5;
+}
+[data-theme='dark'] .aa-footer .aa-footer-dim {
+  color: #a98fa8 !important;
 }
 
 /* ---------- Dark mode: override hardcoded Tailwind colors ---------- */

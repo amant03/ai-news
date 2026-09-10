@@ -23,21 +23,6 @@ const NAV = [
   { href: '/leaderboards', label: 'Leaderboards' },
 ];
 
-function fmtExact(iso: string | null): string {
-  if (!iso) return '…';
-  const d = new Date(iso);
-  if (isNaN(d.getTime())) return '…';
-  return d.toLocaleString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-    timeZoneName: 'short',
-  });
-}
-
 function relTime(iso: string | null): string {
   if (!iso) return '…';
   const diff = Date.now() - new Date(iso).getTime();
@@ -48,7 +33,8 @@ function relTime(iso: string | null): string {
 }
 
 /**
- * Clean AA-style header: logo left, pill nav center, minimal actions right.
+ * Floating pill nav in the Artificial Analysis style: black logo pill,
+ * neutral pill bar with rounded triggers, action pill cluster on the right.
  */
 export default function Header({
   total: _total,
@@ -89,26 +75,34 @@ export default function Header({
   const refreshIn = nextRefreshAt ? countdown(nextRefreshAt) : '...';
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-line)]" style={{ background: 'var(--header-bg)', backdropFilter: 'blur(12px)' }}>
+    <header className="sticky top-4 z-50">
       <div className="max-w-[1400px] mx-auto px-5">
-        <div className="flex items-center justify-between gap-4 h-12">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2 shrink-0" aria-label="AI Pulse home">
-            <div className="w-7 h-7 rounded-lg bg-[var(--fore)] flex items-center justify-center">
-              <span className="text-[var(--background)] font-bold text-[10px] tracking-tight">AI</span>
-            </div>
-            <span className="font-semibold text-sm tracking-tight hidden sm:block">AI Pulse</span>
+        <div className="flex items-stretch justify-between gap-2 sm:gap-3">
+          {/* Logo pill */}
+          <a
+            href="/"
+            aria-label="AI Pulse home"
+            className="flex items-center gap-2 pl-3.5 pr-4 sm:pr-5 bg-black rounded-full shrink-0"
+          >
+            <span className="w-2 h-2 rounded-full bg-[var(--aa-mint)]" aria-hidden />
+            <span className="font-display text-white text-[15px] sm:text-base font-medium tracking-tight whitespace-nowrap">
+              AI Pulse
+            </span>
           </a>
 
-          {/* Pill nav */}
-          <nav className="hidden md:flex items-center bg-neutral-100 rounded-full px-1 py-1" aria-label="Primary">
+          {/* Center nav pill */}
+          <nav
+            className="hidden lg:flex flex-1 items-center justify-center bg-neutral-100 rounded-[1.5rem] px-2 py-1.5 min-w-0"
+            aria-label="Primary"
+          >
             {NAV.map(item => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                aria-current={active === item.href ? 'page' : undefined}
+                className={`px-3 py-2 rounded-3xl text-sm whitespace-nowrap transition-colors ${
                   active === item.href
-                    ? 'bg-[var(--fore)] text-[var(--background)]'
+                    ? 'bg-black text-white font-medium'
                     : 'text-neutral-600 hover:text-black'
                 }`}
               >
@@ -117,38 +111,20 @@ export default function Header({
             ))}
           </nav>
 
-          {/* Mobile nav */}
-          <nav className="flex md:hidden items-center gap-1 overflow-x-auto no-scrollbar max-w-[52vw]" aria-label="Primary">
-            {NAV.map(item => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`px-2.5 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
-                  active === item.href
-                    ? 'bg-[var(--fore)] text-[var(--background)]'
-                    : 'text-neutral-500 hover:text-black'
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Right actions */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Right action pill */}
+          <div className="flex items-center gap-0.5 bg-neutral-100 rounded-full pl-3 pr-1 py-1 shrink-0">
             <span
-              className="hidden md:flex items-center gap-1.5 text-[11px] text-neutral-400 tabular-nums"
-              title={`Last news fetch: ${fmtExact(lastSync)}`}
+              className="hidden md:flex items-center gap-1.5 text-[11px] text-neutral-500 tabular-nums mr-1.5 whitespace-nowrap"
+              title="Live sync status"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
               Synced {relTime(lastSync)}
-              <span className="text-neutral-300 mx-0.5 hidden lg:inline">·</span>
-              <span className="hidden lg:inline">next {refreshIn}</span>
+              <span className="text-neutral-300 hidden xl:inline">· next {refreshIn}</span>
             </span>
             <button
               onClick={toggle}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 transition-colors"
+              className="w-8 h-8 flex items-center justify-center rounded-full text-neutral-600 hover:text-black hover:bg-black/5 transition-colors"
             >
               {theme === 'dark' ? (
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -165,7 +141,7 @@ export default function Header({
               onClick={_onRefresh}
               disabled={_isRefreshing}
               aria-label="Refresh"
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 transition-colors disabled:opacity-40"
+              className="w-8 h-8 flex items-center justify-center rounded-full text-neutral-600 hover:text-black hover:bg-black/5 transition-colors disabled:opacity-40"
             >
               <svg className={`w-4 h-4 ${_isRefreshing ? 'animate-spin-slow' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -173,6 +149,27 @@ export default function Header({
             </button>
           </div>
         </div>
+
+        {/* Mobile / tablet nav row */}
+        <nav
+          className="flex lg:hidden items-center gap-1 mt-2 overflow-x-auto no-scrollbar bg-neutral-100 rounded-full px-2 py-1.5"
+          aria-label="Primary"
+        >
+          {NAV.map(item => (
+            <a
+              key={item.href}
+              href={item.href}
+              aria-current={active === item.href ? 'page' : undefined}
+              className={`px-3 py-1.5 rounded-full text-[13px] whitespace-nowrap transition-colors ${
+                active === item.href
+                  ? 'bg-black text-white font-medium'
+                  : 'text-neutral-600'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );

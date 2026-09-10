@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import AITrends from '@/components/AITrends';
-import { BUILD_TAG } from '@/lib/build';
+import Footer from '@/components/Footer';
 
 export default function TrendsPage() {
   const [total, setTotal] = useState(0);
@@ -59,17 +59,12 @@ export default function TrendsPage() {
       />
       <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="mb-6">
-          <h1 className="font-display font-semibold text-2xl tracking-tight text-[var(--fore)]">AI Trends</h1>
+          <h1 className="font-display font-medium text-4xl md:text-5xl tracking-tight text-[var(--fore)]">AI Trends</h1>
           <p className="text-[13px] text-[var(--mut)] mt-1">Frontier intelligence over time, leading models by lab, and cost analysis.</p>
         </div>
         <AITrends />
       </main>
-      <footer className="border-t border-[var(--color-line)] mt-10">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between text-xs text-[var(--dim)]">
-          <span className="font-display text-[var(--mut)]">AI Pulse — the daily signal on artificial intelligence</span>
-          <span className="font-mono text-[10px] text-[var(--dim)]" title="Deployment build tag">build {BUILD_TAG}</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
