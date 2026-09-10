@@ -303,13 +303,13 @@ export default async function ModelDetailPage({ params }: Props) {
     {
       q: `How intelligent is ${model.name}?`,
       a: intelScore != null
-        ? `${model.name} scores ${intelScore} on the Artificial Analysis Intelligence Index${intelRank ? `, ranking #${intelRank} of ${classTotal} ${classBasis}` : ''} (class median: ${intelMed}).`
+        ? `${model.name} scores ${Math.round(intelScore)} on the Artificial Analysis Intelligence Index${intelRank ? `, ranking #${intelRank} of ${classTotal} ${classBasis}` : ''} (class median: ${intelMed}).`
         : `The Artificial Analysis Intelligence Index for ${model.name} has not been published yet.`,
     },
     {
       q: `How fast is ${model.name}?`,
       a: speed != null
-        ? `${model.name} generates output at ${speed} tokens per second${speedRank ? ` (rank #${speedRank} of ${speedPool.length} in its class)` : ''}, versus a class median of ${speedMed} t/s.`
+        ? `${model.name} generates output at ${Math.round(speed * 10) / 10} tokens per second${speedRank ? ` (rank #${speedRank} of ${speedPool.length} in its class)` : ''}, versus a class median of ${speedMed} t/s.`
         : `No API provider has been benchmarked for ${model.name} speed yet.`,
     },
     {
@@ -348,7 +348,7 @@ export default async function ModelDetailPage({ params }: Props) {
     {
       q: `How does ${model.name} perform on benchmarks?`,
       a: intelScore != null
-        ? `${model.name} achieves ${intelScore} on the Artificial Analysis Intelligence Index v4.3, a composite of 10 evaluations spanning agentic work, coding, reasoning, knowledge and long context.`
+        ? `${model.name} achieves ${Math.round(intelScore)} on the Artificial Analysis Intelligence Index v4.3, a composite of 10 evaluations spanning agentic work, coding, reasoning, knowledge and long context.`
         : `${model.name} does not yet have published Artificial Analysis benchmarks.`,
     },
     {
