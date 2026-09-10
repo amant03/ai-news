@@ -9,7 +9,7 @@ export default function FrontierCharts() {
 
   useEffect(() => {
     let mounted = true;
-    fetch('/api/models/catalog')
+    fetch('/api/models?sort=intelligence&limit=24')
       .then(r => (r.ok ? r.json() : null))
       .then(d => {
         if (mounted && Array.isArray(d?.models)) setModels(d.models);

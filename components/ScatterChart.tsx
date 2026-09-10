@@ -65,10 +65,13 @@ function linearTicks(min: number, max: number, count = 5): number[] {
   }
   const range = niceNum(max - min, false);
   const step = niceNum(range / (count - 1), true);
+  if (!isFinite(step) || step <= 0) return [min, max];
   const start = Math.floor(min / step) * step;
   const end = Math.ceil(max / step) * step;
   const ticks: number[] = [];
-  for (let v = start; v <= end + step / 2; v += step) ticks.push(Number(v.toPrecision(8)));
+  for (let v = start, n = 0; v <= end + step / 2 && n < 24; v += step, n++) {
+    ticks.push(Number(v.toPrecision(8)));
+  }
   return ticks;
 }
 

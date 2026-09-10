@@ -75,7 +75,7 @@ export async function GET(request: NextRequest) {
 
   try {
     readStore();
-    const items = getNewsItems(5000, 0) as NewsItem[];
+    const items = getNewsItems(80, 0) as NewsItem[];
 
     let all: ModelRecord[] = [];
     let catalog = { total: 0, withPricing: 0, withBenchmarks: 0, updatedAt: '' };

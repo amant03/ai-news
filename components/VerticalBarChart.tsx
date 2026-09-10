@@ -56,10 +56,10 @@ export default function VerticalBarChart({
   onToggleDir,
 }: VerticalBarChartProps) {
   const formatValue = valueFormat || (format ? PRESET[format] : fmt);
-  const trimmed = data.slice(0, maxBars);
+  const trimmed = data.filter(d => Number.isFinite(d.value)).slice(0, maxBars);
   if (trimmed.length === 0) return null;
 
-  const maxVal = Math.max(...trimmed.map(d => d.value), 1);
+  const maxVal = Math.max(...trimmed.map(d => d.value).filter(Number.isFinite), 1);
   // Roomy bottom/left padding so the -45° x-labels always fit inside the
   // viewport (they used to overflow and get clipped by overflow-hidden).
   const pad = { top: 32, right: 16, bottom: 118, left: 56 };
@@ -93,8 +93,11 @@ export default function VerticalBarChart({
       <div className="overflow-x-auto overflow-y-visible no-scrollbar">
         <svg
           viewBox={`0 0 ${W} ${height}`}
-          className="w-full"
-          style={{ minWidth: W > 400 ? 400 : undefined, height: 'auto', display: 'block' }}
+          width="100%"
+          height={height}
+          preserveAspectRatio="xMidYMid meet"
+          className="block max-w-full"
+          style={{ height: `${height}px` }}
           role="img"
           aria-label={`${title} chart`}
         >
@@ -120,7 +123,7 @@ export default function VerticalBarChart({
 
           {trimmed.map((d, i) => {
             const x = pad.left + gap + i * (barW + gap);
-            const barH = (d.value / maxVal) * innerH;
+            const barH = Math.max(0, Number.isFinite(d.value) ? (d.value / maxVal) * innerH : 0);
             const y = pad.top + innerH - barH;
             const isActive = d.highlight || d.id === selectedId;
 
@@ -180,7 +183,7 @@ export function modelsToBarData(
   return models
     .map(m => {
       const v = getValue(m);
-      if (v === undefined || v === null) return null;
+      if (v === undefined || v === null || !Number.isFinite(v)) return null;
       return {
         id: m.id,
         label: m.name,

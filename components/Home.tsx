@@ -1,18 +1,23 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
 import HeroLead from '@/components/HeroLead';
 import LatestList from '@/components/LatestList';
 import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
 import LatestModels from '@/components/LatestModels';
-import AITrends from '@/components/AITrends';
 import SkeletonGrid from '@/components/Skeleton';
 import SectionHeader from '@/components/SectionHeader';
 import Footer from '@/components/Footer';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
+
+const AITrends = dynamic(() => import('@/components/AITrends'), {
+  ssr: false,
+  loading: () => <div className="h-40 rounded-lg border border-[var(--color-line)] bg-[var(--surface)]" />,
+});
 
 const POLL_MS = 60_000;
 const PAGE_SIZE = 300;

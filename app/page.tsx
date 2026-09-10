@@ -14,8 +14,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const store = readStore();
-  const top = sortByRank(store.items || []).slice(0, 12);
+  let top: ReturnType<typeof sortByRank> = [];
+  try {
+    const store = readStore();
+    top = sortByRank(store.items || []).slice(0, 12);
+  } catch {
+    top = [];
+  }
   const url = siteUrl();
 
   const jsonLd = {

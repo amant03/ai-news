@@ -1,0 +1,6 @@
+data/models.json
+data/*.db
+data/*.db-*
+data/*.tmp
+data/summary-cache.json
+tmp-*
