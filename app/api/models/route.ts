@@ -5,6 +5,7 @@ import { getNewsItems, readStore } from '@/lib/db';
 import { rankKey } from '@/lib/rank';
 import { hasPg, getPool } from '@/lib/pg';
 import { loadModelCatalog } from '@/lib/models-catalog';
+import { finiteNum } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +17,7 @@ function sortModels(models: ModelRecord[], sort: string): ModelRecord[] {
     case 'elo':
       return arr.sort((a, b) => (b.elo ?? -1) - (a.elo ?? -1));
     case 'intelligence':
-      return arr.filter(m => m.intelligenceIndex !== undefined).sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
+      return arr.filter(m => finiteNum(m.intelligenceIndex) !== undefined).sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
     case 'value':
       return arr.sort((a, b) => (b.valueScore ?? -1) - (a.valueScore ?? -1));
     case 'popularity':
@@ -31,7 +32,7 @@ function sortModels(models: ModelRecord[], sort: string): ModelRecord[] {
 }
 
 function toLean(m: ModelRecord): ModelRecord {
-  return {
+  const out: Record<string, unknown> = {
     id: m.id,
     name: m.name,
     provider: m.provider,
@@ -41,31 +42,35 @@ function toLean(m: ModelRecord): ModelRecord {
     params: m.params,
     context: m.context,
     description: m.description,
-    intelligenceIndex: m.intelligenceIndex,
-    codingIndex: m.codingIndex,
-    agenticIndex: m.agenticIndex,
-    elo: m.elo,
-    numVotes: m.numVotes,
-    hfDownloads: m.hfDownloads,
-    hfLikes: m.hfLikes,
-    promptPrice: m.promptPrice,
-    completionPrice: m.completionPrice,
-    valueScore: m.valueScore,
-    aaSpeed: m.aaSpeed,
-    aaCostPerTask: m.aaCostPerTask,
-    aaVerbosity: m.aaVerbosity,
-    aaLatency: m.aaLatency,
+    intelligenceIndex: finiteNum(m.intelligenceIndex),
+    codingIndex: finiteNum(m.codingIndex),
+    agenticIndex: finiteNum(m.agenticIndex),
+    elo: finiteNum(m.elo),
+    numVotes: finiteNum(m.numVotes),
+    hfDownloads: finiteNum(m.hfDownloads),
+    hfLikes: finiteNum(m.hfLikes),
+    promptPrice: finiteNum(m.promptPrice),
+    completionPrice: finiteNum(m.completionPrice),
+    valueScore: finiteNum(m.valueScore),
+    aaSpeed: finiteNum(m.aaSpeed),
+    aaCostPerTask: finiteNum(m.aaCostPerTask),
+    aaVerbosity: finiteNum(m.aaVerbosity),
+    aaLatency: finiteNum(m.aaLatency),
     aaSlug: m.aaSlug,
     isReasoning: m.isReasoning,
     inputModalities: m.inputModalities,
     outputModalities: m.outputModalities,
-    mentions: m.mentions,
-    xMentions: m.xMentions,
-    redditMentions: m.redditMentions,
-    buzz: m.buzz,
+    mentions: finiteNum(m.mentions),
+    xMentions: finiteNum(m.xMentions),
+    redditMentions: finiteNum(m.redditMentions),
+    buzz: finiteNum(m.buzz),
     freeTier: m.freeTier,
     localOnly: m.localOnly,
   };
+  for (const [k, v] of Object.entries(out)) {
+    if (v === undefined || v === null) delete out[k];
+  }
+  return out as unknown as ModelRecord;
 }
 
 export async function GET(request: NextRequest) {

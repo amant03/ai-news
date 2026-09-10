@@ -11,6 +11,11 @@ export function timeAgo(dateString: string): string {
   return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
+/** JSON null and NaN both fail `!== undefined` checks; only real numbers survive. */
+export function finiteNum(v: unknown): number | undefined {
+  return typeof v === 'number' && Number.isFinite(v) ? v : undefined;
+}
+
 export function formatNumber(num?: number): string {
   if (!num && num !== 0) return '0';
   if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1)}M`;

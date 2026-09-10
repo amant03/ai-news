@@ -1,3 +1,4 @@
+import { finiteNum } from './format';
 import { fetchCommittedFile } from './github-data';
 import { ModelRecord, SlimModel, readModelDatabase, readSlimModelDatabase } from './model-registry';
 
@@ -22,32 +23,50 @@ export function slimToModelRecord(s: SlimModel): ModelRecord {
     source: s.source,
     family: s.family || 'closed',
   };
-  if (s.released !== undefined) r.released = s.released;
-  if (s.params !== undefined) r.params = s.params;
-  if (s.context !== undefined) r.context = s.context;
-  if (s.intelligenceIndex !== undefined) r.intelligenceIndex = s.intelligenceIndex;
-  if (s.codingIndex !== undefined) r.codingIndex = s.codingIndex;
-  if (s.agenticIndex !== undefined) r.agenticIndex = s.agenticIndex;
-  if (s.elo !== undefined) r.elo = s.elo;
-  if (s.numVotes !== undefined) r.numVotes = s.numVotes;
-  if (s.hfDownloads !== undefined) r.hfDownloads = s.hfDownloads;
-  if (s.hfLikes !== undefined) r.hfLikes = s.hfLikes;
-  if (s.promptPrice !== undefined) r.promptPrice = s.promptPrice;
-  if (s.completionPrice !== undefined) r.completionPrice = s.completionPrice;
-  if (s.valueScore !== undefined) r.valueScore = s.valueScore;
-  if (s.aaSpeed !== undefined) r.aaSpeed = s.aaSpeed;
-  if (s.aaCostPerTask !== undefined) r.aaCostPerTask = s.aaCostPerTask;
-  if (s.aaVerbosity !== undefined) r.aaVerbosity = s.aaVerbosity;
-  if (s.aaLatency !== undefined) r.aaLatency = s.aaLatency;
+  if (s.released !== undefined && s.released !== null) r.released = s.released;
+  if (s.params !== undefined && s.params !== null) r.params = s.params;
+  if (s.context !== undefined && s.context !== null) r.context = s.context;
+  const intelligenceIndex = finiteNum(s.intelligenceIndex);
+  if (intelligenceIndex !== undefined) r.intelligenceIndex = intelligenceIndex;
+  const codingIndex = finiteNum(s.codingIndex);
+  if (codingIndex !== undefined) r.codingIndex = codingIndex;
+  const agenticIndex = finiteNum(s.agenticIndex);
+  if (agenticIndex !== undefined) r.agenticIndex = agenticIndex;
+  const elo = finiteNum(s.elo);
+  if (elo !== undefined) r.elo = elo;
+  const numVotes = finiteNum(s.numVotes);
+  if (numVotes !== undefined) r.numVotes = numVotes;
+  const hfDownloads = finiteNum(s.hfDownloads);
+  if (hfDownloads !== undefined) r.hfDownloads = hfDownloads;
+  const hfLikes = finiteNum(s.hfLikes);
+  if (hfLikes !== undefined) r.hfLikes = hfLikes;
+  const promptPrice = finiteNum(s.promptPrice);
+  if (promptPrice !== undefined) r.promptPrice = promptPrice;
+  const completionPrice = finiteNum(s.completionPrice);
+  if (completionPrice !== undefined) r.completionPrice = completionPrice;
+  const valueScore = finiteNum(s.valueScore);
+  if (valueScore !== undefined) r.valueScore = valueScore;
+  const aaSpeed = finiteNum(s.aaSpeed);
+  if (aaSpeed !== undefined) r.aaSpeed = aaSpeed;
+  const aaCostPerTask = finiteNum(s.aaCostPerTask);
+  if (aaCostPerTask !== undefined) r.aaCostPerTask = aaCostPerTask;
+  const aaVerbosity = finiteNum(s.aaVerbosity);
+  if (aaVerbosity !== undefined) r.aaVerbosity = aaVerbosity;
+  const aaLatency = finiteNum(s.aaLatency);
+  if (aaLatency !== undefined) r.aaLatency = aaLatency;
   if (s.aaSlug) r.aaSlug = s.aaSlug;
   if (s.isReasoning !== undefined) r.isReasoning = s.isReasoning;
   if (s.inputModalities) r.inputModalities = s.inputModalities;
   if (s.outputModalities) r.outputModalities = s.outputModalities;
-  if (s.mentions !== undefined) r.mentions = s.mentions;
-  if (s.xMentions !== undefined) r.xMentions = s.xMentions;
-  if (s.redditMentions !== undefined) r.redditMentions = s.redditMentions;
-  if (s.buzz !== undefined) r.buzz = s.buzz;
-  if (s.license !== undefined) r.license = s.license;
+  const mentions = finiteNum(s.mentions);
+  if (mentions !== undefined) r.mentions = mentions;
+  const xMentions = finiteNum(s.xMentions);
+  if (xMentions !== undefined) r.xMentions = xMentions;
+  const redditMentions = finiteNum(s.redditMentions);
+  if (redditMentions !== undefined) r.redditMentions = redditMentions;
+  const buzz = finiteNum(s.buzz);
+  if (buzz !== undefined) r.buzz = buzz;
+  if (s.license !== undefined && s.license !== null) r.license = s.license;
   return r;
 }
 

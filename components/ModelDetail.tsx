@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import type { ModelRecord } from '@/lib/model-registry';
 import { providerColor } from '@/lib/models';
+import { finiteNum } from '@/lib/format';
 import VerticalBarChart, { modelsToBarData } from './VerticalBarChart';
 import ScatterChart, { ScatterPoint } from './ScatterChart';
 import { SourcePills } from './SourceLink';
@@ -13,36 +14,39 @@ interface ModelDetailProps {
   onSelect?: (id: string) => void;
 }
 
-const fmtNum = (n?: number, digits = 1) =>
-  n === undefined ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: digits });
+const fmtNum = (n?: number | null, digits = 1) => {
+  const v = finiteNum(n);
+  return v === undefined ? '—' : v.toLocaleString('en-US', { maximumFractionDigits: digits });
+};
 
 function avgCost(m: ModelRecord): number | undefined {
-  if (m.promptPrice === undefined && m.completionPrice === undefined) return undefined;
-  const p = m.promptPrice ?? m.completionPrice ?? 0;
-  const c = m.completionPrice ?? m.promptPrice ?? 0;
-  return (p + c) / 2;
+  const p = finiteNum(m.promptPrice);
+  const c = finiteNum(m.completionPrice);
+  if (p === undefined && c === undefined) return undefined;
+  return ((p ?? c ?? 0) + (c ?? p ?? 0)) / 2;
 }
 
 function fmtCost(v: number) {
+  if (!Number.isFinite(v)) return '—';
   if (v <= 0.02) return 'Free';
   if (v < 1) return `$${v.toFixed(2)}`;
   return `$${v.toFixed(1)}`;
 }
 
 function costPerTask(m: ModelRecord): number | undefined {
-  if (m.aaCostPerTask !== undefined) return m.aaCostPerTask;
-  return avgCost(m);
+  return finiteNum(m.aaCostPerTask) ?? avgCost(m);
 }
 
 function speedOf(m: ModelRecord): number | undefined {
-  return m.aaSpeed;
+  return finiteNum(m.aaSpeed);
 }
 
-function fmtVerb(v: number | undefined): string {
-  if (v === undefined) return '—';
-  if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(v % 1_000_000 === 0 ? 0 : 1)}M`;
-  if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
-  return String(v);
+function fmtVerb(v: number | undefined | null): string {
+  const n = finiteNum(v);
+  if (n === undefined) return '—';
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+  return String(n);
 }
 
 function quality(m: ModelRecord): number | undefined {
@@ -61,19 +65,19 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
 
   // Rank computation
   const intelRank = useMemo(() => {
-    const scored = pool.filter(m => m.intelligenceIndex !== undefined).sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
+    const scored = pool.filter(m => finiteNum(m.intelligenceIndex) !== undefined).sort((a, b) => (b.intelligenceIndex ?? 0) - (a.intelligenceIndex ?? 0));
     const idx = scored.findIndex(m => m.id === model.id);
     return idx >= 0 ? idx + 1 : undefined;
   }, [pool, model.id]);
 
   const codingRank = useMemo(() => {
-    const scored = pool.filter(m => m.codingIndex !== undefined).sort((a, b) => (b.codingIndex ?? 0) - (a.codingIndex ?? 0));
+    const scored = pool.filter(m => finiteNum(m.codingIndex) !== undefined).sort((a, b) => (b.codingIndex ?? 0) - (a.codingIndex ?? 0));
     const idx = scored.findIndex(m => m.id === model.id);
     return idx >= 0 ? idx + 1 : undefined;
   }, [pool, model.id]);
 
-  const totalWithIntel = useMemo(() => pool.filter(m => m.intelligenceIndex !== undefined).length, [pool]);
-  const totalWithCoding = useMemo(() => pool.filter(m => m.codingIndex !== undefined).length, [pool]);
+  const totalWithIntel = useMemo(() => pool.filter(m => finiteNum(m.intelligenceIndex) !== undefined).length, [pool]);
+  const totalWithCoding = useMemo(() => pool.filter(m => finiteNum(m.codingIndex) !== undefined).length, [pool]);
 
   const maxIntel = useMemo(() => Math.max(1, ...pool.map(m => m.intelligenceIndex ?? 0)), [pool]);
   const maxCoding = useMemo(() => Math.max(1, ...pool.map(m => m.codingIndex ?? 0)), [pool]);
@@ -82,11 +86,11 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
   const speed = speedOf(model);
 
   const speedRank = useMemo(() => {
-    const scored = pool.filter(m => m.aaSpeed !== undefined).sort((a, b) => (b.aaSpeed ?? 0) - (a.aaSpeed ?? 0));
+    const scored = pool.filter(m => finiteNum(m.aaSpeed) !== undefined).sort((a, b) => (b.aaSpeed ?? 0) - (a.aaSpeed ?? 0));
     const idx = scored.findIndex(m => m.id === model.id);
     return idx >= 0 ? idx + 1 : undefined;
   }, [pool, model.id]);
-  const totalWithSpeed = useMemo(() => pool.filter(m => m.aaSpeed !== undefined).length, [pool]);
+  const totalWithSpeed = useMemo(() => pool.filter(m => finiteNum(m.aaSpeed) !== undefined).length, [pool]);
   const maxSpeed = useMemo(() => Math.max(1, ...pool.map(m => m.aaSpeed ?? 0)), [pool]);
 
   // Bar chart data for comparisons — prefer AA-native speed/cost when present
@@ -172,7 +176,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
           value={fmtNum(model.intelligenceIndex)}
           unit="Intelligence Index"
           accent
-          pct={model.intelligenceIndex !== undefined ? (model.intelligenceIndex / maxIntel) * 100 : 0}
+          pct={finiteNum(model.intelligenceIndex) !== undefined ? (model.intelligenceIndex! / maxIntel) * 100 : 0}
         />
         <SummaryCard
           label={totalWithSpeed >= 3 ? 'Speed' : 'Coding'}
@@ -182,23 +186,23 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
           unit={totalWithSpeed >= 3 ? 'tokens / second' : 'Coding Index'}
           pct={totalWithSpeed >= 3
             ? (speed !== undefined ? (speed / maxSpeed) * 100 : 0)
-            : (model.codingIndex !== undefined ? (model.codingIndex / maxCoding) * 100 : 0)}
+            : (finiteNum(model.codingIndex) !== undefined ? (model.codingIndex! / maxCoding) * 100 : 0)}
         />
         <SummaryCard
           label="Cost"
           rank={cost !== undefined ? fmtCost(cost) : '—'}
           total={undefined}
           value={cost !== undefined ? fmtCost(cost) : '—'}
-          unit={model.aaCostPerTask !== undefined ? 'per Index task' : cost !== undefined ? 'per task (blended)' : 'no pricing'}
+          unit={finiteNum(model.aaCostPerTask) !== undefined ? 'per Index task' : cost !== undefined ? 'per task (blended)' : 'no pricing'}
           pct={cost !== undefined ? Math.max(6, Math.min(100, 100 / (1 + cost))) : 0}
         />
         <SummaryCard
           label="Verbosity"
-          rank={model.aaVerbosity !== undefined ? fmtVerb(model.aaVerbosity) : (model.context || '—')}
+          rank={finiteNum(model.aaVerbosity) !== undefined ? fmtVerb(model.aaVerbosity) : (model.context || '—')}
           total={undefined}
-          value={model.aaVerbosity !== undefined ? fmtVerb(model.aaVerbosity) : (model.context || '—')}
-          unit={model.aaVerbosity !== undefined ? 'output tokens / task' : model.params ? `${model.params} params` : 'token window'}
-          pct={model.aaVerbosity !== undefined ? 45 : 50}
+          value={finiteNum(model.aaVerbosity) !== undefined ? fmtVerb(model.aaVerbosity) : (model.context || '—')}
+          unit={finiteNum(model.aaVerbosity) !== undefined ? 'output tokens / task' : model.params ? `${model.params} params` : 'token window'}
+          pct={finiteNum(model.aaVerbosity) !== undefined ? 45 : 50}
         />
       </div>
 
@@ -207,13 +211,13 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2 font-medium">Comparison Summary</div>
         <p className="text-[13px] text-[var(--mut)] leading-relaxed">
           {model.name} from {model.provider}
-          {model.intelligenceIndex !== undefined && ` scores ${model.intelligenceIndex} on the Intelligence Index`}
-          {cost !== undefined && ` at ${fmtCost(cost)}${model.aaCostPerTask !== undefined ? ' per Intelligence Index task' : ' blended per 1M tokens'}`}
-          {model.codingIndex !== undefined && ` with a coding index of ${model.codingIndex}`}
+          {finiteNum(model.intelligenceIndex) !== undefined && ` scores ${model.intelligenceIndex} on the Intelligence Index`}
+          {cost !== undefined && ` at ${fmtCost(cost)}${finiteNum(model.aaCostPerTask) !== undefined ? ' per Intelligence Index task' : ' blended per 1M tokens'}`}
+          {finiteNum(model.codingIndex) !== undefined && ` with a coding index of ${model.codingIndex}`}
           {speed !== undefined && `, running at ${speed.toFixed(0)} tokens/second`}
-          {model.aaVerbosity !== undefined && ` and generating ${fmtVerb(model.aaVerbosity)} tokens per task`}
+          {finiteNum(model.aaVerbosity) !== undefined && ` and generating ${fmtVerb(model.aaVerbosity)} tokens per task`}
           {model.context ? `. Supports ${model.context} context window` : ''}.
-          {model.promptPrice !== undefined && ` (In $${model.promptPrice.toFixed(2)}/1M · Out $${(model.completionPrice ?? 0).toFixed(2)}/1M)`}
+          {finiteNum(model.promptPrice) !== undefined && ` (In $${model.promptPrice!.toFixed(2)}/1M · Out $${(finiteNum(model.completionPrice) ?? 0).toFixed(2)}/1M)`}
         </p>
       </div>
 
@@ -239,16 +243,16 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
               <div className="font-mono text-[var(--fore)]">{model.released.slice(0, 10)}</div>
             </div>
           )}
-          {model.promptPrice !== undefined && (
+          {finiteNum(model.promptPrice) !== undefined && (
             <div>
               <span className="text-[var(--dim)]">Input Price</span>
-              <div className="font-mono text-[var(--fore)]">${model.promptPrice.toFixed(2)}/1M</div>
+              <div className="font-mono text-[var(--fore)]">${model.promptPrice!.toFixed(2)}/1M</div>
             </div>
           )}
-          {model.completionPrice !== undefined && (
+          {finiteNum(model.completionPrice) !== undefined && (
             <div>
               <span className="text-[var(--dim)]">Output Price</span>
-              <div className="font-mono text-[var(--fore)]">${model.completionPrice.toFixed(2)}/1M</div>
+              <div className="font-mono text-[var(--fore)]">${model.completionPrice!.toFixed(2)}/1M</div>
             </div>
           )}
           {model.params && (
@@ -257,19 +261,19 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
               <div className="text-[var(--fore)]">{model.params}</div>
             </div>
           )}
-          {model.aaSpeed !== undefined && (
+          {finiteNum(model.aaSpeed) !== undefined && (
             <div>
               <span className="text-[var(--dim)]">Speed</span>
-              <div className="font-mono text-[var(--fore)]">{model.aaSpeed.toFixed(0)} t/s</div>
+              <div className="font-mono text-[var(--fore)]">{model.aaSpeed!.toFixed(0)} t/s</div>
             </div>
           )}
-          {model.aaCostPerTask !== undefined && (
+          {finiteNum(model.aaCostPerTask) !== undefined && (
             <div>
               <span className="text-[var(--dim)]">Cost / Index task</span>
-              <div className="font-mono text-[var(--fore)]">${model.aaCostPerTask.toFixed(2)}</div>
+              <div className="font-mono text-[var(--fore)]">${model.aaCostPerTask!.toFixed(2)}</div>
             </div>
           )}
-          {model.aaVerbosity !== undefined && (
+          {finiteNum(model.aaVerbosity) !== undefined && (
             <div>
               <span className="text-[var(--dim)]">Verbosity</span>
               <div className="font-mono text-[var(--fore)]">{fmtVerb(model.aaVerbosity)} tokens</div>
@@ -301,7 +305,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         <VerticalBarChart
           data={costBars}
           title="Cost per Task"
-          subtitle={pool.some(m => m.aaCostPerTask !== undefined) ? 'USD per Intelligence Index task · lower is better' : 'USD per 1M tokens (blended) · lower is better'}
+          subtitle={pool.some(m => finiteNum(m.aaCostPerTask) !== undefined) ? 'USD per Intelligence Index task · lower is better' : 'USD per 1M tokens (blended) · lower is better'}
           valueFormat={v => fmtCost(v)}
           selectedId={model.id}
           onSelect={id => onSelect?.(id)}

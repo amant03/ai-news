@@ -80,21 +80,21 @@ function fmtDate(iso: string | undefined): string {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
-function fmtPrice(v: number | undefined): string {
-  if (v === undefined) return '—';
+function fmtPrice(v: number | undefined | null): string {
+  if (typeof v !== 'number' || !Number.isFinite(v)) return '—';
   if (v === 0) return '$0.00';
   return `$${v.toFixed(2)}`;
 }
 
-function fmtTaskCost(v: number | undefined): string {
-  if (v === undefined || v === null) return '—';
+function fmtTaskCost(v: number | undefined | null): string {
+  if (typeof v !== 'number' || !Number.isFinite(v)) return '—';
   if (v === 0) return '$0.00';
   if (v < 0.01) return `$${v.toFixed(4)}`;
   return `$${v.toFixed(2)}`;
 }
 
-function fmtVerbosity(v: number | undefined): string {
-  if (v === undefined) return '—';
+function fmtVerbosity(v: number | undefined | null): string {
+  if (typeof v !== 'number' || !Number.isFinite(v)) return '—';
   if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(v % 1_000_000 === 0 ? 0 : 1)}M`;
   if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
   return String(v);
@@ -308,8 +308,8 @@ export default async function ModelDetailPage({ params }: Props) {
   const ctxPages = ctxTokens != null ? Math.round(ctxTokens / 667) : null;
 
   const priceLine =
-    model.promptPrice !== undefined
-      ? `$${model.promptPrice.toFixed(2)} per 1M input tokens (median: ${inMed != null ? `$${inMed.toFixed(2)}` : 'n/a'}) and $${(model.completionPrice ?? 0).toFixed(2)} per 1M output tokens (median: ${outMed != null ? `$${outMed.toFixed(2)}` : 'n/a'})`
+    Number.isFinite(model.promptPrice)
+      ? `$${model.promptPrice!.toFixed(2)} per 1M input tokens (median: ${inMed != null ? `$${inMed.toFixed(2)}` : 'n/a'}) and $${(Number.isFinite(model.completionPrice) ? model.completionPrice! : 0).toFixed(2)} per 1M output tokens (median: ${outMed != null ? `$${outMed.toFixed(2)}` : 'n/a'})`
       : null;
 
   const summaryBits: string[] = [];
@@ -364,9 +364,9 @@ export default async function ModelDetailPage({ params }: Props) {
       q: `How much does ${model.name} cost?`,
       a:
         cost != null
-          ? `${model.name} costs ${fmtTaskCost(cost)} per Intelligence Index task${costRank ? ` (rank #${costRank} of ${costPool.length})` : ''}${model.promptPrice !== undefined ? `, with list pricing at $${model.promptPrice.toFixed(2)} per 1M input and $${(model.completionPrice ?? 0).toFixed(2)} per 1M output tokens` : ''}.`
-          : model.promptPrice !== undefined
-            ? `${model.name} lists at $${model.promptPrice.toFixed(2)} per 1M input and $${(model.completionPrice ?? 0).toFixed(2)} per 1M output tokens.`
+          ? `${model.name} costs ${fmtTaskCost(cost)} per Intelligence Index task${costRank ? ` (rank #${costRank} of ${costPool.length})` : ''}${Number.isFinite(model.promptPrice) ? `, with list pricing at $${model.promptPrice!.toFixed(2)} per 1M input and $${(Number.isFinite(model.completionPrice) ? model.completionPrice! : 0).toFixed(2)} per 1M output tokens` : ''}.`
+          : Number.isFinite(model.promptPrice)
+            ? `${model.name} lists at $${model.promptPrice!.toFixed(2)} per 1M input and $${(Number.isFinite(model.completionPrice) ? model.completionPrice! : 0).toFixed(2)} per 1M output tokens.`
             : `${model.name} has no public API pricing listed.`,
     },
     {
@@ -718,11 +718,11 @@ export default async function ModelDetailPage({ params }: Props) {
                   { label: 'License', value: model.license || '—' },
                   {
                     label: 'Input price',
-                    value: model.promptPrice !== undefined ? `$${model.promptPrice.toFixed(2)} per 1M tokens` : '—',
+                    value: Number.isFinite(model.promptPrice) ? `$${model.promptPrice!.toFixed(2)} per 1M tokens` : '—',
                   },
                   {
                     label: 'Output price',
-                    value: model.completionPrice !== undefined ? `$${model.completionPrice.toFixed(2)} per 1M tokens` : '—',
+                    value: Number.isFinite(model.completionPrice) ? `$${model.completionPrice!.toFixed(2)} per 1M tokens` : '—',
                   },
                   { label: 'Source', value: model.source },
                 ].map(row => (

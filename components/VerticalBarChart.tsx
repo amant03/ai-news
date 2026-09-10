@@ -30,12 +30,12 @@ interface VerticalBarChartProps {
 }
 
 const PRESET = {
-  n0: (v: number) => v.toFixed(0),
-  n1: (v: number) => v.toFixed(1),
-  usd: (v: number) => `$${v.toFixed(2)}`,
+  n0: (v: number) => (Number.isFinite(v) ? v.toFixed(0) : '—'),
+  n1: (v: number) => (Number.isFinite(v) ? v.toFixed(1) : '—'),
+  usd: (v: number) => (Number.isFinite(v) ? `$${v.toFixed(2)}` : '—'),
 };
 
-const fmt = (v: number) => v.toFixed(0);
+const fmt = (v: number) => (Number.isFinite(v) ? v.toFixed(0) : '—');
 
 /**
  * Artificial-Analysis-style vertical bar chart: coloured bars, rotated labels

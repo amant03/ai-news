@@ -9,6 +9,7 @@ import ModelDetail from './ModelDetail';
 import VerticalBarChart, { modelsToBarData, BarDatum } from './VerticalBarChart';
 import { sortByCol, toggleSort, ColSort, SortDir } from '@/lib/sortable';
 import { preferredSlug } from '@/lib/model-slug';
+import { finiteNum } from '@/lib/format';
 
 interface ModelWatchData {
   models: ModelRecord[];
@@ -66,24 +67,28 @@ const AUDIENCE: Record<Audience, { tab: SortKey; title: string; blurb: string; p
 
 const LIST_PAGE = 12;
 
-const fmtNum = (n?: number, digits = 1) =>
-  n === undefined ? '—' : n.toLocaleString('en-US', { maximumFractionDigits: digits });
-const fmtCompact = (n?: number) => {
-  if (n === undefined) return '—';
-  if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
-  return String(Math.round(n));
+const fmtNum = (n?: number | null, digits = 1) => {
+  const v = finiteNum(n);
+  return v === undefined ? '—' : v.toLocaleString('en-US', { maximumFractionDigits: digits });
+};
+const fmtCompact = (n?: number | null) => {
+  const v = finiteNum(n);
+  if (v === undefined) return '—';
+  if (v >= 1_000_000_000) return `${(v / 1_000_000_000).toFixed(1)}B`;
+  if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}M`;
+  if (v >= 1_000) return `${(v / 1_000).toFixed(1)}K`;
+  return String(Math.round(v));
 };
 
 function avgCost(m: ModelRecord): number | undefined {
-  if (m.promptPrice === undefined && m.completionPrice === undefined) return undefined;
-  const p = m.promptPrice ?? m.completionPrice ?? 0;
-  const c = m.completionPrice ?? m.promptPrice ?? 0;
-  return (p + c) / 2;
+  const p = finiteNum(m.promptPrice);
+  const c = finiteNum(m.completionPrice);
+  if (p === undefined && c === undefined) return undefined;
+  return ((p ?? c ?? 0) + (c ?? p ?? 0)) / 2;
 }
 
 function fmtCost(v: number) {
+  if (!Number.isFinite(v)) return '—';
   if (v <= 0.02) return 'Free';
   if (v < 1) return `$${v.toFixed(2)}`;
   return `$${v.toFixed(1)}`;
@@ -222,7 +227,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
   // Vertical bar chart data for highlights
   const intelData = useMemo(() => barDataFor(filtered, m => m.intelligenceIndex, chartDir.intel, { highlightId: selected?.id }), [filtered, selected, chartDir.intel]);
   const speedData = useMemo(() => barDataFor(filtered, m => m.aaSpeed, chartDir.coding, { highlightId: selected?.id }), [filtered, selected, chartDir.coding]);
-  const costData = useMemo(() => barDataFor(filtered, m => m.aaCostPerTask ?? avgCost(m), chartDir.cost, { highlightId: selected?.id }), [filtered, selected, chartDir.cost]);
+  const costData = useMemo(() => barDataFor(filtered, m => finiteNum(m.aaCostPerTask) ?? avgCost(m), chartDir.cost, { highlightId: selected?.id }), [filtered, selected, chartDir.cost]);
 
   // Scatter data
   const scatterPoints = useMemo((): ScatterPoint[] => {
