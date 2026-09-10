@@ -11,6 +11,7 @@ import ModelWatch from '@/components/ModelWatch';
 import LatestModels from '@/components/LatestModels';
 import AITrends from '@/components/AITrends';
 import SkeletonGrid from '@/components/Skeleton';
+import SectionHeader from '@/components/SectionHeader';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
 import { BUILD_TAG } from '@/lib/build';
@@ -220,10 +221,16 @@ export default function Home() {
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         {/* Top Stories - full width */}
         <section className="mb-10">
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h1 className="text-2xl font-semibold tracking-tight">Top Stories</h1>
-          </div>
+          <SectionHeader
+            kicker="AI Pulse"
+            title="Top Stories"
+            rule={false}
+            right={
+              <span className="text-[12px] text-[var(--dim)] tabular-nums">
+                {total ? total.toLocaleString('en-US') : '—'} stories
+              </span>
+            }
+          />
           {top10.length > 0 && <HeroLead items={top10} />}
         </section>
 
@@ -257,24 +264,25 @@ export default function Home() {
         {newItems.length > 0 && (
           <button
             onClick={applyNew}
-            className="w-full mb-4 px-4 py-2.5 rounded-lg bg-violet-50 border border-violet-200 text-violet-700 text-sm font-medium flex items-center justify-center gap-2 hover:bg-violet-100 transition-colors"
+            className="w-full mb-4 px-4 py-2.5 rounded-lg bg-[var(--surface)] border border-[var(--color-line)] text-[var(--fore)] text-sm font-medium flex items-center justify-center gap-2 hover:border-[var(--mut)]/50 transition-colors"
           >
-            <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[var(--ok)] animate-pulse" />
             {newItems.length} new {newItems.length === 1 ? 'story' : 'stories'} — click to view
           </button>
         )}
 
         {/* Latest stories */}
         <section>
-          <div className="flex items-baseline gap-3 mb-4">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">
-              {search.trim() ? 'Search results' : 'Latest'}
-            </h2>
-            <span className="ml-auto text-xs text-neutral-400 tabular-nums">
-              {search.trim() ? `${visible.length} results` : `${total} stories`}
-            </span>
-          </div>
+          <SectionHeader
+            kicker="Newswire"
+            title={search.trim() ? 'Search results' : 'Latest'}
+            rule={false}
+            right={
+              <span className="text-[12px] text-[var(--dim)] tabular-nums">
+                {search.trim() ? `${visible.length} results` : `${total} stories`}
+              </span>
+            }
+          />
 
           {loading && news.length === 0 ? (
             <SkeletonGrid count={15} />
@@ -327,10 +335,7 @@ export default function Home() {
 
         {/* Models section */}
         <section className="mt-12" id="model-watch">
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Models</h2>
-          </div>
+          <SectionHeader kicker="Leaderboard" title="Models" right={null} />
           <ModelWatch audience={selectedDomain} />
         </section>
 
@@ -341,10 +346,7 @@ export default function Home() {
 
         {/* AI Trends section */}
         <section className="mt-12" id="trends">
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">AI Landscape</h2>
-          </div>
+          <SectionHeader kicker="Trends" title="AI Landscape" note="What the frontier is talking about right now." />
           <AITrends />
         </section>
       </main>

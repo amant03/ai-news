@@ -7,6 +7,7 @@ import AADropdown from '@/components/AADropdown';
 import IntelligenceScatter from '@/components/IntelligenceScatter';
 import IntelligenceTimeline from '@/components/IntelligenceTimeline';
 import AAModelCharts from '@/components/AAModelCharts';
+import SectionHeader from '@/components/SectionHeader';
 import SortableTh from '@/components/SortableTh';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 import type { ModelRecord } from '@/lib/model-registry';
@@ -351,17 +352,19 @@ export default function ModelsPage() {
 
         {/* Latest Models */}
         <section className="mb-12">
-          <div className="flex items-baseline gap-3 mb-5 flex-wrap">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Latest Models</h2>
-            <button
-              onClick={() => setLatestDir(d => (d === 'asc' ? 'desc' : 'asc'))}
-              title="Toggle sort direction"
-              className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] px-2.5 py-1 text-[11px] font-medium text-neutral-500 hover:text-black transition-colors"
-            >
-              {latestDir === 'asc' ? '▲ oldest first' : '▼ newest first'}
-            </button>
-          </div>
+          <SectionHeader
+            kicker="Releases"
+            title="Latest Models"
+            right={
+              <button
+                onClick={() => setLatestDir(d => (d === 'asc' ? 'desc' : 'asc'))}
+                title="Toggle sort direction"
+                className="ring-focus inline-flex items-center gap-1 rounded-full border border-[var(--color-line)] px-2.5 py-1 text-[11px] font-medium text-[var(--mut)] hover:text-[var(--fore)] transition-colors"
+              >
+                {latestDir === 'asc' ? '▲ oldest first' : '▼ newest first'}
+              </button>
+            }
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {latestModels.map(m => (
               <a
@@ -411,10 +414,7 @@ export default function ModelsPage() {
 
         {/* Company-wise leaderboard */}
         <section className="mb-12">
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Company-wise Leaderboard</h2>
-          </div>
+          <SectionHeader kicker="By provider" title="Company-wise Leaderboard" />
           <div className="border border-[var(--color-line)] rounded-lg overflow-hidden mb-4">
             <div className="overflow-x-auto no-scrollbar">
               <table className="w-full min-w-[640px] text-left text-[13px]">
@@ -551,10 +551,7 @@ export default function ModelsPage() {
 
         {/* Intelligence Index explainer */}
         <section className="mb-12">
-          <div className="flex items-baseline gap-3 mb-4">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Artificial Analysis Intelligence Index</h2>
-          </div>
+          <SectionHeader kicker="Methodology" title="Artificial Analysis Intelligence Index" />
           <div className="border border-[var(--color-line)] rounded-lg p-5 text-[13px] text-neutral-600 leading-relaxed max-w-3xl">
             <p>
               The <strong>Intelligence Index</strong> is a composite benchmark aggregating nine challenging evaluations to provide
@@ -570,10 +567,7 @@ export default function ModelsPage() {
 
         {/* Highlights */}
         <section className="mb-12">
-          <div className="flex items-baseline gap-3 mb-5 flex-wrap">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>
-          </div>
+          <SectionHeader kicker="Top of the class" title="Highlights" />
           <div className="flex gap-4 flex-wrap mb-4">
             <BarChart
               title="Intelligence"
@@ -627,22 +621,20 @@ export default function ModelsPage() {
 
         {/* AA-style charts */}
         <section className="mb-12">
-          <div className="flex items-baseline gap-3 mb-5 flex-wrap">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Token Use, Cost, Context &amp; Speed</h2>
-            <span className="text-[11px] text-neutral-400">synced from Artificial Analysis</span>
-          </div>
+          <SectionHeader
+            kicker="Synced from Artificial Analysis"
+            title="Token Use, Cost, Context &amp; Speed"
+          />
           <AAModelCharts models={models} />
         </section>
 
         {/* Table */}
         <section>
-          <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
-            <div className="flex items-baseline gap-3">
-              <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-              <h2 className="text-lg font-semibold tracking-tight">All Models</h2>
-              <span className="text-[11px] text-neutral-400">{opennessFiltered.length} models</span>
-            </div>
+          <SectionHeader
+            kicker="Comparison"
+            title="All Models"
+            right={<span className="text-[12px] text-[var(--dim)] tabular-nums">{opennessFiltered.length} models</span>}
+          />
             <div className="flex gap-1 flex-wrap">
               {([
                 ['intelligence', 'Intelligence', 'desc' as SortDir],
@@ -673,7 +665,6 @@ export default function ModelsPage() {
                 onChange={v => setOpenness(v as Openness)}
               />
             </div>
-          </div>
 
           <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
             <div className="overflow-x-auto no-scrollbar">

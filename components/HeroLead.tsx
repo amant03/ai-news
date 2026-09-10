@@ -23,28 +23,26 @@ export default function HeroLead({ items }: HeroLeadProps) {
 function Card({ item }: { item: NewsItem }) {
   const color = CATEGORY_COLOR[item.category] || '#6b7280';
   return (
-    <article className="group flex flex-col rounded-lg border border-[var(--color-line)] p-4 hover:border-neutral-300 transition-colors">
+    <article className="group flex flex-col rounded-xl border border-[var(--color-line)] p-4 panel-hover">
       <div className="flex items-center gap-2 mb-2">
-        <span
-          className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
-          style={{ backgroundColor: `${color}12`, color }}
-        >
+        <span className="dot" style={{ backgroundColor: color }} />
+        <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--mut)]">
           {CATEGORY_LABEL[item.category] || item.category}
         </span>
-        <span className="text-[11px] text-neutral-400">{timeAgo(item.published_at)}</span>
+        <span className="text-[11px] text-[var(--dim)] ml-auto">{timeAgo(item.published_at)}</span>
       </div>
       <h3 className="text-[15px] font-medium leading-snug tracking-tight mb-3">
         <a
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black hover:text-violet-600 transition-colors line-clamp-2"
+          className="text-[var(--fore)] hover:underline decoration-[var(--mut)]/50 underline-offset-2 line-clamp-2"
         >
           {item.title}
         </a>
       </h3>
-      <div className="mt-auto flex items-center gap-2 text-[11px] text-neutral-400">
-        <span className="font-medium text-neutral-600">{item.source_label || item.source}</span>
+      <div className="mt-auto flex items-center gap-2 text-[11px] text-[var(--dim)]">
+        <span className="font-medium text-[var(--mut)]">{item.source_label || item.source}</span>
         <StoryMetrics item={item} />
       </div>
     </article>

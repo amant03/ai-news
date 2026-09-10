@@ -25,10 +25,10 @@ interface DomainBarProps {
 export default function DomainBar({ selected, counts, onChange }: DomainBarProps) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-      <div className="flex items-center gap-2 shrink-0">
-        <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-        <h2 className="text-lg font-semibold tracking-tight">Who&apos;s reading?</h2>
-      </div>
+      <h2 className="text-[15px] font-semibold tracking-tight text-[var(--fore)] shrink-0">
+        Who&apos;s reading?
+        <span className="ml-2 text-[11px] font-normal text-[var(--dim)]">Pick your lens</span>
+      </h2>
       <div className="flex items-center gap-2 flex-wrap" role="group" aria-label="Choose your view">
         {DOMAIN_OPTIONS.map(opt => {
           const active = selected === opt.value;

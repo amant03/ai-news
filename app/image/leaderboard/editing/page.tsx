@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Header from '@/components/Header';
+import SectionHeader from '@/components/SectionHeader';
 import data from '@/data/image-editing-models.json';
 import SortableTh from '@/components/SortableTh';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
@@ -220,10 +221,7 @@ export default function ImageEditingLeaderboard() {
 
         {/* FAQ */}
         <section className="mt-12">
-          <div className="flex items-baseline gap-3 mb-5">
-            <span className="w-5 h-5 bg-black rounded-sm shrink-0" />
-            <h2 className="text-lg font-semibold tracking-tight">Frequently Asked Questions</h2>
-          </div>
+          <SectionHeader kicker="Answers" title="Frequently Asked Questions" rule={false} />
           <div className="space-y-4 max-w-3xl">
             {[
               {

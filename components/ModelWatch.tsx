@@ -252,7 +252,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
       <div className="surface rounded-2xl p-5 space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="font-display font-medium text-sm uppercase tracking-widest">Model Leaderboard</h2>
-          <span className="h-2 w-2 rounded-full bg-[var(--accent)]/60 animate-pulse" />
+          <span className="h-2 w-2 rounded-full bg-[var(--fore)]/50 animate-pulse" />
         </div>
         <div className="skeleton h-64 rounded-xl" />
       </div>
@@ -292,7 +292,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
               onClick={() => setTab(t.key)}
               className={`ring-focus rounded-full px-4 py-2 text-[13px] font-medium transition-all ${
                 tab === t.key
-                  ? 'bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/40'
+                  ? 'bg-[var(--fore)] text-[var(--background)] border border-transparent'
                   : 'border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)]'
               }`}
             >
@@ -404,7 +404,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
                           key={m.id}
                           onClick={() => setSelectedId(m.id)}
                           className={`group cursor-pointer transition-colors border-l-[3px] ${
-                            isActive ? 'bg-[var(--accent)]/8 border-l-[var(--accent)]' : 'hover:bg-[var(--input)]/40'
+                            isActive ? 'bg-[var(--surface)] border-l-[var(--fore)]' : 'hover:bg-[var(--surface)]'
                           }`}
                           style={!isActive ? { borderLeftColor: color } : undefined}
                         >
@@ -503,7 +503,7 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
 
         {/* Selected model detail — AA-style model analysis */}
         {selected && (
-          <div className="mt-5 rounded-xl border border-[var(--accent)]/20 bg-[var(--accent)]/5 p-4 sm:p-5">
+          <div className="mt-5 rounded-xl border border-[var(--color-line)] bg-[var(--surface)] p-4 sm:p-5">
             <ModelDetail
               model={selected}
               pool={filtered}

@@ -91,11 +91,11 @@ export default function Header({
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-line)]" style={{ background: 'var(--header-bg)', backdropFilter: 'blur(12px)' }}>
       <div className="max-w-[1400px] mx-auto px-5">
-        <div className="flex items-center justify-between gap-4 h-14">
+        <div className="flex items-center justify-between gap-4 h-12">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 shrink-0" aria-label="AI Pulse home">
-            <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
-              <span className="text-white font-bold text-xs">AI</span>
+            <div className="w-7 h-7 rounded-lg bg-[var(--fore)] flex items-center justify-center">
+              <span className="text-[var(--background)] font-bold text-[10px] tracking-tight">AI</span>
             </div>
             <span className="font-semibold text-sm tracking-tight hidden sm:block">AI Pulse</span>
           </a>

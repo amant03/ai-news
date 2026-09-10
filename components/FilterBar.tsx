@@ -73,21 +73,21 @@ export default function FilterBar({
       <div className="no-scrollbar flex items-center gap-1.5 overflow-x-auto">
         {CAT_ORDER.map(cat => {
           const count = categories.find(c => c.value === cat)?.count ?? 0;
-          const color = cat === 'all' ? '#94a3b8' : CATEGORY_COLOR[cat as Category];
+          const color = cat === 'all' ? '#9aa0a9' : CATEGORY_COLOR[cat as Category];
           const active = selectedCategory === cat;
           return (
             <button
               key={cat}
               onClick={() => onCategoryChange(cat as Category | 'all')}
-              className={`ring-focus text-xs px-3 py-1.5 rounded-full border flex-shrink-0 transition-all ${
+              className={`ring-focus inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border flex-shrink-0 transition-all ${
                 active
-                  ? 'text-[var(--bg-body)] font-semibold border-transparent'
+                  ? 'bg-[var(--fore)] text-[var(--background)] font-semibold border-transparent'
                   : 'text-[var(--mut)] border-[var(--color-line)] hover:text-[var(--fore)] hover:border-[var(--mut)]'
               }`}
-              style={active ? { backgroundColor: color } : undefined}
             >
+              <span className="dot !w-1.5 !h-1.5" style={{ backgroundColor: active ? 'currentColor' : color }} />
               {CATEGORY_LABEL[cat as Category] || 'All'}
-              {count > 0 && <span className={`ml-1.5 text-[10px] ${active ? 'opacity-70' : 'opacity-50'}`}>{count}</span>}
+              {count > 0 && <span className={`text-[10px] tabular-nums ${active ? 'opacity-80' : 'opacity-60'}`}>{count}</span>}
             </button>
           );
         })}
