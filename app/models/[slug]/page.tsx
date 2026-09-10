@@ -267,7 +267,7 @@ export default async function ModelDetailPage({ params }: Props) {
   const summaryBits: string[] = [];
   if (intelScore != null) {
     summaryBits.push(
-      `${model.name} scores ${intelScore} on the Artificial Analysis Intelligence Index${intelRank ? `, placing it #${intelRank} of ${classTotal} ${classBasis} (median: ${intelMed})` : ''} — ${vsMedian(intelScore, intelMed)} for its class.`
+      `${model.name} scores ${Math.round(intelScore)} on the Artificial Analysis Intelligence Index${intelRank ? `, placing it #${intelRank} of ${classTotal} ${classBasis} (median: ${intelMed})` : ''} — ${vsMedian(intelScore, intelMed)} for its class.`
     );
   }
   if (priceLine) summaryBits.push(`Pricing is ${priceLine}.`);
@@ -278,7 +278,7 @@ export default async function ModelDetailPage({ params }: Props) {
   }
   if (speed != null) {
     summaryBits.push(
-      `At ${speed} tokens per second${speedRank ? ` (rank #${speedRank} of ${speedPool.length})` : ''}, it is ${speedMed != null && speed >= speedMed * 1.25 ? 'notably fast' : speedMed != null && speed >= speedMed * 0.9 ? 'about average speed' : 'slower than average'} (class median: ${speedMed}/s).`
+      `At ${Math.round(speed * 10) / 10} tokens per second${speedRank ? ` (rank #${speedRank} of ${speedPool.length})` : ''}, it is ${speedMed != null && speed >= speedMed * 1.25 ? 'notably fast' : speedMed != null && speed >= speedMed * 0.9 ? 'about average speed' : 'slower than average'} (class median: ${speedMed}/s).`
     );
   }
   if (verbosity != null) {
@@ -425,7 +425,7 @@ export default async function ModelDetailPage({ params }: Props) {
                   {intelRank != null && (
                     <div className="text-[12px] font-medium text-[var(--mut)] tabular-nums">#{intelRank} / {classTotal}</div>
                   )}
-                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)] mt-0.5">{intelScore}</div>
+                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)] mt-0.5">{Math.round(intelScore)}</div>
                   <div className="text-[11px] text-[var(--mut)] mt-1">Artificial Analysis Intelligence Index</div>
                   <UnitBars filled={intelUnits} color="var(--aa-purple)" />
                   <div className="text-[10px] text-[var(--dim)] mt-1">{intelUnits} of 4 units for Intelligence</div>
@@ -442,7 +442,7 @@ export default async function ModelDetailPage({ params }: Props) {
                   {speedRank != null && (
                     <div className="text-[12px] font-medium text-[var(--mut)] tabular-nums">#{speedRank} / {speedPool.length}</div>
                   )}
-                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)] mt-0.5">{speed}</div>
+                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)] mt-0.5">{Math.round(speed * 10) / 10}</div>
                   <div className="text-[11px] text-[var(--mut)] mt-1">Output tokens per second</div>
                   <UnitBars filled={speedUnits} color="#34a853" />
                   <div className="text-[10px] text-[var(--dim)] mt-1">{speedUnits} of 4 units for Speed</div>
@@ -550,7 +550,7 @@ export default async function ModelDetailPage({ params }: Props) {
               </div>
               {intelScore != null ? (
                 <>
-                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{intelScore} <span className="text-[13px] font-normal text-[var(--mut)]">/ 100</span></div>
+                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{Math.round(intelScore)} <span className="text-[13px] font-normal text-[var(--mut)]">/ 100</span></div>
                   <div className="mt-3 h-1.5 bg-[var(--input)] rounded-full overflow-hidden">
                     <div className="h-full rounded-full" style={{ width: `${Math.min(100, intelScore)}%`, background: 'var(--aa-purple)' }} />
                   </div>
