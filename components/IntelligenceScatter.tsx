@@ -23,7 +23,7 @@ function costPerTask(m: ModelRecord): number | null {
  * quadrant (high index, low cost), red stepped line = Pareto frontier.
  * Open-weights models are hollow circles; proprietary are filled.
  */
-export default function IntelligenceScatter({ limit = 80 }: { limit?: number }) {
+export default function IntelligenceScatter({ limit = 80, highlightId }: { limit?: number; highlightId?: string }) {
   const [models, setModels] = useState<ModelRecord[]>([]);
 
   useEffect(() => {
@@ -129,15 +129,18 @@ export default function IntelligenceScatter({ limit = 80 }: { limit?: number }) 
             <Line data={pareto} dataKey="intel" stroke="#ef4444" strokeWidth={1.5} dot={false} />
           )}
           <Scatter data={data}>
-            {data.map((d, i) => (
-              <Cell
-                key={i}
-                fill={d.open ? 'transparent' : 'var(--fore)'}
-                stroke={d.open ? 'var(--fore)' : 'none'}
-                strokeWidth={1.5}
-                r={d.open ? 5 : 4}
-              />
-            ))}
+            {data.map((d, i) => {
+              const hl = highlightId != null && d.id === highlightId;
+              return (
+                <Cell
+                  key={i}
+                  fill={hl ? '#7f4bf3' : d.open ? 'transparent' : 'var(--fore)'}
+                  stroke={hl ? '#ffffff' : d.open ? 'var(--fore)' : 'none'}
+                  strokeWidth={hl ? 2 : 1.5}
+                  r={hl ? 7 : d.open ? 5 : 4}
+                />
+              );
+            })}
           </Scatter>
         </ComposedChart>
       </ResponsiveContainer>

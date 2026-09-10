@@ -41,7 +41,7 @@ export default function VerticalBarChart({
   valueLabel,
   valueFormat = fmt,
   maxBars = 12,
-  height = 280,
+  height = 300,
   selectedId,
   onSelect,
   sortDir,
@@ -51,12 +51,20 @@ export default function VerticalBarChart({
   if (trimmed.length === 0) return null;
 
   const maxVal = Math.max(...trimmed.map(d => d.value), 1);
-  const pad = { top: 32, right: 12, bottom: 80, left: 12 };
+  // Roomy bottom/left padding so the -45° x-labels always fit inside the
+  // viewport (they used to overflow and get clipped by overflow-hidden).
+  const pad = { top: 32, right: 16, bottom: 118, left: 56 };
   const W = Math.max(400, trimmed.length * 56);
   const innerH = height - pad.top - pad.bottom;
   const barW = Math.min(36, (W - pad.left - pad.right) / trimmed.length * 0.55);
   const gap = (W - pad.left - pad.right - barW * trimmed.length) / (trimmed.length + 1);
   const dirLabel = sortDir === 'asc' ? '▲ low→high' : '▼ high→low';
+  // X-label geometry: dot just under the axis, label anchored at +16 and
+  // running down-left at 45°. Truncated to 20 chars so the worst case
+  // (~70px run) stays inside the padded viewport on every bar.
+  const dotY = pad.top + innerH + 10;
+  const labelY = pad.top + innerH + 16;
+  const shortLabel = (s: string) => (s.length > 20 ? s.slice(0, 19) + '…' : s);
 
   return (
     <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5 overflow-hidden">
@@ -80,7 +88,7 @@ export default function VerticalBarChart({
         <svg
           viewBox={`0 0 ${W} ${height}`}
           className="w-full"
-          style={{ minWidth: W > 400 ? 400 : undefined, height }}
+          style={{ minWidth: W > 400 ? 400 : undefined, height: 'auto', display: 'block' }}
           role="img"
           aria-label={`${title} chart`}
         >
@@ -94,11 +102,11 @@ export default function VerticalBarChart({
                   y1={yy}
                   x2={W - pad.right}
                   y2={yy}
-                  stroke="var(--color-line)"
                   strokeWidth="0.5"
                   strokeDasharray="2 4"
+                  style={{ stroke: 'var(--color-line)' }}
                 />
-                <text x={pad.left - 6} y={yy + 3} textAnchor="end" fontSize="10" fill="var(--dim)">
+                <text x={pad.left - 6} y={yy + 3} textAnchor="end" fontSize="10" style={{ fill: 'var(--dim)' }}>
                   {(maxVal * frac).toFixed(0)}
                 </text>
               </g>
@@ -133,25 +141,25 @@ export default function VerticalBarChart({
                   textAnchor="middle"
                   fontSize="11"
                   fontWeight="600"
-                  fill={isActive ? 'var(--fore)' : 'var(--mut)'}
+                  style={{ fill: isActive ? 'var(--fore)' : 'var(--mut)' }}
                 >
                   {valueFormat(d.value)}
                 </text>
 
                 {/* Provider dot */}
-                <circle cx={x + barW / 2} cy={pad.top + innerH + 12} r="3" fill={d.color} />
+                <circle cx={x + barW / 2} cy={dotY} r="3" fill={d.color} />
 
-                {/* Model name (rotated) */}
+                {/* Model name (angled to fit) */}
                 <text
                   x={x + barW / 2}
-                  y={pad.top + innerH + 22}
+                  y={labelY}
                   textAnchor="end"
                   fontSize="10"
-                  fill={isActive ? 'var(--fore)' : 'var(--mut)'}
+                  style={{ fill: isActive ? 'var(--fore)' : 'var(--mut)' }}
                   fontWeight={isActive ? '600' : '400'}
-                  transform={`rotate(-40 ${x + barW / 2} ${pad.top + innerH + 22})`}
+                  transform={`rotate(-45 ${x + barW / 2} ${labelY})`}
                 >
-                  {d.label.length > 22 ? d.label.slice(0, 20) + '…' : d.label}
+                  {shortLabel(d.label)}
                 </text>
               </g>
             );

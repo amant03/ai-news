@@ -4,9 +4,10 @@ import path from 'path';
 /**
  * Artificial Analysis model data scraper.
  *
- * Tries to scrape https://artificialanalysis.ai/models for model rankings
- * (intelligence index, speed, cost-per-task). Falls back to data/aa-models.json
- * seed data when the live scrape fails.
+ * Parses the JSON-LD benchmark datasets embedded in
+ * https://artificialanalysis.ai/models (intelligence, speed, cost per task,
+ * verbosity, pricing, context, params). Falls back to legacy HTML table
+ * parsing, then to data/aa-models.json seed data when the live scrape fails.
  */
 
 export interface AAModelEntry {
@@ -16,6 +17,13 @@ export interface AAModelEntry {
   speed: number | null;
   costPerTask: number | null;
   verbosity: number | null;
+  /** Canonical context label, e.g. "256K", "1M". Set when known. */
+  context?: string;
+  /** Parameter count label, e.g. "125B". Set when known. */
+  params?: string;
+  /** USD per 1M tokens. Set when known. */
+  promptPrice?: number;
+  completionPrice?: number;
 }
 
 const AA_MODELS_URL = 'https://artificialanalysis.ai/models';
@@ -26,6 +34,90 @@ const AA_HEADERS: Record<string, string> = {
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'en-US,en;q=0.9',
 };
+
+function trimNum(v: number): string {
+  return String(Math.round(v * 10) / 10);
+}
+
+function ldNum(v: unknown): number | null {
+  if (typeof v === 'number' && isFinite(v)) return v;
+  return null;
+}
+
+function ldPricingProp(row: Record<string, unknown>, name: string): number | null {
+  const list = row.pricing;
+  if (!Array.isArray(list)) return null;
+  const hit = list.find((e: unknown) => typeof e === 'object' && e !== null && (e as Record<string, unknown>).name === name);
+  return hit ? ldNum((hit as Record<string, unknown>).value) : null;
+}
+
+/**
+ * Parse the JSON-LD benchmark datasets embedded in the AA /models page.
+ * Each dataset looks like {name, data: [{label, detailsUrl, <metric>: value}]}.
+ * Returns one entry per label (first value wins per metric).
+ */
+function parseAADatasets(html: string): AAModelEntry[] {
+  const byLabel = new Map<string, AAModelEntry>();
+  const get = (label: string): AAModelEntry => {
+    let e = byLabel.get(label);
+    if (!e) {
+      e = { name: label, provider: '', intelligenceIndex: null, speed: null, costPerTask: null, verbosity: null };
+      byLabel.set(label, e);
+    }
+    return e;
+  };
+
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)];
+  for (const m of blocks) {
+    let d: { name?: unknown; data?: unknown };
+    try {
+      d = JSON.parse(m[1]);
+    } catch {
+      continue;
+    }
+    if (!d || !Array.isArray(d.data)) continue;
+    const name = String(d.name || '');
+    for (const r of d.data as Array<Record<string, unknown>>) {
+      const label = String(r.label || '').trim();
+      if (!label) continue;
+      const e = get(label);
+      const keep = (cur: number | null, v: number | null) => cur ?? v ?? null;
+      if (name === 'Intelligence' || name.startsWith('Artificial Analysis Intelligence Index')) {
+        e.intelligenceIndex = keep(e.intelligenceIndex, ldNum(r.intelligenceIndex ?? r.artificialAnalysisIntelligenceIndex));
+      } else if (name === 'Speed' || name === 'Output Speed') {
+        e.speed = keep(e.speed, ldNum(r.outputSpeed ?? r.medianOutputSpeed));
+      } else if (name === 'Cost per Task') {
+        e.costPerTask = keep(e.costPerTask, ldNum(r.costPerIntelligenceIndexTask));
+      } else if (name === 'Cost per Intelligence Index Task') {
+        const sum = ['answer', 'reasoning', 'cacheWrite', 'cacheHit'].reduce((a, k) => a + (ldNum(r[k]) ?? 0), 0);
+        if (sum > 0) e.costPerTask = keep(e.costPerTask, sum);
+      } else if (name === 'Output Tokens per Intelligence Index Task') {
+        const total = (ldNum(r.answer) ?? 0) + (ldNum(r.reasoning) ?? 0);
+        if (total > 0) e.verbosity = keep(e.verbosity, Math.round(total));
+      } else if (name.startsWith('Pricing:')) {
+        const inp = ldPricingProp(r, 'inputPrice');
+        const out = ldPricingProp(r, 'outputPrice');
+        if (inp != null && e.promptPrice == null) e.promptPrice = inp;
+        if (out != null && e.completionPrice == null) e.completionPrice = out;
+      } else if (name === 'Context Window') {
+        const t = ldNum(r.contextWindowTokens);
+        if (t != null && e.context == null) {
+          e.context = t >= 1_000_000 ? `${trimNum(t / 1_000_000)}M` : `${trimNum(t / 1_000)}K`;
+        }
+      } else if (name.startsWith('Model Size')) {
+        const a = ldNum(r.activeParams);
+        const p = ldNum(r.passiveParams);
+        if (a != null && p != null && e.params == null) {
+          const total = a + p;
+          e.params = total >= 1000 ? `${trimNum(total / 1000)}T` : `${Math.round(total)}B`;
+        }
+      }
+    }
+  }
+  return [...byLabel.values()].filter(
+    e => e.intelligenceIndex != null || e.speed != null || e.costPerTask != null || e.verbosity != null
+  );
+}
 
 /**
  * Attempt to scrape AA models page HTML and extract structured model data.
@@ -155,10 +247,29 @@ function loadSeedData(): AAModelEntry[] {
 }
 
 /**
- * Fetch Artificial Analysis model data. Tries live scrape first,
- * falls back to seed file on failure.
+ * Fetch Artificial Analysis model data. Tries the embedded JSON-LD datasets
+ * first (fresh intelligence/speed/cost/verbosity/pricing per model), falls
+ * back to legacy HTML table parsing, then to seed data on failure.
  */
 export async function fetchAAData(): Promise<AAModelEntry[]> {
+  try {
+    const res = await fetch(AA_MODELS_URL, {
+      signal: AbortSignal.timeout(30_000),
+      headers: AA_HEADERS,
+    });
+    if (res.ok) {
+      const html = await res.text();
+      const fromDatasets = parseAADatasets(html);
+      if (fromDatasets.length >= 5) {
+        console.log(`   [aa-scraper] Parsed ${fromDatasets.length} models from embedded datasets`);
+        return fromDatasets;
+      }
+      console.log('   [aa-scraper] Embedded datasets too thin, trying legacy table parse');
+    }
+  } catch (err) {
+    console.log(`   [aa-scraper] Dataset fetch failed: ${err instanceof Error ? err.message : err}`);
+  }
+
   try {
     const scraped = await scrapeAAHtml();
     if (scraped.length > 0) {
@@ -186,7 +297,8 @@ const OPEN_SERIES = [
   'aya', 'bloom', 'falcon', 'mpt', 'command-r', 'zephyr', 'solar',
   'internlm', 'starling', 'tulu', 'aya', 'smol', 'codeqwen', 'qwq',
   'mathstral', 'devstral', 'codestral', 'minicpm', 'marco', 'bakllava',
-  'llava', 'vila', 'openbmb', 'kimi-k2',
+  'llava', 'vila', 'openbmb', 'kimi-k2', 'gpt-oss', 'muse ',
+  'muse-', 'llama-', 'hunyuan', 'doubao', 'seed-',
 ];
 const OPEN_PROVIDERS = [
   'alibaba', 'deepseek', 'meta', 'hugging face', 'mistral ai',
@@ -201,6 +313,45 @@ function detectFamily(name: string, provider: string): 'open-weights' | 'closed'
   if (OPEN_SERIES.some(s => n.includes(s))) return 'open-weights';
   if (OPEN_PROVIDERS.some(s => p.includes(s))) return 'open-weights';
   return 'closed';
+}
+
+/**
+ * Infer the provider lab from a model name for records scraped without
+ * provider attribution (AA chart datasets carry labels only).
+ */
+const PROVIDER_SERIES: Array<[string, string]> = [
+  ['gpt', 'OpenAI'], ['openai', 'OpenAI'], ['codex', 'OpenAI'],
+  ['o1', 'OpenAI'], ['o3', 'OpenAI'], ['o4', 'OpenAI'],
+  ['claude', 'Anthropic'], ['fable', 'Anthropic'], ['anthropic', 'Anthropic'],
+  ['gemini', 'Google'], ['gemma', 'Google'], ['google', 'Google'],
+  ['deepseek', 'DeepSeek'],
+  ['qwen', 'Qwen'], ['qwq', 'Qwen'],
+  ['kimi', 'Moonshot'], ['moonshot', 'Moonshot'],
+  ['glm', 'Zhipu'], ['zhipu', 'Zhipu'], ['chatglm', 'Zhipu'],
+  ['llama', 'Meta'], ['muse', 'Meta'], ['meta', 'Meta'],
+  ['mistral', 'Mistral'], ['devstral', 'Mistral'], ['codestral', 'Mistral'], ['mixtral', 'Mistral'],
+  ['grok', 'xAI'], ['xai', 'xAI'],
+  ['minimax', 'MiniMax'],
+  ['hunyuan', 'Tencent'], ['tencent', 'Tencent'],
+  ['doubao', 'ByteDance'], ['seed-', 'ByteDance'], ['bytedance', 'ByteDance'],
+  ['ernie', 'Baidu'], ['baidu', 'Baidu'],
+  ['yi-', '01.AI'], ['command', 'Cohere'], ['aya', 'Cohere'], ['cohere', 'Cohere'],
+  ['phi', 'Microsoft'], ['microsoft', 'Microsoft'], ['mai-', 'Microsoft'],
+  ['granite', 'IBM'], ['nova', 'Amazon'], ['amazon', 'Amazon'],
+  ['nemotron', 'NVIDIA'], ['nvidia', 'NVIDIA'],
+  ['solar', 'Upstage'], ['reka', 'Reka'], ['inflect', 'Inflection'],
+  ['sonar', 'Perplexity'], ['perplexity', 'Perplexity'],
+  ['dbrx', 'Databricks'], ['snowflake', 'Snowflake'],
+  ['stablelm', 'Stability AI'], ['stability', 'Stability AI'],
+  ['falcon', 'TII'], ['smol', 'Hugging Face'], ['olmo', 'Allen AI'],
+];
+
+export function inferProvider(name: string): string {
+  const n = ` ${name.toLowerCase()} `;
+  for (const [series, provider] of PROVIDER_SERIES) {
+    if (n.includes(series)) return provider;
+  }
+  return '';
 }
 
 /**
@@ -226,7 +377,8 @@ export function mergeAAIntoModels(
     });
 
     if (existing) {
-      // AA is the authoritative benchmark source: always overwrite, never leave stale.
+      // AA is the authoritative benchmark source: always overwrite metrics,
+      // never leave stale. Descriptive fields only fill gaps.
       if (aa.intelligenceIndex !== null) {
         existing.intelligenceIndex = aa.intelligenceIndex;
         updated++;
@@ -243,22 +395,73 @@ export function mergeAAIntoModels(
         existing.aaVerbosity = aa.verbosity;
         updated++;
       }
+      if (aa.context != null && existing.context == null) {
+        existing.context = aa.context;
+        updated++;
+      }
+      if (aa.params != null && existing.params == null) {
+        existing.params = aa.params;
+        updated++;
+      }
+      if (aa.promptPrice != null && existing.promptPrice == null) {
+        existing.promptPrice = aa.promptPrice;
+        updated++;
+      }
+      if (aa.completionPrice != null && existing.completionPrice == null) {
+        existing.completionPrice = aa.completionPrice;
+        updated++;
+      }
     } else {
-      // Add as a new lightweight record.
+      // Add as a new lightweight record. Provider is inferred from the
+      // model name when the scrape carries labels only.
+      const provider = aa.provider || inferProvider(aa.name);
       models.push({
         id: `aa/${key.replace(/\s+/g, '-')}`,
         name: aa.name,
-        provider: aa.provider,
+        provider,
         source: 'aa',
-        family: detectFamily(aa.name, aa.provider),
+        family: detectFamily(aa.name, provider),
         intelligenceIndex: aa.intelligenceIndex,
         aaSpeed: aa.speed,
         aaCostPerTask: aa.costPerTask,
         aaVerbosity: aa.verbosity,
+        context: aa.context,
+        params: aa.params,
+        promptPrice: aa.promptPrice,
+        completionPrice: aa.completionPrice,
       });
       added++;
     }
   }
 
   return { updated, added };
+}
+
+// CLI entry point: live-refresh data/models-slim.json AA fields from a
+// fresh scrape (npx tsx lib/aa-scraper.ts). Used for manual refreshes;
+// CI runs the same merge inside refreshSlimOpenRouter every 4h.
+if (require.main === module) {
+  (async () => {
+    const { readSlimModelDatabase } = await import('./model-registry');
+    const slim = readSlimModelDatabase();
+    if (!slim) {
+      console.error('[aa-scraper] No data/models-slim.json found');
+      process.exit(1);
+    }
+    const aaData = await fetchAAData();
+    const merged = mergeAAIntoModels(
+      slim.models as unknown as Array<Record<string, unknown>>,
+      aaData
+    );
+    slim.updatedAt = new Date().toISOString();
+    const { writeFileSync, mkdirSync } = await import('fs');
+    const { join, dirname } = await import('path');
+    const fp = join(process.cwd(), 'data', 'models-slim.json');
+    mkdirSync(dirname(fp), { recursive: true });
+    writeFileSync(fp, JSON.stringify(slim, null, 2));
+    console.log(`[aa-scraper] slim refreshed: ${merged.updated} fields updated, ${merged.added} models added`);
+  })().then(() => process.exit(0)).catch(err => {
+    console.error('[aa-scraper] refresh failed:', err);
+    process.exit(1);
+  });
 }
