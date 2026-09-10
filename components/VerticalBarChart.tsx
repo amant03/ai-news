@@ -62,16 +62,19 @@ export default function VerticalBarChart({
   const maxVal = Math.max(...trimmed.map(d => d.value).filter(Number.isFinite), 1);
   const scaleLabel = `${formatValue(0)} – ${formatValue(maxVal)}`;
   // No Y-axis: only a little inset so bar-top values aren't clipped.
-  const pad = { top: 28, right: 10, bottom: 4, left: 10 };
+  const pad = { top: 28, right: 88, bottom: 4, left: 12 };
   const W = Math.max(360, trimmed.length * 48);
   const innerH = height - pad.top - pad.bottom;
   const barW = Math.min(36, ((W - pad.left - pad.right) / trimmed.length) * 0.55);
   const gap = (W - pad.left - pad.right - barW * trimmed.length) / (trimmed.length + 1);
   const dirLabel = sortDir === 'asc' ? '▲ low→high' : '▼ high→low';
-  const shortLabel = (s: string) => (s.length > 28 ? s.slice(0, 27) + '…' : s);
+  const shortLabel = (s: string) => {
+    const base = s.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+    return base.length > 22 ? base.slice(0, 21) + '…' : base;
+  };
 
   return (
-    <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5">
+    <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5 overflow-hidden">
       <div className="mb-3 flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <span className="text-xs uppercase tracking-widest text-[var(--mut)] block font-medium">{title}</span>
@@ -155,7 +158,7 @@ export default function VerticalBarChart({
           );
         })}
       </svg>
-      <div className="relative mt-1" style={{ height: 128 }}>
+      <div className="relative mt-1 overflow-visible" style={{ height: 136 }}>
         {trimmed.map((d, i) => {
           const cx = pad.left + gap + i * (barW + gap) + barW / 2;
           const isActive = d.highlight || d.id === selectedId;
@@ -176,8 +179,8 @@ export default function VerticalBarChart({
                   isActive ? 'font-semibold text-[var(--fore)]' : 'font-medium text-[var(--mut)]'
                 }`}
                 style={{
-                  transform: 'translateX(-100%) rotate(-45deg)',
-                  transformOrigin: 'right top',
+                  transform: 'rotate(45deg)',
+                  transformOrigin: 'left top',
                 }}
               >
                 {shortLabel(d.label)}
