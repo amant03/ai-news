@@ -137,7 +137,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!model) return { title: `Model not found · ${SITE_NAME}` };
   return {
     title: `${model.name} — Intelligence, Performance & Price Analysis`,
-    description: `${model.name} by ${model.provider}. Artificial Analysis Intelligence Index: ${model.intelligenceIndex ?? 'n/a'}. Pricing, context window, and benchmark analysis.`,
+    description: `${model.name} by ${model.provider}. Artificial Analysis Intelligence Index: ${model.intelligenceIndex != null ? Math.round(model.intelligenceIndex) : 'n/a'}. Pricing, context window, and benchmark analysis.`,
   };
 }
 
@@ -552,7 +552,7 @@ export default async function ModelDetailPage({ params }: Props) {
                 <>
                   <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{Math.round(intelScore)} <span className="text-[13px] font-normal text-[var(--mut)]">/ 100</span></div>
                   <div className="mt-3 h-1.5 bg-[var(--input)] rounded-full overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${Math.min(100, intelScore)}%`, background: 'var(--aa-purple)' }} />
+                    <div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.round(intelScore))}%`, background: 'var(--aa-purple)' }} />
                   </div>
                   <div className="text-[10px] text-[var(--dim)] mt-1.5">{intelUnits} of 4 units for Intelligence</div>
                 </>
