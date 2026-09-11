@@ -1,9 +1,42 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-11T19:08:15.719Z",
+    "lastUpdated": "2026-09-11T19:50:07.669Z",
     "count": 2500
   },
   "items": [
+    {
+      "source": "techcrunch",
+      "source_label": "TechCrunch",
+      "source_type": "rss",
+      "title": "Kimi-maker Moonshot AI targets $2 billion in annual revenue",
+      "summary": "While K3's usage figures have declined slightly in recent months, OpenRouter data currently shows as many as 300 billion tokens being generated each day by K3 models on the system.",
+      "content": "While K3's usage figures have declined slightly in recent months, OpenRouter data currently shows as many as 300 billion tokens being generated each day by K3 models on the system.",
+      "url": "https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/",
+      "author": "TechCrunch AI",
+      "category": "other",
+      "published_at": "Fri, 11 Sep 2026 19:35:54 +0000",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Adobe_Corporate_Logo.jpg/440px-Adobe_Corporate_Logo.jpg",
+      "source_detail": "TechCrunch AI",
+      "domain": "business",
+      "id": 1789156427718,
+      "created_at": "2026-09-11T19:50:02.475Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "reuters.com",
+      "source_type": "google",
+      "title": "US Senate negotiators consider requiring AI firms to mitigate known major risks",
+      "summary": "US Senate negotiators consider requiring AI firms to mitigate known major risks  reuters.com",
+      "content": "US Senate negotiators consider requiring AI firms to mitigate known major risks  reuters.com",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTVJFRjl0M2NxU3YtVmplOGp5YkNqcllYY0R0Y2xPV0ZaTU5fNElVVXl1WDI4NjRRRGtSNXlwanRTUjRFY2ZCTUdLcE52QTZyTnN4WDdKNGE1bWM0SDBBdmdpSUw4YXZ1WDNnZ1hGTzl1RVhodnhBZzFEVHJ1VlJUd3Q1Z3gwTUVIMGR3X1g4Q0ZkUUFLdTc2dnAzZzZzaEREYjg5SGltUTJrelRKdjJwQ2RZbUJzY0NjMjI0SFUyUTF3X18wZ2ZjSw?oc=5",
+      "author": "reuters.com",
+      "category": "other",
+      "published_at": "Fri, 11 Sep 2026 19:24:20 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1789156854965,
+      "created_at": "2026-09-11T19:50:03.941Z"
+    },
     {
       "source": "other",
       "source_label": "ScienceDaily AI",
@@ -68,6 +101,22 @@
       "domain": "tech",
       "id": 1789154502337,
       "created_at": "2026-09-11T19:08:12.979Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "CNBC",
+      "source_type": "google",
+      "title": "Former Google DeepMind research scientist Alex Turner: Concerned with extinction risk on AI",
+      "summary": "Former Google DeepMind research scientist Alex Turner: Concerned with extinction risk on AI  CNBC",
+      "content": "Former Google DeepMind research scientist Alex Turner: Concerned with extinction risk on AI  CNBC",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNdktkR29RTkhiNkc2MlRnUUlRZDNwazBHbk5VYzRVd24yYVFKdXFxbWhMQ3c0V2djMkpSM0ZsVDU1NXZTLVNxam1EUjhaRm5JN0xDbTBTNWY3VTBIbkxXZGRnQm1XcnJOZEpjVFplaU5WUDY2TGJXeEIxZnlvRjV6WEJGLUljMk52Umd1eU55X1h2VFpuc3JYM3lOSGJvMGlBUDVHTEJORHFiSDBDZDMtYTY0UTc0RDRYTk9zN09EWjVIVzloSUJ5S0JoSlVkUQ?oc=5",
+      "author": "CNBC",
+      "category": "research",
+      "published_at": "Fri, 11 Sep 2026 18:56:30 GMT",
+      "source_detail": "OpenAI OR Anthropic OR Google DeepMind OR Meta AI",
+      "domain": "research",
+      "id": 1789157100283,
+      "created_at": "2026-09-11T19:50:04.304Z"
     },
     {
       "source": "cnbc",
@@ -702,6 +751,22 @@
       "domain": "business",
       "id": 1789154218550,
       "created_at": "2026-09-11T19:08:11.194Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Smithsonian Magazine",
+      "source_type": "google",
+      "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
+      "summary": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?  Smithsonian Magazine",
+      "content": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?  Smithsonian Magazine",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxONGdkY2kxRnFTRm5lcHZNSXdzZmtTaHBHMjdlcnVjY1dLYzZpWUFmYnFCUkViQXNvS3pXU2dpQzVyejBaczJZX2k4N0w3dVRFcnQ1cU54ZWZ3dC1ISDVucHpDVUFBME1FUlE5dENINEdoTmp1OHJQbzNLSmt4VTAyMElRUFpIVmRvV25wUFQzaHkya2poeEdOTGdJQlI0NnFIN2x6MFVDYmNmNkxYb1dtQzAxTVpjT201MGFxckNmNUxFVlk?oc=5",
+      "author": "Smithsonian Magazine",
+      "category": "other",
+      "published_at": "Fri, 11 Sep 2026 13:31:01 GMT",
+      "source_detail": "artificial intelligence",
+      "domain": "general",
+      "id": 1789156529927,
+      "created_at": "2026-09-11T19:50:03.988Z"
     },
     {
       "source": "cnbc",
@@ -41669,72 +41734,6 @@
       "domain": "research",
       "id": 1788291296290,
       "created_at": "2026-09-01T19:21:29.133Z"
-    },
-    {
-      "source": "cnbc",
-      "source_label": "CNBC",
-      "source_type": "rss",
-      "title": "Anthropic changes data retention policy after pushback from customers",
-      "summary": "Anthropic's Enterprise Frontier Safeguards are a response to customer feedback.",
-      "content": "Anthropic's Enterprise Frontier Safeguards are a response to customer feedback.",
-      "url": "https://www.cnbc.com/2026/09/01/anthropic-data-retention.html",
-      "author": "CNBC AI",
-      "category": "policy",
-      "published_at": "Tue, 01 Sep 2026 18:29:17 GMT",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anthropic_logo.svg/440px-Anthropic_logo.svg.png",
-      "source_detail": "CNBC AI",
-      "domain": "general",
-      "id": 1788290836276,
-      "created_at": "2026-09-01T19:21:25.782Z"
-    },
-    {
-      "source": "the-verge",
-      "source_label": "The Verge",
-      "source_type": "rss",
-      "title": "Apple accuses OpenAI of destroying evidence",
-      "summary": "Apple is pushing for \"expedited discovery\" in its legal battle against OpenAI over concerns the company is actively destroying evidence, as reported earlier by Bloomberg. In a filing on Monday, Apple alleges OpenAI only just handed over a MacBook used by a former employee at the center of the lawsui",
-      "content": "Apple is pushing for \"expedited discovery\" in its legal battle against OpenAI over concerns the company is actively destroying evidence, as reported earlier by Bloomberg. In a filing on Monday, Apple alleges OpenAI only just handed over a MacBook used by a former employee at the center of the lawsuit, which contained discussions about \"destroying the types of forensic data Apple needs.\"\nThis is the latest development in Apple's lawsuit against OpenAI, which accuses the ChatGPT-maker of stealing trade secrets to build an AI device. The lawsuit revolves around three former Apple employees who recently joined OpenAI, including Chang Liu, who a …\nRead the full story at The Verge.",
-      "url": "https://www.theverge.com/tech/987575/apple-openai-destroying-evidence-trade-secrets-lawsuit",
-      "author": "The Verge AI",
-      "category": "policy",
-      "published_at": "2026-09-01T18:19:26.000Z",
-      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/STKS531_APPLE_V_OPEN_AI2_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-      "source_detail": "The Verge AI",
-      "domain": "general",
-      "id": 1788291097515,
-      "created_at": "2026-09-01T19:21:25.153Z"
-    },
-    {
-      "source": "google-news",
-      "source_label": "Business Insider",
-      "source_type": "google",
-      "title": "Meta is moving employees to Slack because it sees a better future for AI agents",
-      "summary": "Meta is moving employees to Slack because it sees a better future for AI agents  Business Insider",
-      "content": "Meta is moving employees to Slack because it sees a better future for AI agents  Business Insider",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNN01JSWdVSmxDR1FUVVNLQlpxQUh5eGp4YjhWbVJkcGRtem1PeS1Yb3g2WG1zb1JSVWlXMDVTbTlPU0NYdGRXSnFKWmJfeG5qel9NaWpwUzc5ZW5NeTdrQlZPbkU1b3UyWVVObGhnQ092Umt2T1liZG9uT3haMjBuZlpGMUJ6SEpfaWptcXRUekhRUHNO?oc=5",
-      "author": "Business Insider",
-      "category": "other",
-      "published_at": "Tue, 01 Sep 2026 18:19:06 GMT",
-      "source_detail": "OpenAI OR Anthropic OR Google DeepMind OR Meta AI",
-      "domain": "general",
-      "id": 1788290524224,
-      "created_at": "2026-09-01T19:21:28.379Z"
-    },
-    {
-      "source": "google-news",
-      "source_label": "Anthropic",
-      "source_type": "google",
-      "title": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
-      "summary": "Introducing Claude Fable 5.1 and Claude Mythos 5.1  Anthropic",
-      "content": "Introducing Claude Fable 5.1 and Claude Mythos 5.1  Anthropic",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE8wODA3NURfTHVDbUZnSE12Q3A0TFpvYjhDLU1rT1NVZ2xmM2Z0VWJPc1ZRM0RVVkpIckh6b0ROcXIxTHgzODZWYV9yekV1dTJiMk1KbkVWcThSeUYxcUpDUy1KZw?oc=5",
-      "author": "Anthropic",
-      "category": "model",
-      "published_at": "Tue, 01 Sep 2026 18:01:04 GMT",
-      "source_detail": "AI model release",
-      "domain": "tech",
-      "id": 1788290839117,
-      "created_at": "2026-09-01T19:21:27.890Z"
     }
   ]
 }
