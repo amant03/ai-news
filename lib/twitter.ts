@@ -179,22 +179,32 @@ function sortForModelSignal(items: NewsItem[]): NewsItem[] {
 export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
   console.log('  Fetching X/Twitter timelines (best-effort)...');
   const allItems: NewsItem[] = [];
+  // Hard internal budget: agent.ts kills the whole source at 60s, so stop
+  // starting new work at 45s and return partial results instead of nothing.
+  const DEADLINE = Date.now() + 45_000;
+  const outOfTime = () => Date.now() > DEADLINE;
 
   // Featured tweets go through X's public syndication API first — it doesn't
   // trip the jina rate-limit wall, so flagship model news always lands.
-  for (const t of FEATURED_TWEETS) {
-    try {
-      const item = await fetchFeaturedTweet(t);
-      if (item) {
-        console.log(`  ✓ featured @${t.username}: ${item.title.slice(0, 60)}...`);
-        allItems.push(item);
-      } else {
+  // Fetched in parallel: independent requests, ~5s instead of ~30s serial.
+  const featured = await Promise.all(
+    FEATURED_TWEETS.map(async t => {
+      try {
+        const item = await fetchFeaturedTweet(t);
+        if (item) {
+          console.log(`  ✓ featured @${t.username}: ${item.title.slice(0, 60)}...`);
+          return item;
+        }
         console.log(`  ⚠ featured @${t.username} returned nothing`);
+        return null;
+      } catch (error) {
+        console.log(`  ✗ featured @${t.username}: ${error instanceof Error ? error.message : 'error'}`);
+        return null;
       }
-    } catch (error) {
-      console.log(`  ✗ featured @${t.username}: ${error instanceof Error ? error.message : 'error'}`);
-    }
-    await new Promise(r => setTimeout(r, JINA_SPACING_MS));
+    })
+  );
+  for (const item of featured) {
+    if (item) allItems.push(item);
   }
 
   // Respect jina's free-tier rate limit: with no API key, scrape a focused
@@ -208,6 +218,10 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
   let consecutiveNitterFail = 0;
 
   for (const account of activeAccounts) {
+    if (outOfTime()) {
+      console.log(`   ⏹ X budget exhausted — keeping ${allItems.length} tweets, skipping remaining accounts`);
+      break;
+    }
     let items: NewsItem[] = [];
 
     // Nitter RSS is the primary path: fast, structured, no auth required.
@@ -232,7 +246,9 @@ export async function fetchTwitterTimeline(): Promise<NewsItem[]> {
     }
 
     // Last resort: headless browser (often hits the login wall — degrades gracefully).
-    if (items.length === 0 && shouldScrapeX()) {
+    // Opt-in only (X_PUPPETEER=true): a single puppeteer launch can eat 30s+,
+    // which blows the source budget and zeroes the whole X feed.
+    if (items.length === 0 && shouldScrapeX() && !outOfTime() && process.env.X_PUPPETEER === 'true') {
       console.log(`  Trying Puppeteer for @${account.username}...`);
       items = await scrapeWithPuppeteer(account);
     }
@@ -423,7 +439,9 @@ function parseCompact(value: string): number {
 async function fetchViaNitter(account: TwitterAccount): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
 
-  for (const instance of NITTER_INSTANCES) {
+  // Cap at 3 instances: dead instances fail at the 6s fetch timeout, and
+  // trying all 7 would burn 42s on a single account.
+  for (const instance of NITTER_INSTANCES.slice(0, 3)) {
     try {
       const res = await fetch(`${instance}/${account.username}/rss`, {
         signal: AbortSignal.timeout(6000),

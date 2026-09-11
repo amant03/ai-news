@@ -36,7 +36,7 @@ export default function LatestList({ items, dense = false }: LatestListProps) {
               </a>
             </h3>
             {fresh && <span className="tag-new hidden sm:inline-flex shrink-0">New</span>}
-            <div className="flex-shrink-0 flex items-center gap-2 text-[11px]">
+            <div className="flex-shrink-0 flex items-center gap-2 text-[11px] whitespace-nowrap">
               <span className="font-medium text-[var(--dim)] uppercase tracking-wider text-[10px]">
                 {item.source_label || item.source}
               </span>

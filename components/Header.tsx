@@ -46,9 +46,19 @@ export default function Header({
   const { theme, toggle } = useTheme();
   const [active, setActive] = useState('/');
   const [lastSync, setLastSync] = useState<string | null>(null);
+  const [stuck, setStuck] = useState(false);
 
   useEffect(() => {
     setActive(window.location.pathname);
+  }, []);
+
+  // Frost the floating bar once content starts sliding underneath it so the
+  // ticker never shows through the gaps between pills.
+  useEffect(() => {
+    const onScroll = () => setStuck(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -76,7 +86,13 @@ export default function Header({
   return (
     <header>
       <div className="max-w-[1400px] mx-auto px-5">
-        <div className="flex items-stretch justify-between gap-2 sm:gap-3">
+        <div
+          className={`flex items-stretch justify-between gap-2 sm:gap-3 rounded-[1.75rem] px-2 py-1.5 transition-all duration-200 ${
+            stuck
+              ? 'bg-[var(--background)]/85 backdrop-blur-xl border border-[var(--color-line)]/70 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)]'
+              : 'border border-transparent'
+          }`}
+        >
           {/* Logo pill */}
           <a
             href="/"
