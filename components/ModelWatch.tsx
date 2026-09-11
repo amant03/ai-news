@@ -367,7 +367,7 @@ export default function ModelWatch({
         {/* Leaderboard table — AA-style with colored row borders */}
         <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2.5 font-medium">LLM Leaderboard — Comparison</div>
         {filtered.length === 0 ? (
-          <p className="text-sm text-[var(--dim)] py-6 text-center">No models match &quot;{q}&quot;.</p>
+          <p className="text-sm text-[var(--mut)] py-6 text-center">No models match &quot;{q}&quot;.</p>
         ) : (
           <>
             <div className="overflow-hidden rounded-xl border border-[var(--color-line)]">
@@ -375,7 +375,7 @@ export default function ModelWatch({
                 <table className="w-full min-w-[820px] text-left">
                   <thead>
                     <tr className="border-b border-[var(--color-line)] bg-[var(--input)]/50">
-                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--dim)] font-medium w-10">#</th>
+                      <th className="px-4 py-3 text-[10px] uppercase tracking-widest text-[var(--mut)] font-medium w-10">#</th>
                       {COLUMNS.map(col => {
                         const active = colSort?.key === col.key;
                         return (
@@ -390,7 +390,7 @@ export default function ModelWatch({
                               onClick={() => setColSort(prev => toggleSort(prev, col.key, defaultSortDir(col.key)))}
                               title={`Sort by ${col.label}${active ? ' (toggle direction)' : ''}`}
                               className={`ring-focus inline-flex items-center gap-1 rounded transition-colors hover:text-[var(--fore)] group/col ${
-                                active ? 'text-[var(--cyan)]' : 'text-[var(--dim)]'
+                                active ? 'text-[var(--cyan)]' : 'text-[var(--mut)]'
                               } ${col.right ? 'justify-end' : ''}`}
                             >
                               {col.label}
@@ -419,7 +419,7 @@ export default function ModelWatch({
                           }`}
                           style={!isActive ? { borderLeftColor: color } : undefined}
                         >
-                          <td className="px-4 py-3 font-mono text-[11px] text-[var(--dim)] tabular-nums">{rank}</td>
+                          <td className="px-4 py-3 font-mono text-[11px] text-[var(--mut)] tabular-nums">{rank}</td>
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2 min-w-0">
                               <a
@@ -430,7 +430,7 @@ export default function ModelWatch({
                                 {m.name}
                               </a>
                               {isOpenModel(m) ? (
-                                <span className="flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--ok)]/30 text-[var(--ok)]">
+                                <span className="flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border border-[var(--ok-ink)]/30 text-[var(--ok-ink)]">
                                   open
                                 </span>
                               ) : (
@@ -473,7 +473,7 @@ export default function ModelWatch({
                 >
                   Prev
                 </button>
-                <span className="font-mono text-[11px] text-[var(--dim)]">
+                <span className="font-mono text-[11px] text-[var(--mut)]">
                   {safePage + 1} / {pageCount}
                 </span>
                 <button
@@ -493,7 +493,7 @@ export default function ModelWatch({
           <div className="mt-5 rounded-xl border border-[var(--color-line)] bg-[var(--input)]/30 overflow-hidden">
             <div className="px-4 pt-3 pb-1 flex items-center justify-between">
               <span className="text-xs uppercase tracking-widest text-[var(--mut)] font-medium">Intelligence vs Cost</span>
-              <span className="text-[11px] text-[var(--dim)] font-mono">best trade-off = up-left</span>
+              <span className="text-[11px] text-[var(--mut)] font-mono">best trade-off = up-left</span>
             </div>
             <ScatterChart
               points={scatterPoints}

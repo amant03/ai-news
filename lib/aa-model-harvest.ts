@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { parseAADatasets, mergeAAIntoModels, type AAModelEntry } from './aa-scraper';
+import { mergeAAIntoModels, type AAModelEntry } from './aa-scraper';
+import { parseJsonLdCharts, type AAParsedModel } from './aa-parse';
 import { readSlimModelDatabase, type SlimModel } from './model-registry';
 
 /**
@@ -123,7 +124,30 @@ async function main(): Promise<void> {
 
     consecutiveFails = 0;
     hits++;
-    const rows = parseAADatasets(html);
+    const rows: AAModelEntry[] = parseJsonLdCharts(html).map((m: AAParsedModel): AAModelEntry => ({
+      slug: m.slug,
+      name: m.name,
+      shortName: m.shortName,
+      provider: m.provider,
+      intelligenceIndex: m.intelligenceIndex ?? null,
+      speed: m.aaSpeed ?? null,
+      costPerTask: m.aaCostPerTask ?? null,
+      verbosity: m.aaVerbosity ?? null,
+      latency: m.aaLatency ?? null,
+      promptPrice: m.promptPrice ?? null,
+      completionPrice: m.completionPrice ?? null,
+      context: m.context,
+      params: m.params,
+      license: m.license,
+      released: m.released,
+      family: m.family,
+      isReasoning: m.isReasoning,
+      inputModalities: m.inputModalities,
+      outputModalities: m.outputModalities,
+      description: m.description,
+      evals: m.evals,
+      hostModelCount: m.hostModelCount,
+    }));
     console.log(`[harvest] HIT ${(m.name || '').slice(0, 40)} <- ${hitSlug} (${rows.length} rows)`);
     for (const r of rows) {
       pool.push(r);

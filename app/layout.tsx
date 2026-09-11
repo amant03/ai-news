@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, IBM_Plex_Mono, Fraunces } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
 import { ThemeProvider } from '@/lib/theme';
@@ -87,6 +89,8 @@ export default function RootLayout({
           {children}
           <FloatingChat />
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

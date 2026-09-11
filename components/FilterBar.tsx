@@ -87,7 +87,7 @@ export default function FilterBar({
             >
               <span className="dot !w-1.5 !h-1.5" style={{ backgroundColor: active ? 'currentColor' : color }} />
               {CATEGORY_LABEL[cat as Category] || 'All'}
-              {count > 0 && <span className={`text-[10px] tabular-nums ${active ? 'opacity-80' : 'opacity-60'}`}>{count}</span>}
+              {count > 0 && <span className="text-[10px] tabular-nums">{count}</span>}
             </button>
           );
         })}

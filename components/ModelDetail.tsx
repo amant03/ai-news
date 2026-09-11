@@ -149,7 +149,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
       <div className="flex flex-wrap items-center gap-2 text-[14px]">
         <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
         <span className="text-[var(--mut)]">{model.provider}</span>
-        <span className="text-[var(--dim)]">›</span>
+        <span className="text-[var(--mut)]">›</span>
         <span className="font-semibold text-[var(--fore)]">{model.name}</span>
         {model.family === 'open-weights' && (
           <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-[var(--ok)]/30 text-[var(--ok)]">Open Weights</span>
@@ -158,7 +158,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
           <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-[var(--violet)]/30 text-[var(--violet)]">Proprietary</span>
         )}
         {model.released && (
-          <span className="text-[12px] text-[var(--dim)]">Released {model.released.slice(0, 10)}</span>
+          <span className="text-[12px] text-[var(--mut)]">Released {model.released.slice(0, 10)}</span>
         )}
       </div>
 
@@ -227,66 +227,66 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[12px]">
           {model.context && (
             <div>
-              <span className="text-[var(--dim)]">Context Window</span>
+              <span className="text-[var(--mut)]">Context Window</span>
               <div className="font-mono text-[var(--fore)]">{model.context}</div>
             </div>
           )}
           {model.family && (
             <div>
-              <span className="text-[var(--dim)]">Weights</span>
+              <span className="text-[var(--mut)]">Weights</span>
               <div className="text-[var(--fore)]">{model.family === 'open-weights' ? 'Open' : 'Proprietary'}</div>
             </div>
           )}
           {model.released && (
             <div>
-              <span className="text-[var(--dim)]">Released</span>
+              <span className="text-[var(--mut)]">Released</span>
               <div className="font-mono text-[var(--fore)]">{model.released.slice(0, 10)}</div>
             </div>
           )}
           {finiteNum(model.promptPrice) !== undefined && (
             <div>
-              <span className="text-[var(--dim)]">Input Price</span>
+              <span className="text-[var(--mut)]">Input Price</span>
               <div className="font-mono text-[var(--fore)]">${model.promptPrice!.toFixed(2)}/1M</div>
             </div>
           )}
           {finiteNum(model.completionPrice) !== undefined && (
             <div>
-              <span className="text-[var(--dim)]">Output Price</span>
+              <span className="text-[var(--mut)]">Output Price</span>
               <div className="font-mono text-[var(--fore)]">${model.completionPrice!.toFixed(2)}/1M</div>
             </div>
           )}
           {model.params && (
             <div>
-              <span className="text-[var(--dim)]">Parameters</span>
+              <span className="text-[var(--mut)]">Parameters</span>
               <div className="text-[var(--fore)]">{model.params}</div>
             </div>
           )}
           {finiteNum(model.aaSpeed) !== undefined && (
             <div>
-              <span className="text-[var(--dim)]">Speed</span>
+              <span className="text-[var(--mut)]">Speed</span>
               <div className="font-mono text-[var(--fore)]">{model.aaSpeed!.toFixed(0)} t/s</div>
             </div>
           )}
           {finiteNum(model.aaCostPerTask) !== undefined && (
             <div>
-              <span className="text-[var(--dim)]">Cost / Index task</span>
+              <span className="text-[var(--mut)]">Cost / Index task</span>
               <div className="font-mono text-[var(--fore)]">${model.aaCostPerTask!.toFixed(2)}</div>
             </div>
           )}
           {finiteNum(model.aaVerbosity) !== undefined && (
             <div>
-              <span className="text-[var(--dim)]">Verbosity</span>
+              <span className="text-[var(--mut)]">Verbosity</span>
               <div className="font-mono text-[var(--fore)]">{fmtVerb(model.aaVerbosity)} tokens</div>
             </div>
           )}
           {model.license && (
             <div>
-              <span className="text-[var(--dim)]">License</span>
+              <span className="text-[var(--mut)]">License</span>
               <div className="text-[var(--fore)]">{model.license}</div>
             </div>
           )}
           <div>
-            <span className="text-[var(--dim)]">Input / Output</span>
+            <span className="text-[var(--mut)]">Input / Output</span>
             <div className="text-[var(--fore)]">text / text</div>
           </div>
         </div>
@@ -350,7 +350,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         <div className="rounded-xl border border-[var(--color-line)] bg-[var(--input)]/30 overflow-hidden">
           <div className="px-4 pt-3 pb-1 flex items-center justify-between">
             <span className="text-xs uppercase tracking-widest text-[var(--mut)] font-medium">Intelligence vs Cost</span>
-            <span className="text-[11px] text-[var(--dim)] font-mono">best trade-off = up-left</span>
+            <span className="text-[11px] text-[var(--mut)] font-mono">best trade-off = up-left</span>
           </div>
           <ScatterChart
             points={scatterPoints}
@@ -400,8 +400,8 @@ function SummaryCard({
   return (
     <div className="rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-5">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-[11px] uppercase tracking-widest text-[var(--dim)] font-medium">{label}</span>
-        <span className="text-[11px] font-mono text-[var(--dim)]">
+        <span className="text-[11px] uppercase tracking-widest text-[var(--mut)] font-medium">{label}</span>
+        <span className="text-[11px] font-mono text-[var(--mut)]">
           {total !== undefined ? `${rank} / ${total}` : rank}
         </span>
       </div>

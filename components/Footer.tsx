@@ -10,6 +10,7 @@ const EXPLORE = [
   { href: '/coding-agents', label: 'Coding Agents' },
   { href: '/trends', label: 'AI Trends' },
   { href: '/chat', label: 'Chat' },
+  { href: '/changelog', label: 'Changelog' },
 ];
 
 const MEDIA = [
@@ -65,7 +66,8 @@ function FooterNewsletter() {
 
   return (
     <form onSubmit={submit}>
-      <p className="text-sm font-medium mb-2">Get notified about new stories</p>
+      <p className="text-sm font-medium mb-1">One email a day — top 5 stories + biggest model release</p>
+      <p className="text-xs opacity-70 mb-2">Every morning. Unsubscribe anytime.</p>
       <div className="flex border border-current p-1.5 max-w-sm">
         <input
           type="email"

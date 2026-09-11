@@ -3,9 +3,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
-import HeroLead from '@/components/HeroLead';
+import Hero from '@/components/Hero';
+import TopStoriesGrid, { TopStoriesSkeleton } from '@/components/TopStoriesGrid';
+import ModelSpotlightStrip from '@/components/ModelSpotlightStrip';
+import WhatsChanged from '@/components/WhatsChanged';
 import LatestList from '@/components/LatestList';
-import DomainBar from '@/components/DomainBar';
 import ModelWatch from '@/components/ModelWatch';
 import LatestModels from '@/components/LatestModels';
 import SkeletonGrid from '@/components/Skeleton';
@@ -13,10 +15,11 @@ import SectionHeader from '@/components/SectionHeader';
 import Footer from '@/components/Footer';
 import { NewsItem, Category, Domain } from '@/lib/types';
 import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const AITrends = dynamic(() => import('@/components/AITrends'), {
   ssr: false,
-  loading: () => <div className="h-40 rounded-lg border border-[var(--color-line)] bg-[var(--surface)]" />,
+  loading: () => <div className="h-40 rounded-[var(--radius-lg)] border border-[var(--color-line)] bg-[var(--surface)]" />,
 });
 
 const POLL_MS = 60_000;
@@ -31,10 +34,20 @@ interface FacetsData {
 
 const EMPTY_FACETS: FacetsData = { sources: [], categories: [], types: [], domains: [] };
 
+function relAgo(iso: string | null): string | null {
+  if (!iso) return null;
+  const diff = Date.now() - new Date(iso).getTime();
+  if (diff < 60_000) return 'just now';
+  if (diff < 3_600_000) return `${Math.floor(diff / 60_000)}m ago`;
+  if (diff < 86_400_000) return `${Math.floor(diff / 3_600_000)}h ago`;
+  return `${Math.floor(diff / 86_400_000)}d ago`;
+}
+
 export default function Home({ children }: { children?: React.ReactNode }) {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [facets, setFacets] = useState<FacetsData>(EMPTY_FACETS);
   const [total, setTotal] = useState(0);
+  const [totalLoaded, setTotalLoaded] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -48,6 +61,8 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   const [onlineSources, setOnlineSources] = useState(0);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
   const [latestPage, setLatestPage] = useState(0);
+  const [syncedAgo, setSyncedAgo] = useState<string | null>(null);
+  const [modelCount, setModelCount] = useState<number | null>(null);
 
   const seenUrls = useRef<Set<string>>(new Set());
   const offsetRef = useRef(0);
@@ -81,6 +96,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           offsetRef.current += data.items.length;
           setHasMore(data.hasMore);
           setTotal(data.total);
+          setTotalLoaded(true);
         } else {
           setLoading(true);
           const res = await fetch(`/api/news?${buildParams()}`);
@@ -90,6 +106,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           offsetRef.current = data.items.length;
           setHasMore(data.hasMore);
           setTotal(data.total);
+          setTotalLoaded(true);
           setLastUpdated(new Date());
           if (data.facets?.sources) {
             setFacets(f => ({ sources: data.facets.sources, categories: data.facets.categories, types: f.types, domains: data.facets.domains || f.domains }));
@@ -115,11 +132,14 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           else if (leadingNew.length > 0) break;
         }
         if (leadingNew.length > 0) setNewItems(leadingNew);
-        setTotal(data.total ?? total);
+        if (typeof data.total === 'number') {
+          setTotal(data.total);
+          setTotalLoaded(true);
+        }
         setLastUpdated(new Date());
       }
     } catch { /* ignore */ } finally { pollBusy.current = false; }
-  }, [total]);
+  }, []);
 
   const pollStatus = useCallback(async () => {
     try {
@@ -130,6 +150,16 @@ export default function Home({ children }: { children?: React.ReactNode }) {
         setOnlineSources(entries.filter(s => s.ok).length);
       }
       if (data?.nextRun) setNextRefreshAt(new Date(data.nextRun));
+      const syncIso: string | null = data?.lastRun || data?.lastSuccess || null;
+      setSyncedAgo(relAgo(syncIso));
+    } catch { /* ignore */ }
+  }, []);
+
+  const pollModelCount = useCallback(async () => {
+    try {
+      const res = await fetch('/api/models?sort=intelligence&limit=1');
+      const data = await res.json();
+      if (typeof data?.catalog?.total === 'number') setModelCount(data.catalog.total);
     } catch { /* ignore */ }
   }, []);
 
@@ -137,7 +167,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem('ai-pulse-domain');
-      if (saved === 'business' || saved === 'tech' || saved === 'research') setSelectedDomain(saved);
+      if (saved === 'business' || saved === 'tech' || saved === 'research' || saved === 'general') setSelectedDomain(saved);
     } catch { /* ignore */ }
   }, []);
   useEffect(() => {
@@ -146,9 +176,9 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   useEffect(() => {
     const id = setInterval(poll, POLL_MS);
     const statusId = setInterval(pollStatus, POLL_MS);
-    const initialStatus = setTimeout(pollStatus, 0);
+    const initialStatus = setTimeout(() => { pollStatus(); pollModelCount(); }, 0);
     return () => { clearInterval(id); clearInterval(statusId); clearTimeout(initialStatus); };
-  }, [poll, pollStatus]);
+  }, [poll, pollStatus, pollModelCount]);
 
   const applyNew = () => {
     setNews(prev => {
@@ -166,8 +196,9 @@ export default function Home({ children }: { children?: React.ReactNode }) {
     catch { /* ignore */ } finally { setRefreshing(false); }
   };
 
-  const resetFilters = (source: string, category: Category | 'all', type: string) => {
-    setSelectedSource(source); setSelectedCategory(category); setSelectedType(type);
+  const resetFilters = () => {
+    setSelectedSource('all'); setSelectedCategory('all'); setSelectedType('all');
+    setSelectedDomain('all'); setSearch('');
     setNewItems([]); setLatestPage(0);
   };
 
@@ -184,61 +215,84 @@ export default function Home({ children }: { children?: React.ReactNode }) {
     return frontPageOrder(visible);
   }, [visible, search]);
 
-  const top10 = useMemo(() => {
+  const topStories = useMemo(() => {
     const q = search.trim();
-    if (q) return mainFeed.slice(0, 10);
-    return diversifiedTopStories(visible, 10);
+    if (q) return mainFeed.slice(0, 8);
+    return diversifiedTopStories(visible, 7);
   }, [visible, search, mainFeed]);
 
   const rest = useMemo(() => {
     const q = search.trim();
-    if (q) return mainFeed.slice(10);
-    const topUrls = new Set(top10.map(i => i.url));
+    if (q) return mainFeed.slice(8);
+    const topUrls = new Set(topStories.map(i => i.url));
     return mainFeed.filter(i => !topUrls.has(i.url));
-  }, [mainFeed, search, top10]);
+  }, [mainFeed, search, topStories]);
 
   const LATEST_PAGE_SIZE = 15;
   const latestPageCount = Math.max(1, Math.ceil(rest.length / LATEST_PAGE_SIZE));
   const safeLatestPage = Math.min(latestPage, latestPageCount - 1);
   const latestPageItems = rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE);
 
-  const domainCounts = useMemo(() => {
-    const counts: Partial<Record<Domain | 'all', number>> = { all: total };
-    for (const f of facets.domains) counts[f.value as Domain] = f.count;
-    return counts;
-  }, [facets.domains, total]);
+  void onlineSources;
+  void nextRefreshAt;
+  void refreshing;
+  void handleRefresh;
+  void lastUpdated;
 
   return (
     <div className="min-h-screen" id="top">
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         {children}
 
-        {/* Top Stories - full width */}
-        <section className="mb-10">
+        {/* 1. Hero band */}
+        <Hero
+          syncedAgo={syncedAgo}
+          storyCount={totalLoaded ? total : null}
+          modelCount={modelCount}
+          persona={selectedDomain}
+          onPersonaChange={d => { setSelectedDomain(d); setNewItems([]); setLatestPage(0); }}
+          loading={!totalLoaded}
+        />
+
+        {/* 2. Top Stories — card grid */}
+        <section className="mb-10" aria-label="Top stories">
           <SectionHeader
-            kicker="AI Pulse"
-            title="Top Stories"
+            kicker="Top Stories"
+            title="What matters right now"
             rule={false}
             right={
-              <span className="text-[12px] text-[var(--dim)] tabular-nums">
-                {total ? total.toLocaleString('en-US') : '—'} stories
-              </span>
+              totalLoaded ? (
+                <span className="text-[12px] tabular-nums text-[var(--mut)]">
+                  {total.toLocaleString('en-US')} stories
+                </span>
+              ) : (
+                <Skeleton className="h-4 w-20" />
+              )
             }
           />
-          {top10.length > 0 && <HeroLead items={top10} />}
+          {loading && news.length === 0 ? (
+            <TopStoriesSkeleton count={6} />
+          ) : topStories.length === 0 ? (
+            <div className="py-16 text-center border border-dashed border-[var(--color-line)] rounded-[var(--radius-lg)]">
+              <p className="text-sm font-medium">No stories match this filter yet</p>
+              <p className="mt-1 text-sm text-[var(--mut)]">Try a broader lens or clear your search.</p>
+              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--gray-900)] px-4 text-sm font-medium text-white">
+                Reset filters
+              </button>
+            </div>
+          ) : (
+            <TopStoriesGrid items={topStories} />
+          )}
         </section>
 
-        {/* Who's Reading */}
-        <section className="mb-8">
-          <DomainBar
-            selected={selectedDomain}
-            counts={domainCounts}
-            onChange={d => { setSelectedDomain(d); setNewItems([]); }}
-          />
+        {/* 3. Model Spotlight strip */}
+        <section className="mb-10">
+          <ModelSpotlightStrip take={4} />
+          <WhatsChanged />
         </section>
 
-        {/* Filters */}
-        <section className="mb-6">
+        {/* 4. Filters + Newswire */}
+        <section className="mb-6" aria-label="Filters">
           <FilterBar
             sources={facets.sources}
             categories={facets.categories}
@@ -258,7 +312,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
         {newItems.length > 0 && (
           <button
             onClick={applyNew}
-            className="w-full mb-4 px-4 py-2.5 rounded-lg bg-[var(--surface)] border border-[var(--color-line)] text-[var(--fore)] text-sm font-medium flex items-center justify-center gap-2 hover:border-[var(--mut)]/50 transition-colors"
+            className="w-full mb-4 px-4 py-2.5 rounded-[var(--radius-md)] bg-[var(--surface)] border border-[var(--color-line)] text-[var(--fore)] text-sm font-medium flex items-center justify-center gap-2 hover:border-[var(--mut)]/50 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-[var(--ok)] animate-pulse" />
             {newItems.length} new {newItems.length === 1 ? 'story' : 'stories'} — click to view
@@ -272,24 +326,29 @@ export default function Home({ children }: { children?: React.ReactNode }) {
             title={search.trim() ? 'Search results' : 'Latest'}
             rule={false}
             right={
-              <span className="text-[12px] text-[var(--dim)] tabular-nums">
-                {search.trim() ? `${visible.length} results` : `${total} stories`}
-              </span>
+              totalLoaded ? (
+                <span className="text-[12px] tabular-nums text-[var(--mut)]">
+                  {search.trim() ? `${visible.length} results` : `${total.toLocaleString('en-US')} stories`}
+                </span>
+              ) : (
+                <Skeleton className="h-4 w-20" />
+              )
             }
           />
 
           {loading && news.length === 0 ? (
             <SkeletonGrid count={15} />
           ) : rest.length === 0 && visible.length === 0 ? (
-            <div className="py-20 text-center text-neutral-400">
-              <p>No stories match the current filters.</p>
-              <button onClick={() => resetFilters('all', 'all', 'all')} className="mt-3 text-sm text-[var(--aa-plum-ink)] hover:underline">
+            <div className="py-20 text-center">
+              <p className="text-sm font-medium">No stories match this filter yet</p>
+              <p className="mt-1 text-sm text-[var(--mut)]">Try a broader lens or clear your search.</p>
+              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--gray-900)] px-4 text-sm font-medium text-white">
                 Clear filters
               </button>
             </div>
           ) : (
             <>
-              <div className="border border-[var(--color-line)] rounded-lg">
+              <div className="border border-[var(--color-line)] rounded-[var(--radius-lg)] overflow-hidden">
                 <LatestList items={latestPageItems} />
               </div>
               {latestPageCount > 1 && (
@@ -329,7 +388,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
 
         {/* Models section */}
         <section className="mt-12 scroll-mt-28" id="model-watch">
-          <SectionHeader kicker="Leaderboard" title="Models" updated right={null} />
+          <SectionHeader kicker="Leaderboard" title="Models" updated updatedAt={new Date().toISOString()} right={null} />
           <ModelWatch audience={selectedDomain} showHighlights={false} />
         </section>
 
@@ -338,9 +397,18 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           <LatestModels />
         </section>
 
-        {/* AI Trends section */}
+        {/* AI Trends teaser */}
         <section className="mt-12" id="trends">
-          <SectionHeader kicker="Trends" title="AI Landscape" note="What the frontier is talking about right now." />
+          <SectionHeader
+            kicker="Trends"
+            title="AI Landscape"
+            note="What the frontier is talking about right now."
+            right={
+              <a href="/trends" className="text-sm font-medium text-[var(--accent-hover)] hover:underline">
+                Explore trends →
+              </a>
+            }
+          />
           <AITrends />
         </section>
       </main>

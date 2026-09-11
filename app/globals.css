@@ -6,8 +6,44 @@
   --font-mono: var(--font-plex);
 }
 
-/* ---------- AA-style light theme (default) ---------- */
+/* ---------- Design tokens — Phase 1 (Linear/Vercel clean SaaS) ---------- */
 :root {
+  /* Neutral scale — light mode */
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  --gray-950: #09090b;
+
+  /* Accent — single, used sparingly */
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-subtle: #eef2ff;
+
+  /* Category colors — dots/left-borders only, never full backgrounds */
+  --cat-model: #6366f1;
+  --cat-research: #0ea5e9;
+  --cat-product: #10b981;
+  --cat-safety: #f59e0b;
+  --cat-policy: #f43f5e;
+  --cat-other: #71717a;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+
   --background: #ffffff;
   --foreground: #000000;
   --card: #ffffff;
@@ -21,7 +57,8 @@
   --violet: #7c3aed;
   --amber: #d97706;
   --ok: #16a34a;
-  --bad: #dc2626;
+  --ok-ink: #15803d;
+  --bad: #b91c1c;
   --info: #6b7280;
   --surface: #f9fafb;
   --selection: rgba(17, 17, 17, 0.08);
@@ -51,6 +88,12 @@
 }
 
 [data-theme='dark'] {
+  --background: var(--gray-950);
+  --foreground: var(--gray-50);
+  --muted: var(--gray-400);
+  --border: rgba(255, 255, 255, 0.08);
+  --card: var(--gray-900);
+  --accent-subtle: rgba(99, 102, 241, 0.12);
   --background: #0b0b0d;
   --foreground: #e9e5dd;
   --card: #121216;
@@ -64,6 +107,7 @@
   --violet: #9a7bd4;
   --amber: #cf9d5f;
   --ok: #7cbf8b;
+  --ok-ink: #8fd09b;
   --bad: #d06b77;
   --info: #9aa0a9;
   --surface: #17171c;
@@ -393,4 +437,77 @@ h1 {
 }
 .animate-ticker:hover {
   animation-play-state: paused;
+}
+
+/* ---------- Phase 1 design-system utilities ---------- */
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mut);
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--gray-100);
+  border-radius: var(--radius-sm);
+}
+[data-theme='dark'] .skeleton {
+  background: rgba(255, 255, 255, 0.06);
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: skeleton-shimmer 1.4s var(--ease-out) infinite;
+}
+[data-theme='dark'] .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+@keyframes skeleton-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.hero-enter {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: hero-enter var(--duration-base) var(--ease-out) forwards;
+}
+@keyframes hero-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-lift {
+  transition: box-shadow var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+}
+.card-lift:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -16px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ---------- Leaderboard tables (Phase 2) ---------- */
+/* Sticky header for long leaderboards. Apply `leaderboard-table` to the
+   <table> and cap the scroll container (e.g. max-h-[70vh] overflow-auto). */
+.leaderboard-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--card);
+  box-shadow: 0 1px 0 var(--color-line);
+}
+
+/* Scroll-shadow cue for horizontally scrolling tables on small screens. */
+.table-scroll {
+  background:
+    linear-gradient(to right, var(--card) 30%, transparent),
+    linear-gradient(to right, transparent, var(--card) 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.12), transparent),
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.12), transparent) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-attachment: local, local, scroll, scroll;
 }

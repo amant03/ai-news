@@ -8,6 +8,9 @@ import type { ModelRecord } from '@/lib/model-registry';
 import { SITE_NAME } from '@/lib/site';
 import { modelMatchesSlug } from '@/lib/model-slug';
 import { findAAModel } from '@/lib/aa-lookup';
+import { findRelatedNews } from '@/lib/related-news';
+import ComparePicker from '@/components/ComparePicker';
+import { timeAgo } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -409,8 +412,24 @@ export default async function ModelDetailPage({ params }: Props) {
     },
   ];
 
+  const related = findRelatedNews({ name: model.name, provider: model.provider }, 6);
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
+      />
       <main className="max-w-[1200px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-6">
           <Link href="/models" className="text-[12px] text-neutral-400 hover:text-neutral-600 transition-colors">
@@ -428,9 +447,9 @@ export default async function ModelDetailPage({ params }: Props) {
           <div className="flex items-center gap-2 mt-3 flex-wrap text-[12px]">
             <span className="font-medium text-[var(--mut)]">{model.provider || 'Independent lab'}</span>
             <span className="text-[var(--dim)]">•</span>
-            <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
-              isOpen ? 'bg-green-500/10 text-green-600' : 'bg-red-500/10 text-red-500'
-            }`}>
+              <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
+                isOpen ? 'bg-[var(--ok-ink)]/10 text-[var(--ok-ink)]' : 'bg-[var(--bad)]/10 text-[var(--bad)]'
+              }`}>
               {isOpen ? 'Open weights model' : 'Proprietary model'}
             </span>
             {model.released && (
@@ -459,6 +478,9 @@ export default async function ModelDetailPage({ params }: Props) {
             >
               Ask about this model
             </Link>
+          </div>
+          <div className="mt-3">
+            <ComparePicker currentSlug={slug} />
           </div>
         </div>
 
@@ -572,6 +594,34 @@ export default async function ModelDetailPage({ params }: Props) {
             )}
           </div>
         </section>
+
+        {/* Recent news mentioning this model */}
+        {related.length > 0 && (
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-medium tracking-tight text-[var(--fore)] mb-1">
+              Recent news mentioning {model.name}
+            </h2>
+            <p className="text-[12px] text-[var(--mut)] mb-4">From the AI Pulse newswire.</p>
+            <div className="border border-[var(--color-line)] rounded-lg overflow-hidden divide-y divide-[var(--color-line)]">
+              {related.map(item => (
+                <a
+                  key={item.url}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 px-4 py-3 hover:bg-[var(--surface)] transition-colors"
+                >
+                  <span className="flex-1 min-w-0 text-[14px] leading-snug text-[var(--fore)] group-hover:underline underline-offset-2 line-clamp-2">
+                    {item.title}
+                  </span>
+                  <span className="shrink-0 text-[11px] text-[var(--dim)] whitespace-nowrap">
+                    {(item.source_label || item.source) + ' · ' + timeAgo(item.published_at)}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Intelligence vs cost with this model highlighted */}
         <section className="mb-10">

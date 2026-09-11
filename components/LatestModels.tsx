@@ -81,12 +81,12 @@ export default function LatestModels() {
                 <div className="text-[11px] text-[var(--mut)] mt-0.5">{m.provider}</div>
               </div>
               <span className={`flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border ${
-                isOpen(m) ? 'border-[var(--ok)]/30 text-[var(--ok)]' : 'border-[var(--bad)]/30 text-[var(--bad)]'
+                isOpen(m) ? 'border-[var(--ok-ink)]/30 text-[var(--ok-ink)]' : 'border-[var(--bad)]/30 text-[var(--bad)]'
               }`}>
                 {isOpen(m) ? 'Open' : 'Closed'}
               </span>
             </div>
-            <div className="mt-3 flex items-center justify-between text-[11px] text-[var(--dim)]">
+            <div className="mt-3 flex items-center justify-between text-[11px] text-[var(--mut)]">
               <span>{m.released ? new Date(m.released).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}</span>
               <span className="tabular-nums font-medium text-[var(--mut)]">
                 {m.intelligenceIndex != null ? `Intelligence ${m.intelligenceIndex}` : m.context ? `Context ${m.context}` : ''}

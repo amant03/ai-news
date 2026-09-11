@@ -66,7 +66,7 @@ export default function SpeechImageVideoPage() {
                       <div className="font-medium text-[14px] flex items-center gap-2">
                         {item.name}
                         {item.status === 'live' && (
-                          <span className="text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full bg-green-50 text-green-600 border border-green-600/20">
+                          <span className="text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full bg-[var(--ok-ink)]/10 text-[var(--ok-ink)] border border-[var(--ok-ink)]/20">
                             Live
                           </span>
                         )}

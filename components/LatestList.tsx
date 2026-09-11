@@ -37,12 +37,12 @@ export default function LatestList({ items, dense = false }: LatestListProps) {
             </h3>
             {fresh && <span className="tag-new hidden sm:inline-flex shrink-0">New</span>}
             <div className="flex-shrink-0 flex items-center gap-2 text-[11px] whitespace-nowrap">
-              <span className="font-medium text-[var(--dim)] uppercase tracking-wider text-[10px]">
+              <span className="font-medium text-[var(--mut)] uppercase tracking-wider text-[10px]">
                 {item.source_label || item.source}
               </span>
-              <span className="text-[var(--dim)]">{timeAgo(item.published_at)}</span>
+              <span className="text-[var(--mut)]">{timeAgo(item.published_at)}</span>
               {(item.tweet_metrics?.likeCount || item.score) && (
-                <span className="text-[var(--dim)] font-mono">
+                <span className="text-[var(--mut)] font-mono">
                   {item.tweet_metrics?.likeCount ? formatNumber(item.tweet_metrics.likeCount) : formatNumber(item.score!)}
                 </span>
               )}

@@ -2,7 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import ModelWatch from '@/components/ModelWatch';
+import InsightCallout from '@/components/InsightCallout';
 import Footer from '@/components/Footer';
+import { leaderboardInsight } from '@/lib/insights';
+import type { ModelRecord } from '@/lib/model-registry';
 
 export default function LeaderboardsPage() {
   const [total, setTotal] = useState(0);
@@ -10,6 +13,7 @@ export default function LeaderboardsPage() {
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [insight, setInsight] = useState<string | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -33,6 +37,17 @@ export default function LeaderboardsPage() {
     };
     load();
     loadStatus();
+    fetch('/api/models?sort=intelligence&limit=60')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        const list = (d?.models || []) as ModelRecord[];
+        if (list.length) {
+          try {
+            setInsight(leaderboardInsight(list));
+          } catch { /* ignore */ }
+        }
+      })
+      .catch(() => {});
     const id = setInterval(load, 60000);
     const sid = setInterval(loadStatus, 60000);
     return () => { clearInterval(id); clearInterval(sid); };
@@ -52,6 +67,7 @@ export default function LeaderboardsPage() {
         <div className="mb-6">
           <h1 className="font-display font-medium text-4xl md:text-5xl tracking-tight text-[var(--fore)]">LLM Leaderboard</h1>
           <p className="text-[13px] text-[var(--mut)] mt-1">Compare AI models by intelligence, cost, coding ability and context window.</p>
+          <InsightCallout text={insight} />
         </div>
         <ModelWatch audience="all" />
       </main>

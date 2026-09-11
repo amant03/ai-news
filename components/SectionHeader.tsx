@@ -8,6 +8,8 @@ interface SectionHeaderProps {
   className?: string;
   /** Show the dark-purple "Updated" pill next to the title. */
   updated?: boolean;
+  /** Timestamp backing the Updated pill — pill is hidden until truthy. */
+  updatedAt?: string | Date | null;
   /** Show the mint "New" tag next to the title. */
   isNew?: boolean;
 }
@@ -26,8 +28,14 @@ export default function SectionHeader({
   rule = true,
   className = '',
   updated = false,
+  updatedAt,
   isNew = false,
 }: SectionHeaderProps) {
+  // Guard: never render a bare "Updated" pill with no timestamp behind it.
+  // If `updated` is true but no updatedAt was provided, treat it as still
+  // loading and render a skeleton instead of placeholder text.
+  const showUpdated = updated && updatedAt ? true : false;
+  const showUpdatedSkeleton = updated && !updatedAt ? true : false;
   return (
     <div id={id} className={`mb-5 ${className}`.trim()}>
       <div className="flex items-end justify-between gap-4">
@@ -37,7 +45,10 @@ export default function SectionHeader({
             <h2 className="font-display text-[26px] font-medium tracking-tight text-[var(--fore)] leading-tight">
               {title}
             </h2>
-            {updated && <span className="badge-updated">Updated</span>}
+            {showUpdated && <span className="badge-updated">Updated</span>}
+            {showUpdatedSkeleton && (
+              <span role="status" className="skeleton h-5 w-16 rounded-full" aria-label="Checking update status" />
+            )}
             {isNew && <span className="tag-new">New</span>}
           </div>
           {note && <p className="text-[15px] text-[var(--mut)] mt-2 leading-relaxed max-w-[60ch]">{note}</p>}

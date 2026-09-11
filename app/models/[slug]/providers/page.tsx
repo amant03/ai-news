@@ -90,7 +90,7 @@ export default async function ProvidersPage({ params }: Props) {
             <span className="text-neutral-500">{model?.provider}</span>
             <span className="text-neutral-300">•</span>
             <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
-              model && (model.family === 'open-weights' || model.family === 'open') ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
+              model && (model.family === 'open-weights' || model.family === 'open') ? 'bg-[var(--ok-ink)]/10 text-[var(--ok-ink)]' : 'bg-[var(--bad)]/10 text-[var(--bad)]'
             }`}>
               {model && (model.family === 'open-weights' || model.family === 'open') ? 'Open weights model' : 'Proprietary model'}
             </span>
@@ -161,7 +161,7 @@ export default async function ProvidersPage({ params }: Props) {
             <>
               <span className="text-neutral-300">•</span>
               <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
-                entry.family === 'open-weights' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
+                entry.family === 'open-weights' ? 'bg-[var(--ok-ink)]/10 text-[var(--ok-ink)]' : 'bg-[var(--bad)]/10 text-[var(--bad)]'
               }`}>
                 {entry.family === 'open-weights' ? 'Open weights model' : 'Proprietary model'}
               </span>

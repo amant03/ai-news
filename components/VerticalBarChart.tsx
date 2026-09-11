@@ -80,7 +80,7 @@ export default function VerticalBarChart({
           <span className="text-xs uppercase tracking-widest text-[var(--mut)] block font-medium">{title}</span>
           <div className="mt-0.5 flex items-baseline justify-between gap-3">
             {subtitle ? (
-              <span className="text-[11px] text-[var(--dim)] min-w-0">{subtitle}</span>
+              <span className="text-[11px] text-[var(--mut)] min-w-0">{subtitle}</span>
             ) : (
               <span />
             )}
@@ -190,7 +190,7 @@ export default function VerticalBarChart({
         })}
       </div>
       {valueLabel && (
-        <div className="mt-1 text-[10px] text-[var(--dim)] text-right">{valueLabel}</div>
+        <div className="mt-1 text-[10px] text-[var(--mut)] text-right">{valueLabel}</div>
       )}
     </div>
   );

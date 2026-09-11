@@ -5,6 +5,8 @@ import { useState, useRef, useEffect } from 'react';
 interface Message {
   role: 'user' | 'assistant';
   content: string;
+  /** True when answered by the opt-in AI mode (grounded, live data). */
+  ai?: boolean;
 }
 
 const SUGGESTIONS = [
@@ -34,7 +36,7 @@ function renderMessage(content: string) {
       {tableRows.map((row, ri) => (
         <div
           key={ri}
-          className={`flex ${ri === 0 ? 'bg-[var(--surface)] text-[var(--dim)] text-[10px] uppercase tracking-wider font-semibold' : 'text-[var(--fore)]'} ${ri > 0 ? 'border-t border-[var(--color-line)]' : ''}`}
+          className={`flex ${ri === 0 ? 'bg-[var(--surface)] text-[var(--mut)] text-[10px] uppercase tracking-wider font-semibold' : 'text-[var(--fore)]'} ${ri > 0 ? 'border-t border-[var(--color-line)]' : ''}`}
         >
           {row.map((cell, ci) => (
             <div key={ci} className="flex-1 px-3 py-2 text-xs min-w-0">{cell}</div>
@@ -117,6 +119,8 @@ export default function Chat() {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [aiMode, setAiMode] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -128,18 +132,29 @@ export default function Chat() {
     const q = text || input.trim();
     if (!q || loading) return;
     setInput('');
+    setNotice(null);
     setMessages(prev => [...prev, { role: 'user', content: q }]);
     setLoading(true);
+    const useAi = aiMode;
     try {
       // Send conversation history for context
       const history = messages.map(m => ({ role: m.role, content: m.content }));
-      const res = await fetch('/api/chat', {
+      const res = await fetch(useAi ? '/api/chat/ai' : '/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: q, history }),
       });
       const data = await res.json();
-      setMessages(prev => [...prev, { role: 'assistant', content: data.answer || data.error || 'No response' }]);
+      if (data.fallback && useAi) {
+        // AI mode unavailable — degrade gracefully to the deterministic engine.
+        setAiMode(false);
+        if (data.notice) setNotice(data.notice);
+      }
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: data.answer || data.error || 'No response',
+        ai: useAi && !data.fallback && res.ok,
+      }]);
     } catch {
       setMessages(prev => [...prev, { role: 'assistant', content: 'Error connecting to server. Please try again.' }]);
     }
@@ -157,7 +172,28 @@ export default function Chat() {
         <div className="flex items-center gap-2.5 px-5 py-3 border-b border-[var(--color-line)] shrink-0">
           <Avatar />
           <span className="text-sm font-semibold tracking-tight text-[var(--fore)]">Model Advisor</span>
-          <span className="ml-auto text-[11px] text-[var(--dim)] tabular-nums">
+          <label
+            className="ml-auto flex items-center gap-2 cursor-pointer select-none"
+            title="Uses a free local model to reason over live model & news data. Deterministic mode is instant and free — try it first."
+          >
+            <span className="text-[11px] font-medium text-[var(--mut)]">Ask AI</span>
+            <button
+              role="switch"
+              aria-checked={aiMode}
+              aria-label="Toggle AI mode"
+              onClick={e => { e.preventDefault(); setAiMode(v => !v); setNotice(null); }}
+              className={`relative h-5 w-9 rounded-full transition-colors duration-150 ${
+                aiMode ? 'bg-[var(--accent)]' : 'bg-[var(--gray-300)]'
+              }`}
+            >
+              <span
+                className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all duration-150 ${
+                  aiMode ? 'left-[18px]' : 'left-0.5'
+                }`}
+              />
+            </button>
+          </label>
+          <span className="text-[11px] text-[var(--mut)] tabular-nums">
             {loading ? (
               <span className="inline-flex items-center gap-1.5 text-[var(--accent)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
@@ -169,6 +205,16 @@ export default function Chat() {
           </span>
         </div>
 
+        {/* Fallback notice */}
+        {notice && (
+          <div className="mx-5 mt-3 flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--cat-safety)]/30 bg-[var(--cat-safety)]/10 px-3 py-2 text-xs text-[var(--foreground)]">
+            <span className="flex-1">{notice}</span>
+            <button onClick={() => setNotice(null)} aria-label="Dismiss notice" className="text-[var(--mut)] hover:text-[var(--fore)]">
+              ✕
+            </button>
+          </div>
+        )}
+
         {/* Messages */}
         <div className="flex-1 overflow-y-auto">
           <div className="px-5 py-5 space-y-5">
@@ -178,6 +224,11 @@ export default function Chat() {
                   <div className="flex gap-3 max-w-[85%]">
                     <Avatar />
                     <div className="flex-1 min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--surface)] px-4 py-3 text-[13px] leading-relaxed text-[var(--fore)]">
+                      {msg.ai && (
+                        <span className="mb-2 inline-flex items-center rounded-full bg-[var(--accent-subtle)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--accent-hover)]">
+                          AI-generated · grounded in live data
+                        </span>
+                      )}
                       {renderMessage(msg.content)}
                     </div>
                   </div>
@@ -210,7 +261,7 @@ export default function Chat() {
         {/* Suggestions (show only at start) */}
         {start && (
           <div className="px-5 pt-4 pb-4 shrink-0 border-t border-[var(--color-line)]">
-            <div className="text-[11px] text-[var(--dim)] mb-2 font-medium uppercase tracking-wider">Try asking</div>
+            <div className="text-[11px] text-[var(--mut)] mb-2 font-medium uppercase tracking-wider">Try asking</div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {SUGGESTIONS.map((s, i) => (
                 <button
@@ -235,7 +286,7 @@ export default function Chat() {
                 <button
                   key={i}
                   onClick={() => send(f)}
-                  className="ring-focus text-[11px] px-2.5 py-1 rounded-full border border-[var(--color-line)] text-[var(--dim)] hover:text-[var(--fore)] hover:border-[var(--mut)] transition-colors"
+                  className="ring-focus text-[11px] px-2.5 py-1 rounded-full border border-[var(--color-line)] text-[var(--mut)] hover:text-[var(--fore)] hover:border-[var(--mut)] transition-colors"
                 >
                   {f}
                 </button>
@@ -254,7 +305,7 @@ export default function Chat() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about models, news, pricing, trends…"
                 disabled={loading}
-                className="ring-focus w-full px-4 py-2.5 rounded-lg border border-[var(--color-line)] text-sm text-[var(--fore)] placeholder:text-[var(--dim)] outline-none transition-all"
+                className="ring-focus w-full px-4 py-2.5 rounded-lg border border-[var(--color-line)] text-sm text-[var(--fore)] placeholder:text-[var(--mut)] outline-none transition-all"
                 style={{ background: 'var(--input)' }}
               />
             </div>

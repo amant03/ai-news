@@ -113,7 +113,7 @@ export default function NewsletterSignup() {
           <p className="mt-3 text-xs text-[var(--bad)] animate-slide-in">{error}</p>
         )}
 
-        <p className="mt-4 text-[11px] text-[var(--dim)]">
+        <p className="mt-4 text-[11px] text-[var(--mut)]">
           No spam. Unsubscribe anytime.
         </p>
       </div>

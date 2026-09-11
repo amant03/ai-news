@@ -13,10 +13,18 @@
     "agent": "npx tsx lib/run-agent.ts",
     "agent:loop": "npx tsx lib/run-agent.ts --loop --kb",
     "agent:kb": "npx tsx lib/run-agent.ts --kb",
-    "scrape:aa": "npx tsx lib/aa-model-scraper.ts"
+    "scrape:aa": "npx tsx lib/aa-model-scraper.ts",
+    "newsletter:digest": "npx tsx scripts/send-digest.mts",
+    "newsletter:dry-run": "npx tsx scripts/send-digest.mts --dry-run",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.74.0",
     "@types/d3": "^7.4.3",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "d3": "^7.9.0",
     "next": "16.2.10",
     "pg": "^8.23.0",
@@ -25,17 +33,22 @@
     "react-dom": "19.2.4",
     "recharts": "^3.10.1",
     "rss-parser": "^3.13.0",
+    "tailwind-merge": "^3.6.0",
     "tsx": "^4.23.11"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/pg": "^8.21.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^3.2.7",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   }
 }

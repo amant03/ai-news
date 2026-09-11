@@ -49,7 +49,7 @@ export default function AADropdown({
         onClick={() => setOpen(o => !o)}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-line)] text-[12px] font-medium text-[var(--fore)] hover:border-neutral-300 transition-colors"
       >
-        <span className="text-[var(--dim)]">{label}:</span>
+        <span className="text-[var(--mut)]">{label}:</span>
         <span>{current?.label}</span>
         <svg
           width="10"

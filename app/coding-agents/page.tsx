@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import CodingAgents from '@/components/CodingAgents';
+import InsightCallout from '@/components/InsightCallout';
 import Footer from '@/components/Footer';
+import { CODING_AGENTS } from '@/lib/coding-agents-data';
 
 export default function CodingAgentsPage() {
   const [total, setTotal] = useState(0);
@@ -44,6 +46,13 @@ export default function CodingAgentsPage() {
     setRefreshing(false);
   };
 
+  const insight = useMemo(() => {
+    if (!CODING_AGENTS.length) return null;
+    const top = [...CODING_AGENTS].sort((a, b) => b.index - a.index)[0];
+    const cheapest = [...CODING_AGENTS].sort((a, b) => a.cost - b.cost)[0];
+    return `${top.label} leads on agent index (${top.index.toFixed(1)}), while ${cheapest.label} is the cheapest run at $${cheapest.cost.toFixed(2)}.`;
+  }, []);
+
   return (
     <div className="min-h-screen">
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
@@ -52,6 +61,7 @@ export default function CodingAgentsPage() {
           <p className="text-sm text-[var(--dim)] mt-1">
             Coding agent benchmarks — index, cost, token usage, and execution time.
           </p>
+          <InsightCallout text={insight} />
         </div>
         <CodingAgents />
       </main>

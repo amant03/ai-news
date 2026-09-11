@@ -108,7 +108,7 @@ export default function IntelligenceTimeline() {
           ))}
         </LineChart>
       </ResponsiveContainer>
-      <p className="text-[11px] text-[var(--dim)] mt-2">
+      <p className="text-[11px] text-[var(--mut)] mt-2">
         Each point is a released model of that provider at (release date, intelligence index). Multi-point
         series only — the frontier moves up as new models release. Based on data/models.json.
       </p>

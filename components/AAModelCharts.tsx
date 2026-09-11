@@ -13,7 +13,7 @@ function SortDirButton({ dir, onToggle, title }: { dir: SortDir; onToggle: () =>
     <button
       onClick={onToggle}
       title={`Toggle sort direction — ${title} currently ${dir === 'asc' ? 'low to high' : 'high to low'}`}
-      className="ring-focus inline-flex flex-shrink-0 items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--input)] px-2 py-1 text-[10px] font-medium text-neutral-500 hover:text-black transition-colors"
+      className="ring-focus inline-flex flex-shrink-0 items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--input)] px-2 py-1 text-[10px] font-medium text-neutral-600 hover:text-black transition-colors"
     >
       {dir === 'asc' ? '▲ low→high' : '▼ high→low'}
     </button>
@@ -199,9 +199,9 @@ export default function AAModelCharts({ models }: { models: M[] }) {
               <div className="text-[15px] font-semibold tracking-tight mb-1">Output Tokens per Intelligence Index Task</div>
               <SortDirButton dir={barDir} onToggle={toggleBarDir} title="token use" />
             </div>
-            <p className="text-[11px] text-neutral-400 mb-4">Models with AA verbosity data — weighted output tokens per task · higher = more verbose</p>
+            <p className="text-[11px] text-neutral-500 mb-4">Models with AA verbosity data — weighted output tokens per task · higher = more verbose</p>
             {withVerbosity.length === 0 ? (
-              <div className="text-[12px] text-neutral-400 py-8 text-center">No verbosity data yet — synced from Artificial Analysis.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">No verbosity data yet — synced from Artificial Analysis.</div>
             ) : (
               <ResponsiveContainer width="100%" height={Math.max(360, withVerbosity.length * 34)}>
                 <BarChart data={withVerbosity} layout="vertical" margin={{ left: 12 }}>
@@ -218,9 +218,9 @@ export default function AAModelCharts({ models }: { models: M[] }) {
           </div>
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[15px] font-semibold tracking-tight mb-1">Intelligence Index vs. Output Tokens</div>
-            <p className="text-[11px] text-neutral-400 mb-4">Verbosity (x) vs intelligence (y) — the upper-left is best: smart and concise</p>
+            <p className="text-[11px] text-neutral-500 mb-4">Verbosity (x) vs intelligence (y) — the upper-left is best: smart and concise</p>
             {scatterTokens.length < 3 ? (
-              <div className="text-[12px] text-neutral-400 py-8 text-center">Not enough synced data points yet.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">Not enough synced data points yet.</div>
             ) : (
               <ResponsiveContainer width="100%" height={380}>
                 <ScatterChart margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
@@ -248,7 +248,7 @@ export default function AAModelCharts({ models }: { models: M[] }) {
               <div className="text-[15px] font-semibold tracking-tight mb-1">Pricing: Cache Hit, Input, Output</div>
               <SortDirButton dir={barDir} onToggle={toggleBarDir} title="pricing" />
             </div>
-            <p className="text-[11px] text-neutral-400 mb-4">USD per 1M tokens · cache assumed at 90% input discount</p>
+            <p className="text-[11px] text-neutral-500 mb-4">USD per 1M tokens · cache assumed at 90% input discount</p>
             <div className="flex flex-wrap gap-3 mb-4">
               {[['Input', '#7c3aed'], ['Cache Hit', '#34d399'], ['Output', '#f472b6']].map(([l, c]) => (
                 <span key={l as string} className="inline-flex items-center gap-1.5 text-[11px]">
@@ -270,9 +270,9 @@ export default function AAModelCharts({ models }: { models: M[] }) {
           </div>
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[15px] font-semibold tracking-tight mb-1">Intelligence Index vs. Blended Price</div>
-            <p className="text-[11px] text-neutral-400 mb-4">Blended at 7:2:1 (cache-input-output) · log scale — the upper-left is the most attractive quadrant</p>
+            <p className="text-[11px] text-neutral-500 mb-4">Blended at 7:2:1 (cache-input-output) · log scale — the upper-left is the most attractive quadrant</p>
             {scatterCost.length < 5 ? (
-              <div className="text-[12px] text-neutral-400 py-8 text-center">Not enough priced models with intelligence data yet.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">Not enough priced models with intelligence data yet.</div>
             ) : (
               <ResponsiveContainer width="100%" height={380}>
                 <ScatterChart margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
@@ -299,7 +299,7 @@ export default function AAModelCharts({ models }: { models: M[] }) {
             <div className="text-[15px] font-semibold tracking-tight mb-1">Context Window</div>
             <SortDirButton dir={barDir} onToggle={toggleBarDir} title="context window" />
           </div>
-          <p className="text-[11px] text-neutral-400 mb-4">Maximum combined input &amp; output tokens · higher is better for RAG workflows</p>
+          <p className="text-[11px] text-neutral-500 mb-4">Maximum combined input &amp; output tokens · higher is better for RAG workflows</p>
           <ResponsiveContainer width="100%" height={Math.max(400, withContext.length * 36)}>
             <BarChart data={withContext} layout="vertical" margin={{ left: 12 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
@@ -322,9 +322,9 @@ export default function AAModelCharts({ models }: { models: M[] }) {
               <div className="text-[15px] font-semibold tracking-tight mb-1">Output Speed</div>
               <SortDirButton dir={barDir} onToggle={toggleBarDir} title="speed" />
             </div>
-            <p className="text-[11px] text-neutral-400 mb-4">Output tokens per second (median across providers) · models with AA speed data</p>
+            <p className="text-[11px] text-neutral-500 mb-4">Output tokens per second (median across providers) · models with AA speed data</p>
             {withSpeed.length === 0 ? (
-              <div className="text-[12px] text-neutral-400 py-8 text-center">No speed data yet — synced from Artificial Analysis.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">No speed data yet — synced from Artificial Analysis.</div>
             ) : (
               <ResponsiveContainer width="100%" height={Math.max(360, withSpeed.length * 34)}>
                 <BarChart data={withSpeed} layout="vertical" margin={{ left: 12 }}>
@@ -341,9 +341,9 @@ export default function AAModelCharts({ models }: { models: M[] }) {
           </div>
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[15px] font-semibold tracking-tight mb-1">Intelligence Index vs. Output Speed</div>
-            <p className="text-[11px] text-neutral-400 mb-4">Speed (x) vs intelligence (y) — the upper-right is best: smart and fast</p>
+            <p className="text-[11px] text-neutral-500 mb-4">Speed (x) vs intelligence (y) — the upper-right is best: smart and fast</p>
             {scatterSpeed.length < 3 ? (
-              <div className="text-[12px] text-neutral-400 py-8 text-center">Not enough synced data points yet.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">Not enough synced data points yet.</div>
             ) : (
               <ResponsiveContainer width="100%" height={380}>
                 <ScatterChart margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>

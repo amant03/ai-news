@@ -26,7 +26,7 @@ export default function SortableTh({
   right,
   width,
   activeClass = 'text-black',
-  inactiveClass = 'text-neutral-400 hover:text-neutral-700',
+  inactiveClass = 'text-neutral-500 hover:text-neutral-700',
 }: SortableThProps) {
   return (
     <th

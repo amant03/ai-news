@@ -15,14 +15,18 @@ export default function Ticker({ items }: TickerProps) {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--ok)] opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--ok)]" />
           </span>
-          <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--ok)] whitespace-nowrap">
+          <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--ok-ink)] whitespace-nowrap">
             Live
           </span>
         </div>
 
         <div className="flex flex-1 min-w-0 overflow-hidden items-center">
           {doubled.length === 0 ? (
-            <span className="px-4 text-xs text-[var(--dim)]">Loading headlines…</span>
+            <div className="flex items-center gap-5 px-4 py-2 w-full" role="status" aria-label="Loading headlines">
+              <span className="skeleton h-3 w-40 shrink-0" />
+              <span className="skeleton h-3 w-64 shrink-0 hidden sm:block" />
+              <span className="skeleton h-3 w-52 shrink-0 hidden md:block" />
+            </div>
           ) : (
             <div className="animate-ticker flex items-center whitespace-nowrap will-change-transform">
               {doubled.map((item, i) => {
@@ -36,7 +40,7 @@ export default function Ticker({ items }: TickerProps) {
                     className="flex items-center gap-2 px-5 py-2 text-xs leading-5 text-[var(--mut)] hover:text-[var(--fore)] transition-colors"
                   >
                     <span className="inline-block w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-                    <span className="font-mono text-[10px] text-[var(--dim)] uppercase">
+                    <span className="font-mono text-[10px] text-[var(--mut)] uppercase">
                       {item.source_label || item.source}
                     </span>
                     <span className="whitespace-nowrap overflow-hidden text-ellipsis max-w-[420px]">{item.title}</span>

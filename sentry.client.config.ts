@@ -1,0 +1,14 @@
+import * as Sentry from '@sentry/nextjs';
+
+const dsn = process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN;
+
+// No DSN = completely disabled (local dev, PR previews without secrets).
+if (dsn) {
+  Sentry.init({
+    dsn,
+    tracesSampleRate: 0.1,
+    replaysSessionSampleRate: 0,
+    replaysOnErrorSampleRate: 0,
+    enabled: process.env.NODE_ENV === 'production',
+  });
+}

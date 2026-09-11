@@ -7,10 +7,13 @@ import IntelligenceScatter from '@/components/IntelligenceScatter';
 import IntelligenceTimeline from '@/components/IntelligenceTimeline';
 import AAModelCharts from '@/components/AAModelCharts';
 import SectionHeader from '@/components/SectionHeader';
+import InsightCallout from '@/components/InsightCallout';
+import JsonLd from '@/components/JsonLd';
 import Footer from '@/components/Footer';
 import SortableTh from '@/components/SortableTh';
 import VerticalBarChart, { modelsToBarData } from '@/components/VerticalBarChart';
 import { preferredSlug } from '@/lib/model-slug';
+import { leaderboardInsight } from '@/lib/insights';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 import type { ModelRecord } from '@/lib/model-registry';
 
@@ -93,6 +96,7 @@ export default function ModelsPage() {
     cost: 'asc',
   });
   const [latestDir, setLatestDir] = useState<SortDir>('desc');
+  const [tableQuery, setTableQuery] = useState('');
   const [catalog, setCatalog] = useState<{ updatedAt: string; sources: string[]; total: number; models: Model[] } | null>(null);
 
   useEffect(() => {
@@ -129,8 +133,35 @@ export default function ModelsPage() {
 
   const sortedAll = useMemo(() => {
     const models = opennessFiltered.filter(m => m.intelligenceIndex != null);
-    return sortByCol(models, allSort, (m, key) => allValue(m, key), (a, b) => a.name.localeCompare(b.name));
-  }, [allSort, opennessFiltered]);
+    const q = tableQuery.trim().toLowerCase();
+    const searched = q
+      ? models.filter(
+          m =>
+            m.name.toLowerCase().includes(q) ||
+            m.provider.toLowerCase().includes(q) ||
+            (m.description || '').toLowerCase().includes(q)
+        )
+      : models;
+    return sortByCol(searched, allSort, (m, key) => allValue(m, key), (a, b) => a.name.localeCompare(b.name));
+  }, [allSort, opennessFiltered, tableQuery]);
+
+  const insight = useMemo(() => (models.length ? leaderboardInsight(models) : null), [models]);
+
+  const itemListJsonLd = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'AI model leaderboard by intelligence',
+      numberOfItems: Math.min(sortedAll.length, 50),
+      itemListElement: sortedAll.slice(0, 50).map((m, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `/models/${preferredSlug(m)}`,
+        name: m.name,
+      })),
+    }),
+    [sortedAll]
+  );
 
   // Company-wise leaderboard: best intelligence model per provider
   const companyBoard = useMemo(() => {
@@ -186,6 +217,7 @@ export default function ModelsPage() {
 
   return (
     <div className="min-h-screen">
+      <JsonLd data={itemListJsonLd} />
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-10">
           <div className="kicker mb-2">Leaderboards</div>
@@ -198,7 +230,8 @@ export default function ModelsPage() {
           <p className="md:text-lg text-[var(--mut)] mt-3 max-w-[60ch] leading-relaxed">
             Benchmark rankings, pricing, and provider info for {models.length} AI models.
           </p>
-          <p className="text-[11px] text-neutral-400 mt-1.5">
+          <InsightCallout text={insight} />
+          <p className="text-[11px] text-neutral-500 mt-1.5">
             {catalog ? (
               <>Last synced: {fmtTime(catalog.updatedAt)} · Sources: {(catalog.sources || []).join(', ')}</>
             ) : (
@@ -236,32 +269,32 @@ export default function ModelsPage() {
                     <div className="text-[11px] text-neutral-500 mt-0.5">{m.provider}</div>
                   </div>
                   <span className={`flex-shrink-0 text-[9px] uppercase tracking-wider px-1.5 py-px rounded-full border ${
-                    isOpen(m) ? 'border-green-600/30 text-green-600' : 'border-red-500/30 text-red-500'
+                    isOpen(m) ? 'border-[var(--ok-ink)]/30 text-[var(--ok-ink)]' : 'border-[var(--bad)]/30 text-[var(--bad)]'
                   }`}>
                     {isOpen(m) ? 'Open' : 'Closed'}
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-[11px]">
                   <div className="flex flex-col">
-                    <span className="text-neutral-400">Intelligence</span>
+                    <span className="text-neutral-500">Intelligence</span>
                     <span className="tabular-nums font-semibold text-[13px]">{m.intelligenceIndex ?? '—'}</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-neutral-400">Speed</span>
+                    <span className="text-neutral-500">Speed</span>
                     <span className="tabular-nums font-semibold text-[13px]">{m.aaSpeed != null ? `${m.aaSpeed} t/s` : '—'}</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-neutral-400">Cost</span>
+                    <span className="text-neutral-500">Cost</span>
                     <span className="tabular-nums font-semibold text-[13px]">
                       {m.aaCostPerTask != null ? `$${m.aaCostPerTask.toFixed(2)}` : blendedCost(m) != null ? `$${blendedCost(m)!.toFixed(2)}/M` : '—'}
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-neutral-400">Verbosity</span>
+                    <span className="text-neutral-500">Verbosity</span>
                     <span className="tabular-nums font-semibold text-[13px]">{fmtTokens(m.aaVerbosity)}</span>
                   </div>
                 </div>
-                <div className="mt-2.5 text-[10px] text-neutral-400">
+                <div className="mt-2.5 text-[10px] text-neutral-500">
                   {m.released ? new Date(m.released).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}
                   {m.context ? ` · ${m.context}` : ''}
                 </div>
@@ -286,7 +319,7 @@ export default function ModelsPage() {
                       { label: 'Models', w: 80 },
                       { label: 'Open / Closed', w: 120 },
                     ].map(col => (
-                      <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: col.w }}>
+                      <th key={col.label} className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 whitespace-nowrap" style={{ width: col.w }}>
                         {col.label}
                       </th>
                     ))}
@@ -295,7 +328,7 @@ export default function ModelsPage() {
                 <tbody>
                   {companyBoard.map((entry, idx) => (
                     <tr key={entry.provider} className="border-b border-[var(--color-line)] hover:bg-neutral-50 transition-colors">
-                      <td className="py-2.5 px-4 tabular-nums text-neutral-400">{idx + 1}</td>
+                      <td className="py-2.5 px-4 tabular-nums text-neutral-500">{idx + 1}</td>
                       <td className="py-2.5 px-4 font-medium">{entry.provider}</td>
                       <td className="py-2.5 px-4">
                         <a href={`/models/${slugOf(entry.best)}`} className="hover:underline">
@@ -305,9 +338,9 @@ export default function ModelsPage() {
                       <td className="py-2.5 px-4 tabular-nums font-medium">{entry.best.intelligenceIndex}</td>
                       <td className="py-2.5 px-4 tabular-nums text-neutral-500">{entry.count}</td>
                       <td className="py-2.5 px-4 text-[11px]">
-                        <span className="text-green-600">{entry.openCount} open</span>
+                        <span className="text-[var(--ok-ink)]">{entry.openCount} open</span>
                         <span className="text-neutral-300 mx-1">/</span>
-                        <span className="text-red-500">{entry.closedCount} closed</span>
+                        <span className="text-[var(--bad)]">{entry.closedCount} closed</span>
                       </td>
                     </tr>
                   ))}
@@ -320,7 +353,7 @@ export default function ModelsPage() {
             <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
               <div className="flex items-baseline gap-2">
                 <span className="text-[14px] font-semibold tracking-tight">Models by Company</span>
-                <span className="text-[11px] text-neutral-400">{companyModels.length} of {company === 'all' ? models.length : models.filter(m => m.provider === company).length} models</span>
+                <span className="text-[11px] text-neutral-500">{companyModels.length} of {company === 'all' ? models.length : models.filter(m => m.provider === company).length} models</span>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 <div className="flex gap-1">
@@ -357,7 +390,7 @@ export default function ModelsPage() {
                 />
               </div>
             </div>
-            <p className="text-[11px] text-neutral-400 mb-4">
+            <p className="text-[11px] text-neutral-500 mb-4">
               Latest = newest release date first · Cost = blended price per 1M tokens (7:2:1 cache-input-output) · Latency estimated from output speed (t/s).
             </p>
             <div className="overflow-x-auto no-scrollbar">
@@ -394,7 +427,7 @@ export default function ModelsPage() {
                       <td className="py-2.5 px-4 text-neutral-500">{m.context ?? '—'}</td>
                       <td className="py-2.5 px-4">
                         <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${
-                          isOpen(m) ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'
+                          isOpen(m) ? 'bg-green-50 text-[var(--ok-ink)]' : 'bg-red-50 text-[var(--bad)]'
                         }`}>
                           {isOpen(m) ? 'Open' : 'Closed'}
                         </span>
@@ -459,7 +492,7 @@ export default function ModelsPage() {
                 <span className="w-3 h-3 rounded-sm bg-[#7c3aed] flex-shrink-0" />
                 <span className="text-[15px] font-semibold tracking-tight">Intelligence Index vs. Cost per Task</span>
               </div>
-              <p className="text-[11px] text-neutral-400 mb-4">
+              <p className="text-[11px] text-neutral-500 mb-4">
                 Artificial Analysis Intelligence Index · weighted average cost (USD) per task · higher intelligence &amp; lower cost = upper-left
               </p>
               <IntelligenceScatter limit={60} />
@@ -469,7 +502,7 @@ export default function ModelsPage() {
                 <span className="w-3 h-3 rounded-sm bg-[#eab308] flex-shrink-0" />
                 <span className="text-[15px] font-semibold tracking-tight">Frontier Intelligence, Over Time</span>
               </div>
-              <p className="text-[11px] text-neutral-400 mb-4">
+              <p className="text-[11px] text-neutral-500 mb-4">
                 Intelligence Index of frontier models at release, per provider
               </p>
               <IntelligenceTimeline />
@@ -491,7 +524,18 @@ export default function ModelsPage() {
           <SectionHeader
             kicker="Comparison"
             title="All Models"
-            right={<span className="text-[12px] text-[var(--dim)] tabular-nums">{opennessFiltered.length} models</span>}
+            right={
+              <span className="flex items-center gap-2">
+                <input
+                  value={tableQuery}
+                  onChange={e => setTableQuery(e.target.value)}
+                  placeholder="Search models…"
+                  aria-label="Search all models"
+                  className="w-40 sm:w-52 rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-3 py-1.5 text-[13px] text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
+                />
+                <span className="text-[12px] text-[var(--mut)] tabular-nums">{sortedAll.length} models</span>
+              </span>
+            }
           />
             <div className="flex gap-1 flex-wrap">
               {([
@@ -525,11 +569,11 @@ export default function ModelsPage() {
             </div>
 
           <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
-            <div className="overflow-x-auto no-scrollbar">
-              <table className="w-full min-w-[940px] text-left text-[13px]">
+            <div className="overflow-auto no-scrollbar table-scroll max-h-[70vh]">
+              <table className="leaderboard-table w-full min-w-[940px] text-left text-[13px]">
                 <thead>
                   <tr className="border-b border-[var(--color-line)] bg-neutral-50">
-                    <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 56 }}>Rank</th>
+                    <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 whitespace-nowrap" style={{ width: 56 }}>Rank</th>
                     <SortableTh label="Model" active={allSort?.key === 'model'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'model', 'asc'))} />
                     <SortableTh label="Provider" width={120} active={allSort?.key === 'provider'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'provider', 'asc'))} />
                     <SortableTh label="Intelligence" width={100} active={allSort?.key === 'intelligence'} dir={allSort?.dir} onToggle={() => setAllSort(prev => toggleSort(prev, 'intelligence', 'desc'))} />
@@ -543,7 +587,7 @@ export default function ModelsPage() {
                 <tbody>
                   {sortedAll.map((m, idx) => (
                     <tr key={m.id} className="border-b border-[var(--color-line)] hover:bg-neutral-50 transition-colors">
-                      <td className="py-2.5 px-4 tabular-nums text-neutral-400">{idx + 1}</td>
+                      <td className="py-2.5 px-4 tabular-nums text-neutral-500">{idx + 1}</td>
                       <td className="py-2.5 px-4 font-medium">
                         <a href={`/models/${slugOf(m)}`} className="hover:underline">
                           {m.name}
@@ -560,8 +604,8 @@ export default function ModelsPage() {
                       <td className="py-2.5 px-4">
                         <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${
                           isOpen(m)
-                            ? 'bg-green-50 text-green-600'
-                            : 'bg-red-50 text-red-600'
+                            ? 'bg-green-50 text-[var(--ok-ink)]'
+                            : 'bg-red-50 text-[var(--bad)]'
                         }`}>
                           {isOpen(m) ? 'Open' : 'Closed'}
                         </span>
@@ -572,6 +616,14 @@ export default function ModelsPage() {
               </table>
             </div>
           </div>
+          {tableQuery.trim() && sortedAll.length === 0 && (
+            <p className="py-8 text-center text-sm text-[var(--mut)]">
+              No models match &quot;{tableQuery.trim()}&quot;.{' '}
+              <button onClick={() => setTableQuery('')} className="font-medium text-[var(--accent-hover)] hover:underline">
+                Clear search
+              </button>
+            </p>
+          )}
         </section>
 
         <div className="mt-8">

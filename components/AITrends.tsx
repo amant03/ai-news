@@ -43,7 +43,7 @@ function SectionCard({ title, subtitle, children }: { title: string; subtitle: s
     <div className="border border-[var(--color-line)] rounded-lg bg-[var(--card)]">
       <div className="px-6 pt-6 pb-4">
         <h3 className="text-[17px] font-semibold tracking-tight mb-1">{title}</h3>
-        <p className="text-[12px] text-[var(--dim)] max-w-[70ch] leading-relaxed">{subtitle}</p>
+        <p className="text-[12px] text-[var(--mut)] max-w-[70ch] leading-relaxed">{subtitle}</p>
       </div>
       <div className="px-6 pb-6">{children}</div>
     </div>
@@ -63,7 +63,7 @@ function IntelTooltip({ active, payload, label }: any) {
         .map((p: any, i: number) => (
           <div key={i} className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.color }} />
-            <span className="text-[var(--dim)] truncate">{p.name}:</span>
+            <span className="text-[var(--mut)] truncate">{p.name}:</span>
             <span className="font-medium ml-auto">{p.value?.toFixed(1)}</span>
           </div>
         ))}
@@ -79,7 +79,7 @@ function PriceTooltip({ active, payload, label }: any) {
       {payload.map((p: any, i: number) => (
         <div key={i} className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-          <span className="text-[var(--dim)]">{p.name}:</span>
+          <span className="text-[var(--mut)]">{p.name}:</span>
           <span className="font-medium">${p.value?.toFixed(2)}</span>
         </div>
       ))}
@@ -94,7 +94,7 @@ function ScatterTooltip({ active, payload }: any) {
   return (
     <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
       <div className="font-medium">{d.name}</div>
-      <div className="text-[var(--dim)]">{d.lab} · {formatDate(d.date)}</div>
+      <div className="text-[var(--mut)]">{d.lab} · {formatDate(d.date)}</div>
       <div className="mt-1">Intelligence: <span className="font-medium">{d.intelligence}</span></div>
       {d.price != null && <div>Price: <span className="font-medium">${d.price}/1M</span></div>}
     </div>
@@ -108,7 +108,7 @@ function BarTooltip({ active, payload }: any) {
   return (
     <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
       <div className="font-medium">{d.name}</div>
-      <div className="text-[var(--dim)]">{d.lab}</div>
+      <div className="text-[var(--mut)]">{d.lab}</div>
       <div className="mt-1">Intelligence: <span className="font-medium">{d.intelligence}</span></div>
     </div>
   );
@@ -268,7 +268,7 @@ export default function AITrends() {
               className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
                 activeSection === s.id
                   ? 'bg-black text-white font-medium'
-                  : 'text-[var(--dim)] hover:text-[var(--fore)] hover:bg-[var(--surface)]'
+                  : 'text-[var(--mut)] hover:text-[var(--fore)] hover:bg-[var(--surface)]'
               }`}
             >
               {s.label}
@@ -286,7 +286,7 @@ export default function AITrends() {
             className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
               activeSection === s.id
                 ? 'bg-black text-white'
-                : 'text-[var(--dim)] border border-[var(--color-line)]'
+                : 'text-[var(--mut)] border border-[var(--color-line)]'
             }`}
           >
             {s.label}
@@ -448,7 +448,7 @@ export default function AITrends() {
                         {payload.map((p: any, i: number) => (
                           <div key={i} className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-                            <span className="text-[var(--dim)]">{p.name}:</span>
+                            <span className="text-[var(--mut)]">{p.name}:</span>
                             <span className="font-medium">{p.value?.toFixed(0)} tok/s</span>
                           </div>
                         ))}
@@ -497,7 +497,7 @@ export default function AITrends() {
               title="AI Supply & Demand: Global Flow Network"
               subtitle="How AI resources flow between countries — investment capital, GPU/compute supply, AI talent migration, and model/API access. Based on Stanford AI Index 2025, OECD AI Compute, and BIS supply chain data."
             >
-              <p className="text-[12px] text-[var(--dim)] leading-relaxed mb-5 max-w-[80ch]">
+              <p className="text-[12px] text-[var(--mut)] leading-relaxed mb-5 max-w-[80ch]">
                 This hierarchical edge bundling chart visualizes the interconnected flows of AI resources across the globe.
                 Each node represents a country, grouped by region. Curved edges connect countries with active AI resource flows —
                 thicker lines indicate larger flows. The chart reveals how the United States sits at the center of the global AI

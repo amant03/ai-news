@@ -5,6 +5,8 @@ import SectionHeader from '@/components/SectionHeader';
 import Footer from '@/components/Footer';
 import data from '@/data/video-editing-models.json';
 import SortableTh from '@/components/SortableTh';
+import InsightCallout from '@/components/InsightCallout';
+import { mediaBoardInsight } from '@/lib/insights';
 import { sortByCol, toggleSort, type ColSort, type SortDir } from '@/lib/sortable';
 
 type Model = (typeof data.models)[number];
@@ -73,6 +75,7 @@ export default function VideoEditingLeaderboard() {
   const [category, setCategory] = useState<Category>('all');
   const [ranked, setRanked] = useState<Ranked>('ranked');
   const [sort, setSort] = useState<ColSort<SortKey>>({ key: 'elo', dir: 'desc' });
+  const [q, setQ] = useState('');
 
   const sorted = useMemo(() => {
     let models = [...data.models] as Model[];
@@ -91,8 +94,24 @@ export default function VideoEditingLeaderboard() {
       models = models.filter(m => !m.price?.includes('No API'));
     }
 
+    const query = q.trim().toLowerCase();
+    if (query) {
+      models = models.filter(
+        m => m.name.toLowerCase().includes(query) || m.creator.toLowerCase().includes(query)
+      );
+    }
+
     return sortByCol(models, sort, (m, key) => valueOf(m, key), (a, b) => a.rank - b.rank);
-  }, [category, ranked, sort]);
+  }, [category, ranked, sort, q]);
+
+  const insight = useMemo(() => {
+    const rankedModels = sorted.filter(m => typeof m.elo === 'number' && Number.isFinite(m.elo));
+    if (rankedModels.length === 0) return null;
+    return mediaBoardInsight({
+      items: rankedModels.map(m => ({ name: m.name, score: m.elo })),
+      metricLabel: 'Elo',
+    });
+  }, [sorted]);
 
   return (
     <div className="min-h-screen">
@@ -109,10 +128,18 @@ export default function VideoEditingLeaderboard() {
           <p className="text-[11px] text-neutral-400 mt-1.5">
             Last synced: {new Date(data.updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })} · {data.total} models
           </p>
+          <InsightCallout text={insight} />
         </div>
 
         {/* Filters */}
         <div className="flex gap-2 flex-wrap mb-6">
+          <input
+            value={q}
+            onChange={e => setQ(e.target.value)}
+            placeholder="Search models…"
+            aria-label="Search models"
+            className="rounded-full border border-[var(--color-line)] bg-[var(--input)] px-3.5 py-1.5 text-[12px] text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
+          />
           <div className="flex gap-1">
             {CATEGORIES.map(c => (
               <button
@@ -168,8 +195,8 @@ export default function VideoEditingLeaderboard() {
 
         {/* Table */}
         <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
-          <div className="overflow-x-auto no-scrollbar">
-            <table className="w-full min-w-[960px] text-left text-[13px]">
+          <div className="overflow-auto no-scrollbar table-scroll max-h-[75vh]">
+            <table className="leaderboard-table w-full min-w-[960px] text-left text-[13px]">
               <thead>
                 <tr className="border-b border-[var(--color-line)]">
                   <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-400 whitespace-nowrap" style={{ width: 60 }}>Rank</th>

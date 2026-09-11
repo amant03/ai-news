@@ -47,6 +47,7 @@ export default function Header({
   const [active, setActive] = useState('/');
   const [lastSync, setLastSync] = useState<string | null>(null);
   const [stuck, setStuck] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setActive(window.location.pathname);
@@ -82,6 +83,7 @@ export default function Header({
   }, []);
 
   const refreshIn = nextRefreshAt ? countdown(nextRefreshAt) : '...';
+  const syncedTitle = lastSync ? `Last synced ${relTime(lastSync)}` : 'Checking sync status…';
 
   return (
     <header>
@@ -105,7 +107,7 @@ export default function Header({
             </span>
           </a>
 
-          {/* Center nav pill */}
+          {/* Center nav pill — single primary nav (desktop) */}
           <nav
             className="hidden lg:flex flex-1 items-center justify-center bg-neutral-100 rounded-[1.5rem] px-2 py-1.5 min-w-0"
             aria-label="Primary"
@@ -129,12 +131,15 @@ export default function Header({
           {/* Right action pill */}
           <div className="flex items-center gap-0.5 bg-neutral-100 rounded-full pl-3 pr-1 py-1 shrink-0">
             <span
-              className="hidden md:flex items-center gap-1.5 text-[11px] text-neutral-500 tabular-nums mr-1.5 whitespace-nowrap"
-              title="Live sync status"
+              className="hidden md:flex items-center gap-1.5 text-[11px] text-neutral-600 tabular-nums mr-1.5 whitespace-nowrap"
+              title={syncedTitle}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              <span className="relative flex h-1.5 w-1.5" aria-hidden>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+              </span>
               Synced {relTime(lastSync)}
-              <span className="text-neutral-300 hidden xl:inline">· next {refreshIn}</span>
+              <span className="text-neutral-600 hidden xl:inline">· next {refreshIn}</span>
             </span>
             <button
               onClick={toggle}
@@ -172,29 +177,52 @@ export default function Header({
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
             </button>
+            {/* Mobile menu — drawer, lg:hidden only */}
+            <button
+              onClick={() => setOpen(v => !v)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              className="lg:hidden w-8 h-8 flex items-center justify-center rounded-full text-neutral-600 hover:text-black hover:bg-black/5 transition-colors"
+            >
+              {open ? (
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Mobile / tablet nav row */}
-        <nav
-          className="flex lg:hidden items-center gap-1 mt-2 overflow-x-auto no-scrollbar bg-neutral-100 rounded-full px-2 py-1.5"
-          aria-label="Primary"
-        >
-          {NAV.map(item => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-current={active === item.href ? 'page' : undefined}
-              className={`px-3 py-1.5 rounded-full text-[13px] whitespace-nowrap transition-colors ${
-                active === item.href
-                  ? 'bg-black text-white font-medium'
-                  : 'text-neutral-600'
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        {/* Mobile drawer */}
+        {open && (
+          <nav
+            className="lg:hidden mt-2 rounded-2xl border border-[var(--color-line)] bg-[var(--card)] p-2 shadow-lg"
+            aria-label="Primary mobile"
+          >
+            {NAV.map(item => (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={active === item.href ? 'page' : undefined}
+                onClick={() => setOpen(false)}
+                className={`block px-4 py-2.5 rounded-xl text-sm transition-colors ${
+                  active === item.href
+                    ? 'bg-black text-white font-medium'
+                    : 'text-neutral-600 hover:bg-neutral-100'
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+            <p className="px-4 py-2 text-[11px] tabular-nums text-neutral-400" title={syncedTitle}>
+              Synced {relTime(lastSync)}
+            </p>
+          </nav>
+        )}
       </div>
     </header>
   );
