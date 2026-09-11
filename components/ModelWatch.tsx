@@ -157,7 +157,13 @@ function barDataFor(
   return all.slice(0, 12);
 }
 
-export default function ModelWatch({ audience = 'all' }: { audience?: Audience }) {
+export default function ModelWatch({
+  audience = 'all',
+  showHighlights = true,
+}: {
+  audience?: Audience;
+  showHighlights?: boolean;
+}) {
   const profile = AUDIENCE[audience] || AUDIENCE.all;
   const [data, setData] = useState<ModelWatchData | null>(null);
   const [tab, setTab] = useState<SortKey>(profile.tab);
@@ -320,42 +326,43 @@ export default function ModelWatch({ audience = 'all' }: { audience?: Audience }
           ))}
         </div>
 
-        {/* Highlights — vertical bar chart cards (AA-style img5) */}
-        <div className="mb-5">
-          <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2.5 font-medium">Highlights</div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-            <VerticalBarChart
-              data={intelData}
-              title="Intelligence"
-              subtitle="Artificial Analysis Intelligence Index · higher is better"
-              valueFormat={v => v.toFixed(0)}
-              selectedId={selected?.id}
-              onSelect={id => setSelectedId(id)}
-              sortDir={chartDir.intel}
-              onToggleDir={() => setChartDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
-            />
-            <VerticalBarChart
-              data={speedData}
-              title="Speed"
-              subtitle="Output tokens per second · higher is better"
-              valueFormat={v => v.toFixed(0)}
-              selectedId={selected?.id}
-              onSelect={id => setSelectedId(id)}
-              sortDir={chartDir.coding}
-              onToggleDir={() => setChartDir(prev => ({ ...prev, coding: prev.coding === 'asc' ? 'desc' : 'asc' }))}
-            />
-            <VerticalBarChart
-              data={costData}
-              title="Cost per Task"
-              subtitle="USD per Intelligence Index task · lower is better"
-              valueFormat={v => fmtCost(v)}
-              selectedId={selected?.id}
-              onSelect={id => setSelectedId(id)}
-              sortDir={chartDir.cost}
-              onToggleDir={() => setChartDir(prev => ({ ...prev, cost: prev.cost === 'asc' ? 'desc' : 'asc' }))}
-            />
+        {showHighlights && (
+          <div className="mb-5">
+            <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2.5 font-medium">Highlights</div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+              <VerticalBarChart
+                data={intelData}
+                title="Intelligence"
+                subtitle="Artificial Analysis Intelligence Index · higher is better"
+                valueFormat={v => v.toFixed(0)}
+                selectedId={selected?.id}
+                onSelect={id => setSelectedId(id)}
+                sortDir={chartDir.intel}
+                onToggleDir={() => setChartDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
+              />
+              <VerticalBarChart
+                data={speedData}
+                title="Speed"
+                subtitle="Output tokens per second · higher is better"
+                valueFormat={v => v.toFixed(0)}
+                selectedId={selected?.id}
+                onSelect={id => setSelectedId(id)}
+                sortDir={chartDir.coding}
+                onToggleDir={() => setChartDir(prev => ({ ...prev, coding: prev.coding === 'asc' ? 'desc' : 'asc' }))}
+              />
+              <VerticalBarChart
+                data={costData}
+                title="Cost per Task"
+                subtitle="USD per Intelligence Index task · lower is better"
+                valueFormat={v => fmtCost(v)}
+                selectedId={selected?.id}
+                onSelect={id => setSelectedId(id)}
+                sortDir={chartDir.cost}
+                onToggleDir={() => setChartDir(prev => ({ ...prev, cost: prev.cost === 'asc' ? 'desc' : 'asc' }))}
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Leaderboard table — AA-style with colored row borders */}
         <div className="text-xs uppercase tracking-widest text-[var(--mut)] mb-2.5 font-medium">LLM Leaderboard — Comparison</div>

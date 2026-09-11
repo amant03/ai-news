@@ -330,7 +330,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
         {/* Models section */}
         <section className="mt-12 scroll-mt-28" id="model-watch">
           <SectionHeader kicker="Leaderboard" title="Models" updated right={null} />
-          <ModelWatch audience={selectedDomain} />
+          <ModelWatch audience={selectedDomain} showHighlights={false} />
         </section>
 
         {/* Latest Models section */}
