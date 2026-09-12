@@ -47,7 +47,7 @@ jobs:
         continue-on-error: true
         run: npx tsx lib/aa-model-scraper.ts
         env:
-          AA_SCRAPE_LIMIT: "30"
+          AA_SCRAPE_LIMIT: "100"
 
       - name: Commit leaderboard snapshots
         run: |

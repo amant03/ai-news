@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["puppeteer"],
@@ -23,16 +22,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-// Sentry only wraps the build when a DSN is configured — otherwise the app
-// builds and runs exactly as before (free-tier friendly, no-op locally).
-const sentryEnabled = Boolean(
-  process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN
-);
-
-export default sentryEnabled
-  ? withSentryConfig(nextConfig, {
-      silent: true,
-      telemetry: false,
-      sourcemaps: { disable: true },
-    })
-  : nextConfig;
+// No paid APM/SDK wrappers anywhere in this project — the config is exported
+// directly so builds stay dependency-free and reproducible.
+export default nextConfig;

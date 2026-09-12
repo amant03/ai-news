@@ -33,7 +33,7 @@ env:
 jobs:
   agent:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 22
     permissions:
       contents: write
     steps:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Run news agent
         id: agent
-        timeout-minutes: 12
+        timeout-minutes: 18
         run: npx tsx lib/run-agent.ts --skip-models --skip-ollama ${{ github.event.inputs.sources && format('--sources {0}', github.event.inputs.sources) || '' }}
         env:
           AGENT_MODE: ci
@@ -61,29 +61,41 @@ jobs:
           X_SCRAPING: "true"
           OLLAMA_URL: ""
 
+      # Commit on `always()`, not only on success: the store writes are atomic,
+      # so whatever a partial/failed run persisted is still worth shipping.
+      # Without this, one timed-out run discards all fresh items and the site
+      # goes stale until the next green run (the 6-8h gaps seen in Sep 2026).
       - name: Commit news snapshot
-        if: steps.agent.outcome == 'success'
+        if: always()
         run: |
           git config user.name "ai-news-bot"
           git config user.email "actions@users.noreply.github.com"
+          AGENT_OUTCOME="${{ steps.agent.outcome }}"
           node -e "
             const fs = require('fs');
             const d = JSON.parse(fs.readFileSync('data/status.json','utf8'));
-            d.lastRun = new Date().toISOString();
-            d.lastSuccess = new Date().toISOString();
-            const now = new Date();
+            const now = new Date().toISOString();
+            d.lastRun = now;
+            if (process.env.AGENT_OUTCOME === 'success') d.lastSuccess = now;
+            const today = new Date();
             const hours = [0, 4, 8, 12, 16, 20];
-            const nextHour = hours.find(h => h > now.getUTCHours()) ?? 24;
-            const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 0, 0));
+            const nextHour = hours.find(h => h > today.getUTCHours()) ?? 24;
+            const next = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() + (nextHour === 24 ? 1 : 0), nextHour === 24 ? 0 : nextHour, 0, 0));
             d.nextRun = next.toISOString();
             fs.writeFileSync('data/status.json', JSON.stringify(d, null, 2));
-            console.log('Updated status.json: nextRun=' + d.nextRun);
+            console.log('Updated status.json: outcome=' + process.env.AGENT_OUTCOME + ' nextRun=' + d.nextRun);
           "
           git add data/news.json data/status.json data/models-slim.json data/aa-models.json
           if git diff --cached --quiet; then
             echo "No data changes to commit"
           else
             git commit -m "chore: refresh AI news $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-            git pull --rebase origin main || true
-            git push origin HEAD:main
+            # Push races (two runs, or a dev push landing mid-run) used to fail
+            # the whole workflow — retry the pull/rebase/push cycle instead.
+            for i in 1 2 3; do
+              git pull --rebase origin main || true
+              if git push origin HEAD:main; then break; fi
+              echo "Push attempt $i failed, retrying..."
+              sleep 15
+            done
           fi

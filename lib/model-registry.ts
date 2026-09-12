@@ -77,10 +77,12 @@ const KNOWN_PROVIDER_BY_SLUG: Array<[string, string]> = [
   ['baidu', 'Baidu'], ['01', '01.AI'], ['liquid', 'Liquid AI'], ['stability', 'Stability AI'],
   ['eleutherai', 'EleutherAI'], ['nous', 'Nous Research'], ['unsloth', 'Unsloth'],
   ['ollama', 'Ollama'], ['scaleway', 'Scaleway'], ['lite', 'LiteLLM'], ['aihub', 'AI Hub'],
+  ['moonshotai', 'Moonshot'], ['z-ai', 'Z.ai'],
 ];
 
 export function providerFromId(id: string): string {
-  const slug = id.split('/')[0].toLowerCase();
+  // OpenRouter "latest" pointers use a ~ prefix (e.g. ~openai/gpt-sol-latest).
+  const slug = id.split('/')[0].toLowerCase().replace(/^[^a-z0-9]+/, '');
   for (const [k, v] of KNOWN_PROVIDER_BY_SLUG) {
     if (slug === k || slug.startsWith(k)) return v;
   }
@@ -766,6 +768,11 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
 
   // Compute valueScore for models that have intelligence + pricing.
   for (const m of records) {
+    // Stale records dropped from OpenRouter's API keep their last saved
+    // provider — re-derive it when it looks dirty (e.g. legacy "~openai").
+    if (m.id && (!m.provider || m.provider.includes('~'))) {
+      m.provider = providerFromId(m.id);
+    }
     if (m.valueScore === undefined && m.intelligenceIndex !== undefined) {
       const pp = m.promptPrice;
       const cp = m.completionPrice;

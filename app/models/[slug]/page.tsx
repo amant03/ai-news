@@ -642,61 +642,7 @@ export default async function ModelDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
             <div className="border border-[var(--color-line)] rounded-lg p-5">
               <div className="flex items-baseline justify-between mb-2">
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Artificial Analysis Intelligence Index</div>
-                {intelRank != null && <div className="text-[11px] text-[var(--mut)]">#{intelRank} / {classTotal}</div>}
-              </div>
-              {intelScore != null ? (
-                <>
-                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{Math.round(intelScore)} <span className="text-[13px] font-normal text-[var(--mut)]">/ 100</span></div>
-                  <div className="mt-3 h-1.5 bg-[var(--input)] rounded-full overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.round(intelScore))}%`, background: 'var(--aa-purple)' }} />
-                  </div>
-                  <div className="text-[10px] text-[var(--dim)] mt-1.5">{intelUnits} of 4 units for Intelligence</div>
-                </>
-              ) : (
-                <div className="text-[var(--dim)]">—</div>
-              )}
-            </div>
-
-            <div className="border border-[var(--color-line)] rounded-lg p-5">
-              <div className="flex items-baseline justify-between mb-2">
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Coding Index</div>
-                {model.codingIndex != null && <div className="text-[11px] text-[var(--mut)]">agentic coding</div>}
-              </div>
-              {model.codingIndex != null ? (
-                <>
-                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{model.codingIndex} <span className="text-[13px] font-normal text-[var(--mut)]">/ 100</span></div>
-                  <div className="mt-3 h-1.5 bg-[var(--input)] rounded-full overflow-hidden">
-                    <div className="h-full bg-amber-500 rounded-full" style={{ width: `${Math.min(100, model.codingIndex)}%` }} />
-                  </div>
-                  <div className="text-[10px] text-[var(--dim)] mt-1.5">{unitsFor(model.codingIndex)} of 4 units for Coding</div>
-                </>
-              ) : (
-                <div className="text-[var(--dim)]">—</div>
-              )}
-            </div>
-
-            <div className="border border-[var(--color-line)] rounded-lg p-5">
-              <div className="flex items-baseline justify-between mb-2">
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">Agentic Index</div>
-                {model.agenticIndex != null && <div className="text-[11px] text-[var(--mut)]">agentic tasks</div>}
-              </div>
-              {model.agenticIndex != null ? (
-                <>
-                  <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{model.agenticIndex} <span className="text-[13px] font-normal text-[var(--mut)]">/ 100</span></div>
-                  <div className="mt-3 h-1.5 bg-[var(--input)] rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-500 rounded-full" style={{ width: `${Math.min(100, model.agenticIndex)}%` }} />
-                  </div>
-                  <div className="text-[10px] text-[var(--dim)] mt-1.5">{unitsFor(model.agenticIndex)} of 4 units for Agentic</div>
-                </>
-              ) : (
-                <div className="text-[var(--dim)]">—</div>
-              )}
-            </div>
-
-            <div className="border border-[var(--color-line)] rounded-lg p-5">
-              <div className="flex items-baseline justify-between mb-2">
-                <div className="text-[10px] uppercase tracking-widest text-[var(--dim)]">LMArena Elo</div>
+                <div className="text-[10px] uppercase tracking-widest text-[var(--mut)]">LMArena Elo</div>
                 {model.elo != null && <div className="text-[11px] text-[var(--mut)]">human preference</div>}
               </div>
               {model.elo != null ? (

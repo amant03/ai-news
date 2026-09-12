@@ -78,17 +78,17 @@ export default async function ProvidersPage({ params }: Props) {
     return (
       <main className="max-w-[1200px] mx-auto px-5 pt-8 pb-16">
         <div className="mb-6">
-          <Link href="/models" className="text-[12px] text-neutral-400 hover:text-neutral-600 transition-colors">
+          <Link href="/models" className="text-[12px] text-neutral-500 hover:text-neutral-600 transition-colors">
             ← Models
           </Link>
         </div>
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            {model?.name} <span className="text-neutral-400">API Provider Benchmarking</span>
+            {model?.name} <span className="text-neutral-500">API Provider Benchmarking</span>
           </h1>
           <div className="flex items-center gap-2 mt-3 flex-wrap text-[12px]">
             <span className="text-neutral-500">{model?.provider}</span>
-            <span className="text-neutral-300">•</span>
+            <span className="text-neutral-500">•</span>
             <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
               model && (model.family === 'open-weights' || model.family === 'open') ? 'bg-[var(--ok-ink)]/10 text-[var(--ok-ink)]' : 'bg-[var(--bad)]/10 text-[var(--bad)]'
             }`}>
@@ -142,10 +142,10 @@ export default async function ProvidersPage({ params }: Props) {
   return (
     <main className="max-w-[1200px] mx-auto px-5 pt-8 pb-16">
       <div className="mb-6 flex items-center gap-4">
-        <Link href="/models" className="text-[12px] text-neutral-400 hover:text-neutral-600 transition-colors">
+        <Link href="/models" className="text-[12px] text-neutral-500 hover:text-neutral-600 transition-colors">
           ← Models
         </Link>
-        <Link href={`/models/${slug}`} className="text-[12px] text-neutral-400 hover:text-neutral-600 transition-colors">
+        <Link href={`/models/${slug}`} className="text-[12px] text-neutral-500 hover:text-neutral-600 transition-colors">
           Model Comparison
         </Link>
       </div>
@@ -153,13 +153,13 @@ export default async function ProvidersPage({ params }: Props) {
       {/* Title */}
       <div className="mb-8">
         <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-          {entry.name} <span className="text-neutral-400">API Provider Benchmarking &amp; Analysis</span>
+          {entry.name} <span className="text-neutral-500">API Provider Benchmarking &amp; Analysis</span>
         </h1>
         <div className="flex items-center gap-2 mt-3 flex-wrap text-[12px]">
           <span className="text-neutral-500">{entry.provider}</span>
           {entry.family && (
             <>
-              <span className="text-neutral-300">•</span>
+              <span className="text-neutral-500">•</span>
               <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${
                 entry.family === 'open-weights' ? 'bg-[var(--ok-ink)]/10 text-[var(--ok-ink)]' : 'bg-[var(--bad)]/10 text-[var(--bad)]'
               }`}>
@@ -169,12 +169,12 @@ export default async function ProvidersPage({ params }: Props) {
           )}
           {entry.released && (
             <>
-              <span className="text-neutral-300">•</span>
+              <span className="text-neutral-500">•</span>
               <span className="text-neutral-500">Released {entry.released}</span>
             </>
           )}
         </div>
-        <p className="text-[12px] text-neutral-400 mt-3">
+        <p className="text-[12px] text-neutral-500 mt-3">
           {rows.length} API providers benchmarked · output speed, latency (time to first answer token), and blended price per 1M tokens
         </p>
       </div>
@@ -183,7 +183,7 @@ export default async function ProvidersPage({ params }: Props) {
       <section className="mb-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Fastest</div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Fastest</div>
             {fastest ? (
               <>
                 <div className="flex items-baseline gap-2">
@@ -193,11 +193,11 @@ export default async function ProvidersPage({ params }: Props) {
                 <div className="text-[11px] text-neutral-500 mt-2">Output speed · median</div>
               </>
             ) : (
-              <div className="text-neutral-400">—</div>
+              <div className="text-neutral-500">—</div>
             )}
           </div>
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Lowest Latency</div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Lowest Latency</div>
             {lowestLatency ? (
               <>
                 <div className="flex items-baseline gap-2">
@@ -207,11 +207,11 @@ export default async function ProvidersPage({ params }: Props) {
                 <div className="text-[11px] text-neutral-500 mt-2">Time to first answer token</div>
               </>
             ) : (
-              <div className="text-neutral-400">—</div>
+              <div className="text-neutral-500">—</div>
             )}
           </div>
           <div className="border border-[var(--color-line)] rounded-lg p-5">
-            <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Lowest Price</div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Lowest Price</div>
             {cheapest ? (
               <>
                 <div className="flex items-baseline gap-2">
@@ -221,7 +221,7 @@ export default async function ProvidersPage({ params }: Props) {
                 <div className="text-[11px] text-neutral-500 mt-2">Blended price · per 1M tokens</div>
               </>
             ) : (
-              <div className="text-neutral-400">—</div>
+              <div className="text-neutral-500">—</div>
             )}
           </div>
         </div>
@@ -230,7 +230,7 @@ export default async function ProvidersPage({ params }: Props) {
       {/* Comparison summary */}
       <section className="mb-10">
         <div className="border border-[var(--color-line)] rounded-lg p-5">
-          <div className="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Comparison Summary</div>
+          <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-3">Comparison Summary</div>
           <p className="text-[13px] text-neutral-600 leading-relaxed max-w-3xl">
             {entry.name} is available through {rows.length} API providers, each offering different performance
             characteristics and pricing.
@@ -258,16 +258,16 @@ export default async function ProvidersPage({ params }: Props) {
             <table className="w-full text-left text-[12px] min-w-[900px]">
               <thead>
                 <tr className="border-b border-[var(--color-line)]">
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">API Provider</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">Context</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">License</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">Cost per Task</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">Speed (t/s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">First Chunk (s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">Total Response (s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">Reasoning (s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">Fn Call</th>
-                  <th className="py-3 px-4 font-medium text-neutral-400 whitespace-nowrap">JSON</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">API Provider</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Context</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">License</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Cost per Task</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Speed (t/s)</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">First Chunk (s)</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Total Response (s)</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Reasoning (s)</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Fn Call</th>
+                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">JSON</th>
                 </tr>
               </thead>
               <tbody>
@@ -281,15 +281,15 @@ export default async function ProvidersPage({ params }: Props) {
                     <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.firstChunk != null ? r.firstChunk.toFixed(2) : '—'}</td>
                     <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.totalResponse != null ? r.totalResponse.toFixed(2) : '—'}</td>
                     <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.reasoningTime != null ? r.reasoningTime.toFixed(2) : '—'}</td>
-                    <td className="py-3 px-4 whitespace-nowrap">{r.functionCalling ? <span className="text-green-600">✓</span> : <span className="text-neutral-300">—</span>}</td>
-                    <td className="py-3 px-4 whitespace-nowrap">{r.jsonMode ? <span className="text-green-600">✓</span> : <span className="text-neutral-300">—</span>}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">{r.functionCalling ? <span className="text-[var(--ok-ink)]">✓</span> : <span className="text-neutral-500">—</span>}</td>
+                    <td className="py-3 px-4 whitespace-nowrap">{r.jsonMode ? <span className="text-[var(--ok-ink)]">✓</span> : <span className="text-neutral-500">—</span>}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </div>
-        <p className="text-[11px] text-neutral-400 mt-3">
+        <p className="text-[11px] text-neutral-500 mt-3">
           Median (P50) measurements over the past 72 hours · blended at {entry.blendRatio ?? '7:2:1 (cache-input-output)'} ·
           workload: 10,000 input tokens · mirrored from artificialanalysis.ai
         </p>

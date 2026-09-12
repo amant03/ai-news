@@ -1,14 +1,8 @@
-import * as Sentry from '@sentry/nextjs';
-
 export async function register() {
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
-    await import('./sentry.server.config');
-  }
-  if (process.env.NEXT_RUNTIME === 'edge') {
-    await import('./sentry.edge.config');
-  }
+  // Production observability is intentionally dependency-free (no paid APM):
+  // server errors surface via Vercel runtime logs + app/global-error.tsx.
 }
 
 export function onRequestError(err: unknown) {
-  Sentry.captureException(err);
+  console.error('[request-error]', err);
 }

@@ -207,7 +207,12 @@ export async function scrapeAAModelPages(opts?: { limit?: number; slugs?: string
   }
 
   const limit = opts?.limit ?? Math.max(1, parseInt(process.env.AA_SCRAPE_LIMIT || '40', 10) || 40);
+  // Skip index noise: provider pages (meta, google, aws), STT-only slugs and
+  // Next.js page hashes 404 — real AA model slugs contain a dash or a digit.
+  const PLAUSIBLE = (s: string) =>
+    /[-0-9]/.test(s) && !/^page-[0-9a-f]{8,}$/i.test(s);
   const need = slugs.filter(s => {
+    if (!PLAUSIBLE(s)) return false;
     const cur = bySlug.get(s);
     return !cur || cur.speed == null || cur.costPerTask == null || cur.verbosity == null;
   });
@@ -269,6 +274,66 @@ export function mergeAAIntoModels(
   let updated = 0;
   let added = 0;
 
+  // Provider words stripped when comparing core model names.
+  const PROVIDER_WORDS = new Set([
+    'openai', 'anthropic', 'google', 'deepmind', 'xai', 'meta', 'mistral',
+    'deepseek', 'qwen', 'alibaba', 'moonshot', 'zai', 'openrouter', 'ai',
+  ]);
+  const STOP_WORDS = new Set(['latest', 'free', 'batch', 'preview', 'models', 'model']);
+
+  const coreTokens = (name: string): string[] =>
+    String(name || '')
+      .toLowerCase()
+      .replace(/\(.*?\)/g, ' ')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .split(' ')
+      .filter(t => t && !PROVIDER_WORDS.has(t) && !STOP_WORDS.has(t));
+
+  const foldDigits = (t: string): string => t.replace(/[0-9]/g, '');
+
+  // Conservative alias score for OpenRouter "latest" pointers like
+  // "OpenAI GPT Sol Latest" vs AA's "GPT-5.6 Sol (max)": every slim-side core
+  // token must match an AA-side token (exactly, or digit-insensitively), and
+  // normalized providers must agree. Returns -1 on any unmatched token.
+  const aliasScore = (slimName: string, aaName: string): number => {
+    const s = coreTokens(slimName);
+    const a = coreTokens(aaName);
+    if (s.length === 0 || a.length === 0) return -1;
+    let score = 0;
+    for (const t of s) {
+      if (a.includes(t)) {
+        score += 2;
+        continue;
+      }
+      const f = foldDigits(t);
+      if (f && a.some(x => foldDigits(x) === f)) {
+        score += 1;
+        continue;
+      }
+      return -1;
+    }
+    return score;
+  };
+
+  const normProvider = (p: unknown): string =>
+    String(p || '').toLowerCase().replace(/^[^a-z0-9]+/, '').replace(/[-_]/g, '');
+
+  const findAlias = (m: Record<string, unknown>): AAModelEntry | null => {
+    const provider = normProvider(m.provider);
+    if (!provider) return null;
+    let best: AAModelEntry | null = null;
+    let bestScore = -1;
+    for (const aa of aaData) {
+      if (!aa.name || normProvider(aa.provider) !== provider) continue;
+      const score = aliasScore(String(m.name || ''), aa.name);
+      if (score > bestScore) {
+        bestScore = score;
+        best = aa;
+      }
+    }
+    return bestScore >= 0 ? best : null;
+  };
+
   for (const aa of aaData) {
     if (!aa.slug && !aa.name) continue;
 
@@ -279,43 +344,45 @@ export function mergeAAIntoModels(
       )
     );
 
-    const apply = (target: Record<string, unknown>) => {
-      target.aaSlug = aa.slug;
-      if (aa.intelligenceIndex != null) {
-        target.intelligenceIndex = Math.round(aa.intelligenceIndex * 10) / 10;
+    const applyEntry = (target: Record<string, unknown>, entry: AAModelEntry, rename: boolean) => {
+      target.aaSlug = entry.slug;
+      if (entry.intelligenceIndex != null) {
+        target.intelligenceIndex = Math.round(entry.intelligenceIndex * 10) / 10;
         updated++;
       }
-      if (aa.speed != null) {
-        target.aaSpeed = Math.round(aa.speed * 10) / 10;
+      if (entry.speed != null) {
+        target.aaSpeed = Math.round(entry.speed * 10) / 10;
         updated++;
       }
-      if (aa.costPerTask != null) {
-        target.aaCostPerTask = Math.round(aa.costPerTask * 100) / 100;
+      if (entry.costPerTask != null) {
+        target.aaCostPerTask = Math.round(entry.costPerTask * 100) / 100;
         updated++;
       }
-      if (aa.verbosity != null) {
-        target.aaVerbosity = aa.verbosity;
+      if (entry.verbosity != null) {
+        target.aaVerbosity = entry.verbosity;
         updated++;
       }
-      if (aa.latency != null) {
-        target.aaLatency = Math.round(aa.latency * 100) / 100;
+      if (entry.latency != null) {
+        target.aaLatency = Math.round(entry.latency * 100) / 100;
         updated++;
       }
-      if (aa.promptPrice != null && target.promptPrice == null) target.promptPrice = aa.promptPrice;
-      if (aa.completionPrice != null && target.completionPrice == null) target.completionPrice = aa.completionPrice;
-      if (aa.context && !target.context) target.context = aa.context;
-      if (aa.params && !target.params) target.params = aa.params;
-      if (aa.license && !target.license) target.license = aa.license;
-      if (aa.released && !target.released) target.released = aa.released;
-      if (aa.isReasoning != null) target.isReasoning = aa.isReasoning;
-      if (aa.inputModalities) target.inputModalities = aa.inputModalities;
-      if (aa.outputModalities) target.outputModalities = aa.outputModalities;
-      if (aa.family) target.family = aa.family;
-      if (aa.shortName) target.name = aa.name;
+      if (entry.promptPrice != null && target.promptPrice == null) target.promptPrice = entry.promptPrice;
+      if (entry.completionPrice != null && target.completionPrice == null) target.completionPrice = entry.completionPrice;
+      if (entry.context && !target.context) target.context = entry.context;
+      if (entry.params && !target.params) target.params = entry.params;
+      if (entry.license && !target.license) target.license = entry.license;
+      if (entry.released && !target.released) target.released = entry.released;
+      if (entry.isReasoning != null) target.isReasoning = entry.isReasoning;
+      if (entry.inputModalities) target.inputModalities = entry.inputModalities;
+      if (entry.outputModalities) target.outputModalities = entry.outputModalities;
+      if (entry.family) target.family = entry.family;
+      // Alias matches keep the catalog's own display name (e.g. OpenRouter's
+      // "latest" pointer names) — only exact slug matches adopt AA's name.
+      if (rename && entry.shortName) target.name = entry.name;
     };
 
     if (existing) {
-      apply(existing);
+      applyEntry(existing, aa, true);
     } else {
       const rec: Record<string, unknown> = {
         id: `aa/${aa.slug}`,
@@ -325,10 +392,45 @@ export function mergeAAIntoModels(
         family: aa.family || detectFamily(aa.name, aa.provider),
         aaSlug: aa.slug,
       };
-      apply(rec);
+      applyEntry(rec, aa, true);
       models.push(rec);
       added++;
     }
+  }
+
+  // Second pass: records that still lack an aaSlug get one conservative alias
+  // match (normalized provider + core-token subset). Never renames the record.
+  for (const m of models) {
+    if (m.aaSlug) continue;
+    const aa = findAlias(m);
+    if (!aa) continue;
+    const target = m;
+    target.aaSlug = aa.slug;
+    if (aa.intelligenceIndex != null) {
+      target.intelligenceIndex = Math.round(aa.intelligenceIndex * 10) / 10;
+      updated++;
+    }
+    if (aa.speed != null) {
+      target.aaSpeed = Math.round(aa.speed * 10) / 10;
+      updated++;
+    }
+    if (aa.costPerTask != null) {
+      target.aaCostPerTask = Math.round(aa.costPerTask * 100) / 100;
+      updated++;
+    }
+    if (aa.verbosity != null) {
+      target.aaVerbosity = aa.verbosity;
+      updated++;
+    }
+    if (aa.latency != null) {
+      target.aaLatency = Math.round(aa.latency * 100) / 100;
+      updated++;
+    }
+    if (aa.promptPrice != null && target.promptPrice == null) target.promptPrice = aa.promptPrice;
+    if (aa.completionPrice != null && target.completionPrice == null) target.completionPrice = aa.completionPrice;
+    if (aa.context && !target.context) target.context = aa.context;
+    if (aa.params && !target.params) target.params = aa.params;
+    if (aa.released && !target.released) target.released = aa.released;
   }
 
   return { updated, added };

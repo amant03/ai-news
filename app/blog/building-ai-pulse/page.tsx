@@ -66,7 +66,8 @@ export default function BuildingAiPulse() {
           history became a public changelog, and the homepage shows a “since last refresh”
           delta. Underneath: 42 Vitest unit tests over the ranking/dedup/sentiment pipeline,
           Playwright smoke + axe specs (0 critical/serious on core routes), CI separating
-          code-quality gates from data jobs, Sentry wired but dormant without a DSN, and a
+          code-quality gates from data jobs, dependency-free error handling (no paid
+          APM — Vercel runtime logs plus a branded error page), and a
           sitemap covering every model URL plus FAQ JSON-LD.
         </P>
 

@@ -89,6 +89,7 @@ jobs — pipeline and product gates stay independent.
   with graceful fallback — balancing cost, latency and factual accuracy.
 - Cut serverless deploy payload ~99% (100 MB → 60 KB) via a dual full/slim
   model-catalog strategy with tiered loading and lean API responses.
-- Instrumented CI (typecheck/unit/build/E2E on every push), Sentry error
-  monitoring, Vercel Analytics + Speed Insights, and axe-clean (0
+- Instrumented CI (typecheck/unit/build/E2E on every push), dependency-free error
+  handling (branded error page + runtime logs, zero paid services), Vercel
+  Analytics + Speed Insights, and axe-clean (0
   critical/serious) accessibility on core routes.

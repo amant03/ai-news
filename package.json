@@ -19,7 +19,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@sentry/nextjs": "^10.74.0",
     "@types/d3": "^7.4.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
