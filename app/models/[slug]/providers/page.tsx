@@ -39,6 +39,13 @@ function slugOf(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
+function formatRelease(iso: string | undefined): string {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return '—';
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
 function loadProviders(): ProvidersFile | null {
   try {
     if (!fs.existsSync(DATA_FILE)) return null;
@@ -176,6 +183,19 @@ export default async function ProvidersPage({ params }: Props) {
   const prices = rows.filter(r => r.blendedPrice != null).map(r => r.blendedPrice as number);
   const priceSpread = prices.length > 1 ? Math.max(...prices) / Math.min(...prices) : 0;
 
+  // OpenRouter's public API publishes no per-provider speed/latency figures,
+  // so those columns render only when at least one row actually has data.
+  const showSpeed = rows.some(r => r.speed != null);
+  const showLatency = rows.some(r => r.firstChunk != null);
+  const showTotal = rows.some(r => r.totalResponse != null);
+  const showReasoning = rows.some(r => r.reasoningTime != null);
+
+  /** Adaptive USD: cheap models need 4 decimals ($0.0032, not $0.00). */
+  const fmtUSD = (v: number | null | undefined): string => {
+    if (v === null || v === undefined || !Number.isFinite(v)) return '—';
+    return `$${v < 0.01 ? v.toFixed(4) : v.toFixed(2)}`;
+  };
+
   return (
     <main className="max-w-[1200px] mx-auto px-5 pt-8 pb-16">
       <div className="mb-6 flex items-center gap-4">
@@ -207,7 +227,7 @@ export default async function ProvidersPage({ params }: Props) {
           {entry.released && (
             <>
               <span className="text-neutral-500">•</span>
-              <span className="text-neutral-500">Released {entry.released}</span>
+              <span className="text-neutral-500">Released {formatRelease(entry.released)}</span>
             </>
           )}
         </div>
@@ -216,9 +236,10 @@ export default async function ProvidersPage({ params }: Props) {
         </p>
       </div>
 
-      {/* Top-5 cards */}
+      {/* Top-3 cards (speed/latency cards only when measured data exists) */}
       <section className="mb-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {showSpeed && (
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Fastest</div>
             {fastest ? (
@@ -233,6 +254,8 @@ export default async function ProvidersPage({ params }: Props) {
               <div className="text-neutral-500">—</div>
             )}
           </div>
+          )}
+          {showLatency && (
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Lowest Latency</div>
             {lowestLatency ? (
@@ -247,6 +270,7 @@ export default async function ProvidersPage({ params }: Props) {
               <div className="text-neutral-500">—</div>
             )}
           </div>
+          )}
           <div className="border border-[var(--color-line)] rounded-lg p-5">
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Lowest Price</div>
             {cheapest ? (
@@ -254,7 +278,7 @@ export default async function ProvidersPage({ params }: Props) {
                 <div className="flex items-baseline gap-2">
                   <span className="text-2xl font-semibold">{cheapest.name}</span>
                 </div>
-                <div className="text-3xl font-semibold tabular-nums mt-1">${cheapest.blendedPrice.toFixed(2)}</div>
+                <div className="text-3xl font-semibold tabular-nums mt-1">{fmtUSD(cheapest.blendedPrice)}</div>
                 <div className="text-[11px] text-neutral-500 mt-2">Blended price · per 1M tokens</div>
               </>
             ) : (
@@ -278,7 +302,7 @@ export default async function ProvidersPage({ params }: Props) {
               <> For latency, {top5Latency[0].name} ({top5Latency[0].firstChunk?.toFixed(2)}s), {top5Latency[1].name} ({top5Latency[1].firstChunk?.toFixed(2)}s) offer the lowest time to first answer token.</>
             )}
             {top5Price.length >= 2 && (
-              <> For pricing, {top5Price[0].name} (${top5Price[0].blendedPrice.toFixed(2)}), {top5Price[1].name} (${top5Price[1].blendedPrice.toFixed(2)}) offer the lowest blended prices per 1M tokens. Prices vary up to {priceSpread.toFixed(1)}x across providers.</>
+              <> For pricing, {top5Price[0].name} ({fmtUSD(top5Price[0].blendedPrice)}), {top5Price[1].name} ({fmtUSD(top5Price[1].blendedPrice)}) offer the lowest blended prices per 1M tokens. Prices vary up to {priceSpread.toFixed(1)}x across providers.</>
             )}
             {fastest && cheapest && (
               <> {fastest.name} offers the best performance with the highest speed{lowestLatency?.name === fastest.name ? ' and lowest latency' : ''}. For cost optimization, {cheapest.name} provides the most competitive pricing.</>
@@ -293,42 +317,42 @@ export default async function ProvidersPage({ params }: Props) {
         <div className="border border-[var(--color-line)] rounded-lg overflow-hidden">
           <div className="overflow-x-auto no-scrollbar">
             <table className="w-full text-left text-[12px] min-w-[900px]">
-              <thead>
-                <tr className="border-b border-[var(--color-line)]">
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">API Provider</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Context</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">License</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Cost per Task</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Speed (t/s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">First Chunk (s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Total Response (s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Reasoning (s)</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Fn Call</th>
-                  <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">JSON</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map(r => (
-                  <tr key={r.name} className="border-b border-[var(--color-line)] last:border-b-0">
-                    <td className="py-3 px-4 font-medium whitespace-nowrap">{r.name}</td>
-                    <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.context}</td>
-                    <td className="py-3 px-4 text-neutral-500 whitespace-nowrap">{r.license}</td>
-                    <td className="py-3 px-4 tabular-nums whitespace-nowrap">{r.costPerTask != null ? `$${r.costPerTask.toFixed(2)}` : '—'}</td>
-                    <td className="py-3 px-4 tabular-nums font-medium whitespace-nowrap">{r.speed ?? '—'}</td>
-                    <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.firstChunk != null ? r.firstChunk.toFixed(2) : '—'}</td>
-                    <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.totalResponse != null ? r.totalResponse.toFixed(2) : '—'}</td>
-                    <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.reasoningTime != null ? r.reasoningTime.toFixed(2) : '—'}</td>
-                    <td className="py-3 px-4 whitespace-nowrap">{r.functionCalling ? <span className="text-[var(--ok-ink)]">✓</span> : <span className="text-neutral-500">—</span>}</td>
-                    <td className="py-3 px-4 whitespace-nowrap">{r.jsonMode ? <span className="text-[var(--ok-ink)]">✓</span> : <span className="text-neutral-500">—</span>}</td>
+                <thead>
+                  <tr className="border-b border-[var(--color-line)]">
+                    <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">API Provider</th>
+                    <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Context</th>
+                    <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Quant</th>
+                    <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Cost per Task</th>
+                    {showSpeed && <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Speed (t/s)</th>}
+                    {showLatency && <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">First Chunk (s)</th>}
+                    {showTotal && <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Total Response (s)</th>}
+                    {showReasoning && <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Reasoning (s)</th>}
+                    <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">Fn Call</th>
+                    <th className="py-3 px-4 font-medium text-neutral-500 whitespace-nowrap">JSON</th>
                   </tr>
-                ))}
-              </tbody>
+                </thead>
+                <tbody>
+                  {rows.map(r => (
+                    <tr key={r.name} className="border-b border-[var(--color-line)] last:border-b-0">
+                      <td className="py-3 px-4 font-medium whitespace-nowrap">{r.name}</td>
+                      <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.context}</td>
+                      <td className="py-3 px-4 text-neutral-500 whitespace-nowrap">{r.license}</td>
+                      <td className="py-3 px-4 tabular-nums whitespace-nowrap">{fmtUSD(r.costPerTask)}</td>
+                      {showSpeed && <td className="py-3 px-4 tabular-nums font-medium whitespace-nowrap">{r.speed ?? '—'}</td>}
+                      {showLatency && <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.firstChunk != null ? r.firstChunk.toFixed(2) : '—'}</td>}
+                      {showTotal && <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.totalResponse != null ? r.totalResponse.toFixed(2) : '—'}</td>}
+                      {showReasoning && <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.reasoningTime != null ? r.reasoningTime.toFixed(2) : '—'}</td>}
+                      <td className="py-3 px-4 whitespace-nowrap">{r.functionCalling ? <span className="text-[var(--ok-ink)]">✓</span> : <span className="text-neutral-500">—</span>}</td>
+                      <td className="py-3 px-4 whitespace-nowrap">{r.jsonMode ? <span className="text-[var(--ok-ink)]">✓</span> : <span className="text-neutral-500">—</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
             </table>
           </div>
         </div>
         <p className="text-[11px] text-neutral-500 mt-3">
-          Median measurements where available · live provider pricing via OpenRouter · blended at {entry.blendRatio ?? '3:1 (input-output)'} per 1M tokens ·
-          workload: 10,000 input tokens · aggregated from public provider benchmarks
+          Median measurements where available · live provider pricing via OpenRouter · cost per task = reference workload (10K input + 2K output tokens) at each provider's price · blended 3:1 (input-output) per 1M tokens ·
+          aggregated from public provider benchmarks{!showSpeed && ' · per-provider speed figures are not published, so only pricing and features are compared'}
         </p>
         {model && (
           <div className="mt-6">

@@ -62,6 +62,19 @@ function fmtContext(n: number | undefined): string {
 const finiteOrNull = (v: unknown): number | null =>
   typeof v === 'number' && Number.isFinite(v) ? v : null;
 
+/**
+ * Reference workload cost ("cost per task"): 10,000 input + 2,000 output
+ * tokens at the provider's live price. Fully determined by real prices —
+ * the same workload for every provider, so the column compares fairly.
+ */
+const TASK_INPUT_TOKENS = 10_000;
+const TASK_OUTPUT_TOKENS = 2_000;
+
+function taskCost(inputPerM: number, outputPerM: number): number {
+  const v = (inputPerM * TASK_INPUT_TOKENS + outputPerM * TASK_OUTPUT_TOKENS) / 1_000_000;
+  return Math.round(v * 10000) / 10000;
+}
+
 /** Pure mapping: OpenRouter endpoint → comparison row (unit-tested). */
 export function toProviderRow(e: OREndpoint): ProviderRow | null {
   const name = String(e.provider_name || '').trim();
@@ -75,7 +88,7 @@ export function toProviderRow(e: OREndpoint): ProviderRow | null {
     license: e.quantization && e.quantization !== 'unknown' ? String(e.quantization) : '—',
     functionCalling: params.includes('tools'),
     jsonMode: params.includes('response_format') || params.includes('structured_outputs'),
-    costPerTask: null,
+    costPerTask: taskCost(inputPrice, outputPrice),
     speed: finiteOrNull(e.throughput_last_30m),
     firstChunk: finiteOrNull(e.latency_last_30m),
     totalResponse: null,

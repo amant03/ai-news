@@ -29,8 +29,16 @@ describe('toProviderRow', () => {
     const row = toProviderRow({ provider_name: 'Azure', pricing: {} });
     expect(row!.speed).toBeNull();
     expect(row!.firstChunk).toBeNull();
-    expect(row!.costPerTask).toBeNull();
     expect(row!.license).toBe('—');
+  });
+
+  it('computes reference-workload task cost from live prices', () => {
+    const row = toProviderRow({
+      provider_name: 'X',
+      pricing: { prompt: '0.00000032', completion: '0.00000089' },
+    });
+    // 10K in @ $0.32/M + 2K out @ $0.89/M = 0.0032 + 0.00178 ≈ $0.005
+    expect(row!.costPerTask).toBeCloseTo(0.005, 5);
   });
 
   it('rejects nameless endpoints', () => {
