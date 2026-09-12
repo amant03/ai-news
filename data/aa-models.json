@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-12T04:22:21.702Z",
+  "updatedAt": "2026-09-12T09:02:44.258Z",
   "source": "artificialanalysis.ai",
-  "total": 41,
+  "total": 42,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -239,11 +239,11 @@
       "name": "GLM-5.2 (max)",
       "shortName": "GLM-5.2 (max)",
       "provider": "Z AI",
-      "intelligenceIndex": 38.6392888040106,
-      "speed": 66.2537505906977,
-      "costPerTask": null,
-      "verbosity": null,
-      "latency": 4.03281002450001,
+      "intelligenceIndex": 34.0052322377545,
+      "speed": 67.5555458552465,
+      "costPerTask": 0.9648813120929373,
+      "verbosity": 177562341,
+      "latency": 4.2187081805,
       "promptPrice": 1.4,
       "completionPrice": 4.4,
       "context": "1M",
@@ -260,11 +260,12 @@
         "scicode": 0.511574074074074,
         "lcr": 0.783333333333333,
         "critpt": 0.208571428571429,
-        "gdpval": 0.45880999999999994,
+        "gdpval": 0.45303499999999997,
         "omniscience": 4.43333333333333,
         "automationBench": 0.2839897721005435,
         "ifbench": 0.733333333333333,
-        "tauBanking": 0.34639175257732
+        "tauBanking": 0.34639175257732,
+        "terminalbench": 0.0101010101010101
       },
       "hostModelCount": 21
     },
@@ -1019,10 +1020,10 @@
       "shortName": "Agnes 3.0 Flash",
       "provider": "Sapiens AI",
       "intelligenceIndex": 35.5,
-      "speed": 252.715370625623,
+      "speed": 230.927278990818,
       "costPerTask": null,
       "verbosity": null,
-      "latency": 1.76818332196921,
+      "latency": 1.83030658400002,
       "promptPrice": 0.05,
       "completionPrice": 0.15,
       "context": "1M",
@@ -1051,10 +1052,10 @@
       "shortName": "Ling-3.0-flash-VL",
       "provider": "InclusionAI",
       "intelligenceIndex": 24.7673304077875,
-      "speed": 140.65449643363,
+      "speed": 144.72840806113,
       "costPerTask": null,
       "verbosity": 160053880,
-      "latency": 1.78384091606131,
+      "latency": 2.21356024800002,
       "promptPrice": 0,
       "completionPrice": 0,
       "context": "262K",
@@ -1344,6 +1345,39 @@
         "mmmuPro": 0.820231213872832
       },
       "hostModelCount": 5
+    },
+    {
+      "slug": "gemini-3-8-flash-low",
+      "name": "Gemini 3.8 Flash (low)",
+      "shortName": "Gemini 3.8 Flash (low)",
+      "provider": "Google",
+      "intelligenceIndex": 33.7857356699132,
+      "speed": null,
+      "costPerTask": null,
+      "verbosity": null,
+      "latency": null,
+      "promptPrice": 0.75,
+      "completionPrice": 3.75,
+      "context": "1M",
+      "released": "2026-09-02",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image, speech, video",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.370713623725672,
+        "gpqa": 0.92020202020202,
+        "scicode": 0.549768518518518,
+        "lcr": 0.806666666666667,
+        "critpt": 0.04,
+        "gdpval": 0.42927499999999996,
+        "terminalbench": 0.101010101010101,
+        "omniscience": 21.35,
+        "automationBench": 0.3650940461486253,
+        "tauBanking": 0.331958762886598,
+        "mmmuPro": 0.845086705202312
+      },
+      "hostModelCount": 1
     }
   ]
 }
