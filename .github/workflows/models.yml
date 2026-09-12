@@ -56,6 +56,11 @@ jobs:
         env:
           PROVIDER_SCRAPE_LIMIT: "80"
 
+      - name: Refresh AI trends dataset
+        timeout-minutes: 5
+        continue-on-error: true
+        run: npx tsx lib/run-ai-trends.ts
+
       - name: Commit leaderboard snapshots
         run: |
           git config user.name "ai-news-bot"
@@ -81,7 +86,7 @@ jobs:
               } catch (e) { console.log('Skip', f); }
             }
           "
-          git add data/t2i-models.json data/image-editing-models.json data/text-to-video-models.json data/image-to-video-models.json data/video-editing-models.json data/speech-to-text-models.json data/text-to-speech-models.json data/aa-models.json
+          git add data/t2i-models.json data/image-editing-models.json data/text-to-video-models.json data/image-to-video-models.json data/video-editing-models.json data/speech-to-text-models.json data/text-to-speech-models.json data/aa-models.json data/coding-agents.json data/ai-trends.json
           if git diff --cached --quiet; then
             echo "No leaderboard changes to commit"
           else

@@ -409,7 +409,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
               </a>
             }
           />
-          <AITrends />
+          <AITrends compact />
         </section>
       </main>
 

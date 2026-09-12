@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { fetchAAHtml } from './aa-parse';
+import { unescapeFlightPayloads, extractKeyedValue } from './flight';
 import type { CodingAgent } from './coding-agents-data';
 
 /**
@@ -35,52 +36,19 @@ const num = (v: unknown): number | null =>
 const round = (v: number | null, digits: number): number | null =>
   v === null ? null : Math.round(v * 10 ** digits) / 10 ** digits;
 
-function unescapeFlight(html: string): string {
-  const out: string[] = [];
-  const re = /self\.__next_f\.push\(\[1,"(.*?)"\]\)<\/script>/gs;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) {
+/** Pure parse: flight HTML → agent records (unit-tested). */
+export function parseCodingRows(html: string): CodingAgent[] {
+  const rows = extractKeyedValue<AARow[]>(unescapeFlightPayloads(html), 'rows') ?? [];
+  const out: CodingAgent[] = [];
+  for (const row of rows) {
     try {
-      out.push(JSON.parse(`"${m[1]}"`));
+      const agent = toAgent(row);
+      if (agent) out.push(agent);
     } catch {
-      /* skip malformed chunk */
+      /* skip malformed row */
     }
   }
-  return out.join('');
-}
-
-/** Brace-matching extraction of the first `"rows":[...]` array. */
-function extractRowsArray(text: string): AARow[] {
-  const anchor = '"rows":[';
-  const i = text.indexOf(anchor);
-  if (i < 0) return [];
-  const start = i + anchor.length - 1;
-  let depth = 0;
-  let inStr = false;
-  let esc = false;
-  for (let j = start; j < text.length; j++) {
-    const c = text[j];
-    if (inStr) {
-      if (esc) esc = false;
-      else if (c === '\\') esc = true;
-      else if (c === '"') inStr = false;
-    } else if (c === '"') {
-      inStr = true;
-    } else if (c === '[') {
-      depth += 1;
-    } else if (c === ']') {
-      depth -= 1;
-      if (depth === 0) {
-        try {
-          const parsed = JSON.parse(text.slice(start, j + 1));
-          return Array.isArray(parsed) ? (parsed as AARow[]) : [];
-        } catch {
-          return [];
-        }
-      }
-    }
-  }
-  return [];
+  return out;
 }
 
 function toAgent(row: AARow): CodingAgent | null {
@@ -115,21 +83,6 @@ function toAgent(row: AARow): CodingAgent | null {
         };
       }),
   };
-}
-
-/** Pure parse: flight HTML → agent records (unit-tested). */
-export function parseCodingRows(html: string): CodingAgent[] {
-  const rows = extractRowsArray(unescapeFlight(html));
-  const out: CodingAgent[] = [];
-  for (const row of rows) {
-    try {
-      const agent = toAgent(row);
-      if (agent) out.push(agent);
-    } catch {
-      /* skip malformed row */
-    }
-  }
-  return out;
 }
 
 export async function scrapeCodingAgents(): Promise<number> {

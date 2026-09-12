@@ -1,626 +1,343 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-  ResponsiveContainer, ScatterChart, Scatter, BarChart, Bar, Cell,
+  ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
+  ScatterChart, Scatter, ZAxis, BarChart, Bar, Cell, Legend,
 } from 'recharts';
-import {
-  MODELS_TIMELINE, LAB_COLORS, COUNTRY_COLORS,
-  getLabsByLatestIntelligence, getLabModels, getBestModelPerLab,
-  type ModelTimeline,
-} from '@/lib/trends-data';
-import HierarchicalEdgeBundling from '@/components/HierarchicalEdgeBundling';
+import SectionHeader from './SectionHeader';
+import type { TrendPoint } from '@/lib/ai-trends-scraper';
 
-type Section = 'progress' | 'efficiency' | 'countries' | 'opensource' | 'architecture';
+const AXIS = 'var(--dim)';
+const LINE = 'var(--color-line)';
 
-const SECTIONS: { id: Section; label: string }[] = [
-  { id: 'progress', label: 'AI Progress' },
-  { id: 'efficiency', label: 'Efficiency' },
-  { id: 'countries', label: 'Country Analysis' },
-  { id: 'opensource', label: 'Open Source Models' },
-  { id: 'architecture', label: 'Model Architecture' },
-];
-
-/* ─── Helpers ─── */
-
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return `${m[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
-}
-
-function formatQuarter(iso: string) {
-  const d = new Date(iso);
-  const q = Math.floor(d.getMonth() / 3) + 1;
-  return `Q${q} ${d.getFullYear()}`;
-}
-
-/* ─── Section Card (AA style) ─── */
-
-function SectionCard({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
-  return (
-    <div className="border border-[var(--color-line)] rounded-lg bg-[var(--card)]">
-      <div className="px-6 pt-6 pb-4">
-        <h3 className="text-[17px] font-semibold tracking-tight mb-1">{title}</h3>
-        <p className="text-[12px] text-[var(--mut)] max-w-[70ch] leading-relaxed">{subtitle}</p>
-      </div>
-      <div className="px-6 pb-6">{children}</div>
-    </div>
-  );
-}
-
-/* ─── Custom Tooltips ─── */
-
-function IntelTooltip({ active, payload, label }: any) {
-  if (!active || !payload?.length) return null;
-  return (
-    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs max-h-[200px] overflow-y-auto">
-      <div className="font-medium mb-1">{label}</div>
-      {payload
-        .filter((p: any) => p.value != null)
-        .sort((a: any, b: any) => (b.value || 0) - (a.value || 0))
-        .map((p: any, i: number) => (
-          <div key={i} className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.color }} />
-            <span className="text-[var(--mut)] truncate">{p.name}:</span>
-            <span className="font-medium ml-auto">{p.value?.toFixed(1)}</span>
-          </div>
-        ))}
-    </div>
-  );
-}
-
-function PriceTooltip({ active, payload, label }: any) {
-  if (!active || !payload?.length) return null;
-  return (
-    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
-      <div className="font-medium mb-1">{label}</div>
-      {payload.map((p: any, i: number) => (
-        <div key={i} className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-          <span className="text-[var(--mut)]">{p.name}:</span>
-          <span className="font-medium">${p.value?.toFixed(2)}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function ScatterTooltip({ active, payload }: any) {
-  if (!active || !payload?.length) return null;
-  const d = payload[0]?.payload;
-  if (!d) return null;
-  return (
-    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
-      <div className="font-medium">{d.name}</div>
-      <div className="text-[var(--mut)]">{d.lab} · {formatDate(d.date)}</div>
-      <div className="mt-1">Intelligence: <span className="font-medium">{d.intelligence}</span></div>
-      {d.price != null && <div>Price: <span className="font-medium">${d.price}/1M</span></div>}
-    </div>
-  );
-}
-
-function BarTooltip({ active, payload }: any) {
-  if (!active || !payload?.length) return null;
-  const d = payload[0]?.payload;
-  if (!d) return null;
-  return (
-    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
-      <div className="font-medium">{d.name}</div>
-      <div className="text-[var(--mut)]">{d.lab}</div>
-      <div className="mt-1">Intelligence: <span className="font-medium">{d.intelligence}</span></div>
-    </div>
-  );
-}
-
-/* ─── Main Component ─── */
-
-export default function AITrends() {
-  const [activeSection, setActiveSection] = useState<Section>('progress');
-  const [highlightedLab, setHighlightedLab] = useState<string | null>(null);
-
-  /* ─── Data Prep ─── */
-  const topLabs = useMemo(() => getLabsByLatestIntelligence().slice(0, 10), []);
-
-  /* ─── Quarterly Intelligence Over Time (last 2 years) ─── */
-  const intelOverTime = useMemo(() => {
-    const TWO_YEARS_AGO = '2024-08-15';
-    const quarterly: Record<string, Record<string, number>> = {};
-
-    for (const m of MODELS_TIMELINE) {
-      if (m.date < TWO_YEARS_AGO) continue;
-      const d = new Date(m.date);
-      const q = Math.floor(d.getMonth() / 3) + 1;
-      const key = `Q${q} ${d.getFullYear()}`;
-      if (!quarterly[key]) quarterly[key] = {};
-      // Take the latest intelligence for each lab per quarter
-      if (!quarterly[key][m.lab] || m.intelligence > quarterly[key][m.lab]) {
-        quarterly[key][m.lab] = m.intelligence;
-      }
-    }
-
-    const quarters = Object.keys(quarterly).sort((a, b) => {
-      const [qa, ya] = a.match(/Q(\d) (\d+)/)!.slice(1).map(Number);
-      const [qb, yb] = b.match(/Q(\d) (\d+)/)!.slice(1).map(Number);
-      return (ya * 4 + qa) - (yb * 4 + qb);
-    });
-
-    return quarters.map(q => {
-      const row: Record<string, any> = { quarter: q };
-      for (const lab of topLabs) {
-        if (quarterly[q][lab] != null) row[lab] = quarterly[q][lab];
-      }
-      return row;
-    });
-  }, [topLabs]);
-
-  const bestPerLab = useMemo(
-    () =>
-      getBestModelPerLab()
-        .slice(0, 15)
-        .map(({ lab, model }) => ({
-          lab,
-          name: model.name,
-          intelligence: model.intelligence,
-          date: model.date,
-          price: model.price,
-        })),
-    []
-  );
-
-  const priceOverTime = useMemo(() => {
-    const bands = [
-      { label: 'Intelligence < 20', min: 0, max: 20, color: '#60a5fa' },
-      { label: '20 ≤ Intelligence < 40', min: 20, max: 40, color: '#34d399' },
-      { label: '40 ≤ Intelligence < 50', min: 40, max: 50, color: '#f472b6' },
-      { label: 'Intelligence ≥ 50', min: 50, max: 999, color: '#7c3aed' },
-    ];
-    const dates = [...new Set(MODELS_TIMELINE.filter(m => m.price != null).map(m => m.date))].sort();
-    return dates.map(date => {
-      const row: Record<string, any> = { date, label: formatDate(date) };
-      const avail = MODELS_TIMELINE.filter(m => m.date <= date && m.price != null);
-      for (const band of bands) {
-        const inBand = avail.filter(m => m.intelligence >= band.min && m.intelligence < band.max);
-        if (inBand.length) {
-          row[band.label] = inBand.reduce((s, m) => s + m.price!, 0) / inBand.length;
+function useTrendData() {
+  const [points, setPoints] = useState<TrendPoint[] | null>(null);
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null);
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/ai-trends')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        if (mounted && Array.isArray(d?.models) && d.models.length > 0) {
+          setPoints(d.models as TrendPoint[]);
+          setUpdatedAt(typeof d.updatedAt === 'string' ? d.updatedAt : null);
+        } else if (mounted) {
+          setPoints([]);
         }
-      }
-      return row;
-    });
+      })
+      .catch(() => {
+        if (mounted) setPoints([]);
+      });
+    return () => {
+      mounted = false;
+    };
   }, []);
+  return { points, updatedAt };
+}
 
-  const speedOverTime = useMemo(() => {
-    const bands = [
-      { label: 'Intelligence < 20', min: 0, max: 20, color: '#60a5fa' },
-      { label: '20 ≤ Intelligence < 40', min: 20, max: 40, color: '#34d399' },
-      { label: '40 ≤ Intelligence < 50', min: 40, max: 50, color: '#f472b6' },
-      { label: 'Intelligence ≥ 50', min: 50, max: 999, color: '#7c3aed' },
-    ];
-    const dates = [...new Set(MODELS_TIMELINE.filter(m => m.speed != null).map(m => m.date))].sort();
-    return dates.map(date => {
-      const row: Record<string, any> = { date, label: formatDate(date) };
-      const avail = MODELS_TIMELINE.filter(m => m.date <= date && m.speed != null);
-      for (const band of bands) {
-        const inBand = avail.filter(m => m.intelligence >= band.min && m.intelligence < band.max);
-        if (inBand.length) {
-          row[band.label] = inBand.reduce((s, m) => s + m.speed!, 0) / inBand.length;
-        }
-      }
-      return row;
-    });
-  }, []);
+const monthKey = (iso: string) => iso.slice(0, 7);
 
-  const countryOverTime = useMemo(() => {
-    const countries = Object.keys(COUNTRY_COLORS);
-    const byCountry: Record<string, ModelTimeline[]> = {};
-    for (const m of MODELS_TIMELINE) {
-      if (!byCountry[m.country]) byCountry[m.country] = [];
-      byCountry[m.country].push(m);
+function frontierByMonth(points: TrendPoint[], pick: (p: TrendPoint) => number | null) {
+  const best = new Map<string, { x: string; y: number; name: string }>();
+  for (const p of points) {
+    const v = pick(p);
+    if (v === null || v === undefined || !Number.isFinite(v)) continue;
+    const k = monthKey(p.date);
+    const cur = best.get(k);
+    if (!cur || v > cur.y) best.set(k, { x: k, y: Math.round(v * 10) / 10, name: p.name });
+  }
+  return [...best.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([, v]) => v);
+}
+
+function minByMonth(points: TrendPoint[]) {
+  const best = new Map<string, number>();
+  for (const p of points) {
+    if (p.price === null || p.price <= 0) continue;
+    const k = monthKey(p.date);
+    const cur = best.get(k);
+    if (cur === undefined || p.price < cur) best.set(k, p.price);
+  }
+  return [...best.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([x, y]) => ({ x, y }));
+}
+
+function maxByYear(points: TrendPoint[], pick: (p: TrendPoint) => number | null) {
+  const best = new Map<string, number>();
+  for (const p of points) {
+    const v = pick(p);
+    if (v === null || !Number.isFinite(v)) continue;
+    const k = p.date.slice(0, 4);
+    const cur = best.get(k);
+    if (cur === undefined || v > cur) best.set(k, v);
+  }
+  return [...best.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([x, y]) => ({ x, y }));
+}
+
+function Card({ title, note, insight, children }: { title: string; note: string; insight: string | null; children: React.ReactNode }) {
+  return (
+    <div className="border border-[var(--color-line)] rounded-lg bg-[var(--card)] p-5">
+      <h3 className="text-[15px] font-semibold tracking-tight">{title}</h3>
+      <p className="text-[11px] text-[var(--mut)] mt-0.5 mb-1">{note}</p>
+      {insight && (
+        <p className="text-[12px] leading-relaxed mb-4 max-w-[80ch]">
+          <span className="mr-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--accent-hover)]">TL;DR</span>
+          {insight}
+        </p>
+      )}
+      {children}
+    </div>
+  );
+}
+
+function Updated({ at }: { at: string | null }) {
+  if (!at) return null;
+  return (
+    <span className="text-[11px] tabular-nums text-[var(--mut)]">
+      Updated {new Date(at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+    </span>
+  );
+}
+
+const fmtInt = (v: number) => (v >= 1_000_000 ? `${(v / 1_000_000).toFixed(0)}M` : v >= 1000 ? `${(v / 1000).toFixed(0)}K` : `${Math.round(v)}`);
+
+export default function AITrends({ compact = false }: { compact?: boolean }) {
+  const { points, updatedAt } = useTrendData();
+
+  const data = useMemo(() => {
+    if (!points || points.length === 0) return null;
+    const withIntel = points.filter(p => p.intelligence !== null);
+    const frontier = frontierByMonth(withIntel, p => p.intelligence);
+    const scatter = withIntel.map(p => ({ x: p.date, y: p.intelligence, name: p.name, color: p.color }));
+    const byCreator = new Map<string, TrendPoint>();
+    for (const p of withIntel) {
+      const cur = byCreator.get(p.creator);
+      if (!cur || (p.intelligence ?? 0) > (cur.intelligence ?? 0)) byCreator.set(p.creator, p);
     }
-    const dates = [...new Set(MODELS_TIMELINE.map(m => m.date))].sort();
-    return dates.map(date => {
-      const row: Record<string, any> = { date, label: formatDate(date) };
-      for (const c of countries) {
-        const models = (byCountry[c] || []).filter(m => m.date <= date);
-        if (models.length) row[c] = models[models.length - 1].intelligence;
+    const labs = [...byCreator.entries()]
+      .map(([creator, p]) => ({ creator, name: p.name, intel: p.intelligence ?? 0, color: p.color }))
+      .sort((a, b) => b.intel - a.intel)
+      .slice(0, 12);
+    const price = minByMonth(points);
+    const speed = withIntel
+      .filter(p => p.speed !== null && p.speed > 0)
+      .map(p => ({ x: p.intelligence ?? 0, y: p.speed ?? 0, name: p.name, color: p.color }));
+    const countries = new Map<string, TrendPoint[]>();
+    for (const p of withIntel) {
+      if (!countries.has(p.country)) countries.set(p.country, []);
+      countries.get(p.country)!.push(p);
+    }
+    const topCountries = [...countries.entries()]
+      .map(([c, ps]) => ({ country: c, best: Math.max(...ps.map(p => p.intelligence ?? 0)) }))
+      .sort((a, b) => b.best - a.best)
+      .slice(0, 5)
+      .map(c => c.country);
+    const countryLines = topCountries.map(c => {
+      const ps = countries.get(c)!;
+      const byM = new Map<string, number>();
+      for (const p of ps) {
+        const k = monthKey(p.date);
+        const cur = byM.get(k);
+        if (cur === undefined || (p.intelligence ?? 0) > cur) byM.set(k, p.intelligence ?? 0);
+      }
+      return {
+        country: c,
+        color: ps[0]?.color || '#71717a',
+        data: [...byM.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([x, y]) => ({ x, y })),
+      };
+    });
+    const openLine = frontierByMonth(withIntel.filter(p => p.open), p => p.intelligence);
+    const closedLine = frontierByMonth(withIntel.filter(p => !p.open), p => p.intelligence);
+    const bucket = (b: number | null): string | null => {
+      if (b === null) return null;
+      if (b < 15) return '<15B';
+      if (b < 70) return '15–70B';
+      if (b < 400) return '70–400B';
+      return '400B+';
+    };
+    const years = [...new Set(withIntel.map(p => p.date.slice(0, 4)))].sort();
+    const buckets = ['<15B', '15–70B', '70–400B', '400B+'];
+    const paramBars = years.map(y => {
+      const row: Record<string, string | number> = { x: y };
+      for (const b of buckets) {
+        row[b] = withIntel.filter(p => p.date.startsWith(y) && bucket(p.paramsB) === b).length;
       }
       return row;
     });
-  }, []);
+    const contextBars = maxByYear(points, p => p.context).map(d => ({ x: d.x, y: d.y, label: fmtInt(d.y) }));
+    return { frontier, scatter, labs, price, speed, countryLines, openLine, closedLine, paramBars, contextBars, withIntel };
+  }, [points]);
 
-  const scatterData = useMemo(() =>
-    MODELS_TIMELINE.filter(m => m.intelligence > 15).map(m => ({
-      ...m,
-      releaseDate: new Date(m.date).getTime(),
-    })),
-  []);
+  if (points === null) {
+    return <div className="h-40 rounded-lg border border-[var(--color-line)] bg-[var(--surface)]" aria-label="Loading trends" />;
+  }
+  if (!data || data.withIntel.length === 0) {
+    return (
+      <div className="py-12 text-center border border-dashed border-[var(--color-line)] rounded-lg">
+        <p className="text-sm font-medium">Trend data is still loading</p>
+        <p className="mt-1 text-sm text-[var(--mut)]">Check back after the next refresh.</p>
+      </div>
+    );
+  }
 
-  const openVsProp = useMemo(() => {
-    const dates = [...new Set(MODELS_TIMELINE.map(m => m.date))].sort();
-    return dates.map(date => {
-      const avail = MODELS_TIMELINE.filter(m => m.date <= date);
-      const open = avail.filter(m => m.isOpen);
-      const prop = avail.filter(m => !m.isOpen);
-      const row: Record<string, any> = { date, label: formatDate(date) };
-      if (open.length) row['Open Weights'] = open.reduce((s, m) => s + m.intelligence, 0) / open.length;
-      if (prop.length) row['Proprietary'] = prop.reduce((s, m) => s + m.intelligence, 0) / prop.length;
-      return row;
-    });
-  }, []);
-
-  const BAND_COLORS: Record<string, string> = {
-    'Intelligence < 20': '#60a5fa',
-    '20 ≤ Intelligence < 40': '#34d399',
-    '40 ≤ Intelligence < 50': '#f472b6',
-    'Intelligence ≥ 50': '#7c3aed',
-  };
+  const first = data.frontier[0];
+  const last = data.frontier[data.frontier.length - 1];
+  const frontierInsight =
+    first && last
+      ? `Frontier intelligence rose from ${first.y} (${first.x}) to ${last.y} (${last.x}).`
+      : null;
+  const topLab = data.labs[0];
+  const cheapFirst = data.price[0];
+  const cheapLast = data.price[data.price.length - 1];
+  const fastest = data.speed.length ? [...data.speed].sort((a, b) => b.y - a.y)[0] : null;
 
   return (
-    <div className="flex gap-8">
-      {/* Sidebar nav */}
-      <nav className="hidden lg:block w-48 shrink-0 sticky top-20 self-start">
-        <div className="space-y-1">
-          {SECTIONS.map(s => (
-            <button
-              key={s.id}
-              onClick={() => setActiveSection(s.id)}
-              className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                activeSection === s.id
-                  ? 'bg-black text-white font-medium'
-                  : 'text-[var(--mut)] hover:text-[var(--fore)] hover:bg-[var(--surface)]'
-              }`}
-            >
-              {s.label}
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      {/* Mobile section tabs */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[var(--background)] border-t border-[var(--color-line)] px-2 py-2 flex gap-1 overflow-x-auto">
-        {SECTIONS.map(s => (
-          <button
-            key={s.id}
-            onClick={() => setActiveSection(s.id)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-              activeSection === s.id
-                ? 'bg-black text-white'
-                : 'text-[var(--mut)] border border-[var(--color-line)]'
-            }`}
-          >
-            {s.label}
-          </button>
-        ))}
+    <div>
+      <div className="mb-4 flex items-center justify-between">
+        <span className="text-[12px] text-[var(--mut)]">{data.withIntel.length} benchmarked releases tracked</span>
+        <Updated at={updatedAt} />
       </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+        <Card title="Frontier intelligence over time" note="Best intelligence score released each month · higher is better" insight={frontierInsight}>
+          <ResponsiveContainer width="100%" height={240}>
+            <LineChart data={data.frontier} margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
+              <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
+              <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} />
+              <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
+              <Tooltip formatter={(v) => [v, 'Intelligence']} labelFormatter={l => `Month ${l}`} />
+              <Line type="stepAfter" dataKey="y" stroke="var(--accent)" strokeWidth={2} dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </Card>
 
-      {/* Content */}
-      <div className="flex-1 min-w-0 space-y-8 pb-20 lg:pb-0">
+        <Card title="Intelligence vs release date" note="Every benchmarked release, colored by creator" insight={topLab ? `${topLab.creator}'s ${topLab.name} leads at ${topLab.intel}.` : null}>
+          <ResponsiveContainer width="100%" height={240}>
+            <ScatterChart margin={{ top: 5, right: 10, bottom: 0, left: -10 }}>
+              <CartesianGrid stroke={LINE} strokeDasharray="3 3" />
+              <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} />
+              <YAxis dataKey="y" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} formatter={(_v: unknown, _n: unknown, p: { payload?: { name?: string } }) => [p.payload?.name || '', 'Model']} />
+              <Scatter data={data.scatter.slice(0, 300)} fill="var(--accent)">
+                {data.scatter.slice(0, 300).map((p, i) => (
+                  <Cell key={i} fill={p.color} />
+                ))}
+              </Scatter>
+            </ScatterChart>
+          </ResponsiveContainer>
+        </Card>
 
-        {/* ═══ AI Progress ═══ */}
-        {activeSection === 'progress' && (
+        <Card title="Leading models by lab" note="Best intelligence score per creator right now" insight={null}>
+          <ResponsiveContainer width="100%" height={Math.max(200, data.labs.length * 30)}>
+            <BarChart data={data.labs} layout="vertical" margin={{ top: 0, right: 30, bottom: 0, left: 80 }}>
+              <CartesianGrid stroke={LINE} strokeDasharray="3 3" horizontal={false} />
+              <XAxis type="number" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} />
+              <YAxis type="category" dataKey="creator" tick={{ fontSize: 11, fill: AXIS }} tickLine={false} axisLine={false} width={80} />
+              <Tooltip formatter={(v) => [v, 'Intelligence']} />
+              <Bar dataKey="intel" radius={[0, 4, 4, 0]}>
+                {data.labs.map((l, i) => (
+                  <Cell key={i} fill={l.color} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </Card>
+
+        {!compact && (
           <>
-            <SectionCard
-              title="Frontier Language Model Intelligence, Over Time"
-              subtitle="Quarterly intelligence scores for the top 10 AI labs over the last 2 years (Q3 2024 — Q3 2026). Click a lab to highlight its line."
-            >
-              <div className="flex flex-wrap gap-2 mb-4">
-                {topLabs.map(lab => {
-                  const active = !highlightedLab || highlightedLab === lab;
-                  return (
-                    <button
-                      key={lab}
-                      onClick={() => setHighlightedLab(highlightedLab === lab ? null : lab)}
-                      className={`inline-flex items-center gap-1.5 text-[11px] px-2 py-1 rounded-full border transition-all ${
-                        active
-                          ? 'border-[var(--color-line)] opacity-100'
-                          : 'border-transparent opacity-30'
-                      }`}
-                    >
-                      <span
-                        className="w-2.5 h-2.5 rounded-sm flex-shrink-0"
-                        style={{ background: LAB_COLORS[lab] || '#6b7280' }}
-                      />
-                      {lab}
-                    </button>
-                  );
-                })}
-              </div>
-              <ResponsiveContainer width="100%" height={400}>
-                <LineChart data={intelOverTime}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="quarter" tick={{ fontSize: 11 }} interval={0} angle={-35} textAnchor="end" height={50} />
-                  <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
-                  <Tooltip content={<IntelTooltip />} />
-                  {topLabs.map(lab => (
-                    <Line
-                      key={lab}
-                      type="stepAfter"
-                      dataKey={lab}
-                      stroke={LAB_COLORS[lab] || '#6b7280'}
-                      strokeWidth={highlightedLab === lab ? 3 : highlightedLab ? 1 : 2}
-                      strokeOpacity={!highlightedLab || highlightedLab === lab ? 1 : 0.15}
-                      dot={!highlightedLab || highlightedLab === lab ? { r: 4, strokeWidth: 2, fill: '#fff', stroke: LAB_COLORS[lab] || '#6b7280' } : false}
-                      activeDot={highlightedLab === lab ? { r: 6, strokeWidth: 2, fill: '#fff', stroke: LAB_COLORS[lab] || '#6b7280' } : undefined}
-                      connectNulls
-                    />
+            <Card title="Inference price over time" note="Cheapest blended USD per 1M tokens each month · lower is better" insight={cheapFirst && cheapLast ? `Floor price moved from $${cheapFirst.y} to $${cheapLast.y} per 1M tokens.` : null}>
+              <ResponsiveContainer width="100%" height={240}>
+                <LineChart data={data.price} margin={{ top: 5, right: 10, bottom: 0, left: -5 }}>
+                  <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} />
+                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} scale="log" domain={['auto', 'auto']} tickFormatter={(v: number) => `$${v}`} />
+                  <Tooltip formatter={(v) => [`$${v}`, 'Floor price']} labelFormatter={l => `Month ${l}`} />
+                  <Line type="stepAfter" dataKey="y" stroke="#10b981" strokeWidth={2} dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </Card>
+
+            <Card title="Speed vs intelligence" note="Output tokens/sec against intelligence · up-right is best" insight={fastest ? `${fastest.name} pushes ${Math.round(fastest.y)} tok/s at intelligence ${Math.round(fastest.x)}.` : null}>
+              <ResponsiveContainer width="100%" height={240}>
+                <ScatterChart margin={{ top: 5, right: 10, bottom: 0, left: -10 }}>
+                  <CartesianGrid stroke={LINE} strokeDasharray="3 3" />
+                  <XAxis type="number" dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} domain={['auto', 'auto']} />
+                  <YAxis type="number" dataKey="y" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={[0, 'auto']} />
+                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                  <Scatter data={data.speed} fill="var(--accent)">
+                    {data.speed.map((p, i) => (
+                      <Cell key={i} fill={p.color} />
+                    ))}
+                  </Scatter>
+                  <ZAxis type="number" range={[30, 30]} />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </Card>
+
+            <Card title="Frontier by country" note="Best intelligence released per country each month" insight={null}>
+              <ResponsiveContainer width="100%" height={240}>
+                <LineChart margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
+                  <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} allowDuplicatedCategory={false} />
+                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
+                  <Tooltip />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  {data.countryLines.map(c => (
+                    <Line key={c.country} data={c.data} type="stepAfter" dataKey="y" name={c.country} stroke={c.color} strokeWidth={2} dot={false} />
                   ))}
                 </LineChart>
               </ResponsiveContainer>
-            </SectionCard>
+            </Card>
 
-            <SectionCard
-              title="Leading Models by AI Lab"
-              subtitle="Highest intelligence score achieved by each AI lab."
-            >
-              <ResponsiveContainer width="100%" height={Math.max(300, bestPerLab.length * 40)}>
-                <BarChart data={bestPerLab} layout="vertical" margin={{ left: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
-                  <XAxis type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
-                  <YAxis type="category" dataKey="lab" tick={{ fontSize: 11 }} width={100} />
-                  <Tooltip content={<BarTooltip />} />
-                  <Bar dataKey="intelligence" radius={[0, 4, 4, 0]} barSize={24}>
-                    {bestPerLab.map((m, i) => (
-                      <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} />
-                    ))}
-                  </Bar>
+            <Card title="Open vs closed frontier" note="Best open-weights vs proprietary intelligence each month" insight={(() => {
+              const o = data.openLine[data.openLine.length - 1]?.y;
+              const c = data.closedLine[data.closedLine.length - 1]?.y;
+              return o !== undefined && c !== undefined ? `Best open model trails the closed frontier by ${(c - o).toFixed(1)} points.` : null;
+            })()}>
+              <ResponsiveContainer width="100%" height={240}>
+                <LineChart margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
+                  <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} allowDuplicatedCategory={false} />
+                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
+                  <Tooltip />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Line data={data.openLine} type="stepAfter" dataKey="y" name="Open weights" stroke="#10b981" strokeWidth={2} dot={false} />
+                  <Line data={data.closedLine} type="stepAfter" dataKey="y" name="Proprietary" stroke="var(--accent)" strokeWidth={2} dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </Card>
+
+            <Card title="Model sizes over time" note="Benchmarked releases per year by parameter bucket" insight={null}>
+              <ResponsiveContainer width="100%" height={240}>
+                <BarChart data={data.paramBars} margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
+                  <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} />
+                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} allowDecimals={false} />
+                  <Tooltip />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Bar dataKey="<15B" stackId="a" fill="#10b981" />
+                  <Bar dataKey="15–70B" stackId="a" fill="#0ea5e9" />
+                  <Bar dataKey="70–400B" stackId="a" fill="var(--accent)" />
+                  <Bar dataKey="400B+" stackId="a" fill="#f59e0b" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-            </SectionCard>
+            </Card>
 
-            <SectionCard
-              title="Intelligence Index vs. Release Date"
-              subtitle="Scatter plot of all models — intelligence index plotted against release date."
-            >
-              <ResponsiveContainer width="100%" height={400}>
-                <ScatterChart>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis
-                    dataKey="releaseDate"
-                    type="number"
-                    tick={{ fontSize: 11 }}
-                    domain={['dataMin', 'dataMax']}
-                    tickFormatter={(v) => formatDate(new Date(v).toISOString())}
-                  />
-                  <YAxis dataKey="intelligence" type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
-                  <Tooltip content={<ScatterTooltip />} />
-                  <Scatter data={scatterData} fill="#7c3aed">
-                    {scatterData.map((m, i) => (
-                      <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} />
-                    ))}
-                  </Scatter>
-                </ScatterChart>
-              </ResponsiveContainer>
-            </SectionCard>
-          </>
-        )}
-
-        {/* ═══ Efficiency ═══ */}
-        {activeSection === 'efficiency' && (
-          <>
-            <SectionCard
-              title="Language Model Inference Price, by Intelligence Index Band, Over Time"
-              subtitle="Price in USD per 1M tokens (7:2:1 blend of cache, input, and output token prices). Bands use intelligence scores."
-            >
-              <div className="flex flex-wrap gap-2 mb-4">
-                {Object.entries(BAND_COLORS).map(([label, color]) => (
-                  <span key={label} className="inline-flex items-center gap-1.5 text-[11px]">
-                    <span className="w-2 h-2 rounded-full" style={{ background: color }} />
-                    {label}
-                  </span>
-                ))}
-              </div>
-              <ResponsiveContainer width="100%" height={350}>
-                <LineChart data={priceOverTime}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
-                  <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
-                  <Tooltip content={<PriceTooltip />} />
-                  {Object.entries(BAND_COLORS).map(([label, color]) => (
-                    <Line key={label} type="monotone" dataKey={label} stroke={color} strokeWidth={2} dot={false} connectNulls />
-                  ))}
-                </LineChart>
-              </ResponsiveContainer>
-            </SectionCard>
-
-            <SectionCard
-              title="Language Model Output Speed, by Intelligence Index Band, Over Time"
-              subtitle="Output tokens per second. Bands use intelligence scores."
-            >
-              <div className="flex flex-wrap gap-2 mb-4">
-                {Object.entries(BAND_COLORS).map(([label, color]) => (
-                  <span key={label} className="inline-flex items-center gap-1.5 text-[11px]">
-                    <span className="w-2 h-2 rounded-full" style={{ background: color }} />
-                    {label}
-                  </span>
-                ))}
-              </div>
-              <ResponsiveContainer width="100%" height={350}>
-                <LineChart data={speedOverTime}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
-                  <YAxis tick={{ fontSize: 11 }} />
-                  <Tooltip content={({ active, payload, label }: any) => {
-                    if (!active || !payload?.length) return null;
-                    return (
-                      <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-lg text-xs">
-                        <div className="font-medium mb-1">{label}</div>
-                        {payload.map((p: any, i: number) => (
-                          <div key={i} className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-                            <span className="text-[var(--mut)]">{p.name}:</span>
-                            <span className="font-medium">{p.value?.toFixed(0)} tok/s</span>
-                          </div>
-                        ))}
-                      </div>
-                    );
-                  }} />
-                  {Object.entries(BAND_COLORS).map(([label, color]) => (
-                    <Line key={label} type="monotone" dataKey={label} stroke={color} strokeWidth={2} dot={false} connectNulls />
-                  ))}
-                </LineChart>
-              </ResponsiveContainer>
-            </SectionCard>
-          </>
-        )}
-
-        {/* ═══ Country Analysis ═══ */}
-        {activeSection === 'countries' && (
-          <>
-          <SectionCard
-            title="Frontier Language Model Intelligence By Country, Over Time"
-            subtitle="Tracking AI progress by country — the best intelligence score achieved by models from each country."
-          >
-            <div className="flex flex-wrap gap-2 mb-4">
-              {Object.entries(COUNTRY_COLORS).map(([country, color]) => (
-                <span key={country} className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full" style={{ background: color }} />
-                  {country}
-                </span>
-              ))}
-            </div>
-            <ResponsiveContainer width="100%" height={400}>
-              <LineChart data={countryOverTime}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
-                <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
-                <Tooltip content={<IntelTooltip />} />
-                {Object.entries(COUNTRY_COLORS).map(([country, color]) => (
-                  <Line key={country} type="monotone" dataKey={country} stroke={color} strokeWidth={2} dot={false} connectNulls />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
-          </SectionCard>
-
-          <div className="mt-6">
-            <SectionCard
-              title="AI Supply & Demand: Global Flow Network"
-              subtitle="How AI resources flow between countries — investment capital, GPU/compute supply, AI talent migration, and model/API access. Based on Stanford AI Index 2025, OECD AI Compute, and BIS supply chain data."
-            >
-              <p className="text-[12px] text-[var(--mut)] leading-relaxed mb-5 max-w-[80ch]">
-                This hierarchical edge bundling chart visualizes the interconnected flows of AI resources across the globe.
-                Each node represents a country, grouped by region. Curved edges connect countries with active AI resource flows —
-                thicker lines indicate larger flows. The chart reveals how the United States sits at the center of the global AI
-                ecosystem, acting as both the largest supplier of compute and models, and the largest destination for AI talent
-                and investment. China emerges as the second-largest hub, with strong flows across Asia-Pacific. The data
-                highlights the concentration of AI production in North America and Asia, while Europe, the Middle East, and
-                India are primarily demand-side participants in the global AI economy.
-              </p>
-              <HierarchicalEdgeBundling />
-            </SectionCard>
-          </div>
-          </>
-        )}
-
-        {/* ═══ Open Source ═══ */}
-        {activeSection === 'opensource' && (
-          <>
-            <SectionCard
-              title="Progress in Open Weights vs. Proprietary Intelligence"
-              subtitle="Comparing the intelligence trajectory of open weights models versus proprietary models over time."
-            >
-              <div className="flex gap-4 mb-4">
-                <span className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full bg-[#34d399]" /> Open Weights
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full bg-[#7c3aed]" /> Proprietary
-                </span>
-              </div>
-              <ResponsiveContainer width="100%" height={350}>
-                <LineChart data={openVsProp}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="label" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
-                  <YAxis tick={{ fontSize: 11 }} domain={[0, 70]} />
-                  <Tooltip content={<IntelTooltip />} />
-                  <Line type="monotone" dataKey="Open Weights" stroke="#34d399" strokeWidth={2} dot={false} connectNulls />
-                  <Line type="monotone" dataKey="Proprietary" stroke="#7c3aed" strokeWidth={2} dot={false} connectNulls />
-                </LineChart>
-              </ResponsiveContainer>
-            </SectionCard>
-
-            <SectionCard
-              title="Intelligence Index by Open Weights / Proprietary"
-              subtitle="All models plotted — intelligence index colored by license type."
-            >
-              <div className="flex gap-4 mb-4">
-                <span className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full bg-[#7c3aed]" /> Proprietary
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full bg-[#34d399]" /> Open Weights
-                </span>
-              </div>
-              <ResponsiveContainer width="100%" height={400}>
-                <ScatterChart>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="releaseDate" type="number" tick={{ fontSize: 11 }} domain={['dataMin', 'dataMax']}
-                    tickFormatter={(v) => formatDate(new Date(v).toISOString())} />
-                  <YAxis dataKey="intelligence" type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
-                  <Tooltip content={<ScatterTooltip />} />
-                  <Scatter data={scatterData}>
-                    {scatterData.map((m, i) => (
-                      <Cell key={i} fill={m.isOpen ? '#34d399' : '#7c3aed'} />
-                    ))}
-                  </Scatter>
-                </ScatterChart>
-              </ResponsiveContainer>
-            </SectionCard>
-          </>
-        )}
-
-        {/* ═══ Model Architecture ═══ */}
-        {activeSection === 'architecture' && (
-          <>
-            <SectionCard
-              title="Intelligence Index vs. Release Date by Model Architecture"
-              subtitle="Comparing Dense vs Mixture of Experts (MoE) architectures over time."
-            >
-              <div className="flex gap-4 mb-4">
-                <span className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full bg-[#3b82f6]" /> Dense
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[11px]">
-                  <span className="w-2 h-2 rounded-full bg-[#f97316]" /> MoE
-                </span>
-              </div>
-              <ResponsiveContainer width="100%" height={400}>
-                <ScatterChart>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" />
-                  <XAxis dataKey="releaseDate" type="number" tick={{ fontSize: 11 }} domain={['dataMin', 'dataMax']}
-                    tickFormatter={(v) => formatDate(new Date(v).toISOString())} />
-                  <YAxis dataKey="intelligence" type="number" tick={{ fontSize: 11 }} domain={[0, 70]} />
-                  <Tooltip content={<ScatterTooltip />} />
-                  <Scatter data={scatterData.filter(m => !m.isOpen || m.intelligence > 25)}>
-                    {scatterData.filter(m => !m.isOpen || m.intelligence > 25).map((m, i) => (
-                      <Cell key={i} fill={m.lab === 'DeepSeek' || m.lab === 'xAI' ? '#f97316' : '#3b82f6'} />
-                    ))}
-                  </Scatter>
-                </ScatterChart>
-              </ResponsiveContainer>
-            </SectionCard>
-
-            <SectionCard
-              title="Model Size: Total and Active Parameters"
-              subtitle="Comparison between total model parameters and parameters active during inference."
-            >
-              <ResponsiveContainer width="100%" height={Math.max(300, bestPerLab.length * 40)}>
-                <BarChart data={bestPerLab} layout="vertical" margin={{ left: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" horizontal={false} />
-                  <XAxis type="number" tick={{ fontSize: 11 }} />
-                  <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={120} />
-                  <Tooltip content={<BarTooltip />} />
-                  <Bar dataKey="intelligence" radius={[0, 4, 4, 0]} barSize={20}>
-                    {bestPerLab.map((m, i) => (
-                      <Cell key={i} fill={LAB_COLORS[m.lab] || '#6b7280'} />
-                    ))}
-                  </Bar>
+            <Card title="Context window growth" note="Largest context window released each year" insight={(() => {
+              const b = data.contextBars;
+              if (b.length < 2) return null;
+              return `Max context grew from ${fmtInt(b[0].y)} (${b[0].x}) to ${fmtInt(b[b.length - 1].y)} (${b[b.length - 1].x}).`;
+            })()}>
+              <ResponsiveContainer width="100%" height={240}>
+                <BarChart data={data.contextBars} margin={{ top: 5, right: 10, bottom: 0, left: -5 }}>
+                  <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} />
+                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} tickFormatter={(v: number) => fmtInt(v)} />
+                  <Tooltip formatter={(v, _n, p) => [(p?.payload as { label?: string } | undefined)?.label ?? v, 'Max context']} />
+                  <Bar dataKey="y" fill="var(--accent)" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-            </SectionCard>
+            </Card>
           </>
         )}
-
       </div>
     </div>
   );
