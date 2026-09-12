@@ -222,7 +222,7 @@ export function answerQuestion(question: string, history?: Array<{ role: string;
   }
 
   if (/what is (this|ai pulse|the site)|what does.*ai pulse.*do/i.test(q)) {
-    return "AI Pulse is a live AI news aggregator and model leaderboard. We track:\n\n- **2,500+** news articles from 20+ sources (TechCrunch, arXiv, Reddit, Hacker News, etc.)\n- **600+** AI models with benchmarks from Artificial Analysis\n- **Real-time** updates every 4 hours\n\nYou can ask me about any AI topic: recent news, model comparisons, pricing, speed, or how AI actually works!";
+    return "AI Pulse is a live AI news aggregator and model leaderboard. We track:\n\n- **2,500+** news articles from 20+ sources (TechCrunch, arXiv, Reddit, Hacker News, etc.)\n- **600+** AI models with independent benchmark scores\n- **Real-time** updates every 4 hours\n\nYou can ask me about any AI topic: recent news, model comparisons, pricing, speed, or how AI actually works!";
   }
 
   if (/quantiz|gguf|ggml|awq|gptq/i.test(q)) {
@@ -403,7 +403,7 @@ If you share more about what you're trying to find, I'll dig deeper into our liv
 
   if (otherResults.length > 0) {
     if (parts.length > 0) parts.push('\n---\n');
-    const typeLabels: Record<string, string> = { t2i: 'Text-to-Image', t2v: 'Text-to-Video', i2v: 'Image-to-Video', aa: 'Artificial Analysis' };
+    const typeLabels: Record<string, string> = { t2i: 'Text-to-Image', t2v: 'Text-to-Video', i2v: 'Image-to-Video', aa: 'Benchmarks' };
     const grouped = new Map<string, RetrievedItem[]>();
     for (const r of otherResults) {
       const label = typeLabels[r.type] || r.type;

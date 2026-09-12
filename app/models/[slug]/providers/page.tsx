@@ -291,7 +291,7 @@ export default async function ProvidersPage({ params }: Props) {
         </div>
         <p className="text-[11px] text-neutral-500 mt-3">
           Median (P50) measurements over the past 72 hours · blended at {entry.blendRatio ?? '7:2:1 (cache-input-output)'} ·
-          workload: 10,000 input tokens · mirrored from artificialanalysis.ai
+          workload: 10,000 input tokens · aggregated from public provider benchmarks
         </p>
         {model && (
           <div className="mt-6">

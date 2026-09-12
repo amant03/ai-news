@@ -351,7 +351,7 @@ export default function AITrends() {
 
             <SectionCard
               title="Leading Models by AI Lab"
-              subtitle="Highest Artificial Analysis Intelligence Index achieved by each AI lab."
+              subtitle="Highest intelligence score achieved by each AI lab."
             >
               <ResponsiveContainer width="100%" height={Math.max(300, bestPerLab.length * 40)}>
                 <BarChart data={bestPerLab} layout="vertical" margin={{ left: 10 }}>
@@ -400,7 +400,7 @@ export default function AITrends() {
           <>
             <SectionCard
               title="Language Model Inference Price, by Intelligence Index Band, Over Time"
-              subtitle="Price in USD per 1M tokens (7:2:1 blend of cache, input, and output token prices). Bands use Artificial Analysis Intelligence Index."
+              subtitle="Price in USD per 1M tokens (7:2:1 blend of cache, input, and output token prices). Bands use intelligence scores."
             >
               <div className="flex flex-wrap gap-2 mb-4">
                 {Object.entries(BAND_COLORS).map(([label, color]) => (
@@ -425,7 +425,7 @@ export default function AITrends() {
 
             <SectionCard
               title="Language Model Output Speed, by Intelligence Index Band, Over Time"
-              subtitle="Output tokens per second. Bands use Artificial Analysis Intelligence Index."
+              subtitle="Output tokens per second. Bands use intelligence scores."
             >
               <div className="flex flex-wrap gap-2 mb-4">
                 {Object.entries(BAND_COLORS).map(([label, color]) => (

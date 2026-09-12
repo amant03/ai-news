@@ -73,7 +73,7 @@ export default function FrontierCharts() {
         <VerticalBarChart
           data={intel}
           title="Intelligence"
-          subtitle="Artificial Analysis Intelligence Index · higher is better"
+          subtitle="Intelligence Index · higher is better"
           valueFormat={v => v.toFixed(0)}
           sortDir={chartDir.intel}
           onToggleDir={() => setChartDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}

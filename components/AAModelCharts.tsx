@@ -201,7 +201,7 @@ export default function AAModelCharts({ models }: { models: M[] }) {
             </div>
             <p className="text-[11px] text-neutral-500 mb-4">Models with AA verbosity data — weighted output tokens per task · higher = more verbose</p>
             {withVerbosity.length === 0 ? (
-              <div className="text-[12px] text-neutral-500 py-8 text-center">No verbosity data yet — synced from Artificial Analysis.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">No verbosity data yet.</div>
             ) : (
               <ResponsiveContainer width="100%" height={Math.max(360, withVerbosity.length * 34)}>
                 <BarChart data={withVerbosity} layout="vertical" margin={{ left: 12 }}>
@@ -324,7 +324,7 @@ export default function AAModelCharts({ models }: { models: M[] }) {
             </div>
             <p className="text-[11px] text-neutral-500 mb-4">Output tokens per second (median across providers) · models with AA speed data</p>
             {withSpeed.length === 0 ? (
-              <div className="text-[12px] text-neutral-500 py-8 text-center">No speed data yet — synced from Artificial Analysis.</div>
+              <div className="text-[12px] text-neutral-500 py-8 text-center">No speed data yet.</div>
             ) : (
               <ResponsiveContainer width="100%" height={Math.max(360, withSpeed.length * 34)}>
                 <BarChart data={withSpeed} layout="vertical" margin={{ left: 12 }}>

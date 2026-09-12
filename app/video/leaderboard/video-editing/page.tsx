@@ -123,7 +123,7 @@ export default function VideoEditingLeaderboard() {
             <span className="badge-updated">Updated</span>
           </div>
           <p className="text-sm text-neutral-500 mt-2">
-            Ranking of AI video editing models by Elo score from blind user comparisons in the Artificial Analysis Video Editing Arena.
+            Ranking of AI video editing models by Elo score from blind user comparisons in the Video Editing Arena.
           </p>
           <p className="text-[11px] text-neutral-400 mt-1.5">
             Last synced: {new Date(data.updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })} · {data.total} models
@@ -250,15 +250,15 @@ export default function VideoEditingLeaderboard() {
             {[
               {
                 q: 'Which is the best Video Editing AI model?',
-                a: `${sorted[0]?.name || 'MiniMax H3Open Weights'} currently leads the Artificial Analysis Video Editing Arena with an Elo score of ${fmtElo(sorted[0]?.elo || 1131)}.`,
+                a: `${sorted[0]?.name || 'MiniMax H3Open Weights'} currently leads the Video Editing Arena with an Elo score of ${fmtElo(sorted[0]?.elo || 1131)}.`,
               },
               {
                 q: 'What are the top Video Editing models?',
-                a: `The top Video Editing models by Elo rating are: ${sorted.slice(0, 5).map((m, i) => `${i + 1}. ${m.name} (Elo ${fmtElo(m.elo)})`).join(', ')}. Rankings are based on blind user votes in the Artificial Analysis Video Editing Arena.`,
+                a: `The top Video Editing models by Elo rating are: ${sorted.slice(0, 5).map((m, i) => `${i + 1}. ${m.name} (Elo ${fmtElo(m.elo)})`).join(', ')}. Rankings are based on blind user votes in the Video Editing Arena.`,
               },
               {
                 q: 'How are Video Editing models ranked on this leaderboard?',
-                a: 'Models are ranked using an Elo rating system derived from user votes in blind comparisons in the Artificial Analysis Video Editing Arena. Users compare two edited videos from the same input without knowing which model created each video. Higher Elo scores indicate a model is preferred more often by users.',
+                a: 'Models are ranked using an Elo rating system derived from user votes in blind comparisons in the Video Editing Arena. Users compare two edited videos from the same input without knowing which model created each video. Higher Elo scores indicate a model is preferred more often by users.',
               },
             ].map((faq, i) => (
               <div key={i} className="border border-[var(--color-line)] rounded-lg p-5">

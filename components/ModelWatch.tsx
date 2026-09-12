@@ -333,7 +333,7 @@ export default function ModelWatch({
               <VerticalBarChart
                 data={intelData}
                 title="Intelligence"
-                subtitle="Artificial Analysis Intelligence Index · higher is better"
+                subtitle="Intelligence Index · higher is better"
                 valueFormat={v => v.toFixed(0)}
                 selectedId={selected?.id}
                 onSelect={id => setSelectedId(id)}

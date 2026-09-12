@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
     "/api/models": ["./data/models-slim.json"],
     "/api/models/catalog": ["./data/models-slim.json", "./data/aa-models.json"],
     "/api/changelog": ["./data/news.json", "./data/status.json"],
+    "/api/coding-agents": ["./data/coding-agents.json"],
     "/sitemap.xml": ["./data/models-slim.json"],
   },
   outputFileTracingExcludes: {

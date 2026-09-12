@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   ScatterChart, Scatter, Cell, ReferenceArea, ReferenceLine, ComposedChart, Line,
 } from 'recharts';
-import { CODING_AGENTS, AGENT_PROVIDER_COLORS, type CodingAgent } from '@/lib/coding-agents-data';
+import { CODING_AGENTS as STATIC_AGENTS, AGENT_PROVIDER_COLORS, type CodingAgent } from '@/lib/coding-agents-data';
 
 type Tab = 'performance' | 'harness' | 'tokens' | 'cost' | 'time';
 
@@ -193,43 +193,65 @@ function AttractiveScatter({ data, xKey, xLabel, xFormatter, showPareto }: Attra
 
 export default function CodingAgents() {
   const [tab, setTab] = useState<Tab>('performance');
+  // Live board refreshed every 4h; static snapshot keeps first paint working.
+  const [agents, setAgents] = useState<CodingAgent[]>(STATIC_AGENTS);
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null);
 
-  const sortedByIndex = useMemo(() => [...CODING_AGENTS].sort((a, b) => b.index - a.index), []);
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/coding-agents')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        if (mounted && Array.isArray(d?.models) && d.models.length > 0) {
+          setAgents(d.models as CodingAgent[]);
+          setUpdatedAt(typeof d.updatedAt === 'string' ? d.updatedAt : null);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const sortedByIndex = useMemo(() => [...agents].sort((a, b) => b.index - a.index), [agents]);
   const top15 = sortedByIndex.slice(0, 15);
   const sortedByTokens = useMemo(() => [...top15].sort((a, b) => b.totalTokens - a.totalTokens), [top15]);
   const sortedByCost = useMemo(() => [...top15].sort((a, b) => b.cost - a.cost), [top15]);
   const sortedByTime = useMemo(() => [...top15].sort((a, b) => b.wallTime - a.wallTime), [top15]);
 
   const scatterByTokens = useMemo(() => {
-    return CODING_AGENTS.map(a => ({ ...a }));
-  }, []);
+    return agents.map(a => ({ ...a }));
+  }, [agents]);
   const scatterByCost = useMemo(() => {
-    return CODING_AGENTS.filter(a => a.cost > 0).map(a => ({ ...a }));
-  }, []);
+    return agents.filter(a => a.cost > 0).map(a => ({ ...a }));
+  }, [agents]);
   const scatterByTime = useMemo(() => {
-    return CODING_AGENTS.map(a => ({ ...a }));
-  }, []);
+    return agents.map(a => ({ ...a }));
+  }, [agents]);
 
   /* Harness comparison: Claude Code on Opus 5 across harnesses */
   const harnessData = useMemo(() => {
-    const claude = CODING_AGENTS.filter(a => a.agent === 'Claude Code' && /Opus 5/i.test(a.label)).slice(0, 4);
-    const codex = CODING_AGENTS.filter(a => a.agent === 'Codex' && /GPT-5\.6 Sol/i.test(a.label)).slice(0, 3);
+    const claude = agents.filter(a => a.agent === 'Claude Code' && /Opus 5/i.test(a.label)).slice(0, 4);
+    const codex = agents.filter(a => a.agent === 'Codex' && /GPT-5\.6 Sol/i.test(a.label)).slice(0, 3);
     return [...claude, ...codex].map(a => ({
       label: a.label,
       index: a.index,
       color: providerColor(a.provider),
     })).sort((a, b) => b.index - a.index);
-  }, []);
+  }, [agents]);
 
   return (
     <div>
       {/* Intro */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold tracking-tight mb-2">Coding Agent Benchmarks</h2>
-        <p className="text-[13px] text-[var(--dim)] max-w-[90ch] leading-relaxed">
+        <p className="text-[13px] text-[var(--mut)] max-w-[90ch] leading-relaxed">
           Real-world performance of coding agents on software engineering tasks — including cost, token usage, and
-          execution time. Data scraped from the Artificial Analysis Coding Agent Index (v1.3), a composite of
+          execution time. Independent coding-agent benchmarks — a composite of
           DeepSWE, Terminal-Bench v2, and SWE-Atlas-QnA.
+          {updatedAt && (
+            <span className="tabular-nums"> Updated {new Date(updatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}.</span>
+          )}
         </p>
       </div>
 
@@ -254,7 +276,7 @@ export default function CodingAgents() {
       {tab === 'performance' && (
         <>
           <SectionCard
-            title="Artificial Analysis Coding Agent Index"
+            title="Coding Agent Index"
             subtitle="Composite score of DeepSWE, Terminal-Bench v2, and SWE-Atlas-QnA. Equal weight to each benchmark. Higher is better."
           >
             <ResponsiveContainer width="100%" height={Math.max(400, top15.length * 42)}>

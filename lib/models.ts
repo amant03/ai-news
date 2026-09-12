@@ -108,9 +108,6 @@ export function modelSourceLinks(m: {
   if (m.elo !== undefined) {
     links.push({ label: 'LM Arena', href: 'https://lmarena.ai/leaderboard/text' });
   }
-  if (m.intelligenceIndex !== undefined) {
-    links.push({ label: 'Artificial Analysis', href: 'https://artificialanalysis.ai/models' });
-  }
   if (m.source === 'freellm') {
     links.push({ label: 'FreeLLM', href: 'https://freellm.sh/' });
   }

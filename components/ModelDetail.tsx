@@ -297,7 +297,7 @@ export default function ModelDetail({ model, pool, onSelect }: ModelDetailProps)
         <VerticalBarChart
           data={intelBars}
           title="Intelligence"
-          subtitle="Artificial Analysis Intelligence Index · higher is better"
+          subtitle="Intelligence Index · higher is better"
           valueFormat={v => v.toFixed(1)}
           selectedId={model.id}
           onSelect={id => onSelect?.(id)}
@@ -426,6 +426,5 @@ function modelSourceLinksFor(m: ModelRecord) {
   const links: Array<{ label: string; href: string }> = [];
   if (/^[a-z0-9.-]+\/[a-z0-9._-]+$/i.test(m.id)) links.push({ label: 'OpenRouter', href: `https://openrouter.ai/${m.id}` });
   if (m.elo !== undefined) links.push({ label: 'LM Arena', href: 'https://lmarena.ai/leaderboard/text' });
-  if (m.intelligenceIndex !== undefined) links.push({ label: 'Artificial Analysis', href: 'https://artificialanalysis.ai/models' });
   return links;
 }

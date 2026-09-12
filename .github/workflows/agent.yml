@@ -61,6 +61,11 @@ jobs:
           X_SCRAPING: "true"
           OLLAMA_URL: ""
 
+      - name: Refresh coding-agents board
+        timeout-minutes: 5
+        continue-on-error: true
+        run: npx tsx lib/run-coding-agents.ts
+
       # Commit on `always()`, not only on success: the store writes are atomic,
       # so whatever a partial/failed run persisted is still worth shipping.
       # Without this, one timed-out run discards all fresh items and the site
@@ -85,7 +90,7 @@ jobs:
             fs.writeFileSync('data/status.json', JSON.stringify(d, null, 2));
             console.log('Updated status.json: outcome=' + process.env.AGENT_OUTCOME + ' nextRun=' + d.nextRun);
           "
-          git add data/news.json data/status.json data/models-slim.json data/aa-models.json
+          git add data/news.json data/status.json data/models-slim.json data/aa-models.json data/coding-agents.json
           if git diff --cached --quiet; then
             echo "No data changes to commit"
           else

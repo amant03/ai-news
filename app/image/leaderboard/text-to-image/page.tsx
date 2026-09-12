@@ -128,7 +128,7 @@ export default function TextToImageLeaderboard() {
             <span className="badge-updated">Updated</span>
           </div>
           <p className="text-sm text-neutral-500 mt-2">
-            Ranking of AI image generation models by Elo score from blind user comparisons in the Artificial Analysis Image Arena.
+            Ranking of AI image generation models by Elo score from blind user comparisons in the Image Arena.
           </p>
           <p className="text-[11px] text-neutral-400 mt-1.5">
             Last synced: {new Date(t2iData.updatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })} · {t2iData.total} models
@@ -260,15 +260,15 @@ export default function TextToImageLeaderboard() {
             {[
               {
                 q: 'Which is the best Text to Image AI model?',
-                a: `${sorted[0]?.name || 'GPT Image 2 (high)'} currently leads the Artificial Analysis Text to Image Arena with an Elo score of ${fmtElo(sorted[0]?.elo || 1368)}.`,
+                a: `${sorted[0]?.name || 'GPT Image 2 (high)'} currently leads the Text to Image Arena with an Elo score of ${fmtElo(sorted[0]?.elo || 1368)}.`,
               },
               {
                 q: 'What are the top Text to Image models?',
-                a: `The top Text to Image models by Elo rating are: ${sorted.slice(0, 5).map((m, i) => `${i + 1}. ${m.name} (Elo ${fmtElo(m.elo)})`).join(', ')}. Rankings are based on blind user votes in the Artificial Analysis Image Arena.`,
+                a: `The top Text to Image models by Elo rating are: ${sorted.slice(0, 5).map((m, i) => `${i + 1}. ${m.name} (Elo ${fmtElo(m.elo)})`).join(', ')}. Rankings are based on blind user votes in the Image Arena.`,
               },
               {
                 q: 'How are Text to Image models ranked on this leaderboard?',
-                a: 'Models are ranked using an Elo rating system derived from user votes in blind comparisons in the Artificial Analysis Image Arena. Users compare two images generated from the same prompt without knowing which model created each image. Higher Elo scores indicate a model is preferred more often by users.',
+                a: 'Models are ranked using an Elo rating system derived from user votes in blind comparisons in the Image Arena. Users compare two images generated from the same prompt without knowing which model created each image. Higher Elo scores indicate a model is preferred more often by users.',
               },
               {
                 q: 'Which is the best open weights Text to Image model?',

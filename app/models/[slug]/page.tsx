@@ -9,6 +9,8 @@ import { SITE_NAME } from '@/lib/site';
 import { modelMatchesSlug } from '@/lib/model-slug';
 import { findAAModel } from '@/lib/aa-lookup';
 import { findRelatedNews } from '@/lib/related-news';
+import { availabilityGroups } from '@/lib/model-availability';
+import { CODING_AGENTS } from '@/lib/coding-agents-data';
 import ComparePicker from '@/components/ComparePicker';
 import { timeAgo } from '@/lib/format';
 
@@ -187,21 +189,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!model) return { title: `Model not found · ${SITE_NAME}` };
   return {
     title: `${model.name} — Intelligence, Performance & Price Analysis`,
-    description: `${model.name} by ${model.provider}. Artificial Analysis Intelligence Index: ${model.intelligenceIndex != null ? Math.round(model.intelligenceIndex) : 'n/a'}. Pricing, context window, and benchmark analysis.`,
+    description: `${model.name} by ${model.provider}. Intelligence score: ${model.intelligenceIndex != null ? Math.round(model.intelligenceIndex) : 'n/a'}. Pricing, context window, and benchmark analysis.`,
   };
 }
 
 const INTEL_EVALS: { name: string; what: string }[] = [
-  { name: 'AA-Briefcase', what: 'Agentic knowledge work' },
-  { name: 'GDPval-AA v2', what: 'Agentic real-world work tasks' },
-  { name: 'AutomationBench-AA', what: 'Agentic SaaS workflows' },
+  { name: 'Briefcase', what: 'Agentic knowledge work' },
+  { name: 'GDPval v2', what: 'Agentic real-world work tasks' },
+  { name: 'AutomationBench', what: 'Agentic SaaS workflows' },
   { name: 'Terminal-Bench v4.0', what: 'Agentic coding & terminal use' },
   { name: 'SciCode', what: 'Coding' },
   { name: "Humanity's Last Exam", what: 'Reasoning & knowledge' },
   { name: 'GDP.pdf', what: 'Professional document reasoning' },
   { name: 'CritPt', what: 'Physics reasoning' },
-  { name: 'AA-Omniscience', what: 'Knowledge accuracy & non-hallucination' },
-  { name: 'AA-LCR v1.1', what: 'Long context reasoning' },
+  { name: 'Omniscience', what: 'Knowledge accuracy & non-hallucination' },
+  { name: 'LCR v1.1', what: 'Long context reasoning' },
 ];
 
 function UnitBars({ filled, color }: { filled: number; color: string }) {
@@ -318,7 +320,7 @@ export default async function ModelDetailPage({ params }: Props) {
   const summaryBits: string[] = [];
   if (intelScore != null) {
     summaryBits.push(
-      `${model.name} scores ${Math.round(intelScore)} on the Artificial Analysis Intelligence Index${intelRank ? `, placing it #${intelRank} of ${classTotal} ${classBasis} (median: ${intelMed})` : ''} — ${vsMedian(intelScore, intelMed)} for its class.`
+      `${model.name} scores ${Math.round(intelScore)} on the Intelligence Index${intelRank ? `, placing it #${intelRank} of ${classTotal} ${classBasis} (median: ${intelMed})` : ''} — ${vsMedian(intelScore, intelMed)} for its class.`
     );
   }
   if (priceLine) summaryBits.push(`Pricing is ${priceLine}.`);
@@ -354,8 +356,8 @@ export default async function ModelDetailPage({ params }: Props) {
     {
       q: `How intelligent is ${model.name}?`,
       a: intelScore != null
-        ? `${model.name} scores ${Math.round(intelScore)} on the Artificial Analysis Intelligence Index${intelRank ? `, ranking #${intelRank} of ${classTotal} ${classBasis}` : ''} (class median: ${intelMed}).`
-        : `The Artificial Analysis Intelligence Index for ${model.name} has not been published yet.`,
+        ? `${model.name} scores ${Math.round(intelScore)} on the Intelligence Index${intelRank ? `, ranking #${intelRank} of ${classTotal} ${classBasis}` : ''} (class median: ${intelMed}).`
+        : `No public intelligence score has been published for ${model.name} yet.`,
     },
     {
       q: `How fast is ${model.name}?`,
@@ -399,8 +401,8 @@ export default async function ModelDetailPage({ params }: Props) {
     {
       q: `How does ${model.name} perform on benchmarks?`,
       a: intelScore != null
-        ? `${model.name} achieves ${Math.round(intelScore)} on the Artificial Analysis Intelligence Index v4.3, a composite of 10 evaluations spanning agentic work, coding, reasoning, knowledge and long context.`
-        : `${model.name} does not yet have published Artificial Analysis benchmarks.`,
+        ? `${model.name} achieves ${Math.round(intelScore)} on the Intelligence Index, a composite of 10 evaluations spanning agentic work, coding, reasoning, knowledge and long context.`
+        : `${model.name} does not yet have published benchmark scores.`,
     },
     {
       q: `Is ${model.name} available via API?`,
@@ -413,6 +415,7 @@ export default async function ModelDetailPage({ params }: Props) {
   ];
 
   const related = findRelatedNews({ name: model.name, provider: model.provider }, 6);
+  const useGroups = availabilityGroups(model, CODING_AGENTS, `/models/${slug}/providers`);
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -495,7 +498,7 @@ export default async function ModelDetailPage({ params }: Props) {
                     <div className="text-[12px] font-medium text-[var(--mut)] tabular-nums">#{intelRank} / {classTotal}</div>
                   )}
                   <div className="text-3xl font-semibold tabular-nums text-[var(--fore)] mt-0.5">{Math.round(intelScore)}</div>
-                  <div className="text-[11px] text-[var(--mut)] mt-1">Artificial Analysis Intelligence Index</div>
+                  <div className="text-[11px] text-[var(--mut)] mt-1">Intelligence Index</div>
                   <UnitBars filled={intelUnits} color="var(--aa-purple)" />
                   <div className="text-[10px] text-[var(--dim)] mt-1">{intelUnits} of 4 units for Intelligence</div>
                 </>
@@ -662,7 +665,7 @@ export default async function ModelDetailPage({ params }: Props) {
           {/* Openness + index composition */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             <div className="border border-[var(--color-line)] rounded-lg p-5">
-              <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-2">Artificial Analysis Openness Index</div>
+              <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-2">Openness Index</div>
               <div className="flex items-baseline gap-3">
                 <div className="text-3xl font-semibold tabular-nums text-[var(--fore)]">{opennessScore}</div>
                 <div className="flex-1 h-1.5 bg-[var(--input)] rounded-full overflow-hidden">
@@ -679,7 +682,7 @@ export default async function ModelDetailPage({ params }: Props) {
             <div className="border border-[var(--color-line)] rounded-lg p-5">
               <div className="text-[10px] uppercase tracking-widest text-[var(--dim)] mb-3">Intelligence Index Composition</div>
               <p className="text-[11px] text-[var(--mut)] mb-3 leading-relaxed">
-                The Artificial Analysis Intelligence Index v4.3 is a composite of 10 evaluations, each weighted into a 0–100 score.
+                The Intelligence Index is a composite of 10 evaluations, each weighted into a 0–100 score.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
                 {INTEL_EVALS.map(e => (
@@ -731,6 +734,44 @@ export default async function ModelDetailPage({ params }: Props) {
             </table>
           </div>
         </section>
+
+        {/* Where to use this model */}
+        {useGroups.length > 0 && (
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-medium tracking-tight text-[var(--fore)] mb-1">
+              Where to use {model.name}
+            </h2>
+            <p className="text-[12px] text-[var(--mut)] mb-4">
+              Official APIs, playgrounds, coding tools and self-hosting options carrying this model.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {useGroups.map(g => (
+                <div key={g.title} className="border border-[var(--color-line)] rounded-lg p-5">
+                  <div className="text-[10px] uppercase tracking-widest text-[var(--mut)] mb-3">{g.title}</div>
+                  <ul className="space-y-2">
+                    {g.links.map(l =>
+                      l.internal ? (
+                        <li key={l.label}>
+                          <Link href={l.href} className="text-[14px] font-medium text-[var(--fore)] hover:underline underline-offset-2">
+                            {l.label}
+                          </Link>
+                          {l.note && <p className="text-[11px] text-[var(--mut)] mt-0.5">{l.note}</p>}
+                        </li>
+                      ) : (
+                        <li key={l.label}>
+                          <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[var(--fore)] hover:underline underline-offset-2">
+                            {l.label} <span aria-hidden>↗</span>
+                          </a>
+                          {l.note && <p className="text-[11px] text-[var(--mut)] mt-0.5">{l.note}</p>}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* FAQ */}
         <section className="mb-10">

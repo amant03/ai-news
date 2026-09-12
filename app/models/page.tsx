@@ -233,7 +233,7 @@ export default function ModelsPage() {
           <InsightCallout text={insight} />
           <p className="text-[11px] text-neutral-500 mt-1.5">
             {catalog ? (
-              <>Last synced: {fmtTime(catalog.updatedAt)} · Sources: {(catalog.sources || []).join(', ')}</>
+              <>Last synced: {fmtTime(catalog.updatedAt)} · Sources: {(catalog.sources || []).filter(s => s !== 'aa').join(', ')}</>
             ) : (
               <>Loading model catalog…</>
             )}
@@ -442,12 +442,12 @@ export default function ModelsPage() {
 
         {/* Intelligence Index explainer */}
         <section className="mb-12">
-          <SectionHeader kicker="Methodology" title="Artificial Analysis Intelligence Index" />
+          <SectionHeader kicker="Methodology" title="Intelligence Index" />
           <div className="border border-[var(--color-line)] rounded-lg p-5 text-[13px] text-neutral-600 leading-relaxed max-w-3xl">
             <p>
               The <strong>Intelligence Index</strong> is a composite benchmark aggregating nine challenging evaluations to provide
-              a holistic measure of AI capabilities across mathematics, science, coding, and reasoning: GDPval-AA v2, τ³-Banking,
-              Terminal-Bench v2.1, SciCode, Humanity&apos;s Last Exam, GPQA Diamond, CritPt, AA-Omniscience, and AA-LCR.
+              a holistic measure of AI capabilities across mathematics, science, coding, and reasoning: GDPval v2, τ³-Banking,
+              Terminal-Bench v2.1, SciCode, Humanity&apos;s Last Exam, GPQA Diamond, CritPt, Omniscience, and LCR.
             </p>
             <p className="mt-2">
               Scores range from 0–100. Higher is better. Use the <strong>Open Source / Closed Source</strong> filter below to compare
@@ -463,7 +463,7 @@ export default function ModelsPage() {
             <VerticalBarChart
               data={withDir(modelsToBarData(frontier, m => m.intelligenceIndex, { maxBars: 12 }), highlightDir.intel)}
               title="Intelligence"
-              subtitle="Artificial Analysis Intelligence Index · higher is better"
+              subtitle="Intelligence Index · higher is better"
               format="n1"
               sortDir={highlightDir.intel}
               onToggleDir={() => setHighlightDir(prev => ({ ...prev, intel: prev.intel === 'asc' ? 'desc' : 'asc' }))}
@@ -493,7 +493,7 @@ export default function ModelsPage() {
                 <span className="text-[15px] font-semibold tracking-tight">Intelligence Index vs. Cost per Task</span>
               </div>
               <p className="text-[11px] text-neutral-500 mb-4">
-                Artificial Analysis Intelligence Index · weighted average cost (USD) per task · higher intelligence &amp; lower cost = upper-left
+                Intelligence Index · weighted average cost (USD) per task · higher intelligence &amp; lower cost = upper-left
               </p>
               <IntelligenceScatter limit={60} />
             </div>
@@ -513,7 +513,7 @@ export default function ModelsPage() {
         {/* AA-style charts */}
         <section className="mb-12">
           <SectionHeader
-            kicker="Synced from Artificial Analysis"
+            kicker="Token use & cost"
             title="Token Use, Cost, Context &amp; Speed"
           />
           <AAModelCharts models={models} />
