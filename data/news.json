@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-12T12:00:56.396Z",
+    "lastUpdated": "2026-09-12T12:08:12.104Z",
     "count": 2500
   },
   "items": [
@@ -69,6 +69,22 @@
       "domain": "general",
       "id": 1789213976647,
       "created_at": "2026-09-12T11:38:26.619Z"
+    },
+    {
+      "source": "google-news",
+      "source_label": "Khaleej Times",
+      "source_type": "google",
+      "title": "AI may have the right answer but still fail in real-world situations, UAE researchers say",
+      "summary": "AI may have the right answer but still fail in real-world situations, UAE researchers say  Khaleej Times",
+      "content": "AI may have the right answer but still fail in real-world situations, UAE researchers say  Khaleej Times",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNQzhLa1ctLWhoWjVsTi1mckN1bmlCZFlGd29Kc0k0N1FtTWtsYVNsRzEzY19RNE1YQ3RhSkFKOElYOVJjY2lralhJekNoLXJGZDZFY0w0UWFBTERER0d6SWJtMFl2djRIRmRILTI2WjkxdmtZdWRFUVFPSDJqTy1BM3lUby1DQzk3cF8xQThBdnNoNE1udW1n0gGXAUFVX3lxTE1DOEtrVy0taGhaNWxOLWZyQ3VuaUJkWUZ3b0pzSTQ3UW1Na2xhU2xHMTNjX1E0TVhDdGFKQUo4SVg5UmNjaWtqWEl6Q2gtckZkNkVjTDRRYUFMRERHR3pJYm0wWXZ2NEhGZEgtMjZaOTF2a1l1ZEVRUU9IMmpPLUEzeVRvLUNDOTdwXzFBOEF2c2g0TW51bWc?oc=5",
+      "author": "Khaleej Times",
+      "category": "research",
+      "published_at": "Sat, 12 Sep 2026 10:52:05 GMT",
+      "source_detail": "\"large language model\"",
+      "domain": "research",
+      "id": 1789214892459,
+      "created_at": "2026-09-12T12:08:09.422Z"
     },
     {
       "source": "google-news",
@@ -41725,22 +41741,6 @@
       "domain": "general",
       "id": 1788353194829,
       "created_at": "2026-09-02T12:44:17.350Z"
-    },
-    {
-      "source": "ai-weekly",
-      "source_label": "AI Weekly",
-      "source_type": "web",
-      "title": "krebsonsecurity.com",
-      "summary": "",
-      "content": "",
-      "url": "https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/",
-      "author": "AI Weekly",
-      "category": "other",
-      "published_at": "2026-09-02T00:00:00.000Z",
-      "source_detail": "AI Weekly",
-      "domain": "general",
-      "id": 1788353608230,
-      "created_at": "2026-09-02T12:44:17.382Z"
     }
   ]
 }
