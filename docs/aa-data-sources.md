@@ -10,7 +10,7 @@ never have to rediscover where it lives. Keep it updated when you touch AA data.
 | --- | --- | --- |
 | Intelligence Index (top models) | `data/aa-models.json` (seed), merged into `data/models.json` | `lib/aa-scraper.ts` → `lib/agent.ts` |
 | Verbosity (output tokens per Intelligence Index task) | `data/aa-models.json` → `data/models.json` (`aaVerbosity`) | `lib/aa-scraper.ts` |
-| Provider benchmarks (speed / latency / price per provider) | `data/aa-providers.json` (curated seed) | server components in `app/models/[slug]/providers/` |
+| Provider benchmarks (live pricing / features per provider) | `data/aa-providers.json` (refreshed from OpenRouter endpoints API) | `lib/provider-endpoints.ts` → server components in `app/models/[slug]/providers/` |
 | Full model database (prices, context, family) | `data/models.json` | `lib/model-registry.ts` |
 
 ## Page inventory (as of Aug 2026)
@@ -99,8 +99,9 @@ Metrics compare against same class:
 
 ## Known gaps / next steps
 
-- Provider benchmark pages (`/models/{slug}/providers`) are curated in
-  `data/aa-providers.json`; expand coverage model-by-model.
+- Provider benchmark pages (`/models/{slug}/providers`) are refreshed from
+  OpenRouter's public endpoints API (`lib/provider-endpoints.ts`, daily via
+  `models.yml`); `data/aa-providers.json` holds the latest snapshot.
 - Live scrape of the leaderboard is flaky (Next.js app); the `__NEXT_DATA__`
   JSON path should be prioritized. If it keeps failing, bump the seed file —
   it is the CI fallback and the source of truth for the frontier top-29.

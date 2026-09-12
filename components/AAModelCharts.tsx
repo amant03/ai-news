@@ -322,7 +322,7 @@ export default function AAModelCharts({ models }: { models: M[] }) {
               <div className="text-[15px] font-semibold tracking-tight mb-1">Output Speed</div>
               <SortDirButton dir={barDir} onToggle={toggleBarDir} title="speed" />
             </div>
-            <p className="text-[11px] text-neutral-500 mb-4">Output tokens per second (median across providers) · models with AA speed data</p>
+            <p className="text-[11px] text-neutral-500 mb-4">Output tokens per second (median across providers) · models with speed data</p>
             {withSpeed.length === 0 ? (
               <div className="text-[12px] text-neutral-500 py-8 text-center">No speed data yet.</div>
             ) : (

@@ -49,6 +49,13 @@ jobs:
         env:
           AA_SCRAPE_LIMIT: "100"
 
+      - name: Refresh API provider comparisons
+        timeout-minutes: 8
+        continue-on-error: true
+        run: npx tsx lib/run-provider-endpoints.ts
+        env:
+          PROVIDER_SCRAPE_LIMIT: "80"
+
       - name: Commit leaderboard snapshots
         run: |
           git config user.name "ai-news-bot"

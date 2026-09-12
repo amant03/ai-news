@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import path from 'path';
 import fs from 'fs';
-import { readModelDatabase } from '@/lib/model-registry';
+import { readModelDatabase, readSlimModelDatabase } from '@/lib/model-registry';
+import { canonicalSlug, allSlugsFor, modelMatchesSlug } from '@/lib/model-slug';
 import { SITE_NAME } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
@@ -16,7 +17,7 @@ interface ProviderRow {
   license: string;
   functionCalling: boolean;
   jsonMode: boolean;
-  costPerTask: number;
+  costPerTask: number | null;
   speed: number | null;
   firstChunk: number | null;
   totalResponse: number | null;
@@ -56,7 +57,24 @@ function best<T>(rows: ProviderRow[], key: (r: ProviderRow) => T, cmp: (a: T, b:
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pf = loadProviders();
-  const entry = pf?.models[slug];
+  const db = readModelDatabase();
+  const model = db?.models.find(m => slugOf(m.name) === slug);
+  const slimDb = readSlimModelDatabase();
+  const slimModel = slimDb?.models.find(
+    m => slugOf(m.name) === slug || modelMatchesSlug({ id: m.id, name: m.name, aaSlug: m.aaSlug }, slug)
+  );
+  const aliasSource = slimModel
+    ? { id: slimModel.id, name: slimModel.name, aaSlug: slimModel.aaSlug }
+    : model
+      ? { id: model.id, name: model.name, aaSlug: undefined }
+      : null;
+  const keys = [
+    slug,
+    ...(aliasSource
+      ? [canonicalSlug(aliasSource.name), ...allSlugsFor(aliasSource), slugOf(aliasSource.name)]
+      : []),
+  ].filter(Boolean);
+  const entry = keys.map(k => pf?.models[k]).find(Boolean);
   if (!entry) return { title: `Providers not found · ${SITE_NAME}` };
   return {
     title: `${entry.name} — API Provider Performance Benchmarking & Price Analysis`,
@@ -67,10 +85,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProvidersPage({ params }: Props) {
   const { slug } = await params;
   const pf = loadProviders();
-  const entry = pf?.models[slug];
 
   const db = readModelDatabase();
   const model = db?.models.find(m => slugOf(m.name) === slug);
+
+  // Provider entries are keyed by canonical slug, but display names drift
+  // ("OpenAI GPT Sol Latest" vs "GPT-5.6 Sol"). Resolve through the slim
+  // catalog first (aaSlug-aware), then try every known alias as a key.
+  const slimDb = readSlimModelDatabase();
+  const slimModel = slimDb?.models.find(
+    m => slugOf(m.name) === slug || modelMatchesSlug({ id: m.id, name: m.name, aaSlug: m.aaSlug }, slug)
+  );
+  const aliasSource = slimModel
+    ? { id: slimModel.id, name: slimModel.name, aaSlug: slimModel.aaSlug }
+    : model
+      ? { id: model.id, name: model.name, aaSlug: undefined }
+      : null;
+  const lookupKeys = [
+    slug,
+    ...(aliasSource
+      ? [canonicalSlug(aliasSource.name), ...allSlugsFor(aliasSource), slugOf(aliasSource.name)]
+      : []),
+  ].filter(Boolean);
+  const entry = lookupKeys.map(k => pf?.models[k]).find(Boolean);
 
   if (!entry && !model) notFound();
 
@@ -276,7 +313,7 @@ export default async function ProvidersPage({ params }: Props) {
                     <td className="py-3 px-4 font-medium whitespace-nowrap">{r.name}</td>
                     <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.context}</td>
                     <td className="py-3 px-4 text-neutral-500 whitespace-nowrap">{r.license}</td>
-                    <td className="py-3 px-4 tabular-nums whitespace-nowrap">${r.costPerTask.toFixed(2)}</td>
+                    <td className="py-3 px-4 tabular-nums whitespace-nowrap">{r.costPerTask != null ? `$${r.costPerTask.toFixed(2)}` : '—'}</td>
                     <td className="py-3 px-4 tabular-nums font-medium whitespace-nowrap">{r.speed ?? '—'}</td>
                     <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.firstChunk != null ? r.firstChunk.toFixed(2) : '—'}</td>
                     <td className="py-3 px-4 tabular-nums text-neutral-500 whitespace-nowrap">{r.totalResponse != null ? r.totalResponse.toFixed(2) : '—'}</td>
@@ -290,7 +327,7 @@ export default async function ProvidersPage({ params }: Props) {
           </div>
         </div>
         <p className="text-[11px] text-neutral-500 mt-3">
-          Median (P50) measurements over the past 72 hours · blended at {entry.blendRatio ?? '7:2:1 (cache-input-output)'} ·
+          Median measurements where available · live provider pricing via OpenRouter · blended at {entry.blendRatio ?? '3:1 (input-output)'} per 1M tokens ·
           workload: 10,000 input tokens · aggregated from public provider benchmarks
         </p>
         {model && (

@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/": ["./data/news.json", "./data/status.json", "./data/aa-models.json"],
     "/models/[slug]": ["./data/models-slim.json", "./data/aa-models.json"],
+    "/models/[slug]/providers": ["./data/aa-providers.json"],
     "/models/[slug]/vs/[slug2]": ["./data/models-slim.json"],
     "/api/news": ["./data/news.json"],
     "/api/status": ["./data/status.json"],
