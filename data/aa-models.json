@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-12T12:08:12.677Z",
+  "updatedAt": "2026-09-12T17:09:38.207Z",
   "source": "artificialanalysis.ai",
-  "total": 42,
+  "total": 39,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -174,21 +174,6 @@
       "hostModelCount": 4
     },
     {
-      "slug": "nemotron-3-ultra",
-      "name": "Nemotron 3 Ultra",
-      "provider": "NVIDIA",
-      "intelligenceIndex": 38,
-      "speed": 156,
-      "costPerTask": null,
-      "verbosity": null,
-      "latency": null,
-      "promptPrice": null,
-      "completionPrice": null,
-      "family": "closed",
-      "isReasoning": false,
-      "evals": {}
-    },
-    {
       "slug": "muse-spark-1-2",
       "name": "Muse Spark 1.2 (xhigh)",
       "shortName": "Muse Spark 1.2 (xhigh)",
@@ -219,20 +204,6 @@
         "tauBanking": 0.348453608247423
       },
       "hostModelCount": 2
-    },
-    {
-      "slug": "deepseek-v4-pro-0903",
-      "name": "DeepSeek V4 Pro 0903 (max)",
-      "provider": "DeepSeek",
-      "intelligenceIndex": 53,
-      "speed": 90,
-      "costPerTask": null,
-      "verbosity": null,
-      "latency": null,
-      "promptPrice": null,
-      "completionPrice": null,
-      "family": "closed",
-      "isReasoning": false
     },
     {
       "slug": "glm-5-2",
@@ -1020,10 +991,10 @@
       "shortName": "Agnes 3.0 Flash",
       "provider": "Sapiens AI",
       "intelligenceIndex": 35.5,
-      "speed": 230.927278990818,
+      "speed": 237.014194095606,
       "costPerTask": null,
       "verbosity": null,
-      "latency": 1.83030658400002,
+      "latency": 1.84326306,
       "promptPrice": 0.05,
       "completionPrice": 0.15,
       "context": "1M",
@@ -1052,10 +1023,10 @@
       "shortName": "Ling-3.0-flash-VL",
       "provider": "InclusionAI",
       "intelligenceIndex": 24.7673304077875,
-      "speed": 144.72840806113,
+      "speed": 144.812481906061,
       "costPerTask": null,
       "verbosity": 160053880,
-      "latency": 2.21356024800002,
+      "latency": 2.22731927396796,
       "promptPrice": 0,
       "completionPrice": 0,
       "context": "262K",
@@ -1112,39 +1083,6 @@
         "omniscience": -11.65,
         "automationBench": 0.018006007862431707,
         "tauBanking": 0.208247422680412
-      },
-      "hostModelCount": 0
-    },
-    {
-      "slug": "gpt-6-astra-non-reasoning",
-      "name": "GPT-6 Astra (Non-reasoning)",
-      "shortName": "GPT-6 Astra (Non-reasoning)",
-      "provider": "OpenAI",
-      "intelligenceIndex": 45.1697751115741,
-      "speed": null,
-      "costPerTask": null,
-      "verbosity": 12377780,
-      "latency": null,
-      "promptPrice": null,
-      "completionPrice": null,
-      "context": "1M",
-      "released": "2026-09-03",
-      "family": "closed",
-      "isReasoning": false,
-      "inputModalities": "text, image",
-      "outputModalities": "text",
-      "evals": {
-        "hle": 0.371177015755329,
-        "gpqa": 0.894949494949495,
-        "scicode": 0.534722222222222,
-        "lcr": 0.706666666666667,
-        "critpt": 0.197142857142857,
-        "gdpval": 0.521295,
-        "terminalbench": 0.505050505050505,
-        "omniscience": 26.55,
-        "automationBench": 0.6177224345856126,
-        "tauBanking": 0.371134020618557,
-        "mmmuPro": 0.820231213872832
       },
       "hostModelCount": 0
     },

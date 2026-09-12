@@ -60,6 +60,7 @@ export default function LeaderboardsPage() {
   const [updatedAt, setUpdatedAt] = useState<string | null>(null);
   const [metric, setMetric] = useState<Metric>('intelligence');
   const [q, setQ] = useState('');
+  const [openness, setOpenness] = useState<'all' | 'open' | 'closed'>('all');
 
   useEffect(() => {
     let mounted = true;
@@ -82,6 +83,9 @@ export default function LeaderboardsPage() {
   const rows = useMemo(() => {
     const query = q.trim().toLowerCase();
     let list = models.filter(m => valueOf(m, metric) !== undefined);
+    if (openness !== 'all') {
+      list = list.filter(m => (openness === 'open' ? isOpen(m) : !isOpen(m)));
+    }
     if (query) {
       list = list.filter(
         m =>
@@ -98,7 +102,7 @@ export default function LeaderboardsPage() {
       return active.dir === 'desc' ? bv - av : av - bv;
     });
     return byMetric.slice(0, 100);
-  }, [models, metric, q, active.dir]);
+  }, [models, metric, q, openness, active.dir]);
 
   const insight = useMemo(() => (models.length ? leaderboardInsight(models) : null), [models]);
 
@@ -153,6 +157,22 @@ export default function LeaderboardsPage() {
             aria-label="Search leaderboard"
             className="rounded-full border border-[var(--color-line)] bg-[var(--input)] px-3.5 py-1.5 text-[12px] text-[var(--fore)] placeholder:text-[var(--mut)] outline-none focus:border-[var(--accent)]/40"
           />
+          <div className="flex gap-1" role="group" aria-label="Filter by openness">
+            {(['all', 'open', 'closed'] as const).map(o => (
+              <button
+                key={o}
+                onClick={() => setOpenness(o)}
+                aria-pressed={openness === o}
+                className={`px-3 py-1.5 rounded-full text-[12px] font-medium transition-colors ${
+                  openness === o
+                    ? 'bg-black text-white'
+                    : 'text-neutral-500 hover:text-black border border-[var(--color-line)]'
+                }`}
+              >
+                {o === 'all' ? 'All weights' : o === 'open' ? 'Open' : 'Closed'}
+              </button>
+            ))}
+          </div>
         </div>
         <p className="text-[11px] text-[var(--mut)] mb-4">{active.hint} · showing top {rows.length}</p>
 
@@ -171,6 +191,7 @@ export default function LeaderboardsPage() {
                   <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 whitespace-nowrap text-right">Price /1M</th>
                   <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 whitespace-nowrap text-right">Context</th>
                   <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 whitespace-nowrap">Type</th>
+                  <th className="py-3 px-4 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 whitespace-nowrap">Further Analysis</th>
                 </tr>
               </thead>
               <tbody>
@@ -190,6 +211,11 @@ export default function LeaderboardsPage() {
                       <span className={`text-[11px] px-2 py-0.5 rounded font-medium ${isOpen(m) ? 'bg-[var(--ok-ink)]/10 text-[var(--ok-ink)]' : 'bg-[var(--bad)]/10 text-[var(--bad)]'}`}>
                         {isOpen(m) ? 'Open' : 'Closed'}
                       </span>
+                    </td>
+                    <td className="py-2.5 px-4 whitespace-nowrap text-[12px]">
+                      <Link href={`/models/${preferredSlug(m)}`} className="font-medium text-[var(--accent-hover)] hover:underline">Model ↗</Link>
+                      <span className="mx-1.5 text-[var(--color-line)]">|</span>
+                      <Link href={`/models/${preferredSlug(m)}/providers`} className="font-medium text-[var(--accent-hover)] hover:underline">Providers ↗</Link>
                     </td>
                   </tr>
                 ))}

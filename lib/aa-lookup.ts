@@ -2,7 +2,7 @@ import seed from '@/data/aa-models.json';
 import { modelMatchesSlug } from './model-slug';
 import type { AAModelEntry } from './aa-scraper';
 
-type SeedFile = { models?: AAModelEntry[] };
+type SeedFile = { models?: unknown };
 
 const MODELS: AAModelEntry[] = Array.isArray((seed as SeedFile).models)
   ? ((seed as SeedFile).models as AAModelEntry[])

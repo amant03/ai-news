@@ -220,6 +220,7 @@ export async function scrapeAAModelPages(opts?: { limit?: number; slugs?: string
   console.log(`[aa-pages] Scraping ${queue.length} model pages (${need.length} missing detail)`);
 
   let updated = 0;
+  let dropped = 0;
   for (let i = 0; i < queue.length; i++) {
     const slug = queue[i];
     try {
@@ -233,14 +234,22 @@ export async function scrapeAAModelPages(opts?: { limit?: number; slugs?: string
         console.log(`  [${i + 1}/${queue.length}] ${slug} — no currentModel`);
       }
     } catch (err) {
-      console.log(`  [${i + 1}/${queue.length}] ${slug} — ${err instanceof Error ? err.message : err}`);
+      const msg = err instanceof Error ? err.message : String(err);
+      // Dead upstream slug (HTTP 404): drop it so stale records stop
+      // poisoning alias matches (e.g. the removed deepseek-v4-pro-0903).
+      if (/HTTP 404/.test(msg) && bySlug.delete(slug)) {
+        dropped++;
+        console.log(`  [${i + 1}/${queue.length}] ${slug} — 404, dropped from seed`);
+      } else {
+        console.log(`  [${i + 1}/${queue.length}] ${slug} — ${msg}`);
+      }
     }
     await sleep(700);
   }
 
   const all = [...bySlug.values()];
   saveSeed(all);
-  console.log(`[aa-pages] Wrote ${all.length} models (${updated} pages parsed)`);
+  console.log(`[aa-pages] Wrote ${all.length} models (${updated} pages parsed, ${dropped} dead dropped)`);
   return updated;
 }
 
@@ -263,6 +272,67 @@ function detectFamily(name: string, provider: string): 'open-weights' | 'closed'
   return 'closed';
 }
 
+// Module-level alias-matching helpers (shared by the merge second pass and
+// the slim refresh's stale-link eviction).
+const ALIAS_PROVIDER_WORDS = new Set([
+  'openai', 'anthropic', 'google', 'deepmind', 'xai', 'meta', 'mistral',
+  'deepseek', 'qwen', 'alibaba', 'moonshot', 'zai', 'openrouter', 'ai',
+]);
+const ALIAS_STOP_WORDS = new Set(['latest', 'free', 'batch', 'preview', 'models', 'model']);
+
+function aliasCoreTokens(name: string): string[] {
+  return String(name || '')
+    .toLowerCase()
+    .replace(/\(.*?\)/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .split(' ')
+    .filter(t => t && !ALIAS_PROVIDER_WORDS.has(t) && !ALIAS_STOP_WORDS.has(t));
+}
+
+function aliasFoldDigits(t: string): string {
+  return t.replace(/[0-9]/g, '');
+}
+
+function aliasNormProvider(p: unknown): string {
+  return String(p || '').toLowerCase().replace(/^[^a-z0-9]+/, '').replace(/[-_]/g, '');
+}
+
+function aliasScore(slimName: string, aaName: string): number {
+  const s = aliasCoreTokens(slimName);
+  const a = aliasCoreTokens(aaName);
+  if (s.length === 0 || a.length === 0) return -1;
+  let score = 0;
+  for (const t of s) {
+    if (a.includes(t)) {
+      score += 2;
+      continue;
+    }
+    const f = aliasFoldDigits(t);
+    if (f && a.some(x => aliasFoldDigits(x) === f)) {
+      score += 1;
+      continue;
+    }
+    return -1;
+  }
+  return score;
+}
+
+/**
+ * Re-validate a persisted aaSlug link (used by the slim refresh to evict
+ * stale linkages: the linked AA entry is gone, or the names no longer
+ * match under the current strict rules).
+ */
+export function isValidAaLink(
+  m: { id?: string; name?: string; provider?: string; aaSlug?: string },
+  aa: AAModelEntry
+): boolean {
+  if (modelMatchesSlug({ id: m.id || '', name: m.name || '', aaSlug: m.aaSlug }, aa.slug)) {
+    return true;
+  }
+  if (aliasNormProvider(m.provider) !== aliasNormProvider(aa.provider)) return false;
+  return aliasScore(String(m.name || ''), aa.name) >= 2;
+}
+
 /**
  * Merge AA data into existing models. Match by canonical slug so
  * "Claude Fable 5.1 (batch)" maps onto AA's claude-fable-5-1.
@@ -274,49 +344,9 @@ export function mergeAAIntoModels(
   let updated = 0;
   let added = 0;
 
-  // Provider words stripped when comparing core model names.
-  const PROVIDER_WORDS = new Set([
-    'openai', 'anthropic', 'google', 'deepmind', 'xai', 'meta', 'mistral',
-    'deepseek', 'qwen', 'alibaba', 'moonshot', 'zai', 'openrouter', 'ai',
-  ]);
-  const STOP_WORDS = new Set(['latest', 'free', 'batch', 'preview', 'models', 'model']);
-
-  const coreTokens = (name: string): string[] =>
-    String(name || '')
-      .toLowerCase()
-      .replace(/\(.*?\)/g, ' ')
-      .replace(/[^a-z0-9]+/g, ' ')
-      .split(' ')
-      .filter(t => t && !PROVIDER_WORDS.has(t) && !STOP_WORDS.has(t));
-
-  const foldDigits = (t: string): string => t.replace(/[0-9]/g, '');
-
-  // Conservative alias score for OpenRouter "latest" pointers like
-  // "OpenAI GPT Sol Latest" vs AA's "GPT-5.6 Sol (max)": every slim-side core
-  // token must match an AA-side token (exactly, or digit-insensitively), and
-  // normalized providers must agree. Returns -1 on any unmatched token.
-  const aliasScore = (slimName: string, aaName: string): number => {
-    const s = coreTokens(slimName);
-    const a = coreTokens(aaName);
-    if (s.length === 0 || a.length === 0) return -1;
-    let score = 0;
-    for (const t of s) {
-      if (a.includes(t)) {
-        score += 2;
-        continue;
-      }
-      const f = foldDigits(t);
-      if (f && a.some(x => foldDigits(x) === f)) {
-        score += 1;
-        continue;
-      }
-      return -1;
-    }
-    return score;
-  };
-
-  const normProvider = (p: unknown): string =>
-    String(p || '').toLowerCase().replace(/^[^a-z0-9]+/, '').replace(/[-_]/g, '');
+  // Alias matching uses the module-level helpers (also used by
+  // isValidAaLink for stale-link eviction).
+  const normProvider = aliasNormProvider;
 
   const findAlias = (m: Record<string, unknown>): AAModelEntry | null => {
     const provider = normProvider(m.provider);
@@ -326,12 +356,15 @@ export function mergeAAIntoModels(
     for (const aa of aaData) {
       if (!aa.name || normProvider(aa.provider) !== provider) continue;
       const score = aliasScore(String(m.name || ''), aa.name);
-      if (score > bestScore) {
+      // Require a real signal (>= 2: one exact token or two fuzzy ones).
+      // A lone fuzzy hit (e.g. version "v3" matching "v4") is how DeepSeek
+      // V3 once inherited V4 Pro's record — never again.
+      if (score > bestScore && score >= 2) {
         bestScore = score;
         best = aa;
       }
     }
-    return bestScore >= 0 ? best : null;
+    return best;
   };
 
   for (const aa of aaData) {

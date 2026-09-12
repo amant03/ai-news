@@ -10,7 +10,7 @@ export interface AAParsedModel {
   shortName?: string;
   provider: string;
   released?: string;
-  family: 'closed' | 'open-weights';
+  family?: 'closed' | 'open-weights';
   isReasoning?: boolean;
   params?: string;
   context?: string;
@@ -158,7 +158,12 @@ function fromCurrentModel(raw: any): AAParsedModel | null {
     if (v !== undefined) evals[out] = v;
   }
 
-  const open = raw.isOpenWeights === true || raw.openSourceCategorization === 'open-weights';
+  // Openness: only set when the payload says so explicitly. A missing signal
+  // must stay undefined (downstream detectFamily decides) — defaulting to
+  // 'closed' once poisoned DeepSeek rows as closed.
+  const openCat = typeof raw.openSourceCategorization === 'string' ? raw.openSourceCategorization : '';
+  const openKnown = raw.isOpenWeights === true || openCat === 'open-weights';
+  const closedKnown = raw.isOpenWeights === false || (openCat !== '' && openCat !== 'open-weights');
 
   return {
     slug,
@@ -166,7 +171,7 @@ function fromCurrentModel(raw: any): AAParsedModel | null {
     shortName: raw.shortName ? String(raw.shortName) : undefined,
     provider: String(creator || 'Unknown'),
     released: raw.releaseDate ? String(raw.releaseDate) : undefined,
-    family: open ? 'open-weights' : 'closed',
+    family: openKnown ? 'open-weights' : closedKnown ? 'closed' : undefined,
     isReasoning: raw.isReasoning === true,
     params: formatParams(params),
     context: formatContext(ctx),
@@ -224,7 +229,7 @@ export function parseJsonLdCharts(html: string): AAParsedModel[] {
     const name = patch.name || prev?.name || slug;
     bySlug.set(slug, {
       provider: patch.provider || prev?.provider || 'Unknown',
-      family: patch.family || prev?.family || 'closed',
+      family: patch.family || prev?.family || undefined,
       ...prev,
       ...patch,
       slug,

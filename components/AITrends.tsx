@@ -38,6 +38,36 @@ function useTrendData() {
 
 const monthKey = (iso: string) => iso.slice(0, 7);
 
+/** Creator display aliases: variant spellings that denote the same lab. */
+const CREATOR_ALIASES: Record<string, string> = {
+  zai: 'Z.ai',
+  spacexai: 'xAI',
+  xai: 'xAI',
+  anthropic: 'Anthropic',
+  openai: 'OpenAI',
+  google: 'Google',
+  deepmind: 'Google DeepMind',
+  meta: 'Meta',
+  deepseek: 'DeepSeek',
+  alibaba: 'Alibaba',
+  qwen: 'Qwen',
+  mistral: 'Mistral',
+  moonshot: 'Moonshot',
+  minimax: 'MiniMax',
+  cohere: 'Cohere',
+  bytedance: 'ByteDance',
+  microsoft: 'Microsoft',
+  nvidia: 'NVIDIA',
+};
+
+function creatorKey(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function creatorDisplay(name: string): string {
+  return CREATOR_ALIASES[creatorKey(name)] || name;
+}
+
 function frontierByMonth(points: TrendPoint[], pick: (p: TrendPoint) => number | null) {
   const best = new Map<string, { x: string; y: number; name: string }>();
   for (const p of points) {
@@ -47,7 +77,18 @@ function frontierByMonth(points: TrendPoint[], pick: (p: TrendPoint) => number |
     const cur = best.get(k);
     if (!cur || v > cur.y) best.set(k, { x: k, y: Math.round(v * 10) / 10, name: p.name });
   }
-  return [...best.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([, v]) => v);
+  // Cumulative frontier: the line never steps down (matches the reference
+  // semantics — best score achieved up to that month).
+  const sorted = [...best.entries()].sort(([a], [b]) => a.localeCompare(b));
+  let peak = -Infinity;
+  let peakName = '';
+  return sorted.map(([, v]) => {
+    if (v.y > peak) {
+      peak = v.y;
+      peakName = v.name;
+    }
+    return { x: v.x, y: peak, name: peakName };
+  });
 }
 
 function minByMonth(points: TrendPoint[]) {
@@ -110,11 +151,12 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
     const scatter = withIntel.map(p => ({ x: p.date, y: p.intelligence, name: p.name, color: p.color }));
     const byCreator = new Map<string, TrendPoint>();
     for (const p of withIntel) {
-      const cur = byCreator.get(p.creator);
-      if (!cur || (p.intelligence ?? 0) > (cur.intelligence ?? 0)) byCreator.set(p.creator, p);
+      const key = creatorKey(p.creator);
+      const cur = byCreator.get(key);
+      if (!cur || (p.intelligence ?? 0) > (cur.intelligence ?? 0)) byCreator.set(key, p);
     }
     const labs = [...byCreator.entries()]
-      .map(([creator, p]) => ({ creator, name: p.name, intel: p.intelligence ?? 0, color: p.color }))
+      .map(([key, p]) => ({ creator: creatorDisplay(p.creator), name: p.name, intel: p.intelligence ?? 0, color: p.color }))
       .sort((a, b) => b.intel - a.intel)
       .slice(0, 12);
     const price = minByMonth(points);

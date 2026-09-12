@@ -38,8 +38,15 @@ describe('mergeAAIntoModels alias pass', () => {
     expect(models[0].aaSlug).toBe('claude-sonnet-5');
   });
 
-  it('refuses matches across providers', () => {
-    const models = [rec('qwen/qwen-max', 'Qwen Max', 'Qwen')];
+  it('rejects weak single-token alias hits (V3 must not inherit V4)', () => {
+    const v4 = aa({ slug: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro (max)', provider: 'DeepSeek', intelligenceIndex: 53 });
+    const models = [rec('deepseek/deepseek-chat', 'DeepSeek V3', 'DeepSeek')];
+    mergeAAIntoModels(models, [v4]);
+    expect(models[0].aaSlug).toBeUndefined();
+    expect(models[0].intelligenceIndex).toBeUndefined();
+  });
+
+  it('refuses matches across providers', () => {    const models = [rec('qwen/qwen-max', 'Qwen Max', 'Qwen')];
     mergeAAIntoModels(models, AA);
     expect(models[0].aaSlug).toBeUndefined();
     expect(models[0].intelligenceIndex).toBeUndefined();

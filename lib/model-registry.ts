@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { NewsItem } from './types';
-import { fetchAAData, mergeAAIntoModels } from './aa-scraper';
+import { fetchAAData, mergeAAIntoModels, isValidAaLink } from './aa-scraper';
 
 /**
  * Comprehensive multi-source model database scraper.
@@ -662,6 +662,13 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
   const byKey = new Map<string, SlimModel>();
   for (const m of base?.models || []) byKey.set(normalizeKey(m.id), m);
 
+  // OpenRouter-supplied benchmark values per record, so the stale-link
+  // eviction below can restore them when an AA linkage turns out bogus
+  // (instead of keeping the poisoned numbers).
+  const orBench = new Map<string, {
+    intelligenceIndex?: number; codingIndex?: number; agenticIndex?: number; elo?: number;
+  }>();
+
   try {
     const res = await fetch('https://openrouter.ai/api/v1/models', {
       signal: AbortSignal.timeout(30000),
@@ -674,6 +681,12 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
         const k = normalizeKey(slug);
         const prev: Partial<SlimModel> = byKey.get(k) || {};
         const aa = m.benchmarks?.artificial_analysis;
+        orBench.set(k, {
+          intelligenceIndex: aa?.intelligence_index,
+          codingIndex: aa?.coding_index,
+          agenticIndex: aa?.agentic_index,
+          elo: m.benchmarks?.lmarena?.elo,
+        });
         byKey.set(k, {
           id: slug,
           name: m.name.replace(/^[^:]+:\s*/, ''),
@@ -759,6 +772,39 @@ export async function refreshSlimOpenRouter(): Promise<SlimModelDb> {
     if (aaData.length > 0) {
       const merged = mergeAAIntoModels(records as unknown as Array<Record<string, unknown>>, aaData);
       console.log(`   [slim] Merged Artificial Analysis: ${merged.updated} updated, ${merged.added} new (from ${aaData.length} scraped)`);
+      // Drop AA-only records whose upstream slug is gone (dead detail pages
+      // 404 and get pruned from the seed) so stale rows can't linger.
+      const liveSlugs = new Set(aaData.map(a => a.slug));
+      const before = records.length;
+      const kept = records.filter(m => !(m.id.startsWith('aa/') && m.aaSlug && !liveSlugs.has(m.aaSlug)));
+      if (kept.length !== before) {
+        console.log(`   [slim] Dropped ${before - kept.length} dead AA-only records`);
+        records.length = 0;
+        records.push(...kept);
+      }
+      // Evict stale persisted linkages: an aaSlug whose entry is gone or no
+      // longer matches under strict rules takes its poisoned numbers with it.
+      // OpenRouter-supplied benchmarks are restored where present.
+      const aaBySlug = new Map(aaData.map(a => [a.slug, a]));
+      let evicted = 0;
+      for (const m of records) {
+        if (!m.aaSlug) continue;
+        const aa = aaBySlug.get(m.aaSlug);
+        const ok = aa && isValidAaLink({ id: m.id, name: m.name, provider: m.provider, aaSlug: m.aaSlug }, aa);
+        if (ok) continue;
+        evicted++;
+        const ob = orBench.get(normalizeKey(m.id));
+        m.aaSlug = undefined;
+        m.intelligenceIndex = ob?.intelligenceIndex;
+        m.codingIndex = ob?.codingIndex;
+        m.agenticIndex = ob?.agenticIndex;
+        m.elo = ob?.elo;
+        m.aaSpeed = undefined;
+        m.aaCostPerTask = undefined;
+        m.aaVerbosity = undefined;
+        m.aaLatency = undefined;
+      }
+      if (evicted > 0) console.log(`   [slim] Evicted ${evicted} stale AA linkages`);
     } else {
       console.log('   [slim] Artificial Analysis returned no data this run');
     }
