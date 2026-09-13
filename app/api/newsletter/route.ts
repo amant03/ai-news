@@ -18,7 +18,8 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error('[newsletter] POST failed:', err);
     return NextResponse.json({ ok: false, error: 'Request failed.' }, { status: 500 });
   }
 }
