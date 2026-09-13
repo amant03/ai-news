@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
+  isEmailConfigured,
+  isSmtpConfigured,
   loadTodayDigest,
   renderDailyDigest,
   renderWelcomeEmail,
+  sendEmail,
   signUnsubscribe,
   unsubscribeUrl,
   verifyUnsubscribe,
@@ -53,6 +56,39 @@ describe('renderDailyDigest', () => {
     const m = renderDailyDigest('user@example.com', STORIES, null);
     expect(m.text).toContain('Story Two');
     expect(m.text).not.toContain('Biggest model release');
+  });
+});
+
+describe('backend detection', () => {
+  it('reports unconfigured when no keys are set', async () => {
+    const savedResend = process.env.RESEND_API_KEY;
+    const savedUser = process.env.SMTP_USER;
+    const savedPass = process.env.SMTP_PASS;
+    delete process.env.RESEND_API_KEY;
+    delete process.env.SMTP_USER;
+    delete process.env.SMTP_PASS;
+    try {
+      expect(isEmailConfigured()).toBe(false);
+      expect(isSmtpConfigured()).toBe(false);
+      const r = await sendEmail({ to: 'u@e.com', subject: 's', html: 'h', text: 't' });
+      expect(r.ok).toBe(false);
+    } finally {
+      if (savedResend !== undefined) process.env.RESEND_API_KEY = savedResend;
+      if (savedUser !== undefined) process.env.SMTP_USER = savedUser;
+      if (savedPass !== undefined) process.env.SMTP_PASS = savedPass;
+    }
+  });
+
+  it('detects SMTP config from user+pass', () => {
+    process.env.SMTP_USER = 'test@gmail.com';
+    process.env.SMTP_PASS = 'secret';
+    try {
+      expect(isSmtpConfigured()).toBe(true);
+      expect(isEmailConfigured()).toBe(true);
+    } finally {
+      delete process.env.SMTP_USER;
+      delete process.env.SMTP_PASS;
+    }
   });
 });
 

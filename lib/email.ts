@@ -36,7 +36,17 @@ export function emailSiteUrl(): string {
 }
 
 export function isEmailConfigured(): boolean {
-  return Boolean(process.env.RESEND_API_KEY);
+  return Boolean(process.env.RESEND_API_KEY) || isSmtpConfigured();
+}
+
+/** Plain Gmail SMTP (App Password) — free, no custom domain needed. */
+export function isSmtpConfigured(): boolean {
+  return Boolean(process.env.SMTP_USER && process.env.SMTP_PASS);
+}
+
+function smtpFrom(): string {
+  const user = process.env.SMTP_USER || '';
+  return process.env.SMTP_FROM || (user ? `AI Pulse <${user}>` : 'AI Pulse <digest@localhost>');
 }
 
 function emailFrom(): string {
@@ -201,13 +211,12 @@ export interface SendResult {
   error?: string;
 }
 
-/** Send one email via Resend. Never throws; returns ok:false when unconfigured. */
-export async function sendEmail(opts: {
+async function sendViaResend(opts: {
   to: string;
   subject: string;
   html: string;
   text: string;
-  timeoutMs?: number;
+  timeoutMs: number;
 }): Promise<SendResult> {
   const key = process.env.RESEND_API_KEY;
   if (!key) return { ok: false, error: 'RESEND_API_KEY not configured' };
@@ -226,11 +235,72 @@ export async function sendEmail(opts: {
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
         },
       }),
-      signal: AbortSignal.timeout(opts.timeoutMs ?? 15000),
+      signal: AbortSignal.timeout(opts.timeoutMs),
     });
     if (res.ok) return { ok: true };
     return { ok: false, error: `Resend ${res.status}: ${(await res.text()).slice(0, 300)}` };
   } catch (err) {
     return { ok: false, error: err instanceof Error ? err.message : String(err) };
   }
+}
+
+async function sendViaSmtp(opts: {
+  to: string;
+  subject: string;
+  html: string;
+  text: string;
+  timeoutMs: number;
+}): Promise<SendResult> {
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  if (!user || !pass) return { ok: false, error: 'SMTP_USER/SMTP_PASS not configured' };
+  try {
+    const nodemailer = (await import('nodemailer')).default;
+    const port = Number(process.env.SMTP_PORT || 587);
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port,
+      secure: port === 465,
+      auth: { user, pass },
+      connectionTimeout: opts.timeoutMs,
+      socketTimeout: opts.timeoutMs,
+    });
+    await transporter.sendMail({
+      from: smtpFrom(),
+      to: opts.to,
+      subject: opts.subject,
+      html: opts.html,
+      text: opts.text,
+      headers: {
+        'List-Unsubscribe': `<${unsubscribeUrl(opts.to)}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      },
+      list: { unsubscribe: { url: unsubscribeUrl(opts.to), comment: 'Unsubscribe from AI Pulse daily digest' } },
+    });
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: err instanceof Error ? err.message : String(err).slice(0, 300) };
+  }
+}
+
+/**
+ * Send one email. Tries Resend first, falls back to SMTP (e.g. free Gmail
+ * App-Password sending, no custom domain needed). Never throws; returns
+ * ok:false when nothing is configured.
+ */
+export async function sendEmail(opts: {
+  to: string;
+  subject: string;
+  html: string;
+  text: string;
+  timeoutMs?: number;
+}): Promise<SendResult> {
+  const full = { ...opts, timeoutMs: opts.timeoutMs ?? 15000 };
+  if (process.env.RESEND_API_KEY) {
+    const res = await sendViaResend(full);
+    if (res.ok || !isSmtpConfigured()) return res;
+    console.error(`[email] Resend failed (${res.error}), falling back to SMTP`);
+  }
+  if (isSmtpConfigured()) return sendViaSmtp(full);
+  return { ok: false, error: 'No email backend configured (RESEND_API_KEY or SMTP_USER/SMTP_PASS)' };
 }
