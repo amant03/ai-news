@@ -96,31 +96,31 @@ export async function addSubscriber(raw: unknown): Promise<AddResult> {
     return { ok: false, error: 'Invalid email address.', status: 400 };
   }
 
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const subs = await loadSubscribers();
-    if (subs.includes(email)) return { ok: true, duplicate: true };
+  const initial = await loadSubscribers();
+  if (initial.includes(email)) return { ok: true, duplicate: true };
 
-    const next = [...subs, email];
-    const localSaved = writeLocal(next);
-
-    if (repoConfigured()) {
+  // Success means persisted to the configured durable backend — never report
+  // ok just because a best-effort local write landed while the commit failed.
+  if (repoConfigured()) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const subs = attempt === 0 ? initial : await loadSubscribers();
+      const next = subs.includes(email) ? subs : [...subs, email];
+      writeLocal(next); // best-effort cache only; result ignored
+      // Commit failed (bad token, or a concurrent signup moved the ref) —
+      // reload and retry once before giving up.
       if (await commit(next)) return { ok: true };
-      // Commit failed (e.g. concurrent signup moved the ref) — reload and
-      // retry once; the reload may already contain our email.
-      continue;
     }
-
-    if (localSaved) return { ok: true };
     return {
       ok: false,
       status: 503,
-      error: 'Newsletter signup is temporarily unavailable — please try again later.',
+      error: 'Could not save your subscription — please try again in a minute.',
     };
   }
 
+  if (writeLocal([...initial, email])) return { ok: true };
   return {
     ok: false,
     status: 503,
-    error: 'Could not save your subscription — please try again in a minute.',
+    error: 'Newsletter signup is temporarily unavailable — please try again later.',
   };
 }
