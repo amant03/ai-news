@@ -27,7 +27,7 @@ export default function GlobalError({
           <div className="mt-6 flex items-center justify-center gap-2">
             <button
               onClick={reset}
-              className="inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--gray-900)] px-4 text-sm font-medium text-white"
+              className="inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--fore)] px-4 text-sm font-medium text-[var(--background)]"
             >
               Try again
             </button>

@@ -31,7 +31,7 @@ export function TopStoriesEmpty({ onReset }: { onReset?: () => void }) {
       {onReset && (
         <button
           onClick={onReset}
-          className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--gray-900)] px-4 text-sm font-medium text-white"
+          className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--fore)] px-4 text-sm font-medium text-[var(--background)]"
         >
           Reset filters
         </button>

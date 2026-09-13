@@ -25,8 +25,8 @@ export default function SortableTh({
   onToggle,
   right,
   width,
-  activeClass = 'text-black',
-  inactiveClass = 'text-neutral-500 hover:text-neutral-700',
+  activeClass = 'text-[var(--fore)]',
+  inactiveClass = 'text-[var(--mut)] hover:text-[var(--fore)]',
 }: SortableThProps) {
   return (
     <th

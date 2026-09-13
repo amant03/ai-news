@@ -7,9 +7,9 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'border-transparent bg-[var(--gray-900)] text-white',
-        secondary: 'border-transparent bg-[var(--gray-100)] text-[var(--gray-700)]',
-        accent: 'border-transparent bg-[var(--accent-subtle)] text-[var(--accent-hover)]',
+        default: 'border-transparent bg-[var(--fore)] text-[var(--background)]',
+        secondary: 'border-transparent bg-[var(--input)] text-[var(--mut)]',
+        accent: 'border-transparent bg-[var(--accent-subtle)] text-[var(--accent)]',
         outline: 'border-[var(--color-line)] text-[var(--mut)]',
       },
     },

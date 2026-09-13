@@ -276,7 +276,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
             <div className="py-16 text-center border border-dashed border-[var(--color-line)] rounded-[var(--radius-lg)]">
               <p className="text-sm font-medium">No stories match this filter yet</p>
               <p className="mt-1 text-sm text-[var(--mut)]">Try a broader lens or clear your search.</p>
-              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--gray-900)] px-4 text-sm font-medium text-white">
+              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--fore)] px-4 text-sm font-medium text-[var(--background)]">
                 Reset filters
               </button>
             </div>
@@ -342,7 +342,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
             <div className="py-20 text-center">
               <p className="text-sm font-medium">No stories match this filter yet</p>
               <p className="mt-1 text-sm text-[var(--mut)]">Try a broader lens or clear your search.</p>
-              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--gray-900)] px-4 text-sm font-medium text-white">
+              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--fore)] px-4 text-sm font-medium text-[var(--background)]">
                 Clear filters
               </button>
             </div>

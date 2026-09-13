@@ -383,12 +383,14 @@ h1 {
   background: var(--background);
 }
 
-[data-theme='dark'] .bg-black { background-color: var(--card) !important; }
+[data-theme='dark'] .bg-black { background-color: var(--fore) !important; }
 [data-theme='dark'] .bg-white { background-color: var(--card) !important; }
 [data-theme='dark'] .bg-neutral-100 { background-color: #1e1e24 !important; }
 [data-theme='dark'] .bg-neutral-200 { background-color: #26262d !important; }
 [data-theme='dark'] .bg-neutral-50 { background-color: #16161b !important; }
 [data-theme='dark'] .bg-green-500 { background-color: #4ade80 !important; }
+[data-theme='dark'] .bg-green-50 { background-color: rgba(124, 191, 139, 0.12) !important; }
+[data-theme='dark'] .bg-red-50 { background-color: rgba(208, 107, 119, 0.12) !important; }
 [data-theme='dark'] .bg-violet-50 { background-color: rgba(230, 226, 216, 0.06) !important; }
 [data-theme='dark'] .bg-violet-100 { background-color: rgba(230, 226, 216, 0.08) !important; }
 [data-theme='dark'] .bg-violet-500 { background-color: #9a7bd4 !important; }
@@ -404,11 +406,15 @@ h1 {
 [data-theme='dark'] .border-neutral-100 { border-color: #2a2a32 !important; }
 [data-theme='dark'] .border-neutral-200 { border-color: #2a2a32 !important; }
 [data-theme='dark'] .border-neutral-300 { border-color: #33333d !important; }
-[data-theme='dark'] .border-black { border-color: #33333d !important; }
+[data-theme='dark'] .border-black { border-color: var(--fore) !important; }
 [data-theme='dark'] .border-violet-200 { border-color: rgba(230, 226, 216, 0.16) !important; }
 
 [data-theme='dark'] .hover\:text-violet-600:hover { color: var(--accent) !important; }
 [data-theme='dark'] .hover\:text-black:hover { color: var(--fore) !important; }
+[data-theme='dark'] .hover\:text-neutral-700:hover { color: var(--fore) !important; }
+[data-theme='dark'] .hover\:bg-black\/5:hover { background-color: rgba(255, 255, 255, 0.08) !important; }
+[data-theme='dark'] .hover\:bg-neutral-100:hover { background-color: #2a2a32 !important; }
+[data-theme='dark'] .hover\:bg-neutral-50:hover { background-color: #1e1e24 !important; }
 [data-theme='dark'] .hover\:bg-violet-100:hover { background-color: rgba(230, 226, 216, 0.08) !important; }
 [data-theme='dark'] .hover\:bg-neutral-200:hover { background-color: #2a2a32 !important; }
 [data-theme='dark'] .hover\:border-neutral-300:hover { border-color: #44444f !important; }
@@ -425,6 +431,20 @@ h1 {
 [data-theme='dark'] .glass {
   background: var(--card) !important;
   border: 1px solid var(--color-line) !important;
+}
+
+/* ---------- Recharts: theme-aware axis ticks ---------- */
+/* Recharts bakes fill="#666" into tick <text> as a presentation attribute,
+   which is near-invisible on dark surfaces. CSS wins over presentation
+   attributes, so force ticks to follow the theme in both modes. */
+.recharts-cartesian-axis-tick text {
+  fill: var(--mut);
+}
+.recharts-cartesian-axis-tick line {
+  stroke: var(--color-line);
+}
+.recharts-cartesian-axis line {
+  stroke: var(--color-line);
 }
 
 /* ---------- Ticker ---------- */

@@ -55,11 +55,11 @@ export default function Hero({
           </>
         ) : (
           <>
-            <span className="inline-flex items-center rounded-full bg-[var(--gray-100)] px-3 py-1 text-xs tabular-nums text-[var(--gray-700)]">
+            <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1 text-xs tabular-nums text-[var(--mut)]">
               {storyCount.toLocaleString('en-US')} stories tracked in the last 30 days
             </span>
             {modelCount !== null && (
-              <span className="inline-flex items-center rounded-full bg-[var(--gray-100)] px-3 py-1 text-xs tabular-nums text-[var(--gray-700)]">
+              <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1 text-xs tabular-nums text-[var(--mut)]">
                 {modelCount.toLocaleString('en-US')} models compared
               </span>
             )}

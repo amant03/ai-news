@@ -41,7 +41,7 @@ export function TabsList({ children, className }: { children: React.ReactNode; c
     <div
       role="tablist"
       className={cn(
-        'inline-flex items-center gap-1 rounded-[var(--radius-md)] bg-[var(--gray-100)] p-1',
+        'inline-flex items-center gap-1 rounded-[var(--radius-md)] bg-[var(--input)] p-1',
         className
       )}
     >
@@ -69,7 +69,7 @@ export function TabsTrigger({
       className={cn(
         'rounded-[7px] px-3 py-1.5 text-[13px] font-medium transition-all duration-150',
         active
-          ? 'bg-white text-[var(--gray-900)] shadow-sm'
+          ? 'bg-[var(--fore)] text-[var(--background)] shadow-sm'
           : 'text-[var(--mut)] hover:text-[var(--foreground)]',
         className
       )}

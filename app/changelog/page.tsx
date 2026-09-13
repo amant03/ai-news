@@ -62,15 +62,15 @@ export default async function ChangelogPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-2 text-xs tabular-nums">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--gray-100)] px-3 py-1">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--input)] px-3 py-1">
             <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
             Last run {fmtDateTime(status.lastRun || status.lastSuccess)}
           </span>
-          <span className="inline-flex items-center rounded-full bg-[var(--gray-100)] px-3 py-1">
+          <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1">
             {okCount}/{sourceEntries.length} sources healthy
           </span>
           {storyTotal !== null && (
-            <span className="inline-flex items-center rounded-full bg-[var(--gray-100)] px-3 py-1">
+            <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1">
               {storyTotal.toLocaleString('en-US')} stories tracked
             </span>
           )}
@@ -106,7 +106,7 @@ export default async function ChangelogPage() {
                   <span className={`h-2 w-2 rounded-full ${r.status === 'ok' ? 'bg-green-500' : 'bg-[var(--bad)]'}`} />
                   <span className="font-semibold tabular-nums">{fmtDateTime(r.ranAt)}</span>
                   {r.environment && (
-                    <span className="rounded-full bg-[var(--gray-100)] px-2 py-0.5 text-[11px] text-[var(--mut)]">
+                    <span className="rounded-full bg-[var(--input)] px-2 py-0.5 text-[11px] text-[var(--mut)]">
                       {r.environment}
                     </span>
                   )}

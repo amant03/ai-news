@@ -7,11 +7,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-[var(--gray-900)] text-white hover:bg-[var(--gray-800)] active:scale-[0.98]',
-        accent: 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] active:scale-[0.98]',
-        secondary: 'bg-[var(--gray-100)] text-[var(--gray-900)] hover:bg-[var(--gray-200)]',
-        outline: 'border border-[var(--color-line)] bg-transparent hover:bg-[var(--gray-100)]',
-        ghost: 'hover:bg-[var(--gray-100)]',
+        default: 'bg-[var(--fore)] text-[var(--background)] hover:opacity-90 active:scale-[0.98]',
+        accent: 'bg-[var(--accent)] text-[var(--background)] hover:opacity-90 active:scale-[0.98]',
+        secondary: 'bg-[var(--input)] text-[var(--fore)] hover:bg-[var(--color-line)]',
+        outline: 'border border-[var(--color-line)] bg-transparent hover:bg-[var(--input)]',
+        ghost: 'hover:bg-[var(--input)]',
         link: 'text-[var(--accent)] underline-offset-4 hover:underline',
       },
       size: {
