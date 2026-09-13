@@ -71,8 +71,8 @@ export function SentimentGauge({ score, width = 220 }: { score: number; width?: 
         <line x1={cx} y1={cy} x2={nx} y2={ny} stroke="var(--fore)" strokeWidth="3" strokeLinecap="round" />
         <circle cx={cx} cy={cy} r="7" fill="var(--fore)" />
         <circle cx={cx} cy={cy} r="3" fill="var(--background)" />
-        <text x="14" y="110" fontSize="9" fill={NEG} fontWeight="600">NEG</text>
-        <text x="196" y="110" fontSize="9" fill={POS} fontWeight="600">POS</text>
+        <text x="6" y="110" fontSize="8" fill={NEG} fontWeight="700">NEG</text>
+        <text x="214" y="110" fontSize="8" fill={POS} fontWeight="700" textAnchor="end">POS</text>
       </svg>
       <div className="text-center -mt-1">
         <span className="text-[12px] font-semibold" style={{ color }}>{label}</span>

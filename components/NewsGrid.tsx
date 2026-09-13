@@ -5,6 +5,7 @@ import type { NewsItem } from '@/lib/types';
 import { engagementLabel, engagementScore } from '@/lib/engagement';
 import { scoreText } from '@/lib/sentiment';
 import StoryThread from './StoryThread';
+import { RowVotes } from './StoryVotes';
 
 export interface EngEntry {
   key: string;
@@ -27,22 +28,19 @@ function sentimentDot(item: NewsItem): { color: string; label: string } {
   return { color: 'var(--dim)', label: 'Neutral' };
 }
 
-function RowMeta({ item, eng }: { item: NewsItem; eng?: EngEntry }) {
+function RowMeta({ item, eng, onCount }: { item: NewsItem; eng?: EngEntry; onCount?: (likes: number, dislikes: number) => void }) {
   const basis = engagementLabel(item);
   const dot = sentimentDot(item);
   return (
-    <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-[var(--dim)]">
+    <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-[var(--dim)]">
       <span className="tabular-nums">{timeAgo(item.published_at)}</span>
       <span className="inline-flex items-center gap-1" title={`Sentiment: ${dot.label}`}>
         <span className="w-1.5 h-1.5 rounded-full" style={{ background: dot.color }} />
         {dot.label}
       </span>
       {basis && <span className="tabular-nums">{basis}</span>}
-      {(eng && (eng.likes > 0 || eng.comments > 0)) && (
-        <span className="tabular-nums">
-          ♥ {eng.likes}{eng.comments > 0 ? ` · 💭 ${eng.comments}` : ''}
-        </span>
-      )}
+      <RowVotes entry={eng} onCount={onCount} />
+      {(eng?.comments ?? 0) > 0 && <span className="tabular-nums">💭 {eng!.comments}</span>}
     </span>
   );
 }
@@ -66,7 +64,7 @@ function StoryRow({ item, eng, expanded, onToggle, onEngagement }: {
           >
             {item.title}
           </a>
-          <RowMeta item={item} eng={eng} />
+          <RowMeta item={item} eng={eng} onCount={(l, d) => onEngagement(l, d, eng?.comments ?? 0)} />
         </div>
         <button
           onClick={onToggle}
@@ -166,7 +164,7 @@ export default function NewsGrid({ items, engMap, expandedKey, onToggle, onEngag
                     <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-[13.5px] font-semibold leading-snug hover:text-[var(--accent)] hover:underline underline-offset-2">
                       {item.title}
                     </a>
-                    <RowMeta item={item} eng={eng} />
+                    <RowMeta item={item} eng={eng} onCount={(l, d) => eng && onEngagement(item.url, eng.key, l, d, eng.comments)} />
                   </div>
                   <button
                     onClick={() => eng && onToggle(eng.key)}

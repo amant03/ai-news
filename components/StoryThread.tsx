@@ -7,6 +7,7 @@ import type { SocialComment, SocialThread } from '@/lib/social';
 import { fetchRedditThread, redditIdFrom } from '@/lib/social';
 import type { ThreadComment } from '@/lib/engagement-store';
 import { SentimentPie, SentimentGauge, SentimentLegend } from './SentimentViz';
+import { VoteButtons, hasVoted, markVoted, useStoryVotes } from './StoryVotes';
 
 type SourceTab = 'site' | 'reddit' | 'hn' | 'x';
 
@@ -17,49 +18,6 @@ function timeAgo(iso?: string): string {
   if (s < 3600) return `${Math.floor(s / 60)}m ago`;
   if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
   return `${Math.floor(s / 86400)}d ago`;
-}
-
-function votedSet(): Record<string, true> {
-  try {
-    return JSON.parse(localStorage.getItem('ai-pulse-votes') || '{}');
-  } catch {
-    return {};
-  }
-}
-function markVoted(id: string) {
-  try {
-    const v = votedSet();
-    v[id] = true;
-    localStorage.setItem('ai-pulse-votes', JSON.stringify(v));
-  } catch {}
-}
-
-function VoteButtons({ likes, dislikes, voted, onVote, small }: {
-  likes: number; dislikes: number; voted: boolean; onVote: (dir: 'up' | 'down') => void; small?: boolean;
-}) {
-  const btn = small ? 'px-1.5 py-0.5 text-[11px]' : 'px-2.5 py-1 text-[12px]';
-  return (
-    <span className="inline-flex items-center gap-1">
-      <button
-        onClick={() => onVote('up')}
-        disabled={voted}
-        aria-label="Like"
-        title={voted ? 'You already voted' : 'Like'}
-        className={`${btn} rounded-md border border-[var(--color-line)] tabular-nums transition-colors ${voted ? 'opacity-40 cursor-default' : 'hover:border-[var(--ok)] hover:text-[var(--ok)]'}`}
-      >
-        ▲ {likes}
-      </button>
-      <button
-        onClick={() => onVote('down')}
-        disabled={voted}
-        aria-label="Dislike"
-        title={voted ? 'You already voted' : 'Dislike'}
-        className={`${btn} rounded-md border border-[var(--color-line)] tabular-nums transition-colors ${voted ? 'opacity-40 cursor-default' : 'hover:border-[var(--bad)] hover:text-[var(--bad)]'}`}
-      >
-        ▼ {dislikes}
-      </button>
-    </span>
-  );
 }
 
 function SocialNode({ c, depth }: { c: SocialComment; depth: number }) {
@@ -98,14 +56,14 @@ function SiteNode({ c, storyKey, depth, onChanged }: {
     }
   });
   const [votes, setVotes] = useState({ likes: c.likes, dislikes: c.dislikes });
-  const [hasVoted, setHasVoted] = useState(() => Boolean(votedSet()[`c:${c.id}`]));
+  const [voted, setVoted] = useState(() => hasVoted(`c:${c.id}`));
   const [sending, setSending] = useState(false);
   const [err, setErr] = useState('');
   const net = votes.likes - votes.dislikes;
 
   const vote = async (dir: 'up' | 'down') => {
-    if (hasVoted) return;
-    setHasVoted(true);
+    if (voted) return;
+    setVoted(true);
     markVoted(`c:${c.id}`);
     setVotes(v => ({ likes: v.likes + (dir === 'up' ? 1 : 0), dislikes: v.dislikes + (dir === 'down' ? 1 : 0) }));
     try {
@@ -158,7 +116,7 @@ function SiteNode({ c, storyKey, depth, onChanged }: {
             {net > 0 ? `+${net}` : net}
           </span>
           <span>{timeAgo(c.created_at)}</span>
-          <VoteButtons likes={votes.likes} dislikes={votes.dislikes} voted={hasVoted} onVote={vote} small />
+          <VoteButtons likes={votes.likes} dislikes={votes.dislikes} voted={voted} onVote={vote} small />
           <button onClick={() => setReplyOpen(o => !o)} className="hover:text-[var(--fore)] font-medium">Reply</button>
         </div>
         <p className="mt-1 text-[13px] leading-relaxed whitespace-pre-wrap break-words">{c.text}</p>
@@ -207,8 +165,15 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
   const [social, setSocial] = useState<Record<string, SocialThread | null>>({});
   const [socialErr, setSocialErr] = useState<Record<string, string>>({});
   const [loadingSocial, setLoadingSocial] = useState(false);
-  const [storyVotes, setStoryVotes] = useState<{ likes: number; dislikes: number } | null>(null);
-  const [storyVoted, setStoryVoted] = useState(() => Boolean(votedSet()[`s:${storyKey}`]));
+  const {
+    likes: storyLikes,
+    dislikes: storyDislikes,
+    voted: storyVoted,
+    vote: voteStoryRaw,
+  } = useStoryVotes(storyKey, {
+    likes: site?.likes ?? 0,
+    dislikes: site?.dislikes ?? 0,
+  });
   const [nick, setNick] = useState(() => {
     try {
       return localStorage.getItem('ai-pulse-nick') || '';
@@ -275,22 +240,8 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
   }, [tab, loadSocial]);
 
   const voteStory = async (dir: 'up' | 'down') => {
-    if (storyVoted) return;
-    setStoryVoted(true);
-    markVoted(`s:${storyKey}`);
-    setStoryVotes(v => ({ likes: (v?.likes ?? site?.likes ?? 0) + (dir === 'up' ? 1 : 0), dislikes: (v?.dislikes ?? site?.dislikes ?? 0) + (dir === 'down' ? 1 : 0) }));
-    try {
-      const res = await fetch('/api/engagement', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key: storyKey, dir }),
-      });
-      const data = await res.json();
-      if (data.ok) {
-        setStoryVotes({ likes: data.likes, dislikes: data.dislikes });
-        onEngagement?.(data.likes, data.dislikes, site?.comments.length ?? 0);
-      }
-    } catch {}
+    const res = await voteStoryRaw(dir);
+    if (res) onEngagement?.(res.likes, res.dislikes, site?.comments.length ?? 0);
   };
 
   const postComment = async () => {
@@ -352,26 +303,26 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
     ...(item.source_type === 'twitter' || /x\.com|twitter\.com/.test(item.url) ? [{ id: 'x' as SourceTab, label: 'X' }] : []),
   ];
 
-  const likes = storyVotes?.likes ?? site?.likes ?? 0;
-  const dislikes = storyVotes?.dislikes ?? site?.dislikes ?? 0;
+  const likes = storyLikes;
+  const dislikes = storyDislikes;
 
+  const commentTexts = Math.max(0, sentiment.texts - 1);
   return (
     <div className="border-t border-[var(--color-line)] bg-[var(--surface)]/60 px-4 sm:px-5 py-4">
-      <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-5">
-        {/* Sentiment panel */}
-        <div className="flex lg:flex-col items-center gap-4 rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-4">
-          <SentimentPie positive={sentiment.positive} negative={sentiment.negative} neutral={sentiment.neutral} />
-          <div>
-            <SentimentGauge score={sentiment.score} width={200} />
-            <div className="mt-2 flex justify-center">
-              <SentimentLegend positive={sentiment.positive} negative={sentiment.negative} neutral={sentiment.neutral} />
-            </div>
-            <p className="mt-1.5 text-center text-[10px] text-[var(--dim)]">story + {Math.max(0, sentiment.texts - 1)} comments</p>
-          </div>
-        </div>
-
-        {/* Discussion */}
+      {/* Compact sentiment strip — comments are the main event */}
+      <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-[var(--color-line)] bg-[var(--card)] px-3.5 py-2.5">
+        <SentimentPie positive={sentiment.positive} negative={sentiment.negative} neutral={sentiment.neutral} size={52} />
+        <SentimentGauge score={sentiment.score} width={132} />
         <div className="min-w-0">
+          <SentimentLegend positive={sentiment.positive} negative={sentiment.negative} neutral={sentiment.neutral} />
+          <p className="mt-0.5 text-[10px] text-[var(--dim)]">
+            story + {commentTexts} {commentTexts === 1 ? 'comment' : 'comments'}
+          </p>
+        </div>
+      </div>
+
+      {/* Discussion */}
+      <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <VoteButtons likes={likes} dislikes={dislikes} voted={storyVoted} onVote={voteStory} />
             <span className="w-px h-4 bg-[var(--color-line)] mx-1" aria-hidden />
@@ -404,27 +355,28 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
                   {sortedSite.map(c => <SiteNode key={c.id} c={c} storyKey={storyKey} depth={0} onChanged={refreshSite} />)}
                 </div>
               )}
-              <div className="mt-3 flex flex-col gap-1.5 rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-3">
-                <div className="flex gap-1.5 flex-col sm:flex-row">
+              <div className="mt-3 flex flex-col gap-2 rounded-xl border border-[var(--color-line)] bg-[var(--card)] p-3">
+                <textarea
+                  value={draft}
+                  onChange={e => setDraft(e.target.value)}
+                  placeholder="Add a comment… (Enter to post)"
+                  maxLength={2000}
+                  rows={2}
+                  onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); postComment(); } }}
+                  className="w-full resize-y rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-2.5 py-2 text-[13px] outline-none focus:border-[var(--accent)]/50"
+                />
+                <div className="flex items-center gap-1.5">
                   <input
                     value={nick}
                     onChange={e => setNick(e.target.value)}
                     placeholder="nickname (optional, anonymous)"
                     maxLength={40}
-                    className="sm:w-44 rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-2.5 py-2 text-[12px] outline-none focus:border-[var(--accent)]/50"
-                  />
-                  <input
-                    value={draft}
-                    onChange={e => setDraft(e.target.value)}
-                    placeholder="Add a comment…"
-                    maxLength={2000}
-                    onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); postComment(); } }}
-                    className="flex-1 min-w-0 rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-2.5 py-2 text-[12px] outline-none focus:border-[var(--accent)]/50"
+                    className="w-52 max-w-full rounded-lg border border-[var(--color-line)] bg-[var(--input)] px-2.5 py-2 text-[12px] outline-none focus:border-[var(--accent)]/50"
                   />
                   <button
                     onClick={postComment}
                     disabled={sending || draft.trim().length < 2}
-                    className="rounded-lg bg-[var(--fore)] px-4 py-2 text-[12px] font-medium text-[var(--background)] disabled:opacity-40"
+                    className="ml-auto rounded-lg bg-[var(--fore)] px-5 py-2 text-[12px] font-medium text-[var(--background)] disabled:opacity-40"
                   >
                     {sending ? '…' : 'Comment'}
                   </button>
@@ -481,7 +433,6 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
               </a>
             </div>
           )}
-        </div>
       </div>
     </div>
   );
