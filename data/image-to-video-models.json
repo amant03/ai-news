@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T09:02:09.568Z",
+  "updatedAt": "2026-09-13T09:59:49.779Z",
   "source": "Artificial Analysis Image to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
   "total": 35,
@@ -11,7 +11,7 @@
       "name": "Minimax H3 Max (post-trained by fal)",
       "elo": 1207,
       "ci": "-9/9",
-      "samples": 5607,
+      "samples": 5613,
       "released": "Aug 2026",
       "price": "$2.4 /1k imgs",
       "openWeights": false
@@ -23,7 +23,7 @@
       "name": "Dreamina Seedance 2.0 720p",
       "elo": 1196,
       "ci": "-6/6",
-      "samples": 17059,
+      "samples": 17081,
       "released": "Mar 2026",
       "price": "$9.1 /1k imgs"
     },
@@ -34,7 +34,7 @@
       "name": "MiniMax H3Open Weights",
       "elo": 1190,
       "ci": "-8/8",
-      "samples": 7458,
+      "samples": 7465,
       "released": "Jul 2026",
       "price": "$7.8 /1k imgs"
     },
@@ -45,7 +45,7 @@
       "name": "HiDream-O1-Video",
       "elo": 1186,
       "ci": "-10/10",
-      "samples": 2754,
+      "samples": 2764,
       "released": "Aug 2026",
       "price": "$5.8 /1k imgs"
     },
@@ -54,20 +54,20 @@
       "range": "4-6",
       "creator": "Google",
       "name": "Gemini Omni Flash",
-      "elo": 1179,
+      "elo": 1181,
       "ci": "-7/7",
-      "samples": 11580,
+      "samples": 11597,
       "released": "May 2026",
       "price": "$6.0 /1k imgs"
     },
     {
       "rank": 6,
-      "range": "4-6",
+      "range": "5-6",
       "creator": "Alibaba",
       "name": "Wan 3.0",
       "elo": 1178,
       "ci": "-8/8",
-      "samples": 7862,
+      "samples": 7884,
       "released": "Aug 2026",
       "price": "$12.0 /1k imgs"
     },
@@ -76,9 +76,9 @@
       "range": "7-8",
       "creator": "SpaceXAI",
       "name": "grok-imagine-video-1.5",
-      "elo": 1116,
+      "elo": 1115,
       "ci": "-7/7",
-      "samples": 6448,
+      "samples": 6464,
       "released": "May 2026",
       "price": "$8.4 /1k imgs"
     },
@@ -89,7 +89,7 @@
       "name": "HappyHorse-1.1",
       "elo": 1109,
       "ci": "-7/7",
-      "samples": 13797,
+      "samples": 13818,
       "released": "Jun 2026",
       "price": "$9.9 /1k imgs"
     },
@@ -100,7 +100,7 @@
       "name": "MAGI-2 PreviewOpen Weights",
       "elo": 1100,
       "ci": "-7/7",
-      "samples": 12217,
+      "samples": 12231,
       "released": "Aug 2026",
       "price": "Coming soon"
     },
@@ -111,7 +111,7 @@
       "name": "HappyHorse-1.0",
       "elo": 1090,
       "ci": "-7/7",
-      "samples": 8984,
+      "samples": 8995,
       "released": "Apr 2026",
       "price": "$13.2 /1k imgs"
     },
@@ -122,7 +122,7 @@
       "name": "Veo 3.1",
       "elo": 1088,
       "ci": "-7/7",
-      "samples": 8613,
+      "samples": 8618,
       "released": "Jan 2026",
       "price": "$24.0 /1k imgs"
     },
@@ -133,7 +133,7 @@
       "name": "Wan 2.7",
       "elo": 1088,
       "ci": "-7/7",
-      "samples": 5702,
+      "samples": 5709,
       "released": "Apr 2026",
       "price": "$9.0 /1k imgs"
     },
@@ -144,7 +144,7 @@
       "name": "SkyReels V4",
       "elo": 1088,
       "ci": "-7/7",
-      "samples": 6039,
+      "samples": 6054,
       "released": "Mar 2026",
       "price": "$21.0 /1k imgs"
     },
@@ -166,7 +166,7 @@
       "name": "Kling 3.0 1080p (Pro)",
       "elo": 1076,
       "ci": "-6/6",
-      "samples": 16306,
+      "samples": 16322,
       "released": "Feb 2026",
       "price": "$20.2 /1k imgs"
     },
@@ -175,9 +175,9 @@
       "range": "14-19",
       "creator": "Google",
       "name": "Veo 3.1 Fast",
-      "elo": 1076,
+      "elo": 1075,
       "ci": "-6/6",
-      "samples": 15773,
+      "samples": 15787,
       "released": "Jan 2026",
       "price": "$9.0 /1k imgs"
     },
@@ -188,7 +188,7 @@
       "name": "PixVerse V6",
       "elo": 1072,
       "ci": "-7/7",
-      "samples": 9617,
+      "samples": 9621,
       "released": "Mar 2026",
       "price": "$6.9 /1k imgs"
     },
@@ -199,7 +199,7 @@
       "name": "Veo 3.1 Lite",
       "elo": 1071,
       "ci": "-7/7",
-      "samples": 8030,
+      "samples": 8035,
       "released": "Mar 2026",
       "price": "$4.8 /1k imgs"
     },
@@ -210,7 +210,7 @@
       "name": "Kling 3.0 720p (Standard)",
       "elo": 1071,
       "ci": "-6/6",
-      "samples": 16235,
+      "samples": 16258,
       "released": "Feb 2026",
       "price": "$15.6 /1k imgs"
     },
@@ -219,9 +219,9 @@
       "range": "17-21",
       "creator": "KlingAI",
       "name": "Kling 3.0 Omni 1080p (Pro)",
-      "elo": 1065,
+      "elo": 1066,
       "ci": "-7/7",
-      "samples": 7659,
+      "samples": 7665,
       "released": "Feb 2026",
       "price": "$16.8 /1k imgs"
     },
@@ -232,7 +232,7 @@
       "name": "Vidu Q3 Pro",
       "elo": 1063,
       "ci": "-6/6",
-      "samples": 16535,
+      "samples": 16552,
       "released": "Jan 2026",
       "price": "$9.6 /1k imgs"
     },
@@ -249,23 +249,23 @@
     },
     {
       "rank": 23,
-      "range": "22-23",
+      "range": "22-24",
       "creator": "Lightricks",
       "name": "LTX-2.5 FastOpen Weights",
       "elo": 1049,
       "ci": "-9/9",
-      "samples": 2985,
+      "samples": 2995,
       "released": "Aug 2026",
       "price": "$7.8 /1k imgs"
     },
     {
       "rank": 24,
-      "range": "24-25",
+      "range": "23-25",
       "creator": "Vidu",
       "name": "Vidu Q3 Turbo",
-      "elo": 1040,
+      "elo": 1041,
       "ci": "-8/8",
-      "samples": 3563,
+      "samples": 3588,
       "released": "Feb 2026",
       "price": "$3.9 /1k imgs"
     },
@@ -276,7 +276,7 @@
       "name": "Agnes-Video-2.5",
       "elo": 1039,
       "ci": "-8/8",
-      "samples": 6284,
+      "samples": 6292,
       "released": "Aug 2026",
       "price": "$1.5 /1k imgs"
     },
@@ -287,7 +287,7 @@
       "name": "LTX-2.5 ProOpen Weights",
       "elo": 1011,
       "ci": "-9/9",
-      "samples": 2823,
+      "samples": 2837,
       "released": "Aug 2026",
       "price": "$10.2 /1k imgs"
     },
@@ -331,7 +331,7 @@
       "name": "LTX-2.3 ProOpen Weights",
       "elo": 958,
       "ci": "-7/7",
-      "samples": 10434,
+      "samples": 10452,
       "released": "Mar 2026",
       "price": "$4.8 /1k imgs"
     },
@@ -340,9 +340,9 @@
       "range": "29-31",
       "creator": "Lightricks",
       "name": "LTX-2.3 FastOpen Weights",
-      "elo": 956,
+      "elo": 957,
       "ci": "-7/7",
-      "samples": 10524,
+      "samples": 10538,
       "released": "Mar 2026",
       "price": "$2.4 /1k imgs"
     },
@@ -364,7 +364,7 @@
       "name": "Agnes-Video-V2.0",
       "elo": 925,
       "ci": "-8/8",
-      "samples": 5911,
+      "samples": 5920,
       "released": "May 2026",
       "price": "$0.3 /1k imgs"
     },
@@ -386,7 +386,7 @@
       "name": "LTX-2 ProOpen Weights",
       "elo": 872,
       "ci": "-9/9",
-      "samples": 5762,
+      "samples": 5761,
       "released": "Oct 2025",
       "price": "$3.6 /1k imgs"
     }

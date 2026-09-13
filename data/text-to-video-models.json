@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T09:02:09.456Z",
+  "updatedAt": "2026-09-13T09:59:49.542Z",
   "source": "Artificial Analysis Text to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
   "total": 36,
@@ -11,7 +11,7 @@
       "name": "Wan 3.0",
       "elo": 1242,
       "ci": "-9/9",
-      "samples": 5742,
+      "samples": 5749,
       "released": "Aug 2026",
       "price": "$12.00 /min",
       "openWeights": false
@@ -21,9 +21,9 @@
       "range": "1-2",
       "creator": "Google",
       "name": "Gemini Omni Flash",
-      "elo": 1238,
+      "elo": 1237,
       "ci": "-6/6",
-      "samples": 16365,
+      "samples": 16377,
       "released": "May 2026",
       "price": "$6.00 /min"
     },
@@ -34,7 +34,7 @@
       "name": "Minimax H3 Max (post-trained by fal)",
       "elo": 1231,
       "ci": "-9/9",
-      "samples": 5478,
+      "samples": 5487,
       "released": "Aug 2026",
       "price": "$2.40 /min"
     },
@@ -45,7 +45,7 @@
       "name": "MiniMax H3Open Weights",
       "elo": 1225,
       "ci": "-7/7",
-      "samples": 8847,
+      "samples": 8856,
       "released": "Jul 2026",
       "price": "$7.80 /min"
     },
@@ -65,9 +65,9 @@
       "range": "6",
       "creator": "Alibaba",
       "name": "Wan2.7-260612",
-      "elo": 1156,
+      "elo": 1157,
       "ci": "-6/6",
-      "samples": 18311,
+      "samples": 18331,
       "released": "Jun 2026",
       "price": "$9.00 /min"
     },
@@ -76,9 +76,9 @@
       "range": "7",
       "creator": "Alibaba-ATH",
       "name": "HappyHorse-1.1",
-      "elo": 1147,
+      "elo": 1144,
       "ci": "-6/6",
-      "samples": 18434,
+      "samples": 18456,
       "released": "Jun 2026",
       "price": "$9.90 /min"
     },
@@ -89,53 +89,53 @@
       "name": "HappyHorse-1.0",
       "elo": 1124,
       "ci": "-6/6",
-      "samples": 9372,
+      "samples": 9387,
       "released": "Apr 2026",
       "price": "$13.20 /min"
     },
     {
       "rank": 9,
-      "range": "8-10",
+      "range": "9-10",
       "creator": "Sand.ai",
       "name": "MAGI-2 PreviewOpen Weights",
       "elo": 1115,
       "ci": "-9/9",
-      "samples": 5599,
+      "samples": 5609,
       "released": "Aug 2026",
       "price": "Coming soon"
     },
     {
       "rank": 10,
-      "range": "10",
+      "range": "10-12",
       "creator": "KlingAI",
       "name": "Kling 3.0 1080p (Pro)",
       "elo": 1108,
       "ci": "-5/5",
-      "samples": 20815,
+      "samples": 20833,
       "released": "Feb 2026",
       "price": "$20.16 /min"
     },
     {
       "rank": 11,
       "range": "10-14",
-      "creator": "Skywork AI",
-      "name": "SkyReels V4",
-      "elo": 1103,
+      "creator": "Alibaba",
+      "name": "Wan 2.7",
+      "elo": 1105,
       "ci": "-7/7",
-      "samples": 6496,
-      "released": "Mar 2026",
-      "price": "$21.00 /min"
+      "samples": 5989,
+      "released": "Apr 2026",
+      "price": "$9.00 /min"
     },
     {
       "rank": 12,
       "range": "10-14",
-      "creator": "Alibaba",
-      "name": "Wan 2.7",
+      "creator": "Skywork AI",
+      "name": "SkyReels V4",
       "elo": 1103,
       "ci": "-7/7",
-      "samples": 5982,
-      "released": "Apr 2026",
-      "price": "$9.00 /min"
+      "samples": 6508,
+      "released": "Mar 2026",
+      "price": "$21.00 /min"
     },
     {
       "rank": 13,
@@ -144,7 +144,7 @@
       "name": "Kling 3.0 720p (Standard)",
       "elo": 1101,
       "ci": "-5/5",
-      "samples": 20018,
+      "samples": 20027,
       "released": "Feb 2026",
       "price": "$15.12 /min"
     },
@@ -153,9 +153,9 @@
       "range": "11-17",
       "creator": "OpenAI",
       "name": "Sora 2 (December)",
-      "elo": 1097,
+      "elo": 1098,
       "ci": "-9/9",
-      "samples": 4833,
+      "samples": 4836,
       "released": "Dec 2025",
       "price": "$6.00 /min"
     },
@@ -166,7 +166,7 @@
       "name": "Kling 3.0 Omni 1080p (Pro)",
       "elo": 1090,
       "ci": "-6/6",
-      "samples": 8868,
+      "samples": 8872,
       "released": "Feb 2026",
       "price": "$16.80 /min"
     },
@@ -177,7 +177,7 @@
       "name": "Veo 3.1",
       "elo": 1090,
       "ci": "-6/6",
-      "samples": 8976,
+      "samples": 8978,
       "released": "Jan 2026",
       "price": "$24.00 /min"
     },
@@ -186,9 +186,9 @@
       "range": "15-20",
       "creator": "KlingAI",
       "name": "Kling 3.0 Omni 720p (Standard)",
-      "elo": 1089,
+      "elo": 1090,
       "ci": "-6/6",
-      "samples": 8629,
+      "samples": 8633,
       "released": "Feb 2026",
       "price": "$13.44 /min"
     },
@@ -199,7 +199,7 @@
       "name": "Veo 3.1 Lite",
       "elo": 1087,
       "ci": "-6/6",
-      "samples": 8414,
+      "samples": 8420,
       "released": "Mar 2026",
       "price": "$4.80 /min"
     },
@@ -210,18 +210,18 @@
       "name": "Agnes-Video-2.5",
       "elo": 1085,
       "ci": "-8/8",
-      "samples": 6022,
+      "samples": 6028,
       "released": "Aug 2026",
       "price": "$1.50 /min"
     },
     {
       "rank": 20,
-      "range": "17-20",
+      "range": "18-20",
       "creator": "Google",
       "name": "Veo 3.1 Fast",
-      "elo": 1085,
+      "elo": 1084,
       "ci": "-5/5",
-      "samples": 18950,
+      "samples": 18959,
       "released": "Jan 2026",
       "price": "$9.00 /min"
     },
@@ -243,7 +243,7 @@
       "name": "PixVerse V6",
       "elo": 1077,
       "ci": "-6/6",
-      "samples": 9948,
+      "samples": 9954,
       "released": "Mar 2026",
       "price": "$6.90 /min"
     },
@@ -254,7 +254,7 @@
       "name": "Vidu Q3 Pro",
       "elo": 1075,
       "ci": "-5/5",
-      "samples": 18845,
+      "samples": 18858,
       "released": "Jan 2026",
       "price": "$9.60 /min"
     },
@@ -265,7 +265,7 @@
       "name": "LTX-2.5 FastOpen Weights",
       "elo": 1069,
       "ci": "-9/9",
-      "samples": 2980,
+      "samples": 2988,
       "released": "Aug 2026",
       "price": "$7.80 /min"
     },
@@ -276,7 +276,7 @@
       "name": "grok-imagine-video",
       "elo": 1062,
       "ci": "-6/6",
-      "samples": 17859,
+      "samples": 17858,
       "released": "Jan 2026",
       "price": "$4.20 /min"
     },
@@ -285,9 +285,9 @@
       "range": "24-26",
       "creator": "Lightricks",
       "name": "LTX-2.5 ProOpen Weights",
-      "elo": 1060,
+      "elo": 1061,
       "ci": "-9/9",
-      "samples": 2965,
+      "samples": 2970,
       "released": "Aug 2026",
       "price": "$10.20 /min"
     },
@@ -307,9 +307,9 @@
       "range": "27-28",
       "creator": "Vidu",
       "name": "Vidu Q3 Turbo",
-      "elo": 1023,
+      "elo": 1022,
       "ci": "-9/9",
-      "samples": 3222,
+      "samples": 3236,
       "released": "Feb 2026",
       "price": "$3.90 /min"
     },
@@ -342,7 +342,7 @@
       "name": "LTX-2.3 FastOpen Weights",
       "elo": 979,
       "ci": "-6/6",
-      "samples": 11858,
+      "samples": 11868,
       "released": "Mar 2026",
       "price": "$2.40 /min"
     },
@@ -353,7 +353,7 @@
       "name": "LTX-2.3 ProOpen Weights",
       "elo": 961,
       "ci": "-6/6",
-      "samples": 11239,
+      "samples": 11245,
       "released": "Mar 2026",
       "price": "$4.80 /min"
     },
@@ -375,23 +375,12 @@
       "name": "LTX-2 FastOpen Weights",
       "elo": 941,
       "ci": "-8/8",
-      "samples": 6039,
+      "samples": 6038,
       "released": "Oct 2025",
       "price": "$2.40 /min"
     },
     {
       "rank": 35,
-      "range": "35-36",
-      "creator": "Sapiens AI",
-      "name": "Agnes-Video-V2.0",
-      "elo": 919,
-      "ci": "-8/8",
-      "samples": 5300,
-      "released": "May 2026",
-      "price": "$0.30 /min"
-    },
-    {
-      "rank": 36,
       "range": "35-36",
       "creator": "Lightricks",
       "name": "LTX-2 ProOpen Weights",
@@ -400,6 +389,17 @@
       "samples": 6017,
       "released": "Oct 2025",
       "price": "$3.60 /min"
+    },
+    {
+      "rank": 36,
+      "range": "35-36",
+      "creator": "Sapiens AI",
+      "name": "Agnes-Video-V2.0",
+      "elo": 918,
+      "ci": "-8/8",
+      "samples": 5307,
+      "released": "May 2026",
+      "price": "$0.30 /min"
     }
   ]
 }
