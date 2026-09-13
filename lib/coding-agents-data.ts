@@ -58,2008 +58,857 @@ export interface CodingAgent {
   evals: CodingAgentEval[];
 }
 
-export const CODING_AGENTS: CodingAgent[] = [
-  {
-    "label": "Codex - GPT-5.6 Sol (max)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 66.6,
-    "cost": 7.08,
-    "wallTime": 610,
-    "steps": 114,
-    "totalTokens": 13228192,
-    "inputTokens": 6812390,
-    "outputTokens": 54860,
-    "cacheTokens": 6360943,
-    "cacheHitRate": 0.899,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6873,
-        "inputTokens": 9770635,
-        "outputTokens": 88016
+export const CODING_AGENTS: CodingAgent[] =   [
+    {
+      "label": "Claude Code - Fable 5.1 (max) (with fallback)",
+      "agent": "Claude Code",
+      "provider": "anthropic",
+      "model": "Fable 5.1 (max) (with fallback)",
+      "creator": "Anthropic",
+      "hostModelSlug": "anthropic_claude-fable-5-1",
+      "isHighlighted": true,
+      "index": 62.2,
+      "cost": 12.39,
+      "wallTime": 2090,
+      "steps": 37,
+      "totalTokens": 5715254,
+      "inputTokens": 5581622,
+      "outputTokens": 133632,
+      "cacheTokens": 5205556,
+      "cacheHitRate": 0.916,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6431,
+          "inputTokens": 6428755,
+          "cacheWriteTokens": 427534,
+          "outputTokens": 155542
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6478,
+          "inputTokens": 3623188,
+          "cacheWriteTokens": 225090,
+          "outputTokens": 81143
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.5758,
+          "inputTokens": 7810712,
+          "cacheWriteTokens": 556773,
+          "outputTokens": 194732
+        }
+      ],
+      "cacheWriteTokens": 372837,
+      "totalCostUsd": 3753.59,
+      "costPercentiles": {
+        "p05": 5.444339298624863,
+        "p25": 7.8804961398515,
+        "p50": 11.040917095709577,
+        "p75": 14.93645990085259,
+        "p95": 22.439563513833875
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4328,
-        "inputTokens": 7897843,
-        "outputTokens": 47042
+      "tokenPercentiles": {
+        "p05": 1605004.4331133126,
+        "p25": 2728342.3767876793,
+        "p50": 4432038.257425743,
+        "p75": 7298906.072607261,
+        "p95": 13976824.222882291
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.877,
-        "inputTokens": 1230509,
-        "outputTokens": 21798
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
+        },
+        "swe-atlas-qna": {
+          "version": "2.1.259",
+          "dateReleased": "2026-09-02"
+        },
+        "terminal-bench-v4": {
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 98,
+        "hardStop": 0,
+        "recovered": 98,
+        "fallback": 98,
+        "continued": 0,
+        "rate": 0.10986206147496469
       }
-    ]
-  },
-  {
-    "label": "Kimi Code CLI - Kimi K3",
-    "agent": "Kimi Code CLI",
-    "provider": "moonshotai",
-    "index": 61.3,
-    "cost": 3.18,
-    "wallTime": 1428,
-    "steps": 125,
-    "totalTokens": 10619290,
-    "inputTokens": 5400248,
-    "outputTokens": 88806,
-    "cacheTokens": 5130236,
-    "cacheHitRate": 0.95,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6372,
-        "inputTokens": 9190581,
-        "outputTokens": 134823
+    },
+    {
+      "label": "Kimi Code CLI - Kimi K3",
+      "agent": "Kimi Code CLI",
+      "provider": "moonshotai",
+      "model": "Kimi K3",
+      "creator": "Moonshot AI",
+      "hostModelSlug": "moonshot_kimi-k3",
+      "isHighlighted": true,
+      "index": 51.9,
+      "cost": 5.05,
+      "wallTime": 3689,
+      "steps": 173,
+      "totalTokens": 8481122,
+      "inputTokens": 8387891,
+      "outputTokens": 93231,
+      "cacheTokens": 7968496,
+      "cacheHitRate": 0.95,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6844,
+          "inputTokens": 8571957,
+          "cacheWriteTokens": 0,
+          "outputTokens": 75080
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6613,
+          "inputTokens": 4719527,
+          "cacheWriteTokens": 0,
+          "outputTokens": 49977
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.2121,
+          "inputTokens": 14964825,
+          "cacheWriteTokens": 0,
+          "outputTokens": 205571
+        }
+      ],
+      "cacheWriteTokens": 0,
+      "totalCostUsd": 1529.3,
+      "costPercentiles": {
+        "p05": 1.1201608924026403,
+        "p25": 2.1660128471864684,
+        "p50": 4.013249413745875,
+        "p75": 6.4578525155775575,
+        "p95": 11.098114784331683
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3656,
-        "inputTokens": 4719527,
-        "outputTokens": 77018
+      "tokenPercentiles": {
+        "p05": 1514640.538393838,
+        "p25": 3247568.457095711,
+        "p50": 6455899.625962595,
+        "p75": 11496187.961496139,
+        "p95": 19359817.106380656
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8373,
-        "inputTokens": 1306223,
-        "outputTokens": 44306
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "0.36.0",
+          "dateReleased": "2026-08-13"
+        },
+        "swe-atlas-qna": {
+          "version": "0.26.0",
+          "dateReleased": "2026-07-16"
+        },
+        "terminal-bench-v4": {
+          "version": "0.36.1",
+          "dateReleased": "2026-08-14"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
-    ]
-  },
-  {
-    "label": "Opencode - Gemini 3.7 Flash (high)",
-    "agent": "Opencode",
-    "provider": "google",
-    "index": 57.1,
-    "cost": 0,
-    "wallTime": 508,
-    "steps": 83,
-    "totalTokens": 18537559,
-    "inputTokens": 9515394,
-    "outputTokens": 48712,
-    "cacheTokens": 8973454,
-    "cacheHitRate": 0.861,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5723,
-        "inputTokens": 18609813,
-        "outputTokens": 85504
+    },
+    {
+      "label": "Muse Code - Muse Spark 1.3 (max)",
+      "agent": "Muse Code",
+      "provider": "meta",
+      "model": "Muse Spark 1.3 (max)",
+      "creator": "Meta",
+      "hostModelSlug": "meta_aa_glacier135",
+      "isHighlighted": true,
+      "index": 54.3,
+      "cost": 3.98,
+      "wallTime": 1107,
+      "steps": 185,
+      "totalTokens": 16709445,
+      "inputTokens": 16445971,
+      "outputTokens": 263474,
+      "cacheTokens": 16090656,
+      "cacheHitRate": 0.971,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.7168,
+          "inputTokens": 13526616,
+          "cacheWriteTokens": 0,
+          "outputTokens": 122492
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.5941,
+          "inputTokens": 4493625,
+          "cacheWriteTokens": 0,
+          "outputTokens": 23616
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.3182,
+          "inputTokens": 43900184,
+          "cacheWriteTokens": 0,
+          "outputTokens": 955493
+        }
+      ],
+      "cacheWriteTokens": 0,
+      "totalCostUsd": 1205.18,
+      "costPercentiles": {
+        "p05": 0.6994728876952683,
+        "p25": 1.0872893968371842,
+        "p50": 2.0734771829482943,
+        "p75": 3.7535131079207953,
+        "p95": 13.168053740192518
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3065,
-        "inputTokens": 5978195,
-        "outputTokens": 29989
+      "tokenPercentiles": {
+        "p05": 2516743.7783278334,
+        "p25": 4610005.632013202,
+        "p50": 9203495.684268419,
+        "p75": 15732086.408140825,
+        "p95": 62899130.50220029
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8333,
-        "inputTokens": 2502814,
-        "outputTokens": 26855
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "1.0.3-R2198.1",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "1.0.3-R2198.1",
+          "dateReleased": "2026-09-04"
+        },
+        "terminal-bench-v4": {
+          "version": "1.0.3-R2198.1",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
-    ]
-  },
-  {
-    "label": "Claude Code - GLM-5.2",
-    "agent": "Claude Code",
-    "provider": "novita",
-    "index": 43.2,
-    "cost": 6.51,
-    "wallTime": 1505,
-    "steps": 127,
-    "totalTokens": 6517238,
-    "inputTokens": 5424051,
-    "outputTokens": 40310,
-    "cacheTokens": 1052877,
-    "cacheHitRate": 0.341,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.2861,
-        "inputTokens": 11036538,
-        "outputTokens": 73392
+    },
+    {
+      "label": "Antigravity SDK - Gemini 3.8 Flash (high)",
+      "agent": "Antigravity SDK v0.1.12",
+      "provider": "google",
+      "model": "Gemini 3.8 Flash (high)",
+      "creator": "Google",
+      "hostModelSlug": "google_skimaki_ai-studio",
+      "isHighlighted": true,
+      "index": 41.9,
+      "cost": 2.47,
+      "wallTime": 703,
+      "steps": 188,
+      "totalTokens": 13511073,
+      "inputTokens": 13395247,
+      "outputTokens": 115826,
+      "cacheTokens": 11871692,
+      "cacheHitRate": 0.87,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6578,
+          "inputTokens": 16400687,
+          "outputTokens": 148259
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.4516,
+          "inputTokens": 9020407,
+          "outputTokens": 58109
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.1465,
+          "inputTokens": 16468965,
+          "outputTokens": 168737
+        }
+      ],
+      "totalCostUsd": 747.62,
+      "costPercentiles": {
+        "p05": 1.099103153622112,
+        "p25": 1.6439984646864687,
+        "p50": 2.1229609128712874,
+        "p75": 3.008778207632013,
+        "p95": 4.849891568358086
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2903,
-        "inputTokens": 3167330,
-        "outputTokens": 19024
+      "tokenPercentiles": {
+        "p05": 4679184.810451044,
+        "p25": 8015173.094609471,
+        "p50": 11559537.268426849,
+        "p75": 16883320.984598454,
+        "p95": 28318875.752915297
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7189,
-        "inputTokens": 1154441,
-        "outputTokens": 27071
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "0.1.16",
+          "dateReleased": "2026-09-02"
+        },
+        "swe-atlas-qna": {
+          "version": "0.1.12",
+          "dateReleased": "2026-08-13"
+        },
+        "terminal-bench-v4": {
+          "version": "0.1.16",
+          "dateReleased": "2026-09-02"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
-    ]
-  },
-  {
-    "label": "Codex - DeepSeek V4 Flash (max)",
-    "agent": "Codex",
-    "provider": "deepseek",
-    "index": 55.5,
-    "cost": 0.07,
-    "wallTime": 877,
-    "steps": 106,
-    "totalTokens": 20876438,
-    "inputTokens": 10440053,
-    "outputTokens": 98160,
-    "cacheTokens": 10338225,
-    "cacheHitRate": 0.981,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.4277,
-        "inputTokens": 18789281,
-        "outputTokens": 183907
+    },
+    {
+      "label": "Claude Code - Qwen3.8 Max",
+      "agent": "Claude Code",
+      "provider": "alibaba_cloud",
+      "model": "Qwen3.8 Max",
+      "creator": "Anthropic",
+      "hostModelSlug": "alibaba_cloud_qwen3-8-max-public",
+      "isHighlighted": true,
+      "index": 43.3,
+      "cost": 3.49,
+      "wallTime": 3785,
+      "steps": 110,
+      "totalTokens": 8723306,
+      "inputTokens": 8616277,
+      "outputTokens": 107029,
+      "cacheTokens": 8305945,
+      "cacheHitRate": 0.951,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.5103,
+          "inputTokens": 10307762,
+          "cacheWriteTokens": 237687,
+          "outputTokens": 104418
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.621,
+          "inputTokens": 5159836,
+          "cacheWriteTokens": 127339,
+          "outputTokens": 45816
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.1667,
+          "inputTokens": 12214170,
+          "cacheWriteTokens": 652813,
+          "outputTokens": 226505
+        }
+      ],
+      "cacheWriteTokens": 282952,
+      "totalCostUsd": 1051.04,
+      "costPercentiles": {
+        "p05": 1.2462484540154002,
+        "p25": 1.9738426430143006,
+        "p50": 2.838224532178221,
+        "p75": 4.649543275302529,
+        "p95": 7.302521150137508
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3871,
-        "inputTokens": 8160643,
-        "outputTokens": 55228
+      "tokenPercentiles": {
+        "p05": 2586103.0433443333,
+        "p25": 4938223.044004401,
+        "p50": 7296928.9218921885,
+        "p75": 11298465.588558838,
+        "p95": 18720391.11265126
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8492,
-        "inputTokens": 2573197,
-        "outputTokens": 46184
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "2.1.261",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "2.1.224",
+          "dateReleased": "2026-08-07"
+        },
+        "terminal-bench-v4": {
+          "version": "2.1.261",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 5 (xhigh)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 66.7,
-    "cost": 8.23,
-    "wallTime": 1419,
-    "steps": 153,
-    "totalTokens": 21823530,
-    "inputTokens": 10876804,
-    "outputTokens": 72794,
-    "cacheTokens": 10707864,
-    "cacheHitRate": 0.975,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6047,
-        "inputTokens": 20679357,
-        "outputTokens": 114890
+    },
+    {
+      "label": "Claude Code - Opus 5 (max)",
+      "agent": "Claude Code",
+      "provider": "anthropic",
+      "model": "Opus 5 (max)",
+      "creator": "Anthropic",
+      "hostModelSlug": "anthropic_claude-opus-5",
+      "isHighlighted": true,
+      "index": 59.7,
+      "cost": 10.79,
+      "wallTime": 2512,
+      "steps": 152,
+      "totalTokens": 11352813,
+      "inputTokens": 11216238,
+      "outputTokens": 136575,
+      "cacheTokens": 10907484,
+      "cacheHitRate": 0.97,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6254,
+          "inputTokens": 13358102,
+          "cacheWriteTokens": 269934,
+          "outputTokens": 129794
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.621,
+          "inputTokens": 7532572,
+          "cacheWriteTokens": 142204,
+          "outputTokens": 61764
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.5455,
+          "inputTokens": 14469933,
+          "cacheWriteTokens": 672467,
+          "outputTokens": 288742
+        }
+      ],
+      "cacheWriteTokens": 305342,
+      "totalCostUsd": 3269.11,
+      "costPercentiles": {
+        "p05": 4.070634550165014,
+        "p25": 6.0050860609185905,
+        "p50": 8.377338476347639,
+        "p75": 13.669421935368524,
+        "p95": 24.306012511496142
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.5484,
-        "inputTokens": 7637395,
-        "outputTokens": 59435
+      "tokenPercentiles": {
+        "p05": 3637409.260286029,
+        "p25": 6155919.92079208,
+        "p50": 9436168.620462047,
+        "p75": 14396226.760176001,
+        "p95": 24648034.28877888
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8492,
-        "inputTokens": 2472022,
-        "outputTokens": 35885
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
+        },
+        "swe-atlas-qna": {
+          "version": "2.1.218",
+          "dateReleased": "2026-07-22"
+        },
+        "terminal-bench-v4": {
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
+        }
+      },
+      "safety": {
+        "attempts": 908,
+        "refused": 3,
+        "hardStop": 0,
+        "recovered": 3,
+        "fallback": 3,
+        "continued": 0,
+        "rate": 0.005076142131979696
       }
-    ]
-  },
-  {
-    "label": "Grok Build - Grok 4.5 (high)",
-    "agent": "Grok Build",
-    "provider": "xai",
-    "index": 64.4,
-    "cost": 2.59,
-    "wallTime": 989,
-    "steps": 61,
-    "totalTokens": 3574851,
-    "inputTokens": 1818841,
-    "outputTokens": 39952,
-    "cacheTokens": 1716057,
-    "cacheHitRate": 0.925,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5988,
-        "inputTokens": 3247519,
-        "outputTokens": 69822
+    },
+    {
+      "label": "Opencode - GLM-5.3 ({'reasoning_effort': 'max'})",
+      "agent": "Opencode",
+      "provider": "zai",
+      "model": "GLM-5.3",
+      "creator": "Opencode",
+      "hostModelSlug": "zai_glm-5-3",
+      "isHighlighted": true,
+      "index": 53.6,
+      "cost": 4.24,
+      "wallTime": 2888,
+      "steps": 107,
+      "totalTokens": 14276424,
+      "inputTokens": 14202165,
+      "outputTokens": 74259,
+      "cacheTokens": 14007356,
+      "cacheHitRate": 0.975,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6136,
+          "inputTokens": 16638608,
+          "cacheWriteTokens": 0,
+          "outputTokens": 75200
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.5941,
+          "inputTokens": 6141052,
+          "cacheWriteTokens": 0,
+          "outputTokens": 28542
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.399,
+          "inputTokens": 25175801,
+          "cacheWriteTokens": 0,
+          "outputTokens": 158542
+        }
+      ],
+      "cacheWriteTokens": 0,
+      "totalCostUsd": 1285.14,
+      "costPercentiles": {
+        "p05": 0.889673751515953,
+        "p25": 1.8921473049724982,
+        "p50": 2.9852793977557757,
+        "p75": 5.713520085478545,
+        "p95": 10.917436082209012
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4812,
-        "inputTokens": 1390962,
-        "outputTokens": 27678
+      "tokenPercentiles": {
+        "p05": 2410964.3325632564,
+        "p25": 5510060.859735972,
+        "p50": 9868718.469746958,
+        "p75": 19057305.483498357,
+        "p95": 38946948.10616063
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8532,
-        "inputTokens": 528561,
-        "outputTokens": 17889
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "1.18.29",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "1.18.29",
+          "dateReleased": "2026-09-04"
+        },
+        "terminal-bench-v4": {
+          "version": "1.18.29",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
-    ]
-  },
-  {
-    "label": "Claude Code - Fable 5 (max) (with fallback)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 65.8,
-    "cost": 11.7,
-    "wallTime": 1404,
-    "steps": 138,
-    "totalTokens": 13980586,
-    "inputTokens": 6957836,
-    "outputTokens": 73618,
-    "cacheTokens": 6797739,
-    "cacheHitRate": 0.962,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6608,
-        "inputTokens": 13437258,
-        "outputTokens": 117577
+    },
+    {
+      "label": "Codex - GPT-6 Astra (max) ({'reasoning_effort': 'max'})",
+      "agent": "Codex",
+      "provider": "openai",
+      "model": "GPT-6 Astra (max)",
+      "creator": "OpenAI",
+      "hostModelSlug": "openai_vega-alpha",
+      "isHighlighted": true,
+      "index": 61.6,
+      "cost": 7.47,
+      "wallTime": 1764,
+      "steps": 39,
+      "totalTokens": 3349534,
+      "inputTokens": 3302421,
+      "outputTokens": 47112,
+      "cacheTokens": 3144346,
+      "cacheHitRate": 0.934,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6755,
+          "inputTokens": 3338102,
+          "cacheWriteTokens": 149223,
+          "outputTokens": 56420
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6183,
+          "inputTokens": 2630808,
+          "cacheWriteTokens": 143753,
+          "outputTokens": 28659
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.5556,
+          "inputTokens": 4503152,
+          "cacheWriteTokens": 197442,
+          "outputTokens": 65845
+        }
+      ],
+      "cacheWriteTokens": 157488,
+      "totalCostUsd": 2253.31,
+      "costPercentiles": {
+        "p05": 2.755270684763477,
+        "p25": 4.340413036578659,
+        "p50": 6.125789602860287,
+        "p75": 8.728907821232124,
+        "p95": 14.871133791914197
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4892,
-        "inputTokens": 4694454,
-        "outputTokens": 55510
+      "tokenPercentiles": {
+        "p05": 836970.4631463146,
+        "p25": 1550558.2557755776,
+        "p50": 2403033.1683168346,
+        "p75": 3942392.7057205727,
+        "p95": 7480476.901430149
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8254,
-        "inputTokens": 1582654,
-        "outputTokens": 41214
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "0.153.4",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "0.151.0",
+          "dateReleased": "2026-08-29"
+        },
+        "terminal-bench-v4": {
+          "version": "0.153.4",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 12,
+        "hardStop": 12,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0.01075268817204301
       }
-    ]
-  },
-  {
-    "label": "Cursor CLI - Composer 2.5 Fast",
-    "agent": "Cursor CLI",
-    "provider": "cursor",
-    "index": 38.2,
-    "cost": 0.55,
-    "wallTime": 406,
-    "steps": 117,
-    "totalTokens": 4238247,
-    "inputTokens": 2148692,
-    "outputTokens": 19638,
-    "cacheTokens": 2074061,
-    "cacheHitRate": 0.936,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1593,
-        "inputTokens": 3015034,
-        "outputTokens": 28937
+    },
+    {
+      "label": "Grok Build - Grok 4.6 (xhigh)",
+      "agent": "Grok Build",
+      "provider": "xai",
+      "model": "Grok 4.6 (xhigh)",
+      "creator": "xAI",
+      "hostModelSlug": "xai_grok-4-6-xhigh",
+      "isHighlighted": true,
+      "index": 47,
+      "cost": 3.57,
+      "wallTime": 1167,
+      "steps": 112,
+      "totalTokens": 5543625,
+      "inputTokens": 5487670,
+      "outputTokens": 55955,
+      "cacheTokens": 5160617,
+      "cacheHitRate": 0.906,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.649,
+          "inputTokens": 6323126,
+          "outputTokens": 69583
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.5833,
+          "inputTokens": 2992096,
+          "outputTokens": 26162
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.1768,
+          "inputTokens": 8745920,
+          "outputTokens": 88597
+        }
+      ],
+      "totalCostUsd": 1081.75,
+      "costPercentiles": {
+        "p05": 1.175140282068208,
+        "p25": 2.007830724972496,
+        "p50": 2.783706352035202,
+        "p75": 4.600172847084706,
+        "p95": 7.456153753135318
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3118,
-        "inputTokens": 1884108,
-        "outputTokens": 14231
+      "tokenPercentiles": {
+        "p05": 1341131.6409240938,
+        "p25": 2646561.652915294,
+        "p50": 4024738.3938393835,
+        "p75": 7158372.716171614,
+        "p95": 12765170.414081411
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6746,
-        "inputTokens": 1373831,
-        "outputTokens": 15110
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "1.0.13",
+          "dateReleased": "2026-08-28"
+        },
+        "swe-atlas-qna": {
+          "version": "1.0.13",
+          "dateReleased": "2026-08-28"
+        },
+        "terminal-bench-v4": {
+          "version": "1.0.13",
+          "dateReleased": "2026-08-28"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 3,
+        "hardStop": 3,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0.0026881720430107525
       }
-    ]
-  },
-  {
-    "label": "Muse Code - Muse Spark 1.2 (xhigh)",
-    "agent": "tbh",
-    "provider": "meta",
-    "index": 60.5,
-    "cost": 2.33,
-    "wallTime": 2519,
-    "steps": 150,
-    "totalTokens": 21454250,
-    "inputTokens": 10829344,
-    "outputTokens": 89127,
-    "cacheTokens": 10535779,
-    "cacheHitRate": 0.953,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5811,
-        "inputTokens": 22332583,
-        "outputTokens": 168907
+    },
+    {
+      "label": "Codex - DeepSeek V4 Pro 0813 (max)",
+      "agent": "Codex",
+      "provider": "deepseek",
+      "model": "DeepSeek V4 Pro 0813 (max)",
+      "creator": "OpenAI",
+      "hostModelSlug": "deepseek_deepseek-v4-pro-0813",
+      "isHighlighted": true,
+      "index": 43.1,
+      "cost": 0.24,
+      "wallTime": 2416,
+      "steps": 138,
+      "totalTokens": 24183654,
+      "inputTokens": 24067170,
+      "outputTokens": 116484,
+      "cacheTokens": 23952438,
+      "cacheHitRate": 0.99,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.5723,
+          "inputTokens": 21857745,
+          "outputTokens": 116677
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6183,
+          "inputTokens": 9909988,
+          "outputTokens": 46368
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.101,
+          "inputTokens": 54448315,
+          "outputTokens": 247887
+        }
+      ],
+      "totalCostUsd": 72.14,
+      "costPercentiles": {
+        "p05": 0.08553589994158414,
+        "p25": 0.13481908242684273,
+        "p50": 0.20057701675687584,
+        "p75": 0.30849491996424616,
+        "p95": 0.4808581146649064
       },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4489,
-        "inputTokens": 5178884,
-        "outputTokens": 34751
+      "tokenPercentiles": {
+        "p05": 3736359.9761276133,
+        "p25": 8302592.635863575,
+        "p50": 17833020.419141915,
+        "p75": 32302640.28272825,
+        "p95": 63649800.394829504
       },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7857,
-        "inputTokens": 3695904,
-        "outputTokens": 62073
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "0.153.2",
+          "dateReleased": "2026-09-03"
+        },
+        "swe-atlas-qna": {
+          "version": "0.147.0",
+          "dateReleased": "2026-08-07"
+        },
+        "terminal-bench-v4": {
+          "version": "0.153.2",
+          "dateReleased": "2026-09-03"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Sol (medium)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 60.6,
-    "cost": 2.99,
-    "wallTime": 310,
-    "steps": 72,
-    "totalTokens": 5817519,
-    "inputTokens": 3001126,
-    "outputTokens": 19115,
-    "cacheTokens": 2797277,
-    "cacheHitRate": 0.895,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6401,
-        "inputTokens": 3958001,
-        "outputTokens": 29648
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4005,
-        "inputTokens": 3685052,
-        "outputTokens": 16713
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7778,
-        "inputTokens": 704295,
-        "outputTokens": 8494
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Luna (high)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 51.4,
-    "cost": 0.19,
-    "wallTime": 339,
-    "steps": 84,
-    "totalTokens": 9501375,
-    "inputTokens": 4888008,
-    "outputTokens": 32273,
-    "cacheTokens": 4581094,
-    "cacheHitRate": 0.899,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5339,
-        "inputTokens": 7328568,
-        "outputTokens": 52401
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2903,
-        "inputTokens": 4753183,
-        "outputTokens": 23533
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7183,
-        "inputTokens": 1803902,
-        "outputTokens": 18098
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.5 (xhigh)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 61.5,
-    "cost": 5.07,
-    "wallTime": 605,
-    "steps": 106,
-    "totalTokens": 12260230,
-    "inputTokens": 6203311,
-    "outputTokens": 37947,
-    "cacheTokens": 6018972,
-    "cacheHitRate": 0.939,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6431,
-        "inputTokens": 9686261,
-        "outputTokens": 61258
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3602,
-        "inputTokens": 6152268,
-        "outputTokens": 28410
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8413,
-        "inputTokens": 1593265,
-        "outputTokens": 20664
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.8 (xhigh)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 58.5,
-    "cost": 5.67,
-    "wallTime": 1062,
-    "steps": 137,
-    "totalTokens": 13701048,
-    "inputTokens": 6820410,
-    "outputTokens": 62007,
-    "cacheTokens": 6697458,
-    "cacheHitRate": 0.969,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5133,
-        "inputTokens": 13948613,
-        "outputTokens": 108091
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4274,
-        "inputTokens": 3917779,
-        "outputTokens": 39932
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8135,
-        "inputTokens": 1516118,
-        "outputTokens": 32602
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.6 (medium)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 46.5,
-    "cost": 1.28,
-    "wallTime": 480,
-    "steps": 34,
-    "totalTokens": 4476378,
-    "inputTokens": 2234510,
-    "outputTokens": 19008,
-    "cacheTokens": 2110648,
-    "cacheHitRate": 0.936,
-    "evals": [
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2231,
-        "inputTokens": 3168404,
-        "outputTokens": 22886
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7063,
-        "inputTokens": 855905,
-        "outputTokens": 13285
-      }
-    ]
-  },
-  {
-    "label": "Opencode - Muse Spark 1.1 (xhigh)",
-    "agent": "Opencode",
-    "provider": "meta",
-    "index": 53.5,
-    "cost": 1.43,
-    "wallTime": 755,
-    "steps": 55,
-    "totalTokens": 12243521,
-    "inputTokens": 6261271,
-    "outputTokens": 34042,
-    "cacheTokens": 5948208,
-    "cacheHitRate": 0.95,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5428,
-        "inputTokens": 13967691,
-        "outputTokens": 66079
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3333,
-        "inputTokens": 2452173,
-        "outputTokens": 13315
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7302,
-        "inputTokens": 1517256,
-        "outputTokens": 21543
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 5 (medium)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 61.9,
-    "cost": 3.14,
-    "wallTime": 731,
-    "steps": 83,
-    "totalTokens": 7936908,
-    "inputTokens": 3953917,
-    "outputTokens": 29632,
-    "cacheTokens": 3880763,
-    "cacheHitRate": 0.97,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6283,
-        "inputTokens": 7508302,
-        "outputTokens": 49222
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4435,
-        "inputTokens": 2906289,
-        "outputTokens": 24458
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7857,
-        "inputTokens": 718920,
-        "outputTokens": 10918
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Terra (none)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 23.7,
-    "cost": 0.3,
-    "wallTime": 108,
-    "steps": 34,
-    "totalTokens": 1116050,
-    "inputTokens": 587769,
-    "outputTokens": 5171,
-    "cacheTokens": 523111,
-    "cacheHitRate": 0.853,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1327,
-        "inputTokens": 813953,
-        "outputTokens": 7404
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1855,
-        "inputTokens": 507639,
-        "outputTokens": 4680
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.3929,
-        "inputTokens": 401784,
-        "outputTokens": 2892
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Sonnet 4.6 (medium)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 37.6,
-    "cost": 2.01,
-    "wallTime": 807,
-    "steps": 67,
-    "totalTokens": 8481319,
-    "inputTokens": 4224651,
-    "outputTokens": 38508,
-    "cacheTokens": 4102518,
-    "cacheHitRate": 0.949,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.2891,
-        "inputTokens": 8347777,
-        "outputTokens": 67151
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1962,
-        "inputTokens": 2683550,
-        "outputTokens": 21375
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6429,
-        "inputTokens": 953023,
-        "outputTokens": 25270
-      }
-    ]
-  },
-  {
-    "label": "Cursor CLI - GPT-5.5 (medium)",
-    "agent": "Cursor CLI",
-    "provider": "cursor",
-    "index": 46.1,
-    "cost": 2.01,
-    "wallTime": 399,
-    "steps": 78,
-    "totalTokens": 3989303,
-    "inputTokens": 2061667,
-    "outputTokens": 11044,
-    "cacheTokens": 1916592,
-    "cacheHitRate": 0.89,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.3717,
-        "inputTokens": 3548172,
-        "outputTokens": 16635
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2769,
-        "inputTokens": 1748372,
-        "outputTokens": 9252
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7341,
-        "inputTokens": 524447,
-        "outputTokens": 6170
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.5 (medium)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 54.4,
-    "cost": 2.75,
-    "wallTime": 384,
-    "steps": 78,
-    "totalTokens": 6962550,
-    "inputTokens": 3525549,
-    "outputTokens": 17196,
-    "cacheTokens": 3419805,
-    "cacheHitRate": 0.948,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5664,
-        "inputTokens": 5215387,
-        "outputTokens": 26905
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3065,
-        "inputTokens": 3716421,
-        "outputTokens": 13652
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7579,
-        "inputTokens": 970551,
-        "outputTokens": 9369
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Luna (none)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 20.4,
-    "cost": 0.07,
-    "wallTime": 150,
-    "steps": 56,
-    "totalTokens": 3566157,
-    "inputTokens": 1845654,
-    "outputTokens": 7936,
-    "cacheTokens": 1712567,
-    "cacheHitRate": 0.876,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.0649,
-        "inputTokens": 2942032,
-        "outputTokens": 12164
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1747,
-        "inputTokens": 1100263,
-        "outputTokens": 6058
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.373,
-        "inputTokens": 1471102,
-        "outputTokens": 5022
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Terra (medium)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 47.8,
-    "cost": 0.72,
-    "wallTime": 256,
-    "steps": 51,
-    "totalTokens": 3130308,
-    "inputTokens": 1614396,
-    "outputTokens": 16002,
-    "cacheTokens": 1499910,
-    "cacheHitRate": 0.893,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.4572,
-        "inputTokens": 2052967,
-        "outputTokens": 23574
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2823,
-        "inputTokens": 1896112,
-        "outputTokens": 13601
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6944,
-        "inputTokens": 608546,
-        "outputTokens": 9362
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Qwen3.7 Plus (thinking)",
-    "agent": "Claude Code",
-    "provider": "alibaba_cloud",
-    "index": 36,
-    "cost": 6.23,
-    "wallTime": 634,
-    "steps": 146,
-    "totalTokens": 8695924,
-    "inputTokens": 4668456,
-    "outputTokens": 32127,
-    "cacheTokens": 3995341,
-    "cacheHitRate": 0.81,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1917,
-        "inputTokens": 8634689,
-        "outputTokens": 47865
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2366,
-        "inputTokens": 2834619,
-        "outputTokens": 18312
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6508,
-        "inputTokens": 2040023,
-        "outputTokens": 31349
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.8 (high)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 56.7,
-    "cost": 3.74,
-    "wallTime": 746,
-    "steps": 104,
-    "totalTokens": 9148668,
-    "inputTokens": 4555042,
-    "outputTokens": 39674,
-    "cacheTokens": 4473823,
-    "cacheHitRate": 0.969,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5162,
-        "inputTokens": 9442317,
-        "outputTokens": 71105
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3871,
-        "inputTokens": 2606780,
-        "outputTokens": 26256
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7976,
-        "inputTokens": 856499,
-        "outputTokens": 17200
-      }
-    ]
-  },
-  {
-    "label": "Cursor CLI - Opus 4.7 (medium)",
-    "agent": "Cursor CLI",
-    "provider": "cursor",
-    "index": 45.4,
-    "cost": 2.68,
-    "wallTime": 817,
-    "steps": 86,
-    "totalTokens": 5656580,
-    "inputTokens": 2819480,
-    "outputTokens": 17782,
-    "cacheTokens": 2745220,
-    "cacheHitRate": 0.959,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.3156,
-        "inputTokens": 5578063,
-        "outputTokens": 26843
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3387,
-        "inputTokens": 1621663,
-        "outputTokens": 15037
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7063,
-        "inputTokens": 876734,
-        "outputTokens": 9645
-      }
-    ]
-  },
-  {
-    "label": "Opencode - Gemini 3.6 Flash (high)",
-    "agent": "Opencode",
-    "provider": "google",
-    "index": 45.6,
-    "cost": 2.08,
-    "wallTime": 625,
-    "steps": 65,
-    "totalTokens": 13024312,
-    "inputTokens": 6767191,
-    "outputTokens": 42436,
-    "cacheTokens": 6214685,
-    "cacheHitRate": 0.837,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.413,
-        "inputTokens": 14211106,
-        "outputTokens": 74639
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2177,
-        "inputTokens": 3235374,
-        "outputTokens": 22602
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7381,
-        "inputTokens": 1966988,
-        "outputTokens": 28393
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Sol (xhigh)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 65.1,
-    "cost": 5.24,
-    "wallTime": 444,
-    "steps": 96,
-    "totalTokens": 9940686,
-    "inputTokens": 5120783,
-    "outputTokens": 38288,
-    "cacheTokens": 4781615,
-    "cacheHitRate": 0.906,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6696,
-        "inputTokens": 7032301,
-        "outputTokens": 59988
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.422,
-        "inputTokens": 6146716,
-        "outputTokens": 33329
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8611,
-        "inputTokens": 1034864,
-        "outputTokens": 16417
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Terra (high)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 55.8,
-    "cost": 1.27,
-    "wallTime": 371,
-    "steps": 67,
-    "totalTokens": 5540012,
-    "inputTokens": 2843915,
-    "outputTokens": 31662,
-    "cacheTokens": 2664435,
-    "cacheHitRate": 0.903,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6047,
-        "inputTokens": 3972303,
-        "outputTokens": 50083
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3091,
-        "inputTokens": 3196254,
-        "outputTokens": 25833
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7599,
-        "inputTokens": 805844,
-        "outputTokens": 15486
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Luna (xhigh)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 54.7,
-    "cost": 0.25,
-    "wallTime": 395,
-    "steps": 96,
-    "totalTokens": 12310694,
-    "inputTokens": 6321539,
-    "outputTokens": 47114,
-    "cacheTokens": 5942041,
-    "cacheHitRate": 0.904,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5664,
-        "inputTokens": 10065888,
-        "outputTokens": 79329
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3118,
-        "inputTokens": 6090115,
-        "outputTokens": 34160
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7619,
-        "inputTokens": 1626125,
-        "outputTokens": 22900
-      }
-    ]
-  },
-  {
-    "label": "Opencode - Muse Spark 1.2 (xhigh)",
-    "agent": "Opencode",
-    "provider": "meta",
-    "index": 56.5,
-    "cost": 1.91,
-    "wallTime": 1074,
-    "steps": 66,
-    "totalTokens": 16355512,
-    "inputTokens": 8363592,
-    "outputTokens": 46508,
-    "cacheTokens": 7945412,
-    "cacheHitRate": 0.95,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.528,
-        "inputTokens": 17294036,
-        "outputTokens": 85931
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4409,
-        "inputTokens": 3921557,
-        "outputTokens": 18945
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7262,
-        "inputTokens": 2907306,
-        "outputTokens": 34163
-      }
-    ]
-  },
-  {
-    "label": "Opencode - Opus 4.7 (medium)",
-    "agent": "Opencode",
-    "provider": "anthropic",
-    "index": 50.3,
-    "cost": 2.93,
-    "wallTime": 732,
-    "steps": 54,
-    "totalTokens": 7560140,
-    "inputTokens": 3733583,
-    "outputTokens": 25751,
-    "cacheTokens": 3733524,
-    "cacheHitRate": 0.961,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.3953,
-        "inputTokens": 7106371,
-        "outputTokens": 41946
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3602,
-        "inputTokens": 2165288,
-        "outputTokens": 18657
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.754,
-        "inputTokens": 1511482,
-        "outputTokens": 14436
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Terra (max)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 62.3,
-    "cost": 2.21,
-    "wallTime": 502,
-    "steps": 97,
-    "totalTokens": 9465877,
-    "inputTokens": 4843755,
-    "outputTokens": 60732,
-    "cacheTokens": 4561390,
-    "cacheHitRate": 0.914,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6696,
-        "inputTokens": 7011344,
-        "outputTokens": 96847
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3575,
-        "inputTokens": 5244151,
-        "outputTokens": 48477
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8413,
-        "inputTokens": 1336772,
-        "outputTokens": 30239
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.8 (low)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 47.4,
-    "cost": 2.15,
-    "wallTime": 506,
-    "steps": 67,
-    "totalTokens": 5167219,
-    "inputTokens": 2572637,
-    "outputTokens": 22823,
-    "cacheTokens": 2521368,
-    "cacheHitRate": 0.967,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.41,
-        "inputTokens": 5152343,
-        "outputTokens": 39453
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2823,
-        "inputTokens": 1420711,
-        "outputTokens": 14888
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7302,
-        "inputTokens": 802782,
-        "outputTokens": 12163
-      }
-    ]
-  },
-  {
-    "label": "Cursor CLI - GPT-5.4 (medium)",
-    "agent": "Cursor CLI",
-    "provider": "cursor",
-    "index": 37.1,
-    "cost": 1.55,
-    "wallTime": 486,
-    "steps": 26,
-    "totalTokens": 4017673,
-    "inputTokens": 2129535,
-    "outputTokens": 15483,
-    "cacheTokens": 1872655,
-    "cacheHitRate": 0.854,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1667,
-        "inputTokens": 3482385,
-        "outputTokens": 27871
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2823,
-        "inputTokens": 2951684,
-        "outputTokens": 17757
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6627,
-        "inputTokens": 625990,
-        "outputTokens": 9472
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Terra (low)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 36.7,
-    "cost": 0.39,
-    "wallTime": 167,
-    "steps": 37,
-    "totalTokens": 1529813,
-    "inputTokens": 797366,
-    "outputTokens": 8053,
-    "cacheTokens": 724394,
-    "cacheHitRate": 0.877,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.2979,
-        "inputTokens": 937188,
-        "outputTokens": 10694
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2285,
-        "inputTokens": 934105,
-        "outputTokens": 7240
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.5754,
-        "inputTokens": 407419,
-        "outputTokens": 5700
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Qwen3.8 Max",
-    "agent": "Claude Code",
-    "provider": "alibaba_cloud",
-    "index": 56.6,
-    "cost": 3.86,
-    "wallTime": 1942,
-    "steps": 205,
-    "totalTokens": 13160843,
-    "inputTokens": 6924933,
-    "outputTokens": 68746,
-    "cacheTokens": 5993483,
-    "cacheHitRate": 0.857,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5192,
-        "inputTokens": 11507847,
-        "outputTokens": 103998
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3857,
-        "inputTokens": 4126952,
-        "outputTokens": 35626
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7937,
-        "inputTokens": 1925647,
-        "outputTokens": 35125
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 5 (max)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 65.5,
-    "cost": 8.95,
-    "wallTime": 1424,
-    "steps": 166,
-    "totalTokens": 23891138,
-    "inputTokens": 11907546,
-    "outputTokens": 80473,
-    "cacheTokens": 11732777,
-    "cacheHitRate": 0.975,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6313,
-        "inputTokens": 23588053,
-        "outputTokens": 129119
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4892,
-        "inputTokens": 7558365,
-        "outputTokens": 61758
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8452,
-        "inputTokens": 2614703,
-        "outputTokens": 42661
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Sol (low)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 53.6,
-    "cost": 1.72,
-    "wallTime": 222,
-    "steps": 54,
-    "totalTokens": 3165239,
-    "inputTokens": 1641547,
-    "outputTokens": 10620,
-    "cacheTokens": 1513072,
-    "cacheHitRate": 0.884,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5339,
-        "inputTokens": 2024677,
-        "outputTokens": 16084
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3441,
-        "inputTokens": 2068183,
-        "outputTokens": 9259
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7302,
-        "inputTokens": 496351,
-        "outputTokens": 5279
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Luna (max)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 58.7,
-    "cost": 0.31,
-    "wallTime": 480,
-    "steps": 115,
-    "totalTokens": 15463936,
-    "inputTokens": 7913897,
-    "outputTokens": 64941,
-    "cacheTokens": 7485097,
-    "cacheHitRate": 0.914,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6342,
-        "inputTokens": 13054326,
-        "outputTokens": 111663
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.328,
-        "inputTokens": 7111540,
-        "outputTokens": 45325
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7976,
-        "inputTokens": 2183229,
-        "outputTokens": 31047
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 5 (low)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 56.8,
-    "cost": 2.18,
-    "wallTime": 569,
-    "steps": 64,
-    "totalTokens": 5159612,
-    "inputTokens": 2568845,
-    "outputTokens": 22281,
-    "cacheTokens": 2510220,
-    "cacheHitRate": 0.965,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5693,
-        "inputTokens": 4850074,
-        "outputTokens": 37598
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3925,
-        "inputTokens": 1850558,
-        "outputTokens": 18123
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7421,
-        "inputTokens": 560378,
-        "outputTokens": 7813
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Luna (low)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 25.1,
-    "cost": 0.04,
-    "wallTime": 115,
-    "steps": 35,
-    "totalTokens": 1504521,
-    "inputTokens": 798108,
-    "outputTokens": 6699,
-    "cacheTokens": 699715,
-    "cacheHitRate": 0.842,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1032,
-        "inputTokens": 1133348,
-        "outputTokens": 9196
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1532,
-        "inputTokens": 626622,
-        "outputTokens": 5298
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.496,
-        "inputTokens": 600274,
-        "outputTokens": 5407
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.8 (max)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 60.6,
-    "cost": 7.7,
-    "wallTime": 1387,
-    "steps": 166,
-    "totalTokens": 17911639,
-    "inputTokens": 8916514,
-    "outputTokens": 88625,
-    "cacheTokens": 8729202,
-    "cacheHitRate": 0.965,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5575,
-        "inputTokens": 18153204,
-        "outputTokens": 148270
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4677,
-        "inputTokens": 5147235,
-        "outputTokens": 61930
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7937,
-        "inputTokens": 2055140,
-        "outputTokens": 47797
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.8 (medium)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 53.6,
-    "cost": 3.26,
-    "wallTime": 743,
-    "steps": 93,
-    "totalTokens": 7769574,
-    "inputTokens": 3870142,
-    "outputTokens": 34207,
-    "cacheTokens": 3787948,
-    "cacheHitRate": 0.965,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.4926,
-        "inputTokens": 8063404,
-        "outputTokens": 61098
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3602,
-        "inputTokens": 2126438,
-        "outputTokens": 22352
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.754,
-        "inputTokens": 803245,
-        "outputTokens": 15532
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.7 (medium)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 40.5,
-    "cost": 1.68,
-    "wallTime": 380,
-    "steps": 42,
-    "totalTokens": 4574241,
-    "inputTokens": 2279493,
-    "outputTokens": 16673,
-    "cacheTokens": 2224627,
-    "cacheHitRate": 0.958,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.2743,
-        "inputTokens": 4030146,
-        "outputTokens": 26494
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2258,
-        "inputTokens": 1586910,
-        "outputTokens": 11913
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7143,
-        "inputTokens": 946833,
-        "outputTokens": 10490
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - GLM-5.1",
-    "agent": "Claude Code",
-    "provider": "friendliai",
-    "index": 36.1,
-    "cost": 4.33,
-    "wallTime": 1166,
-    "steps": 174,
-    "totalTokens": 25881728,
-    "inputTokens": 13211533,
-    "outputTokens": 49739,
-    "cacheTokens": 12620457,
-    "cacheHitRate": 0.879,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1858,
-        "inputTokens": 30011169,
-        "outputTokens": 78136
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2473,
-        "inputTokens": 5692462,
-        "outputTokens": 31937
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6508,
-        "inputTokens": 1711603,
-        "outputTokens": 37816
-      }
-    ]
-  },
-  {
-    "label": "Antigravity SDK - Gemini 3.7 Flash (high)",
-    "agent": "Antigravity SDK v0.1.8",
-    "provider": "google",
-    "index": 55.6,
-    "cost": 0,
-    "wallTime": 379,
-    "steps": 109,
-    "totalTokens": 14993504,
-    "inputTokens": 7873406,
-    "outputTokens": 63937,
-    "cacheTokens": 7056161,
-    "cacheHitRate": 0.868,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5605,
-        "inputTokens": 13115583,
-        "outputTokens": 115264
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2715,
-        "inputTokens": 6139632,
-        "outputTokens": 38537
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8373,
-        "inputTokens": 3380811,
-        "outputTokens": 32385
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Luna (medium)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 42.4,
-    "cost": 0.09,
-    "wallTime": 202,
-    "steps": 58,
-    "totalTokens": 4389586,
-    "inputTokens": 2273504,
-    "outputTokens": 15198,
-    "cacheTokens": 2100885,
-    "cacheHitRate": 0.879,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.3658,
-        "inputTokens": 3299689,
-        "outputTokens": 23391
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2715,
-        "inputTokens": 1920543,
-        "outputTokens": 10845
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6349,
-        "inputTokens": 1414077,
-        "outputTokens": 10602
-      }
-    ]
-  },
-  {
-    "label": "Cursor CLI - Composer 2",
-    "agent": "Cursor CLI",
-    "provider": "cursor",
-    "index": 27.5,
-    "cost": 0.04,
-    "wallTime": 514,
-    "steps": 28,
-    "totalTokens": 2954431,
-    "inputTokens": 1476106,
-    "outputTokens": 14007,
-    "cacheTokens": 1419615,
-    "cacheHitRate": 0.926,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0,
-        "inputTokens": 2144428,
-        "outputTokens": 22339
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1774,
-        "inputTokens": 1580137,
-        "outputTokens": 11388
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6468,
-        "inputTokens": 1290713,
-        "outputTokens": 17477
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Kimi K2.6",
-    "agent": "Claude Code",
-    "provider": "moonshotai",
-    "index": 32.6,
-    "cost": 1.19,
-    "wallTime": 2461,
-    "steps": 131,
-    "totalTokens": 11454356,
-    "inputTokens": 5786199,
-    "outputTokens": 36275,
-    "cacheTokens": 5631883,
-    "cacheHitRate": 0.958,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1652,
-        "inputTokens": 10905739,
-        "outputTokens": 61150
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1586,
-        "inputTokens": 4140736,
-        "outputTokens": 19063
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6548,
-        "inputTokens": 1328214,
-        "outputTokens": 28219
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.4 (medium)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 39.1,
-    "cost": 2.42,
-    "wallTime": 425,
-    "steps": 73,
-    "totalTokens": 5924972,
-    "inputTokens": 3011113,
-    "outputTokens": 18149,
-    "cacheTokens": 2895710,
-    "cacheHitRate": 0.929,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.25,
-        "inputTokens": 4772397,
-        "outputTokens": 48282
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.2231,
-        "inputTokens": 4224347,
-        "outputTokens": 19253
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6984,
-        "inputTokens": 884666,
-        "outputTokens": 10779
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Terra (xhigh)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 57.1,
-    "cost": 1.52,
-    "wallTime": 413,
-    "steps": 75,
-    "totalTokens": 6460892,
-    "inputTokens": 3313555,
-    "outputTokens": 40160,
-    "cacheTokens": 3107178,
-    "cacheHitRate": 0.907,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.5841,
-        "inputTokens": 4651084,
-        "outputTokens": 63626
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3226,
-        "inputTokens": 3747693,
-        "outputTokens": 32996
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8056,
-        "inputTokens": 873389,
-        "outputTokens": 19167
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Sol (high)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 64.1,
-    "cost": 4.14,
-    "wallTime": 379,
-    "steps": 86,
-    "totalTokens": 8084867,
-    "inputTokens": 4163502,
-    "outputTokens": 28199,
-    "cacheTokens": 3893166,
-    "cacheHitRate": 0.902,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.649,
-        "inputTokens": 5539775,
-        "outputTokens": 43230
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4489,
-        "inputTokens": 5040848,
-        "outputTokens": 24981
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8254,
-        "inputTokens": 1016956,
-        "outputTokens": 12729
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 5 (high)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 63.4,
-    "cost": 3.8,
-    "wallTime": 802,
-    "steps": 93,
-    "totalTokens": 9699126,
-    "inputTokens": 4832263,
-    "outputTokens": 35447,
-    "cacheTokens": 4746535,
-    "cacheHitRate": 0.971,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.6077,
-        "inputTokens": 9157930,
-        "outputTokens": 58192
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.4919,
-        "inputTokens": 3563900,
-        "outputTokens": 29757
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.8016,
-        "inputTokens": 885557,
-        "outputTokens": 13248
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - DeepSeek V4 Pro (high)",
-    "agent": "Claude Code",
-    "provider": "deepseek",
-    "index": 31.4,
-    "cost": 0.27,
-    "wallTime": 1072,
-    "steps": 127,
-    "totalTokens": 9823145,
-    "inputTokens": 5143082,
-    "outputTokens": 41153,
-    "cacheTokens": 4638910,
-    "cacheHitRate": 0.833,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.0855,
-        "inputTokens": 8912558,
-        "outputTokens": 62188
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.1989,
-        "inputTokens": 3342595,
-        "outputTokens": 29335
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6587,
-        "inputTokens": 2730101,
-        "outputTokens": 30303
-      }
-    ]
-  },
-  {
-    "label": "Codex - GPT-5.6 Sol (none)",
-    "agent": "Codex",
-    "provider": "openai",
-    "index": 43.4,
-    "cost": 1.4,
-    "wallTime": 206,
-    "steps": 55,
-    "totalTokens": 3415816,
-    "inputTokens": 1737377,
-    "outputTokens": 7663,
-    "cacheTokens": 1670776,
-    "cacheHitRate": 0.89,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.354,
-        "inputTokens": 2342366,
-        "outputTokens": 11319
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3414,
-        "inputTokens": 1643087,
-        "outputTokens": 6631
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6071,
-        "inputTokens": 1062712,
-        "outputTokens": 4269
-      }
-    ]
-  },
-  {
-    "label": "Cursor CLI - Composer 2.5",
-    "agent": "Cursor CLI",
-    "provider": "cursor",
-    "index": 38.2,
-    "cost": 0.08,
-    "wallTime": 573,
-    "steps": 117,
-    "totalTokens": 3577610,
-    "inputTokens": 1815576,
-    "outputTokens": 17531,
-    "cacheTokens": 1747519,
-    "cacheHitRate": 0.939,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1593,
-        "inputTokens": 2521667,
-        "outputTokens": 24661
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.3118,
-        "inputTokens": 1734339,
-        "outputTokens": 13782
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6746,
-        "inputTokens": 985637,
-        "outputTokens": 13475
-      }
-    ]
-  },
-  {
-    "label": "Gemini CLI - Gemini 3.1 Pro (high)",
-    "agent": "Gemini CLI",
-    "provider": "gemini",
-    "index": 30.3,
-    "cost": 2,
-    "wallTime": 649,
-    "steps": 31,
-    "totalTokens": 4704372,
-    "inputTokens": 2448999,
-    "outputTokens": 18426,
-    "cacheTokens": 2236947,
-    "cacheHitRate": 0.87,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.1416,
-        "inputTokens": 4115263,
-        "outputTokens": 14682
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.086,
-        "inputTokens": 1971708,
-        "outputTokens": 18630
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.6825,
-        "inputTokens": 912050,
-        "outputTokens": 23163
-      }
-    ]
-  },
-  {
-    "label": "Claude Code - Opus 4.7 (max)",
-    "agent": "Claude Code",
-    "provider": "anthropic",
-    "index": 50.3,
-    "cost": 5.63,
-    "wallTime": 940,
-    "steps": 107,
-    "totalTokens": 15939667,
-    "inputTokens": 7948025,
-    "outputTokens": 46042,
-    "cacheTokens": 7817455,
-    "cacheHitRate": 0.969,
-    "evals": [
-      {
-        "benchmark": "DeepSWE",
-        "reward": 0.4012,
-        "inputTokens": 14256507,
-        "outputTokens": 74955
-      },
-      {
-        "benchmark": "SWE-Atlas-QnA",
-        "reward": 0.371,
-        "inputTokens": 6438676,
-        "outputTokens": 33448
-      },
-      {
-        "benchmark": "Terminal-Bench v2",
-        "reward": 0.7381,
-        "inputTokens": 1689698,
-        "outputTokens": 25738
-      }
-    ]
-  }
-];
+    }
+  ];
+
 
 /**
  * Artificial Analysis renames benchmark datasets over time
