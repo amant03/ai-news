@@ -1,43 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
-
-const DATA_DIR = join(process.cwd(), 'data');
-const FILE = join(DATA_DIR, 'newsletter.json');
-
-function load(): string[] {
-  try {
-    if (existsSync(FILE)) {
-      return JSON.parse(readFileSync(FILE, 'utf-8'));
-    }
-  } catch {}
-  return [];
-}
-
-function save(subs: string[]) {
-  if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
-  writeFileSync(FILE, JSON.stringify(subs, null, 2));
-}
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { addSubscriber, loadSubscribers } from '@/lib/newsletter-store';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const email = (body?.email ?? '').toString().trim().toLowerCase();
+    const result = await addSubscriber(body?.email);
 
-    if (!email || !EMAIL_RE.test(email)) {
-      return NextResponse.json({ ok: false, error: 'Invalid email address.' }, { status: 400 });
+    if (!result.ok) {
+      return NextResponse.json(
+        { ok: false, error: result.error || 'Request failed.' },
+        { status: result.status || 500 }
+      );
     }
 
-    const subs = load();
-
-    if (subs.includes(email)) {
+    if (result.duplicate) {
       return NextResponse.json({ ok: true, message: 'Already subscribed.' });
     }
-
-    subs.push(email);
-    save(subs);
 
     return NextResponse.json({ ok: true });
   } catch {
@@ -46,6 +24,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET() {
-  const subs = load();
-  return NextResponse.json({ ok: true, count: subs.length, subscribers: subs });
+  // Count only — subscriber emails are never exposed through the API.
+  const subs = await loadSubscribers();
+  return NextResponse.json({ ok: true, count: subs.length });
 }

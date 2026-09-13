@@ -21,11 +21,24 @@ interface AARow {
   displayLabel?: unknown;
   agentName?: unknown;
   provider?: unknown;
-  indexScore?: unknown;
+  display?: {
+    agent?: unknown;
+    model?: unknown;
+    creator?: { agent?: unknown; model?: unknown } | null;
+  } | null;
+  hostModelSlug?: unknown;
+  isHighlighted?: unknown;
   isUnavailable?: unknown;
+  indexScore?: unknown;
   mean?: Record<string, unknown> | null;
+  sums?: Record<string, unknown> | null;
+  percentiles?: Record<string, Record<string, unknown>> | null;
+  versions?: Record<string, { min?: { version?: unknown; dateReleased?: unknown } }> | null;
+  safety?: Record<string, unknown> | null;
   evals?: Array<{
     evaluationDatasetSlug?: unknown;
+    datasetIndexName?: unknown;
+    weight?: unknown;
     mean?: Record<string, unknown> | null;
   }> | null;
 }
@@ -51,17 +64,49 @@ export function parseCodingRows(html: string): CodingAgent[] {
   return out;
 }
 
+function str(v: unknown): string | undefined {
+  return typeof v === 'string' && v ? v : undefined;
+}
+
+function toPercentiles(v: unknown): CodingAgent['costPercentiles'] {
+  if (!v || typeof v !== 'object') return undefined;
+  const m = v as Record<string, unknown>;
+  const p = {
+    p05: num(m.p05),
+    p25: num(m.p25),
+    p50: num(m.p50),
+    p75: num(m.p75),
+    p95: num(m.p95),
+  };
+  if (Object.values(p).some(x => x === null)) return undefined;
+  return p as CodingAgent['costPercentiles'];
+}
+
 function toAgent(row: AARow): CodingAgent | null {
   if (typeof row.displayLabel !== 'string' || !row.displayLabel) return null;
   const indexScore = num(row.indexScore);
   if (indexScore === null) return null;
   const mean = row.mean && typeof row.mean === 'object' ? row.mean : {};
-  const evals = Array.isArray(row.evals) ? row.evals : [];
+  const sums = row.sums && typeof row.sums === 'object' ? row.sums : {};
+  const _evals = Array.isArray(row.evals) ? row.evals : [];
+  const versions = row.versions && typeof row.versions === 'object' ? row.versions : {};
+  const safety = row.safety && typeof row.safety === 'object' ? row.safety : {};
 
-  return {
+  const harnessVersions: Record<string, { version: string; dateReleased: string }> = {};
+  for (const [k, v] of Object.entries(versions)) {
+    const ver = str(v?.min?.version);
+    const date = str(v?.min?.dateReleased);
+    if (ver || date) harnessVersions[k] = { version: ver ?? '', dateReleased: date ?? '' };
+  }
+
+  const agent: CodingAgent = {
     label: row.displayLabel,
-    agent: typeof row.agentName === 'string' && row.agentName ? row.agentName : row.displayLabel.split(' - ')[0],
-    provider: typeof row.provider === 'string' && row.provider ? row.provider : 'unknown',
+    agent: str(row.agentName) ?? row.displayLabel.split(' - ')[0],
+    provider: str(row.provider) ?? 'unknown',
+    model: str(row.display?.model),
+    creator: str(row.display?.creator?.agent),
+    hostModelSlug: str(row.hostModelSlug),
+    isHighlighted: row.isHighlighted === true ? true : undefined,
     index: round(indexScore * 100, 1) ?? 0,
     cost: round(num(mean.costUsd), 2) ?? 0,
     wallTime: round(num(mean.agentWallTimeSec), 0) ?? 0,
@@ -71,18 +116,43 @@ function toAgent(row: AARow): CodingAgent | null {
     outputTokens: round(num(mean.outputTokens), 0) ?? 0,
     cacheTokens: round(num(mean.cacheTokens), 0) ?? 0,
     cacheHitRate: round(num(mean.cacheHitRate), 3) ?? 0,
-    evals: evals
+    evals: _evals
       .filter(e => e && typeof e.evaluationDatasetSlug === 'string')
       .map(e => {
         const m = e.mean && typeof e.mean === 'object' ? e.mean : {};
         return {
           benchmark: e.evaluationDatasetSlug as string,
+          datasetIndexName: str(e.datasetIndexName),
+          weight: num(e.weight) ?? undefined,
           reward: round(num(m.reward), 4) ?? 0,
           inputTokens: round(num(m.inputTokens), 0) ?? 0,
+          cacheWriteTokens: round(num(m.cacheWriteTokens), 0) ?? undefined,
           outputTokens: round(num(m.outputTokens), 0) ?? 0,
         };
       }),
   };
+
+  const cacheWrite = round(num(mean.cacheWriteTokens), 0);
+  if (cacheWrite !== null) agent.cacheWriteTokens = cacheWrite;
+  const totalCost = round(num(sums.costUsd), 2);
+  if (totalCost !== null) agent.totalCostUsd = totalCost;
+  const cp = toPercentiles(row.percentiles?.costUsd);
+  if (cp) agent.costPercentiles = cp;
+  const tp = toPercentiles(row.percentiles?.totalTokens);
+  if (tp) agent.tokenPercentiles = tp;
+  if (Object.keys(harnessVersions).length > 0) agent.harnessVersions = harnessVersions;
+  if (num(safety.attemptCount) !== null) {
+    agent.safety = {
+      attempts: num(safety.attemptCount) ?? 0,
+      refused: num(safety.refusedAttemptCount) ?? 0,
+      hardStop: num(safety.hardStopAttemptCount) ?? 0,
+      recovered: num(safety.recoveredAttemptCount) ?? 0,
+      fallback: num(safety.fallbackAttemptCount) ?? 0,
+      continued: num(safety.continuedAttemptCount) ?? 0,
+      rate: num(safety.rate) ?? 0,
+    };
+  }
+  return agent;
 }
 
 export async function scrapeCodingAgents(): Promise<number> {

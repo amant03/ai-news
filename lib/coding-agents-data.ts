@@ -1,14 +1,43 @@
 export interface CodingAgentEval {
   benchmark: string;
+  /** Stable AA dataset key, e.g. "deep-swe-v1.1" — survives display renames. */
+  datasetIndexName?: string;
+  /** Index weight of this benchmark (AA uses equal 1/3 weights). */
+  weight?: number;
   reward: number;
   inputTokens: number;
+  cacheWriteTokens?: number;
   outputTokens: number;
+}
+
+export interface CodingAgentSafety {
+  attempts: number;
+  refused: number;
+  hardStop: number;
+  recovered: number;
+  fallback: number;
+  continued: number;
+  rate: number;
+}
+
+export interface Percentiles {
+  p05: number;
+  p25: number;
+  p50: number;
+  p75: number;
+  p95: number;
 }
 
 export interface CodingAgent {
   label: string;
   agent: string;
   provider: string;
+  /** Underlying model from AA's display field, e.g. "Fable 5.1 (max) (with fallback)". */
+  model?: string;
+  /** Harness creator org, e.g. "Anthropic". */
+  creator?: string;
+  hostModelSlug?: string;
+  isHighlighted?: boolean;
   index: number;
   cost: number;
   wallTime: number;
@@ -17,7 +46,15 @@ export interface CodingAgent {
   inputTokens: number;
   outputTokens: number;
   cacheTokens: number;
+  cacheWriteTokens?: number;
   cacheHitRate: number;
+  /** Total spend across all evaluated tasks (AA `sums.costUsd`). */
+  totalCostUsd?: number;
+  costPercentiles?: Percentiles;
+  tokenPercentiles?: Percentiles;
+  /** Harness version + release date per benchmark family. */
+  harnessVersions?: Record<string, { version: string; dateReleased: string }>;
+  safety?: CodingAgentSafety;
   evals: CodingAgentEval[];
 }
 
@@ -2023,6 +2060,147 @@ export const CODING_AGENTS: CodingAgent[] = [
     ]
   }
 ];
+
+/**
+ * Artificial Analysis renames benchmark datasets over time
+ * (DeepSWE -> DeepSWE v1.1, Terminal-Bench v2 -> Terminal-Bench v4).
+ * Exact-match lookups silently zero out every chart on the next rename,
+ * so all benchmark matching goes through version-independent family keys.
+ */
+export function normalizeBenchmark(slug: string): string {
+  return slug
+    .toLowerCase()
+    .replace(/[\s_-]*v\d+(\.\d+)*\s*$/i, '')
+    .trim()
+    .replace(/[\s_]+/g, '-');
+}
+
+const FAMILY_LABELS: Record<string, string> = {
+  'deepswe': 'DeepSWE',
+  'terminal-bench': 'Terminal-Bench',
+  'swe-atlas-qna': 'SWE-Atlas-QnA',
+};
+
+export interface BenchmarkFamily {
+  key: string;
+  /** Most common full slug in the data (e.g. "DeepSWE v1.1") — self-updating. */
+  label: string;
+}
+
+/** Families present in the data, index benchmarks first, extras alphabetical. */
+export function benchmarkFamilies(agents: CodingAgent[]): BenchmarkFamily[] {
+  const counts = new Map<string, Map<string, number>>();
+  for (const a of agents) {
+    for (const e of a.evals || []) {
+      if (!e?.benchmark) continue;
+      const key = normalizeBenchmark(e.benchmark);
+      if (!key) continue;
+      let byLabel = counts.get(key);
+      if (!byLabel) {
+        byLabel = new Map<string, number>();
+        counts.set(key, byLabel);
+      }
+      byLabel.set(e.benchmark, (byLabel.get(e.benchmark) || 0) + 1);
+    }
+  }
+  const preferred = ['deepswe', 'terminal-bench', 'swe-atlas-qna'];
+  const keys = [...counts.keys()].sort((a, b) => {
+    const ai = preferred.indexOf(a);
+    const bi = preferred.indexOf(b);
+    if (ai >= 0 || bi >= 0) return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
+    return a.localeCompare(b);
+  });
+  return keys.map(key => {
+    const byLabel = counts.get(key)!;
+    const top = [...byLabel.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    return { key, label: FAMILY_LABELS[key] ? `${FAMILY_LABELS[key]}${topSuffix(top)}` : top };
+  });
+}
+
+/** Keep the version suffix from the live slug (e.g. " v1.1") on the display label. */
+function topSuffix(fullSlug: string): string {
+  const m = fullSlug.match(/[\s_-]*(v\d+(\.\d+)*)\s*$/i);
+  return m ? ` ${m[1]}` : '';
+}
+
+/** pass@1 reward (0..1) for an agent's benchmark family, or null when absent. */
+export function evalReward(agent: CodingAgent, family: string): number | null {
+  const hit = (agent.evals || []).find(e => e && normalizeBenchmark(e.benchmark || '') === family);
+  return hit && Number.isFinite(hit.reward) ? hit.reward : null;
+}
+
+/**
+ * Harness comparison helpers.
+ *
+ * A "row" is one harness run (agent/harness + underlying model). AA labels
+ * rows like "Claude Code - Fable 5.1 (max) (with fallback)": the harness is
+ * the agent field, the model is the remainder of the label.
+ */
+
+/** Base harness name without version suffixes ("Antigravity SDK v0.1.12" -> "Antigravity SDK"). */
+export function normalizeHarness(agent: string): string {
+  return (agent || '').replace(/[\s_-]*v\d+(\.\d+)*\s*$/i, '').trim() || 'unknown';
+}
+
+/** Underlying model for a row: label minus the harness prefix. */
+export function modelOfRun(label: string, agent: string): string {
+  const clean = (label || '').trim();
+  if (!clean) return 'unknown';
+  const words = (agent || '').split(/\s+/).filter(Boolean);
+  // Strip the longest leading run of agent words present in the label.
+  for (let n = words.length; n > 0; n--) {
+    const prefix = words.slice(0, n).join(' ');
+    if (clean.toLowerCase().startsWith(prefix.toLowerCase())) {
+      return clean.slice(prefix.length).replace(/^[\s:|-]+/, '').trim() || clean;
+    }
+  }
+  const dash = clean.indexOf(' - ');
+  if (dash > 0) return clean.slice(dash + 3).trim();
+  return clean;
+}
+
+export interface HarnessBest {
+  harness: string;
+  runs: number;
+  best: CodingAgent;
+}
+
+export interface ModelRuns {
+  model: string;
+  runs: CodingAgent[];
+}
+
+/** Best run per harness, sorted by index desc. */
+export function bestPerHarness(agents: CodingAgent[]): HarnessBest[] {
+  const byHarness = new Map<string, CodingAgent[]>();
+  for (const a of agents) {
+    const h = normalizeHarness(a.agent);
+    const list = byHarness.get(h) || [];
+    list.push(a);
+    byHarness.set(h, list);
+  }
+  return [...byHarness.entries()]
+    .map(([harness, runs]) => ({
+      harness,
+      runs: runs.length,
+      best: [...runs].sort((x, y) => y.index - x.index)[0],
+    }))
+    .sort((a, b) => b.best.index - a.best.index);
+}
+
+/** Rows grouped by underlying model, most-covered models first. */
+export function runsByModel(agents: CodingAgent[]): ModelRuns[] {
+  const byModel = new Map<string, CodingAgent[]>();
+  for (const a of agents) {
+    const m = modelOfRun(a.label, a.agent);
+    const list = byModel.get(m) || [];
+    list.push(a);
+    byModel.set(m, list);
+  }
+  return [...byModel.entries()]
+    .map(([model, runs]) => ({ model, runs: [...runs].sort((x, y) => y.index - x.index) }))
+    .sort((a, b) => b.runs.length - a.runs.length || b.runs[0].index - a.runs[0].index);
+}
 
 export const AGENT_PROVIDER_COLORS: Record<string, string> = {
   anthropic: '#d97706',

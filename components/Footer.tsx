@@ -47,7 +47,8 @@ function FooterNewsletter() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: trimmed }),
       });
-      if (!res.ok) throw new Error();
+      const data = await res.json().catch(() => null);
+      if (!res.ok) throw new Error((data && data.error) || '');
       try {
         const existing = JSON.parse(localStorage.getItem('ai-pulse-subs') || '[]');
         if (!existing.includes(trimmed)) {
@@ -57,8 +58,8 @@ function FooterNewsletter() {
       } catch {}
       setDone(true);
       setEmail('');
-    } catch {
-      setError('Something went wrong.');
+    } catch (err) {
+      setError(err instanceof Error && err.message ? err.message : 'Something went wrong.');
     }
   };
 
