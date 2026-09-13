@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { fetchCommittedFile, commitFilesToRepo } from './github-data';
+import { verifyUnsubscribe } from './email';
 
 /**
  * Newsletter subscriber persistence.
@@ -82,6 +83,12 @@ export interface AddResult {
   status?: number;
 }
 
+export interface RemoveResult {
+  ok: boolean;
+  error?: string;
+  status?: number;
+}
+
 async function commit(subs: string[]): Promise<boolean> {
   const res = await commitFilesToRepo(
     [{ path: FILE, content: `${JSON.stringify(subs, null, 2)}\n` }],
@@ -122,5 +129,41 @@ export async function addSubscriber(raw: unknown): Promise<AddResult> {
     ok: false,
     status: 503,
     error: 'Newsletter signup is temporarily unavailable — please try again later.',
+  };
+}
+
+/** Remove a subscriber via a signed one-click unsubscribe link. */
+export async function removeSubscriber(rawEmail: unknown, token: unknown): Promise<RemoveResult> {
+  const email = normalizeEmail(rawEmail);
+  if (!email || !isValidEmail(email)) {
+    return { ok: false, error: 'Invalid email address.', status: 400 };
+  }
+  if (typeof token !== 'string' || !verifyUnsubscribe(email, token)) {
+    return { ok: false, error: 'Invalid or expired unsubscribe link.', status: 403 };
+  }
+
+  const initial = await loadSubscribers();
+  if (!initial.includes(email)) return { ok: true }; // idempotent
+  const next = initial.filter(e => e !== email);
+
+  if (repoConfigured()) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const subs = attempt === 0 ? initial : await loadSubscribers();
+      const filtered = subs.filter(e => e !== email);
+      writeLocal(filtered);
+      if (await commit(filtered)) return { ok: true };
+    }
+    return {
+      ok: false,
+      status: 503,
+      error: 'Could not unsubscribe — please try again in a minute.',
+    };
+  }
+
+  if (writeLocal(next)) return { ok: true };
+  return {
+    ok: false,
+    status: 503,
+    error: 'Unsubscribe is temporarily unavailable — please try again later.',
   };
 }
