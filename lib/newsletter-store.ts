@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
-import { fetchCommittedFile, commitFilesToRepo } from './github-data';
+import { fetchCommittedFile, commitJsonFile } from './github-data';
 import { verifyUnsubscribe } from './email';
 
 /**
@@ -90,10 +90,7 @@ export interface RemoveResult {
 }
 
 async function commit(subs: string[]): Promise<boolean> {
-  const res = await commitFilesToRepo(
-    [{ path: FILE, content: `${JSON.stringify(subs, null, 2)}\n` }],
-    'chore: refresh newsletter subscribers'
-  );
+  const res = await commitJsonFile(FILE, subs, 'newsletter subscribers');
   return res.ok;
 }
 

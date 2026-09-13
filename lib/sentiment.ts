@@ -127,6 +127,37 @@ export function scoreText(text: string): number {
   return Math.max(-1, Math.min(1, raw * Math.sqrt(hits) / 2));
 }
 
+export interface TextSentiment {
+  positive: number;
+  negative: number;
+  neutral: number;
+  total: number;
+  /** Mean -1..1 across non-neutral texts. */
+  score: number;
+  label: 'positive' | 'negative' | 'neutral';
+}
+
+/** Sentiment over an arbitrary text set (story + its comments). Same lexicon. */
+export function analyzeTexts(texts: string[]): TextSentiment {
+  let positive = 0, negative = 0, neutral = 0, sum = 0, scored = 0;
+  for (const t of texts) {
+    if (!t || t.trim().length < 2) continue;
+    const s = scoreText(t.slice(0, 600));
+    if (s > 0.15) positive++;
+    else if (s < -0.15) negative++;
+    else neutral++;
+    if (s !== 0) {
+      sum += s;
+      scored++;
+    }
+  }
+  const total = positive + negative + neutral;
+  const score = scored ? sum / scored : 0;
+  const label = positive > negative && positive >= neutral ? 'positive'
+    : negative > positive && negative >= neutral ? 'negative' : 'neutral';
+  return { positive, negative, neutral, total, score, label };
+}
+
 function pickProviderColor(provider: string): string {
   return PROVIDER_COLORS[provider] || '#64748b';
 }

@@ -93,6 +93,25 @@ export interface RepoFile {
 }
 
 /**
+ * Commit a single JSON-serializable value to the data repo. Thin wrapper
+ * over commitFilesToRepo for small stores (newsletter, engagement).
+ * `skipBuild` prefixes the message with `chore: refresh` so Vercel skips
+ * the rebuild — data is read at request time, not build time.
+ */
+export async function commitJsonFile(
+  path: string,
+  value: unknown,
+  message: string,
+  skipBuild = true
+): Promise<{ ok: boolean; error?: string }> {
+  const res = await commitFilesToRepo(
+    [{ path, content: `${JSON.stringify(value, null, 2)}\n` }],
+    skipBuild && !message.startsWith('chore: refresh') ? `chore: refresh ${message}` : message
+  );
+  return res.ok ? { ok: true } : { ok: false, error: res.error };
+}
+
+/**
  * Atomically commits multiple files to the data repo via the Git Data API
  * (single commit, supports files >1MB unlike the Contents API).
  * Returns ok:false (instead of throwing) when unconfigured/unauthorized —

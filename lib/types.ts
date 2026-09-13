@@ -35,6 +35,8 @@ export interface NewsItem {
   score?: number;
   num_comments?: number;
   tweet_metrics?: TweetMetrics;
+  /** Stable thread id for comment lookups (HN item id, Reddit post id, X status id). */
+  thread_id?: string;
 }
 
 export type Category = 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other';

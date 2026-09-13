@@ -4,17 +4,15 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import FilterBar, { FacetOption } from '@/components/FilterBar';
 import Hero from '@/components/Hero';
-import TopStoriesGrid, { TopStoriesSkeleton } from '@/components/TopStoriesGrid';
-import ModelSpotlightStrip from '@/components/ModelSpotlightStrip';
+import NewsGrid, { EngEntry } from '@/components/NewsGrid';
+import ModelsWidget from '@/components/ModelsWidget';
 import WhatsChanged from '@/components/WhatsChanged';
-import LatestList from '@/components/LatestList';
-import ModelWatch from '@/components/ModelWatch';
 import LatestModels from '@/components/LatestModels';
 import SkeletonGrid from '@/components/Skeleton';
 import SectionHeader from '@/components/SectionHeader';
 import Footer from '@/components/Footer';
 import { NewsItem, Category, Domain } from '@/lib/types';
-import { frontPageOrder, diversifiedTopStories } from '@/lib/engagement';
+import { frontPageOrder } from '@/lib/engagement';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const AITrends = dynamic(() => import('@/components/AITrends'), {
@@ -215,23 +213,48 @@ export default function Home({ children }: { children?: React.ReactNode }) {
     return frontPageOrder(visible);
   }, [visible, search]);
 
-  const topStories = useMemo(() => {
-    const q = search.trim();
-    if (q) return mainFeed.slice(0, 8);
-    return diversifiedTopStories(visible, 7);
-  }, [visible, search, mainFeed]);
+  // Dense grid shows ~36 stories per page; the full rest list paginates.
+  const rest = useMemo(() => mainFeed, [mainFeed]);
 
-  const rest = useMemo(() => {
-    const q = search.trim();
-    if (q) return mainFeed.slice(8);
-    const topUrls = new Set(topStories.map(i => i.url));
-    return mainFeed.filter(i => !topUrls.has(i.url));
-  }, [mainFeed, search, topStories]);
-
-  const LATEST_PAGE_SIZE = 15;
+  const LATEST_PAGE_SIZE = 60;
   const latestPageCount = Math.max(1, Math.ceil(rest.length / LATEST_PAGE_SIZE));
   const safeLatestPage = Math.min(latestPage, latestPageCount - 1);
-  const latestPageItems = rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE);
+  const latestPageItems = useMemo(
+    () => rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE),
+    [rest, safeLatestPage]
+  );
+
+  // On-site engagement (likes/comments) for visible stories, keyed by URL.
+  const [engMap, setEngMap] = useState<Record<string, EngEntry>>({});
+  const [expandedKey, setExpandedKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    setExpandedKey(null);
+  }, [safeLatestPage, search, selectedSource, selectedCategory, selectedType, selectedDomain]);
+
+  useEffect(() => {
+    if (latestPageItems.length === 0) return;
+    let cancelled = false;
+    fetch(`/api/engagement?urls=${latestPageItems.map(i => encodeURIComponent(i.url)).join(',')}`)
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        if (cancelled || !d?.ok || !Array.isArray(d.engagement)) return;
+        setEngMap(prev => {
+          const next = { ...prev };
+          for (const e of d.engagement) next[e.url] = e;
+          return next;
+        });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [latestPageItems]);
+
+  const handleEngagement = useCallback((url: string, key: string, likes: number, dislikes: number, comments: number) => {
+    setEngMap(prev => ({ ...prev, [url]: { key, likes, dislikes, comments } }));
+  }, []);
 
   void onlineSources;
   void nextRefreshAt;
@@ -254,44 +277,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           loading={!totalLoaded}
         />
 
-        {/* 2. Top Stories — card grid */}
-        <section className="mb-10" aria-label="Top stories">
-          <SectionHeader
-            kicker="Top Stories"
-            title="What matters right now"
-            rule={false}
-            right={
-              totalLoaded ? (
-                <span className="text-[12px] tabular-nums text-[var(--mut)]">
-                  {total.toLocaleString('en-US')} stories
-                </span>
-              ) : (
-                <Skeleton className="h-4 w-20" />
-              )
-            }
-          />
-          {loading && news.length === 0 ? (
-            <TopStoriesSkeleton count={6} />
-          ) : topStories.length === 0 ? (
-            <div className="py-16 text-center border border-dashed border-[var(--color-line)] rounded-[var(--radius-lg)]">
-              <p className="text-sm font-medium">No stories match this filter yet</p>
-              <p className="mt-1 text-sm text-[var(--mut)]">Try a broader lens or clear your search.</p>
-              <button onClick={resetFilters} className="mt-4 inline-flex h-9 items-center rounded-[var(--radius-md)] bg-[var(--fore)] px-4 text-sm font-medium text-[var(--background)]">
-                Reset filters
-              </button>
-            </div>
-          ) : (
-            <TopStoriesGrid items={topStories} />
-          )}
-        </section>
-
-        {/* 3. Model Spotlight strip */}
-        <section className="mb-10">
-          <ModelSpotlightStrip take={4} />
-          <WhatsChanged />
-        </section>
-
-        {/* 4. Filters + Newswire */}
+        {/* 2. Filters */}
         <section className="mb-6" aria-label="Filters">
           <FilterBar
             sources={facets.sources}
@@ -319,7 +305,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           </button>
         )}
 
-        {/* Latest stories */}
+        {/* Newswire — dense Upstract-style grid, no images */}
         <section id="latest" className="scroll-mt-28">
           <SectionHeader
             kicker="Newswire"
@@ -348,9 +334,13 @@ export default function Home({ children }: { children?: React.ReactNode }) {
             </div>
           ) : (
             <>
-              <div className="border border-[var(--color-line)] rounded-[var(--radius-lg)] overflow-hidden">
-                <LatestList items={latestPageItems} />
-              </div>
+              <NewsGrid
+                items={latestPageItems}
+                engMap={engMap}
+                expandedKey={expandedKey}
+                onToggle={key => setExpandedKey(prev => (prev === key ? null : key))}
+                onEngagement={handleEngagement}
+              />
               {latestPageCount > 1 && (
                 <div className="mt-4 flex items-center justify-center gap-1.5">
                   <button
@@ -386,15 +376,15 @@ export default function Home({ children }: { children?: React.ReactNode }) {
           )}
         </section>
 
-        {/* Models section */}
-        <section className="mt-12 scroll-mt-28" id="model-watch">
-          <SectionHeader kicker="Leaderboard" title="Models" updated updatedAt={new Date().toISOString()} right={null} />
-          <ModelWatch audience={selectedDomain} showHighlights={false} />
+        {/* Models widget — compact, full boards one click away */}
+        <section className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 scroll-mt-28" id="model-watch">
+          <ModelsWidget />
+          <div id="latest-models">
+            <LatestModels />
+          </div>
         </section>
-
-        {/* Latest Models section */}
-        <section className="mt-12" id="latest-models">
-          <LatestModels />
+        <section className="mt-4">
+          <WhatsChanged />
         </section>
 
         {/* AI Trends teaser */}

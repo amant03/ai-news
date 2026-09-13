@@ -6,7 +6,7 @@ import './globals.css';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, siteUrl } from '@/lib/site';
 import { ThemeProvider } from '@/lib/theme';
 import SiteTop from '@/components/SiteTop';
-import FloatingChat from '@/components/FloatingChat';
+import BotWidget from '@/components/BotWidget';
 
 const inter = Inter({
   variable: '--font-instrument',
@@ -87,7 +87,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SiteTop />
           {children}
-          <FloatingChat />
+          <BotWidget />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

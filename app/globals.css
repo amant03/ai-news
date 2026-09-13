@@ -163,6 +163,101 @@ body {
   box-shadow: 0 0 0 2px var(--accent), 0 0 0 4px rgba(230, 226, 216, 0.12);
 }
 
+/* ---------- Pulse Bot 3D character ---------- */
+.bot-3d {
+  position: relative;
+  width: 38px;
+  height: 32px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 40%, rgba(0,0,0,0.18) 100%);
+  box-shadow: inset 0 -3px 6px rgba(0,0,0,0.25), inset 0 2px 3px rgba(255,255,255,0.35);
+  transform: perspective(200px) rotateY(-10deg);
+  animation: bot-sway 4s ease-in-out infinite;
+}
+.bot-eye {
+  position: absolute;
+  top: 8px;
+  width: 9px;
+  height: 11px;
+  border-radius: 9999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bot-blink 4.5s ease-in-out infinite;
+  overflow: hidden;
+}
+.bot-eye-left { left: 8px; }
+.bot-eye-right { right: 8px; }
+.bot-pupil {
+  width: 4px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #0b0b0d;
+  animation: bot-look 6s ease-in-out infinite;
+}
+.bot-smile {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 12px;
+  height: 6px;
+  transform: translateX(-50%);
+  border-bottom: 2px solid rgba(255,255,255,0.9);
+  border-radius: 0 0 12px 12px;
+}
+.bot-antenna {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.7);
+  border-radius: 2px;
+}
+.bot-antenna-dot {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(255,255,255,0.8);
+  animation: bot-beacon 2s ease-in-out infinite;
+}
+.bot-ping {
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: bot-ping 2.6s ease-out infinite;
+}
+@keyframes bot-sway {
+  0%, 100% { transform: perspective(200px) rotateY(-12deg) translateY(0); }
+  50% { transform: perspective(200px) rotateY(12deg) translateY(-2px); }
+}
+@keyframes bot-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+@keyframes bot-look {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(1.5px); }
+  60% { transform: translateX(-1.5px); }
+}
+@keyframes bot-beacon {
+  0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  50% { opacity: 0.45; transform: translateX(-50%) scale(0.75); }
+}
+@keyframes bot-ping {
+  0% { opacity: 0.55; transform: scale(1); }
+  80%, 100% { opacity: 0; transform: scale(1.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bot-3d, .bot-eye, .bot-pupil, .bot-antenna-dot, .bot-ping { animation: none !important; }
+}
+
 /* ---------- Metadata helpers ---------- */
 .dot {
   display: inline-block;

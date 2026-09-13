@@ -72,6 +72,7 @@ export async function fetchHackerNews(): Promise<NewsItem[]> {
           source_detail: `HN · ${query}`,
           score: hit.points,
           num_comments: hit.num_comments,
+          thread_id: String(hit.objectID),
         });
       }
       console.log(`  ✓ HN "${query}": ${data.hits.length} raw hits`);
