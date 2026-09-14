@@ -20,13 +20,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <section aria-label="Intro" className="hero-enter pt-2 pb-8">
-      <p className="text-xs font-medium uppercase tracking-wider text-[var(--accent-hover)]">
-        Live
-      </p>
-      <h1 className="mt-2 font-semibold tracking-tight text-[var(--foreground)] whitespace-nowrap text-[clamp(1.4rem,4.5vw,2.25rem)]">
-        The AI frontier, tracked automatically.
-      </h1>
-      <div className="mt-5 flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <span className="text-sm text-[var(--mut)]">Show me:</span>
         <Tabs value={persona} onValueChange={v => onPersonaChange(v as Domain | 'all')}>
           <TabsList aria-label="Persona lens">

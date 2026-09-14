@@ -27,9 +27,9 @@ for (const route of ROUTES) {
   });
 }
 
-test('homepage hero + persona lens filters content', async ({ page }) => {
+test('homepage persona lens filters content', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await expect(page.getByRole('heading', { name: /frontier, tracked automatically/i })).toBeVisible();
+  await expect(page.getByRole('tab', { name: 'Business' })).toBeVisible();
   const bussinessTab = page.getByRole('tab', { name: 'Business' });
   await bussinessTab.click();
   // Newswire should still render (filtered or empty-state, never a crash).
