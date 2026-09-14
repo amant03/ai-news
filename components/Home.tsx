@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import FilterBar, { FacetOption } from '@/components/FilterBar';
 import Hero from '@/components/Hero';
+import type { FacetOption } from '@/components/Hero';
 import NewsGrid, { EngEntry } from '@/components/NewsGrid';
 import ModelsWidget from '@/components/ModelsWidget';
 import WhatsChanged from '@/components/WhatsChanged';
@@ -59,7 +59,6 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   const [onlineSources, setOnlineSources] = useState(0);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
   const [syncedAgo, setSyncedAgo] = useState<string | null>(null);
-  const [modelCount, setModelCount] = useState<number | null>(null);
 
   const seenUrls = useRef<Set<string>>(new Set());
   const offsetRef = useRef(0);
@@ -152,14 +151,6 @@ export default function Home({ children }: { children?: React.ReactNode }) {
     } catch { /* ignore */ }
   }, []);
 
-  const pollModelCount = useCallback(async () => {
-    try {
-      const res = await fetch('/api/models?sort=intelligence&limit=1');
-      const data = await res.json();
-      if (typeof data?.catalog?.total === 'number') setModelCount(data.catalog.total);
-    } catch { /* ignore */ }
-  }, []);
-
   useEffect(() => { load('reset'); }, [load]);
   useEffect(() => {
     try {
@@ -173,9 +164,9 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   useEffect(() => {
     const id = setInterval(poll, POLL_MS);
     const statusId = setInterval(pollStatus, POLL_MS);
-    const initialStatus = setTimeout(() => { pollStatus(); pollModelCount(); }, 0);
+    const initialStatus = setTimeout(() => { pollStatus(); }, 0);
     return () => { clearInterval(id); clearInterval(statusId); clearTimeout(initialStatus); };
-  }, [poll, pollStatus, pollModelCount]);
+  }, [poll, pollStatus]);
 
   const applyNew = () => {
     setNews(prev => {
@@ -262,31 +253,19 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   return (
     <div className="min-h-screen" id="top">
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
-        {/* 1. Hero band */}
+        {/* 1. Search + combined filters */}
         <Hero
-          storyCount={totalLoaded ? total : null}
-          modelCount={modelCount}
           persona={selectedDomain}
           onPersonaChange={d => { setSelectedDomain(d); setNewItems([]); }}
-          loading={!totalLoaded}
+          sources={facets.sources}
+          categories={facets.categories}
+          selectedSource={selectedSource}
+          selectedCategory={selectedCategory}
+          search={search}
+          onSourceChange={s => { setSelectedSource(s); setNewItems([]); }}
+          onCategoryChange={c => { setSelectedCategory(c); setNewItems([]); }}
+          onSearchChange={setSearch}
         />
-
-        {/* 2. Filters */}
-        <section className="mb-6" aria-label="Filters">
-          <FilterBar
-            sources={facets.sources}
-            categories={facets.categories}
-            types={facets.types}
-            selectedSource={selectedSource}
-            selectedCategory={selectedCategory}
-            selectedType={selectedType}
-            search={search}
-            onSourceChange={s => { setSelectedSource(s); setNewItems([]); }}
-            onCategoryChange={c => { setSelectedCategory(c); setNewItems([]); }}
-            onTypeChange={t => { setSelectedType(t); setNewItems([]); }}
-            onSearchChange={setSearch}
-          />
-        </section>
 
         {/* New items banner */}
         {newItems.length > 0 && (
