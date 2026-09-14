@@ -4,7 +4,6 @@ import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 import { Skeleton } from './ui/skeleton';
 
 interface HeroProps {
-  syncedAgo: string | null;
   storyCount: number | null;
   modelCount: number | null;
   persona: Domain | 'all';
@@ -13,7 +12,6 @@ interface HeroProps {
 }
 
 export default function Hero({
-  syncedAgo,
   storyCount,
   modelCount,
   persona,
@@ -23,17 +21,11 @@ export default function Hero({
   return (
     <section aria-label="Intro" className="hero-enter pt-2 pb-8">
       <p className="text-xs font-medium uppercase tracking-wider text-[var(--accent-hover)]">
-        Live{syncedAgo ? ` · Synced ${syncedAgo}` : ''}
+        Live
       </p>
-      <h1 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-[var(--foreground)] max-w-[20ch]">
+      <h1 className="mt-2 font-semibold tracking-tight text-[var(--foreground)] whitespace-nowrap text-[clamp(1.4rem,4.5vw,2.25rem)]">
         The AI frontier, tracked automatically.
       </h1>
-      <p className="mt-3 text-sm leading-relaxed text-[var(--mut)] max-w-[60ch]">
-        AI Pulse aggregates news, model releases and benchmark data from 40+ sources every 4
-        hours — no editors, no manual curation — and ranks every model by intelligence, speed
-        and cost so you can see what&apos;s actually worth using.
-      </p>
-
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <span className="text-sm text-[var(--mut)]">Show me:</span>
         <Tabs value={persona} onValueChange={v => onPersonaChange(v as Domain | 'all')}>

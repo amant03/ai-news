@@ -6,6 +6,7 @@ import {
 } from '@/lib/engagement-store';
 import { analyzeTexts } from '@/lib/sentiment';
 import {
+  isRedditOAuthConfigured,
   mapRedditComment,
   redditIdFrom,
   stripHtml,
@@ -85,6 +86,19 @@ describe('social parsers', () => {
 
   it('strips html entities', () => {
     expect(stripHtml('a &amp; b &#x2F; c')).toBe('a & b / c');
+  });
+
+  it('reports OAuth unconfigured without credentials', () => {
+    const savedId = process.env.REDDIT_CLIENT_ID;
+    const savedSecret = process.env.REDDIT_CLIENT_SECRET;
+    delete process.env.REDDIT_CLIENT_ID;
+    delete process.env.REDDIT_CLIENT_SECRET;
+    try {
+      expect(isRedditOAuthConfigured()).toBe(false);
+    } finally {
+      if (savedId !== undefined) process.env.REDDIT_CLIENT_ID = savedId;
+      if (savedSecret !== undefined) process.env.REDDIT_CLIENT_SECRET = savedSecret;
+    }
   });
 
   it('falls back for X with a link-out', () => {

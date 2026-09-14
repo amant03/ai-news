@@ -58,7 +58,6 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   const [newItems, setNewItems] = useState<NewsItem[]>([]);
   const [onlineSources, setOnlineSources] = useState(0);
   const [nextRefreshAt, setNextRefreshAt] = useState<Date | null>(null);
-  const [latestPage, setLatestPage] = useState(0);
   const [syncedAgo, setSyncedAgo] = useState<string | null>(null);
   const [modelCount, setModelCount] = useState<number | null>(null);
 
@@ -197,7 +196,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   const resetFilters = () => {
     setSelectedSource('all'); setSelectedCategory('all'); setSelectedType('all');
     setSelectedDomain('all'); setSearch('');
-    setNewItems([]); setLatestPage(0);
+    setNewItems([]);
   };
 
   const visible = useMemo(() => {
@@ -213,29 +212,25 @@ export default function Home({ children }: { children?: React.ReactNode }) {
     return frontPageOrder(visible);
   }, [visible, search]);
 
-  // Dense grid shows ~36 stories per page; the full rest list paginates.
+  // Continuous scroll: the whole feed renders, each section expands in place.
   const rest = useMemo(() => mainFeed, [mainFeed]);
 
-  const LATEST_PAGE_SIZE = 60;
-  const latestPageCount = Math.max(1, Math.ceil(rest.length / LATEST_PAGE_SIZE));
-  const safeLatestPage = Math.min(latestPage, latestPageCount - 1);
-  const latestPageItems = useMemo(
-    () => rest.slice(safeLatestPage * LATEST_PAGE_SIZE, safeLatestPage * LATEST_PAGE_SIZE + LATEST_PAGE_SIZE),
-    [rest, safeLatestPage]
-  );
-
-  // On-site engagement (likes/comments) for visible stories, keyed by URL.
+  // On-site engagement (likes/comments), keyed by URL. POST bulk avoids URL limits.
   const [engMap, setEngMap] = useState<Record<string, EngEntry>>({});
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
 
   useEffect(() => {
     setExpandedKey(null);
-  }, [safeLatestPage, search, selectedSource, selectedCategory, selectedType, selectedDomain]);
+  }, [search, selectedSource, selectedCategory, selectedType, selectedDomain]);
 
   useEffect(() => {
-    if (latestPageItems.length === 0) return;
+    if (rest.length === 0) return;
     let cancelled = false;
-    fetch(`/api/engagement?urls=${latestPageItems.map(i => encodeURIComponent(i.url)).join(',')}`)
+    fetch('/api/engagement', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ urls: rest.map(i => i.url) }),
+    })
       .then(r => (r.ok ? r.json() : null))
       .then(d => {
         if (cancelled || !d?.ok || !Array.isArray(d.engagement)) return;
@@ -250,7 +245,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [latestPageItems]);
+  }, [rest]);
 
   const handleEngagement = useCallback((url: string, key: string, likes: number, dislikes: number, comments: number) => {
     setEngMap(prev => ({ ...prev, [url]: { key, likes, dislikes, comments } }));
@@ -261,19 +256,18 @@ export default function Home({ children }: { children?: React.ReactNode }) {
   void refreshing;
   void handleRefresh;
   void lastUpdated;
+  void syncedAgo;
+  void setSyncedAgo;
 
   return (
     <div className="min-h-screen" id="top">
       <main className="max-w-[1400px] mx-auto px-5 pt-8 pb-16">
-        {children}
-
         {/* 1. Hero band */}
         <Hero
-          syncedAgo={syncedAgo}
           storyCount={totalLoaded ? total : null}
           modelCount={modelCount}
           persona={selectedDomain}
-          onPersonaChange={d => { setSelectedDomain(d); setNewItems([]); setLatestPage(0); }}
+          onPersonaChange={d => { setSelectedDomain(d); setNewItems([]); }}
           loading={!totalLoaded}
         />
 
@@ -309,7 +303,7 @@ export default function Home({ children }: { children?: React.ReactNode }) {
         <section id="latest" className="scroll-mt-28">
           <SectionHeader
             kicker="Newswire"
-            title={search.trim() ? 'Search results' : 'Latest'}
+            title={search.trim() ? 'Search results' : 'Top News'}
             rule={false}
             right={
               totalLoaded ? (
@@ -333,48 +327,18 @@ export default function Home({ children }: { children?: React.ReactNode }) {
               </button>
             </div>
           ) : (
-            <>
-              <NewsGrid
-                items={latestPageItems}
-                engMap={engMap}
-                expandedKey={expandedKey}
-                onToggle={key => setExpandedKey(prev => (prev === key ? null : key))}
-                onEngagement={handleEngagement}
-              />
-              {latestPageCount > 1 && (
-                <div className="mt-4 flex items-center justify-center gap-1.5">
-                  <button
-                    onClick={() => setLatestPage(p => Math.max(0, p - 1))}
-                    disabled={safeLatestPage === 0}
-                    className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
-                  >
-                    Prev
-                  </button>
-                  {Array.from({ length: Math.min(latestPageCount, 7) }, (_, i) => i).map(n => (
-                    <button
-                      key={n}
-                      onClick={() => setLatestPage(n)}
-                      className={`w-8 h-8 rounded-lg text-xs tabular-nums border transition-colors ${
-                        safeLatestPage === n
-                          ? 'bg-black text-white border-black'
-                          : 'border-[var(--color-line)] text-neutral-500 hover:text-black hover:border-neutral-300'
-                      }`}
-                    >
-                      {n + 1}
-                    </button>
-                  ))}
-                  <button
-                    onClick={() => setLatestPage(p => Math.min(latestPageCount - 1, p + 1))}
-                    disabled={safeLatestPage >= latestPageCount - 1}
-                    className="px-3 py-1.5 rounded-lg text-xs border border-[var(--color-line)] text-neutral-500 disabled:opacity-30 hover:text-black"
-                  >
-                    Next
-                  </button>
-                </div>
-              )}
-            </>
+            <NewsGrid
+              items={rest}
+              engMap={engMap}
+              expandedKey={expandedKey}
+              onToggle={key => setExpandedKey(prev => (prev === key ? null : key))}
+              onEngagement={handleEngagement}
+            />
           )}
         </section>
+
+        {/* Frontier charts — below the news, news stays the focus */}
+        {children && <div className="mt-12">{children}</div>}
 
         {/* Models widget — compact, full boards one click away */}
         <section className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 scroll-mt-28" id="model-watch">

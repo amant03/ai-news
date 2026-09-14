@@ -51,10 +51,25 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    const body = await req.json().catch(() => null);
+    // Bulk lookup: {urls: [...]} → counts per story (no URL-length limits).
+    if (body && Array.isArray(body.urls)) {
+      const urls: string[] = body.urls.map((u: unknown) => String(u || '').trim()).filter(Boolean).slice(0, 400);
+      const db = await loadEngagement();
+      return NextResponse.json({
+        ok: true,
+        engagement: urls.map(u => {
+          const k = engagementKey({ url: u });
+          const e = db[k];
+          return e
+            ? { url: u, key: k, likes: e.likes, dislikes: e.dislikes, comments: e.comments.length }
+            : { url: u, key: k, likes: 0, dislikes: 0, comments: 0 };
+        }),
+      });
+    }
     if (limited(ipOf(req), 30, 60_000)) {
       return NextResponse.json({ ok: false, error: 'Too many votes — slow down.' }, { status: 429 });
     }
-    const body = await req.json();
     const key = (body?.key ?? '').toString().slice(0, 32);
     const dir = body?.dir === 'down' ? 'down' : 'up';
     if (!/^[a-f0-9]{8,32}$/.test(key)) {

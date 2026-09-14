@@ -1,11 +1,13 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { NewsItem } from '@/lib/types';
 import { engagementLabel, engagementScore } from '@/lib/engagement';
 import { scoreText } from '@/lib/sentiment';
 import StoryThread from './StoryThread';
 import { RowVotes } from './StoryVotes';
+
+const PER_SECTION = 7;
 
 export interface EngEntry {
   key: string;
@@ -115,18 +117,31 @@ export default function NewsGrid({ items, engMap, expandedKey, onToggle, onEngag
       .slice(0, 5);
   }, [items, engMap]);
 
+  // Per-section visible counts ("show more" expands in place, no pagination).
+  const [limits, setLimits] = useState<Record<string, number>>({});
+  useEffect(() => {
+    setLimits({});
+  }, [items]);
+
+  const latest = useMemo(() => {
+    return [...items].sort(
+      (a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+    );
+  }, [items]);
+
   const columns = useMemo(() => {
     const bySource = new Map<string, NewsItem[]>();
     for (const item of items) {
       const src = item.source_label || item.source;
       const list = bySource.get(src) || [];
-      if (list.length < 6) list.push(item);
+      if (list.length < 40) list.push(item);
       bySource.set(src, list);
     }
-    return [...bySource.entries()]
+    const sources = [...bySource.entries()]
       .sort((a, b) => b[1].length - a[1].length || engagementScore(b[1][0]) - engagementScore(a[1][0]))
-      .slice(0, 6);
-  }, [items]);
+      .slice(0, 5);
+    return [{ key: '__latest', label: 'Latest', list: latest }, ...sources.map(([label, list]) => ({ key: label, label, list }))];
+  }, [items, latest]);
 
   const top = items[0];
 
@@ -180,32 +195,45 @@ export default function NewsGrid({ items, engMap, expandedKey, onToggle, onEngag
         </section>
       )}
 
-      {/* Source columns */}
+      {/* Columns: Latest first, then major sources */}
       <div className="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
-        {columns.map(([source, list]) => (
-          <section key={source} aria-label={source}>
-            <h3 className="mb-1 flex items-center gap-2 border-b-2 border-[var(--fore)] pb-1.5 text-[13px] font-bold uppercase tracking-wide">
-              {source}
-              <span className="text-[10px] font-medium tabular-nums text-[var(--dim)]">{list.length}</span>
-            </h3>
-            <div>
-              {list.map(item => {
-                const eng = engFor(item.url);
-                const key = eng?.key ?? item.url;
-                return (
-                  <StoryRow
-                    key={item.url}
-                    item={item}
-                    eng={eng}
-                    expanded={expandedKey === key}
-                    onToggle={() => eng && onToggle(eng.key)}
-                    onEngagement={(l, d, c) => eng && onEngagement(item.url, eng.key, l, d, c)}
-                  />
-                );
-              })}
-            </div>
-          </section>
-        ))}
+        {columns.map(col => {
+          const limit = limits[col.key] ?? PER_SECTION;
+          const visible = col.list.slice(0, limit);
+          const remaining = col.list.length - visible.length;
+          return (
+            <section key={col.key} aria-label={col.label}>
+              <h3 className="mb-1 flex items-center gap-2 border-b-2 border-[var(--fore)] pb-1.5 text-[13px] font-bold uppercase tracking-wide">
+                {col.label}
+                <span className="text-[10px] font-medium tabular-nums text-[var(--dim)]">{col.list.length}</span>
+              </h3>
+              <div>
+                {visible.map(item => {
+                  const eng = engFor(item.url);
+                  const key = eng?.key ?? item.url;
+                  return (
+                    <StoryRow
+                      key={item.url}
+                      item={item}
+                      eng={eng}
+                      expanded={expandedKey === key}
+                      onToggle={() => eng && onToggle(eng.key)}
+                      onEngagement={(l, d, c) => eng && onEngagement(item.url, eng.key, l, d, c)}
+                    />
+                  );
+                })}
+              </div>
+              {remaining > 0 && (
+                <button
+                  onClick={() => setLimits(prev => ({ ...prev, [col.key]: (prev[col.key] ?? PER_SECTION) + PER_SECTION }))}
+                  className="mt-2 w-full rounded-lg border border-[var(--color-line)] py-1.5 text-[12px] font-medium text-[var(--mut)] transition-colors hover:border-[var(--mut)]/50 hover:text-[var(--fore)]"
+                >
+                  Show more ({remaining} more)
+                </button>
+              )}
+            </section>
+          );
+        })}
       </div>
     </div>
   );

@@ -25,12 +25,69 @@ export interface SocialThread {
   note?: string;
 }
 
-const UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' };
+const UA_STRING =
+  process.env.REDDIT_USER_AGENT || 'ai-news:ai-pulse:v1 (anonymous reader, contact via site footer)';
+const UA = { 'User-Agent': UA_STRING };
 
 async function getJson(url: string, timeoutMs = 12000): Promise<any> {
   const res = await fetch(url, { headers: UA, signal: AbortSignal.timeout(timeoutMs) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
+}
+
+let oauthCache: { token: string; expiresAt: number } | null = null;
+
+/**
+ * Free Reddit app credentials (https://www.reddit.com/prefs/apps → "script").
+ * Anonymous server IPs are network-blocked by Reddit, so without these the
+ * server fetch 403s and only the in-browser fallback works. Degrades
+ * gracefully to anonymous when unconfigured.
+ */
+async function redditToken(): Promise<string | null> {
+  const id = process.env.REDDIT_CLIENT_ID;
+  const secret = process.env.REDDIT_CLIENT_SECRET;
+  if (!id || !secret) return null;
+  if (oauthCache && Date.now() < oauthCache.expiresAt - 60_000) return oauthCache.token;
+  try {
+    const res = await fetch('https://www.reddit.com/api/v1/access_token', {
+      method: 'POST',
+      headers: {
+        Authorization: `Basic ${Buffer.from(`${id}:${secret}`).toString('base64')}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': UA_STRING,
+      },
+      body: 'grant_type=client_credentials',
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { access_token?: string; expires_in?: number };
+    if (!data.access_token) return null;
+    oauthCache = { token: data.access_token, expiresAt: Date.now() + (data.expires_in || 3600) * 1000 };
+    return oauthCache.token;
+  } catch {
+    return null;
+  }
+}
+
+export function isRedditOAuthConfigured(): boolean {
+  return Boolean(process.env.REDDIT_CLIENT_ID && process.env.REDDIT_CLIENT_SECRET);
+}
+
+/** Reddit GET with OAuth first, anonymous fallback — shared by threads + listing. */
+export async function redditGet(path: string, timeoutMs = 12000): Promise<any> {
+  const token = await redditToken();
+  if (token) {
+    try {
+      const res = await fetch(`https://oauth.reddit.com${path}`, {
+        headers: { Authorization: `Bearer ${token}`, 'User-Agent': UA_STRING },
+        signal: AbortSignal.timeout(timeoutMs),
+      });
+      if (res.ok) return res.json();
+    } catch {
+      /* fall through to anonymous */
+    }
+  }
+  return getJson(`https://www.reddit.com${path}`, timeoutMs);
 }
 
 export function stripHtml(html: string): string {
@@ -68,7 +125,7 @@ export function mapRedditComment(node: any, depth: number): SocialComment | null
 }
 
 export async function fetchRedditThread(id: string): Promise<SocialThread> {
-  const data = await getJson(`https://www.reddit.com/comments/${id}.json?limit=25&depth=3&sort=top`);
+  const data = await redditGet(`/comments/${id}.json?limit=25&depth=3&sort=top`);
   const post = data?.[0]?.data?.children?.[0]?.data;
   const listing = data?.[1]?.data?.children || [];
   const comments = listing.map((c: any) => mapRedditComment(c, 2)).filter(Boolean).slice(0, 25) as SocialComment[];

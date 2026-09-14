@@ -1,6 +1,7 @@
 import Parser from 'rss-parser';
 import { NewsItem } from './types';
 import { categorizeContent } from './categorize';
+import { redditGet } from './social';
 
 const parser = new Parser({
   timeout: 12000,
@@ -32,12 +33,9 @@ interface RedditPost {
 
 /** Public listing JSON carries score + comment counts; RSS parsing lost them. */
 async function fetchSubJson(sub: string): Promise<RedditPost[]> {
-  const res = await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=14`, {
-    signal: AbortSignal.timeout(12000),
-    headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const data = (await res.json()) as { data?: { children?: Array<{ data?: RedditPost }> } };
+  const data = (await redditGet(`/r/${sub}/hot.json?limit=14`)) as {
+    data?: { children?: Array<{ data?: RedditPost }> };
+  };
   return (data.data?.children || []).map(c => c.data || {}).filter(p => p.title);
 }
 
