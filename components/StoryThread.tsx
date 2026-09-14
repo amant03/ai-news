@@ -204,6 +204,23 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
     setSocial(prev => (prev[which] !== undefined ? prev : { ...prev, [which]: null }));
     if (social[which] !== undefined) return;
     setLoadingSocial(true);
+    // Instant preview from scrape-time top comments (likes included).
+    if (which === 'reddit' && item.top_comments?.length) {
+      setSocial(prev => (prev.reddit !== undefined ? prev : {
+        ...prev,
+        reddit: {
+          source: 'reddit' as const,
+          total: item.num_comments ?? item.top_comments!.length,
+          postUrl: item.url,
+          comments: item.top_comments!.map(t => ({
+            author: t.author,
+            text: t.text,
+            score: t.score,
+            replies: [],
+          })),
+        },
+      }));
+    }
     try {
       const threadParam = which === 'reddit'
         ? (item.thread_id || item.url)
@@ -228,8 +245,12 @@ export default function StoryThread({ item, storyKey, onEngagement }: {
           /* fall through to honest error */
         }
       }
-      setSocialErr(prev => ({ ...prev, [which]: e instanceof Error ? e.message : 'Load failed.' }));
-      setSocial(prev => ({ ...prev, [which]: null }));
+      // Keep the scrape-time preview when live load fails; error only if empty.
+      const hadPreview = which === 'reddit' && !!item.top_comments?.length;
+      if (!hadPreview) {
+        setSocialErr(prev => ({ ...prev, [which]: e instanceof Error ? e.message : 'Load failed.' }));
+        setSocial(prev => ({ ...prev, [which]: null }));
+      }
     }
     setLoadingSocial(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps

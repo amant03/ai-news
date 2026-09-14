@@ -1,7 +1,7 @@
 import Parser from 'rss-parser';
-import { NewsItem } from './types';
+import { NewsItem, ScrapedComment } from './types';
 import { categorizeContent } from './categorize';
-import { redditGet } from './social';
+import { redditGet, stripHtml } from './social';
 
 const parser = new Parser({
   timeout: 12000,
@@ -117,5 +117,52 @@ export async function fetchReddit(): Promise<NewsItem[]> {
     }
   }
 
+  await attachTopComments(allItems);
   return allItems;
+}
+
+const MAX_COMMENT_THREADS = 12;
+const MAX_COMMENTS_PER_THREAD = 5;
+
+/**
+ * Fetch top comments (with like counts) for the highest-scored posts.
+ * Best-effort: failures leave items without previews; the UI falls back
+ * to on-demand thread loading. Bounded so CI stays fast.
+ */
+async function attachTopComments(items: NewsItem[]): Promise<void> {
+  const targets = items
+    .filter(i => i.thread_id && (i.score ?? 0) > 0)
+    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+    .slice(0, MAX_COMMENT_THREADS);
+  if (targets.length === 0) return;
+
+  const results = await Promise.allSettled(
+    targets.map(async item => {
+      const data = await redditGet(`/comments/${item.thread_id}.json?limit=10&depth=1&sort=top`, 10000);
+      const listing = data?.[1]?.data?.children || [];
+      const top: ScrapedComment[] = [];
+      for (const c of listing) {
+        const d = c?.data;
+        if (!d || typeof d.body !== 'string' || d.author === '[deleted]') continue;
+        const text = stripHtml(d.body).slice(0, 300);
+        if (text.length < 2) continue;
+        top.push({
+          author: `u/${d.author || 'unknown'}`,
+          text,
+          score: typeof d.score === 'number' ? d.score : 0,
+        });
+        if (top.length >= MAX_COMMENTS_PER_THREAD) break;
+      }
+      return { item, top };
+    })
+  );
+
+  let attached = 0;
+  for (const r of results) {
+    if (r.status === 'fulfilled' && r.value.top.length > 0) {
+      r.value.item.top_comments = r.value.top;
+      attached++;
+    }
+  }
+  console.log(`  ✓ Reddit top comments: ${attached}/${targets.length} threads`);
 }

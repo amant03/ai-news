@@ -20,7 +20,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <section aria-label="Intro" className="hero-enter pt-2 pb-8">
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <span className="text-sm text-[var(--mut)]">Show me:</span>
         <Tabs value={persona} onValueChange={v => onPersonaChange(v as Domain | 'all')}>
           <TabsList aria-label="Persona lens">
@@ -31,26 +31,25 @@ export default function Hero({
             ))}
           </TabsList>
         </Tabs>
-      </div>
-
-      <div className="mt-4 flex flex-wrap gap-2" aria-live="polite">
-        {loading || storyCount === null ? (
-          <>
-            <Skeleton className="h-6 w-56 rounded-full" />
-            <Skeleton className="h-6 w-40 rounded-full" />
-          </>
-        ) : (
-          <>
-            <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1 text-xs tabular-nums text-[var(--mut)]">
-              {storyCount.toLocaleString('en-US')} stories tracked in the last 30 days
-            </span>
-            {modelCount !== null && (
+        <span className="ml-auto flex flex-wrap gap-2" aria-live="polite">
+          {loading || storyCount === null ? (
+            <>
+              <Skeleton className="h-6 w-56 rounded-full" />
+              <Skeleton className="h-6 w-40 rounded-full" />
+            </>
+          ) : (
+            <>
               <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1 text-xs tabular-nums text-[var(--mut)]">
-                {modelCount.toLocaleString('en-US')} models compared
+                {storyCount.toLocaleString('en-US')} stories tracked in the last 30 days
               </span>
-            )}
-          </>
-        )}
+              {modelCount !== null && (
+                <span className="inline-flex items-center rounded-full bg-[var(--input)] px-3 py-1 text-xs tabular-nums text-[var(--mut)]">
+                  {modelCount.toLocaleString('en-US')} models compared
+                </span>
+              )}
+            </>
+          )}
+        </span>
       </div>
     </section>
   );

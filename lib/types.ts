@@ -16,6 +16,12 @@ export interface TweetMetrics {
   viewCount: number;
 }
 
+export interface ScrapedComment {
+  author: string;
+  text: string;
+  score: number;
+}
+
 export interface NewsItem {
   id?: number;
   source: string;
@@ -37,6 +43,8 @@ export interface NewsItem {
   tweet_metrics?: TweetMetrics;
   /** Stable thread id for comment lookups (HN item id, Reddit post id, X status id). */
   thread_id?: string;
+  /** Top source comments captured at scrape time (instant thread preview). */
+  top_comments?: ScrapedComment[];
 }
 
 export type Category = 'model' | 'research' | 'product' | 'safety' | 'policy' | 'other';

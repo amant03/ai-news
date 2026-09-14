@@ -138,8 +138,7 @@ export default function NewsGrid({ items, engMap, expandedKey, onToggle, onEngag
       bySource.set(src, list);
     }
     const sources = [...bySource.entries()]
-      .sort((a, b) => b[1].length - a[1].length || engagementScore(b[1][0]) - engagementScore(a[1][0]))
-      .slice(0, 5);
+      .sort((a, b) => b[1].length - a[1].length || engagementScore(b[1][0]) - engagementScore(a[1][0]));
     return [{ key: '__latest', label: 'Latest', list: latest }, ...sources.map(([label, list]) => ({ key: label, label, list }))];
   }, [items, latest]);
 
@@ -195,8 +194,8 @@ export default function NewsGrid({ items, engMap, expandedKey, onToggle, onEngag
         </section>
       )}
 
-      {/* Columns: Latest first, then major sources */}
-      <div className="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
+      {/* Sections: Latest first, then every source, one below the other */}
+      <div className="flex flex-col gap-8">
         {columns.map(col => {
           const limit = limits[col.key] ?? PER_SECTION;
           const visible = col.list.slice(0, limit);

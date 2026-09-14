@@ -107,9 +107,9 @@ export default function Header({
             </span>
           </a>
 
-          {/* Center nav pill — single primary nav (desktop) */}
+          {/* Center nav pill — hugs its tabs, no dead island space (desktop) */}
           <nav
-            className="hidden lg:flex flex-1 items-center justify-center bg-neutral-100 rounded-[1.5rem] px-2 py-1.5 min-w-0"
+            className="hidden lg:flex flex-none items-center justify-center bg-neutral-100 rounded-[1.5rem] px-1.5 py-1.5 mx-auto"
             aria-label="Primary"
           >
             {NAV.map(item => (
