@@ -194,14 +194,19 @@ export default function NewsGrid({ items, engMap, expandedKey, onToggle, onEngag
         </section>
       )}
 
-      {/* Sections: Latest first, then every source, one below the other */}
-      <div className="flex flex-col gap-8">
+      {/* Sections: Latest first, then every source — 3 across per row */}
+      <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 xl:grid-cols-3 items-start">
         {columns.map(col => {
           const limit = limits[col.key] ?? PER_SECTION;
           const visible = col.list.slice(0, limit);
           const remaining = col.list.length - visible.length;
+          const hasExpanded = visible.some(item => engFor(item.url)?.key === expandedKey);
           return (
-            <section key={col.key} aria-label={col.label}>
+            <section
+              key={col.key}
+              aria-label={col.label}
+              className={hasExpanded ? 'md:col-span-2 xl:col-span-3' : undefined}
+            >
               <h3 className="mb-1 flex items-center gap-2 border-b-2 border-[var(--fore)] pb-1.5 text-[13px] font-bold uppercase tracking-wide">
                 {col.label}
                 <span className="text-[10px] font-medium tabular-nums text-[var(--dim)]">{col.list.length}</span>
