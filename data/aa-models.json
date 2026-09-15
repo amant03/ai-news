@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T19:40:27.307Z",
+  "updatedAt": "2026-09-15T22:51:24.969Z",
   "source": "artificialanalysis.ai",
   "total": 43,
   "models": [
@@ -608,7 +608,7 @@
         "automationBench": 0.6889097769674057,
         "mmmuPro": 0.769942196531792
       },
-      "hostModelCount": 5
+      "hostModelCount": 6
     },
     {
       "slug": "deepseek-v4-pro",
