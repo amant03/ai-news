@@ -208,8 +208,8 @@ export default async function ProvidersPage({ params }: Props) {
       </div>
 
       {/* Title */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+      <div className="mb-8 min-w-0">
+        <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight break-words">
           {entry.name} <span className="text-neutral-500">API Provider Benchmarking &amp; Analysis</span>
         </h1>
         <div className="flex items-center gap-2 mt-3 flex-wrap text-[12px]">
@@ -240,12 +240,12 @@ export default async function ProvidersPage({ params }: Props) {
       <section className="mb-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {showSpeed && (
-          <div className="border border-[var(--color-line)] rounded-lg p-5">
+          <div className="border border-[var(--color-line)] rounded-lg p-5 min-w-0">
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Fastest</div>
             {fastest ? (
               <>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-semibold">{fastest.name}</span>
+                <div className="flex items-baseline gap-2 min-w-0">
+                  <span className="text-2xl font-semibold break-words min-w-0">{fastest.name}</span>
                 </div>
                 <div className="text-3xl font-semibold tabular-nums mt-1">{fastest.speed} <span className="text-[13px] font-normal text-neutral-500">t/s</span></div>
                 <div className="text-[11px] text-neutral-500 mt-2">Output speed · median</div>
@@ -256,12 +256,12 @@ export default async function ProvidersPage({ params }: Props) {
           </div>
           )}
           {showLatency && (
-          <div className="border border-[var(--color-line)] rounded-lg p-5">
+          <div className="border border-[var(--color-line)] rounded-lg p-5 min-w-0">
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Lowest Latency</div>
             {lowestLatency ? (
               <>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-semibold">{lowestLatency.name}</span>
+                <div className="flex items-baseline gap-2 min-w-0">
+                  <span className="text-2xl font-semibold break-words min-w-0">{lowestLatency.name}</span>
                 </div>
                 <div className="text-3xl font-semibold tabular-nums mt-1">{lowestLatency.firstChunk?.toFixed(2)} <span className="text-[13px] font-normal text-neutral-500">s</span></div>
                 <div className="text-[11px] text-neutral-500 mt-2">Time to first answer token</div>
@@ -271,12 +271,12 @@ export default async function ProvidersPage({ params }: Props) {
             )}
           </div>
           )}
-          <div className="border border-[var(--color-line)] rounded-lg p-5">
+          <div className="border border-[var(--color-line)] rounded-lg p-5 min-w-0">
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Lowest Price</div>
             {cheapest ? (
               <>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-semibold">{cheapest.name}</span>
+                <div className="flex items-baseline gap-2 min-w-0">
+                  <span className="text-2xl font-semibold break-words min-w-0">{cheapest.name}</span>
                 </div>
                 <div className="text-3xl font-semibold tabular-nums mt-1">{fmtUSD(cheapest.blendedPrice)}</div>
                 <div className="text-[11px] text-neutral-500 mt-2">Blended price · per 1M tokens</div>

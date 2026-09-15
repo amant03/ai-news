@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { toProviderRow } from '@/lib/provider-endpoints';
+import { dedupeProviders, toProviderRow } from '@/lib/provider-endpoints';
 
 describe('toProviderRow', () => {
   it('maps pricing to per-1M + 3:1 blend', () => {
@@ -43,5 +43,34 @@ describe('toProviderRow', () => {
 
   it('rejects nameless endpoints', () => {
     expect(toProviderRow({})).toBeNull();
+  });
+});
+
+describe('dedupeProviders', () => {
+  const row = (name: string, blendedPrice: number) => ({
+    name,
+    context: '—',
+    license: '—',
+    functionCalling: false,
+    jsonMode: false,
+    costPerTask: null,
+    speed: null,
+    firstChunk: null,
+    totalResponse: null,
+    reasoningTime: null,
+    blendedPrice,
+    inputPrice: 0,
+    outputPrice: 0,
+  });
+
+  it('collapses repeat providers to the cheapest variant', () => {
+    const out = dedupeProviders([
+      row('Azure', 20),
+      row('azure', 18),
+      row('Anthropic', 20),
+      row('AZURE', 25),
+    ]);
+    expect(out.map(r => r.name)).toEqual(['azure', 'Anthropic']);
+    expect(out[0].blendedPrice).toBe(18);
   });
 });

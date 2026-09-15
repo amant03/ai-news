@@ -26,10 +26,25 @@ function BotFace() {
  * The bot bobs, blinks and periodically nudges with a speech bubble.
  * Opens the full multi-question chat panel on click.
  */
+const DISMISS_KEY = 'ai-pulse-bot-dismissed';
+
 export default function BotWidget() {
   const [open, setOpen] = useState(false);
   const [nudge, setNudge] = useState(0);
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(() => {
+    try {
+      return localStorage.getItem(DISMISS_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
+
+  const dismiss = () => {
+    setDismissed(true);
+    try {
+      localStorage.setItem(DISMISS_KEY, '1');
+    } catch {}
+  };
 
   useEffect(() => {
     if (open || dismissed) return;
@@ -63,8 +78,8 @@ export default function BotWidget() {
             role="button"
             aria-label="Dismiss"
             tabIndex={0}
-            onClick={e => { e.stopPropagation(); setDismissed(true); }}
-            onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); setDismissed(true); } }}
+            onClick={e => { e.stopPropagation(); dismiss(); }}
+            onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); dismiss(); } }}
             className="ml-2 text-[var(--dim)] hover:text-[var(--fore)]"
           >
             ✕

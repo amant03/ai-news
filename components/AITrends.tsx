@@ -114,21 +114,64 @@ function maxByYear(points: TrendPoint[], pick: (p: TrendPoint) => number | null)
   return [...best.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([x, y]) => ({ x, y }));
 }
 
-function Card({ title, note, insight, children }: { title: string; note: string; insight: string | null; children: React.ReactNode }) {
+function Card({ title, note, method, insight, children }: { title: string; note: string; method?: string; insight: string | null; children: React.ReactNode }) {
   return (
     <div className="border border-[var(--color-line)] rounded-lg bg-[var(--card)] p-5">
       <h3 className="text-[15px] font-semibold tracking-tight">{title}</h3>
       <p className="text-[11px] text-[var(--mut)] mt-0.5 mb-1">{note}</p>
       {insight && (
-        <p className="text-[12px] leading-relaxed mb-4 max-w-[80ch]">
+        <p className="text-[12px] leading-relaxed mb-1 max-w-[80ch]">
           <span className="mr-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--accent-hover)]">TL;DR</span>
           {insight}
         </p>
       )}
+      {method && <p className="text-[11px] text-[var(--dim)] leading-relaxed mb-4 max-w-[80ch]">How it&apos;s measured: {method}</p>}
+      {!method && insight && <div className="mb-3" />}
       {children}
     </div>
   );
 }
+
+/** Numbers stay readable: max 1 decimal, adaptive USD, no 12-digit floats. */
+function fmtVal(v: unknown): string {
+  const n = typeof v === 'number' ? v : parseFloat(String(v ?? ''));
+  if (!Number.isFinite(n)) return '—';
+  if (Math.abs(n) >= 1000) return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  if (Math.abs(n) >= 100) return n.toFixed(0);
+  return n.toFixed(1);
+}
+
+function fmtUSD(v: unknown): string {
+  const n = typeof v === 'number' ? v : parseFloat(String(v ?? ''));
+  if (!Number.isFinite(n)) return '—';
+  if (n < 0.01) return `$${n.toFixed(4)}`;
+  if (n < 1) return `$${n.toFixed(2)}`;
+  return `$${n.toFixed(n < 10 ? 2 : 0)}`;
+}
+
+/** Theme-aware tooltip: readable in dark mode, formatted values, stays in view. */
+function ChartTip({ active, payload, label, labelPrefix = '', format = fmtVal }: any) {
+  if (!active || !payload?.length) return null;
+  const rows = payload.filter((p: any) => p.value !== null && p.value !== undefined);
+  if (rows.length === 0) return null;
+  return (
+    <div
+      className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-xl text-xs"
+      style={{ maxWidth: 'min(240px, 70vw)', color: 'var(--fore)' }}
+    >
+      {label !== undefined && label !== '' && <div className="font-semibold mb-1">{labelPrefix}{label}</div>}
+      {rows.map((p: any, i: number) => (
+        <div key={i} className="flex items-center gap-1.5 tabular-nums">
+          {p.color && <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.color }} />}
+          <span className="text-[var(--mut)] truncate">{p.name}:</span>
+          <span className="font-semibold ml-auto pl-2">{format(p.value)}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const TIP_BOX = { x: false, y: false } as const;
 
 function Updated({ at }: { at: string | null }) {
   if (!at) return null;
@@ -151,7 +194,9 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
     const scatter = withIntel.map(p => ({ x: p.date, y: p.intelligence, name: p.name, color: p.color }));
     const byCreator = new Map<string, TrendPoint>();
     for (const p of withIntel) {
-      const key = creatorKey(p.creator);
+      // Key by DISPLAY name: raw variants ("xAI" vs "SpaceXAI") alias to one
+      // lab, otherwise the chart shows the same lab twice.
+      const key = creatorKey(creatorDisplay(p.creator));
       const cur = byCreator.get(key);
       if (!cur || (p.intelligence ?? 0) > (cur.intelligence ?? 0)) byCreator.set(key, p);
     }
@@ -173,22 +218,42 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
       .sort((a, b) => b.best - a.best)
       .slice(0, 5)
       .map(c => c.country);
-    const countryLines = topCountries.map(c => {
-      const ps = countries.get(c)!;
-      const byM = new Map<string, number>();
-      for (const p of ps) {
-        const k = monthKey(p.date);
-        const cur = byM.get(k);
-        if (cur === undefined || (p.intelligence ?? 0) > cur) byM.set(k, p.intelligence ?? 0);
+    // One shared, sorted month axis: per-series month lists start at different
+    // months, and recharts lays out multi-series categories in first-seen
+    // order — separate lists scramble the x-axis (e.g. 2025-05 after 2026-07).
+    const monthVals = new Map<string, Map<string, number>>();
+    const register = (series: string, month: string, v: number) => {
+      let m = monthVals.get(series);
+      if (!m) {
+        m = new Map<string, number>();
+        monthVals.set(series, m);
       }
-      return {
-        country: c,
-        color: ps[0]?.color || '#71717a',
-        data: [...byM.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([x, y]) => ({ x, y })),
-      };
-    });
-    const openLine = frontierByMonth(withIntel.filter(p => p.open), p => p.intelligence);
-    const closedLine = frontierByMonth(withIntel.filter(p => !p.open), p => p.intelligence);
+      const cur = m.get(month);
+      if (cur === undefined || v > cur) m.set(month, v);
+    };
+    for (const p of withIntel) {
+      const v = p.intelligence ?? 0;
+      register(`country:${p.country}`, monthKey(p.date), v);
+      register(p.open ? 'open' : 'closed', monthKey(p.date), v);
+    }
+    const allMonths = [...new Set([...monthVals.values()].flatMap(m => [...m.keys()]))].sort();
+    const seriesOnAxis = (series: string) => {
+      const m = monthVals.get(series);
+      const raw = allMonths.map(x => ({ x, y: m?.get(x) ?? null as number | null }));
+      // Cumulative frontier per series so lines never step down mid-history.
+      let peak = -Infinity;
+      return raw.map(d => {
+        if (d.y !== null && d.y > peak) peak = d.y;
+        return { x: d.x, y: peak === -Infinity ? null : peak };
+      });
+    };
+    const countryLines = topCountries.map(c => ({
+      country: c,
+      color: countries.get(c)![0]?.color || '#71717a',
+      data: seriesOnAxis(`country:${c}`),
+    }));
+    const openLine = seriesOnAxis('open');
+    const closedLine = seriesOnAxis('closed');
     const bucket = (b: number | null): string | null => {
       if (b === null) return null;
       if (b < 15) return '<15B';
@@ -239,25 +304,49 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
         <Updated at={updatedAt} />
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-        <Card title="Frontier intelligence over time" note="Best intelligence score released each month · higher is better" insight={frontierInsight}>
+        <Card
+          title="Frontier intelligence over time"
+          note="Best intelligence score released each month · higher is better"
+          method="Intelligence = Artificial Analysis Intelligence Index (0–100 composite of reasoning, coding, math and knowledge benchmarks). Each month plots the best score released that month, carried forward."
+          insight={frontierInsight}
+        >
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={data.frontier} margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
               <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} />
+              <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={50} />
               <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
-              <Tooltip formatter={(v) => [v, 'Intelligence']} labelFormatter={l => `Month ${l}`} />
-              <Line type="stepAfter" dataKey="y" stroke="var(--accent)" strokeWidth={2} dot={false} />
+              <Tooltip content={<ChartTip labelPrefix="Month " />} allowEscapeViewBox={TIP_BOX} />
+              <Line type="stepAfter" dataKey="y" name="Frontier intelligence" stroke="var(--accent)" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </Card>
 
-        <Card title="Intelligence vs release date" note="Every benchmarked release, colored by creator" insight={topLab ? `${topLab.creator}'s ${topLab.name} leads at ${topLab.intel}.` : null}>
+        <Card
+          title="Intelligence vs release date"
+          note="Every benchmarked release, colored by creator"
+          method="Each dot plots one release's intelligence score against its release date — the upward drift is the frontier moving."
+          insight={topLab ? `${topLab.creator}'s ${topLab.name} leads at ${fmtVal(topLab.intel)}.` : null}
+        >
           <ResponsiveContainer width="100%" height={240}>
             <ScatterChart margin={{ top: 5, right: 10, bottom: 0, left: -10 }}>
               <CartesianGrid stroke={LINE} strokeDasharray="3 3" />
-              <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} />
+              <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={50} />
               <YAxis dataKey="y" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} formatter={(_v: unknown, _n: unknown, p: { payload?: { name?: string } }) => [p.payload?.name || '', 'Model']} />
+              <Tooltip
+                cursor={{ strokeDasharray: '3 3' }}
+                allowEscapeViewBox={TIP_BOX}
+                content={({ active, payload }: any) => {
+                  if (!active || !payload?.length) return null;
+                  const d = payload[0]?.payload;
+                  if (!d) return null;
+                  return (
+                    <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-xl text-xs" style={{ maxWidth: 'min(240px, 70vw)', color: 'var(--fore)' }}>
+                      <div className="font-semibold mb-1 break-words">{d.name}</div>
+                      <div className="tabular-nums">Intelligence: <span className="font-semibold">{fmtVal(d.y)}</span></div>
+                    </div>
+                  );
+                }}
+              />
               <Scatter data={data.scatter.slice(0, 300)} fill="var(--accent)">
                 {data.scatter.slice(0, 300).map((p, i) => (
                   <Cell key={i} fill={p.color} />
@@ -267,14 +356,19 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
           </ResponsiveContainer>
         </Card>
 
-        <Card title="Leading models by lab" note="Best intelligence score per creator right now" insight={null}>
-          <ResponsiveContainer width="100%" height={Math.max(200, data.labs.length * 30)}>
-            <BarChart data={data.labs} layout="vertical" margin={{ top: 0, right: 30, bottom: 0, left: 80 }}>
+        <Card
+          title="Leading models by lab"
+          note="Best intelligence score per creator right now"
+          method="One bar per lab: its highest-scoring benchmarked release. Intelligence is the 0–100 index described above."
+          insight={topLab ? `${topLab.creator}'s ${topLab.name} leads at ${fmtVal(topLab.intel)}.` : null}
+        >
+          <ResponsiveContainer width="100%" height={Math.max(220, data.labs.length * 32)}>
+            <BarChart data={data.labs} layout="vertical" margin={{ top: 0, right: 12, bottom: 0, left: 0 }}>
               <CartesianGrid stroke={LINE} strokeDasharray="3 3" horizontal={false} />
               <XAxis type="number" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} />
-              <YAxis type="category" dataKey="creator" tick={{ fontSize: 11, fill: AXIS }} tickLine={false} axisLine={false} width={80} />
-              <Tooltip formatter={(v) => [v, 'Intelligence']} />
-              <Bar dataKey="intel" radius={[0, 4, 4, 0]}>
+              <YAxis type="category" dataKey="creator" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} width={72} />
+              <Tooltip content={<ChartTip />} allowEscapeViewBox={TIP_BOX} />
+              <Bar dataKey="intel" name="Intelligence" radius={[0, 4, 4, 0]}>
                 {data.labs.map((l, i) => (
                   <Cell key={i} fill={l.color} />
                 ))}
@@ -285,26 +379,36 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
 
         {!compact && (
           <>
-            <Card title="Inference price over time" note="Cheapest blended USD per 1M tokens each month · lower is better" insight={cheapFirst && cheapLast ? `Floor price moved from $${cheapFirst.y} to $${cheapLast.y} per 1M tokens.` : null}>
+            <Card
+              title="Inference price over time"
+              note="Cheapest blended USD per 1M tokens each month · lower is better"
+              method="Floor = cheapest blended input/output price among benchmarked releases that month. Log scale — equal gaps mean equal multiples."
+              insight={cheapFirst && cheapLast ? `Floor price moved from ${fmtUSD(cheapFirst.y)} to ${fmtUSD(cheapLast.y)} per 1M tokens.` : null}
+            >
               <ResponsiveContainer width="100%" height={240}>
-                <LineChart data={data.price} margin={{ top: 5, right: 10, bottom: 0, left: -5 }}>
+                <LineChart data={data.price} margin={{ top: 5, right: 10, bottom: 0, left: 0 }}>
                   <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} />
-                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} scale="log" domain={['auto', 'auto']} tickFormatter={(v: number) => `$${v}`} />
-                  <Tooltip formatter={(v) => [`$${v}`, 'Floor price']} labelFormatter={l => `Month ${l}`} />
-                  <Line type="stepAfter" dataKey="y" stroke="#10b981" strokeWidth={2} dot={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={50} />
+                  <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} width={46} scale="log" domain={['auto', 'auto']} tickFormatter={(v: number) => fmtUSD(v)} />
+                  <Tooltip content={<ChartTip labelPrefix="Month " format={fmtUSD} />} allowEscapeViewBox={TIP_BOX} />
+                  <Line type="stepAfter" dataKey="y" name="Floor price" stroke="#10b981" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </Card>
 
-            <Card title="Speed vs intelligence" note="Output tokens/sec against intelligence · up-right is best" insight={fastest ? `${fastest.name} pushes ${Math.round(fastest.y)} tok/s at intelligence ${Math.round(fastest.x)}.` : null}>
+            <Card
+              title="Speed vs intelligence"
+              note="Output tokens/sec against intelligence · up-right is best"
+              method="Each dot is one benchmarked release: median output speed vs its intelligence score."
+              insight={fastest ? `${fastest.name} pushes ${Math.round(fastest.y)} tok/s at intelligence ${Math.round(fastest.x)}.` : null}
+            >
               <ResponsiveContainer width="100%" height={240}>
                 <ScatterChart margin={{ top: 5, right: 10, bottom: 0, left: -10 }}>
                   <CartesianGrid stroke={LINE} strokeDasharray="3 3" />
-                  <XAxis type="number" dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} domain={['auto', 'auto']} />
-                  <YAxis type="number" dataKey="y" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={[0, 'auto']} />
-                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                  <Scatter data={data.speed} fill="var(--accent)">
+                  <XAxis type="number" dataKey="x" name="Intelligence" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} domain={['auto', 'auto']} />
+                  <YAxis type="number" dataKey="y" name="tok/s" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={[0, 'auto']} />
+                  <Tooltip cursor={{ strokeDasharray: '3 3' }} allowEscapeViewBox={TIP_BOX} content={<ChartTip />} />
+                  <Scatter data={data.speed} name="Releases" fill="var(--accent)">
                     {data.speed.map((p, i) => (
                       <Cell key={i} fill={p.color} />
                     ))}
@@ -314,47 +418,79 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
               </ResponsiveContainer>
             </Card>
 
-            <Card title="Frontier by country" note="Best intelligence released per country each month" insight={null}>
-              <ResponsiveContainer width="100%" height={240}>
+            <Card
+              title="Frontier by country"
+              note="Best intelligence released per country each month"
+              method="Same intelligence index, grouped by creator headquarters country. Gaps mean no release that month."
+              insight={(() => {
+                const latest = data.countryLines
+                  .map(c => ({ country: c.country, y: [...c.data].reverse().find(d => d.y !== null)?.y ?? null }))
+                  .filter(c => c.y !== null)
+                  .sort((a, b) => (b.y ?? 0) - (a.y ?? 0));
+                if (latest.length < 2) return null;
+                return `${latest[0].country} leads at ${fmtVal(latest[0].y)}, ${fmtVal((latest[0].y ?? 0) - (latest[1].y ?? 0))} points ahead of ${latest[1].country}.`;
+              })()}
+            >
+              <ResponsiveContainer width="100%" height={260}>
                 <LineChart margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
                   <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} allowDuplicatedCategory={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={50} allowDuplicatedCategory={false} />
                   <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
-                  <Tooltip />
-                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Tooltip content={<ChartTip />} allowEscapeViewBox={TIP_BOX} />
+                  <Legend wrapperStyle={{ fontSize: 11, lineHeight: '22px', paddingTop: 4 }} iconSize={10} />
                   {data.countryLines.map(c => (
-                    <Line key={c.country} data={c.data} type="stepAfter" dataKey="y" name={c.country} stroke={c.color} strokeWidth={2} dot={false} />
+                    <Line key={c.country} data={c.data} type="stepAfter" dataKey="y" name={c.country} stroke={c.color} strokeWidth={2} dot={false} connectNulls />
                   ))}
                 </LineChart>
               </ResponsiveContainer>
             </Card>
 
-            <Card title="Open vs closed frontier" note="Best open-weights vs proprietary intelligence each month" insight={(() => {
-              const o = data.openLine[data.openLine.length - 1]?.y;
-              const c = data.closedLine[data.closedLine.length - 1]?.y;
-              return o !== undefined && c !== undefined ? `Best open model trails the closed frontier by ${(c - o).toFixed(1)} points.` : null;
-            })()}>
-              <ResponsiveContainer width="100%" height={240}>
+            <Card
+              title="Open vs closed frontier"
+              note="Best open-weights vs proprietary intelligence each month"
+              method="Same index, split by weights availability. Both lines are cumulative frontiers, so they never step down."
+              insight={(() => {
+                const last = (line: Array<{ y: number | null }>) => [...line].reverse().find(d => d.y !== null)?.y;
+                const o = last(data.openLine);
+                const c = last(data.closedLine);
+                return o !== undefined && o !== null && c !== undefined && c !== null
+                  ? `Best open model trails the closed frontier by ${(c - o).toFixed(1)} points.`
+                  : null;
+              })()}
+            >
+              <ResponsiveContainer width="100%" height={260}>
                 <LineChart margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
                   <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={40} allowDuplicatedCategory={false} />
+                  <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} minTickGap={50} allowDuplicatedCategory={false} />
                   <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} domain={['auto', 'auto']} />
-                  <Tooltip />
-                  <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Line data={data.openLine} type="stepAfter" dataKey="y" name="Open weights" stroke="#10b981" strokeWidth={2} dot={false} />
-                  <Line data={data.closedLine} type="stepAfter" dataKey="y" name="Proprietary" stroke="var(--accent)" strokeWidth={2} dot={false} />
+                  <Tooltip content={<ChartTip />} allowEscapeViewBox={TIP_BOX} />
+                  <Legend wrapperStyle={{ fontSize: 11, lineHeight: '22px', paddingTop: 4 }} iconSize={10} />
+                  <Line data={data.openLine} type="stepAfter" dataKey="y" name="Open weights" stroke="#10b981" strokeWidth={2} dot={false} connectNulls />
+                  <Line data={data.closedLine} type="stepAfter" dataKey="y" name="Proprietary" stroke="#f59e0b" strokeWidth={2} dot={false} connectNulls />
                 </LineChart>
               </ResponsiveContainer>
             </Card>
 
-            <Card title="Model sizes over time" note="Benchmarked releases per year by parameter bucket" insight={null}>
-              <ResponsiveContainer width="100%" height={240}>
+            <Card
+              title="Model sizes over time"
+              note="Benchmarked releases per year by parameter bucket"
+              method="Counts come straight from our model catalog's disclosed parameter figures; undisclosed sizes are skipped, not guessed."
+              insight={(() => {
+                const totals = data.paramBars.map(r => ({
+                  x: r.x,
+                  n: ['<15B', '15–70B', '70–400B', '400B+'].reduce((s, b) => s + (Number(r[b]) || 0), 0),
+                }));
+                const top = [...totals].sort((a, b) => b.n - a.n)[0];
+                return top && top.n > 0 ? `Most benchmarked releases landed in ${top.x} (${top.n} models).` : null;
+              })()}
+            >
+              <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={data.paramBars} margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
                   <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} />
                   <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} allowDecimals={false} />
-                  <Tooltip />
-                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Tooltip content={<ChartTip />} allowEscapeViewBox={TIP_BOX} cursor={{ fill: 'var(--color-line)', opacity: 0.25 }} />
+                  <Legend wrapperStyle={{ fontSize: 11, lineHeight: '22px', paddingTop: 4 }} iconSize={10} />
                   <Bar dataKey="<15B" stackId="a" fill="#10b981" />
                   <Bar dataKey="15–70B" stackId="a" fill="#0ea5e9" />
                   <Bar dataKey="70–400B" stackId="a" fill="var(--accent)" />
@@ -363,17 +499,33 @@ export default function AITrends({ compact = false }: { compact?: boolean }) {
               </ResponsiveContainer>
             </Card>
 
-            <Card title="Context window growth" note="Largest context window released each year" insight={(() => {
-              const b = data.contextBars;
-              if (b.length < 2) return null;
-              return `Max context grew from ${fmtInt(b[0].y)} (${b[0].x}) to ${fmtInt(b[b.length - 1].y)} (${b[b.length - 1].x}).`;
-            })()}>
+            <Card
+              title="Context window growth"
+              note="Largest context window released each year"
+              method="Largest disclosed context window among that year's benchmarked releases (combined input + output tokens)."
+              insight={(() => {
+                const b = data.contextBars;
+                if (b.length < 2) return null;
+                return `Max context grew from ${fmtInt(b[0].y)} (${b[0].x}) to ${fmtInt(b[b.length - 1].y)} (${b[b.length - 1].x}).`;
+              })()}
+            >
               <ResponsiveContainer width="100%" height={240}>
                 <BarChart data={data.contextBars} margin={{ top: 5, right: 10, bottom: 0, left: -5 }}>
                   <CartesianGrid stroke={LINE} strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="x" tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={{ stroke: LINE }} />
                   <YAxis tick={{ fontSize: 10, fill: AXIS }} tickLine={false} axisLine={false} tickFormatter={(v: number) => fmtInt(v)} />
-                  <Tooltip formatter={(v, _n, p) => [(p?.payload as { label?: string } | undefined)?.label ?? v, 'Max context']} />
+                  <Tooltip
+                    allowEscapeViewBox={TIP_BOX}
+                    content={({ active, payload }: any) => {
+                      if (!active || !payload?.length) return null;
+                      const d = payload[0]?.payload;
+                      return (
+                        <div className="rounded-lg border border-[var(--color-line)] bg-[var(--card)] px-3 py-2 shadow-xl text-xs tabular-nums" style={{ maxWidth: 'min(240px, 70vw)', color: 'var(--fore)' }}>
+                          <div className="font-semibold">{d?.x}: {d?.label ?? fmtInt(d?.y)}</div>
+                        </div>
+                      );
+                    }}
+                  />
                   <Bar dataKey="y" fill="var(--accent)" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>

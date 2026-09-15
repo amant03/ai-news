@@ -63,6 +63,22 @@ const finiteOrNull = (v: unknown): number | null =>
   typeof v === 'number' && Number.isFinite(v) ? v : null;
 
 /**
+ * OpenRouter lists one row per endpoint variant (quantization, region,
+ * fallback route), so the same provider appears 2–4×. Collapse to one row
+ * per provider, keeping the cheapest variant — otherwise the comparison
+ * table shows "Azure, Azure, Azure" and counts look inflated.
+ */
+export function dedupeProviders(rows: ProviderRow[]): ProviderRow[] {
+  const best = new Map<string, ProviderRow>();
+  for (const r of rows) {
+    const key = r.name.toLowerCase();
+    const cur = best.get(key);
+    if (!cur || r.blendedPrice < cur.blendedPrice) best.set(key, r);
+  }
+  return [...best.values()];
+}
+
+/**
  * Reference workload cost ("cost per task"): 10,000 input + 2,000 output
  * tokens at the provider's live price. Fully determined by real prices —
  * the same workload for every provider, so the column compares fairly.
@@ -133,7 +149,7 @@ export async function refreshProviderComparisons(limit = 80): Promise<number> {
     const m = models[i];
     try {
       const endpoints = await fetchEndpoints(m.id);
-      const rows = endpoints.map(toProviderRow).filter((r): r is ProviderRow => r !== null);
+      const rows = dedupeProviders(endpoints.map(toProviderRow).filter((r): r is ProviderRow => r !== null));
       if (rows.length > 0) {
         const key = canonicalSlug(m.name);
         prev[key] = {

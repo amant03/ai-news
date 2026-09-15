@@ -129,6 +129,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Never allow sideways page scroll on small screens: wide tables keep
+ * their own internal scroll instead of pushing the whole page.
+ * `clip` (not `hidden`) preserves position:sticky behavior. */
+body {
+  overflow-x: clip;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

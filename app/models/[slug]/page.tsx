@@ -443,7 +443,7 @@ export default async function ModelDetailPage({ params }: Props) {
         {/* Title */}
         <div className="mb-8">
           <div className="kicker mb-2">Model analysis</div>
-          <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--fore)]">
+          <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--fore)] break-words">
             {model.name}{' '}
             <span className="text-[var(--dim)]">Intelligence, Performance &amp; Price Analysis</span>
           </h1>
