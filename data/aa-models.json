@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-17T04:43:33.506Z",
+  "updatedAt": "2026-09-17T09:50:08.923Z",
   "source": "artificialanalysis.ai",
-  "total": 43,
+  "total": 44,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -991,10 +991,10 @@
       "shortName": "Agnes 3.0 Flash",
       "provider": "Sapiens AI",
       "intelligenceIndex": 35.5,
-      "speed": 234.686717789808,
+      "speed": 317.171489989209,
       "costPerTask": null,
       "verbosity": null,
-      "latency": 1.82590294299996,
+      "latency": 1.99376207599971,
       "promptPrice": 0.05,
       "completionPrice": 0.15,
       "context": "1M",
@@ -1023,10 +1023,10 @@
       "shortName": "Ling-3.0-flash-VL",
       "provider": "InclusionAI",
       "intelligenceIndex": 24.9673304077875,
-      "speed": 144.182619307742,
+      "speed": 143.762257661986,
       "costPerTask": null,
       "verbosity": 160341964,
-      "latency": 2.17273297449998,
+      "latency": 2.19250270900003,
       "promptPrice": 0,
       "completionPrice": 0,
       "context": "262K",
@@ -1453,6 +1453,39 @@
         "tauBanking": 0.319587628865979
       },
       "hostModelCount": 0
+    },
+    {
+      "slug": "ling-3-0-flash-fin",
+      "name": "Ling-3.0-flash-Fin",
+      "shortName": "Ling-3.0-flash-Fin",
+      "provider": "InclusionAI",
+      "intelligenceIndex": 23.0214828940594,
+      "speed": 161.499848114557,
+      "costPerTask": null,
+      "verbosity": 248534210,
+      "latency": 3.19009004100002,
+      "promptPrice": 0,
+      "completionPrice": 0,
+      "context": "262K",
+      "params": "124B",
+      "license": "MIT",
+      "released": "2026-09-11",
+      "family": "open-weights",
+      "isReasoning": true,
+      "inputModalities": "text",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.22613531047266,
+        "scicode": 0.423611111111111,
+        "lcr": 0.736666666666667,
+        "critpt": 0.0257142857142857,
+        "gdpval": 0.335275,
+        "omniscience": -14.5833333333333,
+        "analystAgent": 0.1625,
+        "automationBench": 0.07394444993005693,
+        "tauBanking": 0.385567010309278
+      },
+      "hostModelCount": 1
     }
   ]
 }
