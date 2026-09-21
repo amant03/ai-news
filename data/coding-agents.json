@@ -1,348 +1,8 @@
 {
-  "updatedAt": "2026-09-21T04:42:29.414Z",
+  "updatedAt": "2026-09-21T15:04:24.532Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 10,
   "models": [
-    {
-      "label": "Muse Code - Muse Spark 1.3 (max)",
-      "agent": "Muse Code",
-      "provider": "meta",
-      "model": "Muse Spark 1.3 (max)",
-      "creator": "Meta",
-      "hostModelSlug": "meta_aa_glacier135",
-      "isHighlighted": true,
-      "index": 54.3,
-      "cost": 3.98,
-      "wallTime": 1107,
-      "steps": 185,
-      "totalTokens": 16709445,
-      "inputTokens": 16445971,
-      "outputTokens": 263474,
-      "cacheTokens": 16090656,
-      "cacheHitRate": 0.971,
-      "evals": [
-        {
-          "benchmark": "DeepSWE v1.1",
-          "datasetIndexName": "deep-swe-v1.1",
-          "weight": 0.333333333333333,
-          "reward": 0.7168,
-          "inputTokens": 13526616,
-          "cacheWriteTokens": 0,
-          "outputTokens": 122492
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.5941,
-          "inputTokens": 4493625,
-          "cacheWriteTokens": 0,
-          "outputTokens": 23616
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.3182,
-          "inputTokens": 43900184,
-          "cacheWriteTokens": 0,
-          "outputTokens": 955493
-        }
-      ],
-      "cacheWriteTokens": 0,
-      "totalCostUsd": 1205.18,
-      "costPercentiles": {
-        "p05": 0.6994728876952683,
-        "p25": 1.0872893968371842,
-        "p50": 2.0734771829482943,
-        "p75": 3.7535131079207953,
-        "p95": 13.168053740192518
-      },
-      "tokenPercentiles": {
-        "p05": 2516743.7783278334,
-        "p25": 4610005.632013202,
-        "p50": 9203495.684268419,
-        "p75": 15732086.408140825,
-        "p95": 62899130.50220029
-      },
-      "harnessVersions": {
-        "deep-swe-v1.1": {
-          "version": "1.0.3-R2198.1",
-          "dateReleased": "2026-09-04"
-        },
-        "swe-atlas-qna": {
-          "version": "1.0.3-R2198.1",
-          "dateReleased": "2026-09-04"
-        },
-        "terminal-bench-v4": {
-          "version": "1.0.3-R2198.1",
-          "dateReleased": "2026-09-04"
-        }
-      },
-      "safety": {
-        "attempts": 909,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
-    {
-      "label": "Antigravity SDK - Gemini 3.8 Flash (high)",
-      "agent": "Antigravity SDK v0.1.12",
-      "provider": "google",
-      "model": "Gemini 3.8 Flash (high)",
-      "creator": "Google",
-      "hostModelSlug": "google_skimaki_ai-studio",
-      "isHighlighted": true,
-      "index": 41.9,
-      "cost": 2.47,
-      "wallTime": 703,
-      "steps": 188,
-      "totalTokens": 13511073,
-      "inputTokens": 13395247,
-      "outputTokens": 115826,
-      "cacheTokens": 11871692,
-      "cacheHitRate": 0.87,
-      "evals": [
-        {
-          "benchmark": "DeepSWE v1.1",
-          "datasetIndexName": "deep-swe-v1.1",
-          "weight": 0.333333333333333,
-          "reward": 0.6578,
-          "inputTokens": 16400687,
-          "outputTokens": 148259
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.4516,
-          "inputTokens": 9020407,
-          "outputTokens": 58109
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.1465,
-          "inputTokens": 16468965,
-          "outputTokens": 168737
-        }
-      ],
-      "totalCostUsd": 747.62,
-      "costPercentiles": {
-        "p05": 1.099103153622112,
-        "p25": 1.6439984646864687,
-        "p50": 2.1229609128712874,
-        "p75": 3.008778207632013,
-        "p95": 4.849891568358086
-      },
-      "tokenPercentiles": {
-        "p05": 4679184.810451044,
-        "p25": 8015173.094609471,
-        "p50": 11559537.268426849,
-        "p75": 16883320.984598454,
-        "p95": 28318875.752915297
-      },
-      "harnessVersions": {
-        "deep-swe-v1.1": {
-          "version": "0.1.16",
-          "dateReleased": "2026-09-02"
-        },
-        "swe-atlas-qna": {
-          "version": "0.1.12",
-          "dateReleased": "2026-08-13"
-        },
-        "terminal-bench-v4": {
-          "version": "0.1.16",
-          "dateReleased": "2026-09-02"
-        }
-      },
-      "safety": {
-        "attempts": 909,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
-    {
-      "label": "Claude Code - Qwen3.8 Max",
-      "agent": "Claude Code",
-      "provider": "alibaba_cloud",
-      "model": "Qwen3.8 Max",
-      "creator": "Anthropic",
-      "hostModelSlug": "alibaba_cloud_qwen3-8-max-public",
-      "isHighlighted": true,
-      "index": 43.3,
-      "cost": 3.48,
-      "wallTime": 3784,
-      "steps": 110,
-      "totalTokens": 8706894,
-      "inputTokens": 8600561,
-      "outputTokens": 106333,
-      "cacheTokens": 8290830,
-      "cacheHitRate": 0.951,
-      "evals": [
-        {
-          "benchmark": "DeepSWE v1.1",
-          "datasetIndexName": "deep-swe-v1.1",
-          "weight": 0.333333333333333,
-          "reward": 0.5103,
-          "inputTokens": 10307762,
-          "cacheWriteTokens": 237687,
-          "outputTokens": 104418
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.621,
-          "inputTokens": 5159228,
-          "cacheWriteTokens": 127448,
-          "outputTokens": 45812
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.1667,
-          "inputTokens": 12143162,
-          "cacheWriteTokens": 649710,
-          "outputTokens": 223316
-        }
-      ],
-      "cacheWriteTokens": 282320,
-      "totalCostUsd": 1048.21,
-      "costPercentiles": {
-        "p05": 1.2462484540154002,
-        "p25": 1.9738426430143006,
-        "p50": 2.838224532178221,
-        "p75": 4.649543275302529,
-        "p95": 7.302521150137508
-      },
-      "tokenPercentiles": {
-        "p05": 2586103.0433443333,
-        "p25": 4938223.044004401,
-        "p50": 7296928.9218921885,
-        "p75": 11298465.588558838,
-        "p95": 18720391.11265126
-      },
-      "harnessVersions": {
-        "deep-swe-v1.1": {
-          "version": "2.1.261",
-          "dateReleased": "2026-09-04"
-        },
-        "swe-atlas-qna": {
-          "version": "2.1.224",
-          "dateReleased": "2026-08-07"
-        },
-        "terminal-bench-v4": {
-          "version": "2.1.261",
-          "dateReleased": "2026-09-04"
-        }
-      },
-      "safety": {
-        "attempts": 909,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
-    {
-      "label": "Claude Code - Opus 5 (max)",
-      "agent": "Claude Code",
-      "provider": "anthropic",
-      "model": "Opus 5 (max)",
-      "creator": "Anthropic",
-      "hostModelSlug": "anthropic_claude-opus-5",
-      "isHighlighted": true,
-      "index": 59.7,
-      "cost": 10.79,
-      "wallTime": 2516,
-      "steps": 152,
-      "totalTokens": 11374850,
-      "inputTokens": 11238194,
-      "outputTokens": 136656,
-      "cacheTokens": 10929014,
-      "cacheHitRate": 0.97,
-      "evals": [
-        {
-          "benchmark": "DeepSWE v1.1",
-          "datasetIndexName": "deep-swe-v1.1",
-          "weight": 0.333333333333333,
-          "reward": 0.6254,
-          "inputTokens": 13358102,
-          "cacheWriteTokens": 269934,
-          "outputTokens": 129794
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.621,
-          "inputTokens": 7586224,
-          "cacheWriteTokens": 143246,
-          "outputTokens": 61960
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.5455,
-          "inputTokens": 14469933,
-          "cacheWriteTokens": 672467,
-          "outputTokens": 288742
-        }
-      ],
-      "cacheWriteTokens": 305769,
-      "totalCostUsd": 3269.11,
-      "costPercentiles": {
-        "p05": 4.070634550165014,
-        "p25": 6.0050860609185905,
-        "p50": 8.377338476347639,
-        "p75": 13.669421935368524,
-        "p95": 24.306012511496142
-      },
-      "tokenPercentiles": {
-        "p05": 3637409.260286029,
-        "p25": 6155919.92079208,
-        "p50": 9436168.620462047,
-        "p75": 14396226.760176001,
-        "p95": 24864036.97546756
-      },
-      "harnessVersions": {
-        "deep-swe-v1.1": {
-          "version": "2.1.263",
-          "dateReleased": "2026-09-06"
-        },
-        "swe-atlas-qna": {
-          "version": "2.1.218",
-          "dateReleased": "2026-07-22"
-        },
-        "terminal-bench-v4": {
-          "version": "2.1.263",
-          "dateReleased": "2026-09-06"
-        }
-      },
-      "safety": {
-        "attempts": 908,
-        "refused": 3,
-        "hardStop": 0,
-        "recovered": 3,
-        "fallback": 3,
-        "continued": 0,
-        "rate": 0.005076142131979696
-      }
-    },
     {
       "label": "Codex - GPT-6 Astra (max) ({'reasoning_effort': 'max'})",
       "agent": "Codex",
@@ -516,89 +176,253 @@
       }
     },
     {
-      "label": "Claude Code - Fable 5.1 (max) (with fallback)",
-      "agent": "Claude Code",
-      "provider": "anthropic",
-      "model": "Fable 5.1 (max) (with fallback)",
-      "creator": "Anthropic",
-      "hostModelSlug": "anthropic_claude-fable-5-1",
+      "label": "Antigravity SDK - Gemini 3.8 Flash (high)",
+      "agent": "Antigravity SDK v0.1.12",
+      "provider": "google",
+      "model": "Gemini 3.8 Flash (high)",
+      "creator": "Google",
+      "hostModelSlug": "google_skimaki_ai-studio",
       "isHighlighted": true,
-      "index": 62.2,
-      "cost": 12.39,
-      "wallTime": 2090,
-      "steps": 37,
-      "totalTokens": 5715254,
-      "inputTokens": 5581622,
-      "outputTokens": 133632,
-      "cacheTokens": 5205556,
-      "cacheHitRate": 0.916,
+      "index": 41.9,
+      "cost": 2.47,
+      "wallTime": 703,
+      "steps": 188,
+      "totalTokens": 13511073,
+      "inputTokens": 13395247,
+      "outputTokens": 115826,
+      "cacheTokens": 11871692,
+      "cacheHitRate": 0.87,
       "evals": [
         {
           "benchmark": "DeepSWE v1.1",
           "datasetIndexName": "deep-swe-v1.1",
           "weight": 0.333333333333333,
-          "reward": 0.6431,
-          "inputTokens": 6428755,
-          "cacheWriteTokens": 427534,
-          "outputTokens": 155542
+          "reward": 0.6578,
+          "inputTokens": 16400687,
+          "outputTokens": 148259
         },
         {
           "benchmark": "SWE-Atlas-QnA",
           "datasetIndexName": "swe-atlas-qna",
           "weight": 0.333333333333333,
-          "reward": 0.6478,
-          "inputTokens": 3623188,
-          "cacheWriteTokens": 225090,
-          "outputTokens": 81143
+          "reward": 0.4516,
+          "inputTokens": 9020407,
+          "outputTokens": 58109
         },
         {
           "benchmark": "Terminal-Bench v4",
           "datasetIndexName": "terminal-bench-v4",
           "weight": 0.333333333333333,
-          "reward": 0.5758,
-          "inputTokens": 7810712,
-          "cacheWriteTokens": 556773,
-          "outputTokens": 194732
+          "reward": 0.1465,
+          "inputTokens": 16468965,
+          "outputTokens": 168737
         }
       ],
-      "cacheWriteTokens": 372837,
-      "totalCostUsd": 3753.59,
+      "totalCostUsd": 747.62,
       "costPercentiles": {
-        "p05": 5.444339298624863,
-        "p25": 7.8804961398515,
-        "p50": 11.040917095709577,
-        "p75": 14.93645990085259,
-        "p95": 22.439563513833875
+        "p05": 1.099103153622112,
+        "p25": 1.6439984646864687,
+        "p50": 2.1229609128712874,
+        "p75": 3.008778207632013,
+        "p95": 4.849891568358086
       },
       "tokenPercentiles": {
-        "p05": 1605004.4331133126,
-        "p25": 2728342.3767876793,
-        "p50": 4432038.257425743,
-        "p75": 7298906.072607261,
-        "p95": 13976824.222882291
+        "p05": 4679184.810451044,
+        "p25": 8015173.094609471,
+        "p50": 11559537.268426849,
+        "p75": 16883320.984598454,
+        "p95": 28318875.752915297
       },
       "harnessVersions": {
         "deep-swe-v1.1": {
-          "version": "2.1.263",
-          "dateReleased": "2026-09-06"
-        },
-        "swe-atlas-qna": {
-          "version": "2.1.259",
+          "version": "0.1.16",
           "dateReleased": "2026-09-02"
         },
+        "swe-atlas-qna": {
+          "version": "0.1.12",
+          "dateReleased": "2026-08-13"
+        },
         "terminal-bench-v4": {
-          "version": "2.1.263",
-          "dateReleased": "2026-09-06"
+          "version": "0.1.16",
+          "dateReleased": "2026-09-02"
         }
       },
       "safety": {
         "attempts": 909,
-        "refused": 74,
+        "refused": 0,
         "hardStop": 0,
-        "recovered": 74,
-        "fallback": 74,
+        "recovered": 0,
+        "fallback": 0,
         "continued": 0,
-        "rate": 0.08835668513087869
+        "rate": 0
+      }
+    },
+    {
+      "label": "Codex - DeepSeek V4 Pro 0813 (max)",
+      "agent": "Codex",
+      "provider": "deepseek",
+      "model": "DeepSeek V4 Pro 0813 (max)",
+      "creator": "OpenAI",
+      "hostModelSlug": "deepseek_deepseek-v4-pro-0813",
+      "isHighlighted": true,
+      "index": 43.1,
+      "cost": 0.24,
+      "wallTime": 2418,
+      "steps": 138,
+      "totalTokens": 24180108,
+      "inputTokens": 24063626,
+      "outputTokens": 116482,
+      "cacheTokens": 23948932,
+      "cacheHitRate": 0.99,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.5723,
+          "inputTokens": 21857745,
+          "outputTokens": 116677
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6183,
+          "inputTokens": 9901327,
+          "outputTokens": 46364
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.101,
+          "inputTokens": 54448315,
+          "outputTokens": 247887
+        }
+      ],
+      "totalCostUsd": 72.13,
+      "costPercentiles": {
+        "p05": 0.08553589994158414,
+        "p25": 0.13481908242684273,
+        "p50": 0.20057701675687584,
+        "p75": 0.30849491996424616,
+        "p95": 0.4808581146649064
+      },
+      "tokenPercentiles": {
+        "p05": 3736359.9761276133,
+        "p25": 8302592.635863575,
+        "p50": 17833020.419141915,
+        "p75": 32302640.28272825,
+        "p95": 63649800.394829504
+      },
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "0.153.2",
+          "dateReleased": "2026-09-03"
+        },
+        "swe-atlas-qna": {
+          "version": "0.147.0",
+          "dateReleased": "2026-08-07"
+        },
+        "terminal-bench-v4": {
+          "version": "0.153.2",
+          "dateReleased": "2026-09-03"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
+    {
+      "label": "Claude Code - Qwen3.8 Max",
+      "agent": "Claude Code",
+      "provider": "alibaba_cloud",
+      "model": "Qwen3.8 Max",
+      "creator": "Anthropic",
+      "hostModelSlug": "alibaba_cloud_qwen3-8-max-public",
+      "isHighlighted": true,
+      "index": 43.3,
+      "cost": 3.48,
+      "wallTime": 3784,
+      "steps": 110,
+      "totalTokens": 8706894,
+      "inputTokens": 8600561,
+      "outputTokens": 106333,
+      "cacheTokens": 8290830,
+      "cacheHitRate": 0.951,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.5103,
+          "inputTokens": 10307762,
+          "cacheWriteTokens": 237687,
+          "outputTokens": 104418
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.621,
+          "inputTokens": 5159228,
+          "cacheWriteTokens": 127448,
+          "outputTokens": 45812
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.1667,
+          "inputTokens": 12143162,
+          "cacheWriteTokens": 649710,
+          "outputTokens": 223316
+        }
+      ],
+      "cacheWriteTokens": 282320,
+      "totalCostUsd": 1048.21,
+      "costPercentiles": {
+        "p05": 1.2462484540154002,
+        "p25": 1.9738426430143006,
+        "p50": 2.838224532178221,
+        "p75": 4.649543275302529,
+        "p95": 7.302521150137508
+      },
+      "tokenPercentiles": {
+        "p05": 2586103.0433443333,
+        "p25": 4938223.044004401,
+        "p50": 7296928.9218921885,
+        "p75": 11298465.588558838,
+        "p95": 18720391.11265126
+      },
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "2.1.261",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "2.1.224",
+          "dateReleased": "2026-08-07"
+        },
+        "terminal-bench-v4": {
+          "version": "2.1.261",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
     },
     {
@@ -688,6 +512,178 @@
       }
     },
     {
+      "label": "Muse Code - Muse Spark 1.3 (max)",
+      "agent": "Muse Code",
+      "provider": "meta",
+      "model": "Muse Spark 1.3 (max)",
+      "creator": "Meta",
+      "hostModelSlug": "meta_aa_glacier135",
+      "isHighlighted": true,
+      "index": 54.3,
+      "cost": 3.98,
+      "wallTime": 1107,
+      "steps": 185,
+      "totalTokens": 16709445,
+      "inputTokens": 16445971,
+      "outputTokens": 263474,
+      "cacheTokens": 16090656,
+      "cacheHitRate": 0.971,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.7168,
+          "inputTokens": 13526616,
+          "cacheWriteTokens": 0,
+          "outputTokens": 122492
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.5941,
+          "inputTokens": 4493625,
+          "cacheWriteTokens": 0,
+          "outputTokens": 23616
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.3182,
+          "inputTokens": 43900184,
+          "cacheWriteTokens": 0,
+          "outputTokens": 955493
+        }
+      ],
+      "cacheWriteTokens": 0,
+      "totalCostUsd": 1205.18,
+      "costPercentiles": {
+        "p05": 0.6994728876952683,
+        "p25": 1.0872893968371842,
+        "p50": 2.0734771829482943,
+        "p75": 3.7535131079207953,
+        "p95": 13.168053740192518
+      },
+      "tokenPercentiles": {
+        "p05": 2516743.7783278334,
+        "p25": 4610005.632013202,
+        "p50": 9203495.684268419,
+        "p75": 15732086.408140825,
+        "p95": 62899130.50220029
+      },
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "1.0.3-R2198.1",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "1.0.3-R2198.1",
+          "dateReleased": "2026-09-04"
+        },
+        "terminal-bench-v4": {
+          "version": "1.0.3-R2198.1",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 909,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
+    {
+      "label": "Claude Code - Opus 5 (max)",
+      "agent": "Claude Code",
+      "provider": "anthropic",
+      "model": "Opus 5 (max)",
+      "creator": "Anthropic",
+      "hostModelSlug": "anthropic_claude-opus-5",
+      "isHighlighted": true,
+      "index": 59.7,
+      "cost": 10.79,
+      "wallTime": 2516,
+      "steps": 152,
+      "totalTokens": 11374850,
+      "inputTokens": 11238194,
+      "outputTokens": 136656,
+      "cacheTokens": 10929014,
+      "cacheHitRate": 0.97,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.6254,
+          "inputTokens": 13358102,
+          "cacheWriteTokens": 269934,
+          "outputTokens": 129794
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.621,
+          "inputTokens": 7586224,
+          "cacheWriteTokens": 143246,
+          "outputTokens": 61960
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.5455,
+          "inputTokens": 14469933,
+          "cacheWriteTokens": 672467,
+          "outputTokens": 288742
+        }
+      ],
+      "cacheWriteTokens": 305769,
+      "totalCostUsd": 3269.11,
+      "costPercentiles": {
+        "p05": 4.070634550165014,
+        "p25": 6.0050860609185905,
+        "p50": 8.377338476347639,
+        "p75": 13.669421935368524,
+        "p95": 24.306012511496142
+      },
+      "tokenPercentiles": {
+        "p05": 3637409.260286029,
+        "p25": 6155919.92079208,
+        "p50": 9436168.620462047,
+        "p75": 14396226.760176001,
+        "p95": 24864036.97546756
+      },
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
+        },
+        "swe-atlas-qna": {
+          "version": "2.1.218",
+          "dateReleased": "2026-07-22"
+        },
+        "terminal-bench-v4": {
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
+        }
+      },
+      "safety": {
+        "attempts": 908,
+        "refused": 3,
+        "hardStop": 0,
+        "recovered": 3,
+        "fallback": 3,
+        "continued": 0,
+        "rate": 0.005076142131979696
+      }
+    },
+    {
       "label": "Grok Build - Grok 4.6 (xhigh)",
       "agent": "Grok Build",
       "provider": "xai",
@@ -770,85 +766,89 @@
       }
     },
     {
-      "label": "Codex - DeepSeek V4 Pro 0813 (max)",
-      "agent": "Codex",
-      "provider": "deepseek",
-      "model": "DeepSeek V4 Pro 0813 (max)",
-      "creator": "OpenAI",
-      "hostModelSlug": "deepseek_deepseek-v4-pro-0813",
+      "label": "Claude Code - Fable 5.1 (max) (with fallback)",
+      "agent": "Claude Code",
+      "provider": "anthropic",
+      "model": "Fable 5.1 (max) (with fallback)",
+      "creator": "Anthropic",
+      "hostModelSlug": "anthropic_claude-fable-5-1",
       "isHighlighted": true,
-      "index": 43.1,
-      "cost": 0.24,
-      "wallTime": 2418,
-      "steps": 138,
-      "totalTokens": 24180108,
-      "inputTokens": 24063626,
-      "outputTokens": 116482,
-      "cacheTokens": 23948932,
-      "cacheHitRate": 0.99,
+      "index": 62.2,
+      "cost": 12.39,
+      "wallTime": 2090,
+      "steps": 37,
+      "totalTokens": 5715254,
+      "inputTokens": 5581622,
+      "outputTokens": 133632,
+      "cacheTokens": 5205556,
+      "cacheHitRate": 0.916,
       "evals": [
         {
           "benchmark": "DeepSWE v1.1",
           "datasetIndexName": "deep-swe-v1.1",
           "weight": 0.333333333333333,
-          "reward": 0.5723,
-          "inputTokens": 21857745,
-          "outputTokens": 116677
+          "reward": 0.6431,
+          "inputTokens": 6428755,
+          "cacheWriteTokens": 427534,
+          "outputTokens": 155542
         },
         {
           "benchmark": "SWE-Atlas-QnA",
           "datasetIndexName": "swe-atlas-qna",
           "weight": 0.333333333333333,
-          "reward": 0.6183,
-          "inputTokens": 9901327,
-          "outputTokens": 46364
+          "reward": 0.6478,
+          "inputTokens": 3623188,
+          "cacheWriteTokens": 225090,
+          "outputTokens": 81143
         },
         {
           "benchmark": "Terminal-Bench v4",
           "datasetIndexName": "terminal-bench-v4",
           "weight": 0.333333333333333,
-          "reward": 0.101,
-          "inputTokens": 54448315,
-          "outputTokens": 247887
+          "reward": 0.5758,
+          "inputTokens": 7810712,
+          "cacheWriteTokens": 556773,
+          "outputTokens": 194732
         }
       ],
-      "totalCostUsd": 72.13,
+      "cacheWriteTokens": 372837,
+      "totalCostUsd": 3753.59,
       "costPercentiles": {
-        "p05": 0.08553589994158414,
-        "p25": 0.13481908242684273,
-        "p50": 0.20057701675687584,
-        "p75": 0.30849491996424616,
-        "p95": 0.4808581146649064
+        "p05": 5.444339298624863,
+        "p25": 7.8804961398515,
+        "p50": 11.040917095709577,
+        "p75": 14.93645990085259,
+        "p95": 22.439563513833875
       },
       "tokenPercentiles": {
-        "p05": 3736359.9761276133,
-        "p25": 8302592.635863575,
-        "p50": 17833020.419141915,
-        "p75": 32302640.28272825,
-        "p95": 63649800.394829504
+        "p05": 1605004.4331133126,
+        "p25": 2728342.3767876793,
+        "p50": 4432038.257425743,
+        "p75": 7298906.072607261,
+        "p95": 13976824.222882291
       },
       "harnessVersions": {
         "deep-swe-v1.1": {
-          "version": "0.153.2",
-          "dateReleased": "2026-09-03"
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
         },
         "swe-atlas-qna": {
-          "version": "0.147.0",
-          "dateReleased": "2026-08-07"
+          "version": "2.1.259",
+          "dateReleased": "2026-09-02"
         },
         "terminal-bench-v4": {
-          "version": "0.153.2",
-          "dateReleased": "2026-09-03"
+          "version": "2.1.263",
+          "dateReleased": "2026-09-06"
         }
       },
       "safety": {
         "attempts": 909,
-        "refused": 0,
+        "refused": 74,
         "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
+        "recovered": 74,
+        "fallback": 74,
         "continued": 0,
-        "rate": 0
+        "rate": 0.08835668513087869
       }
     }
   ]
