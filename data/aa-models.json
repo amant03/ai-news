@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-22T04:38:46.371Z",
+  "updatedAt": "2026-09-22T09:38:56.913Z",
   "source": "artificialanalysis.ai",
-  "total": 47,
+  "total": 48,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -1024,10 +1024,10 @@
       "shortName": "Ling-3.0-flash-VL",
       "provider": "InclusionAI",
       "intelligenceIndex": 24.5693054077875,
-      "speed": 147.526571480265,
+      "speed": 148.074145847428,
       "costPerTask": null,
       "verbosity": 160782174,
-      "latency": 2.593593462,
+      "latency": 3.29198254200014,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -1325,10 +1325,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 161.489589878706,
+      "speed": 156.204424445258,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 2.645754036,
+      "latency": 2.858948594,
       "promptPrice": 0,
       "completionPrice": 0,
       "context": "262K",
@@ -1572,6 +1572,35 @@
         "gdpval": 0.586595,
         "omniscience": 8.383333333333333,
         "automationBench": 0.5862340943419085
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "grok-4-7-high",
+      "name": "Grok 4.7 (high)",
+      "shortName": "Grok 4.7 (high)",
+      "provider": "SpaceXAI",
+      "intelligenceIndex": 46.3321770885625,
+      "speed": 55.3338642368153,
+      "costPerTask": 2.726106691786027,
+      "verbosity": 197670478,
+      "latency": 0.841834561000013,
+      "promptPrice": 2,
+      "completionPrice": 6,
+      "context": "500K",
+      "released": "2026-09-21",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.423076923076923,
+        "scicode": 0.577546296296296,
+        "lcr": 0.77,
+        "critpt": 0.18,
+        "gdpval": 0.5968600000000001,
+        "omniscience": 30.9,
+        "automationBench": 0.6351937297314658
       },
       "hostModelCount": 1
     }
