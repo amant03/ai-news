@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-24T09:42:57.281Z",
+  "updatedAt": "2026-09-25T10:00:02.533Z",
   "source": "Artificial Analysis Text to Video Arena",
   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
   "total": 36,
@@ -91,7 +91,7 @@
       "ci": "-6/6",
       "samples": 16670,
       "released": "Jun 2026",
-      "price": "$9.90 /min"
+      "price": "$10.80 /min"
     },
     {
       "rank": 9,
@@ -102,7 +102,7 @@
       "ci": "-7/7",
       "samples": 7618,
       "released": "Apr 2026",
-      "price": "$13.20 /min"
+      "price": "$14.40 /min"
     },
     {
       "rank": 10,
@@ -168,7 +168,7 @@
       "ci": "-6/6",
       "samples": 16439,
       "released": "Jan 2026",
-      "price": "$9.00 /min"
+      "price": "$7.20 /min"
     },
     {
       "rank": 16,
@@ -212,7 +212,7 @@
       "ci": "-6/6",
       "samples": 16534,
       "released": "Jan 2026",
-      "price": "$9.60 /min"
+      "price": "$7.20 /min"
     },
     {
       "rank": 20,
