@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-26T22:39:42.575Z",
+  "updatedAt": "2026-09-27T05:08:28.437Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
@@ -27,7 +27,6 @@
           "weight": 0.333333333333333,
           "reward": 0.7168,
           "inputTokens": 13526616,
-          "cacheWriteTokens": 0,
           "outputTokens": 122492
         },
         {
@@ -36,7 +35,6 @@
           "weight": 0.333333333333333,
           "reward": 0.5941,
           "inputTokens": 4493625,
-          "cacheWriteTokens": 0,
           "outputTokens": 23616
         },
         {
@@ -45,11 +43,9 @@
           "weight": 0.333333333333333,
           "reward": 0.3182,
           "inputTokens": 43900184,
-          "cacheWriteTokens": 0,
           "outputTokens": 955493
         }
       ],
-      "cacheWriteTokens": 0,
       "totalCostUsd": 1205.18,
       "costPercentiles": {
         "p05": 0.6994728876952683,
@@ -195,7 +191,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6903,
           "inputTokens": 9754197,
-          "cacheWriteTokens": 174584,
           "outputTokens": 70300
         },
         {
@@ -204,7 +199,6 @@
           "weight": 0.333333333333333,
           "reward": 0.5753,
           "inputTokens": 6133615,
-          "cacheWriteTokens": 161604,
           "outputTokens": 37934
         },
         {
@@ -213,11 +207,9 @@
           "weight": 0.333333333333333,
           "reward": 0.4343,
           "inputTokens": 16668545,
-          "cacheWriteTokens": 213189,
           "outputTokens": 93811
         }
       ],
-      "cacheWriteTokens": 177681,
       "totalCostUsd": 905.89,
       "costPercentiles": {
         "p05": 0.8303700961936205,
@@ -281,7 +273,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6755,
           "inputTokens": 3338102,
-          "cacheWriteTokens": 149223,
           "outputTokens": 56420
         },
         {
@@ -290,7 +281,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6183,
           "inputTokens": 2623791,
-          "cacheWriteTokens": 143514,
           "outputTokens": 28534
         },
         {
@@ -299,11 +289,9 @@
           "weight": 0.333333333333333,
           "reward": 0.5556,
           "inputTokens": 4503152,
-          "cacheWriteTokens": 197442,
           "outputTokens": 65845
         }
       ],
-      "cacheWriteTokens": 157390,
       "totalCostUsd": 2251.13,
       "costPercentiles": {
         "p05": 2.7390315410891106,
@@ -449,7 +437,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6431,
           "inputTokens": 6428755,
-          "cacheWriteTokens": 427534,
           "outputTokens": 155542
         },
         {
@@ -458,7 +445,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6478,
           "inputTokens": 3623188,
-          "cacheWriteTokens": 225090,
           "outputTokens": 81143
         },
         {
@@ -467,11 +453,9 @@
           "weight": 0.333333333333333,
           "reward": 0.5758,
           "inputTokens": 7810712,
-          "cacheWriteTokens": 556773,
           "outputTokens": 194732
         }
       ],
-      "cacheWriteTokens": 372837,
       "totalCostUsd": 3753.59,
       "costPercentiles": {
         "p05": 5.444339298624863,
@@ -535,7 +519,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6844,
           "inputTokens": 15895335,
-          "cacheWriteTokens": 752507,
           "outputTokens": 406479
         },
         {
@@ -544,7 +527,6 @@
           "weight": 0.333333333333333,
           "reward": 0.664,
           "inputTokens": 14842420,
-          "cacheWriteTokens": 448828,
           "outputTokens": 214788
         },
         {
@@ -553,11 +535,9 @@
           "weight": 0.333333333333333,
           "reward": 0.6313,
           "inputTokens": 14764903,
-          "cacheWriteTokens": 780848,
           "outputTokens": 430101
         }
       ],
-      "cacheWriteTokens": 634402,
       "totalCostUsd": 3950.02,
       "costPercentiles": {
         "p05": 4.819416574015403,
@@ -621,7 +601,6 @@
           "weight": 0.333333333333333,
           "reward": 0.6136,
           "inputTokens": 16638608,
-          "cacheWriteTokens": 0,
           "outputTokens": 75200
         },
         {
@@ -630,7 +609,6 @@
           "weight": 0.333333333333333,
           "reward": 0.5941,
           "inputTokens": 6141052,
-          "cacheWriteTokens": 0,
           "outputTokens": 28542
         },
         {
@@ -639,11 +617,9 @@
           "weight": 0.333333333333333,
           "reward": 0.399,
           "inputTokens": 25175801,
-          "cacheWriteTokens": 0,
           "outputTokens": 158542
         }
       ],
-      "cacheWriteTokens": 0,
       "totalCostUsd": 1285.14,
       "costPercentiles": {
         "p05": 0.889673751515953,
