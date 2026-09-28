@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-28T05:10:48.845Z",
+  "updatedAt": "2026-09-28T11:27:34.033Z",
   "source": "artificialanalysis.ai",
-  "total": 67,
+  "total": 68,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -992,10 +992,10 @@
       "shortName": "Ling-3.0-flash-VL",
       "provider": "InclusionAI",
       "intelligenceIndex": 24.5693054077875,
-      "speed": 145.63696040474,
+      "speed": 143.795035535609,
       "costPerTask": null,
       "verbosity": 160782174,
-      "latency": 1.8334018674999,
+      "latency": 1.85699724699993,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -1293,10 +1293,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 160.022483255263,
+      "speed": 160.592770441791,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.71051270249998,
+      "latency": 1.73061663299999,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -2173,6 +2173,38 @@
         "mmmuPro": 0.65606936416185
       },
       "hostModelCount": 4
+    },
+    {
+      "slug": "mimo-v2-6-flash",
+      "name": "MiMo-V2.6-Flash",
+      "shortName": "MiMo-V2.6-Flash",
+      "provider": "Xiaomi",
+      "intelligenceIndex": 37.8843590141754,
+      "speed": 59.1967174428422,
+      "costPerTask": 0.0621899731897297,
+      "verbosity": 244206097,
+      "latency": 3.58068473049999,
+      "promptPrice": 0.14,
+      "completionPrice": 0.28,
+      "context": "1M",
+      "params": "309B",
+      "license": "MIT",
+      "released": "2026-09-21",
+      "family": "open-weights",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.350787766450417,
+        "scicode": 0.512731481481482,
+        "lcr": 0.743333333333333,
+        "critpt": 0.12,
+        "gdpval": 0.55003,
+        "omniscience": -12.683333333333334,
+        "automationBench": 0.6405168250285657,
+        "mmmuPro": 0.730635838150289
+      },
+      "hostModelCount": 1
     }
   ]
 }
