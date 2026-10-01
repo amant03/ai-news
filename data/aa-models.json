@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-01T05:36:53.115Z",
+  "updatedAt": "2026-10-01T11:24:01.529Z",
   "source": "artificialanalysis.ai",
-  "total": 81,
+  "total": 82,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -965,7 +965,7 @@
     },
     {
       "slug": "gpt-5-5-pro",
-      "name": "GPT-5.5 Pro (xhigh)",
+      "name": "GPT-5.5 Pro (Xhigh)",
       "shortName": "GPT-5.5 Pro (xhigh)",
       "provider": "OpenAI",
       "intelligenceIndex": null,
@@ -995,7 +995,7 @@
       "speed": 142.446492943429,
       "costPerTask": null,
       "verbosity": 160782174,
-      "latency": 1.86196604899999,
+      "latency": 1.84728205699997,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -1256,7 +1256,7 @@
     },
     {
       "slug": "gemini-3-8-flash-low",
-      "name": "Gemini 3.8 Flash (low)",
+      "name": "Gemini 3.8 Flash (Low)",
       "shortName": "Gemini 3.8 Flash (low)",
       "provider": "Google",
       "intelligenceIndex": 33.4548106699132,
@@ -1293,10 +1293,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 270.278251896592,
+      "speed": 290.470192527382,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.79802763149997,
+      "latency": 1.73339330650004,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -2384,7 +2384,7 @@
     },
     {
       "slug": "jt236b",
-      "name": "JT-4.1 Flash 236B A21B",
+      "name": "JT-4.1 Flash 236B A21B (Reasoning)",
       "shortName": "JT-4.1 Flash 236B A21B",
       "provider": "China Mobile",
       "intelligenceIndex": 33.9172581709394,
@@ -2589,6 +2589,36 @@
         "gdpval": 0.555665,
         "omniscience": 42.35,
         "automationBench": 0.7751346945899195
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "solar-mini4",
+      "name": "Solar Mini 4",
+      "shortName": "Solar Mini 4",
+      "provider": "Upstage",
+      "intelligenceIndex": 24.0522018844171,
+      "speed": 201.122748894595,
+      "costPerTask": 0.36336112521859043,
+      "verbosity": 365015396,
+      "latency": 1.49536273350005,
+      "promptPrice": 0.1,
+      "completionPrice": 0.4,
+      "context": "1.0M",
+      "params": "35B",
+      "released": "2026-09-22",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.257645968489342,
+        "scicode": 0.475694444444444,
+        "lcr": 0.833333333333333,
+        "critpt": 0.0142857142857143,
+        "gdpval": 0.285915,
+        "omniscience": -10.816666666666666,
+        "automationBench": 0.22252425682190993
       },
       "hostModelCount": 1
     }
