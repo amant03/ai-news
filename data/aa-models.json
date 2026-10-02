@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-02T05:23:44.453Z",
+  "updatedAt": "2026-10-02T10:54:01.333Z",
   "source": "artificialanalysis.ai",
-  "total": 82,
+  "total": 83,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -1293,10 +1293,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 290.470192527382,
+      "speed": 285.751785985922,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.73339330650004,
+      "latency": 1.74881907600002,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -2622,6 +2622,36 @@
         "gdpval": 0.285915,
         "omniscience": -10.816666666666666,
         "automationBench": 0.22252425682190993
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "grok-4-7-low",
+      "name": "Grok 4.7 (Low)",
+      "shortName": "Grok 4.7 (low)",
+      "provider": "SpaceXAI",
+      "intelligenceIndex": 42.2166560223448,
+      "speed": 76.3340094632327,
+      "costPerTask": 1.2479664056943975,
+      "verbosity": 75214855,
+      "latency": 8.91854686850002,
+      "promptPrice": 2,
+      "completionPrice": 6,
+      "context": "500K",
+      "released": "2026-09-21",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.391566265060241,
+        "scicode": 0.548611111111111,
+        "lcr": 0.8,
+        "critpt": 0.134285714285714,
+        "gdpval": 0.5368099999999999,
+        "omniscience": 29.616666666666667,
+        "automationBench": 0.5673837407466283,
+        "mmmuPro": 0.78150289017341
       },
       "hostModelCount": 1
     }
