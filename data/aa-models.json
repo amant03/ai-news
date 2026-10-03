@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T05:07:30.347Z",
+  "updatedAt": "2026-10-03T10:14:16.166Z",
   "source": "artificialanalysis.ai",
   "total": 83,
   "models": [
@@ -1012,7 +1012,7 @@
         "scicode": 0.44212962962963,
         "lcr": 0.783333333333333,
         "critpt": 0.02,
-        "gdpval": 0.32494500000000004,
+        "gdpval": 0.332345,
         "terminalbench": 0,
         "omniscience": -4.533333333333333,
         "automationBench": 0.1568437535870999,
@@ -1047,7 +1047,7 @@
         "scicode": 0.262731481481481,
         "lcr": 0.593333333333333,
         "critpt": 0.00285714285714286,
-        "gdpval": 0.09713499999999999,
+        "gdpval": 0.10534500000000002,
         "terminalbench": 0,
         "omniscience": -11.65,
         "automationBench": 0.018006007862431707,
@@ -1278,7 +1278,7 @@
         "scicode": 0.549768518518518,
         "lcr": 0.806666666666667,
         "critpt": 0.04,
-        "gdpval": 0.39718,
+        "gdpval": 0.40541499999999997,
         "terminalbench": 0.101010101010101,
         "omniscience": 21.35,
         "automationBench": 0.3650940461486253,
@@ -1293,10 +1293,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 285.751785985922,
+      "speed": 342.956910720165,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.74881907600002,
+      "latency": 1.73131495899998,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -1312,7 +1312,7 @@
         "scicode": 0.423611111111111,
         "lcr": 0.736666666666667,
         "critpt": 0.0257142857142857,
-        "gdpval": 0.29647,
+        "gdpval": 0.302765,
         "omniscience": -14.583333333333334,
         "analystAgent": 0.1625,
         "automationBench": 0.07394444993005693,
@@ -1379,7 +1379,7 @@
         "scicode": 0.219907407407407,
         "lcr": 0.623333333333333,
         "critpt": 0,
-        "gdpval": 0.18229,
+        "gdpval": 0.192015,
         "omniscience": -28.616666666666667,
         "automationBench": 0.14695137139561937,
         "tauBanking": 0.195876288659794
@@ -1412,7 +1412,7 @@
         "scicode": 0.275462962962963,
         "lcr": 0.696666666666667,
         "critpt": 0.00285714285714286,
-        "gdpval": 0.2557,
+        "gdpval": 0.26244000000000006,
         "omniscience": -16.566666666666666,
         "automationBench": 0.209005917720684,
         "tauBanking": 0.276288659793814
@@ -1445,7 +1445,7 @@
         "scicode": 0.400462962962963,
         "lcr": 0.716666666666667,
         "critpt": 0.0228571428571429,
-        "gdpval": 0.34064,
+        "gdpval": 0.34652499999999997,
         "omniscience": -10.95,
         "automationBench": 0.2610203199558987,
         "tauBanking": 0.319587628865979
@@ -2386,36 +2386,6 @@
       "hostModelCount": 6
     },
     {
-      "slug": "jt236b",
-      "name": "JT-4.1 Flash 236B A21B (Reasoning)",
-      "shortName": "JT-4.1 Flash 236B A21B",
-      "provider": "China Mobile",
-      "intelligenceIndex": 33.9172581709394,
-      "speed": null,
-      "costPerTask": null,
-      "verbosity": 184566355,
-      "latency": null,
-      "promptPrice": null,
-      "completionPrice": null,
-      "context": "262K",
-      "params": "236B",
-      "released": "2026-07-09",
-      "family": "closed",
-      "isReasoning": true,
-      "inputModalities": "text",
-      "outputModalities": "text",
-      "evals": {
-        "hle": 0.435588507877665,
-        "scicode": 0.519675925925926,
-        "lcr": 0.783333333333333,
-        "critpt": 0.14,
-        "gdpval": 0.40804499999999994,
-        "omniscience": 20.566666666666666,
-        "automationBench": 0.4647120946439391
-      },
-      "hostModelCount": 0
-    },
-    {
       "slug": "deepseek-v4-pro-non-reasoning",
       "name": "DeepSeek V4 Pro 0813 (Non-reasoning)",
       "shortName": "DeepSeek V4 Pro 0813 (Non-reasoning)",
@@ -2654,6 +2624,36 @@
         "mmmuPro": 0.78150289017341
       },
       "hostModelCount": 1
+    },
+    {
+      "slug": "jt-4-1-flash-236b-a21b",
+      "name": "JT-4.1 Flash 236B A21B (Reasoning)",
+      "shortName": "JT-4.1 Flash 236B A21B",
+      "provider": "China Mobile",
+      "intelligenceIndex": 33.9172581709394,
+      "speed": null,
+      "costPerTask": null,
+      "verbosity": 184566355,
+      "latency": null,
+      "promptPrice": null,
+      "completionPrice": null,
+      "context": "262K",
+      "params": "236B",
+      "released": "2026-07-09",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.435588507877665,
+        "scicode": 0.519675925925926,
+        "lcr": 0.783333333333333,
+        "critpt": 0.14,
+        "gdpval": 0.413995,
+        "omniscience": 20.566666666666666,
+        "automationBench": 0.4647120946439391
+      },
+      "hostModelCount": 0
     }
   ]
 }
