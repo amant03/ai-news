@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-04T05:39:44.663Z",
+  "updatedAt": "2026-10-04T10:54:47.750Z",
   "source": "artificialanalysis.ai",
-  "total": 83,
+  "total": 84,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -1278,7 +1278,7 @@
         "scicode": 0.549768518518518,
         "lcr": 0.806666666666667,
         "critpt": 0.04,
-        "gdpval": 0.40541499999999997,
+        "gdpval": 0.40517499999999995,
         "terminalbench": 0.101010101010101,
         "omniscience": 21.35,
         "automationBench": 0.3650940461486253,
@@ -2654,6 +2654,36 @@
         "automationBench": 0.4647120946439391
       },
       "hostModelCount": 0
+    },
+    {
+      "slug": "ling-3-1-flash",
+      "name": "Ling 3.1 Flash",
+      "shortName": "Ling 3.1 Flash",
+      "provider": "InclusionAI",
+      "intelligenceIndex": 41.0906200397391,
+      "speed": 210.197182381731,
+      "costPerTask": 0.9856894983836784,
+      "verbosity": 217613455,
+      "latency": 1.78473942599999,
+      "promptPrice": 0.3,
+      "completionPrice": 0.9,
+      "context": "1M",
+      "params": "560B",
+      "released": "2026-10-01",
+      "family": "open-weights",
+      "isReasoning": true,
+      "inputModalities": "text",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.394346617238183,
+        "scicode": 0.540509259259259,
+        "lcr": 0.83,
+        "critpt": 0.18,
+        "gdpval": 0.560875,
+        "omniscience": 2.216666666666667,
+        "automationBench": 0.6174373352506193
+      },
+      "hostModelCount": 1
     }
   ]
 }
