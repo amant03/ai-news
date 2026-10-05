@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T05:23:31.088Z",
+  "updatedAt": "2026-10-05T12:03:45.706Z",
   "source": "artificialanalysis.ai",
   "total": 84,
   "models": [
@@ -1293,10 +1293,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 342.956910720165,
+      "speed": 338.061487752886,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.73131495899998,
+      "latency": 1.75186417800004,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -1312,7 +1312,7 @@
         "scicode": 0.423611111111111,
         "lcr": 0.736666666666667,
         "critpt": 0.0257142857142857,
-        "gdpval": 0.302765,
+        "gdpval": 0.30254,
         "omniscience": -14.583333333333334,
         "analystAgent": 0.1625,
         "automationBench": 0.07394444993005693,
