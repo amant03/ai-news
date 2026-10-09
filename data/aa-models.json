@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-09T05:55:20.299Z",
+  "updatedAt": "2026-10-09T11:40:20.234Z",
   "source": "artificialanalysis.ai",
-  "total": 86,
+  "total": 87,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -992,10 +992,10 @@
       "shortName": "Ling-3.0-flash-VL",
       "provider": "InclusionAI",
       "intelligenceIndex": 24.5693054077875,
-      "speed": 145.103654535109,
+      "speed": 145.334881433208,
       "costPerTask": null,
       "verbosity": 160782174,
-      "latency": 1.96936108799991,
+      "latency": 1.87544382900002,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -1293,10 +1293,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 320.155178366169,
+      "speed": 316.552954450474,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.65504361500007,
+      "latency": 1.69899395100003,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
@@ -2744,6 +2744,26 @@
         "automationBench": 0.35411015132783624
       },
       "hostModelCount": 3
+    },
+    {
+      "slug": "gpt-6-sol-daybreak-blue",
+      "name": "GPT-6 Sol (Daybreak Blue, max)",
+      "shortName": "GPT-6 Sol (Daybreak Blue, max)",
+      "provider": "OpenAI",
+      "intelligenceIndex": null,
+      "speed": null,
+      "costPerTask": null,
+      "verbosity": null,
+      "latency": null,
+      "promptPrice": 2,
+      "completionPrice": 10,
+      "context": "1.1M",
+      "released": "2026-09-22",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "hostModelCount": 1
     }
   ]
 }
