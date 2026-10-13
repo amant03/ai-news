@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T11:40:05.137Z",
+  "updatedAt": "2026-10-13T12:28:48.871Z",
   "source": "artificialanalysis.ai",
   "total": 89,
   "models": [
@@ -1022,7 +1022,7 @@
         "tauBanking": 0.344329896907216,
         "mmmuPro": 0.789595375722543
       },
-      "hostModelCount": 1
+      "hostModelCount": 0
     },
     {
       "slug": "minicpm5-2b",
@@ -1296,10 +1296,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 322.331166116636,
+      "speed": 313.970224864082,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.74351513149999,
+      "latency": 1.6787846825,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
