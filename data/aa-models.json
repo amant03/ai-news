@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T04:36:17.189Z",
+  "updatedAt": "2026-10-20T09:49:22.068Z",
   "source": "artificialanalysis.ai",
   "total": 96,
   "models": [
@@ -1300,10 +1300,10 @@
       "shortName": "Ling-3.0-flash-Fin",
       "provider": "InclusionAI",
       "intelligenceIndex": 22.5965828940594,
-      "speed": 295.780397164196,
+      "speed": 283.602282861396,
       "costPerTask": null,
       "verbosity": 248534210,
-      "latency": 1.747726043,
+      "latency": 1.662986123,
       "promptPrice": 0.075,
       "completionPrice": 0.22,
       "context": "262K",
