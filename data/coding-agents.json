@@ -1,88 +1,8 @@
 {
-  "updatedAt": "2026-10-20T13:31:59.024Z",
+  "updatedAt": "2026-10-20T19:58:57.991Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
-    {
-      "label": "Grok Build - Grok 4.7 (xhigh)",
-      "agent": "Grok Build",
-      "provider": "xai",
-      "model": "Grok 4.7 (xhigh)",
-      "isHighlighted": true,
-      "index": 56.3,
-      "cost": 8.82,
-      "wallTime": 2354,
-      "steps": 163,
-      "totalTokens": 14324724,
-      "inputTokens": 14201448,
-      "outputTokens": 123276,
-      "cacheTokens": 13550057,
-      "cacheHitRate": 0.939,
-      "evals": [
-        {
-          "benchmark": "DeepSWE v1.1",
-          "datasetIndexName": "deep-swe-v1.1",
-          "weight": 0.333333333333333,
-          "reward": 0.7257,
-          "inputTokens": 14656744,
-          "outputTokens": 152948
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.629,
-          "inputTokens": 7966826,
-          "outputTokens": 57168
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.3333,
-          "inputTokens": 25135459,
-          "outputTokens": 196677
-        }
-      ],
-      "totalCostUsd": 2671.69,
-      "costPercentiles": {
-        "p05": 2.7192659427942796,
-        "p25": 4.51524115951595,
-        "p50": 6.599111777777779,
-        "p75": 9.808614987898796,
-        "p95": 18.236931686028605
-      },
-      "tokenPercentiles": {
-        "p05": 3709632.12431243,
-        "p25": 6478872.97579758,
-        "p50": 9948394.636963697,
-        "p75": 15872444.876787692,
-        "p95": 31362264.765786577
-      },
-      "harnessVersions": {
-        "deep-swe-v1.1": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 905,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
     {
       "label": "Antigravity CLI - Gemini 4 Argon (high)",
       "agent": "Antigravity CLI",
@@ -249,14 +169,14 @@
       "provider": "meta",
       "model": "Muse Wonder (max)",
       "isHighlighted": true,
-      "index": 63.5,
-      "cost": 8.05,
-      "wallTime": 1347,
+      "index": 63.7,
+      "cost": 8.04,
+      "wallTime": 1346,
       "steps": 192,
-      "totalTokens": 15016300,
-      "inputTokens": 14926251,
-      "outputTokens": 90049,
-      "cacheTokens": 14066776,
+      "totalTokens": 15007202,
+      "inputTokens": 14917219,
+      "outputTokens": 89983,
+      "cacheTokens": 14060139,
       "cacheHitRate": 0.936,
       "evals": [
         {
@@ -279,22 +199,22 @@
           "benchmark": "Terminal-Bench v4",
           "datasetIndexName": "terminal-bench-v4",
           "weight": 0.333333333333333,
-          "reward": 0.4747,
-          "inputTokens": 22295537,
-          "outputTokens": 184438
+          "reward": 0.4798,
+          "inputTokens": 22254074,
+          "outputTokens": 184135
         }
       ],
-      "totalCostUsd": 2439.83,
+      "totalCostUsd": 2436.12,
       "costPercentiles": {
         "p05": 2.6737455608360827,
-        "p25": 4.100936713751376,
-        "p50": 5.834057349174917,
+        "p25": 4.08045520748075,
+        "p50": 5.817447073267327,
         "p75": 9.297360100330032,
         "p95": 20.254953733509357
       },
       "tokenPercentiles": {
         "p05": 3925483.2587458747,
-        "p25": 7205080.601760175,
+        "p25": 7142775.476347634,
         "p50": 10553400.481848191,
         "p75": 17657619.64631461,
         "p95": 37392653.92046204
@@ -411,12 +331,12 @@
       "isHighlighted": true,
       "index": 61.6,
       "cost": 7.47,
-      "wallTime": 1762,
+      "wallTime": 1761,
       "steps": 39,
-      "totalTokens": 3346611,
-      "inputTokens": 3299550,
-      "outputTokens": 47061,
-      "cacheTokens": 3141589,
+      "totalTokens": 3345996,
+      "inputTokens": 3298947,
+      "outputTokens": 47049,
+      "cacheTokens": 3141023,
       "cacheHitRate": 0.934,
       "evals": [
         {
@@ -440,21 +360,21 @@
           "datasetIndexName": "terminal-bench-v4",
           "weight": 0.333333333333333,
           "reward": 0.5556,
-          "inputTokens": 4503152,
-          "outputTokens": 65845
+          "inputTokens": 4500384,
+          "outputTokens": 65791
         }
       ],
-      "totalCostUsd": 2251.13,
+      "totalCostUsd": 2250.64,
       "costPercentiles": {
         "p05": 2.7390315410891106,
-        "p25": 4.340413036578659,
+        "p25": 4.296071963971399,
         "p50": 6.125789602860287,
         "p75": 8.728907821232124,
         "p95": 14.871133791914197
       },
       "tokenPercentiles": {
         "p05": 824190.9740374036,
-        "p25": 1550558.2557755776,
+        "p25": 1544087.5330033004,
         "p50": 2403033.1683168346,
         "p75": 3942392.7057205727,
         "p95": 7480476.901430149
@@ -481,6 +401,86 @@
         "fallback": 0,
         "continued": 0,
         "rate": 0.01164874551971326
+      }
+    },
+    {
+      "label": "Grok Build - Grok 4.7 (xhigh)",
+      "agent": "Grok Build",
+      "provider": "xai",
+      "model": "Grok 4.7 (xhigh)",
+      "isHighlighted": true,
+      "index": 56.3,
+      "cost": 8.82,
+      "wallTime": 2354,
+      "steps": 163,
+      "totalTokens": 14324724,
+      "inputTokens": 14201448,
+      "outputTokens": 123276,
+      "cacheTokens": 13550057,
+      "cacheHitRate": 0.939,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.7257,
+          "inputTokens": 14656744,
+          "outputTokens": 152948
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.629,
+          "inputTokens": 7966826,
+          "outputTokens": 57168
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.3333,
+          "inputTokens": 25135459,
+          "outputTokens": 196677
+        }
+      ],
+      "totalCostUsd": 2671.69,
+      "costPercentiles": {
+        "p05": 2.7192659427942796,
+        "p25": 4.51524115951595,
+        "p50": 6.599111777777779,
+        "p75": 9.808614987898796,
+        "p95": 18.236931686028605
+      },
+      "tokenPercentiles": {
+        "p05": 3709632.12431243,
+        "p25": 6478872.97579758,
+        "p50": 9948394.636963697,
+        "p75": 15872444.876787692,
+        "p95": 31362264.765786577
+      },
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 905,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
     },
     {
