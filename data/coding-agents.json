@@ -1,88 +1,8 @@
 {
-  "updatedAt": "2026-10-21T20:04:23.600Z",
+  "updatedAt": "2026-10-22T04:27:04.087Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
-    {
-      "label": "Grok Build - Grok 4.7 (xhigh)",
-      "agent": "Grok Build",
-      "provider": "xai",
-      "model": "Grok 4.7 (xhigh)",
-      "isHighlighted": true,
-      "index": 56.3,
-      "cost": 8.82,
-      "wallTime": 2354,
-      "steps": 163,
-      "totalTokens": 14324724,
-      "inputTokens": 14201448,
-      "outputTokens": 123276,
-      "cacheTokens": 13550057,
-      "cacheHitRate": 0.939,
-      "evals": [
-        {
-          "benchmark": "DeepSWE v1.1",
-          "datasetIndexName": "deep-swe-v1.1",
-          "weight": 0.333333333333333,
-          "reward": 0.7257,
-          "inputTokens": 14656744,
-          "outputTokens": 152948
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.629,
-          "inputTokens": 7966826,
-          "outputTokens": 57168
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.3333,
-          "inputTokens": 25135459,
-          "outputTokens": 196677
-        }
-      ],
-      "totalCostUsd": 2671.69,
-      "costPercentiles": {
-        "p05": 2.7192659427942796,
-        "p25": 4.51524115951595,
-        "p50": 6.599111777777779,
-        "p75": 9.808614987898796,
-        "p95": 18.236931686028605
-      },
-      "tokenPercentiles": {
-        "p05": 3709632.12431243,
-        "p25": 6478872.97579758,
-        "p50": 9948394.636963697,
-        "p75": 15872444.876787692,
-        "p95": 31362264.765786577
-      },
-      "harnessVersions": {
-        "deep-swe-v1.1": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 905,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
     {
       "label": "Antigravity CLI - Gemini 4 Argon (high)",
       "agent": "Antigravity CLI",
@@ -481,6 +401,86 @@
         "fallback": 0,
         "continued": 0,
         "rate": 0.01164874551971326
+      }
+    },
+    {
+      "label": "Grok Build - Grok 4.7 (xhigh)",
+      "agent": "Grok Build",
+      "provider": "xai",
+      "model": "Grok 4.7 (xhigh)",
+      "isHighlighted": true,
+      "index": 56.3,
+      "cost": 8.82,
+      "wallTime": 2354,
+      "steps": 163,
+      "totalTokens": 14324724,
+      "inputTokens": 14201448,
+      "outputTokens": 123276,
+      "cacheTokens": 13550057,
+      "cacheHitRate": 0.939,
+      "evals": [
+        {
+          "benchmark": "DeepSWE v1.1",
+          "datasetIndexName": "deep-swe-v1.1",
+          "weight": 0.333333333333333,
+          "reward": 0.7257,
+          "inputTokens": 14656744,
+          "outputTokens": 152948
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.629,
+          "inputTokens": 7966826,
+          "outputTokens": 57168
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.3333,
+          "inputTokens": 25135459,
+          "outputTokens": 196677
+        }
+      ],
+      "totalCostUsd": 2671.69,
+      "costPercentiles": {
+        "p05": 2.7192659427942796,
+        "p25": 4.51524115951595,
+        "p50": 6.599111777777779,
+        "p75": 9.808614987898796,
+        "p95": 18.236931686028605
+      },
+      "tokenPercentiles": {
+        "p05": 3709632.12431243,
+        "p25": 6478872.97579758,
+        "p50": 9948394.636963697,
+        "p75": 15872444.876787692,
+        "p95": 31362264.765786577
+      },
+      "harnessVersions": {
+        "deep-swe-v1.1": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 905,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
       }
     },
     {
