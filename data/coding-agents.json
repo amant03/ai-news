@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T23:14:34.388Z",
+  "updatedAt": "2026-10-23T04:32:24.359Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
@@ -81,6 +81,86 @@
         "fallback": 76,
         "continued": 0,
         "rate": 0.08699902248289344
+      }
+    },
+    {
+      "label": "Codex - GPT-6 Astra (max)",
+      "agent": "Codex",
+      "provider": "openai",
+      "model": "GPT-6 Astra (max)",
+      "isHighlighted": true,
+      "index": 54.7,
+      "cost": 7.04,
+      "wallTime": 1487,
+      "steps": 39,
+      "totalTokens": 3228511,
+      "inputTokens": 3187375,
+      "outputTokens": 41137,
+      "cacheTokens": 3031295,
+      "cacheHitRate": 0.928,
+      "evals": [
+        {
+          "benchmark": "FrontierCode v1.1 Main",
+          "datasetIndexName": "frontiercode-v1.1-main",
+          "weight": 0.333333333333333,
+          "reward": 0.493,
+          "inputTokens": 2399034,
+          "outputTokens": 28122
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.5914,
+          "inputTokens": 2626466,
+          "outputTokens": 28576
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.5556,
+          "inputTokens": 4536624,
+          "outputTokens": 66713
+        }
+      ],
+      "totalCostUsd": 1889.96,
+      "costPercentiles": {
+        "p05": 1.79340665833333,
+        "p25": 3.14552633333333,
+        "p50": 5.23164133333333,
+        "p75": 7.73760425,
+        "p95": 11.8593084
+      },
+      "tokenPercentiles": {
+        "p05": 458967.416666667,
+        "p25": 1096475.58333333,
+        "p50": 2168265,
+        "p75": 3598700.66666667,
+        "p95": 6220041.26666666
+      },
+      "harnessVersions": {
+        "frontiercode-v1.1-main": {
+          "version": "0.153.4",
+          "dateReleased": "2026-09-04"
+        },
+        "swe-atlas-qna": {
+          "version": "0.151.0",
+          "dateReleased": "2026-08-29"
+        },
+        "terminal-bench-v4": {
+          "version": "0.153.4",
+          "dateReleased": "2026-09-04"
+        }
+      },
+      "safety": {
+        "attempts": 870,
+        "refused": 13,
+        "hardStop": 13,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0.01164874551971326
       }
     },
     {
@@ -321,86 +401,6 @@
         "fallback": 0,
         "continued": 0,
         "rate": 0
-      }
-    },
-    {
-      "label": "Codex - GPT-6 Astra (max)",
-      "agent": "Codex",
-      "provider": "openai",
-      "model": "GPT-6 Astra (max)",
-      "isHighlighted": true,
-      "index": 54.7,
-      "cost": 7.04,
-      "wallTime": 1487,
-      "steps": 39,
-      "totalTokens": 3228511,
-      "inputTokens": 3187375,
-      "outputTokens": 41137,
-      "cacheTokens": 3031295,
-      "cacheHitRate": 0.928,
-      "evals": [
-        {
-          "benchmark": "FrontierCode v1.1 Main",
-          "datasetIndexName": "frontiercode-v1.1-main",
-          "weight": 0.333333333333333,
-          "reward": 0.493,
-          "inputTokens": 2399034,
-          "outputTokens": 28122
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.5914,
-          "inputTokens": 2626466,
-          "outputTokens": 28576
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.5556,
-          "inputTokens": 4536624,
-          "outputTokens": 66713
-        }
-      ],
-      "totalCostUsd": 1889.96,
-      "costPercentiles": {
-        "p05": 1.79340665833333,
-        "p25": 3.14552633333333,
-        "p50": 5.23164133333333,
-        "p75": 7.73760425,
-        "p95": 11.8593084
-      },
-      "tokenPercentiles": {
-        "p05": 458967.416666667,
-        "p25": 1096475.58333333,
-        "p50": 2168265,
-        "p75": 3598700.66666667,
-        "p95": 6220041.26666666
-      },
-      "harnessVersions": {
-        "frontiercode-v1.1-main": {
-          "version": "0.153.4",
-          "dateReleased": "2026-09-04"
-        },
-        "swe-atlas-qna": {
-          "version": "0.151.0",
-          "dateReleased": "2026-08-29"
-        },
-        "terminal-bench-v4": {
-          "version": "0.153.4",
-          "dateReleased": "2026-09-04"
-        }
-      },
-      "safety": {
-        "attempts": 870,
-        "refused": 13,
-        "hardStop": 13,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0.01164874551971326
       }
     },
     {
