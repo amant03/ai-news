@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T19:55:43.923Z",
+  "updatedAt": "2026-10-23T23:02:57.380Z",
   "source": "artificialanalysis.ai",
   "total": 98,
   "models": [
@@ -3024,7 +3024,7 @@
         "automationBench": 0.6664095364949257,
         "mmmuPro": 0.80635838150289
       },
-      "hostModelCount": 18
+      "hostModelCount": 21
     },
     {
       "slug": "minimax-m3-1-flash",
@@ -3054,7 +3054,7 @@
         "automationBench": 0.7252180957532544,
         "mmmuPro": 0.791329479768786
       },
-      "hostModelCount": 1
+      "hostModelCount": 13
     },
     {
       "slug": "ling-3-1-flash-1019",
