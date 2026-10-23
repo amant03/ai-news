@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-23T04:32:23.388Z",
+  "updatedAt": "2026-10-23T09:45:33.788Z",
   "source": "artificialanalysis.ai",
-  "total": 96,
+  "total": 97,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3053,6 +3053,34 @@
         "omniscience": 15.55,
         "automationBench": 0.7252180957532544,
         "mmmuPro": 0.791329479768786
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "ling-3-1-flash-1019",
+      "name": "Ling 3.1 Flash 1019",
+      "shortName": "Ling 3.1 Flash 1019",
+      "provider": "InclusionAI",
+      "intelligenceIndex": 43.8973584978265,
+      "speed": null,
+      "costPerTask": 1.4886425967752979,
+      "verbosity": 346800677,
+      "latency": null,
+      "promptPrice": 0.3,
+      "completionPrice": 0.9,
+      "context": "1.0M",
+      "released": "2026-10-22",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.43466172381835,
+        "scicode": 0.568287037037037,
+        "lcr": 0.823333333333333,
+        "critpt": 0.26,
+        "omniscience": -0.31666666666666665,
+        "automationBench": 0.6754660741517774
       },
       "hostModelCount": 1
     }
