@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-24T04:22:46.309Z",
+  "updatedAt": "2026-10-24T09:18:42.709Z",
   "source": "artificialanalysis.ai",
-  "total": 98,
+  "total": 99,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -1325,7 +1325,7 @@
         "automationBench": 0.07394444993005693,
         "tauBanking": 0.385567010309278
       },
-      "hostModelCount": 1
+      "hostModelCount": 0
     },
     {
       "slug": "k2-horizon-0-9b",
@@ -3114,6 +3114,30 @@
         "analystAgent": 0.3875
       },
       "hostModelCount": 2
+    },
+    {
+      "slug": "nemotron-3-5-bolt-e4b-4gb",
+      "name": "Nemotron 3.5 Bolt E4B 4GB (Reasoning)",
+      "shortName": "Nemotron 3.5 Bolt E4B 4GB",
+      "provider": "NVIDIA",
+      "intelligenceIndex": null,
+      "speed": null,
+      "costPerTask": null,
+      "verbosity": null,
+      "latency": null,
+      "promptPrice": null,
+      "completionPrice": null,
+      "context": "131K",
+      "params": "8.0B",
+      "released": "2026-10-23",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "ifbench": 0.610884353741497
+      },
+      "hostModelCount": 0
     }
   ]
 }
