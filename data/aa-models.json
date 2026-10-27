@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T04:48:37.617Z",
+  "updatedAt": "2026-10-27T10:13:08.078Z",
   "source": "artificialanalysis.ai",
   "total": 100,
   "models": [
@@ -3063,8 +3063,8 @@
       "provider": "InclusionAI",
       "intelligenceIndex": 43.8973584978265,
       "speed": null,
-      "costPerTask": 1.4886425967752979,
-      "verbosity": 346800677,
+      "costPerTask": 1.4887147314556197,
+      "verbosity": 346850977,
       "latency": null,
       "promptPrice": 0.3,
       "completionPrice": 0.9,
@@ -3129,8 +3129,9 @@
       "completionPrice": null,
       "context": "131K",
       "params": "8.0B",
+      "license": "OpenMDW-1.1",
       "released": "2026-10-23",
-      "family": "closed",
+      "family": "open-weights",
       "isReasoning": true,
       "inputModalities": "text, image",
       "outputModalities": "text",
