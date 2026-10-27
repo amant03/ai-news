@@ -2,63 +2,63 @@
   "sources": {
     "youtube": {
       "ok": true,
-      "count": 26,
-      "lastAttempt": "2026-10-27T14:20:22.147Z",
-      "lastSuccess": "2026-10-27T14:20:22.147Z"
+      "count": 22,
+      "lastAttempt": "2026-10-27T20:34:56.403Z",
+      "lastSuccess": "2026-10-27T20:34:56.403Z"
     },
     "arxiv": {
       "ok": true,
       "count": 61,
-      "lastAttempt": "2026-10-27T14:20:22.349Z",
-      "lastSuccess": "2026-10-27T14:20:22.349Z"
+      "lastAttempt": "2026-10-27T20:34:56.994Z",
+      "lastSuccess": "2026-10-27T20:34:56.994Z"
     },
     "github": {
       "ok": true,
-      "count": 17,
-      "lastAttempt": "2026-10-27T14:20:23.985Z",
-      "lastSuccess": "2026-10-27T14:20:23.985Z"
+      "count": 20,
+      "lastAttempt": "2026-10-27T20:34:57.791Z",
+      "lastSuccess": "2026-10-27T20:34:57.791Z"
     },
     "reddit": {
       "ok": true,
       "count": 10,
-      "lastAttempt": "2026-10-27T14:20:23.375Z",
-      "lastSuccess": "2026-10-27T14:20:23.375Z"
+      "lastAttempt": "2026-10-27T20:34:57.755Z",
+      "lastSuccess": "2026-10-27T20:34:57.755Z"
     },
     "rss": {
       "ok": true,
-      "count": 216,
-      "lastAttempt": "2026-10-27T14:20:23.056Z",
-      "lastSuccess": "2026-10-27T14:20:23.056Z"
+      "count": 228,
+      "lastAttempt": "2026-10-27T20:35:00.553Z",
+      "lastSuccess": "2026-10-27T20:35:00.553Z"
     },
     "google-news": {
       "ok": true,
-      "count": 87,
-      "lastAttempt": "2026-10-27T14:20:24.160Z",
-      "lastSuccess": "2026-10-27T14:20:24.160Z"
+      "count": 90,
+      "lastAttempt": "2026-10-27T20:34:59.684Z",
+      "lastSuccess": "2026-10-27T20:34:59.684Z"
     },
     "hackernews": {
       "ok": true,
-      "count": 5,
-      "lastAttempt": "2026-10-27T14:20:24.483Z",
-      "lastSuccess": "2026-10-27T14:20:24.483Z"
+      "count": 8,
+      "lastAttempt": "2026-10-27T20:34:59.477Z",
+      "lastSuccess": "2026-10-27T20:34:59.477Z"
     },
     "web": {
       "ok": true,
-      "count": 84,
-      "lastAttempt": "2026-10-27T14:20:28.130Z",
-      "lastSuccess": "2026-10-27T14:20:28.130Z"
+      "count": 99,
+      "lastAttempt": "2026-10-27T20:34:59.695Z",
+      "lastSuccess": "2026-10-27T20:34:59.695Z"
     },
     "twitter": {
       "ok": true,
       "count": 11,
-      "lastAttempt": "2026-10-27T14:20:41.346Z",
-      "lastSuccess": "2026-10-27T14:20:41.346Z"
+      "lastAttempt": "2026-10-27T20:35:18.327Z",
+      "lastSuccess": "2026-10-27T20:35:18.327Z"
     }
   },
-  "lastRun": "2026-10-27T14:20:57.091Z",
+  "lastRun": "2026-10-27T20:35:31.610Z",
   "environment": "ci",
-  "lastSuccess": "2026-10-27T14:20:55.383Z",
+  "lastSuccess": "2026-10-27T20:35:30.121Z",
   "totalItems": 2500,
-  "insertedLastRun": 228,
-  "nextRun": "2026-10-27T16:00:00.000Z"
+  "insertedLastRun": 213,
+  "nextRun": "2026-10-28T00:00:00.000Z"
 }
