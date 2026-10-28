@@ -1,80 +1,80 @@
 {
-  "updatedAt": "2026-10-28T15:02:29.492Z",
+  "updatedAt": "2026-10-28T20:58:27.291Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
     {
-      "label": "Antigravity CLI - Gemini 4 Argon (High)",
-      "agent": "Antigravity CLI",
-      "provider": "google",
-      "model": "Gemini 4 Argon (High)",
+      "label": "Grok Build - Grok 4.7 (Xhigh)",
+      "agent": "Grok Build",
+      "provider": "xai",
+      "model": "Grok 4.7 (Xhigh)",
       "isHighlighted": true,
-      "index": 53.2,
-      "cost": 5.86,
-      "wallTime": 2081,
-      "steps": 166,
-      "totalTokens": 13865931,
-      "inputTokens": 13756695,
-      "outputTokens": 109236,
-      "cacheTokens": 11968325,
-      "cacheHitRate": 0.87,
+      "index": 46.6,
+      "cost": 9.48,
+      "wallTime": 2146,
+      "steps": 170,
+      "totalTokens": 15914548,
+      "inputTokens": 15798913,
+      "outputTokens": 115634,
+      "cacheTokens": 15208184,
+      "cacheHitRate": 0.942,
       "evals": [
         {
           "benchmark": "FrontierCode v1.1 Main",
           "datasetIndexName": "frontiercode-v1.1-main",
           "weight": 0.333333333333333,
-          "reward": 0.4857,
-          "inputTokens": 18931145,
-          "outputTokens": 116097
+          "reward": 0.4355,
+          "inputTokens": 14294456,
+          "outputTokens": 93057
         },
         {
           "benchmark": "SWE-Atlas-QnA",
           "datasetIndexName": "swe-atlas-qna",
           "weight": 0.333333333333333,
-          "reward": 0.5511,
-          "inputTokens": 7075681,
-          "outputTokens": 48671
+          "reward": 0.629,
+          "inputTokens": 7966826,
+          "outputTokens": 57168
         },
         {
           "benchmark": "Terminal-Bench v4",
           "datasetIndexName": "terminal-bench-v4",
           "weight": 0.333333333333333,
-          "reward": 0.5606,
-          "inputTokens": 15263258,
-          "outputTokens": 162940
+          "reward": 0.3333,
+          "inputTokens": 25135459,
+          "outputTokens": 196677
         }
       ],
-      "totalCostUsd": 1593.63,
+      "totalCostUsd": 2448.11,
       "costPercentiles": {
-        "p05": 0.814990514066667,
-        "p25": 1.9701089055,
-        "p50": 3.71635947683333,
-        "p75": 7.050782017,
-        "p95": 15.39314835005
+        "p05": 1.81453416666667,
+        "p25": 3.73778833333333,
+        "p50": 5.77627633333333,
+        "p75": 9.64597133333333,
+        "p95": 16.4320936333333
       },
       "tokenPercentiles": {
-        "p05": 1577166.01666667,
-        "p25": 4196323.83333333,
-        "p50": 8169260.83333333,
-        "p75": 17328728.75,
-        "p95": 39405191.9666667
+        "p05": 2160915.58333333,
+        "p25": 5837978.75,
+        "p50": 9460593,
+        "p75": 16000094.6666667,
+        "p95": 28633178.25
       },
       "harnessVersions": {
         "frontiercode-v1.1-main": {
-          "version": "1.2.10",
+          "version": "1.0.40",
           "dateReleased": ""
         },
         "swe-atlas-qna": {
-          "version": "1.2.10",
+          "version": "1.0.40",
           "dateReleased": ""
         },
         "terminal-bench-v4": {
-          "version": "1.2.10",
+          "version": "1.0.40",
           "dateReleased": ""
         }
       },
       "safety": {
-        "attempts": 869,
+        "attempts": 870,
         "refused": 0,
         "hardStop": 0,
         "recovered": 0,
@@ -396,6 +396,86 @@
       }
     },
     {
+      "label": "Antigravity CLI - Gemini 4 Carbon (High)",
+      "agent": "Antigravity CLI",
+      "provider": "google",
+      "model": "Gemini 4 Carbon (High)",
+      "isHighlighted": true,
+      "index": 59.4,
+      "cost": 7.74,
+      "wallTime": 1790,
+      "steps": 178,
+      "totalTokens": 12548517,
+      "inputTokens": 12439486,
+      "outputTokens": 109031,
+      "cacheTokens": 11998765,
+      "cacheHitRate": 0.952,
+      "evals": [
+        {
+          "benchmark": "FrontierCode v1.1 Main",
+          "datasetIndexName": "frontiercode-v1.1-main",
+          "weight": 0.333333333333333,
+          "reward": 0.5087,
+          "inputTokens": 16157361,
+          "outputTokens": 94814
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6371,
+          "inputTokens": 9217927,
+          "outputTokens": 64966
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.6364,
+          "inputTokens": 11943171,
+          "outputTokens": 167313
+        }
+      ],
+      "totalCostUsd": 2114.57,
+      "costPercentiles": {
+        "p05": 2.79588154666667,
+        "p25": 4.26565593333333,
+        "p50": 6.23861773333333,
+        "p75": 9.06298013333334,
+        "p95": 15.08098036
+      },
+      "tokenPercentiles": {
+        "p05": 2257696.2,
+        "p25": 5756772.33333333,
+        "p50": 9161469.66666667,
+        "p75": 15712799.3333333,
+        "p95": 31095590.4
+      },
+      "harnessVersions": {
+        "frontiercode-v1.1-main": {
+          "version": "1.4.3",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "1.4.3",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "1.4.3",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 865,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
+    {
       "label": "Codex - GPT-6 Astra (Max)",
       "agent": "Codex",
       "provider": "openai",
@@ -473,86 +553,6 @@
         "fallback": 0,
         "continued": 0,
         "rate": 0.01164874551971326
-      }
-    },
-    {
-      "label": "Grok Build - Grok 4.7 (Xhigh)",
-      "agent": "Grok Build",
-      "provider": "xai",
-      "model": "Grok 4.7 (Xhigh)",
-      "isHighlighted": true,
-      "index": 46.6,
-      "cost": 9.48,
-      "wallTime": 2146,
-      "steps": 170,
-      "totalTokens": 15914548,
-      "inputTokens": 15798913,
-      "outputTokens": 115634,
-      "cacheTokens": 15208184,
-      "cacheHitRate": 0.942,
-      "evals": [
-        {
-          "benchmark": "FrontierCode v1.1 Main",
-          "datasetIndexName": "frontiercode-v1.1-main",
-          "weight": 0.333333333333333,
-          "reward": 0.4355,
-          "inputTokens": 14294456,
-          "outputTokens": 93057
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.629,
-          "inputTokens": 7966826,
-          "outputTokens": 57168
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.3333,
-          "inputTokens": 25135459,
-          "outputTokens": 196677
-        }
-      ],
-      "totalCostUsd": 2448.11,
-      "costPercentiles": {
-        "p05": 1.81453416666667,
-        "p25": 3.73778833333333,
-        "p50": 5.77627633333333,
-        "p75": 9.64597133333334,
-        "p95": 16.4320936333333
-      },
-      "tokenPercentiles": {
-        "p05": 2160915.58333333,
-        "p25": 5837978.75,
-        "p50": 9460593,
-        "p75": 16000094.6666667,
-        "p95": 28633178.25
-      },
-      "harnessVersions": {
-        "frontiercode-v1.1-main": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 870,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
       }
     },
     {
