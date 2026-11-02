@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T05:47:20.157Z",
+  "updatedAt": "2026-11-02T13:07:40.200Z",
   "source": "artificialanalysis.ai",
-  "total": 101,
+  "total": 102,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3199,6 +3199,32 @@
         "critpt": 0.36,
         "omniscience": 53.5,
         "automationBench": 0.7781660572624064
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "nanbeige4-3-33b",
+      "name": "Nanbeige4.3-33B",
+      "shortName": "Nanbeige4.3-33B",
+      "provider": "Nanbeige",
+      "intelligenceIndex": 20.4071119588083,
+      "speed": 159.455009809902,
+      "costPerTask": null,
+      "verbosity": 159667233,
+      "latency": 1.44873860000001,
+      "promptPrice": 0,
+      "completionPrice": 0,
+      "context": "524K",
+      "params": "33B",
+      "license": "Apache 2.0",
+      "released": "2026-10-25",
+      "family": "open-weights",
+      "isReasoning": true,
+      "inputModalities": "text",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": -4.4,
+        "automationBench": 0.5311537657440716
       },
       "hostModelCount": 1
     }
