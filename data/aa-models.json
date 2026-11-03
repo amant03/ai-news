@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T11:50:22.525Z",
+  "updatedAt": "2026-11-03T12:39:11.881Z",
   "source": "artificialanalysis.ai",
   "total": 102,
   "models": [
@@ -3226,7 +3226,7 @@
         "omniscience": -4.4,
         "automationBench": 0.5311537657440716
       },
-      "hostModelCount": 1
+      "hostModelCount": 0
     }
   ]
 }
