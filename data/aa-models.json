@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T12:48:30.780Z",
+  "updatedAt": "2026-11-04T19:43:06.412Z",
   "source": "artificialanalysis.ai",
   "total": 102,
   "models": [
@@ -790,7 +790,7 @@
         "tauBanking": 0.290721649484536,
         "mmmuPro": 0.734682080924856
       },
-      "hostModelCount": 7
+      "hostModelCount": 6
     },
     {
       "slug": "nvidia-nemotron-3-ultra-550b-a55b",
@@ -3103,8 +3103,9 @@
       "completionPrice": 10,
       "context": "1M",
       "params": "2.8T",
+      "license": "Kimi K3.1-Pro Licence",
       "released": "2026-10-23",
-      "family": "closed",
+      "family": "open-weights",
       "isReasoning": true,
       "inputModalities": "text, image",
       "outputModalities": "text",
