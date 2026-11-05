@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T12:57:30.397Z",
+  "updatedAt": "2026-11-05T21:56:06.347Z",
   "source": "artificialanalysis.ai",
   "total": 103,
   "models": [
@@ -2704,7 +2704,7 @@
       "provider": "Mistral",
       "intelligenceIndex": 26.1249946754784,
       "speed": 161.325594293071,
-      "costPerTask": 2.061496607384404,
+      "costPerTask": 2.0617306268126856,
       "verbosity": 107091351,
       "latency": 1.42315998199999,
       "promptPrice": 0.7,
@@ -3105,7 +3105,7 @@
       "params": "2.8T",
       "license": "Kimi K3.1-Pro Licence",
       "released": "2026-10-23",
-      "family": "closed",
+      "family": "open-weights",
       "isReasoning": true,
       "inputModalities": "text, image",
       "outputModalities": "text",
@@ -3236,11 +3236,11 @@
       "provider": "Tencent",
       "intelligenceIndex": 34.5552385392508,
       "speed": null,
-      "costPerTask": null,
+      "costPerTask": 1.0311060706397974,
       "verbosity": 159538191,
       "latency": null,
-      "promptPrice": null,
-      "completionPrice": null,
+      "promptPrice": 0.834,
+      "completionPrice": 2.501,
       "context": "1.0M",
       "released": "2026-11-03",
       "family": "closed",
@@ -3251,7 +3251,7 @@
         "omniscience": 5.4,
         "automationBench": 0.6561018180201071
       },
-      "hostModelCount": 0
+      "hostModelCount": 1
     }
   ]
 }
