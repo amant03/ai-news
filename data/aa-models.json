@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T19:43:06.412Z",
+  "updatedAt": "2026-11-05T00:51:33.570Z",
   "source": "artificialanalysis.ai",
   "total": 102,
   "models": [
@@ -3105,7 +3105,7 @@
       "params": "2.8T",
       "license": "Kimi K3.1-Pro Licence",
       "released": "2026-10-23",
-      "family": "open-weights",
+      "family": "closed",
       "isReasoning": true,
       "inputModalities": "text, image",
       "outputModalities": "text",
