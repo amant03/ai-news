@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T15:53:23.405Z",
+  "updatedAt": "2026-11-06T21:27:01.634Z",
   "source": "artificialanalysis.ai",
   "total": 104,
   "models": [
@@ -546,7 +546,7 @@
         "tauBanking": 0.503092783505155,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 27
+      "hostModelCount": 28
     },
     {
       "slug": "gemini-3-8-flash",
