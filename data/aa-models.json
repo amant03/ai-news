@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T21:56:06.347Z",
+  "updatedAt": "2026-11-06T06:20:46.023Z",
   "source": "artificialanalysis.ai",
-  "total": 103,
+  "total": 104,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3119,7 +3119,7 @@
         "mmmuPro": 0.838728323699422,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 5
+      "hostModelCount": 18
     },
     {
       "slug": "nemotron-3-5-bolt-e4b-4gb",
@@ -3250,6 +3250,38 @@
       "evals": {
         "omniscience": 5.4,
         "automationBench": 0.6561018180201071
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "inkling-2-small",
+      "name": "Inkling 2 Small",
+      "shortName": "Inkling 2 Small",
+      "provider": "Thinking Machines",
+      "intelligenceIndex": 30.6286781498958,
+      "speed": null,
+      "costPerTask": 1.1784281349617984,
+      "verbosity": 154410981,
+      "latency": null,
+      "promptPrice": 0.3,
+      "completionPrice": 1,
+      "context": "1.0M",
+      "params": "594B",
+      "license": "Apache 2.0",
+      "released": "2026-11-05",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.44114921223355,
+        "scicode": 0.523148148148148,
+        "lcr": 0.833333333333333,
+        "omniscience": 16.1,
+        "analystAgent": 0.5125,
+        "automationBench": 0.45621320178972646,
+        "tauBanking": 0.404123711340206,
+        "mmmuPro": 0.815606936416185
       },
       "hostModelCount": 1
     }
