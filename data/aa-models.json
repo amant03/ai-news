@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T21:27:01.634Z",
+  "updatedAt": "2026-11-07T05:45:57.922Z",
   "source": "artificialanalysis.ai",
   "total": 104,
   "models": [
@@ -546,7 +546,7 @@
         "tauBanking": 0.503092783505155,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 28
+      "hostModelCount": 29
     },
     {
       "slug": "gemini-3-8-flash",
@@ -2869,7 +2869,7 @@
         "automationBench": 0.4970811827313194,
         "mmmuPro": 0.809248554913295
       },
-      "hostModelCount": 6
+      "hostModelCount": 8
     },
     {
       "slug": "nemotron-3-5-super-vl",
@@ -2878,10 +2878,10 @@
       "provider": "NVIDIA",
       "intelligenceIndex": 13.6203422723141,
       "speed": 430.335934081037,
-      "costPerTask": 0.5382257339551116,
+      "costPerTask": 0.5196327287868884,
       "verbosity": 119398188,
       "latency": 0.715386392000028,
-      "promptPrice": 0.2,
+      "promptPrice": 0.175,
       "completionPrice": 0.5,
       "context": "1M",
       "params": "120B",
@@ -2900,7 +2900,7 @@
         "omniscience": -2.8666666666666667,
         "automationBench": 0.14818345798643587
       },
-      "hostModelCount": 9
+      "hostModelCount": 10
     },
     {
       "slug": "solar-pro4",
@@ -3025,7 +3025,7 @@
         "automationBench": 0.6664095364949257,
         "mmmuPro": 0.80635838150289
       },
-      "hostModelCount": 26
+      "hostModelCount": 27
     },
     {
       "slug": "minimax-m3-1-flash",
