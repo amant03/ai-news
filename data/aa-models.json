@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-09T13:38:13.758Z",
+  "updatedAt": "2026-11-09T18:40:40.729Z",
   "source": "artificialanalysis.ai",
-  "total": 105,
+  "total": 106,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3311,6 +3311,30 @@
         "omniscience": -11.233333333333333,
         "automationBench": 0.48822600284971035,
         "mmmuPro": 0.784393063583815
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "muse-ember",
+      "name": "Muse Ember (Max)",
+      "shortName": "Muse Ember (max)",
+      "provider": "Meta",
+      "intelligenceIndex": 36.0212987864912,
+      "speed": null,
+      "costPerTask": 0.1359356168986363,
+      "verbosity": 114909074,
+      "latency": null,
+      "promptPrice": 0.1,
+      "completionPrice": 0.5,
+      "context": "1.0M",
+      "released": "2026-11-09",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": 7.366666666666666,
+        "automationBench": 0.6807901586086508
       },
       "hostModelCount": 1
     }
