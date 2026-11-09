@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-09T05:59:26.265Z",
+  "updatedAt": "2026-11-09T13:38:13.758Z",
   "source": "artificialanalysis.ai",
-  "total": 104,
+  "total": 105,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3282,6 +3282,35 @@
         "automationBench": 0.45621320178972646,
         "tauBanking": 0.404123711340206,
         "mmmuPro": 0.815606936416185
+      },
+      "hostModelCount": 1
+    },
+    {
+      "slug": "agnes-2-5-pro-theta",
+      "name": "Agnes 2.5 Pro Theta",
+      "shortName": "Agnes 2.5 Pro Theta",
+      "provider": "Sapiens AI",
+      "intelligenceIndex": 24.029012523359,
+      "speed": null,
+      "costPerTask": 0.5746675567739363,
+      "verbosity": 257106284,
+      "latency": null,
+      "promptPrice": 0.1,
+      "completionPrice": 0.3,
+      "context": "1M",
+      "released": "2026-11-07",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.371640407784986,
+        "scicode": 0.560185185185185,
+        "lcr": 0.846666666666667,
+        "critpt": 0.151428571428571,
+        "omniscience": -11.233333333333333,
+        "automationBench": 0.48822600284971035,
+        "mmmuPro": 0.784393063583815
       },
       "hostModelCount": 1
     }
