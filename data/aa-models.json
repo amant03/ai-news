@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T13:17:10.877Z",
+  "updatedAt": "2026-11-10T21:46:54.824Z",
   "source": "artificialanalysis.ai",
   "total": 107,
   "models": [
@@ -3025,7 +3025,7 @@
         "automationBench": 0.6664095364949257,
         "mmmuPro": 0.80635838150289
       },
-      "hostModelCount": 27
+      "hostModelCount": 26
     },
     {
       "slug": "minimax-m3-1-flash",
@@ -3119,7 +3119,7 @@
         "mmmuPro": 0.838728323699422,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 20
+      "hostModelCount": 21
     },
     {
       "slug": "nemotron-3-5-bolt-e4b-4gb",
