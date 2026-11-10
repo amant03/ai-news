@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-09T18:40:40.729Z",
+  "updatedAt": "2026-11-10T02:39:50.378Z",
   "source": "artificialanalysis.ai",
-  "total": 106,
+  "total": 107,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -429,7 +429,7 @@
       "released": "2026-09-01",
       "family": "closed",
       "isReasoning": true,
-      "inputModalities": "text, image",
+      "inputModalities": "image",
       "outputModalities": "text",
       "evals": {
         "hle": 0.591288229842447,
@@ -3119,7 +3119,7 @@
         "mmmuPro": 0.838728323699422,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 18
+      "hostModelCount": 20
     },
     {
       "slug": "nemotron-3-5-bolt-e4b-4gb",
@@ -3337,6 +3337,34 @@
         "automationBench": 0.6807901586086508
       },
       "hostModelCount": 1
+    },
+    {
+      "slug": "claude-fable-5-2",
+      "name": "Claude Fable 5.2 (Max, Default Fallback)",
+      "shortName": "Claude Fable 5.2 (max)",
+      "provider": "Anthropic",
+      "intelligenceIndex": 64.563595756626,
+      "speed": null,
+      "costPerTask": 26.53855780398091,
+      "verbosity": 274763289,
+      "latency": null,
+      "promptPrice": 8,
+      "completionPrice": 40,
+      "context": "1M",
+      "released": "2026-11-09",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "hle": 0.742817423540315,
+        "scicode": 0.677083333333333,
+        "lcr": 0.833333333333333,
+        "critpt": 0.354285714285714,
+        "omniscience": 66.76666666666667,
+        "automationBench": 0.7642233832611831
+      },
+      "hostModelCount": 6
     }
   ]
 }
