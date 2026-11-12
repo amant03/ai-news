@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T12:32:18.378Z",
+  "updatedAt": "2026-11-12T13:33:27.898Z",
   "source": "artificialanalysis.ai",
   "total": 107,
   "models": [
@@ -2639,22 +2639,22 @@
     },
     {
       "slug": "jt-4-1-flash-236b-a21b",
-      "name": "JT-4.1 Flash 236B A21B (Reasoning)",
+      "name": "JT-4.1 Flash 236B A21B",
       "shortName": "JT-4.1 Flash 236B A21B",
       "provider": "China Mobile",
-      "intelligenceIndex": 33.9172581709394,
+      "intelligenceIndex": 18.952876906667,
       "speed": null,
       "costPerTask": null,
-      "verbosity": 184566355,
+      "verbosity": 143041641,
       "latency": null,
       "promptPrice": null,
       "completionPrice": null,
       "context": "262K",
       "params": "236B",
-      "released": "2026-07-09",
+      "released": "2026-11-11",
       "family": "closed",
       "isReasoning": true,
-      "inputModalities": "text, image",
+      "inputModalities": "text",
       "outputModalities": "text",
       "evals": {
         "hle": 0.435588507877665,
@@ -2662,8 +2662,8 @@
         "lcr": 0.783333333333333,
         "critpt": 0.14,
         "gdpval": 0.413995,
-        "omniscience": 20.566666666666666,
-        "automationBench": 0.4647120946439391
+        "omniscience": 1.9666666666666666,
+        "automationBench": 0.36665764552117774
       },
       "hostModelCount": 0
     },
