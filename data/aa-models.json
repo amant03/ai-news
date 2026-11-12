@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-12T13:33:27.898Z",
+  "updatedAt": "2026-11-12T22:12:36.393Z",
   "source": "artificialanalysis.ai",
-  "total": 107,
+  "total": 108,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3365,6 +3365,30 @@
         "automationBench": 0.7642233832611831
       },
       "hostModelCount": 6
+    },
+    {
+      "slug": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen (Xhigh)",
+      "shortName": "Gemini 4 Hydrogen (xhigh)",
+      "provider": "Google",
+      "intelligenceIndex": 53.9192287317542,
+      "speed": null,
+      "costPerTask": 3.1601590757006157,
+      "verbosity": 303585813,
+      "latency": null,
+      "promptPrice": 1.5,
+      "completionPrice": 7.5,
+      "context": "1M",
+      "released": "2026-11-12",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image, speech, video",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": 46.266666666666666,
+        "automationBench": 0.7614416852922641
+      },
+      "hostModelCount": 1
     }
   ]
 }
