@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T16:03:47.578Z",
+  "updatedAt": "2026-11-12T01:53:51.191Z",
   "source": "artificialanalysis.ai",
   "total": 107,
   "models": [
@@ -546,7 +546,7 @@
         "tauBanking": 0.503092783505155,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 29
+      "hostModelCount": 30
     },
     {
       "slug": "gemini-3-8-flash",
@@ -3119,7 +3119,7 @@
         "mmmuPro": 0.838728323699422,
         "analystAgent": 0.3875
       },
-      "hostModelCount": 21
+      "hostModelCount": 22
     },
     {
       "slug": "nemotron-3-5-bolt-e4b-4gb",

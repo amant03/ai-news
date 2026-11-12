@@ -1,8 +1,88 @@
 {
-  "updatedAt": "2026-11-11T16:03:48.611Z",
+  "updatedAt": "2026-11-12T01:53:52.161Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
+    {
+      "label": "Muse Code - Muse Wonder (Max)",
+      "agent": "Muse Code",
+      "provider": "meta",
+      "model": "Muse Wonder (Max)",
+      "isHighlighted": true,
+      "index": 52,
+      "cost": 8.05,
+      "wallTime": 1473,
+      "steps": 201,
+      "totalTokens": 14479705,
+      "inputTokens": 14384183,
+      "outputTokens": 95522,
+      "cacheTokens": 13526068,
+      "cacheHitRate": 0.939,
+      "evals": [
+        {
+          "benchmark": "FrontierCode v1.1 Main",
+          "datasetIndexName": "frontiercode-v1.1-main",
+          "weight": 0.333333333333333,
+          "reward": 0.4639,
+          "inputTokens": 14936222,
+          "outputTokens": 65572
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6156,
+          "inputTokens": 5962255,
+          "outputTokens": 36860
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.4798,
+          "inputTokens": 22254074,
+          "outputTokens": 184135
+        }
+      ],
+      "totalCostUsd": 1969.91,
+      "costPercentiles": {
+        "p05": 1.31912929333333,
+        "p25": 2.7226498,
+        "p50": 4.21125933333333,
+        "p75": 6.67109313333333,
+        "p95": 18.06034512
+      },
+      "tokenPercentiles": {
+        "p05": 1649932.55,
+        "p25": 4768954.25,
+        "p50": 8560157.33333333,
+        "p75": 14661218.3333333,
+        "p95": 35735776.8666667
+      },
+      "harnessVersions": {
+        "frontiercode-v1.1-main": {
+          "version": "1.4.5-R5426.1",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "1.4.5-R5426.1",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "1.4.5-R5426.1",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 870,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
     {
       "label": "Claude Code - Claude Sonnet 5.5 (Max, Default Fallback)",
       "agent": "Claude Code",
@@ -164,6 +244,86 @@
       }
     },
     {
+      "label": "Mistral Vibe - Mistral Large 4 (High)",
+      "agent": "Mistral Vibe",
+      "provider": "mistral",
+      "model": "Mistral Large 4 (High)",
+      "isHighlighted": true,
+      "index": 48.3,
+      "cost": 1.26,
+      "wallTime": 2904,
+      "steps": 100,
+      "totalTokens": 8453863,
+      "inputTokens": 8330597,
+      "outputTokens": 123266,
+      "cacheTokens": 7667992,
+      "cacheHitRate": 0.912,
+      "evals": [
+        {
+          "benchmark": "FrontierCode v1.1 Main",
+          "datasetIndexName": "frontiercode-v1.1-main",
+          "weight": 0.333333333333333,
+          "reward": 0.4455,
+          "inputTokens": 6590650,
+          "outputTokens": 48360
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.5887,
+          "inputTokens": 2855367,
+          "outputTokens": 27802
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.4141,
+          "inputTokens": 15545773,
+          "outputTokens": 293637
+        }
+      ],
+      "totalCostUsd": 299.23,
+      "costPercentiles": {
+        "p05": 0.122543493333333,
+        "p25": 0.297769745,
+        "p50": 0.546025783333333,
+        "p75": 1.14946097,
+        "p95": 3.43297607566667
+      },
+      "tokenPercentiles": {
+        "p05": 673528.583333333,
+        "p25": 1870533.75,
+        "p50": 3893794,
+        "p75": 8554444.66666667,
+        "p95": 21851169.35
+      },
+      "harnessVersions": {
+        "frontiercode-v1.1-main": {
+          "version": "3.0.0-v14",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "3.0.0-v14",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "3.0.0-v14",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 870,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
+    {
       "label": "Grok Build - Grok 4.7 (Xhigh)",
       "agent": "Grok Build",
       "provider": "xai",
@@ -209,7 +369,7 @@
         "p05": 1.81453416666667,
         "p25": 3.73778833333333,
         "p50": 5.77627633333333,
-        "p75": 9.64597133333333,
+        "p75": 9.64597133333334,
         "p95": 16.4320936333333
       },
       "tokenPercentiles": {
@@ -321,86 +481,6 @@
         "fallback": 0,
         "continued": 0,
         "rate": 0.01164874551971326
-      }
-    },
-    {
-      "label": "Mistral Vibe - Mistral Large 4 (High)",
-      "agent": "Mistral Vibe",
-      "provider": "mistral",
-      "model": "Mistral Large 4 (High)",
-      "isHighlighted": true,
-      "index": 35.4,
-      "cost": 0.78,
-      "wallTime": 2330,
-      "steps": 81,
-      "totalTokens": 5758752,
-      "inputTokens": 5679972,
-      "outputTokens": 78780,
-      "cacheTokens": 5331354,
-      "cacheHitRate": 0.923,
-      "evals": [
-        {
-          "benchmark": "FrontierCode v1.1 Main",
-          "datasetIndexName": "frontiercode-v1.1-main",
-          "weight": 0.333333333333333,
-          "reward": 0.3534,
-          "inputTokens": 3556896,
-          "outputTokens": 27006
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.4462,
-          "inputTokens": 1542681,
-          "outputTokens": 15832
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.2626,
-          "inputTokens": 11940337,
-          "outputTokens": 193504
-        }
-      ],
-      "totalCostUsd": 180.46,
-      "costPercentiles": {
-        "p05": 0.064464876,
-        "p25": 0.142768756666667,
-        "p50": 0.288543546666667,
-        "p75": 0.58391256,
-        "p95": 2.314087237
-      },
-      "tokenPercentiles": {
-        "p05": 349714.716666667,
-        "p25": 946955.916666667,
-        "p50": 2091049.33333333,
-        "p75": 4998379,
-        "p95": 16768543.6833333
-      },
-      "harnessVersions": {
-        "frontiercode-v1.1-main": {
-          "version": "3.0.0-v14",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "3.0.0-v14",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "3.0.0-v14",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 870,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
       }
     },
     {
@@ -555,86 +635,6 @@
       },
       "safety": {
         "attempts": 865,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
-    {
-      "label": "Muse Code - Muse Wonder (Max)",
-      "agent": "Muse Code",
-      "provider": "meta",
-      "model": "Muse Wonder (Max)",
-      "isHighlighted": true,
-      "index": 52,
-      "cost": 8.05,
-      "wallTime": 1473,
-      "steps": 201,
-      "totalTokens": 14479705,
-      "inputTokens": 14384183,
-      "outputTokens": 95522,
-      "cacheTokens": 13526068,
-      "cacheHitRate": 0.939,
-      "evals": [
-        {
-          "benchmark": "FrontierCode v1.1 Main",
-          "datasetIndexName": "frontiercode-v1.1-main",
-          "weight": 0.333333333333333,
-          "reward": 0.4639,
-          "inputTokens": 14936222,
-          "outputTokens": 65572
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.6156,
-          "inputTokens": 5962255,
-          "outputTokens": 36860
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.4798,
-          "inputTokens": 22254074,
-          "outputTokens": 184135
-        }
-      ],
-      "totalCostUsd": 1969.91,
-      "costPercentiles": {
-        "p05": 1.31912929333333,
-        "p25": 2.7226498,
-        "p50": 4.21125933333333,
-        "p75": 6.67109313333333,
-        "p95": 18.06034512
-      },
-      "tokenPercentiles": {
-        "p05": 1649932.55,
-        "p25": 4768954.25,
-        "p50": 8560157.33333333,
-        "p75": 14661218.3333333,
-        "p95": 35735776.8666667
-      },
-      "harnessVersions": {
-        "frontiercode-v1.1-main": {
-          "version": "1.4.5-R5426.1",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "1.4.5-R5426.1",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "1.4.5-R5426.1",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 870,
         "refused": 0,
         "hardStop": 0,
         "recovered": 0,
