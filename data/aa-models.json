@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-14T11:23:02.125Z",
+  "updatedAt": "2026-11-14T11:57:25.237Z",
   "source": "artificialanalysis.ai",
-  "total": 108,
+  "total": 107,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3059,36 +3059,6 @@
         "mmmuPro": 0.791329479768786
       },
       "hostModelCount": 14
-    },
-    {
-      "slug": "ling-3-1-flash-1019",
-      "name": "Ling 3.1 Flash 1019",
-      "shortName": "Ling 3.1 Flash 1019",
-      "provider": "InclusionAI",
-      "intelligenceIndex": 29.570119369837,
-      "speed": null,
-      "costPerTask": 3.185145018337793,
-      "verbosity": 239670564,
-      "latency": null,
-      "promptPrice": 0.3,
-      "completionPrice": 0.9,
-      "context": "1.0M",
-      "params": "560B",
-      "license": "MIT",
-      "released": "2026-10-22",
-      "family": "open-weights",
-      "isReasoning": true,
-      "inputModalities": "text",
-      "outputModalities": "text",
-      "evals": {
-        "hle": 0.43466172381835,
-        "scicode": 0.568287037037037,
-        "lcr": 0.823333333333333,
-        "critpt": 0.26,
-        "omniscience": -0.13333333333333333,
-        "automationBench": 0.6754660741517774
-      },
-      "hostModelCount": 1
     },
     {
       "slug": "kimi-k3-1-pro",
