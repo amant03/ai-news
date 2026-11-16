@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-15T20:59:38.935Z",
+  "updatedAt": "2026-11-16T06:07:38.378Z",
   "source": "artificialanalysis.ai",
-  "total": 107,
+  "total": 108,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -325,7 +325,7 @@
       "released": "2026-09-02",
       "family": "closed",
       "isReasoning": true,
-      "inputModalities": "text, image",
+      "inputModalities": "image",
       "outputModalities": "text",
       "evals": {
         "hle": 0.430954587581094,
@@ -3360,6 +3360,30 @@
         "automationBench": 0.7614416852922641
       },
       "hostModelCount": 1
+    },
+    {
+      "slug": "qwen4-max",
+      "name": "Qwen4 Max",
+      "shortName": "Qwen4 Max",
+      "provider": "Alibaba",
+      "intelligenceIndex": 42.8914543287565,
+      "speed": null,
+      "costPerTask": 3.2681327300897323,
+      "verbosity": 127144486,
+      "latency": null,
+      "promptPrice": 1.5,
+      "completionPrice": 4.5,
+      "context": "984K",
+      "released": "2026-11-16",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": 27.7,
+        "analystAgent": 0.4625,
+        "automationBench": 0.7256119376604481
+      }
     }
   ]
 }
