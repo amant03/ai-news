@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T14:08:08.701Z",
+  "updatedAt": "2026-11-17T23:28:30.135Z",
   "source": "artificialanalysis.ai",
-  "total": 108,
+  "total": 110,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3383,6 +3383,55 @@
         "omniscience": 27.7,
         "analystAgent": 0.4625,
         "automationBench": 0.7256119376604481
+      }
+    },
+    {
+      "slug": "gpt-6-2-astra",
+      "name": "GPT-6.2 Astra (Max)",
+      "shortName": "GPT-6.2 Astra (max)",
+      "provider": "OpenAI",
+      "intelligenceIndex": 62.1387990593969,
+      "speed": null,
+      "costPerTask": 3.9979061566801852,
+      "verbosity": 65751056,
+      "latency": null,
+      "promptPrice": 8,
+      "completionPrice": 40,
+      "context": "1M",
+      "released": "2026-11-17",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": 50,
+        "analystAgent": 0.625,
+        "automationBench": 0.7724838304241671,
+        "mmmuPro": 0.894797687861272
+      }
+    },
+    {
+      "slug": "gpt-6-2-sol",
+      "name": "GPT-6.2 Sol (Max)",
+      "shortName": "GPT-6.2 Sol (max)",
+      "provider": "OpenAI",
+      "intelligenceIndex": 57.2576209885477,
+      "speed": null,
+      "costPerTask": 1.014379970300768,
+      "verbosity": 60895957,
+      "latency": null,
+      "promptPrice": 2,
+      "completionPrice": 10,
+      "context": "1M",
+      "released": "2026-11-17",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": 40.36666666666667,
+        "analystAgent": 0.5375,
+        "automationBench": 0.7127833267998683
       }
     }
   ]
