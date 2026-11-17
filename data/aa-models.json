@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T18:21:30.574Z",
+  "updatedAt": "2026-11-17T02:53:14.810Z",
   "source": "artificialanalysis.ai",
   "total": 108,
   "models": [
@@ -3377,7 +3377,7 @@
       "released": "2026-11-16",
       "family": "closed",
       "isReasoning": true,
-      "inputModalities": "text, image",
+      "inputModalities": "text, image, video",
       "outputModalities": "text",
       "evals": {
         "omniscience": 27.7,
