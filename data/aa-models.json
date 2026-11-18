@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T13:41:31.680Z",
+  "updatedAt": "2026-11-18T17:11:07.954Z",
   "source": "artificialanalysis.ai",
   "total": 110,
   "models": [
@@ -3153,11 +3153,11 @@
       "provider": "Google",
       "intelligenceIndex": 60.025738829526,
       "speed": 88.1968508645068,
-      "costPerTask": 5.484780948230178,
+      "costPerTask": 7.755545745286556,
       "verbosity": 204759670,
       "latency": 150.400959987,
-      "promptPrice": 2,
-      "completionPrice": 10,
+      "promptPrice": 4,
+      "completionPrice": 20,
       "context": "1M",
       "released": "2026-10-28",
       "family": "closed",
