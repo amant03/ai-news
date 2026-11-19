@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T17:11:07.954Z",
+  "updatedAt": "2026-11-19T01:51:58.580Z",
   "source": "artificialanalysis.ai",
-  "total": 110,
+  "total": 111,
   "models": [
     {
       "slug": "claude-opus-5",
@@ -3432,6 +3432,29 @@
         "omniscience": 40.36666666666667,
         "analystAgent": 0.5375,
         "automationBench": 0.7127833267998683
+      }
+    },
+    {
+      "slug": "gemini-4-neon",
+      "name": "Gemini 4 Neon (Xhigh)",
+      "shortName": "Gemini 4 Neon (xhigh)",
+      "provider": "Google",
+      "intelligenceIndex": 61.3982491392674,
+      "speed": null,
+      "costPerTask": 6.444838101104699,
+      "verbosity": 282710380,
+      "latency": null,
+      "promptPrice": 3,
+      "completionPrice": 15,
+      "context": "1M",
+      "released": "2026-11-18",
+      "family": "closed",
+      "isReasoning": true,
+      "inputModalities": "text, image, speech, video",
+      "outputModalities": "text",
+      "evals": {
+        "omniscience": 54.766666666666666,
+        "automationBench": 0.7933804374911678
       }
     }
   ]
