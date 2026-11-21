@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T16:55:24.514Z",
+  "updatedAt": "2026-11-21T01:21:07.153Z",
   "source": "artificialanalysis.ai/agents/coding-agents",
   "total": 8,
   "models": [
@@ -70,6 +70,78 @@
         },
         "terminal-bench-v4": {
           "version": "1.5.8",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 966,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
+    {
+      "label": "Muse Code - Muse Wonder Full (Max)",
+      "agent": "Muse Code",
+      "provider": "meta",
+      "model": "Muse Wonder Full (Max)",
+      "isHighlighted": true,
+      "index": 54.5,
+      "cost": 0,
+      "wallTime": 2023,
+      "steps": 202,
+      "totalTokens": 15707547,
+      "inputTokens": 15619543,
+      "outputTokens": 88004,
+      "cacheTokens": 15241378,
+      "cacheHitRate": 0.963,
+      "evals": [
+        {
+          "benchmark": "FrontierCode 2.0",
+          "datasetIndexName": "frontiercode-v2.0",
+          "weight": 0.333333333333333,
+          "reward": 0.3502,
+          "inputTokens": 19139980,
+          "outputTokens": 78349
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.6882,
+          "inputTokens": 6628007,
+          "outputTokens": 42390
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.596,
+          "inputTokens": 21090643,
+          "outputTokens": 143272
+        }
+      ],
+      "tokenPercentiles": {
+        "p05": 2574146.43333333,
+        "p25": 5666415.83333333,
+        "p50": 10842866.5,
+        "p75": 18277849.75,
+        "p95": 41482973.7666667
+      },
+      "harnessVersions": {
+        "frontiercode-v2.0": {
+          "version": "1.4.5-R5426.1",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "1.4.5-R5426.1",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "1.4.5-R5426.1",
           "dateReleased": ""
         }
       },
@@ -244,158 +316,6 @@
       }
     },
     {
-      "label": "Grok Build - Grok 4.7 (Xhigh)",
-      "agent": "Grok Build",
-      "provider": "xai",
-      "model": "Grok 4.7 (Xhigh)",
-      "isHighlighted": true,
-      "index": 41.6,
-      "cost": 15.35,
-      "wallTime": 2198,
-      "steps": 174,
-      "totalTokens": 17067119,
-      "inputTokens": 16945445,
-      "outputTokens": 121674,
-      "cacheTokens": 16463717,
-      "cacheHitRate": 0.953,
-      "evals": [
-        {
-          "benchmark": "FrontierCode 2.0",
-          "datasetIndexName": "frontiercode-v2.0",
-          "weight": 0.333333333333333,
-          "reward": 0.2969,
-          "inputTokens": 17734050,
-          "outputTokens": 111176
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.629,
-          "inputTokens": 7966826,
-          "outputTokens": 57168
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.3232,
-          "inputTokens": 25135459,
-          "outputTokens": 196677
-        }
-      ],
-      "totalCostUsd": 4362.72,
-      "costPercentiles": {
-        "p05": 1.8838222,
-        "p25": 4.1541155,
-        "p50": 7.73844566666667,
-        "p75": 14.9332968333333,
-        "p95": 35.5905699666666
-      },
-      "tokenPercentiles": {
-        "p05": 2633388.93333333,
-        "p25": 6116622.41666667,
-        "p50": 10464344.5,
-        "p75": 17388810.1666667,
-        "p95": 36468419.1166667
-      },
-      "harnessVersions": {
-        "frontiercode-v2.0": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "1.0.40",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 966,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
-    {
-      "label": "Muse Code - Muse Wonder Full (Max)",
-      "agent": "Muse Code",
-      "provider": "meta",
-      "model": "Muse Wonder Full (Max)",
-      "isHighlighted": true,
-      "index": 54.5,
-      "cost": 0,
-      "wallTime": 2023,
-      "steps": 202,
-      "totalTokens": 15707547,
-      "inputTokens": 15619543,
-      "outputTokens": 88004,
-      "cacheTokens": 15241378,
-      "cacheHitRate": 0.963,
-      "evals": [
-        {
-          "benchmark": "FrontierCode 2.0",
-          "datasetIndexName": "frontiercode-v2.0",
-          "weight": 0.333333333333333,
-          "reward": 0.3502,
-          "inputTokens": 19139980,
-          "outputTokens": 78349
-        },
-        {
-          "benchmark": "SWE-Atlas-QnA",
-          "datasetIndexName": "swe-atlas-qna",
-          "weight": 0.333333333333333,
-          "reward": 0.6882,
-          "inputTokens": 6628007,
-          "outputTokens": 42390
-        },
-        {
-          "benchmark": "Terminal-Bench v4",
-          "datasetIndexName": "terminal-bench-v4",
-          "weight": 0.333333333333333,
-          "reward": 0.596,
-          "inputTokens": 21090643,
-          "outputTokens": 143272
-        }
-      ],
-      "tokenPercentiles": {
-        "p05": 2574146.43333333,
-        "p25": 5666415.83333333,
-        "p50": 10842866.5,
-        "p75": 18277849.75,
-        "p95": 41482973.7666667
-      },
-      "harnessVersions": {
-        "frontiercode-v2.0": {
-          "version": "1.4.5-R5426.1",
-          "dateReleased": ""
-        },
-        "swe-atlas-qna": {
-          "version": "1.4.5-R5426.1",
-          "dateReleased": ""
-        },
-        "terminal-bench-v4": {
-          "version": "1.4.5-R5426.1",
-          "dateReleased": ""
-        }
-      },
-      "safety": {
-        "attempts": 966,
-        "refused": 0,
-        "hardStop": 0,
-        "recovered": 0,
-        "fallback": 0,
-        "continued": 0,
-        "rate": 0
-      }
-    },
-    {
       "label": "Claude Code - Claude Fable 5.2 (Xhigh, Default Fallback)",
       "agent": "Claude Code",
       "provider": "anthropic",
@@ -476,7 +396,87 @@
       }
     },
     {
-      "label": "Opencode - GLM-5.3 (Max)",
+      "label": "Grok Build - Grok 4.7 (Xhigh)",
+      "agent": "Grok Build",
+      "provider": "xai",
+      "model": "Grok 4.7 (Xhigh)",
+      "isHighlighted": true,
+      "index": 41.6,
+      "cost": 15.35,
+      "wallTime": 2198,
+      "steps": 174,
+      "totalTokens": 17067119,
+      "inputTokens": 16945445,
+      "outputTokens": 121674,
+      "cacheTokens": 16463717,
+      "cacheHitRate": 0.953,
+      "evals": [
+        {
+          "benchmark": "FrontierCode 2.0",
+          "datasetIndexName": "frontiercode-v2.0",
+          "weight": 0.333333333333333,
+          "reward": 0.2969,
+          "inputTokens": 17734050,
+          "outputTokens": 111176
+        },
+        {
+          "benchmark": "SWE-Atlas-QnA",
+          "datasetIndexName": "swe-atlas-qna",
+          "weight": 0.333333333333333,
+          "reward": 0.629,
+          "inputTokens": 7966826,
+          "outputTokens": 57168
+        },
+        {
+          "benchmark": "Terminal-Bench v4",
+          "datasetIndexName": "terminal-bench-v4",
+          "weight": 0.333333333333333,
+          "reward": 0.3232,
+          "inputTokens": 25135459,
+          "outputTokens": 196677
+        }
+      ],
+      "totalCostUsd": 4362.72,
+      "costPercentiles": {
+        "p05": 1.8838222,
+        "p25": 4.1541155,
+        "p50": 7.73844566666667,
+        "p75": 14.9332968333333,
+        "p95": 35.5905699666666
+      },
+      "tokenPercentiles": {
+        "p05": 2633388.93333333,
+        "p25": 6116622.41666667,
+        "p50": 10464344.5,
+        "p75": 17388810.1666667,
+        "p95": 36468419.1166667
+      },
+      "harnessVersions": {
+        "frontiercode-v2.0": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        },
+        "swe-atlas-qna": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        },
+        "terminal-bench-v4": {
+          "version": "1.0.40",
+          "dateReleased": ""
+        }
+      },
+      "safety": {
+        "attempts": 966,
+        "refused": 0,
+        "hardStop": 0,
+        "recovered": 0,
+        "fallback": 0,
+        "continued": 0,
+        "rate": 0
+      }
+    },
+    {
+      "label": "OpenCode - GLM-5.3 (Max)",
       "agent": "Opencode",
       "provider": "zai",
       "model": "GLM-5.3 (Max)",

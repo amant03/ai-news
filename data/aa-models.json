@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T16:55:23.739Z",
+  "updatedAt": "2026-11-21T01:21:06.372Z",
   "source": "artificialanalysis.ai",
   "total": 111,
   "models": [
@@ -3213,8 +3213,10 @@
       "promptPrice": 0.834,
       "completionPrice": 2.501,
       "context": "1.0M",
+      "params": "774B",
+      "license": "Tencent Hy License",
       "released": "2026-11-03",
-      "family": "closed",
+      "family": "open-weights",
       "isReasoning": true,
       "inputModalities": "text, image",
       "outputModalities": "text",
