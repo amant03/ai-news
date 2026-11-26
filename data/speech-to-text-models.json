@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-25T15:19:26.854Z",
+  "updatedAt": "2026-11-26T14:44:24.541Z",
   "source": "Artificial Analysis Speech to Text",
   "url": "https://artificialanalysis.ai/speech-to-text",
-  "total": 67,
+  "total": 65,
   "models": [
     {
       "rank": 1,
       "name": "Alibaba Cloud",
       "provider": "Alibaba Cloud",
       "wer": 13.52,
-      "speedFactor": 86.7,
+      "speedFactor": 87.8,
       "price": 0,
       "openWeights": false
     },
@@ -18,7 +18,7 @@
       "name": "Amazon Bedrock",
       "provider": "Amazon Bedrock",
       "wer": 4.86,
-      "speedFactor": 23.4,
+      "speedFactor": 23.7,
       "price": 0
     },
     {
@@ -26,7 +26,7 @@
       "name": "Amazon Bedrock",
       "provider": "Amazon Bedrock",
       "wer": 4.12,
-      "speedFactor": 34.9,
+      "speedFactor": 34.8,
       "price": 0
     },
     {
@@ -34,7 +34,7 @@
       "name": "AssemblyAI",
       "provider": "AssemblyAI",
       "wer": 2.51,
-      "speedFactor": 107.6,
+      "speedFactor": 107.8,
       "price": 0
     },
     {
@@ -42,7 +42,7 @@
       "name": "AssemblyAI",
       "provider": "AssemblyAI",
       "wer": 2.99,
-      "speedFactor": 105.9,
+      "speedFactor": 104.3,
       "price": 0
     },
     {
@@ -50,7 +50,7 @@
       "name": "AssemblyAI",
       "provider": "AssemblyAI",
       "wer": 3.12,
-      "speedFactor": 100.6,
+      "speedFactor": 99.6,
       "price": 0
     },
     {
@@ -58,7 +58,7 @@
       "name": "AssemblyAI",
       "provider": "AssemblyAI",
       "wer": 3.82,
-      "speedFactor": 103.1,
+      "speedFactor": 103.2,
       "price": 0
     },
     {
@@ -79,14 +79,6 @@
     },
     {
       "rank": 10,
-      "name": "Microsoft Azure",
-      "provider": "Microsoft Azure",
-      "wer": 2.83,
-      "speedFactor": 154.2,
-      "price": 0
-    },
-    {
-      "rank": 11,
       "name": "China Telecom AI",
       "provider": "China Telecom AI",
       "wer": 2,
@@ -94,23 +86,23 @@
       "price": 0
     },
     {
-      "rank": 12,
+      "rank": 11,
       "name": "Cohere",
       "provider": "Cohere",
       "wer": 4.57,
-      "speedFactor": 189.7,
+      "speedFactor": 88.2,
+      "price": 0
+    },
+    {
+      "rank": 12,
+      "name": "Deepgram",
+      "provider": "Deepgram",
+      "wer": 5.18,
+      "speedFactor": 646.9,
       "price": 0
     },
     {
       "rank": 13,
-      "name": "Deepgram",
-      "provider": "Deepgram",
-      "wer": 5.18,
-      "speedFactor": 636.6,
-      "price": 0
-    },
-    {
-      "rank": 14,
       "name": "Telnyx",
       "provider": "Telnyx",
       "wer": 4.82,
@@ -118,55 +110,55 @@
       "price": 0
     },
     {
-      "rank": 15,
+      "rank": 14,
       "name": "Telnyx",
       "provider": "Telnyx",
       "wer": 5.09,
-      "speedFactor": 325.1,
+      "speedFactor": 330.3,
+      "price": 0
+    },
+    {
+      "rank": 15,
+      "name": "ElevenLabs",
+      "provider": "ElevenLabs",
+      "wer": 1.95,
+      "speedFactor": 56.2,
       "price": 0
     },
     {
       "rank": 16,
       "name": "ElevenLabs",
       "provider": "ElevenLabs",
-      "wer": 1.95,
-      "speedFactor": 55.9,
+      "wer": 2.18,
+      "speedFactor": 98.4,
       "price": 0
     },
     {
       "rank": 17,
-      "name": "ElevenLabs",
-      "provider": "ElevenLabs",
-      "wer": 2.18,
-      "speedFactor": 83.3,
+      "name": "Gladia",
+      "provider": "Gladia",
+      "wer": 4.07,
+      "speedFactor": 96.2,
       "price": 0
     },
     {
       "rank": 18,
       "name": "Gladia",
       "provider": "Gladia",
-      "wer": 4.07,
-      "speedFactor": 94.4,
+      "wer": 3.23,
+      "speedFactor": 93.5,
       "price": 0
     },
     {
       "rank": 19,
-      "name": "Gladia",
-      "provider": "Gladia",
-      "wer": 3.23,
-      "speedFactor": 92.6,
+      "name": "Google",
+      "provider": "Google",
+      "wer": 4.32,
+      "speedFactor": 30.8,
       "price": 0
     },
     {
       "rank": 20,
-      "name": "Google",
-      "provider": "Google",
-      "wer": 4.32,
-      "speedFactor": 30.4,
-      "price": 0
-    },
-    {
-      "rank": 21,
       "name": "Google",
       "provider": "Google",
       "wer": 31.21,
@@ -174,15 +166,15 @@
       "price": 0
     },
     {
-      "rank": 22,
+      "rank": 21,
       "name": "Google",
       "provider": "Google",
       "wer": 2.6,
-      "speedFactor": 105.3,
+      "speedFactor": 108.8,
       "price": 0
     },
     {
-      "rank": 23,
+      "rank": 22,
       "name": "Google",
       "provider": "Google",
       "wer": 2.82,
@@ -190,103 +182,103 @@
       "price": 0
     },
     {
-      "rank": 24,
+      "rank": 23,
       "name": "Google",
       "provider": "Google",
       "wer": 3.58,
-      "speedFactor": 50.2,
+      "speedFactor": 52.5,
+      "price": 0
+    },
+    {
+      "rank": 24,
+      "name": "Google",
+      "provider": "Google",
+      "wer": 2.93,
+      "speedFactor": 20.7,
       "price": 0
     },
     {
       "rank": 25,
       "name": "Google",
       "provider": "Google",
-      "wer": 2.93,
-      "speedFactor": 21.3,
+      "wer": 5.17,
+      "speedFactor": 84.2,
       "price": 0
     },
     {
       "rank": 26,
       "name": "Google",
       "provider": "Google",
-      "wer": 5.17,
-      "speedFactor": 83.3,
+      "wer": 5.14,
+      "speedFactor": 67.3,
       "price": 0
     },
     {
       "rank": 27,
       "name": "Google",
       "provider": "Google",
-      "wer": 5.14,
-      "speedFactor": 68.3,
+      "wer": 2.86,
+      "speedFactor": 18.5,
       "price": 0
     },
     {
       "rank": 28,
       "name": "Google",
       "provider": "Google",
-      "wer": 2.86,
-      "speedFactor": 14.9,
+      "wer": 3.43,
+      "speedFactor": 95.6,
       "price": 0
     },
     {
       "rank": 29,
-      "name": "Google",
-      "provider": "Google",
-      "wer": 3.43,
-      "speedFactor": 94.9,
+      "name": "Gradium",
+      "provider": "Gradium",
+      "wer": 6.79,
+      "speedFactor": 4.3,
       "price": 0
     },
     {
       "rank": 30,
-      "name": "Gradium",
-      "provider": "Gradium",
-      "wer": 6.79,
-      "speedFactor": 4,
+      "name": "SpaceXAI",
+      "provider": "SpaceXAI",
+      "wer": 2.29,
+      "speedFactor": 168.9,
       "price": 0
     },
     {
       "rank": 31,
-      "name": "SpaceXAI",
-      "provider": "SpaceXAI",
-      "wer": 2.29,
-      "speedFactor": 159.9,
+      "name": "Inworld",
+      "provider": "Inworld",
+      "wer": 3.93,
+      "speedFactor": 126.5,
       "price": 0
     },
     {
       "rank": 32,
-      "name": "Inworld",
-      "provider": "Inworld",
-      "wer": 3.93,
-      "speedFactor": 120.3,
+      "name": "Mistral",
+      "provider": "Mistral",
+      "wer": 2.09,
+      "speedFactor": 74.1,
       "price": 0
     },
     {
       "rank": 33,
       "name": "Mistral",
       "provider": "Mistral",
-      "wer": 2.09,
-      "speedFactor": 71.2,
+      "wer": 2.22,
+      "speedFactor": 95.9,
       "price": 0
     },
     {
       "rank": 34,
       "name": "Mistral",
       "provider": "Mistral",
-      "wer": 2.22,
-      "speedFactor": 92,
+      "wer": 3.59,
+      "speedFactor": 106.8,
       "price": 0
     },
     {
       "rank": 35,
-      "name": "Mistral",
-      "provider": "Mistral",
-      "wer": 3.59,
-      "speedFactor": 107.3,
-      "price": 0
-    },
-    {
-      "rank": 36,
       "name": "Mistral",
       "provider": "Mistral",
       "wer": 2.77,
@@ -294,15 +286,15 @@
       "price": 0
     },
     {
-      "rank": 37,
+      "rank": 36,
       "name": "DeepInfra",
       "provider": "DeepInfra",
       "wer": 3.84,
-      "speedFactor": 52.4,
+      "speedFactor": 51.9,
       "price": 0
     },
     {
-      "rank": 38,
+      "rank": 37,
       "name": "Modulate",
       "provider": "Modulate",
       "wer": 4.23,
@@ -310,15 +302,15 @@
       "price": 0
     },
     {
-      "rank": 39,
+      "rank": 38,
       "name": "DeepInfra",
       "provider": "DeepInfra",
       "wer": 3.42,
-      "speedFactor": 92.7,
+      "speedFactor": 94.1,
       "price": 0
     },
     {
-      "rank": 40,
+      "rank": 39,
       "name": "Together AI",
       "provider": "Together AI",
       "wer": 4.55,
@@ -326,7 +318,7 @@
       "price": 0
     },
     {
-      "rank": 41,
+      "rank": 40,
       "name": "Replicate",
       "provider": "Replicate",
       "wer": 4.27,
@@ -334,39 +326,31 @@
       "price": 0
     },
     {
-      "rank": 42,
+      "rank": 41,
       "name": "NVIDIA",
       "provider": "NVIDIA",
       "wer": 6.43,
-      "speedFactor": 153.5,
+      "speedFactor": 152.6,
+      "price": 0
+    },
+    {
+      "rank": 42,
+      "name": "OpenAI",
+      "provider": "OpenAI",
+      "wer": 3.31,
+      "speedFactor": 61.3,
       "price": 0
     },
     {
       "rank": 43,
-      "name": "Replicate",
-      "provider": "Replicate",
-      "wer": 5.42,
-      "speedFactor": 6.3,
+      "name": "OpenAI",
+      "provider": "OpenAI",
+      "wer": 3.96,
+      "speedFactor": 40.8,
       "price": 0
     },
     {
       "rank": 44,
-      "name": "OpenAI",
-      "provider": "OpenAI",
-      "wer": 3.31,
-      "speedFactor": 61.7,
-      "price": 0
-    },
-    {
-      "rank": 45,
-      "name": "OpenAI",
-      "provider": "OpenAI",
-      "wer": 3.96,
-      "speedFactor": 41.2,
-      "price": 0
-    },
-    {
-      "rank": 46,
       "name": "OpenAI",
       "provider": "OpenAI",
       "wer": 4.47,
@@ -374,31 +358,31 @@
       "price": 0
     },
     {
-      "rank": 47,
+      "rank": 45,
       "name": "Smallest.ai",
       "provider": "Smallest.ai",
       "wer": 3.41,
-      "speedFactor": 296,
+      "speedFactor": 289.3,
+      "price": 0
+    },
+    {
+      "rank": 46,
+      "name": "Reson8",
+      "provider": "Reson8",
+      "wer": 2.68,
+      "speedFactor": 305.6,
+      "price": 0
+    },
+    {
+      "rank": 47,
+      "name": "Reson8",
+      "provider": "Reson8",
+      "wer": 3.39,
+      "speedFactor": 357.7,
       "price": 0
     },
     {
       "rank": 48,
-      "name": "Reson8",
-      "provider": "Reson8",
-      "wer": 2.68,
-      "speedFactor": 306.2,
-      "price": 0
-    },
-    {
-      "rank": 49,
-      "name": "Reson8",
-      "provider": "Reson8",
-      "wer": 3.39,
-      "speedFactor": 356.7,
-      "price": 0
-    },
-    {
-      "rank": 50,
       "name": "Rev AI",
       "provider": "Rev AI",
       "wer": 5.92,
@@ -406,31 +390,31 @@
       "price": 0
     },
     {
-      "rank": 51,
+      "rank": 49,
       "name": "Smallest.ai",
       "provider": "Smallest.ai",
       "wer": 3.33,
-      "speedFactor": 230.6,
+      "speedFactor": 232.2,
+      "price": 0
+    },
+    {
+      "rank": 50,
+      "name": "Soniox",
+      "provider": "Soniox",
+      "wer": 3.81,
+      "speedFactor": 64.7,
+      "price": 0
+    },
+    {
+      "rank": 51,
+      "name": "Speechmatics",
+      "provider": "Speechmatics",
+      "wer": 4.87,
+      "speedFactor": 207.1,
       "price": 0
     },
     {
       "rank": 52,
-      "name": "Soniox",
-      "provider": "Soniox",
-      "wer": 3.81,
-      "speedFactor": 58.1,
-      "price": 0
-    },
-    {
-      "rank": 53,
-      "name": "Speechmatics",
-      "provider": "Speechmatics",
-      "wer": 4.87,
-      "speedFactor": 206.3,
-      "price": 0
-    },
-    {
-      "rank": 54,
       "name": "Speechmatics",
       "provider": "Speechmatics",
       "wer": 5.12,
@@ -438,47 +422,47 @@
       "price": 0
     },
     {
-      "rank": 55,
+      "rank": 53,
       "name": "Speechmatics",
       "provider": "Speechmatics",
       "wer": 4.05,
-      "speedFactor": 74.3,
+      "speedFactor": 66.8,
+      "price": 0
+    },
+    {
+      "rank": 54,
+      "name": "StepFun",
+      "provider": "StepFun",
+      "wer": 4.67,
+      "speedFactor": 135.2,
+      "price": 0
+    },
+    {
+      "rank": 55,
+      "name": "StepFun",
+      "provider": "StepFun",
+      "wer": 2.5,
+      "speedFactor": 84.3,
       "price": 0
     },
     {
       "rank": 56,
-      "name": "StepFun",
-      "provider": "StepFun",
-      "wer": 4.67,
-      "speedFactor": 134.2,
+      "name": "Groq",
+      "provider": "v3 Turbo",
+      "wer": 4.62,
+      "speedFactor": 405.6,
       "price": 0
     },
     {
       "rank": 57,
-      "name": "StepFun",
-      "provider": "StepFun",
-      "wer": 2.5,
-      "speedFactor": 84.1,
+      "name": "Telnyx",
+      "provider": "Telnyx",
+      "wer": 5.53,
+      "speedFactor": 32.5,
       "price": 0
     },
     {
       "rank": 58,
-      "name": "Groq",
-      "provider": "v3 Turbo",
-      "wer": 4.62,
-      "speedFactor": 401.6,
-      "price": 0
-    },
-    {
-      "rank": 59,
-      "name": "Telnyx",
-      "provider": "Telnyx",
-      "wer": 5.53,
-      "speedFactor": 32.6,
-      "price": 0
-    },
-    {
-      "rank": 60,
       "name": "fal.ai",
       "provider": "large-v3",
       "wer": 4.69,
@@ -486,23 +470,23 @@
       "price": 0
     },
     {
-      "rank": 61,
+      "rank": 59,
       "name": "Replicate",
       "provider": "large-v3",
       "wer": 5.65,
-      "speedFactor": 83.8,
+      "speedFactor": 84.3,
       "price": 0
     },
     {
-      "rank": 62,
+      "rank": 60,
       "name": "Replicate",
       "provider": "large-v3",
       "wer": 10.06,
-      "speedFactor": 2.9,
+      "speedFactor": 3.1,
       "price": 0
     },
     {
-      "rank": 63,
+      "rank": 61,
       "name": "fal.ai",
       "provider": "large-v3",
       "wer": 4.07,
@@ -510,35 +494,35 @@
       "price": 0
     },
     {
-      "rank": 64,
+      "rank": 62,
       "name": "Together AI",
       "provider": "large-v3",
       "wer": 4.53,
-      "speedFactor": 292.5,
+      "speedFactor": 289.1,
+      "price": 0
+    },
+    {
+      "rank": 63,
+      "name": "OpenAI",
+      "provider": "large-v2",
+      "wer": 4.06,
+      "speedFactor": 32.4,
+      "price": 0
+    },
+    {
+      "rank": 64,
+      "name": "Zoom",
+      "provider": "Zoom",
+      "wer": 2.06,
+      "speedFactor": 186.5,
       "price": 0
     },
     {
       "rank": 65,
-      "name": "OpenAI",
-      "provider": "large-v2",
-      "wer": 4.06,
-      "speedFactor": 32.9,
-      "price": 0
-    },
-    {
-      "rank": 66,
-      "name": "Zoom",
-      "provider": "Zoom",
-      "wer": 2.06,
-      "speedFactor": 187,
-      "price": 0
-    },
-    {
-      "rank": 67,
       "name": "Zoom",
       "provider": "Zoom",
       "wer": 2.75,
-      "speedFactor": 129.2,
+      "speedFactor": 128.8,
       "price": 0
     }
   ]
