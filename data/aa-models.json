@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T14:44:52.927Z",
+  "updatedAt": "2026-11-27T00:30:54.107Z",
   "source": "artificialanalysis.ai",
   "total": 111,
   "models": [
@@ -2879,7 +2879,7 @@
       "provider": "NVIDIA",
       "intelligenceIndex": 13.6203422723141,
       "speed": 430.335934081037,
-      "costPerTask": 0.48180884308185656,
+      "costPerTask": 0.5453026587435563,
       "verbosity": 119398188,
       "latency": 0.715386392000028,
       "promptPrice": 0.15,
